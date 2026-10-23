@@ -1,0 +1,17 @@
+# TARAMA-HIZ-1: .gitignore + ağır dizinler
+:include .gitignore
+.git/
+dist/
+.kos/
+.claude/
+node_modules/
+tools/laya/
+docs/
+olcum/
+labs/
+*.zip
+*.md
+*.json
+*.jsonl
+*.log
+*.lock

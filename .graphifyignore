@@ -32,3 +32,14 @@
 /.kos/kopru/video/*
 !/.kos/kopru/onay/*.py
 !/.kos/kopru/video/*.py
+# TARAMA-HIZ-1: sanal ortam / bağımlılık / ölçüm çıktısı taranmaz
+tools/laya/.venv/
+tools/laya/src/
+tools/laya/ck/
+**/node_modules/
+dist/
+.claude/b2-olcum/
+.claude/ig42/
+.claude/ogren3/
+.claude/ogren4/
+.claude/ordu3/

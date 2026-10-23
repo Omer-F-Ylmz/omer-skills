@@ -344,6 +344,14 @@ def _kullanildi(o, k):
     return any(sozcuk.search(c) for c in sh) or any(f"mcp__{ad}__" in m for m in mcp)
 
 
+def _tarama_basarisiz():
+    try:
+        d = json.loads((KOK / ".kos/kopru/tarama-durum.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    return any(isinstance(v, dict) and v.get("rc") == 3 for v in d.values())
+
+
 def karar(liste, gorsel, k):
     """(durum, kullanılmayanlar) — saf karar; k = _kullanimlar çıktısı."""
     liste = [o for o in liste if not o.get("dolgu")]  # dolgu denetime girmez, devam turu açtırmaz
@@ -353,6 +361,8 @@ def karar(liste, gorsel, k):
         durum.append("arac_eksik")
     if gorsel and not any("gorsel_hakem" in c for c in k[3]):
         durum.append("kanit_eksik")
+    if any("tara_hizli" in c for c in k[3]) and _tarama_basarisiz():
+        durum.append("arac_eksik")  # TARAMA-HIZ-1: zaman aşımı = taranmadı = EKSİK
     return "+".join(durum) or "ok", yok
 
 
