@@ -24,12 +24,19 @@ def tara(ad):
     cik = CIK / (ad.replace("/", "__") + ".json")
     if cik.exists():
         return json.loads(cik.read_text(encoding="utf-8"))
-    while ram() >= 75:
+    while ram() >= 88:  # ASKI-1: eski esik 75 iken RAM %79'da sonsuz bekliyordu; proje tavani 90 (ram_bekci 88/86)
+        print("  ram bekle", ad, flush=True)
         time.sleep(30)
+    print("  basla", ad, flush=True)
     try:
-        r = subprocess.run(["semgrep", "--config", "auto", "--severity", "ERROR", "--json", "--quiet", "--max-memory", "1500", "--timeout", "20", str(yol)],
-                           capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=900)
-        res = json.loads(r.stdout)["results"]
+        pr = subprocess.Popen(["semgrep", "--config", "auto", "--severity", "ERROR", "--json", "--quiet", "--max-memory", "1500", "--timeout", "20", str(yol)],
+                              stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace")
+        try:
+            out, _ = pr.communicate(timeout=300)
+        except subprocess.TimeoutExpired:
+            subprocess.run(["taskkill", "/T", "/F", "/PID", str(pr.pid)], capture_output=True)  # semgrep-core yetim kalmasin
+            raise
+        res = json.loads(out)["results"]
     except Exception as e:
         res = None
         hata = type(e).__name__

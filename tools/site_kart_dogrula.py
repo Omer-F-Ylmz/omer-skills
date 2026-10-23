@@ -107,6 +107,7 @@ async def bir(br, sem, ex, f, sat):
     yeni = "\n".join(satirlar).replace("\n---\n", "\n" + ust + "\n---\n", 1)
     f.write_text(yeni, encoding="utf-8")
     sat.append([ad, durum, kanitli, kanitsiz, hk])
+    print(len(sat), ad, durum, kanitli, kanitsiz, flush=True)
 
 
 async def main():
