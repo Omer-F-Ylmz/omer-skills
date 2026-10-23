@@ -77,6 +77,7 @@ ANAHTAR = {k: v for k, v in _ANAHTAR.items() if isinstance(v, str) and k != "_no
 # skill olmayan kurulu araç (mcp:/cli:/plugin:) → [departman, not]; yalnız CC bölümüne satır olarak girer (ENVANTER-1)
 ARAC = {k: v for k, v in _ANAHTAR.items() if isinstance(v, list)}
 BAS, SON = "<!-- dizin:bas -->", "<!-- dizin:son -->"
+ISARET = "## Dizin: adımdaki araç işe uymuyorsa `references/dizin.md` dosyasını oku, listeden adla çağır."
 GOVDE = ("## Dizin\nAdımdaki araç işe tam uymuyorsa buradan seç, adla çağır (Skill; `ajan:` = alt ajan, claude.ai'de bu klasördeki "
          "`ajanlar/<ad>.md` talimatını kendin uygula). departman-* cevap değil. Adı işini söyleyen skill'ler burada yok: listedeki adla çağır.")
 
@@ -183,7 +184,9 @@ def yaz(kok, web, cc):
             (d / eski).unlink(missing_ok=True)
         g = re.sub(r"\nSkill dizini:[^\n]*\n", "", (d / "SKILL.md").read_text(encoding="utf-8"))
         g = re.sub(rf"\n*{BAS}.*?{SON}\n?", "\n", g, flags=re.S).rstrip("\n")
-        (d / "SKILL.md").write_bytes(f"{g}\n\n{bolum(web.get(dep), cc.get(dep))}\n".encode("utf-8"))
+        (d / "references").mkdir(exist_ok=True)  # SUIT-FIX-3: SKILL.md ≤60 satır; dizin references/'te, SKILL.md'de tek satır işaret
+        (d / "references" / "dizin.md").write_bytes(f"{bolum(web.get(dep), cc.get(dep))}\n".encode("utf-8"))
+        (d / "SKILL.md").write_bytes(f"{g}\n\n{BAS}\n{ISARET}\n{SON}\n".encode("utf-8"))
 
 
 def dosyalar(d):

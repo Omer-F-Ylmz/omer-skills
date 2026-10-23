@@ -34,11 +34,12 @@ def test_dizin_skill_md_sonuna_gomulur_tek_kalir(tmp_path, monkeypatch):
     for _ in range(2):  # idempotent
         dizin_uret.yaz(tmp_path, {"belge": [("ajan:db-sql-sorgu", "teklif")]}, {"belge": [("p:careful", "Use when running destructive commands. Long tail words here")]})
     d = tmp_path / "skills" / "departman-belge"
-    g = (d / "SKILL.md").read_text(encoding="utf-8")
-    assert "Skill dizini:" not in g and g.count(dizin_uret.BAS) == 1 and not (d / "dizin.md").exists()
+    s = (d / "SKILL.md").read_text(encoding="utf-8")
+    g = (d / "references" / "dizin.md").read_text(encoding="utf-8")  # SUIT-FIX-3: dizin references/'te, SKILL.md'de işaret
+    assert "Skill dizini:" not in s and s.count(dizin_uret.BAS) == 1 and g.count(dizin_uret.BAS) == 1 and not (d / "dizin.md").exists()
+    assert "references/dizin.md" in s and s.index("## Adımlar") < s.index(dizin_uret.BAS)
     assert re.search(r"^ajan:db-sql-sorgu$", g, re.M)  # adı açık ajan: yalnız ad
     assert re.search(r"^careful: running destructive commands$", g, re.M)  # opak: ≤8 kelime ne zaman
-    assert g.index("## Adımlar") < g.index(dizin_uret.BAS)  # sabit önek önce, dizin sonda
 
 
 def test_kabulsuz_ajan_zipe_girmez(tmp_path, monkeypatch):
