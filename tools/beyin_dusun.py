@@ -51,13 +51,15 @@ ISTEM_DUZELT = ('Şu öneri denendi ve kötüleştirdi. Neden kötüleştiğini 
 
 
 # ---- topla (0 jeton) ----
-def olay(tur, arac="", ozet="", hata=False):
+KAYNAK = {"istek": "cc-kanca", "arac": "cc-kanca", "durak": "cc-kanca", "ara": "kopru-ajani", "is": "kopru-ajani", "denetim": "kopru-ajani",
+          "kurtar": "kopru-ajani", "maliyet": "kopru-ajani", "desktop": "desktop"}  # tur → olay kaynağı (kanca alt ajandaysa alt-ajan)
+def olay(tur, arac="", ozet="", hata=False, kaynak=""):
     ozet = " ".join(str(ozet).split())[:200]
     if ders.sir_var(f"{arac} {ozet}"):
         return False
     OLAY.parent.mkdir(parents=True, exist_ok=True)
     with OLAY.open("ab") as f:  # satır başına tek yazım: paralel kancalar birbirini bozmaz
-        f.write((json.dumps({"t": round(time.time(), 1), "tur": tur, "arac": arac, "ozet": ozet, "hata": bool(hata)}, ensure_ascii=False) + "\n").encode("utf-8"))
+        f.write((json.dumps({"t": round(time.time(), 1), "tur": tur, "arac": arac, "ozet": ozet, "hata": bool(hata), "kaynak": kaynak or KAYNAK.get(tur.split("-")[0], "beyin")}, ensure_ascii=False) + "\n").encode("utf-8"))
     return True
 
 
@@ -68,7 +70,7 @@ def kanca(g):
     elif e in ("PostToolUse", "PostToolUseFailure"):
         ozet = next((str(ti[k]) for k in ("command", "file_path", "pattern", "description", "prompt", "url") if ti.get(k)), "")
         hata = e == "PostToolUseFailure" or (isinstance(r, dict) and bool(r.get("is_error") or r.get("interrupted"))) or bool(HATA_RE.search(str(r)[:600]))
-        olay("arac", g.get("tool_name", ""), ozet, hata)
+        olay("arac", g.get("tool_name", ""), ozet, hata, "alt-ajan" if g.get("agent_id") else "")
     elif e in ("Stop", "SubagentStop", "SessionEnd"):
         olay("durak", "", e)
 
@@ -227,8 +229,11 @@ def _aile(kaynak):
 
 
 def _ollama(istem, max_tokens):
-    """Yerel Ollama: sunucu kapalıysa aç, işle, kapat (RAM sonra serbest). Yanıt yoksa None."""
+    """Yerel Ollama: sunucu kapalıysa aç, işle, kapat (RAM sonra serbest). Yanıt yoksa None.
+    YEREL-KAPALI (Ömer 23 Eki 18:03): .kos/yerel-model.kapali varken yerel model hiç açılmaz; bulut ücretsiz havuz kullanılır."""
     import urllib.request
+    if (KOK / ".kos" / "yerel-model.kapali").exists():
+        return None
 
     def uc(yol, veri=None, zaman=5):
         r = urllib.request.Request("http://127.0.0.1:11434" + yol, data=json.dumps(veri).encode() if veri else None, headers={"Content-Type": "application/json"})
@@ -260,7 +265,10 @@ def _sor(tur, istem, max_tokens, zaman=60, rotasyon=True, **kw):
     denenen = set()
     while True:
         p = siradaki(denenen) if rotasyon else None
-        if rotasyon and p is None:  # ücretsiz sağlayıcıların hepsi dolu → yerel Ollama (Claude'a düşme yok); o da yoksa bekle
+        if rotasyon and p is None:  # sıradaki sağlayıcılar dolu → önce tüm bulut havuzu (havuz kendisi seçer), yerel Ollama en son ve yalnız kapalı bayrağı yoksa
+            y, k, _ = _havuz(tur, istem, max_tokens=max_tokens, zaman=zaman, **kw)
+            if y:
+                return y, k
             y = _ollama(istem, max_tokens) if _ram() < RAM_ESIK else None
             return (y, "ollama/yerel") if y else (None, None)
         y, k, _ = _havuz(tur, istem, max_tokens=max_tokens, zaman=zaman, **({"saglayici": p} if p else {}), **kw)
