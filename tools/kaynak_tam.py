@@ -329,6 +329,62 @@ def cmd_birlestir():
     print("kaynak-tam.tsv", len(satir), sayi, "| yontem kartı", len(list(ky.glob('*.md'))) - 1, "| prompt dogru", len(pk), "/", len(P), "| tarif", len(T))
 
 
+def cmd_dogrula():
+    """tarif adım alıntıları → videonun konuşma/ekran(kare OCR)/açıklama metninde birebir var mı (model yok)"""
+    sat = ["kod\tadim\talinti_konusma\talinti_kare\talinti_aciklama\tyok\tkare_dogrulu"]
+    kare_ok = tam = 0
+    for f in sorted(ONB.glob("*.json")):
+        o = json.loads(f.read_text(encoding="utf-8"))
+        t = o.get("tarif")
+        if o.get("bos") or not isinstance(t, dict):
+            continue
+        h = {"konusma": "", "ekran": "", "aciklama": ""}
+        for _, kay, m in birimler(yukle(DERIN / f"{o['kod']}.json")):
+            if kay in h:
+                h[kay] += " " + nrm(m)
+        c = {"konusma": 0, "ekran": 0, "aciklama": 0, "yok": 0}
+        ad = [x for x in (t.get("adimlar") or []) if isinstance(x, dict)]
+        for x in ad:
+            q = nrm(x.get("alinti") or "")
+            bul = [k for k in h if len(q) >= 8 and q in h[k]]
+            for k in bul or ["yok"]:
+                c[k] += 1
+        ok = "evet" if c["ekran"] else "hayir"
+        kare_ok += ok == "evet"
+        tam += bool(ad) and c["yok"] == 0
+        sat.append(f"{o['kod']}\t{len(ad)}\t{c['konusma']}\t{c['ekran']}\t{c['aciklama']}\t{c['yok']}\t{ok}")
+    (RAPOR / "tarif-dogrula.tsv").write_text("\n".join(sat) + "\n", encoding="utf-8")
+    print("tarif", len(sat) - 1, "| kareyle (ekran OCR) desteklenen", kare_ok, "| tüm adımı kaynakta bulunan", tam)
+
+
+def cmd_kapsam(n=30):
+    """30 videoluk kapsam kapısı: ham metindeki URL ana makinesi/repo/komut, kaynak-tam.tsv'de o videoya ait satırlarda var mı (kaçırılan ≤%2)"""
+    import random
+    tsv = {}
+    for s in (RAPOR / "kaynak-tam.tsv").read_text(encoding="utf-8").splitlines()[1:]:
+        c = s.split("\t")
+        tsv[c[0]] = tsv.get(c[0], "") + " " + nrm(" ".join(c[4:]))
+    derin = sorted(f.stem for f in DERIN.glob("*.json"))
+    llm = {f.stem for f in ONB.glob("*.json")}
+    ornek = random.Random(3).sample(derin, n)
+    top = kac = 0
+    sat = ["kod\ttur\tdeger"]
+    for kod in ornek:
+        ham = " ".join(m for _, _, m in birimler(yukle(DERIN / f"{kod}.json")))
+        gt = {("link", re.sub(r"^https?://(www\.)?", "", u).split("/")[0].lower().rstrip(".,;")) for u in RE_URL.findall(ham)}
+        gt |= {("repo", r.lower()) for r in RE_REPO.findall(ham)}
+        gt |= {("komut", k.strip()[:60]) for k in RE_KOM.findall(ham)}
+        for t, v in sorted(gt):
+            top += 1
+            if nrm(v) not in tsv.get(kod, ""):
+                kac += 1
+                sat.append(f"{kod}\t{t}\t{v}")
+    eksik = [k for k in derin if k not in tsv]
+    icerik = [k for k in derin if k not in llm and (yukle(DERIN / f"{k}.json")["transkript"] or yukle(DERIN / f"{k}.json")["ekran"])]
+    (RAPOR / "kapsam-kapisi.tsv").write_text("\n".join(sat) + "\n\n# tsvde hiç satırı olmayan: " + ",".join(eksik) + "\n# içerik var, llm çıktısı yok: " + ",".join(icerik) + "\n", encoding="utf-8")
+    print(f"örnek {n} video | doğruluk kümesi {top} | kaçırılan {kac} (%{100 * kac / max(top, 1):.1f}) | tsvde satırsız video {len(eksik)} {eksik} | içerik var llm yok {len(icerik)} {icerik}")
+
+
 if __name__ == "__main__":
     c, *a = sys.argv[1:] or ["?"]
-    {"det": cmd_det, "llm": lambda: cmd_llm(a), "birlestir": cmd_birlestir}.get(c, lambda: print(__doc__))()
+    {"det": cmd_det, "llm": lambda: cmd_llm(a), "birlestir": cmd_birlestir, "dogrula": cmd_dogrula, "kapsam": cmd_kapsam}.get(c, lambda: print(__doc__))()
