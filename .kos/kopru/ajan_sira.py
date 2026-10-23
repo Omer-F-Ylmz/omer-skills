@@ -80,6 +80,18 @@ def arac_onek(cwd=None):
     return f"Çalışma dizini: {cwd}\n" + on if cwd else on
 
 
+def kural_ilgili(metin):
+    """KURAL-BEYİN-1: karttan sonra göreve uyan ≤3 kuralın tam metni (Obsidian Kurallar.md, yerel eşleşme); hata/dosya yok → ''."""
+    try:
+        sys.path.insert(0, str(KOK / "tools"))
+        import kural_uret
+        return kural_uret.ilgili(metin) + "\n"
+    except Exception:
+        return ""
+    finally:
+        sys.path.pop(0)
+
+
 def ogren_blok(metin):
     """OGREN-OTO-1: ruflo pattern-search/store sabit bloğu; görev metni zaten içeriyorsa '' (ikinci kez eklenmez)."""
     if "hooks_intelligence_pattern-search" in metin:
@@ -115,6 +127,12 @@ def ordu_on_ozet(ad, metin):
 
 
 ESIK_DOSYA = K / "ajan-sira.esik" # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a kadar çıkabilir): eşik dosyadan, varsayılan 88
+
+
+def oyun_modu():
+    """tools/oyun_modu.py bayrağı taze (<60 sn) ise yeni iş başlatılmaz; çalışanlara dokunulmaz."""
+    f = K / "oyun-modu.bayrak"
+    return f.exists() and time.time() - f.stat().st_mtime < 60
 
 
 def esik():
@@ -514,11 +532,15 @@ def main():
             log("arka-istek hata", repr(e)[:120])
         bekleyen = yeniden + [x for x in kuyruk() if x[0] not in baslayan]
         dis = dis_calisan(set(calisan))
-        if not bekleyen and not calisan and not dis:
-            log("kuyruk boş, çıkış")
-            return
+        if not bekleyen and not calisan and not dis:  # 22 Eki (Ömer): kuyruk boşalınca ÇIKMA — sonradan eklenen işler başlamıyordu; bekle
+            if "bos" not in uyari:
+                log("kuyruk boş, bekleniyor (yeni satır gelince başlar)")
+                uyari.add("bos")
+            time.sleep(60)
+            continue
+        uyari.discard("bos")
         r = ram()
-        if not DUR.exists() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
+        if not DUR.exists() and not oyun_modu() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if ("k", ad) not in uyari:  # ZORUNLU-ARAÇ-1 d4: koşul görev dosyasının kendinde geçiyorsa erken başlar
                     uyari.add(("k", ad))
@@ -544,7 +566,7 @@ def main():
                 metin = (KOK / istem).read_text(encoding="utf-8")
                 butce = butce_bul(metin)  # BÜTÇE-KAPI-1: ham görev metninden (ön ekler karışmadan)
                 log("BÜTÇE", ad, f"${butce:.2f}")
-                metin = arac_onek(str(hedef) if cwd else None) + zorunlu_arac.blok(ad, metin) + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin  # ZORUNLU-ARAÇ-1: ön uçuş
+                metin = arac_onek(str(hedef) if cwd else None) + kural_ilgili(metin) + zorunlu_arac.blok(ad, metin) + ders_onek(metin) + ordu_onek() + ordu_on_ozet(ad, metin) + metin  # ZORUNLU-ARAÇ-1: ön uçuş
                 try:  # MAKARA aktarım: kasadan ilgili 3-5 ders satırı (≤600 jeton); hata kuyruğu bozmaz
                     sys.path.insert(0, str(KOK / "tools")); import makara_ders; metin = makara_ders.onek(metin) + metin
                 except Exception:
