@@ -90,7 +90,10 @@ test("K1 envanteri iki ortamda aynı", async () => {
     process.env.CAGRI_SAYAC_DIZIN = sayacDizin;
     try { dt = await envanter(PROJE); } finally { geri(); }
   } finally { process.env.CAGRI_SAYAC_DIZIN = onceki; }
-  assert.equal(fsS.readFileSync(`${sayacDizin}/cagri-sayac.txt`, "utf8"), "2");
+  // sayaç oturum başına dosya (cagri-sayac/<sid>.txt, alt ajanlar -alt.txt): ana oturum toplamı
+  const sayac = fsS.readdirSync(`${sayacDizin}/cagri-sayac`).filter((f) => !f.endsWith("-alt.txt"))
+    .reduce((t, f) => t + Number(fsS.readFileSync(`${sayacDizin}/cagri-sayac/${f}`, "utf8")), 0);
+  assert.equal(sayac, 2);
   assert.ok(cc.length >= 6, `hook envanteri beklenmedik kadar kısa: ${cc.length}`);
   assert.deepEqual(dt, cc);
 }, { timeout: 300000 });
