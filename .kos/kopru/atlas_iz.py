@@ -4,6 +4,7 @@ Kitaptaki (docs/atlas/<kitap>.md) VARSAYILAN araç adlarının son N gündeki CC
 import json, re, sys, time
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding="utf-8")
 KOK = Path(__file__).resolve().parents[2]
 a = sys.argv[1:]
 kitap = a[0]

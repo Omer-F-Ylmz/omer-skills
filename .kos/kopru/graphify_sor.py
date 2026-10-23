@@ -6,6 +6,7 @@ import json, re, subprocess, sys
 from collections import defaultdict
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding="utf-8")
 arg = sys.argv[1:]
 kok = Path(arg[arg.index("--kok") + 1]) if "--kok" in arg else Path.cwd()
 soru = arg[0]

@@ -17,7 +17,7 @@ import olc  # noqa: E402
 
 def test_tarifler_var():
     adlar = re.findall(r"`tarifler/([\w.-]+)`", (SKILL / "SKILL.md").read_text(encoding="utf-8"))
-    assert len(adlar) == 5
+    assert len(adlar) == 6
     for ad in adlar:
         assert (SKILL / "tarifler" / ad).is_file(), ad
 
