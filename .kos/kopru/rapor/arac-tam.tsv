@@ -1,0 +1,997 @@
+ad	video_say:kodlar	yer	link	kurulu	tur	norm
+projects	191:1Jb517FRX7I,CrDMrongA0R,DK12phiCLHp,DVnNflYAN4_,DX4CHJ7qGQK,DXb_hOdDRan,DXpKuMtj1f5,DXxQS0AO1Km	ekranda+konuşmada		hayır	atlas	projects
+research	184:5LLLxHxkCnI,C3vg_ZdsXUF,C4p4tF2N2_F,DHpfh_Ssldm,DHxlRfNM47U,DKwtekCPHTu,DQ6p80vD6Pa,DR4Y2Mij95N	ekranda+konuşmada		evet	atlas	research
+generate	167:1YLwZQAfzjE,Cq0WGUEIIZ5,CqDvgaVoZNx,CqLvRF7IW4U,DFgo45csW48,DHpfh_Ssldm,DIVq3ZmMRS1,DJRbJA0Myhm	ekranda+konuşmada		evet	atlas	generate
+structure	74:DK12phiCLHp,DVMexOcD4vd,DVOFRadkZeO,DVnYQi1gH_p,DVyqBiejOh8,DXo3f4Hj1J9,DYQCEK5OMrh,DYYaA1LKtoO	ekranda+konuşmada		hayır	atlas	structure
+playwright	69:DX2ubACJYRN,DX8i0U3vTA1,DXkUQQqCRxS,DXtiKwCjNHv,DY8EtIPtKLC,DYx4OuVuJuI,DYxChxKM5Wn,DZPXQ5BjCRn	ekranda+konuşmada		evet	atlas+komut	playwright
+documentation	65:DVMexOcD4vd,DVyqBiejOh8,DYQCEK5OMrh,DYuP5FYPmQU,DZ-wSxgkz0v,DZ3PUfYlK6z,DZsygU-MpBj,DaNePThiT8T	ekranda+konuşmada		hayır	atlas	documentation
+architecture	56:DVMexOcD4vd,DVyqBiejOh8,DX4iwBosR2_,DXpKuMtj1f5,DYQCEK5OMrh,DYU6TXpDxtt,DZ3PUfYlK6z,DZDUd0kS7lw	ekranda+konuşmada		evet	atlas	architecture
+agentskills	56:DX8i0U3vTA1,DZAIWs0ib0n,DZDksUcipwZ,DbKDOm4uNCJ,Db_H8ScP5y-,Dc3pMkakrid,DcQjXeuyFfJ,DcTkpEztIaY	ekranda+konuşmada	https://github.com/addyosmani/agent-skills https://github.com/vercel-labs/agent-skills	evet	atlas+repo	agentskills
+landingpage	53:5LLLxHxkCnI,DSm-QQ_Dxh3,DVQd446DxqG,DVyqBiejOh8,DZE2xLERz1R,DZ_jVqnGTT0,DZkZtw2icLq,Da5tJ_TMBJU	ekranda+konuşmada		evet	atlas	landingpage
+superpowers	53:DX8i0U3vTA1,DXosDMHDDPh,DYwe8NLjYWo,DYx4OuVuJuI,Da0M8Ipmpxo,DatZTo9ybM4,Dc1NYVJA8A2,Dc7G9Pxu_1O	ekranda+konuşmada	https://github.com/obra/superpowers	evet	atlas+repo	superpowers
+document	52:1Jb517FRX7I,DHwB6tduC5z,DQoSzOqiGGR,DRzxUxOAuVF,DW0MFoMkYWH,DYQCEK5OMrh,DYd19cHDBaH,DZiD_8ij8mR	ekranda+konuşmada		evet	atlas	document
+analytics	49:C4p4tF2N2_F,DS0JbwSDLmA,DVMexOcD4vd,DY4icdJs-dI,DY_SoPGKv2A,DYsTJT0R12f,DZAIWs0ib0n,DZZa26zDO__	ekranda+konuşmada	https://github.com/plausible/analytics	evet	atlas+repo	analytics
+howitworks	49:DVMexOcD4vd,DXo3f4Hj1J9,DYC-x8DogOI,DYKvJ4Vj3bF,DYT9GQMjOmx,DYY6WpNDP7k,DYlzNOlDBbZ,DbKDOm4uNCJ	ekranda		hayır	atlas	howitworks
+motiongraphics	49:DX4CHJ7qGQK,DXLq5rJgIyN,DYcaq-GIpCV,DYuP5FYPmQU,DbI_v6gMDW1,DbUQaEsgqeZ,Dc035yWud5j,Dc6bJ8ksIa9	ekranda+konuşmada	https://github.com/Barty-Bart/motion-graphics	hayır	atlas+repo	motiongraphics
+claudeplugin	49:DXxQS0AO1Km,DZZr2P_k1TY,DZpySOnOCxI,DaHYVmVS97V,Dc1NGcnA9PB,DcJv73uBTM6,DcNGpmXOR42,DcQytKYAXjb	ekranda+konuşmada	https://github.com/anthropics/claude-plugins-	evet	atlas+repo	claudeplugin
+pipeline	48:DVRZxXbk4Ll,DXtiKwCjNHv,DYT9GQMjOmx,DZ8Kkh0zTqg,DZDUd0kS7lw,DatpvftE-Iq,DbOoGjsCo50,DbUg-kOFC-C	ekranda+konuşmada		evet	atlas	pipeline
+designsystem	48:DVMexOcD4vd,DX2ubACJYRN,DXb_hOdDRan,DXqzDc6j-H_,DYSM2zSsbmk,DZ2wiBNF6DU,DZ7HcTGGD5P,DaIHoDKE9cT	ekranda+konuşmada		evet	atlas	designsystem
+tasteskill	47:DYU6TXpDxtt,DZAIWs0ib0n,DZDRFA6s2_w,DZhaBZakfr0,Dap3IoNo4Kt,Dc7hhAUEvu1,DcEFABnvBuH,DcRhD2Nto7M	ekranda+konuşmada	https://github.com/Leonxinx/taste-skil https://github.com/Leonxlnx/taste-skill	evet	atlas+repo	tasteskill
+discover	42:CrDMrongA0R,DIVq3ZmMRS1,DNbH6BMtMEB,DVnYQi1gH_p,DY3yhrNiQXZ,DYM77-GFRL_,DZDRFA6s2_w,DbKekMzGemD	ekranda+konuşmada		evet	atlas	discover
+hyperframes	40:Da0M8Ipmpxo,DaHYVmVS97V,Dc-zw_Vicxs,DcRlYhYMHwZ,DckaJJGDG-R,Dd7WYSniFvP,DdAuz8NDNOU,DdMIQE6kh8W	ekranda+konuşmada	https://github.com/heygen-com/hyperframes	evet	atlas+komut+repo	hyperframes
+cloudflare	39:3XIGcM7VICc,DHxlRfNM47U,DZPXQ5BjCRn,DZffvsLiUvz,Da5-vksijqk,DaNePThiT8T,DbFKUuwiqq9,Dbs-uI9sY2w	ekranda+konuşmada		evet	atlas	cloudflare
+impeccable	37:DX2ubACJYRN,DYU6TXpDxtt,DZDRFA6s2_w,DZhaBZakfr0,Dc4TR_CS1t1,Dc7hhAUEvu1,Dc8ojRUvOrL,Dd4-QQgO-Hx	ekranda+konuşmada	https://github.com/pbakaus/impeccable	evet	atlas+komut+repo	impeccable
+interfaces	37:DYC-x8DogOI,DZ-wSxgkz0v,DatpvftE-Iq,DbVGcvfgUsD,DcNGpmXOR42,DcoKnHuzThn,Dd2GLGvAMII,Dd9R75ej5jv	ekranda+konuşmada		evet	atlas	interfaces
+whatthe	33:5LLLxHxkCnI,DYYaA1LKtoO,DZ2wiBNF6DU,DZZ-Lj6uwM5,DalKFHjswU_,DatZTo9ybM4,Db8cNRlgMG3,DbsM7RMBSzo	ekranda+konuşmada		hayır	atlas	whatthe
+parallel	33:DX8i0U3vTA1,DY_SoPGKv2A,DaIHoDKE9cT,Dauv6MOyDR8,DbKJuD2mWbb,DbUg-kOFC-C,DbevmteOKw9,Dbi13BDlDDQ	ekranda+konuşmada		hayır	atlas	parallel
+humanizer	33:Da0M8Ipmpxo,Dbs8-TnKEhL,Dc8ojRUvOrL,DcBTJPVq9hR,DcJfi_0NQnV,Dd7uZoIBkfI,Dd9R75ej5jv,DdMIQE6kh8W	ekranda+konuşmada	https://github.com/blader/humanizer	evet	atlas+repo	humanizer
+obsidian	32:DX2ubACJYRN,DYKXe-YjOrd,DYYaA1LKtoO,DZ-wSxgkz0v,DZWwhJ5P6iW,DaoObOyOfIE,Dasjp_7NgQn,Dauv6MOyDR8	ekranda+konuşmada		evet	atlas	obsidian
+benchmark	31:DJRbJA0Myhm,DXtn-yBiGvj,DYlzNOlDBbZ,DZ2c3iuAs65,DZ5CcdsjRHW,DZCgfN7jDLv,DZZa26zDO__,DZiD_8ij8mR	ekranda+konuşmada		evet	atlas	benchmark
+graphify	31:DX2ubACJYRN,DYKXe-YjOrd,DYpUIoEsne4,DbOoGjsCo50,Db_GVNhOnQF,Dcwzo9BuTcd,Dd0PFtECZvj,Dd4-QQgO-Hx	ekranda+konuşmada	https://github.com/Graphify-Labs/graphify https://github.com/safishamsi/graphify	evet	atlas+repo	graphify
+agentsmd	30:5LLLxHxkCnI,Da2pSOSP-gU,Db6E5RXgupy,DbUcU4Jjm1p,Dc1NYVJA8A2,DcQjXeuyFfJ,DcXvWV0z077,Dcd3eY1iOMA	ekranda+konuşmada		evet	atlas	agentsmd
+schedule	30:DRzxUxOAuVF,DZiD_8ij8mR,Daqywx1SqYM,DatpvftE-Iq,DbIz3rdFF3T,DbLROjmkXwp,DbxCyfHAddF,DcIccFMjPTs	ekranda+konuşmada		hayır	atlas	schedule
+frontenddesign	29:DVyqBiejOh8,DX2ubACJYRN,DXosDMHDDPh,DXqzDc6j-H_,DYxChxKM5Wn,DZ2wiBNF6DU,Da0M8Ipmpxo,DaF5vSIsLQU	ekranda+konuşmada		evet	atlas	frontenddesign
+openclaw	26:DXmLNzLjKCe,DYK2GiURly4,DYY6WpNDP7k,DZWwhJ5P6iW,Da8ZthUPK98,DbQx7UrM7Ud,DbUcU4Jjm1p,DcDgvucqG5K	ekranda+konuşmada		evet	atlas	openclaw
+ponytail	26:Dauv6MOyDR8,DcqJTFDAOrU,Dd-Xxv2H4VH,Dd0PFtECZvj,Dd4-QQgO-Hx,DdCs5vOiHRY,DdO1UioAHAS,DdUELmKktcr	ekranda+konuşmada	https://github.com/DietrichGebert/ponytail	evet	atlas+repo	ponytail
+claudemem	26:Dauv6MOyDR8,Db1J34usxwh,Dcl0nk9ibZE,DcqJTFDAOrU,Dd0PFtECZvj,DdCs5vOiHRY,DdO1UioAHAS,DdUELmKktcr	ekranda+konuşmada	https://github.com/thedotmack/claude-mem	evet	atlas+komut+repo	claudemem
+configure	23:DYY6WpNDP7k,DYsTJT0R12f,Da2pSOSP-gU,DbEIoM4Fd08,DbFKUuwiqq9,Dbs-uI9sY2w,DbxcRQLjS9T,DcXvWV0z077	ekranda+konuşmada		hayır	atlas	configure
+supabase	23:DYqolQdgY3k,DZPXQ5BjCRn,DaagbUMP8Tg,DbQ9SdYqoNk,Dbu-7UahX_4,DbyJNRdPyCj,Dc1NYVJA8A2,DcDla-qRkoR	ekranda+konuşmada	https://github.com/supabase/supabase	evet	atlas+repo	supabase
+summarize	22:DFgo45csW48,DXb0NNTj8g1,DYYaA1LKtoO,DYmbDrUjBdU,DZAIWs0ib0n,DZqNTY4jE1b,Dasjp_7NgQn,DbxcRQLjS9T	ekranda+konuşmada		evet	atlas	summarize
+checkpoint	22:DIVq3ZmMRS1,DXpKuMtj1f5,DXxQS0AO1Km,DYM77-GFRL_,DZ2c3iuAs65,DZCgfN7jDLv,DZiD_8ij8mR,DcN-pkGBLHE	ekranda+konuşmada		hayır	atlas	checkpoint
+onboarding	22:DV6W5PTDrkm,DYT9GQMjOmx,DYjIcqJDCJg,DZ9GuCVmQOp,Da0Csy8MYEy,Dc5YDjKI9ta,DcoaU2yjNOj,Dd1F7meCvdk	ekranda+konuşmada		evet	atlas	onboarding
+codereview	22:DXosDMHDDPh,DYxChxKM5Wn,DZpySOnOCxI,Da7xf8rviQU,Dauv6MOyDR8,Dc1NYVJA8A2,Dc3UbnBCR9I,Dcl0nk9ibZE	ekranda+konuşmada		evet	atlas	codereview
+omniroute	22:Da8ZthUPK98,Dae05TSAK1l,Dapjs58z0P0,Db1J34usxwh,DbIt9AjK7-U,Db_GVNhOnQF,Dc7G9Pxu_1O,Dcw20sWpLgs	ekranda+konuşmada	https://github.com/diegosouzapw/OmniRoute	evet	atlas+repo	omniroute
+deepresearch	21:DHpfh_Ssldm,DHxlRfNM47U,DYKSiyRCbkk,DZAIWs0ib0n,DaWTq7aKSKq,DaXh_wnRjqG,DbUQaEsgqeZ,Dbm200gvDsG	ekranda+konuşmada		evet	atlas	deepresearch
+competitors	20:DITyyRGOtX3,DXzCgJSzvKl,DbUQaEsgqeZ,Dc-zw_Vicxs,DcIccFMjPTs,DctX3CCPLtd,Dd5Y9roxjWn,DdWcPoADJK3	ekranda+konuşmada		evet	atlas	competitors
+claudedesign	20:DYcaq-GIpCV,DYsslgKMmJQ,DZ7HcTGGD5P,Dc4TR_CS1t1,DcGlzk2tKLV,DcSIIcAs8-4,Dd7B61FoV9x,DdXFyD1AX3T	ekranda+konuşmada		evet	atlas	claudedesign
+browseruse	20:DZffvsLiUvz,DaLUGUbMp4K,DaNePThiT8T,DbGNulhi8Wj,Dc3pMkakrid,Dd-FTnEmE_b,Dd0ptNlgm-8,DdD0FdkmTvh	ekranda+konuşmada	https://github.com/browser-use/browser-use	evet	atlas+komut+repo	browseruse
+headroom	20:Db1J34usxwh,Dbs8-TnKEhL,Dd0PFtECZvj,DdO1UioAHAS,DdUELmKktcr,DdUf3qJOvTO,DdUk0Lrx0rw,DdXp8kCPveW	ekranda+konuşmada	https://github.com/headroomlabs-ai/headroom	evet	atlas+repo	headroom
+googledrive	19:DHwB6tduC5z,DXt9VG5DwNV,DbFKUuwiqq9,DbIz3rdFF3T,Dc_Z3BEgsJN,DdRd0SNkrW-,Dd_-HzruoMJ,Ddx_ku0Bxmk	ekranda+konuşmada		hayır	atlas	googledrive
+uiuxpromax	19:DXb_hOdDRan,DYC-x8DogOI,DYSM2zSsbmk,DZsygU-MpBj,Dc4TR_CS1t1,Dd0PFtECZvj,Dd4-QQgO-Hx,Dd_dybEMDog	ekranda	https://github.com/nextlevelbuilder/ui-ux-pro-max https://github.com/nextlevelbuilder/ui-ux-pro-max-	evet	atlas+repo	uiuxpromax
+transfer	18:DHERJOLIWMf,DK12phiCLHp,DbEIoM4Fd08,DcI8a69AEJq,DcOFxr4Ej29,DcutU-cEedd,Dd6U-v6MMiY,DdCUfgfOb_5	ekranda+konuşmada		hayır	atlas	transfer
+orchestration	18:DX8i0U3vTA1,DZU07JYgtX3,Dc3pMkakrid,DcNGpmXOR42,DcgHbcNjDQO,Dd1WZCgBcZa,Dd40YRPxuEB,Dd9NdbFxJLo	ekranda+konuşmada		evet	atlas	orchestration
+validate	17:DX2ubACJYRN,DYKvJ4Vj3bF,DbkhHb9TJSQ,DcNGpmXOR42,DcY6-PRji1y,DcqJTFDAOrU,Dcy8brJO7M2,Dd1gnAPCMGd	ekranda+konuşmada		hayır	atlas	validate
+interview	17:DYd19cHDBaH,DYoDw9pDEil,DbUg-kOFC-C,Dc9-DXtIckn,DcDfnzsM2wL,DdAuz8NDNOU,DdFQ-K0AJ0b,DdOhd6bCdSM	ekranda+konuşmada		hayır	atlas	interview
+anthropicsskills	17:DYoDw9pDEil,Dc3UbnBCR9I,Dd0PFtECZvj,Dd3wMMsnz2P,Dd4Ama8mnza,Dd4C4cEj3Ht,DdCs5vOiHRY,DdO1UioAHAS	ekranda		hayır	atlas	anthropicsskills
+marketingskills	17:Da0M8Ipmpxo,Db6E5RXgupy,DcQjXeuyFfJ,Dd5Y9roxjWn,DdMIQE6kh8W,DdZQ5SaDxDV,DdbhJqIH8BU,Ddcd73yAshV	ekranda+konuşmada		evet	atlas	marketingskills
+experiment	16:83YfBtINu74,DaXh_wnRjqG,Dc3UbnBCR9I,DcDfnzsM2wL,Dclzie_O8Qu,DcutU-cEedd,DdOhd6bCdSM,DdVVF0_DcmB	ekranda+konuşmada		hayır	atlas	experiment
+notebooklm	16:DU3WOxVjOgI,DXt9VG5DwNV,DaWTq7aKSKq,DbLHnPujPsC,Dbm200gvDsG,DcJQd0TRewZ,DcTOB1FsvMV,Dcd7a6XgrkZ	ekranda+konuşmada		hayır	atlas	notebooklm
+context7	16:Dbs-uI9sY2w,DbyJNRdPyCj,Dd0PFtECZvj,DdO1UioAHAS,DdRd0SNkrW-,DdUELmKktcr,Dd_dybEMDog,DdmQWJzqP8H	ekranda+konuşmada	https://github.com/upstash/context7	evet	atlas+repo	context7
+implement	15:1Jb517FRX7I,5LLLxHxkCnI,DIB_Xq5Obop,DVyqBiejOh8,DZ5CcdsjRHW,DbG_xa3y_d6,Dc3UbnBCR9I,DcDfnzsM2wL	ekranda+konuşmada		evet	atlas	implement
+videoediting	15:3XIGcM7VICc,DZfphwwNmKR,DbcyPKRlHRv,Dd3t8ixmPHo,DdSH12TEkWi,DdY-K9oDbHl,DdrEmDHkouJ,DeLw2M6mx8n	ekranda+konuşmada		hayır	atlas	videoediting
+obrasuperpowers	15:DXosDMHDDPh,DYwe8NLjYWo,DcN-pkGBLHE,Dd4Ama8mnza,DdCs5vOiHRY,DdO6-1QkjR-,DdmQWJzqP8H,DeDLmLpIJLj	ekranda		hayır	atlas	obrasuperpowers
+skillcreator	15:DYU6TXpDxtt,Da0M8Ipmpxo,DcJfi_0NQnV,DclpFAJiyuv,DcoU-a2D1uC,DdKfJBHSlWN,DdO6-1QkjR-,Ddcd73yAshV	ekranda+konuşmada		evet	atlas	skillcreator
+secondbrain	15:DYYaA1LKtoO,DZWwhJ5P6iW,DaC0iwVK5R5,DaWTq7aKSKq,Dasjp_7NgQn,Dauv6MOyDR8,Dbm200gvDsG,DcqJTFDAOrU	ekranda+konuşmada		evet	atlas	secondbrain
+architect	14:DVMexOcD4vd,DXtn-yBiGvj,DXxQS0AO1Km,DZDUd0kS7lw,DaF5vSIsLQU,DcqJTFDAOrU,DdTdlm9i_Eg,Dd_a83rn2Gd	ekranda+konuşmada		evet	atlas	architect
+securityaudit	14:DZDksUcipwZ,DatZTo9ybM4,Dd1gnAPCMGd,Dd_wlJNqYVv,DdbyRoJtJV4,DdccgmSG8E9,DeAf-XgiK_a,DeHyIk7KEjW	ekranda+konuşmada		evet	atlas	securityaudit
+starhistory	14:Dauv6MOyDR8,Db1J34usxwh,DbFKUuwiqq9,DcXvWV0z077,Dc_cgg-ETAF,DcqJTFDAOrU,DcutU-cEedd,Dd9ZUN4DiEy	ekranda		evet	atlas	starhistory
+playwrightcli	14:DbyJNRdPyCj,Dc7hhAUEvu1,DcEFABnvBuH,DcoaU2yjNOj,Dd7WudICfJf,DdT_OwyFeoj,DdoWZFCOhPZ,DdtkH_cR82p	ekranda+konuşmada	https://github.com/microsoft/playwright-cli	evet	atlas+repo	playwrightcli
+premierepro	13:Brp1NeqgX_Z,DY7gIpxiSw-,DcmNMsHuJbt,Dd10DUasUW5,DdAAEC-Sybw,DdOS_a4CKeY,DdmPJ-IN9bD,DeHwElbMdg1	ekranda+konuşmada		evet	atlas	premierepro
+blueprint	13:DVMexOcD4vd,DXruEuojJLI,Db6urS4sQZR,Dbn15A_DSlu,DcDfnzsM2wL,DcojLhFS2a3,Dd0nXg2Mabb,Dd6KHHPqyfM	ekranda+konuşmada		hayır	atlas	blueprint
+mattpocockskills	13:DcRlYhYMHwZ,Dd4-QQgO-Hx,Dd4Ama8mnza,Dd_wlJNqYVv,DdmQWJzqP8H,DdxDGbogAZV,DeAf-XgiK_a,DeCixT6ilL7	ekranda		evet	atlas	mattpocockskills
+prototype	12:DVMexOcD4vd,DYQCEK5OMrh,DYcaq-GIpCV,DcrhGgKyBD8,DcwNfmMtUeq,Dcy8brJO7M2,DdBlwBIFGvC,DdETp-tNFW2	ekranda+konuşmada		evet	atlas	prototype
+accessibility	12:DZ2wiBNF6DU,Da0ExHUO_0i,Dd3t8ixmPHo,DdbhJqIH8BU,Ddc1db7Cj_D,Ddi5_OkoiDa,DdrNeEUN63i,DdtP_L9FljV	ekranda+konuşmada		evet	atlas	accessibility
+copywriting	12:DbUQaEsgqeZ,DcQjXeuyFfJ,Dd_saTSI1Zb,DdbhJqIH8BU,DdrEmDHkouJ,DdrFmrrRT_k,Ddx_ku0Bxmk,DeAE_1oNAt8	ekranda+konuşmada		hayır	atlas	copywriting
+openmontage	12:DckaJJGDG-R,Dcw20sWpLgs,DdO8U92kcyw,DdWwZhgTnY_,DdZQ5SaDxDV,Dd_tRbkP0qO,DeEzJ6mCEY3,DeKHCW7iBvJ	ekranda+konuşmada		hayır	atlas	openmontage
+freetools	12:Dcwzo9BuTcd,DdT_OwyFeoj,DdoWZFCOhPZ,DdtkH_cR82p,DePUywkjHEz,DeRqwZ7Nhtn,DeUFGDJE7kb,DeUdyDYoXvq	ekranda+konuşmada		hayır	atlas	freetools
+devteam	11:DYlzNOlDBbZ,DZpySOnOCxI,Dc7G9Pxu_1O,DcN-pkGBLHE,DdMIQE6kh8W,DeHsnHBDcWy,DeZJotRPOTv,DefSWyWpABP	ekranda+konuşmada		hayır	atlas	devteam
+agentreach	11:DaDTgsJsdDk,Db3iw6NMPrO,Db_7HChtxFW,DcGJhY3qdnt,DdZQ5SaDxDV,DdZmPY4u-xd,DeKFBr0vRpv,DeKuUWUKp7J	ekranda+konuşmada	https://github.com/Panniantong/Agent-Reach	evet	atlas+repo	agentreach
+markitdown	11:DaNePThiT8T,Dbs8-TnKEhL,DcTI5sfoLGR,DdFVkR3vIni,DdZQ5SaDxDV,DeAf-XgiK_a,DeBliaoOLvc,DeY-_0Qn_nH	ekranda+konuşmada		evet	atlas	markitdown
+taskobserver	11:Db1J34usxwh,Db_GVNhOnQF,Dbs8-TnKEhL,DdUk0Lrx0rw,DdcBCJRRQFT,DdjgNfBtToS,Ddrki7GugWV,DeP3RRyN8T9	ekranda+konuşmada		hayır	atlas	taskobserver
+chromedevtools	11:DbKDOm4uNCJ,Dc99nLNoD6Y,Dclo7W4jjQj,Dd4LrTSsx0i,Dd4fm_9tMHH,DeC26aTPIGG,DeKHE1qilUt,Deh4K2nITwD	ekranda+konuşmada		evet	atlas	chromedevtools
+evaluation	11:DbUg-kOFC-C,DbevzliuW5v,DcbU0dTFG4h,Dcl0nk9ibZE,DcutU-cEedd,DdO6-1QkjR-,DdOhd6bCdSM,DeMsuI4E3gJ	ekranda+konuşmada		evet	atlas	evaluation
+colorpalette	11:DbnAbBglD0e,DdO6-1QkjR-,Dd_iThjj32v,DdjKZp4H-mG,DdoV5mik0DU,DeDLmLpIJLj,DeMsuI4E3gJ,Deb3d8pBE7u	ekranda		hayır	atlas	colorpalette
+adaptive	10:DIvYtnrsLum,DT-ilQukTdL,DVMexOcD4vd,DYU54rfmX42,DY_SoPGKv2A,Da0Csy8MYEy,DbKDYR_qKnj,DcXvWV0z077	ekranda+konuşmada		evet	atlas	adaptive
+codereviewer	10:DYx4OuVuJuI,DZDUd0kS7lw,Dc1NGcnA9PB,DdTdlm9i_Eg,DdolgdJjHMc,DeXJcXmFLMv,DecgPILOtoL,Dee-j47gkgP	ekranda+konuşmada		evet	atlas	codereviewer
+last30days	10:Dc-zw_Vicxs,Dd9RvQDiUVH,Ddcd73yAshV,DeCixT6ilL7,DeGTXaHkidF,DeOrk1klA5_,DeQQMMTIbr5,DeUCJbfEr5l	ekranda		evet	atlas	last30days
+brandguidelines	10:Dd0PMB5FQtK,Dd1dJi9j-vq,Dd3t72TH8uh,Dd4uGjPOOOk,DdJ83R4Jm64,Ddqj0svm6yq,Ddsm5_8gAx6,DdzpkF4BDP7	ekranda+konuşmada		evet	atlas	brandguidelines
+claudecodesetup	9:DUS8hMijFGv,Dc8ojRUvOrL,Ddj_aUfK1Dh,DeKuUWUKp7J,DeUbXXoo2mi,DeZJotRPOTv,DefSWyWpABP,DehQ41UoYHy	ekranda+konuşmada		evet	atlas	claudecodesetup
+agentbrowser	9:DZI1ok5Ss4b,DZffvsLiUvz,Da0M8Ipmpxo,DbRGB9QsGtb,Dd4Ama8mnza,DdMIQE6kh8W,Ddcd73yAshV,DeHiUezkt8m	ekranda+konuşmada		evet	atlas	agentbrowser
+brainstorming	9:DbQ9SdYqoNk,Dd4Ama8mnza,DdO6-1QkjR-,DdbhJqIH8BU,DdhF4hWI0Ym,DeCl4zJoFpT,DeEiGKKIKqB,DeEzggoDMYU	ekranda+konuşmada		hayır	atlas	brainstorming
+voicestudio	9:DcgPETIMIhq,Dd2HMwIy6D3,Dd9RvQDiUVH,Ddy0WIDAv8w,DdyhyH1geFx,DeChDzQDFXy,DeD8sC4gqrO,DeHgNEThccw	ekranda+konuşmada		evet	atlas	voicestudio
+typesafe	9:Dd0ZDPRjIWA,Dd1jV3AgDiG,Ddja2_uDxqr,Ddt16ilkRGB,DdtLoI-mfGB,DdtrqmqgJiN,DeAr43JPbqv,DeCjTAWiSMn	ekranda+konuşmada		evet	atlas	typesafe
+simplify	9:Dd3t8ixmPHo,Dd9R75ej5jv,Ddc1db7Cj_D,Ddcd73yAshV,DdeLN4ujZGN,DdjEKF4jDso,Ddqym0VAqzU,Desw89eoG5a	ekranda+konuşmada		hayır	atlas	simplify
+opendesign	8:DX2ubACJYRN,DYcaq-GIpCV,DYsslgKMmJQ,DcSIIcAs8-4,DdKLqdkKcjp,DeR11OUkobq,DeamDxDjmQV,DevSPYCu2v6	ekranda+konuşmada		evet	atlas	opendesign
+securityreview	8:DXosDMHDDPh,Dc_7cQ2uWSr,DdNA0xZShQh,DeAf-XgiK_a,DeY-_0Qn_nH,DeexITYieW2,DeheVnTD9Fd,DewzpW4gTpN	ekranda+konuşmada		evet	atlas	securityreview
+scaffold	8:Da7xf8rviQU,Dd40YRPxuEB,Dd9BwOwoeVl,DdA-QjwAMh_,DdBQrn-jV8v,DdRnP0TTEJM,DehQ41UoYHy,DeyIOlwk0ar	ekranda+konuşmada		hayır	atlas	scaffold
+leonxlnxtasteskill	8:Dap3IoNo4Kt,Dd3wMMsnz2P,Dd4-QQgO-Hx,DdCs5vOiHRY,DdtP_L9FljV,DeUdyDYoXvq,DeUkYfLn4n5,DeupYVwjRiu	ekranda		hayır	atlas	leonxlnxtasteskill
+adcreative	8:Db0Kka1vxSH,DbKekMzGemD,Dc4cu6cySSA,Dd0645CiHH9,DdALfrwgap-,Ddh5-Zwn2ZN,DeR5_DYSKcG,DemSlicoHm4	ekranda		hayır	atlas	adcreative
+seoaudit	8:Dc-zw_Vicxs,Dd3t8ixmPHo,Dd5Y9roxjWn,Ddc1db7Cj_D,DdeLN4ujZGN,DeHiUezkt8m,DemSlicoHm4,DeqGkciIB21	ekranda+konuşmada		hayır	atlas	seoaudit
+claudehud	8:Dd0PFtECZvj,DdCs5vOiHRY,DdO1UioAHAS,DdUELmKktcr,Dd_dybEMDog,DdmQWJzqP8H,DdxDGbogAZV,DeUkYfLn4n5	ekranda+konuşmada	https://github.com/jarrodwatts/claude-hud	evet	atlas+repo	claudehud
+andrejkarpathyskills	8:DdCs5vOiHRY,DdO1UioAHAS,DdZQ5SaDxDV,DdmQWJzqP8H,DeUkYfLn4n5,DewhNn1AZGQ,DezZ7iQyv9N,F86ovkAsu0I	ekranda+konuşmada	https://github.com/multica-ai/andrej-karpathy-skills	evet	atlas+repo	andrejkarpathyskills
+brainstorm	7:DFrf9wlsU_J,DX8i0U3vTA1,DZiD_8ij8mR,Dc7G9Pxu_1O,DcN-pkGBLHE,DeZJotRPOTv,Dejudd7okCQ	ekranda+konuşmada		hayır	atlas	brainstorm
+careerops	7:DX2ubACJYRN,DY8EtIPtKLC,DYMb4xRkkPf,Deg73wmCtRp,Dehz6S_jv0a,Deu5JhPFJU-,DeyhXR6Dhue	ekranda+konuşmada		hayır	atlas	careerops
+nextlevelbuilderuiuxpromaxskill	7:DXb_hOdDRan,DYSM2zSsbmk,DdCs5vOiHRY,DdmQWJzqP8H,DeUkYfLn4n5,DeUkeskHyf_,Dejudd7okCQ	ekranda		hayır	atlas	nextlevelbuilderuiuxpromaxskill
+marketresearch	7:DXzCgJSzvKl,DZAIWs0ib0n,Da0GU4JDzsp,DbUQaEsgqeZ,DcqH29tAoRy,Ddcd73yAshV,DexQMcYigmj	ekranda+konuşmada		hayır	atlas	marketresearch
+grillme	7:DYQCEK5OMrh,Dcn3KY8A9Wa,Dd4Ama8mnza,DdxKYYvRysZ,Ddyxm8hk7DV,Ded9Eo2Ruql,DeuoIAdN_65	ekranda+konuşmada		hayır	atlas	grillme
+stopslop	7:DYx4OuVuJuI,DcJfi_0NQnV,DdZnbGqMfqO,DdwJADlBFnX,DeNAVCRuc54,DeXacbLgtZr,DeteLcPiN5d	ekranda+konuşmada		evet	atlas	stopslop
+garrytangstack	7:DZ2c3iuAs65,DZCgfN7jDLv,Da7xf8rviQU,DdCs5vOiHRY,DdmQWJzqP8H,DeUkYfLn4n5,DeupYVwjRiu	ekranda		hayır	atlas	garrytangstack
+MoneyPrinterTurbo	7:DZAIWs0ib0n,Da0LJYnsJkq,Dd_sICVjFKq,DdrHoHXMhQU,Decgm97N-Th,DeroxUoiAK_,DerpKungtI1	ekranda+konuşmada	https://github.com/harry0703/MoneyPrinterTurbo https://github.com/harryo703/MoneyPrinterTurbo https://github.com/harryθ703/MoneyPrinterTurbo https://github.com/harryθ7θ3/MoneyPrinterTurbo	hayır	atlas+repo	moneyprinterturbo
+contentstrategy	7:Db-xq9zxXNq,Dbf53LFPTBz,DcJfi_0NQnV,Dd6MfpeKgfG,Ddx_ku0Bxmk,DeHiUezkt8m,DemSlicoHm4	ekranda+konuşmada		hayır	atlas	contentstrategy
+reverseengineering	7:DbevmteOKw9,Dc3UbnBCR9I,Dd378iLM0E7,DeKHggujqWf,DeON0MOB5oi,DerQx7tgJAy,WTMd9fNloT0	ekranda+konuşmada		hayır	atlas	reverseengineering
+uidesign	7:Dbu-pe6IOHa,Dc4TR_CS1t1,Dd4fm_9tMHH,DdbhJqIH8BU,Ddz7Ra-H8El,DeIGcthDcYm,DeQj7lmCQVk	ekranda+konuşmada		evet	atlas	uidesign
+claudeapi	7:Dc3UbnBCR9I,DcjEHTvyYBS,Dd4C4cEj3Ht,DeR5_DYSKcG,DefOjSZgifD,DeikgDSINN_,vcU85OrwuV0	ekranda		evet	atlas	claudeapi
+attribution	7:DclpFAJiyuv,DdlyTncEpZq,DeT8XphH4jq,DeTdabkG7hK,DeZa_8yjGbp,Dewt3VZEejR,DeyIOlwk0ar	ekranda		hayır	atlas	attribution
+bladerhumanizer	7:Dd7uZoIBkfI,Dd9R75ej5jv,DeZ1CFnEWHc,DeaaTXUN0nI,DeithvDucpZ,DeteLcPiN5d,DeupYVwjRiu	ekranda		hayır	atlas	bladerhumanizer
+whatsnew	6:CqDvgaVoZNx,DNbH6BMtMEB,DbxcRQLjS9T,Dd1gnAPCMGd,DePIgOcMOzi,DeT6XXkiPwj	ekranda		hayır	atlas	whatsnew
+uidesigner	6:DSm-QQ_Dxh3,DVQd446DxqG,Dd0645CiHH9,DdALfrwgap-,Ddh5-Zwn2ZN,DegoA6qhiPi	ekranda		evet	atlas	uidesigner
+statemachine	6:DVMexOcD4vd,Dc3pMkakrid,DdD0FdkmTvh,Ddl4bemIeyC,DegjdaVEUaZ,DeqmrMLulD0	ekranda		hayır	atlas	statemachine
+docusign	6:DYT9GQMjOmx,DYd19cHDBaH,Dd1BPoWgp5q,Dd40YRPxuEB,DdmPJ-IN9bD,DedbF9YDjmR	ekranda+konuşmada		hayır	atlas	docusign
+designis	6:DZ2wiBNF6DU,DZ7HcTGGD5P,Dd9R75ej5jv,DdtP_L9FljV,DeHgoP8kxyV,DeIGcthDcYm	ekranda+konuşmada		hayır	atlas	designis
+capacity	6:DZ5CcdsjRHW,DZZa26zDO__,DcbU0dTFG4h,DdyRkV4ihXm,DekiT9vDgTb,vcU85OrwuV0	ekranda+konuşmada		hayır	atlas	capacity
+puppeteer	6:Db8cNRlgMG3,DdBlwBIFGvC,DeXAMs2Eqgh,DeuOHMjFGBI,DeuZ4BnhCqA,DeupYVwjRiu	ekranda+konuşmada		evet	atlas	puppeteer
+evaluate	6:DbUg-kOFC-C,DbevzliuW5v,Dd0ZDPRjIWA,DdeLN4ujZGN,Ddqym0VAqzU,DeGHCSSjCNu	ekranda+konuşmada		hayır	atlas	evaluate
+img2threejs	6:Dc7hhAUEvu1,DcY6-PRji1y,DdT_OwyFeoj,DeUdyDYoXvq,DeXJcXmFLMv,DeuHUPFjuvW	ekranda	https://github.com/hoainho/img2threejs https://github.com/hoainho/imgzthreejs https://github.com/img2threejs/img2threejs	evet	atlas+repo	img2threejs
+uxdesigner	6:Dd3wMMsnz2P,DdWzc45k8wY,DdZO49mI8s2,DdjVME_lbWd,DeQj7lmCQVk,DeW5NQ1DZhh	ekranda		hayır	atlas	uxdesigner
+canvasdesign	6:Dd3wMMsnz2P,DdO6-1QkjR-,DdjVME_lbWd,DeDLmLpIJLj,DeMsuI4E3gJ,DeR5_DYSKcG	ekranda		hayır	atlas	canvasdesign
+googleworkspace	6:Dd3xTHfALLA,DeKckPTmynO,DeZ0Y1UAHvT,DeaaTXUN0nI,DeithvDucpZ,DeupYVwjRiu	ekranda+konuşmada		evet	atlas	googleworkspace
+starthere	6:Dd4Ama8mnza,DdWjNO2iCVc,DdZaB51gBVR,DeMoWpdAC1Z,DePMsSOxhFs,DeiEC-fvGvF	ekranda		hayır	atlas	starthere
+appledesign	6:Dd4fm_9tMHH,Dd7WYSniFvP,Ddmibn-iNJG,DeC26aTPIGG,Deh4K2nITwD,DelsVQJR6ZE	ekranda+konuşmada		evet	atlas	appledesign
+brandvoice	5:3XIGcM7VICc,Dd4uGjPOOOk,Dd_cB-QThC_,DeMbHNWErWX,DeptwfDkdN3	ekranda+konuşmada		hayır	atlas	brandvoice
+frontenddeveloper	5:DWdn7jlEsLb,DZDUd0kS7lw,Db0Kka1vxSH,Dd0645CiHH9,DeMrKekk7RU	ekranda		evet	atlas	frontenddeveloper
+coldemail	5:DXwGMS_jK_B,DYKvJ4Vj3bF,DdjfghctK7x,DeHiUezkt8m,DeghgsivKu7	ekranda+konuşmada		hayır	atlas	coldemail
+n8nmcp	5:DY8EtIPtKLC,DZ29oQwDBlV,DeCHIhrk0Th,DeWo8BMoWzr,Deau8oUO4i1	ekranda+konuşmada	https://github.com/czlonkowski/n8n-mcp	evet	atlas+komut+repo	n8nmcp
+projectmemory	5:DYYaA1LKtoO,DeXacbLgtZr,DeZDnfdAH8m,DehEgnEAaPn,DezZ7iQyv9N	ekranda		evet	atlas	projectmemory
+githubgithubmcpserver	5:DYqolQdgY3k,DdCs5vOiHRY,DdmQWJzqP8H,DeUkYfLn4n5,DewR3SbuNen	ekranda		hayır	atlas	githubgithubmcpserver
+codegraph	5:DZAIWs0ib0n,Dd0PFtECZvj,DdO1UioAHAS,DdUELmKktcr,DdxDGbogAZV	ekranda+konuşmada		evet	atlas	codegraph
+skillui	5:DZDRFA6s2_w,DbyJNRdPyCj,Dd_dybEMDog,DdmQWJzqP8H,DeteLcPiN5d	ekranda+konuşmada		evet	atlas	skillui
+aiengineer	5:DZDUd0kS7lw,DbUg-kOFC-C,DdTdlm9i_Eg,DdwCkzIAjcp,DeOWWyHCofX	ekranda+konuşmada		evet	atlas	aiengineer
+systemdesign	5:DZDUd0kS7lw,Dc9-DXtIckn,DcDfnzsM2wL,DdOhd6bCdSM,DdTdlm9i_Eg	ekranda+konuşmada		hayır	atlas	systemdesign
+gptimage2	5:Da4qps4Bhwy,Dbi13BDlDDQ,DdZQ5SaDxDV,DeAf-XgiK_a,DeY-_0Qn_nH	ekranda+konuşmada		evet	atlas	gptimage2
+gstack	5:Da7xf8rviQU,DdCs5vOiHRY,DdmQWJzqP8H,DeUkYfLn4n5,DeupYVwjRiu	ekranda	https://github.com/garrytan/gstack	evet	repo	gstack
+designdna	5:DbnAbBglD0e,Dd_iThjj32v,DdjKZp4H-mG,DeZXO6-lDBX,yp7gg8cG5wc	ekranda+konuşmada		hayır	atlas	designdna
+discipline	5:Dc-zw_Vicxs,DdeFYOXH6XY,Ddq_RtLEU7c,DeNAVCRuc54,bVRvtd-ksXU	ekranda+konuşmada		evet	atlas	discipline
+onizleme	5:DcoaU2yjNOj,Dd_saTSI1Zb,Ddj-Kp9xWaM,DeSCS3FigUS,DeuLXZXtkGH	ekranda		evet	atlas	onizleme
+brandkit	5:Dd0PMB5FQtK,DeMbHNWErWX,DeSULXZSGkF,DeWi4GMmlyB,DewoEZSI3Ww	ekranda+konuşmada		hayır	atlas	brandkit
+logodesign	5:Dd0PMB5FQtK,Dd1dJi9j-vq,DdwCkzIAjcp,DewoEZSI3Ww,Dex4lXRB9s3	ekranda+konuşmada		evet	atlas	logodesign
+dietrichgebertponytail	5:Dd4-QQgO-Hx,DdCs5vOiHRY,DdmQWJzqP8H,DeUkYfLn4n5,Dejudd7okCQ	ekranda		hayır	atlas	dietrichgebertponytail
+pbakausimpeccable	5:Dd4-QQgO-Hx,Dd4fm_9tMHH,DeUdyDYoXvq,DeupYVwjRiu,Dew0M4YAhtG	ekranda		hayır	atlas	pbakausimpeccable
+isakisi	5:Dd4C4cEj3Ht,DeCfWoGMIET,DePQtfslT7B,DeXr6wCMAEZ,Deyt_ihiHBE	ekranda		evet	atlas	isakisi
+multicaaiandrejkarpathyskills	5:DdCs5vOiHRY,DdmQWJzqP8H,DeUkYfLn4n5,DewhNn1AZGQ,DezZ7iQyv9N	ekranda		hayır	atlas	multicaaiandrejkarpathyskills
+synthesize	4:DYx4OuVuJuI,DZ77bnusFNz,Dd2HMwIy6D3,DeZRVmkvhiR	ekranda+konuşmada		hayır	atlas	synthesize
+designreview	4:DZ2c3iuAs65,DZCgfN7jDLv,Ddmibn-iNJG,Dewgqrvjz3P	ekranda+konuşmada		evet	atlas	designreview
+paywalls	4:DZ3PUfYlK6z,Dck78LdjU8r,DdWzc45k8wY,DemSlicoHm4	ekranda+konuşmada		hayır	atlas	paywalls
+finetuning	4:DZI1ok5Ss4b,Dc79IpsBzuc,DdHSX-Dib0O,Dew-EGglUpE	ekranda+konuşmada		hayır	atlas	finetuning
+seoexpert	4:DZ_jVqnGTT0,DdZPRfiStXv,Ddn4nmUH9uf,Deu0eKalKi1	ekranda+konuşmada		evet	atlas	seoexpert
+claudeads	4:Db6E5RXgupy,Dc-zw_Vicxs,DeHhu6qlL7Q,DeXAMs2Eqgh	ekranda	https://github.com/AgriciDaniel/claude-ads	evet	atlas+repo	claudeads
+tailwindcss	4:DbIz3rdFF3T,DcoKnHuzThn,Ddrki7GugWV,DehQ41UoYHy	ekranda+konuşmada		evet	atlas	tailwindcss
+webdesignguidelines	4:DbKDOm4uNCJ,Dc99nLNoD6Y,Dd7WudICfJf,DdtP_L9FljV	ekranda		hayır	atlas	webdesignguidelines
+zanweidesigndna	4:DbnAbBglD0e,Dd_iThjj32v,DdjKZp4H-mG,yp7gg8cG5wc	ekranda		hayır	atlas	zanweidesigndna
+gsapskills	4:DbnAbBglD0e,Dd_iThjj32v,DdjKZp4H-mG,Dew0M4YAhtG	ekranda	https://github.com/greensock/gsap-skills	evet	atlas+repo	gsapskills
+airtable	4:DbsSDgAm5JX,DcSIIcAs8-4,DdWcPoADJK3,DedbF9YDjmR	ekranda+konuşmada		evet	atlas	airtable
+excalidraw	4:DbsSDgAm5JX,DdhF4hWI0Ym,DeaxjcMBKBy,DewufHMFKug	ekranda+konuşmada		evet	atlas	excalidraw
+contextmode	4:Dc-zw_Vicxs,DeIGeHSDeGQ,DegaY29py3J,DenCFKGCVxA	ekranda+konuşmada	https://github.com/mksglu/context-mode	evet	atlas+repo	contextmode
+promptmaster	4:DcR3mgtPMOP,Dcn3KY8A9Wa,Dd9HttYsLEX,DdxKYYvRysZ	ekranda+konuşmada	https://github.com/nidhinjs/prompt-master	evet	atlas+repo	promptmaster
+awesome-mcp-servers	4:DcbxXZnFYRh,DdCs5vOiHRY,DdwURoumtRW,DeUkYfLn4n5	ekranda	https://github.com/punkpeye/awesome-mcp-servers	hayır	repo	awesomemcpservers
+autoclip	4:Dcj_mRRv5tv,Dd7pn4nSh2t,Dd9T_81u8K2,DdJqGQuEeLl	ekranda+konuşmada		evet	atlas	autoclip
+deepseekharness	4:Dcw20sWpLgs,DdEUwLgE-Sb,Desq5O9i_4P,Dey_SBboEte	ekranda+konuşmada		hayır	atlas	deepseekharness
+webartifactsbuilder	4:Dd3wMMsnz2P,DdO6-1QkjR-,DdjVME_lbWd,DeDLmLpIJLj	ekranda		hayır	atlas	webartifactsbuilder
+slideshow	4:DdAAEC-Sybw,DdAuz8NDNOU,Dery8BLNDJK,DezkWyyANhZ	ekranda+konuşmada		hayır	atlas	slideshow
+skillsadd	4:DdAuz8NDNOU,DdY-K9oDbHl,DeKHggujqWf,jf1sv2geEWo	ekranda		evet	komut	skillsadd
+caveman	4:DdCs5vOiHRY,DeUkYfLn4n5,DeupYVwjRiu,jf1sv2geEWo	ekranda	https://github.com/JuliusBrussee/caveman	evet	komut+repo	caveman
+upstashcontext7	4:DdO1UioAHAS,DdmQWJzqP8H,DehO64bvSkV,DewR3SbuNen	ekranda		evet	atlas	upstashcontext7
+algorithmicart	4:DdO6-1QkjR-,DeDLmLpIJLj,DeMsuI4E3gJ,DeR5_DYSKcG	ekranda		hayır	atlas	algorithmicart
+freellmapi	4:DdbkqpEH9t8,DeXNwmps3wW,Dertf_QNKyu,Det4Eo5RgSk	ekranda	https://github.com/tashfeenahmed/freellmapi	hayır	komut+repo	freellmapi
+youtubeagent	4:DeHjYqKNzkz,DePxKw0NdvX,DerJrfHoy-J,DewxbWfjDHB	ekranda+konuşmada		hayır	atlas	youtubeagent
+skils	4:DdAuz8NDNOU,DdrHopWCeag,DejfecRNhPL,DeupYVwjRiu	ekranda	https://github.com/emikowalski/skils https://github.com/mattpocock/skils	hayır	komut+repo	skils
+testplan	3:3XIGcM7VICc,DYKvJ4Vj3bF,DeaaTXUN0nI	ekranda+konuşmada		evet	atlas	testplan
+runtests	3:DSm-QQ_Dxh3,DZU07JYgtX3,DeXJQ-kGKUY	ekranda+konuşmada		hayır	atlas	runtests
+brandidentity	3:DVMexOcD4vd,DdT_OwyFeoj,DelsVQJR6ZE	ekranda		hayır	atlas	brandidentity
+testdrivendevelopment	3:DYQCEK5OMrh,DeMsuI4E3gJ,DeuoIAdN_65	ekranda		hayır	atlas	testdrivendevelopment
+progressivedisclosure	3:DYQCEK5OMrh,Dd4C4cEj3Ht,DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	progressivedisclosure
+customerresearch	3:DYoDw9pDEil,DdbhJqIH8BU,DemSlicoHm4	ekranda		hayır	atlas	customerresearch
+autoplan	3:DZ2c3iuAs65,DZCgfN7jDLv,Da7xf8rviQU	ekranda		evet	atlas	autoplan
+posttooluse	3:DZZr2P_k1TY,DbUcU4Jjm1p,DdtrqmqgJiN	ekranda		hayır	atlas	posttooluse
+createplugin	3:DZ_jVqnGTT0,DdjVdxkn3NQ,Ddn4nmUH9uf	ekranda		hayır	atlas	createplugin
+sessionstart	3:DZpySOnOCxI,DdeLN4ujZGN,DeR5_DYSKcG	ekranda		hayır	atlas	sessionstart
+designprinciples	3:Da5-vksijqk,DdWzc45k8wY,DejYGatj_ex	ekranda		hayır	atlas	designprinciples
+panniantongagentreach	3:DaDTgsJsdDk,DeKuUWUKp7J,DeR3K9LAq97	ekranda		hayır	atlas	panniantongagentreach
+infinitecanvas	3:DaIHoDKE9cT,DcXvWV0z077,DdzpkF4BDP7	ekranda+konuşmada		evet	atlas	infinitecanvas
+seniordeveloper	3:Dauv6MOyDR8,DcDfnzsM2wL,DdTdlm9i_Eg	ekranda+konuşmada		evet	atlas	seniordeveloper
+computeruse	3:DbGNulhi8Wj,Ddmjn_3RSNf,Dews_cQjyMk	ekranda+konuşmada		hayır	atlas	computeruse
+chromedevtoolsmcp	3:DbKDOm4uNCJ,Dd4LrTSsx0i,Deh4K2nITwD	ekranda		evet	atlas	chromedevtoolsmcp
+21stdevmagicmcp	3:DbKDOm4uNCJ,DehO64bvSkV,Desw89eoG5a	ekranda		hayır	atlas	21stdevmagicmcp
+vercellabsagentskills	3:DbKDOm4uNCJ,DdtP_L9FljV,DeHiUezkt8m	ekranda		hayır	atlas	vercellabsagentskills
+agentshield	3:DbUcU4Jjm1p,DcoU-a2D1uC,DdwJADlBFnX	ekranda		evet	atlas	agentshield
+interviewme	3:Db_H8ScP5y-,Dee3AxgN_th,DehQ41UoYHy	ekranda+konuşmada		hayır	atlas	interviewme
+postprocessing	3:Dbn5-kXqr3r,Dd9dsD8gDxf,DebqfLMkiPf	ekranda+konuşmada		hayır	atlas	postprocessing
+strix	3:DbpsEzyMzR9,DdipylAMC4D,Desw89eoG5a	ekranda	https://github.com/usestrix/strix	evet	repo	strix
+climcp	3:DbxcRQLjS9T,DeIGcthDcYm,DeMrKekk7RU	ekranda		hayır	atlas	climcp
+Open-Higgsfield-Al	3:Dc-zw_Vicxs,DdRnP0TTEJM,DeXAMs2Eqgh	ekranda	https://github.com/Anil-matcha/Open-Higgsfield-Al	hayır	repo	openhiggsfieldal
+EcC	3:Dc1NGcnA9PB,DdNA0xZShQh,DdmQWJzqP8H	ekranda	https://github.com/afaan-m/ECC https://github.com/affaan-m/EcC https://github.com/affaan-m/Ecc	hayır	repo	ecc
+decisionlog	3:Dc3pMkakrid,Dd0ZDPRjIWA,DdD0FdkmTvh	ekranda		hayır	atlas	decisionlog
+preflight	3:DclpFAJiyuv,Deidr7QOet0,DejoN2ZBZmT	ekranda		hayır	atlas	preflight
+clianything	3:DcmNMsHuJbt,Dd9NdbFxJLo,DdOS_a4CKeY	ekranda+konuşmada		evet	atlas	clianything
+programmaticseo	3:Dd2dbtOPpv-,DemSlicoHm4,DexHMFmx4Ev	ekranda+konuşmada		hayır	atlas	programmaticseo
+emildesigneng	3:Dd4Ama8mnza,DelsVQJR6ZE,DeupYVwjRiu	ekranda		evet	atlas	emildesigneng
+hyperframescli	3:Dd4Ama8mnza,DdY-K9oDbHl,DePtyBoAOPd	ekranda		hayır	atlas	hyperframescli
+frontendslides	3:Dd4C4cEj3Ht,DdZQ5SaDxDV,DeteLcPiN5d	ekranda	https://github.com/zarazhangrui/frontend-slides	evet	atlas+repo	frontendslides
+generativeui	3:Dd4C4cEj3Ht,Dd9ZUN4DiEy,DdtrqmqgJiN	ekranda		hayır	atlas	generativeui
+updatedocs	3:Dd9ZUN4DiEy,DdHSX-Dib0O,Deu0KuOMfKl	ekranda		hayır	atlas	updatedocs
+chiefofstaff	3:DdALfrwgap-,Ddh5-Zwn2ZN,Deg8OIdjEg1	ekranda		hayır	atlas	chiefofstaff
+create-video	3:DdHGhmDq9ku,DdUk0Lrx0rw,DetCTmToK82	ekranda		hayır	komut	createvideo
+themefactory	3:DdO6-1QkjR-,DeDLmLpIJLj,DeMsuI4E3gJ	ekranda		hayır	atlas	themefactory
+codebasememorymcp	3:DdO8U92kcyw,Ddq_d1bDV_Z,DeR3K9LAq97	ekranda	https://github.com/DeusData/codebase-memory-mcp	evet	atlas+repo	codebasememorymcp
+hostinger	3:DdO9AXNgVz-,DdZMSdTksDE,DebBcSkggEA	ekranda		evet	atlas	hostinger
+copywriter	3:DdWcPoADJK3,DeKHCW7iBvJ,DeWfqTdm94Z	ekranda+konuşmada		evet	atlas	copywriter
+marketingideas	3:Dd_saTSI1Zb,DeHiUezkt8m,DemSlicoHm4	ekranda+konuşmada		hayır	atlas	marketingideas
+typesafeai	3:Ddja2_uDxqr,DdtLoI-mfGB,DdtrqmqgJiN	ekranda		evet	atlas	typesafeai
+productmarketing	3:DdwWsGUiaY3,DeR11OUkobq,DemSlicoHm4	ekranda		hayır	atlas	productmarketing
+universalmodder	3:DeCMQXjvuM3,DevpUCAkWPl,Dex4lXRB9s3	ekranda+konuşmada		evet	atlas	universalmodder
+envanter	3:DeEkmIAguB3,DeT6XXkiPwj,DegQ7IjD9Hv	ekranda		evet	atlas	envanter
+rea	3:DeGeaxYjeCq,DeKHggujqWf,DedkCc6olmo	ekranda	https://github.com/moriuto/rea https://github.com/morluto/rea	hayır	komut+repo	rea
+bettertypography	3:DeHgoP8kxyV,DeQj7lmCQVk,DeUKUjQPnm1	ekranda+konuşmada		hayır	atlas	bettertypography
+ytplan	3:DeHjYqKNzkz,DePxKw0NdvX,DewxbWfjDHB	ekranda		hayır	atlas	ytplan
+betterui	3:DeIGcthDcYm,DeQj7lmCQVk,DeXacbLgtZr	ekranda		hayır	atlas	betterui
+linkedinagent	3:DeMKh-6KYjk,DeRKUg7oS2u,DejRNgpiI1v	ekranda+konuşmada		evet	atlas	linkedinagent
+casestudy	3:DeMk_4_E7Mo,DeQj7lmCQVk,DeamDxDjmQV	ekranda		hayır	atlas	casestudy
+whisper	3:DeSCS3FigUS,DeSW9GFBQvF,DeupYVwjRiu	ekranda	https://github.com/openai/whisper	evet	repo	whisper
+addyosmaniagentskills	3:DehO64bvSkV,DeithvDucpZ,Desw89eoG5a	ekranda		hayır	atlas	addyosmaniagentskills
+leadmagnets	2:DJzOz6Iuw6D,DemSlicoHm4	ekranda+konuşmada		hayır	atlas	leadmagnets
+promptengineer	2:DK12phiCLHp,DW4-DC0IJ-7	konuşmada		evet	atlas	promptengineer
+referrals	2:DS0JbwSDLmA,DemSlicoHm4	ekranda		hayır	atlas	referrals
+tddguard	2:DX8i0U3vTA1,DcN-pkGBLHE	ekranda+konuşmada		evet	atlas	tddguard
+motion	2:DYC-x8DogOI,DeRvxD6gDCu	ekranda	https://github.com/motiondivision/motion	evet	repo	motion
+improvecodebasearchitecture	2:DYQCEK5OMrh,DePtyBoAOPd	ekranda		hayır	atlas	improvecodebasearchitecture
+techdebt	2:DYexqiLgnIb,Ddyxm8hk7DV	ekranda		hayır	atlas	techdebt
+technicalwriter	2:DYgcXthDH04,DdTdlm9i_Eg	ekranda		evet	atlas	technicalwriter
+nanobanana2	2:DYkU-6VsOrm,DbKekMzGemD	ekranda+konuşmada		evet	atlas	nanobanana2
+generateimage	2:DYnMgwUup9N,DeR11OUkobq	ekranda		hayır	atlas	generateimage
+mcpbuilder	2:DYxChxKM5Wn,Da0M8Ipmpxo	ekranda+konuşmada		hayır	atlas	mcpbuilder
+designshotgun	2:DZ2c3iuAs65,DZCgfN7jDLv	ekranda		evet	atlas	designshotgun
+designhtml	2:DZ2c3iuAs65,DZCgfN7jDLv	ekranda		evet	atlas	designhtml
+designconsultation	2:DZ2c3iuAs65,DZCgfN7jDLv	ekranda		evet	atlas	designconsultation
+sizelimit	2:DZ3PUfYlK6z,DdKcLiJgczB	ekranda+konuşmada		hayır	atlas	sizelimit
+prospecting	2:DZAIWs0ib0n,DemSlicoHm4	ekranda		hayır	atlas	prospecting
+incidentresponse	2:DZAIWs0ib0n,DeBVRjpny1m	ekranda+konuşmada		evet	atlas	incidentresponse
+backendarchitect	2:DZDUd0kS7lw,DegoA6qhiPi	ekranda		evet	atlas	backendarchitect
+gitworkflow	2:DZDUd0kS7lw,DdTdlm9i_Eg	ekranda		evet	atlas	gitworkflow
+devopsautomator	2:DZDUd0kS7lw,DdTdlm9i_Eg	ekranda		evet	atlas	devopsautomator
+tradeoffanalysis	2:DZDUd0kS7lw,DdTdlm9i_Eg	ekranda		hayır	atlas	tradeoffanalysis
+performanceoptimization	2:DZDUd0kS7lw,DdmQWJzqP8H	ekranda		hayır	atlas	performanceoptimization
+softwarearchitect	2:DZDUd0kS7lw,DdTdlm9i_Eg	ekranda		evet	atlas	softwarearchitect
+seospecialist	2:DZ_jVqnGTT0,Ddn4nmUH9uf	ekranda		hayır	atlas	seospecialist
+mentorship	2:DZacq6VmZUm,Ded9I6SAzJq	ekranda		hayır	atlas	mentorship
+visualhierarchy	2:DZkZtw2icLq,DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	visualhierarchy
+refactorclean	2:DZpySOnOCxI,Dd3t8ixmPHo	ekranda		hayır	atlas	refactorclean
+qualitygate	2:DZpySOnOCxI,DdwJADlBFnX	ekranda		hayır	atlas	qualitygate
+publicrelations	2:Da0GU4JDzsp,DemSlicoHm4	ekranda		hayır	atlas	publicrelations
+gstackrouter	2:Da7xf8rviQU,Dd9BwOwoeVl	ekranda		hayır	atlas	gstackrouter
+styleguide	2:DaIHoDKE9cT,DeIGcthDcYm	ekranda		hayır	atlas	styleguide
+gitleaks	2:DaXh_wnRjqG,DeRqwZ7Nhtn	ekranda+konuşmada		evet	atlas	gitleaks
+mcpdocs	2:DbG_xa3y_d6,DewR3SbuNen	ekranda		hayır	atlas	mcpdocs
+competitiveanalysis	2:DbUQaEsgqeZ,DeCUsonlChf	ekranda		hayır	atlas	competitiveanalysis
+openship	2:DbVGcvfgUsD,Ddj6zP4gKi6	ekranda	https://github.com/obLien/openship https://github.com/oblien/openship	hayır	repo	openship
+improveui	2:DbqWpnVTVIM,DeIGcthDcYm	ekranda		evet	atlas	improveui
+AutoHedge	2:Dc-zw_Vicxs,DeXAMs2Eqgh	ekranda	https://github.com/The-Swarm-Corporation/AutoHedge	hayır	repo	autohedge
+Vibe-Trading	2:Dc-zw_Vicxs,DeXAMs2Eqgh	ekranda	https://github.com/HKUDS/Vibe-Trading	hayır	repo	vibetrading
+FinceptTerminal	2:Dc-zw_Vicxs,DeXAMs2Eqgh	ekranda	https://github.com/Fincept-Corporation/FinceptTerminal	hayır	repo	finceptterminal
+agentic-inbox	2:Dc-zw_Vicxs,DeXAMs2Eqgh	ekranda	https://github.com/cloudflare/agentic-inbox	hayır	repo	agenticinbox
+camofox-browser	2:Dc-zw_Vicxs,DeXAMs2Eqgh	ekranda	https://github.com/jo-inc/camofox-browser	hayır	repo	camofoxbrowser
+betterwriting	2:Dc3UbnBCR9I,DeMrKekk7RU	ekranda		hayır	atlas	betterwriting
+scrollcraft	2:Dc4TR_CS1t1,Ddc1db7Cj_D	ekranda+konuşmada	https://github.com/nateherkai/scrollcraft	evet	atlas+repo	scrollcraft
+interfacedesign	2:Dc4TR_CS1t1,DdxDGbogAZV	ekranda+konuşmada		evet	atlas	interfacedesign
+remotionbestpractices	2:DcJfi_0NQnV,Dd4Ama8mnza	ekranda		evet	atlas	remotionbestpractices
+Anthropic-Cybersecurity-Skills	2:DcOFxr4Ej29,DdoRKQUAdeM	ekranda	https://github.com/liptonj-eng/anthropic-cybersecurity-skills https://github.com/mukul975/Anthropic-Cyberscurity-Skills.s https://github.com/mukul975/Anthropic-Cybersecurity-Skills https://github.com/	hayır	komut+repo	anthropiccybersecurityskills
+humanintheloop	2:DcOFxr4Ej29,DeYASC1j8Zm	ekranda		hayır	atlas	humanintheloop
+markitdownmcp	2:DcTI5sfoLGR,DdFVkR3vIni	ekranda		evet	atlas	markitdownmcp
+pricingpage	2:DcTlre1oRoH,DdKLqdkKcjp	ekranda		evet	atlas	pricingpage
+public-apis	2:DcbxXZnFYRh,DdwURoumtRW	ekranda	https://github.com/public-apis/public-apis	hayır	repo	publicapis
+adsgoogle	2:Dd-lBUpgXs8,DeHhu6qlL7Q	ekranda+konuşmada		hayır	atlas	adsgoogle
+logo-design-skill	2:Dd0PMB5FQtK,Dd1dJi9j-vq	ekranda	https://github.com/kaankiziltug/logo-design-skil https://github.com/kaankiziltug/logo-design-skill https://github.com/kaankiziltug/logo-design-skilli	evet	repo	logodesignskill
+androidskills	2:Dd378iLM0E7,DeuWt4GDCyB	ekranda+konuşmada		evet	atlas	androidskills
+skillspector	2:Dd3t8ixmPHo,DeysPEmgd5g	ekranda		evet	atlas	skillspector
+appstorescreenshots	2:Dd3wMMsnz2P,DdjVME_lbWd	ekranda		evet	atlas	appstorescreenshots
+designtastefrontend	2:Dd3wMMsnz2P,DdjVME_lbWd	ekranda		hayır	atlas	designtastefrontend
+motion-graphics-skills	2:Dd7WYSniFvP,DeRvxD6gDCu	ekranda	https://github.com/charlie947/motion-graphics-skills	hayır	repo	motiongraphicsskills
+versionbump	2:Dd9ZUN4DiEy,DePQ2O3ElPy	ekranda		hayır	atlas	versionbump
+prtovideo	2:DdAuz8NDNOU,Dery8BLNDJK	ekranda		hayır	atlas	prtovideo
+coreskills	2:DdAuz8NDNOU,Dery8BLNDJK	ekranda		evet	atlas	coreskills
+autoupdate	2:DdBGaAgnQyL,DeUn4UEADR6	ekranda		hayır	atlas	autoupdate
+playwright-mcp	2:DdCs5vOiHRY,DeUkYfLn4n5	ekranda	https://github.com/microsoft/playwright-mcp	hayır	repo	playwrightmcp
+codex-plugin-cc	2:DdCs5vOiHRY,DeUkYfLn4n5	ekranda	https://github.com/openai/codex-plugin-cc	hayır	repo	codexplugincc
+ui-ux-pro-max-skill	2:DdCs5vOiHRY,DeUkYfLn4n5	ekranda	https://github.com/nextlevelbuilder/ui-ux-pro-max-skill	hayır	repo	uiuxpromaxskill
+repomix	2:DdCs5vOiHRY,DeUkYfLn4n5	ekranda	https://github.com/yamadashy/repomix	evet	repo	repomix
+massgen	2:DdO6-1QkjR-,DeDLmLpIJLj	ekranda	https://github.com/massgen/massgen	hayır	repo	massgen
+agent-skills-for-context-engineering	2:DdO6-1QkjR-,DeDLmLpIJLj	ekranda	https://github.com/muratcankoylan/agent-skills-for-context-engineering	hayır	repo	agentskillsforcontextengineering
+systematicdebugging	2:DdO6-1QkjR-,DeDLmLpIJLj	ekranda		hayır	atlas	systematicdebugging
+loadingstates	2:DdSXJx4vQEK,DeV0EnpAJCs	ekranda+konuşmada		hayır	atlas	loadingstates
+errorhandling	2:DdSXJx4vQEK,vcU85OrwuV0	ekranda+konuşmada		evet	atlas	errorhandling
+uiuxdesigner	2:DdWzc45k8wY,DeQj7lmCQVk	ekranda		hayır	atlas	uiuxdesigner
+interactiondesign	2:Ddc1db7Cj_D,DeQj7lmCQVk	ekranda		evet	atlas	interactiondesign
+creativecoding	2:Ddc1db7Cj_D,DeefotLle27	ekranda		hayır	atlas	creativecoding
+responsivedesign	2:DddrOAliOMK,yp7gg8cG5wc	ekranda+konuşmada		hayır	atlas	responsivedesign
+jev-ultrafast	2:DdhP3u5gDci,Ddt16ilkRGB	ekranda	https://github.com/browser-use/jev-ultrafast	hayır	repo	jevultrafast
+appwrite	2:Ddj6zP4gKi6,DdwURoumtRW	ekranda	https://github.com/appwrite/appwrite	hayır	repo	appwrite
+impeccableimpeccable	2:DdtP_L9FljV,DeupYVwjRiu	ekranda		evet	atlas	impeccableimpeccable
+designbrief	2:DdthypfEnR_,DeGRG3zCQOj	ekranda		hayır	atlas	designbrief
+unicornstudio	2:DdupQchgt8X,DecHeyPtZTJ	ekranda+konuşmada		evet	atlas	unicornstudio
+strapi	2:DdwURoumtRW,DeQjyfjksz6	ekranda	https://github.com/strapi/strapi	hayır	repo	strapi
+replicaskill	2:DeB6QU6N4Ec,DeWPBbShCBu	konuşmada		evet	atlas	replicaskill
+productlaunchvideo	2:DeGTXaHkidF,Dery8BLNDJK	ekranda		hayır	atlas	productlaunchvideo
+rea-agents	2:DeGeaxYjeCq,DeKHggujqWf	ekranda		evet	atlas+komut	reaagents
+reverseengineeranything	2:DeGeaxYjeCq,DeZ_QCMKLis	ekranda		evet	atlas	reverseengineeranything
+makeinterfacesfeelbetter	2:DeHgoP8kxyV,DeR3K9LAq97	ekranda		hayır	atlas	makeinterfacesfeelbetter
+hairlinecreate	2:DeIQfJsz2vc,DeZnN9KoiJp	ekranda+konuşmada		evet	atlas	hairlinecreate
+investigate	2:DeKHggujqWf,DehEgnEAaPn	ekranda+konuşmada		evet	atlas	investigate
+GSAP	2:DePLcw_Dbwo,DeRvxD6gDCu	ekranda	https://github.com/greensock/GSAP	evet	repo	gsap
+server	2:DePQ2O3ElPy,DeQjyfjksz6	ekranda	https://github.com/bitwarden/server	evet	repo	server
+ytcomment	2:DePxKw0NdvX,DewxbWfjDHB	ekranda		hayır	atlas	ytcomment
+ytviral	2:DePxKw0NdvX,DewxbWfjDHB	ekranda		hayır	atlas	ytviral
+ytedit	2:DePxKw0NdvX,DewxbWfjDHB	ekranda		hayır	atlas	ytedit
+hyperframesstudio	2:DeSCS3FigUS,Dery8BLNDJK	ekranda		evet	atlas	hyperframesstudio
+yt-dlp	2:DeSW9GFBQvF,DebqfLMkiPf	ekranda	https://github.com/yt-dlp/yt-dlp https://github.com/yt-dp/yt-dlp	evet	repo	ytdlp
+rebelyticsoneskilltorulethemall	2:DeUbXXoo2mi,DeZZwDdH5PW	ekranda		hayır	atlas	rebelyticsoneskilltorulethemall
+assets	2:DeXK9x7jQfb,Dew-EGglUpE	ekranda	https://github.com/user-aftachments/assets https://github.com/user-altachments/assets https://github.com/user-alttachments/assets https://github.com/user-atachments/assets https://github.com/user-atta	evet	repo	assets
+marketingplan	2:DeYRMxMEfxd,DemSlicoHm4	ekranda+konuşmada		hayır	atlas	marketingplan
+webapptesting	2:DeZbmooNrmp,DeuLXZXtkGH	ekranda		hayır	atlas	webapptesting
+magic-mcp	2:DehO64bvSkV,Desw89eoG5a	ekranda	https://github.com/21st-dev/magic-mcp	hayır	repo	magicmcp
+hickslaw	2:Derh6MRlvot,DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	hickslaw
+lemo-opuscar	2:DeudXckt1W4,Dew2YFfth83	ekranda	https://github.com/Lemomo-ai/lemo-opuscar https://github.com/lemomo-ai/lemo-opuscar https://github.com/lemono-ai/lemo-opuscar	hayır	repo	lemoopuscar
+firecrawl	2:DeupYVwjRiu,DeyIOlwk0ar	ekranda	https://github.com/firecrawl/firecrawl	hayır	repo	firecrawl
+karpathyguidelines	2:DewhNn1AZGQ,DezZ7iQyv9N	ekranda		hayır	atlas	karpathyguidelines
+tradingview-mcp	2:DexhboUDukF,DexhnCzjYc0	ekranda	https://github.com/tradesdontlie/tradingview-mcp	hayır	repo	tradingviewmcp
+diagram-design	2:DdoRKQUAdeM,DeWwPtmDvqV	ekranda	https://github.com/cathrynlavery/diagram-design https://github.com/cathrynlavery/diagran-design	evet	repo	diagramdesign
+oneonone	1:1Jb517FRX7I	konuşmada		hayır	atlas	oneonone
+metaprompt	1:DFgo45csW48	konuşmada		hayır	atlas	metaprompt
+ditto	1:DIVq3ZmMRS1	ekranda	https://github.com/yohenakafima/ditto	hayır	repo	ditto
+wan	1:DIVq3ZmMRS1	ekranda	https://github.com/pinokiofactory/wan	hayır	repo	wan
+Wan2Gp	1:DIVq3ZmMRS1	ekranda	https://github.com/deepbeepmeep/Wan2Gp	hayır	repo	wan2gp
+dia	1:DJegJ4dMvyG	ekranda	https://github.com/nari-labs/dia	hayır	repo	dia
+standardmode	1:DKl1bmnPYh2	ekranda		hayır	atlas	standardmode
+edgetoedge	1:DX4iwBosR2_	ekranda		hayır	atlas	edgetoedge
+mcpintegration	1:DXb0NNTj8g1	ekranda		hayır	atlas	mcpintegration
+EVERYTHING-CLAUDE-CODE	1:DXmM2wLkf92	ekranda	https://github.com/AFFAAN-M/EVERYTHING-CLAUDE-CODE	evet	repo	everythingclaudecode
+modelsec	1:DXtiKwCjNHv	ekranda		evet	atlas	modelsec
+daude-video	1:DY8EtIPtKLC	ekranda	https://github.com/bradautomates/daude-video	hayır	repo	daudevideo
+@agent-tars/cli	1:DYINtbpx96G	ekranda		hayır	komut	agenttarscli
+slidescreator	1:DYKSiyRCbkk	ekranda		evet	atlas	slidescreator
+safishamsigraphify	1:DYKXe-YjOrd	ekranda		hayır	atlas	safishamsigraphify
+grillwithdocs	1:DYQCEK5OMrh	ekranda		hayır	atlas	grillwithdocs
+marketingcampaign	1:DYT9GQMjOmx	ekranda		hayır	atlas	marketingcampaign
+telegram@claude-plugins-official	1:DYY6WpNDP7k	ekranda		hayır	komut	telegramclaudepluginsofficial
+ironclad	1:DYd19cHDBaH	ekranda		hayır	atlas	ironclad
+privacylegal	1:DYd19cHDBaH	ekranda		evet	atlas	privacylegal
+hiringloop	1:DYoDw9pDEil	ekranda		hayır	atlas	hiringloop
+agent-toolkit	1:DYqolQdgY3k	ekranda	https://github.com/stripe/agent-toolkit	hayır	repo	agenttoolkit
+supabase-mcp	1:DYqolQdgY3k	ekranda	https://github.com/supabase-community/supabase-mcp	hayır	repo	supabasemcp
+sentry-mcp	1:DYqolQdgY3k	ekranda	https://github.com/getsentry/sentry-mcp	hayır	repo	sentrymcp
+notion-mcp-server	1:DYqolQdgY3k	ekranda	https://github.com/makenotion/notion-mcp-server	hayır	repo	notionmcpserver
+claude-code-templates	1:DYwe8NLjYWo	ekranda		hayır	komut	claudecodetemplates
+planceoreview	1:DYwe8NLjYWo	ekranda		evet	atlas	planceoreview
+planengreview	1:DYwe8NLjYWo	ekranda		evet	atlas	planengreview
+plandesignreview	1:DYwe8NLjYWo	ekranda		evet	atlas	plandesignreview
+securityguidance	1:DYwe8NLjYWo	ekranda		evet	atlas	securityguidance
+processdesign	1:DZ-wSxgkz0v	ekranda		evet	atlas	processdesign
+difficultconversation	1:DZ-wSxgkz0v	ekranda		hayır	atlas	difficultconversation
+OpenWA	1:DZ3PUfYlK6z	ekranda	https://github.com/rmymdharis/OpenWA https://github.com/rmymdmaris/openA https://github.com/rmyndharis/OpenWA	hayır	repo	openwa
+openicA	1:DZ3PUfYlK6z	ekranda	https://github.com/rmynonaris/openicA	hayır	repo	openica
+llama.cpp	1:DZ5CcdsjRHW	ekranda	https://github.com/ggml-org/llama.cpp	hayır	repo	llamacpp
+huggingface_hub	1:DZ5CcdsjRHW	ekranda		evet	komut	huggingfacehub
+costoptimization	1:DZDUd0kS7lw	ekranda		hayır	atlas	costoptimization
+threatmodeling	1:DZDUd0kS7lw	ekranda		hayır	atlas	threatmodeling
+turbovec	1:DZP_O5GOzN0	ekranda	https://github.com/RyanCodrai/turbovec	hayır	komut+repo	turbovec
+everything-claude-code@everything-claude-code	1:DZZr2P_k1TY	ekranda		hayır	komut	everythingclaudecodeeverythingclaudecode
+precompact	1:DZpySOnOCxI	ekranda		hayır	atlas	precompact
+multiexecute	1:DZpySOnOCxI	ekranda		hayır	atlas	multiexecute
+multiplan	1:DZpySOnOCxI	ekranda		hayır	atlas	multiplan
+httpsms	1:Da5-vksijqk	ekranda	https://github.com/NdoleStudio/httpsms	hayır	repo	httpsms
+httnsms-go	1:Da5-vksijqk	ekranda	https://github.com/NdoleStudio/httnsms-go	hayır	repo	httnsmsgo
+httpsms-go	1:Da5-vksijqk	ekranda	https://github.com/NdoleStudio/httpsms-go	hayır	repo	httpsmsgo
+htipsms-go	1:Da5-vksijqk	ekranda	https://github.com/NdoleStudio/htipsms-go	hayır	repo	htipsmsgo
+httpsms-node	1:Da5-vksijqk	ekranda	https://github.com/NdaleStudio/httpsms-node https://github.com/NdoleStudio/httpsms-node	hayır	repo	httpsmsnode
+agenticos	1:Da6kEv3JMY3	ekranda+konuşmada		hayır	atlas	agenticos
+benchmarkmodels	1:Da7xf8rviQU	ekranda		evet	atlas	benchmarkmodels
+openpencil	1:DaIHoDKE9cT	ekranda	https://github.com/ZSeven-W/openpencil https://github.com/ZSeven-W/openpencill	evet	repo	openpencil
+ope	1:DaIHoDKE9cT	ekranda	https://github.com/zseveo-W/ope	hayır	repo	ope
+designprompt	1:DaIHoDKE9cT	ekranda		hayır	atlas	designprompt
+gorseluret	1:DaLXKC1lFOz	ekranda		hayır	atlas	gorseluret
+crawl4ai	1:DaNePThiT8T	ekranda	https://github.com/unclecode/crawl4ai	hayır	komut+repo	crawl4ai
+crawlee	1:DaNePThiT8T	ekranda	https://github.com/apify/crawlee	hayır	komut+repo	crawlee
+scrapy	1:DaNePThiT8T	ekranda	https://github.com/scrapy/scrapy	hayır	komut+repo	scrapy
+scrapling	1:DaNePThiT8T	ekranda	https://github.com/scrapling/scrapling	evet	komut+repo	scrapling
+scrcpy	1:DaNePThiT8T	ekranda	https://github.com/Genymobile/scrcpy	hayır	komut+repo	scrcpy
+AutoScraper	1:DaNePThiT8T	ekranda	https://github.com/AutoScraper/AutoScraper	hayır	komut+repo	autoscraper
+curl-impersonate	1:DaNePThiT8T	ekranda	https://github.com/lexiforest/curl-impersonate	hayır	komut+repo	curlimpersonate
+firecrawl-py	1:DaNePThiT8T	ekranda		hayır	komut	firecrawlpy
+FROMMICROSOFT	1:DaNePThiT8T	ekranda		hayır	komut	frommicrosoft
+Website-downloader	1:Dah3WsUj-xq	ekranda	https://github.com/AhmadIbrahiim/Website-downloader https://github.com/AhmadIbrahiim/website-dowmloader https://github.com/AhmadIbrahiim/website-downloader https://github.com/Ahmadlbrahiim/Website-dow	hayır	repo	websitedownloader
+COPYOFA	1:Dah3WsUj-xq	ekranda		hayır	komut	copyofa
+keyboardnavigation	1:DappXCcvuE3	ekranda		hayır	atlas	keyboardnavigation
+orchreview	1:Dar76wns2Iv	ekranda		hayır	atlas	orchreview
+OpenAlice	1:DatpvftE-Iq	ekranda	https://github.com/TraderAlice/OpenAlice https://github.com/raderAlice/OpenAlice	hayır	repo	openalice
+youtube-automation-	1:Db-xq9zxXNq	ekranda	https://github.com/darkzOGx/youtube-automation https://github.com/darkzOGx/youtube-automation-	hayır	repo	youtubeautomation
+autonomousloops	1:Db8D5-Nzl06	konuşmada		hayır	atlas	autonomousloops
+omniget	1:DbEIoM4Fd08	ekranda	https://github.com/tonhowt/omniget https://github.com/tonhowtf/omniget	hayır	repo	omniget
+omnigetreadme	1:DbEIoM4Fd08	ekranda	https://github.com/tonhowtf/omnigetereadme https://github.com/tonhowtf/omnigetreadme	hayır	repo	omnigetreadme
+9drive	1:DbFKUuwiqq9	ekranda	https://github.com/zenhosta/9drive	hayır	repo	9drive
+prisma	1:DbFKUuwiqq9	ekranda		hayır	komut	prisma
+OmniCloudireadme	1:DbIz3rdFF3T	ekranda	https://github.com/dimartarmizi/OmniCioudireadme https://github.com/dimartarmizi/OmniCloudareadme https://github.com/dimartarmizi/OmniCloudireadme https://github.com/dimartarmizi/OmniCloudirreadme htt	hayır	repo	omnicloudireadme
+OmniCloud	1:DbIz3rdFF3T	ekranda	https://github.com/dimartarmizi/OmniCloud	hayır	repo	omnicloud
+Scout	1:DbJtLyLAJ2D	ekranda	https://github.com/kiryano/Scout	hayır	repo	scout
+evolution.go	1:DbKJcr9n21y	ekranda	https://github.com/evolut1on.foundation/evolution.go https://github.com/evolutio-roundation/evolution.go https://github.com/evolution-foundation/evolution-go https://github.com/evolution.foundatien/ev	hayır	repo	evolutiongo
+evolut1on.go.glt	1:DbKJcr9n21y	ekranda	https://github.com/ewotution-feundat1on/evolut1on.go.glt	hayır	repo	evolut1ongoglt
+evolution	1:DbKJcr9n21y	ekranda	https://github.com/evolut1on.foundation/evolution https://github.com/evolution-foundation/evoltion	hayır	repo	evolution
+evolut1en	1:DbKJcr9n21y	ekranda	https://github.com/evolut1on-foundat1on/evolut1en	hayır	repo	evolut1en
+evolton-go	1:DbKJcr9n21y	ekranda	https://github.com/evolution-foundation/evolton-go	hayır	repo	evoltongo
+evolution-goreadme	1:DbKJcr9n21y	ekranda	https://github.com/evolution-foundation/evolution-goreadme	hayır	repo	evolutiongoreadme
+AutoSocial	1:DbLROjmkXwp	ekranda	https://github.com/Katzca/AutoSocial	hayır	repo	autosocial
+ptaywright	1:DbLROjmkXwp	ekranda		hayır	komut	ptaywright
+antigravity-awesome-skills	1:DbQ9SdYqoNk	ekranda		hayır	komut	antigravityawesomeskills
+pinchtab	1:DbRGB9QsGtb	ekranda	https://github.com/pinchtab/pinchtab	hayır	repo	pinchtab
+plancanvas	1:DbUcU4Jjm1p	ekranda		hayır	atlas	plancanvas
+ai-job-search	1:DbUg-kOFC-C	ekranda	https://github.com/MadsLorentzen/ai-job-search	hayır	repo	aijobsearch
+al-job-search	1:DbUg-kOFC-C	ekranda	https://github.com/MadsLorentzen/al-job-search	hayır	repo	aljobsearch
+ai-job-searchfreadme	1:DbUg-kOFC-C	ekranda	https://github.com/MadsLorentzen/ai-job-searchereadme https://github.com/MadsLorentzen/ai-job-searchfreadme https://github.com/MadsLorentzen/ai-job-searchwreadme	hayır	repo	aijobsearchfreadme
+poppter	1:DbUg-kOFC-C	ekranda		hayır	komut	poppter
+openship.gita	1:DbVGcvfgUsD	ekranda	https://github.com/oblien/openship.gita	hayır	repo	openshipgita
+openshipreadme	1:DbVGcvfgUsD	ekranda	https://github.com/oblien/openshipreadme	hayır	repo	openshipreadme
+quarterlyreview	1:Dbf53LFPTBz	ekranda		evet	atlas	quarterlyreview
+SIGNALCole	1:DbkhHb9TJSQ	ekranda		hayır	komut	signalcole
+crm	1:DbxCyfHAddF	ekranda	https://github.com/trycompai/crm	hayır	repo	crm
+crmreadme	1:DbxCyfHAddF	ekranda	https://github.com/trycompai/crmreadme	hayır	repo	crmreadme
+toprank	1:Dc-zw_Vicxs	ekranda	https://github.com/nowork-studio/toprank	hayır	repo	toprank
+codesimplifier	1:Dc1NGcnA9PB	ekranda		evet	atlas	codesimplifier
+ganplanner	1:Dc1NGcnA9PB	ekranda		hayır	atlas	ganplanner
+codearchitect	1:Dc1NGcnA9PB	ekranda		hayır	atlas	codearchitect
+harnessoptimizer	1:Dc1NGcnA9PB	ekranda		hayır	atlas	harnessoptimizer
+gangenerator	1:Dc1NGcnA9PB	ekranda		hayır	atlas	gangenerator
+reverse-skill	1:Dc3UbnBCR9I	ekranda	https://github.com/zhaoxuya520/reverse-skill	hayır	repo	reverseskill
+DetTomarrot	1:Dc3UbnBCR9I	ekranda		hayır	komut	dettomarrot
+implementspec	1:Dc3UbnBCR9I	ekranda		hayır	atlas	implementspec
+teqtrade	1:Dc3ghFVtE0f	ekranda	https://github.com/reqtrade/teqtrade	hayır	repo	teqtrade
+OpenSandbox	1:DcBuc3XuVif	ekranda	https://github.com/opensandbox-group/OpenSandbox	hayır	repo	opensandbox
+floci	1:DcI8a69AEJq	ekranda	https://github.com/fioci-io/floci https://github.com/floci-io/floci	hayır	repo	floci
+flocireadme	1:DcI8a69AEJq	ekranda	https://github.com/floci-io/flocireadme	hayır	repo	flocireadme
+mixamo-llm-mocap	1:DcNOMyTCXmO	ekranda	https://github.com/squall01337/mixamo-llm-mocap https://github.com/squall1337/mixamo-llm-mocap https://github.com/squallo1337/mixamo-llm-mocap	hayır	repo	mixamollmmocap
+mixamo-m-mocap	1:DcNOMyTCXmO	ekranda	https://github.com/squall01337/mixamo-m-mocap	hayır	repo	mixamommocap
+Anzhropic-Cybersecurity-Skills.s	1:DcOFxr4Ej29	ekranda	https://github.com/mukul975/Anzhropic-Cybersecurity-Skills.s	hayır	repo	anzhropiccybersecurityskillss
+langgraph	1:DcWDpKejYOE	ekranda		hayır	komut	langgraph
+dramaclaw	1:DcXvWV0z077	ekranda	https://github.com/dramaclam/dramaclaw	hayır	repo	dramaclaw
+dra	1:DcXvWV0z077	ekranda	https://github.com/dramaclam/dra	hayır	repo	dra
+opensourcepipeline	1:DcXvWV0z077	konuşmada		hayır	atlas	opensourcepipeline
+DiffSynth-	1:DcYjSpTiEVQ	ekranda	https://github.com/modelscope/DiffSynth-	hayır	repo	diffsynth
+deer-flow	1:Dc_cgg-ETAF	ekranda	https://github.com/byedance/deer-flow https://github.com/bytedance/deer-flow https://github.com/bytedanco/deer-flow	hayır	repo	deerflow
+decr-low	1:Dc_cgg-ETAF	ekranda	https://github.com/bytedance/decr-low	hayır	repo	decrlow
+awesome-openso	1:Dcj-dVpCTra	ekranda	https://github.com/StefanoCecere/awesome-openso	hayır	repo	awesomeopenso
+awesome-opensource-unity	1:Dcj-dVpCTra	ekranda	https://github.com/StefanoCecere/awesome-opensource-unity	hayır	repo	awesomeopensourceunity
+Saa	1:Dck78LdjU8r	ekranda	https://github.com/NVlab/Saa	hayır	repo	saa
+Sana	1:Dck78LdjU8r	ekranda	https://github.com/NVlabs/Sana	evet	repo	sana
+taskcompleted	1:Dcl0nk9ibZE	ekranda		hayır	atlas	taskcompleted
+editor	1:DcoIjyNOVE0	ekranda	https://github.com/diffusionstudio/editor	evet	repo	editor
+continuouslearningv2	1:DcoU-a2D1uC	ekranda		hayır	atlas	continuouslearningv2
+instinctstatus	1:DcoU-a2D1uC	ekranda		hayır	atlas	instinctstatus
+instinctexport	1:DcoU-a2D1uC	ekranda		hayır	atlas	instinctexport
+instinctimport	1:DcoU-a2D1uC	ekranda		hayır	atlas	instinctimport
+azurelocal	1:DctX3CCPLtd	ekranda		evet	atlas	azurelocal
+autofast	1:DctX3CCPLtd	ekranda		hayır	atlas	autofast
+AIprovidercredentials:Shannonruns	1:DcvxdBtoEnk	ekranda		hayır	komut	aiprovidercredentialsshannonruns
+AIprovidercredentials:Shannon	1:DcvxdBtoEnk	ekranda		hayır	komut	aiprovidercredentialsshannon
+Node.js	1:Dcw20sWpLgs	ekranda		evet	komut	nodejs
+adstiktok	1:Dd-lBUpgXs8	konuşmada		hayır	atlas	adstiktok
+creativestrategist	1:Dd0645CiHH9	ekranda		hayır	atlas	creativestrategist
+TradingAgents	1:Dd0ZDPRjIWA	ekranda	https://github.com/TauricResearch/TradingAgents	hayır	repo	tradingagents
+Tr	1:Dd0ZDPRjIWA	ekranda	https://github.com/TauricResearch/Tr	hayır	repo	tr
+with	1:Dd0ZDPRjIWA	ekranda		evet	komut	with
+designworkflow	1:Dd10DUasUW5	ekranda		hayır	atlas	designworkflow
+security-	1:Dd1gnAPCMGd	ekranda	https://github.com/cloudflare/security https://github.com/cloudflare/security-	evet	repo	security
+Dextop	1:Dd2GLGvAMII	ekranda	https://github.com/NarYuk/Dextop https://github.com/NarYuki/Dextop https://github.com/Naruk/Dextop	hayır	repo	dextop
+Dextopreadme	1:Dd2GLGvAMII	ekranda	https://github.com/NarYuk/Dextopreadme https://github.com/NarYuki/Dextopireadme https://github.com/NarYuki/Dextopreadme	hayır	repo	dextopreadme
+Dedop	1:Dd2GLGvAMII	ekranda	https://github.com/NarYuki/Dedop	hayır	repo	dedop
+Decop	1:Dd2GLGvAMII	ekranda	https://github.com/NarYuk/Decop	hayır	repo	decop
+durableobjects	1:Dd3xTHfALLA	ekranda		evet	atlas	durableobjects
+tospec	1:Dd4-QQgO-Hx	ekranda		hayır	atlas	tospec
+creata-tnty-app	1:Dd40YRPxuEB	ekranda		hayır	komut	creatatntyapp
+supabasepostgresbestpractices	1:Dd4Ama8mnza	ekranda		evet	atlas	supabasepostgresbestpractices
+vercelreactbestpractices	1:Dd4Ama8mnza	ekranda		hayır	atlas	vercelreactbestpractices
+degit	1:Dd4C4cEj3Ht	ekranda		hayır	komut	degit
+exampleskills	1:Dd4C4cEj3Ht	ekranda		evet	atlas	exampleskills
+academyguide	1:Dd4C4cEj3Ht	ekranda		hayır	atlas	academyguide
+chramm-devroois-mop	1:Dd4LrTSsx0i	ekranda	https://github.com/CnomeDeyToois/chramm-devroois-mop	hayır	repo	chrammdevrooismop
+chrome-devtools-mcp@Latest	1:Dd4LrTSsx0i	ekranda		hayır	komut	chromedevtoolsmcplatest
+OpenShell	1:Dd5YSAqFaHd	ekranda	https://github.com/NVIDIA/OpenShel https://github.com/NVIDIA/OpenShell https://github.com/NVIDLA/OpenShel https://github.com/NVIDLA/OpenShell	hayır	komut+repo	openshell
+OpenShell--ag	1:Dd5YSAqFaHd	ekranda	https://github.com/NVID1A/OpenShell--ag https://github.com/NVID1A/OpenShell-tag https://github.com/NVIDIA/OpenShell--ag https://github.com/NVIDIA/OpenShell--sg https://github.com/NVIDIA/OpenShell--tag	hayır	repo	openshellag
+@nvidia/openshell-sdk	1:Dd5YSAqFaHd	ekranda		hayır	komut	nvidiaopenshellsdk
+@avidia/openshell-sdk	1:Dd5YSAqFaHd	ekranda		hayır	komut	avidiaopenshellsdk
+vicoa	1:Dd8czNclQ-T	ekranda	https://github.com/vicoa-ai/vicoa	hayır	repo	vicoa
+@vicoa/cli	1:Dd8czNclQ-T	ekranda		hayır	komut	vicoacli
+GhostTrack	1:Dd8z9XYjY-T	ekranda	https://github.com/HunxByt/GhosTrack https://github.com/HunxByts/GhosTrack https://github.com/HunxByts/GhosrTrack https://github.com/HunxByts/GhostTrack https://github.com/unxByts/GhostTrack	hayır	repo	ghostrack
+GhosTrack.gi	1:Dd8z9XYjY-T	ekranda	https://github.com/HunxByts/GhosTrack.gi	hayır	repo	ghostrackgi
+GhosTeack	1:Dd8z9XYjY-T	ekranda	https://github.com/HunxByt/GhosTeack	hayır	repo	ghosteack
+hkudsclianything	1:Dd9NdbFxJLo	ekranda		evet	atlas	hkudsclianything
+openmaic	1:Dd9RvQDiUVH	ekranda		hayır	atlas	openmaic
+azureai	1:Dd9ZUN4DiEy	ekranda		hayır	atlas	azureai
+chatgpt-youtube-agent-ki	1:Dd9jX-YtWL2	ekranda	https://github.com/Jakeschincariol/chatgpt-youtube-agent-ki	hayır	repo	chatgptyoutubeagentki
+dshweb	1:Dd9sASatocZ	ekranda		hayır	komut	dshweb
+pentest-agents	1:DdA-QjwAMh_	ekranda	https://github.com/H-mmer/pentest-agents	hayır	repo	pentestagents
+pentest-agents-suite	1:DdA-QjwAMh_	ekranda	https://github.com/H-mmer/pentest-agents-suite	hayır	repo	pentestagentssuite
+pentest-agentsfreadme	1:DdA-QjwAMh_	ekranda	https://github.com/H-mmer/pentest-agentsfreadme	hayır	repo	pentestagentsfreadme
+byperrameskills	1:DdAuz8NDNOU	ekranda		hayır	komut	byperrameskills
+hyperfrans	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperfrans
+byperframes	1:DdAuz8NDNOU	ekranda		hayır	komut	byperfrmes
+hyperrane	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperrane
+hyperfmeskil	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperfmeskil
+hyperfmekillpd	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperfmekillpd
+hyperftame	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperftame
+kill	1:DdAuz8NDNOU	ekranda		evet	komut	kill
+hyerfre	1:DdAuz8NDNOU	ekranda		hayır	komut	hyerfre
+bvorframesinit	1:DdAuz8NDNOU	ekranda		hayır	komut	bvorframesinit
+hyerfrmes	1:DdAuz8NDNOU	ekranda		hayır	komut	hyerfrmes
+bperframes	1:DdAuz8NDNOU	ekranda		hayır	komut	bperframes
+bperrameskilkupdaFOR	1:DdAuz8NDNOU	ekranda		hayır	komut	bperrameskilkupdafor
+hypetframes-all	1:DdAuz8NDNOU	ekranda		hayır	komut	hypetframesall
+skiladd	1:DdAuz8NDNOU	ekranda		hayır	komut	skiladd
+skil	1:DdAuz8NDNOU	ekranda		evet	komut	skil
+byperframesinit	1:DdAuz8NDNOU	ekranda		hayır	komut	byperframesinit
+hyperframessillsupdate	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperframessillsupdate
+skillk	1:DdAuz8NDNOU	ekranda		hayır	komut	skillk
+hyperfraesskilsupdaeinstalls	1:DdAuz8NDNOU	ekranda		hayır	komut	hyperfraesskilsupdaeinstalls
+skillkad	1:DdAuz8NDNOU	ekranda		hayır	komut	skillkad
+hyperframeskeyframes	1:DdAuz8NDNOU	ekranda		hayır	atlas	hyperframeskeyframes
+locally-uncensored	1:DdBGaAgnQyL	ekranda	https://github.com/PurpleDoubleD/locally-uncensored	hayır	repo	locallyuncensored
+ocally-uncensored	1:DdBGaAgnQyL	ekranda	https://github.com/PurpleDoubleD/ocally-uncensored https://github.com/PurpleDoubleD/ocally-uncensoredi	hayır	repo	ocallyuncensored
+locally-uncensoredireadme	1:DdBGaAgnQyL	ekranda	https://github.com/PurpleDoubleD/locally-uncensoredireadme	hayır	repo	locallyuncensoredireadme
+browserreleases	1:DdBlwBIFGvC	ekranda	https://github.com/ightpanda-i/browserreleases	hayır	repo	browserreleases
+releses	1:DdBlwBIFGvC	ekranda	https://github.com/ightandfbroe/releses	hayır	repo	releses
+release	1:DdBlwBIFGvC	ekranda	https://github.com/lightpanda-iobroaser/release	evet	repo	release
+relases	1:DdBlwBIFGvC	ekranda	https://github.com/lightpanda-iobronser/relases https://github.com/lightpanda-iobrowser/relases https://github.com/lightpanda-iobrowset/relases https://github.com/lightpanda-jobrowse/relases4	hayır	repo	relases
+rekases	1:DdBlwBIFGvC	ekranda	https://github.com/ightpanda-iobrowser/rekases https://github.com/lighpada-fbromge/rekase https://github.com/lightpanda-iobrowser/rekases https://github.com/lightpanda-iobrowset/rekases	hayır	repo	rekase
+releass	1:DdBlwBIFGvC	ekranda	https://github.com/lightpanda-tobrowger/releass	hayır	repo	releass
+lightpanda-io/beowser/lightpanda	1:DdBlwBIFGvC	ekranda		hayır	komut	lightpandaiobeowserlightpanda
+lighapanda-io/beowsicr/lighrpanda	1:DdBlwBIFGvC	ekranda		hayır	komut	lighapandaiobeowsicrlighrpanda
+browserlightpnda	1:DdBlwBIFGvC	ekranda		hayır	komut	browserlightpnda
+createcomponent	1:DdETp-tNFW2	ekranda		evet	atlas	createcomponent
+whichllm	1:DdEmizXglN9	ekranda		hayır	komut	whichllm
+agenticengineering	1:DdFQ-K0AJ0b	konuşmada		hayır	atlas	agenticengineering
+FileSync	1:DdKcLiJgczB	ekranda	https://github.com/polius/FileSync	hayır	repo	filesync
+OpenTerminal	1:DdLBNl1Dq_S	ekranda	https://github.com/ErTasselli/OpenTerminal	hayır	repo	openterminal
+@truefoundry/trueforge	1:DdRPipxzXNf	ekranda		hayır	komut	truefoundrytrueforge
+bananaclaude	1:DdRU_fqK3YN	ekranda		evet	atlas	bananaclaude
+claude-red-	1:DdSaxEKjhg_	ekranda	https://github.com/Snai1Sploit/claude-red- https://github.com/Snaiisploit/claude-red- https://github.com/SnailSploit/Claude-Red https://github.com/Snailsploit/claude-red-	hayır	repo	claudered
+flowsint	1:DdSwfSNgFiJ	ekranda	https://github.com/reconurge/flowsint	hayır	repo	flowsint
+tlowsint	1:DdSwfSNgFiJ	ekranda	https://github.com/reconurge/tlowsint	hayır	repo	tlowsint
+lowsint	1:DdSwfSNgFiJ	ekranda	https://github.com/reconurge/lowsint	hayır	repo	lowsint
+agency-agents	1:DdTdlm9i_Eg	ekranda	https://github.com/msitarzewski/agency-agents	hayır	repo	agencyagents
+codebaseonboarding	1:DdTdlm9i_Eg	ekranda		evet	atlas	codebaseonboarding
+domainmodeling	1:DdTdlm9i_Eg	ekranda		hayır	atlas	domainmodeling
+networkengineer	1:DdTdlm9i_Eg	ekranda		evet	atlas	networkengineer
+whimsyinjector	1:DdTdlm9i_Eg	ekranda		evet	atlas	whimsyinjector
+elect	1:DdUk0Lrx0rw	ekranda		hayır	komut	elect
+visualdesigner	1:DdWzc45k8wY	ekranda		hayır	atlas	visualdesigner
+vphone-cli	1:DdXZOxTihxj	ekranda	https://github.com/Lakr233/vphone-cli	hayır	repo	vphonecli
+vphone-cl1	1:DdXZOxTihxj	ekranda	https://github.com/Lakr233/vphone-cl1	hayır	repo	vphonecl1
+pythong3.13aria2wget	1:DdXZOxTihxj	ekranda		hayır	komut	pythong313aria2wget
+brag--skill	1:DdY-K9oDbHl	ekranda	https://github.com/latent-spaces/brag--skill https://github.com/latent-spaces/brag-skill	hayır	repo	bragskill
+brag--skillbrag	1:DdY-K9oDbHl	ekranda	https://github.com/latent-spaces/brag--skillbrag https://github.com/latent-spaces/brag-skillbrag	hayır	repo	bragskillbrag
+brag@brag	1:DdY-K9oDbHl	ekranda		hayır	komut	bragbrag
+skillsaddhttps://github.com/latent-spaces/brag	1:DdY-K9oDbHl	ekranda		hayır	komut	skillsaddhttpsgithubcomlatentspacesbrag
+What	1:DdY-K9oDbHl	ekranda		evet	komut	what
+-fakeproductsitesused	1:DdY-K9oDbHl	ekranda		hayır	komut	fakeproductsitesused
+skills/brag/-theskill	1:DdY-K9oDbHl	ekranda		hayır	komut	skillsbragtheskill
+opencode/skills/brag/	1:DdY-K9oDbHl	ekranda		hayır	komut	opencodeskillsbrag
+opencut-cla	1:DdZ8SJtv96F	ekranda	https://github.com/OpenCut-app/opencut-cla	hayır	repo	opencutcla
+geooptimizerskill	1:DdZPRfiStXv	konuşmada		evet	atlas	geooptimizerskill
+performancereview	1:Dd_b9M3AcSE	konuşmada		hayır	atlas	performancereview
+Open-Generative-Al	1:Dd_sICVjFKq	ekranda	https://github.com/Anil-matcha/Open-Generative-Al	hayır	repo	opengenerativeal
+jobstobedone	1:DdbhJqIH8BU	ekranda		hayır	atlas	jobstobedone
+designauditor	1:DdbhJqIH8BU	ekranda		hayır	atlas	designauditor
+skillssearch	1:Ddc1db7Cj_D	ekranda		hayır	atlas	skillssearch
+nateherkaiscrollcraft	1:Ddc1db7Cj_D	ekranda		hayır	atlas	nateherkaiscrollcraft
+nateherkdesign	1:Ddc1db7Cj_D	ekranda		evet	atlas	nateherkdesign
+@alibaba-group/open-code-review	1:DdccgmSG8E9	ekranda		evet	komut	alibabagroupopencodereview
+skillcreate	1:DddrOAliOMK	ekranda		hayır	atlas	skillcreate
+adversarialreview	1:DdeHmAstM_j	ekranda		hayır	atlas	adversarialreview
+thinking-orbs	1:DdgPH-poGbJ	ekranda+konuşmada	https://github.com/Jakubantalik/thinking-orbs	evet	atlas+repo	thinkingorbs
+system_prompts_leaks	1:DdgxNnmID16	ekranda	https://github.com/asgeirtj/system_prompts_leaks	hayır	repo	systempromptsleaks
+system_prompts_Joaks	1:DdgxNnmID16	ekranda	https://github.com/asgeirty/system_prompts_Joaks	hayır	repo	systempromptsjoaks
+tolaria	1:DdhP3u5gDci	ekranda	https://github.com/refactoringhq/tolaria	hayır	repo	tolaria
+libsql	1:DdhP3u5gDci	ekranda	https://github.com/tursodatabase/libsql	hayır	repo	libsql
+reflex	1:DdhP3u5gDci	ekranda	https://github.com/reflex-dev/reflex	hayır	repo	reflex
+infisical	1:DdhP3u5gDci	ekranda	https://github.com/lnfisical/infisical	hayır	repo	infisical
+polar	1:Ddj6zP4gKi6	ekranda	https://github.com/polarsource/polar	hayır	repo	polar
+pocketbase	1:Ddj6zP4gKi6	ekranda	https://github.com/pocketbase/pocketbase	evet	repo	pocketbase
+screenize	1:Ddj6zP4gKi6	ekranda	https://github.com/syi0808/screenize	hayır	repo	screenize
+DeepDiagram	1:Ddj6zP4gKi6	ekranda	https://github.com/LingyiChen-Al/DeepDiagram	hayır	repo	deepdiagram
+jev-trader	1:Ddja2_uDxqr	ekranda	https://github.com/jarrodwatts/jev-trader	hayır	repo	jevtrader
+shadcngLatest	1:Ddl3VNQBc3O	ekranda		hayır	komut	shadcnglatest
+plexoreadme	1:DdlyTncEpZq	ekranda	https://github.com/anmolkapil/plexoreadme https://github.com/anmolkapil/plexotreadme	hayır	repo	plexoreadme
+plexo	1:DdlyTncEpZq	ekranda	https://github.com/anmolkapil/plexo	hayır	repo	plexo
+plexottreadme	1:DdlyTncEpZq	ekranda	https://github.com/anmolkapil/plexoitreadme https://github.com/anmolkapil/plexoltreadme https://github.com/anmolkapil/plexotireadme https://github.com/anmolkapil/plexottreadme	hayır	repo	plexottreadme
+serena	1:DdmQWJzqP8H	ekranda	https://github.com/oraios/serena	evet	repo	serena
+frecraw	1:DdmQWJzqP8H	ekranda	https://github.com/recraw/frecraw	hayır	repo	frecraw
+beads	1:DdmQWJzqP8H	ekranda	https://github.com/gastownhal/beads	hayır	repo	beads
+claude-code-router	1:DdmQWJzqP8H	ekranda	https://github.com/musistudio/claude-code-router	hayır	repo	claudecoderouter
+headroomcompress	1:DdmQWJzqP8H	ekranda		hayır	atlas	headroomcompress
+stemkit	1:DdnQtgBCUZu	ekranda	https://github.com/danielravina/stemkit	hayır	repo	stemkit
+WrongNodeversion	1:DdnQtgBCUZu	ekranda		hayır	komut	wrongnodeversion
+OpenViking	1:DdoRKQUAdeM	ekranda	https://github.com/volcengine/OpenViking	hayır	repo	openviking
+Agent-Memory	1:DdoRKQUAdeM	ekranda	https://github.com/Threesided-Studios/Agent-Memory	hayır	repo	agentmemory
+scientific-agent-skills	1:DdoRKQUAdeM	ekranda	https://github.com/K-Dense-Al/scientific-agent-skills	hayır	repo	scientificagentskills
+awesome-hamess-engineering	1:DdoRKQUAdeM	ekranda	https://github.com/yenanjing/awesome-hamess-engineering	hayır	repo	awesomehamessengineering
+motion-web	1:Ddq_RtLEU7c	ekranda	https://github.com/feitangyuan/motion-web	hayır	repo	motionweb
+motion-web.git-	1:Ddq_RtLEU7c	ekranda	https://github.com/feitangyuan/motion-web.git-	hayır	repo	motionwebgit
+ax	1:Ddt16ilkRGB	ekranda	https://github.com/google/ax	hayır	repo	ax
+paperclip	1:Ddt16ilkRGB	ekranda	https://github.com/paperclipai/paperclip	hayır	repo	paperclip
+laya	1:Ddt16ilkRGB	ekranda		evet	komut	laya
+hindsight-all	1:Ddt16ilkRGB	ekranda		hayır	komut	hindsightall
+clickhouse	1:DdtkH_cR82p	ekranda		evet	atlas	clickhouse
+omnivoice	1:Ddv0we2odg2	konuşmada		hayır	atlas	omnivoice
+tegaki	1:DdveM-dDrFx	ekranda		hayır	komut	tegaki
+balsa-ui	1:DdveM-dDrFx	ekranda		hayır	komut	balsaui
+hermes-agent	1:DdwURoumtRW	ekranda	https://github.com/NousResearch/hermes-agent	hayır	repo	hermesagent
+n8n	1:DdwURoumtRW	ekranda	https://github.com/n8n-io/n8n	hayır	repo	n8n
+ollama	1:DdwURoumtRW	ekranda	https://github.com/ollama/ollama	evet	repo	ollama
+dify	1:DdwURoumtRW	ekranda	https://github.com/langgenius/dify	hayır	repo	dify
+awesome-llm-apps	1:DdwURoumtRW	ekranda	https://github.com/Shubhamsaboo/awesome-llm-apps	hayır	repo	awesomellmapps
+mattermost	1:DdwURoumtRW	ekranda	https://github.com/mattermost/mattermost	hayır	repo	mattermost
+outline	1:DdwURoumtRW	ekranda	https://github.com/outline/outline	evet	repo	outline
+immich	1:DdwURoumtRW	ekranda	https://github.com/immich-app/immich	hayır	repo	immich
+medusa	1:DdwURoumtRW	ekranda	https://github.com/medusajs/medusa	hayır	repo	medusa
+novu	1:DdwURoumtRW	ekranda	https://github.com/novuhq/novu	hayır	repo	novu
+ToolJet	1:DdwURoumtRW	ekranda	https://github.com/ToolJet/ToolJet	hayır	repo	tooljet
+awesome-selfhosted	1:DdwURoumtRW	ekranda	https://github.com/awesome-selfhosted/awesome-selfhosted	hayır	repo	awesomeselfhosted
+free-for-dev	1:DdwURoumtRW	ekranda	https://github.com/ripienaar/free-for-dev	hayır	repo	freefordev
+openwork	1:DdwURoumtRW	ekranda	https://github.com/different-ai/openwork	hayır	repo	openwork
+verificationloop	1:DdxFO8tyw5N	ekranda+konuşmada		hayır	atlas	verificationloop
+kiln	1:DdxkGdSiWlQ	ekranda	https://github.com/matthew-kissinger/kiln	hayır	repo	kiln
+RuView	1:Ddy0WIDAv8w	ekranda	https://github.com/ruvnet/RuView	hayır	repo	ruview
+ASC	1:Ddy0WIDAv8w	ekranda	https://github.com/MG1937/ASC	hayır	repo	asc
+Voic	1:Ddy0WIDAv8w	ekranda	https://github.com/debpalash/Voic	evet	repo	voic
+MiroFish	1:Ddy0WIDAv8w	ekranda	https://github.com/666ghj/MiroFish	hayır	repo	mirofish
+atlas	1:Ddy0WIDAv8w	ekranda	https://github.com/pacifio/atlas	hayır	repo	atlas
+OpenR	1:Ddy0WIDAv8w	ekranda	https://github.com/alphaXiv/OpenR	hayır	repo	openr
+VoiceStud	1:DdyhyH1geFx	ekranda	https://github.com/debpalash/VoiceStud	evet	repo	voicestud
+businessdesign	1:Ddz7Ra-H8El	ekranda		hayır	atlas	businessdesign
+modelcontextprotocolservers	1:DeAjtFgCUdj	ekranda		hayır	atlas	modelcontextprotocolservers
+awesome-freellm-apis	1:DeB_xCxDT_F	ekranda	https://github.com/open-free-llm-api/awesome-freellm-apis	hayır	repo	awesomefreellmapis
+TrauingAgeats	1:DeCTADyMR9h	ekranda	https://github.com/TauricResearch/TrauingAgeats	hayır	repo	trauingageats
+TrauingAgents.AnalystIeam	1:DeCTADyMR9h	ekranda	https://github.com/TauricResearch/TrauingAgents.AnalystIeam	hayır	repo	trauingagentsanalystieam
+designonboarding	1:DeCUsonlChf	ekranda		hayır	atlas	designonboarding
+context7mcp	1:DeCixT6ilL7	ekranda		evet	atlas	context7mcp
+NullMotion	1:DeEHG3cgL8h	ekranda	https://github.com/blixvip/NullMotion	hayır	repo	nullmotion
+superpowers@claude-plugins-official	1:DeEiGKKIKqB	ekranda		evet	komut	superpowersclaudepluginsofficial
+jsoweptokenalatest	1:DeEiGKKIKqB	ekranda		hayır	komut	jsoweptokenalatest
+frontend-design@claude-plugins-	1:DeEzggoDMYU	ekranda		evet	komut	frontenddesignclaudeplugins
+superpowers@claude-plugins-	1:DeEzggoDMYU	ekranda		evet	komut	superpowersclaudeplugins
+context7@claude-plugins-official	1:DeEzggoDMYU	ekranda		hayır	komut	context7claudepluginsofficial
+playwright@claude-plugins-official	1:DeEzggoDMYU	ekranda		evet	komut	playwrightclaudepluginsofficial
+github@claude-plugins-official	1:DeEzggoDMYU	ekranda		hayır	komut	githubclaudepluginsofficial
+figma@claude-plugins-official	1:DeEzggoDMYU	ekranda		hayır	komut	figmaclaudepluginsofficial
+vercel@claude-plugins-official	1:DeEzggoDMYU	ekranda		hayır	komut	vercelclaudepluginsofficial
+proceduralbuildingsthreejs	1:DeGHCSSjCNu	ekranda	https://github.com/achrefelouafi/ProceduralBuildingsThreeJS https://github.com/achrefelouafi/proceduralbuildingsthreejs	hayır	repo	proceduralbuildingsthreejs
+reareadme	1:DeGeaxYjeCq	ekranda	https://github.com/morluto/reareadme	hayır	repo	reareadme
+auth	1:DeH33EMgBYT	ekranda		evet	komut	auth
+colibri	1:DeHET6Djdww	ekranda	https://github.com/JustVugg/colibri	hayır	repo	colibri
+ffmpeg	1:DeHGj-mG-5V	ekranda		evet	komut	ffmpeg
+anti-slop	1:DeHNkMklMK7	ekranda	https://github.com/miqdadbadjuber/anti-slop	hayır	repo	antislop
+antislop-ai	1:DeHNkMklMK7	ekranda		hayır	komut	antislopai
+minimalistui	1:DeHNkMklMK7	ekranda		hayır	atlas	minimalistui
+bluecloudycleanmodern	1:DeHNkMklMK7	ekranda		evet	atlas	bluecloudycleanmodern
+bluelasercleanglasslayout	1:DeHNkMklMK7	ekranda		evet	atlas	bluelasercleanglasslayout
+agencygridlayoutminimal	1:DeHNkMklMK7	ekranda		evet	atlas	agencygridlayoutminimal
+adscompetitor	1:DeHhu6qlL7Q	ekranda		hayır	atlas	adscompetitor
+adsmeta	1:DeHhu6qlL7Q	ekranda		hayır	atlas	adsmeta
+adsplan	1:DeHhu6qlL7Q	ekranda		hayır	atlas	adsplan
+adsbudget	1:DeHhu6qlL7Q	ekranda		hayır	atlas	adsbudget
+adscreative	1:DeHhu6qlL7Q	ekranda		hayır	atlas	adscreative
+adsaudit	1:DeHhu6qlL7Q	ekranda		hayır	atlas	adsaudit
+openclaudia-skills	1:DeHiUezkt8m	ekranda	https://github.com/OpenClaudia/openclaudia-skills	hayır	repo	openclaudiaskills
+ui-skills	1:DeIGcthDcYm	ekranda		evet	komut	uiskills
+uiskillsroot	1:DeIGcthDcYm	ekranda		evet	atlas	uiskillsroot
+improveanimations	1:DeIGcthDcYm	ekranda		evet	atlas	improveanimations
+@lucasmarkes/hairline	1:DeIQfJsz2vc	ekranda		hayır	komut	lucasmarkeshairline
+claude-conl	1:DeJi6Z3FBeT	ekranda	https://github.com/0otto-AI/claude-conl	hayır	repo	claudeconl
+hyperfra	1:DeJt637CpcM	ekranda		evet	komut	hyperfra
+rea-agcnts	1:DeKHggujqWf	ekranda		hayır	komut	reaagcnts
+reca	1:DeKHggujqWf	ekranda		evet	komut	reca
+skillsaddmorlutorea-skill	1:DeKHggujqWf	ekranda		hayır	komut	skillsaddmorlutoreaskill
+reasetup	1:DeKHggujqWf	ekranda		hayır	komut	reasetup
+claude-memREADME	1:DeKuUWUKp7J	ekranda	https://github.com/thodotmack/claude-memREADME	hayır	repo	claudememreadme
+linkedin-a	1:DeMKh-6KYjk	ekranda	https://github.com/Jakeschincariol/linkedin-a	evet	repo	linkedina
+create-next-app	1:DeMrKekk7RU	ekranda		hayır	komut	createnextapp
+council-of-high-intelliaence	1:DeMxmBpo8T3	ekranda	https://github.com/OxNyk/council-of-high-intelliaence https://github.com/OxNyk/council-of-high-intelligence	hayır	repo	councilofhighintelliaence
+MiniCPM	1:DeMyQ4PjZlr	ekranda	https://github.com/OpenBMB/MiniCPM	hayır	repo	minicpm
+transformers	1:DeMyQ4PjZlr	ekranda		evet	komut	transformers
+vllm	1:DeMyQ4PjZlr	ekranda		hayır	komut	vllm
+autochat	1:DeMyQ4PjZlr	ekranda		hayır	atlas	autochat
+modelconfig	1:DeMyQ4PjZlr	ekranda		hayır	atlas	modelconfig
+lenis	1:DePLcw_Dbwo	ekranda	https://github.com/darkroomengineering/lenis	evet	repo	lenis
+react-bits	1:DePLcw_Dbwo	ekranda	https://github.com/DavidHDev/react-bits	hayır	repo	reactbits
+darkroomengineeringlenis	1:DePLcw_Dbwo	ekranda		hayır	atlas	darkroomengineeringlenis
+paperless-ngx	1:DePQ2O3ElPy	ekranda	https://github.com/paperless-ngx/paperless-ngx	hayır	repo	paperlessngx
+karakeep	1:DePQ2O3ElPy	ekranda	https://github.com/karakeep-app/karakeep	hayır	repo	karakeep
+vaultwarden	1:DePQ2O3ElPy	ekranda	https://github.com/dani-garcia/vaultwarden	hayır	repo	vaultwarden
+anytype-ts	1:DePQ2O3ElPy	ekranda	https://github.com/anyproto/anytype-ts	hayır	repo	anytypets
+AdGuardHome	1:DePQ2O3ElPy	ekranda	https://github.com/AdguardTeam/AdGuardHome	hayır	repo	adguardhome
+syncthing	1:DePQ2O3ElPy	ekranda	https://github.com/syncthing/syncthing	hayır	repo	syncthing
+core	1:DePQ2O3ElPy	ekranda	https://github.com/home-assistant/core	evet	repo	core
+audiobookshelf	1:DePQ2O3ElPy	ekranda	https://github.com/advplyr/audiobookshelf	hayır	repo	audiobookshelf
+Stirling-PDF	1:DePQ2O3ElPy	ekranda	https://github.com/Stirling-Tools/Stirling-PDF	hayır	repo	stirlingpdf
+dotnetaspnetcore	1:DePQ2O3ElPy	ekranda		evet	atlas	dotnetaspnetcore
+OpenHands	1:DePTgfoGbn6	ekranda	https://github.com/OpenHands/OpenHands	hayır	repo	openhands
+opencode	1:DePTgfoGbn6	ekranda	https://github.com/anomalyco/opencode	evet	repo	opencode
+gemini-cli	1:DePTgfoGbn6	ekranda	https://github.com/google-gemini/gemini-cli	hayır	repo	geminicli
+goose	1:DePTgfoGbn6	ekranda	https://github.com/aaif-goose/goose	evet	repo	goose
+codex	1:DePTgfoGbn6	ekranda	https://github.com/openai/codex	evet	repo	codex
+aider	1:DePTgfoGbn6	ekranda	https://github.com/Aider-Al/aider	hayır	repo	aider
+cline	1:DePTgfoGbn6	ekranda	https://github.com/cline/cline	hayır	repo	cline
+zed	1:DePTgfoGbn6	ekranda	https://github.com/zed-industries/zed	hayır	repo	zed
+jsoncanvas	1:DePUywkjHEz	ekranda		hayır	atlas	jsoncanvas
+userresearch	1:DeQj7lmCQVk	ekranda		hayır	atlas	userresearch
+layoutgrid	1:DeQj7lmCQVk	ekranda		hayır	atlas	layoutgrid
+bookstore-mern	1:DeQjyfjksz6	ekranda	https://github.com/DarkSoul26/bookstore-mern	hayır	repo	bookstoremern
+youtube	1:DeQjyfjksz6	ekranda	https://github.com/safak/youtube	evet	repo	youtube
+student-management-system	1:DeQjyfjksz6	ekranda	https://github.com/mkkhedawat/student-management-system	hayır	repo	studentmanagementsystem
+gatsby-simplefolio	1:DeQjyfjksz6	ekranda	https://github.com/cobidev/gatsby-simplefolio	hayır	repo	gatsbysimplefolio
+realworld	1:DeQjyfjksz6	ekranda	https://github.com/gothinkster/realworld	hayır	repo	realworld
+recipe-site	1:DeQjyfjksz6	ekranda	https://github.com/machadop1407/recipe-site	hayır	repo	recipesite
+Expense-Tracker-Fullstack	1:DeQjyfjksz6	ekranda	https://github.com/machadop1407/Expense-Tracker-Fullstack	hayır	repo	expensetrackerfullstack
+Fitness-Tracker-App	1:DeQjyfjksz6	ekranda	https://github.com/machadop1407/Fitness-Tracker-App	hayır	repo	fitnesstrackerapp
+project_weather_app	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_weather_app	hayır	repo	projectweatherapp
+News-App-Full-Stack	1:DeQjyfjksz6	ekranda	https://github.com/machadop1407/News-App-Full-Stack	hayır	repo	newsappfullstack
+Meme_Api	1:DeQjyfjksz6	ekranda	https://github.com/R313nt1sss/Meme_Api	hayır	repo	memeapi
+hackathon-starter	1:DeQjyfjksz6	ekranda	https://github.com/sahat/hackathon-starter	hayır	repo	hackathonstarter
+kutt	1:DeQjyfjksz6	ekranda	https://github.com/thedevs-network/kutt	hayır	repo	kutt
+note-taking-app	1:DeQjyfjksz6	ekranda	https://github.com/FaisalST32/note-taking-app	hayır	repo	notetakingapp
+massCode	1:DeQjyfjksz6	ekranda	https://github.com/antonreshetov/massCode	hayır	repo	masscode
+v25-geckos-team-65	1:DeQjyfjksz6	ekranda	https://github.com/chingu-voyages/v25-geckos-team-65	hayır	repo	v25geckosteam65
+restaurant-webapp	1:DeQjyfjksz6	ekranda	https://github.com/ipenywis/restaurant-webapp	hayır	repo	restaurantwebapp
+awesome-react	1:DeQjyfjksz6	ekranda	https://github.com/enaqx/awesome-react	hayır	repo	awesomereact
+Ghost	1:DeQjyfjksz6	ekranda	https://github.com/TryGhost/Ghost	evet	repo	ghost
+docusaurus	1:DeQjyfjksz6	ekranda	https://github.com/facebook/docusaurus	hayır	repo	docusaurus
+project_travel_companion	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_travel_companion	hayır	repo	projecttravelcompanion
+kepler.gl	1:DeQjyfjksz6	ekranda	https://github.com/uber/kepler.gl	hayır	repo	keplergl
+project_corona_tracker	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_corona_tracker	hayır	repo	projectcoronatracker
+tic-tac-toe-multiplayer	1:DeQjyfjksz6	ekranda	https://github.com/coding-garden/tic-tac-toe-multiplayer	hayır	repo	tictactoemultiplayer
+pwa-starter-kit	1:DeQjyfjksz6	ekranda	https://github.com/GoogleChromeLabs/pwa-starter-kit	hayır	repo	pwastarterkit
+MERN-Stack-Course	1:DeQjyfjksz6	ekranda	https://github.com/PacktPublishing/MERN-Stack-Course	hayır	repo	mernstackcourse
+mern-todo	1:DeQjyfjksz6	ekranda	https://github.com/CleverProgrammers/mern-todo	hayır	repo	merntodo
+inventory-management-	1:DeQjyfjksz6	ekranda	https://github.com/saadpasta/inventory-management-	hayır	repo	inventorymanagement
+project_mern_memories	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_mern_memories	hayır	repo	projectmernmemories
+twitter-clone	1:DeQjyfjksz6	ekranda	https://github.com/ooloth/twitter-clone	hayır	repo	twitterclone
+project_chat_application	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_chat_application	hayır	repo	projectchatapplication
+next13-lms-platform	1:DeQjyfjksz6	ekranda	https://github.com/antonioerdeljac/next13-lms-platform	hayır	repo	next13lmsplatform
+hotel-management-full-	1:DeQjyfjksz6	ekranda	https://github.com/machadop1407/hotel-management-full-	hayır	repo	hotelmanagementfull
+restaurant-reservation	1:DeQjyfjksz6	ekranda	https://github.com/mikhae128/restaurant-reservation	hayır	repo	restaurantreservation
+online-movie-ticket-booking-system	1:DeQjyfjksz6	ekranda	https://github.com/isuruAb/online-movie-ticket-booking-system	hayır	repo	onlinemovieticketbookingsystem
+calendso	1:DeQjyfjksz6	ekranda	https://github.com/calendso/calendso	hayır	repo	calendso
+grocery-app	1:DeQjyfjksz6	ekranda	https://github.com/shakyShane/grocery-app	hayır	repo	groceryapp
+Banking-Application	1:DeQjyfjksz6	ekranda	https://github.com/TannerGabriel/Banking-Application	hayır	repo	bankingapplication
+project_cryptoverse	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_cryptoverse	hayır	repo	projectcryptoverse
+invoiceninja	1:DeQjyfjksz6	ekranda	https://github.com/invoiceninja/invoiceninja	hayır	repo	invoiceninja
+Hospital-Management-System	1:DeQjyfjksz6	ekranda	https://github.com/CodAffection/Hospital-Management-System	hayır	repo	hospitalmanagementsystem
+car-rental-system	1:DeQjyfjksz6	ekranda	https://github.com/zeeshanhanif/car-rental-system	hayır	repo	carrentalsystem
+project_travel_advisor	1:DeQjyfjksz6	ekranda	https://github.com/adrianhajdin/project_travel_advisor	hayır	repo	projecttraveladvisor
+real-estate-app	1:DeQjyfjksz6	ekranda	https://github.com/machadop1407/real-estate-app	hayır	repo	realestateapp
+gmail-clone	1:DeQjyfjksz6	ekranda	https://github.com/CleverProgrammers/gmail-clone	hayır	repo	gmailclone
+corteza-server	1:DeQjyfjksz6	ekranda	https://github.com/cortezaproject/corteza-server	hayır	repo	cortezaserver
+wms	1:DeQjyfjksz6	ekranda	https://github.com/warehouse-management-system/wms	hayır	repo	wms
+POS-System	1:DeQjyfjksz6	ekranda	https://github.com/loystar/POS-System	hayır	repo	possystem
+sing-app-react	1:DeQjyfjksz6	ekranda	https://github.com/flatlogic/sing-app-react	hayır	repo	singappreact
+keen-js	1:DeQjyfjksz6	ekranda	https://github.com/keen/keen-js	hayır	repo	keenjs
+botpress	1:DeQjyfjksz6	ekranda	https://github.com/botpress/botpress	hayır	repo	botpress
+sentiment	1:DeQjyfjksz6	ekranda	https://github.com/vivekn/sentiment	hayır	repo	sentiment
+reddit-clone-mern-stack	1:DeQjyfjksz6	ekranda	https://github.com/levblanc/reddit-clone-mern-stack	hayır	repo	redditclonemernstack
+foodordering-mernstack	1:DeQjyfjksz6	ekranda	https://github.com/shakyShane/foodordering-mernstack	hayır	repo	foodorderingmernstack
+pharmacy-management-	1:DeQjyfjksz6	ekranda	https://github.com/shuvooa787/pharmacy-management-	hayır	repo	pharmacymanagement
+awesome-stock-resources	1:DeQjyfjksz6	ekranda	https://github.com/prathyvsh/awesome-stock-resources	hayır	repo	awesomestockresources
+hoppscotch	1:DeQjyfjksz6	ekranda	https://github.com/hoppscotch/hoppscotch	hayır	repo	hoppscotch
+superset	1:DeQjyfjksz6	ekranda	https://github.com/apache/superset	hayır	repo	superset
+Hospital-Management-	1:DeQjyfjksz6	ekranda	https://github.com/shubhammehra4/Hospital-Management-	hayır	repo	hospitalmanagement
+amazona	1:DeQjyfjksz6	ekranda	https://github.com/basir/amazona	hayır	repo	amazona
+multi-vendor-ecommerce	1:DeQjyfjksz6	ekranda	https://github.com/6pm-tech/multi-vendor-ecommerce	hayır	repo	multivendorecommerce
+E-commerce-site	1:DeQjyfjksz6	ekranda	https://github.com/mithlesh-bit/E-commerce-site	hayır	repo	ecommercesite
+linkedin-clone	1:DeQjyfjksz6	ekranda	https://github.com/CleverProgrammers/linkedin-clone	hayır	repo	linkedinclone
+next13-discord-clone	1:DeQjyfjksz6	ekranda	https://github.com/antonioerdeljac/next13-discord-clone	hayır	repo	next13discordclone
+whatsapp-mern	1:DeQjyfjksz6	ekranda	https://github.com/CleverProgrammers/whatsapp-mern	hayır	repo	whatsappmern
+slack-clone-client	1:DeQjyfjksz6	ekranda	https://github.com/pusher/slack-clone-client	hayır	repo	slackcloneclient
+netflix-clone	1:DeQjyfjksz6	ekranda	https://github.com/karlhadwen/netflix-clone	hayır	repo	netflixclone
+youtube-clone	1:DeQjyfjksz6	ekranda	https://github.com/manikandanraji/youtube-clone	hayır	repo	youtubeclone
+spotify-clone-client	1:DeQjyfjksz6	ekranda	https://github.com/JL978/spotify-clone-client	hayır	repo	spotifycloneclient
+mini-player	1:DeQjyfjksz6	ekranda	https://github.com/muhammederdem/mini-player	hayır	repo	miniplayer
+zoom-clone	1:DeQjyfjksz6	ekranda	https://github.com/CleverProgrammers/zoom-clone	hayır	repo	zoomclone
+podcast-app	1:DeQjyfjksz6	ekranda	https://github.com/johndoe/podcast-app	hayır	repo	podcastapp
+flight-booking-system	1:DeQjyfjksz6	ekranda	https://github.com/coding-dojo-sndip/flight-booking-system	hayır	repo	flightbookingsystem
+trello-clone	1:DeQjyfjksz6	ekranda	https://github.com/reedbarger/trello-clone	hayır	repo	trelloclone
+notion-clone	1:DeQjyfjksz6	ekranda	https://github.com/konstantinmuenster/notion-clone	hayır	repo	notionclone
+jira_clone	1:DeQjyfjksz6	ekranda	https://github.com/oldboyxx/jira_clone	hayır	repo	jiraclone
+react-trello	1:DeQjyfjksz6	ekranda	https://github.com/rcdexta/react-trello	hayır	repo	reacttrello
+telemedicine-	1:DeQjyfjksz6	ekranda	https://github.com/simple-online-healthcare/telemedicine-	hayır	repo	telemedicine
+uber-clone	1:DeQjyfjksz6	ekranda	https://github.com/CleverProgrammers/uber-clone https://github.com/alex996/uber-clone	hayır	repo	uberclone
+pms	1:DeQjyfjksz6	ekranda	https://github.com/property-management-system/pms	hayır	repo	pms
+iptv	1:DeQjyfjksz6	ekranda	https://github.com/iptv-org/iptv	hayır	repo	iptv
+lila	1:DeQjyfjksz6	ekranda	https://github.com/lichess-org/lila	hayır	repo	lila
+plivo-examples-node	1:DeQjyfjksz6	ekranda	https://github.com/plivo/plivo-examples-node	hayır	repo	plivoexamplesnode
+tldraw	1:DeQjyfjksz6	ekranda	https://github.com/tldraw/tldraw	hayır	repo	tldraw
+metabase	1:DeQjyfjksz6	ekranda	https://github.com/metabase/metabase	hayır	repo	metabase
+google-authenticator	1:DeQjyfjksz6	ekranda	https://github.com/google/google-authenticator	hayır	repo	googleauthenticator
+tfjs-examples	1:DeQjyfjksz6	ekranda	https://github.com/tensorflow/tfjs-examples	hayır	repo	tfjsexamples
+Surprise	1:DeQjyfjksz6	ekranda	https://github.com/NicolasHug/Surprise	hayır	repo	surprise
+vroom	1:DeQjyfjksz6	ekranda	https://github.com/VROOM-Project/vroom	hayır	repo	vroom
+grafana	1:DeQjyfjksz6	ekranda	https://github.com/grafana/grafana	evet	repo	grafana
+freeCodeCamp	1:DeQjyfjksz6	ekranda	https://github.com/freeCodeCamp/freeCodeCamp	hayır	repo	freecodecamp
+influencermarketing	1:DeR11OUkobq	ekranda		hayır	atlas	influencermarketing
+defuddle	1:DeR3K9LAq97	konuşmada		evet	atlas	defuddle
+doccoauthoring	1:DeR5_DYSKcG	ekranda		evet	atlas	doccoauthoring
+docxcreator	1:DeR5_DYSKcG	ekranda		hayır	atlas	docxcreator
+lireply	1:DeRKUg7oS2u	ekranda		hayır	atlas	lireply
+compass	1:DeRM7RVjZLw	ekranda	https://github.com/AgriciDaniel/compass	hayır	repo	compass
+claude-motion	1:DeRvxD6gDCu	ekranda	https://github.com/whaleyxbt/claude-motion	hayır	repo	claudemotion
+claude-motion-design	1:DeRvxD6gDCu	ekranda	https://github.com/howseen-ai/claude-motion-design	hayır	repo	claudemotiondesign
+hyperframes-student-kit	1:DeRvxD6gDCu	ekranda	https://github.com/nateherkai/hyperframes-student-kit	hayır	repo	hyperframesstudentkit
+remotion	1:DeRvxD6gDCu	ekranda	https://github.com/remotion-dev/remotion	evet	repo	remotion
+claude-remotion-skill	1:DeRvxD6gDCu	ekranda	https://github.com/haidrry/claude-remotion-skill	hayır	repo	clauderemotionskill
+klik-anim-skill-creation	1:DeRvxD6gDCu	ekranda	https://github.com/t3knobox/klik-anim-skill-creation	hayır	repo	klikanimskillcreation
+hyperframes-motion-reel-skill	1:DeRvxD6gDCu	ekranda	https://github.com/Sunwood-ai-labs/hyperframes-motion-reel-skill	hayır	repo	hyperframesmotionreelskill
+product-launch-motion	1:DeRvxD6gDCu	ekranda	https://github.com/AbubakrChan/product-launch-motion	hayır	repo	productlaunchmotion
+animate	1:DeRvxD6gDCu	ekranda	https://github.com/cth9191/animate	evet	repo	animate
+motion-design-skills	1:DeRvxD6gDCu	ekranda	https://github.com/LottieFiles/motion-design-skill https://github.com/iart-ai/motion-design-skills	hayır	repo	motiondesignskills
+awesome-motion-design-agent-skills	1:DeRvxD6gDCu	ekranda	https://github.com/frankxai/awesome-motion-design-agent-skills	hayır	repo	awesomemotiondesignagentskills
+motion-dev-animations-skill	1:DeRvxD6gDCu	ekranda	https://github.com/199-biotechnologies/motion-dev-animations-skill	hayır	repo	motiondevanimationsskill
+lottie-web	1:DeRvxD6gDCu	ekranda	https://github.com/airbnb/lottie-web	hayır	repo	lottieweb
+aw	1:DeRwKUAsJW9	ekranda	https://github.com/mnfst/aw	hayır	repo	aw
+adobeforcreativity	1:DeSCS3FigUS	ekranda		evet	atlas	adobeforcreativity
+cLaude-x-jev	1:DeSW9GFBQvF	ekranda	https://github.com/charlesdove977/cLaude-x-jev https://github.com/charlesdove977/claude-x-jev	hayır	repo	claudexjev
+create-videoptatest	1:DeSYR9fxKbV	ekranda		hayır	komut	createvideoptatest
+mortiflix-oss	1:DeT98iukpRE	ekranda	https://github.com/gtkottman/mortiflix-oss	hayır	repo	mortiflixoss
+one-skill-to-rule-them-all	1:DeUbXXoo2mi	ekranda	https://github.com/rebelytics/one-skill-to-rule-them-all	hayır	repo	oneskilltorulethemall
+awesome-design-md	1:DeUdyDYoXvq	ekranda	https://github.com/voltagent/awesome-design-md	hayır	repo	awesomedesignmd
+Open-LLM-VTuber	1:DeXAMs2Eqgh	ekranda	https://github.com/Open-LLM-VTuber/Open-LLM-VTuber	hayır	repo	openllmvtuber
+cliserve	1:DeXJQ-kGKUY	ekranda		hayır	atlas	cliserve
+claude-watch	1:DeXJRhxEVIF	ekranda	https://github.com/taoufik123-collab/claude-watch	hayır	repo	claudewatch
+video-use	1:DeXJRhxEVIF	ekranda	https://github.com/browser-use/video-use	hayır	repo	videouse
+insForge	1:DeXK9x7jQfb	ekranda	https://github.com/insForge/insForge https://github.com/linsForge/insForge https://github.com/lnsForge/insForge	hayır	repo	insforge
+rea-agentssetup	1:DeXr6wCMAEZ	ekranda		hayır	komut	reaagentssetup
+ChatDev	1:DeYASC1j8Zm	ekranda	https://github.com/OpenBMB/ChatDev	hayır	repo	chatdev
+Configuration	1:DeYASC1j8Zm	ekranda		evet	komut	configuration
+Environment	1:DeYASC1j8Zm	ekranda		evet	komut	environment
+YAMLplaceholdersUses	1:DeYASC1j8Zm	ekranda		hayır	komut	yamlplaceholdersuses
+EnvironmentVariables	1:DeYASC1j8Zm	ekranda		hayır	komut	environmentvariables
+founder-skill	1:DeYRMxMEfxd	ekranda	https://github.com/Jakeschincariol/founder-skill	hayır	repo	founderskill
+marketingagent	1:DeYRMxMEfxd	konuşmada		hayır	atlas	marketingagent
+motionmaxxing	1:DeYZpq3gthM	ekranda	https://github.com/tejashmakwana/motionmaxxing	hayır	repo	motionmaxxing
+shadcn	1:DeYfv2rBGGu	ekranda		hayır	komut	shadcn
+writingskills	1:DeZ1CFnEWHc	ekranda		hayır	atlas	writingskills
+apity-mcp-server	1:DeZFtvLkX6e	ekranda	https://github.com/apity/apity-mcp-server	hayır	repo	apitymcpserver
+@apify/actors-mcp-server	1:DeZFtvLkX6e	ekranda		hayır	komut	apifyactorsncpserver
+apify/tap/mcpc	1:DeZFtvLkX6e	ekranda		hayır	komut	apifytapmcpc
+@modelcontextprotocol/inspector	1:DeZFtvLkX6e	ekranda		evet	komut	modelcontextprotocolinspector
+motion2mixamorig	1:DeaOQ2bD9Zl	ekranda	https://github.com/MaxLiu22/Motion2MixamoRig https://github.com/maxliu22/motion2mixamorig	hayır	repo	motion2mixamorig
+growthplan	1:DeaQg8vj9e0	ekranda		hayır	atlas	growthplan
+roast-room	1:DeaxjcMBKBy	ekranda	https://github.com/nateherkai/roast-room	hayır	repo	roastroom
+vibe-wise@anthropic-plugin-directory	1:Deaz4Kzgi3T	ekranda		hayır	komut	vibewiseanthropicplugindirectory
+postiz-app	1:DebBcSkggEA	ekranda	https://github.com/gitromhq/postiz-app https://github.com/gitroomhq/posti-app https://github.com/gitroomhq/postiz-app	hayır	repo	postizapp
+a	1:DebfVQahw30	ekranda	https://github.com/wheresryan22/a	hayır	repo	a
+yt-dp	1:DebqfLMkiPf	ekranda	https://github.com/y-dlp/yt-dp https://github.com/yt-dlp/yt-dp	hayır	repo	ytdp
+y-dp	1:DebqfLMkiPf	ekranda	https://github.com/yt-dlp/y-dp	hayır	repo	ydp
+gsapscrolltrigger	1:DebtKK3DrMQ	ekranda		evet	atlas	gsapscrolltrigger
+gsapreact	1:DebtKK3DrMQ	ekranda		hayır	atlas	gsapreact
+motionpatterns	1:DecHeyPtZTJ	ekranda		hayır	atlas	motionpatterns
+CcBaga	1:Declah_AWHb	ekranda	https://github.com/liseami/CcBaga	hayır	repo	ccbaga
+retrospective	1:DectyxhCV8I	ekranda		hayır	atlas	retrospective
+airllm	1:Ded57N9iD8_	ekranda	https://github.com/lyogavin/airllm	hayır	repo	airllm
+SkilLo	1:Ded7ZFWRGmP	ekranda	https://github.com/microsoft/SkilLo	hayır	repo	skillo
+Skillopt	1:Ded7ZFWRGmP	ekranda	https://github.com/microsoft/Skillopt	hayır	repo	skillopt
+skillopt-sleep@skillopt-sleep	1:Ded7ZFWRGmP	ekranda		hayır	komut	skilloptsleepskilloptsleep
+chromebrowser	1:Ded9I6SAzJq	ekranda		hayır	atlas	chromebrowser
+harvey	1:DedgqT_TBjn	ekranda	https://github.com/ethanplusai/harvey	hayır	repo	harvey
+senlindesigntasteskill	1:DedkCc6olmo	ekranda		hayır	atlas	senlindesigntasteskill
+knowledge-work-plugins	1:DeemgMlE-yp	ekranda	https://github.com/anthropics/knowledge-work-plugins	hayır	repo	knowledgeworkplugins
+open-webui	1:DefTRngy4bF	ekranda		hayır	komut	openwebui
+marketingpsychology	1:Deg8OIdjEg1	ekranda+konuşmada		hayır	atlas	marketingpsychology
+researchsynthesis	1:DegoA6qhiPi	ekranda		hayır	atlas	researchsynthesis
+aistupidmeter	1:DehLU24Sm2x	ekranda	https://github.com/studioplatforms/aistupidmeter https://github.com/studioplatforms/aistupidmeter-	hayır	repo	aistupidmeter
+claudeautomationrecommender	1:DehQ41UoYHy	ekranda		hayır	atlas	claudeautomationrecommender
+usingagentskills	1:DehQ41UoYHy	ekranda		hayır	atlas	usingagentskills
+AutoAgent	1:DeiTwewgUbO	ekranda	https://github.com/HKUDS/AutoAgent	hayır	repo	autoagent
+codebur	1:DeithvDucpZ	ekranda		evet	komut	codebur
+claude-men	1:DeithvDucpZ	ekranda		hayır	komut	claudemen
+linkedin-agent-skill	1:DejRNgpiI1v	ekranda	https://github.com/Jakeschincariol/linkedin-agent-skil https://github.com/Jakeschincariol/linkedin-agent-skill https://github.com/Jakeschincarriol/linkedin-agent-skill	evet	repo	linkedinagentskil
+grilling	1:DejfecRNhPL	ekranda		hayır	atlas	grilling
+buil	1:DejzTLZtGiA	ekranda		evet	komut	buil
+build-partner	1:DejzTLZtGiA	ekranda		hayır	komut	buildpartner
+industrialbrutalistui	1:DelsVQJR6ZE	ekranda		hayır	atlas	industrialbrutalistui
+designcritique	1:DelsVQJR6ZE	ekranda		hayır	atlas	designcritique
+gsapplugins	1:DelsVQJR6ZE	ekranda		hayır	atlas	gsapplugins
+asksonner	1:DelsVQJR6ZE	ekranda		evet	atlas	asksonner
+gsapcore	1:DelsVQJR6ZE	ekranda		hayır	atlas	gsapcore
+marketingcouncil	1:DemSlicoHm4	ekranda		hayır	atlas	marketingcouncil
+sitearchitecture	1:DemSlicoHm4	ekranda		hayır	atlas	sitearchitecture
+copyediting	1:DemSlicoHm4	ekranda		hayır	atlas	copyediting
+abtesting	1:DemSlicoHm4	ekranda		hayır	atlas	abtesting
+marketingloops	1:DemSlicoHm4	ekranda		hayır	atlas	marketingloops
+competitorprofiling	1:DemSlicoHm4	ekranda		hayır	atlas	competitorprofiling
+comarketing	1:DemSlicoHm4	ekranda		hayır	atlas	comarketing
+agentdevelopment	1:DeqmrMLulD0	ekranda		hayır	atlas	agentdevelopment
+blender-ai-mcp-addon	1:DerD_Sqks87	ekranda	https://github.com/LiCinCan/blender-ai-mcp-addon	hayır	repo	blenderaimcpaddon
+hyperframes@hyperframes	1:Dery8BLNDJK	ekranda		evet	atlas+komut	hyperframeshyperframes
+generalvideo	1:Dery8BLNDJK	ekranda		hayır	atlas	generalvideo
+musictovideo	1:Dery8BLNDJK	ekranda		hayır	atlas	musictovideo
+facelessexplainer	1:Dery8BLNDJK	ekranda		hayır	atlas	facelessexplainer
+supra-tex	1:Des4gGCoK1U	ekranda	https://github.com/supra-3d/supra-tex	hayır	repo	supratex
+security-audit-skill	1:DesJpohI7VN	ekranda	https://github.com/cloudflare/security-audit-skill	hayır	repo	securityauditskill
+statemanagement	1:DesKqHLCEbo	ekranda		hayır	atlas	statemanagement
+cavem	1:DesO_Hrjs8D	ekranda		evet	komut	cavem
+caveman@caveman	1:DesO_Hrjs8D	ekranda		hayır	komut	cavemancaveman
+lawofproximity	1:DesX0JPx0HK	ekranda		hayır	atlas	lawofproximity
+peakendrule	1:DesX0JPx0HK	ekranda		hayır	atlas	peakendrule
+fittslaw	1:DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	fittslaw
+aestheticusability	1:DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	aestheticusability
+jakobslaw	1:DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	jakobslaw
+feedbackloops	1:DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	feedbackloops
+dohertythreshold	1:DesX0JPx0HK	ekranda+konuşmada		hayır	atlas	dohertythreshold
+vonrestorffeffect	1:DesX0JPx0HK	ekranda		hayır	atlas	vonrestorffeffect
+lawofsimilarity	1:DesX0JPx0HK	ekranda		hayır	atlas	lawofsimilarity
+buildisometricarpg	1:Desw89eoG5a	ekranda		evet	atlas	buildisometricarpg
+builddailyinspirationsites	1:Desw89eoG5a	ekranda		evet	atlas	builddailyinspirationsites
+buildgamemonstersystem	1:Desw89eoG5a	ekranda		evet	atlas	buildgamemonstersystem
+buildthreejsenemysystems	1:Desw89eoG5a	ekranda		evet	atlas	buildthreejsenemysystems
+buildvesperfallreviewassets	1:Desw89eoG5a	ekranda		evet	atlas	buildvesperfallreviewassets
+designactioncombat	1:Desw89eoG5a	ekranda		evet	atlas	designactioncombat
+authorgamelevels	1:Desw89eoG5a	ekranda		evet	atlas	authorgamelevels
+dailyuiinspirationcapture	1:Desw89eoG5a	ekranda		evet	atlas	dailyuiinspirationcapture
+motionstudio	1:DetCTmToK82	ekranda+konuşmada		evet	atlas	motionstudio
+agent-orchestrator	1:Deu0KuOMfKl	ekranda	https://github.com/OrchestratorInc/agent-orchestrator	hayır	repo	agentorchestrator
+reverse-api-engineer	1:DeuPC8oPU8v	ekranda	https://github.com/kalil0321/reverse-api-engineer	hayır	repo	reverseapiengineer
+temo-opu	1:DeudXckt1W4	ekranda	https://github.com/Lemomo-a1/temo-opu	hayır	repo	temoopu
+last30days-skill	1:DeupYVwjRiu	ekranda	https://github.com/mvanhorn/last30days-skill	evet	repo	last30daysskill
+vercel	1:DeupYVwjRiu	ekranda	https://github.com/vercel/vercel	evet	repo	vercel
+solarrenderer	1:Dev6R4nCc_p	ekranda	https://github.com/enderfga/solarrenderer	hayır	repo	solarrenderer
+so	1:Dev6R4nCc_p	ekranda	https://github.com/enderfga/so	hayır	repo	so
+sd	1:Dev6R4nCc_p	ekranda	https://github.com/enderfga/sd	hayır	repo	sd
+soma	1:Devb42_CIpc	ekranda	https://github.com/kai-jungshoefel/soma https://github.com/kai-jungsthoefel/soma	hayır	repo	soma
+prompt2rig	1:DevpUCAkWPl	ekranda	https://github.com/blendi-remade/prompt2rig https://github.com/blendl-remade/prompt2rig	hayır	repo	prompt2rig
+LlamaFactory	1:Dew-EGglUpE	ekranda	https://github.com/hiyouga/LlamaFactory https://github.com/hiyouga/Llamafactory	hayır	repo	llamafactory
+penguin-hamess	1:Dew-EGglUpE	ekranda	https://github.com/Prism-Shadow/penguin-hamess	hayır	repo	penguinhamess
+enguin-harmess	1:Dew-EGglUpE	ekranda	https://github.com/Prism-Shadow/enguin-harmess	hayır	repo	enguinharmess
+lamaFactory	1:Dew-EGglUpE	ekranda	https://github.com/hiyouga/lamaFactory	hayır	repo	lamafactory
+multibackend	1:Dew-EGglUpE	ekranda		hayır	atlas	multibackend
+design-extract	1:Dew0M4YAhtG	ekranda	https://github.com/Manavarya09/design-extract	hayır	repo	designextract
+lemo-opuscar@lemolab	1:Dew2YFfth83	ekranda		hayır	komut	lemoopuscarlemolab
+claude-code-mods	1:DewHApKDETC	ekranda	https://github.com/hamzafer/claude-code-mods	hayır	komut+repo	claudecodemods
+skip	1:DewHApKDETC	ekranda		hayır	komut	skip
+SHOWWHAT	1:DewHApKDETC	ekranda		hayır	komut	showwhat
+claude-code-	1:DewHApKDETC	ekranda		evet	komut	claudecode
+context-bargclaude-code-mods	1:DewHApKDETC	ekranda		hayır	komut	contextbargclaudecodemods
+claude-code-modselatest	1:DewHApKDETC	ekranda		hayır	komut	claudecodemodselatest
+blender-skills	1:DewdXceDG4A	ekranda	https://github.com/EL4CTE0/blender-skills	hayır	repo	blenderskills
+discernmentnudge	1:Dewgqrvjz3P	ekranda+konuşmada		evet	atlas	discernmentnudge
+xiryn	1:Dews_cQjyMk	ekranda	https://github.com/SouravBeraAkaSpeed/xiryn	hayır	repo	xiryn
+findbugs	1:Dewt3VZEejR	ekranda		evet	atlas	findbugs
+youtube-agent-skill	1:DewxbWfjDHB	ekranda	https://github.com/Jakeschincariol/youtube-agent-skill	hayır	repo	youtubeagentskill
+ytretention	1:DewxbWfjDHB	ekranda		hayır	atlas	ytretention
+ytscript	1:DewxbWfjDHB	ekranda+konuşmada		hayır	atlas	ytscript
+ytchapters	1:DewxbWfjDHB	ekranda		hayır	atlas	ytchapters
+ytaudit	1:DewxbWfjDHB	ekranda		hayır	atlas	ytaudit
+ytpackage	1:DewxbWfjDHB	ekranda		hayır	atlas	ytpackage
+ytshorts	1:DewxbWfjDHB	ekranda		hayır	atlas	ytshorts
+hummingbot.gi	1:DewybS0FC3V	ekranda	https://github.com/hummingbot/hummingbot.gi	hayır	repo	hummingbotgi
+modanygame	1:Dex4lXRB9s3	ekranda		hayır	atlas	modanygame
+cenes	1:Dex9_YAzDcJ	ekranda		evet	komut	cenes
+Cozy	1:Dex9_YAzDcJ	konuşmada		hayır	komut	cozy
+claude-seoagricidaniel-claude-seo	1:DexHMFmx4Ev	ekranda		hayır	komut	claudeseoagricidanielclaudeseo
+claude-blogugricidaniel-blog	1:DexHMFmx4Ev	ekranda		hayır	komut	claudeblogugricidanielblog
+strategize	1:DexJ-qWiWdY	ekranda		hayır	atlas	strategize
+freeflow	1:DexiUuuIw3v	ekranda+konuşmada		evet	atlas	freeflow
+google-maps-scraper	1:DeyIOlwk0ar	ekranda	https://github.com/gosom/google-maps-scraper	hayır	repo	googlemapsscraper
+huginn	1:DeyIOlwk0ar	ekranda	https://github.com/huginn/huginn	hayır	repo	huginn
+check-if-email-exists	1:DeyIOlwk0ar	ekranda	https://github.com/reacherhg/check-if-email-exists	hayır	repo	checkifemailexists
+listmonk	1:DeyIOlwk0ar	ekranda	https://github.com/knadh/listmonk	hayır	repo	listmonk
+remote-jobs	1:DeyIOlwk0ar	ekranda	https://github.com/remoteintech/remote-jobs	hayır	repo	remotejobs
+twenty	1:DeyIOlwk0ar	ekranda	https://github.com/twentyhq/twenty	hayır	repo	twenty
+layerfs	1:Dey_SBboEte	ekranda	https://github.com/Ephemeral-AH-Lab/layerfs	hayır	repo	layerfs
+layerts	1:Dey_SBboEte	ekranda	https://github.com/Ephemeral-A-Lab/layerts https://github.com/Ephemeral-Ai-Lab/layerts https://github.com/Ephemeral-Al-Lab/layerts	hayır	repo	layerts
+geoskills	1:Deyt_ihiHBE	ekranda		hayır	komut	geoskills
+sparkrun-recipes	1:DeyxY_PS4JW	ekranda	https://github.com/styies01/sparkrun-recipes https://github.com/styieso1/sparkrun-recipes https://github.com/styles01/sparkrun-recipes https://github.com/styleso1/sparkrum-recipes https://github.com/s	hayır	repo	sparkrunrecipes
+Kronos	1:DezC2eYkpAa	ekranda	https://github.com/shiyu-coder/Kronos	hayır	repo	kronos
+andrej-karpathy-skills0karpathy-skills	1:DezZ7iQyv9N	ekranda		hayır	komut	andrejkarpathyskills0karpathyskills
+skilldoctor	1:elOexRIdA4c	konuşmada		hayır	atlas	skilldoctor
+cavenan-a	1:jf1sv2geEWo	ekranda		hayır	komut	cavenana
+cc-usage	1:ngkwPKnnNKQ	ekranda		hayır	komut	ccusage
+microsoftfoundry	1:vcU85OrwuV0	ekranda		hayır	atlas	microsoftfoundry
+ibelickuiskills	1:yp7gg8cG5wc	ekranda		hayır	atlas	ibelickuiskills
+barviannumberflow	1:yp7gg8cG5wc	ekranda		hayır	atlas	barviannumberflow
+figmacodeconnect	1:yp7gg8cG5wc	ekranda		hayır	atlas	figmacodeconnect
+swupswup	1:yp7gg8cG5wc	ekranda		hayır	atlas	swupswup
+videoizle	1:yp7gg8cG5wc	ekranda		hayır	atlas	videoizle
+darkroomengineeringsatus	1:yp7gg8cG5wc	ekranda		hayır	atlas	darkroomengineeringsatus
