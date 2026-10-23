@@ -25,6 +25,7 @@ import nihai_ozet
 
 URL = "http://127.0.0.1:20128/v1/chat/completions"
 OLLAMA = "http://127.0.0.1:11434/api/chat"
+YEREL_KAPALI = Path(__file__).resolve().parents[1] / ".kos" / "yerel-model.kapali"
 COMBO = "cc-ucuz-free"  # yalnız :free üyeler; güçlü limit yedeği cc-yedek-dis'e (cc-kopru/omniroute.mjs) dokunulmaz
 SURUM = "v3"  # istem/şema değişince artır: hem yerel hem OmniRoute önbelleği eski yanıtı döndürmez
 TAVAN = 400_000  # bağlam karakteri; combo'daki en küçük pencereye sığsın
@@ -100,7 +101,7 @@ def sor(kol, model, g):
         j = iste({**g, "model": model})
         c = j["choices"][0]
         return c["message"].get("content") or "", c.get("finish_reason"), j.get("model") or "", j.get("usage") or {}
-    if (Path(__file__).resolve().parents[1] / ".kos" / "yerel-model.kapali").exists():  # HAVUZ-GENIS-2: yerel KAPALI bayrağı
+    if YEREL_KAPALI.exists():  # HAVUZ-GENIS-2: yerel KAPALI bayrağı
         raise RuntimeError("atlandi-yerel-kapali")
     if psutil.virtual_memory().percent >= 80:  # ÖĞREN-1 ★ 05:48: RAM ≥%80 → ollama yok, sonraki kol
         raise RuntimeError("atlandi-ram")

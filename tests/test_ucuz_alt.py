@@ -117,6 +117,7 @@ def test_ollama_ram_korumasi(monkeypatch):  # ★ 05:48: RAM ≥%80 → ollama y
     giden = []
     monkeypatch.setattr(ucuz_alt.urllib.request, "urlopen", lambda q, timeout: giden.append(json.loads(q.data)) or io.BytesIO(
         b'{"message": {"content": "ok"}, "done_reason": "stop"}'))
+    monkeypatch.setattr(ucuz_alt, "YEREL_KAPALI", ucuz_alt.Path("yok/yerel-model.kapali"))
     monkeypatch.setattr(ucuz_alt.psutil, "virtual_memory", lambda: types.SimpleNamespace(percent=80))
     with pytest.raises(RuntimeError, match="atlandi-ram"):
         ucuz_alt.sor("ollama", "qwen3.5:4b", {"messages": []})
@@ -124,3 +125,10 @@ def test_ollama_ram_korumasi(monkeypatch):  # ★ 05:48: RAM ≥%80 → ollama y
     monkeypatch.setattr(ucuz_alt.psutil, "virtual_memory", lambda: types.SimpleNamespace(percent=50))
     assert ucuz_alt.sor("ollama", "qwen3.5:4b", {"messages": []})[0] == "ok"
     assert giden[0]["options"]["num_ctx"] == 8192 and giden[0]["keep_alive"] == 0
+
+
+def test_ollama_yerel_kapali_bayragi(monkeypatch, tmp_path):
+    bayrak = tmp_path / "yerel-model.kapali"; bayrak.write_text("")
+    monkeypatch.setattr(ucuz_alt, "YEREL_KAPALI", bayrak)
+    with pytest.raises(RuntimeError, match="atlandi-yerel-kapali"):
+        ucuz_alt.sor("ollama", "qwen3.5:4b", {"messages": []})

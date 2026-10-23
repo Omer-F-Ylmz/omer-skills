@@ -88,7 +88,7 @@ def test_rpm_kovasi_dolunca_atlar(monkeypatch):
     c = sahte(monkeypatch, lambda e: "ok")
     for _ in range(80): H.cagir("ozet", "x")
     d = H._durum()
-    assert all(len([x for x in v if x[0] > time.time() - 60]) <= 25 for v in d["dk"].values())
+    assert all(len([x for x in v if x[0] > time.time() - 60]) <= 30 for v in d["dk"].values())  # en yüksek muhafazakâr rpm (ministral-14b: 30)
 
 
 def test_haiku_yalniz_tavanla(monkeypatch):
@@ -165,7 +165,8 @@ def test_hata_orani_sirayi_belirler_aileyi_cikarmaz(monkeypatch):
 
 
 def test_cagir_istek_hatasini_ve_basariyi_kaydeder(monkeypatch):
-    sahte(monkeypatch, lambda e: (_ for _ in ()).throw(H.Hata(0, "bos")) if e.prov == "gemini" else "tamam")
+    ilk = []  # HAVUZ-GENIS-2: zincir/pay dağıtımı yüzünden hangi sağlayıcının seçileceği sabit değil; ilk çağrı hata verir
+    sahte(monkeypatch, lambda e: (_ for _ in ()).throw(H.Hata(0, "bos")) if not ilk and not ilk.append(1) else "tamam")
     for _ in range(6):
         H.cagir("hakem", "x")
     o = H._durum()["oran"]

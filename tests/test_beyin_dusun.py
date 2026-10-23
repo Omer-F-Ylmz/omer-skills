@@ -82,6 +82,7 @@ class Tur(Taban):
         b.LIMIT = {p: 0 for p in b.SIRA}
         self.ollama_cagri = []
         b._ollama = lambda istem, mt: self.ollama_cagri.append(1)
+        b._havuz = lambda tur, istem, **kw: (None, None, [])  # tüm bulut havuzu da dolu: yerel son çare ama RAM yüksek
         self.assertEqual(b.tur(), "kota-dolu")
         self.assertEqual(self.ollama_cagri, [])  # RAM yüksekken Ollama açılmaz
 
@@ -398,12 +399,14 @@ class Koc(Canli):
 
     def test_hepsi_doluysa_ollama_yerelde_claude_yok(self):
         b.LIMIT = {p: 0 for p in b.SIRA}  # hepsi %80 üstü
+        b._havuz = lambda tur, istem, **kw: (None, None, [])  # HAVUZ-GENIS-2: önce tüm bulut havuzu denenir, boşsa yerel son çare
         self.assertEqual(b._sor("ozet", "soru", 100), ("yerel yanıt", "ollama/yerel"))
         self.assertEqual(self.cagrilar, [])
 
     def test_ollama_da_yoksa_bekler(self):
         b.LIMIT = {p: 0 for p in b.SIRA}
         b._ollama = lambda istem, mt: None
+        b._havuz = lambda tur, istem, **kw: (None, None, [])  # bulut havuzu da boş
         self.assertEqual(b._sor("ozet", "soru", 100), (None, None))
 
     def test_kocluk_uret_ucretsiz_model_yazar(self):
