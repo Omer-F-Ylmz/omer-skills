@@ -49,9 +49,14 @@ GSAP ScrollTrigger ile birlikte: Lenis + ScrollTrigger eşleme tarifi (`referenc
 - [ ] Hareket kalitesi ölçümü (fps/Long task): KAYNAK EKSİK: `fixing-motion-performance` sayısal eşik; S4 performans bölümünde ele alınır.
 
 ## D. Ucuz yol
-- Hazır animasyon önce: `animasyon-atolyesi` tarifleri (skill-animasyon-atolyesi.md okunmadı → KAYNAK EKSİK: tarif listesi alıntısı).
+- Hazır animasyon önce, `animasyon-atolyesi` tarifleri:
+  > "Hero kademeli giriş, scroll'la belirme, ilerleme çubuğu" (skill-animasyon-atolyesi.md)
+  > "Liste ↔ detay, paylaşılan öğe morfu, sayfa geçişi" (skill-animasyon-atolyesi.md)
+  > "WebGL hero arka planı, parçacık/buhar/toz, fare etkileşimi" (skill-animasyon-atolyesi.md)
 - Smooth scroll karar ağacı betiksiz, modelsiz: yukarıdaki A6 sırası; Lenis varsayılan (few KB, GSAP gerektirmez).
 
 ## E. Proje bağlantısı: freelance sitesi, TELVE
 - Landing scroll anlatısı: ScrollTrigger + (Lenis eşleme). 3D sahneye bağlanan scroll → S3 (taslak).
 - Çakışma kuralı Ömer'in dalında: smooth scroll tek yerde kurulur; TELVE'de iki sistem aynı anda açılmaz (A6 alıntısı).
+- Lenis + ScrollTrigger eşlemesi (Lenis README):
+  > "lenis.on('scroll', ScrollTrigger.update);" (resmi-lenis-readme.md)

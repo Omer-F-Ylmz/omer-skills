@@ -2,7 +2,10 @@
  "web": {
   "ders": [
    "docs/okul/web-s1.md",
-   "docs/okul/web-s2.md"
+   "docs/okul/web-s2.md",
+   "docs/okul/web-s3.md",
+   "docs/okul/web-s4.md",
+   "docs/okul/web-s5.md"
   ],
   "taslak": "docs/okul/web-taslak.md",
   "obsidian": "30-okul/web/",
@@ -10,6 +13,24 @@
    "departman-frontend",
    "frontend-craft",
    "scroll-craft"
+  ]
+ },
+ "3d-b": {
+  "ders": "docs/okul/3d-b.md",
+  "obsidian": "30-okul/3d-b/ders-kitabi.md",
+  "skill": [
+   "blender",
+   "3d",
+   "threejs"
+  ]
+ },
+ "3d-c": {
+  "ders": "docs/okul/3d-c.md",
+  "obsidian": "30-okul/3d-c/ders-kitabi.md",
+  "skill": [
+   "blender",
+   "3d",
+   "threejs"
   ]
  }
 }

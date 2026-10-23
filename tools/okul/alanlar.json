@@ -305,7 +305,7 @@
   "proje": "freelance sitesi, TELVE"
  },
  "web-s3": {
-  "ad": "Web S3 3D/WebGL sahne (taslak)",
+  "ad": "Web S3 3D/WebGL sahne",
   "anahtar": [
    "frontend",
    "motion",
@@ -326,7 +326,28 @@
   "proje": "freelance sitesi, TELVE"
  },
  "web-s4": {
-  "ad": "Web S4 Performans/Vite (taslak)",
+  "ad": "Web S4 Performans/Vite/a11y/SEO",
+  "anahtar": [
+   "frontend",
+   "motion",
+   "scroll",
+   "tailwind",
+   "ui-",
+   "design",
+   "css",
+   "gsap",
+   "remotion"
+  ],
+  "mcp": [
+   "playwright",
+   "21st",
+   "rea"
+  ],
+  "ek": "codrops, 21st, awwwards, MDN",
+  "proje": "freelance sitesi, TELVE"
+ },
+ "web-s5": {
+  "ad": "Web S5 Yayın ve kapanış",
   "anahtar": [
    "frontend",
    "motion",

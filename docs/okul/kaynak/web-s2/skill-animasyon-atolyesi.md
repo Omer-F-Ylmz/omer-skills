@@ -17,6 +17,7 @@ Animasyon/efekt işinde buradaki tarifi TEK KOMUTLA üret + ölç. Her ek tur t�
 | 3D patlatılmış görünüm (exploded view), kamera yörüngesi, animasyonlu GLB | `tarifler/blender_patlat.py` | Blender (`-b`) |
 | Başlıklı kısa intro/outro videosu (mp4) | `tarifler/video_intro.py` | ffmpeg |
 | Hazır aday (kod/varlık/HDR) bizimkiyle yan yana çek + ölç → AL/UYARLA kararı | `tarifler/yan_yana.mjs` | playwright-core, sharp, Chrome |
+| 3D model/doku/HDR bul + indir + lisans/atıf, sonra küçük -b düzenleme (modelleme yok) | blender-uretim `varlik_getir.py` · `duzenle_b.py` | Objaverse, Poly Haven, ambientCG, Blender -b |
 
 Tarif dosyalarını okuma; ayarlar aşağıda. `<S>` = bu skill'in klasörü.
 
