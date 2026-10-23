@@ -38,3 +38,4 @@ Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-kat
 <!-- dizin:bas -->
 ## Dizin: adımdaki araç işe uymuyorsa `references/dizin.md` dosyasını oku, listeden adla çağır.
 <!-- dizin:son -->
+Yeni aileler (SKILL-YUKLE-1, 24): `references/yukle-1-aileler.md` — Read.

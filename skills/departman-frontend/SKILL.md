@@ -56,3 +56,4 @@ Ders kitabı (web okulu, alıntı denetimli): `docs/okul/web-s1.md` (temel) · `
 <!-- dizin:bas -->
 ## Dizin: adımdaki araç işe uymuyorsa `references/dizin.md` dosyasını oku, listeden adla çağır.
 <!-- dizin:son -->
+Yeni aileler (SKILL-YUKLE-1, 35): `references/yukle-1-aileler.md` — Read.

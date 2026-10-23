@@ -34,3 +34,4 @@ Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): vb-ef-sorgu-o
 <!-- dizin:bas -->
 ## Dizin: adımdaki araç işe uymuyorsa `references/dizin.md` dosyasını oku, listeden adla çağır.
 <!-- dizin:son -->
+Yeni aileler (SKILL-YUKLE-1, 32): `references/yukle-1-aileler.md` — Read.

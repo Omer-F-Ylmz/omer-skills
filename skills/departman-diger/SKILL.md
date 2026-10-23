@@ -34,3 +34,4 @@ Yeni eklenti aileleri (SKILL-YUKLE-1, 23 Eki): aile → departman eşlemesi `doc
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
 
 Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): vm-video-izle, vm-blender-dekupaj, vm-tam-sayfa-yakalama.
+Yeni aileler (SKILL-YUKLE-1, 54): `references/yukle-1-aileler.md` — Read.

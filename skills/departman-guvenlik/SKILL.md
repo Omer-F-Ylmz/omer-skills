@@ -45,3 +45,4 @@ Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): gv-skill-teda
 <!-- dizin:bas -->
 ## Dizin: adımdaki araç işe uymuyorsa `references/dizin.md` dosyasını oku, listeden adla çağır.
 <!-- dizin:son -->
+Yeni aileler (SKILL-YUKLE-1, 7): `references/yukle-1-aileler.md` — Read.
