@@ -13,7 +13,7 @@ KOK = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(KOK / "tools"))
 import beyin_dusun as b  # noqa: E402
 
-LOG, SONUC = KOK / ".kos/kopru/ajan-sira.log", KOK / ".kos/kopru/sinav.json"
+LOG, SONUC, ARA = KOK / ".kos/kopru/ajan-sira.log", KOK / ".kos/kopru/sinav.json", KOK / ".kos/kopru/sinav.ara.jsonl"
 AYNI = []
 KELIME = re.compile(r"\w{4,}")
 
@@ -96,11 +96,30 @@ def _dene(sor, deneme=8, bekle=20):
     return f
 
 
-def sinav(sens, oneriler, sor=b._sor, isci=3, deneme=8):
-    """Senaryolar paralel (her biri 4 ardışık model çağrısı; sıralı koşu n×4×bekleme tutuyordu)."""
+def sinav(sens, oneriler, sor=b._sor, isci=3, deneme=8, ara=None):
+    """Senaryolar paralel (her biri 4 ardışık model çağrısı; sıralı koşu n×4×bekleme tutuyordu).
+    ara: her senaryo bitince bir JSON satırı eklenir; dosyada olan senaryo atlanır (kesilen koşu kaldığı yerden sürer)."""
     sor = _dene(sor, deneme)
+    anahtar = lambda s: s["is"] + "|" + s["neden"]
+    biten = {}
+    if ara and ara.exists():
+        for l in ara.read_text(encoding="utf-8").splitlines():
+            if l.strip():
+                r = json.loads(l)
+                biten[anahtar(r)] = r
+    kilit = threading.Lock()
+
+    def is_(s):
+        if anahtar(s) in biten:
+            return biten[anahtar(s)]
+        r = _bir(s, oneriler, sor)
+        if ara:
+            with kilit, ara.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+                f.flush()
+        return r
     with ThreadPoolExecutor(isci) as ex:
-        return list(ex.map(lambda s: _bir(s, oneriler, sor), sens))
+        return list(ex.map(is_, sens))
 
 
 def ozet(sonuc):
@@ -111,7 +130,7 @@ def ozet(sonuc):
 
 
 def main(n=20):
-    sonuc = sinav(senaryolar(n, olaylar=b._olay_oku(0)[0][-400:]), b.oneri_oku())
+    sonuc = sinav(senaryolar(n, olaylar=b._olay_oku(0)[0][-400:]), b.oneri_oku(), ara=ARA)
     o = ozet(sonuc)
     SONUC.write_text(json.dumps({"t": time.time(), "ozet": o, "sonuc": sonuc}, ensure_ascii=False, indent=1), encoding="utf-8")
     rapor = KOK / f"rapor/sinav-{time.strftime('%Y-%m-%d')}.md"

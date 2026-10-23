@@ -30,6 +30,20 @@ class SinavTest(unittest.TestCase):
         o = s.ozet(sonuc)
         self.assertEqual((o["dersli_olculen"], o["ortalama_fark"], o["iyilesen"]), (1, 2.0, 1))
 
+    def test_ara_cikti_devam_eder(self):
+        ara, cagri = Path(tempfile.mkdtemp()) / "a.jsonl", []
+
+        def sor(tur, istem, mt, **kw):
+            cagri.append(tur)
+            return "2", "m/x"
+        sens = [{"is": "a", "neden": "n1"}, {"is": "b", "neden": "n2"}]
+        s.sinav(sens[:1], [], sor, ara=ara)
+        ilk = len(cagri)
+        sonuc = s.sinav(sens, [], sor, ara=ara)
+        self.assertEqual(len(sonuc), 2)
+        self.assertEqual(len(cagri), ilk * 2)  # a atlandı, yalnız b koştu
+        self.assertEqual(len(ara.read_text(encoding="utf-8").splitlines()), 2)
+
     def test_model_yoksa_puansiz(self):
         sonuc = s.sinav([{"is": "a", "neden": "n"}], [], lambda *a, **k: (None, None))
         self.assertEqual(s.ozet(sonuc)["puansiz"], 1)
