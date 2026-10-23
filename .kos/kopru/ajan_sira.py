@@ -289,6 +289,60 @@ def kilit_sil():
         pass
 
 
+def izlenen_mtime():
+    """YONETICI-YENILE-1: yöneticinin belleğe yüklediği .kos/kopru ve tools modüllerinin (yonetici_gorev.py dahil) {yol: mtime}'ı."""
+    klasorler = (K.resolve(), (KOK / "tools").resolve())
+    r = {}
+    for m in list(sys.modules.values()):
+        f = getattr(m, "__file__", None)
+        if f and Path(f).resolve().parent in klasorler:
+            try:
+                r[str(Path(f).resolve())] = Path(f).stat().st_mtime
+            except OSError:
+                pass
+    return r
+
+
+def kod_degisti(ilk, simdi=None):
+    """İlk görülen mtime'dan farklı olanlar {yol: yeni mtime}; sonradan yüklenen modül ilk görüldüğü mtime ile ilk'e girer."""
+    simdi = izlenen_mtime() if simdi is None else simdi
+    for f, t in simdi.items():
+        ilk.setdefault(f, t)
+    return {f: t for f, t in simdi.items() if ilk[f] != t}
+
+
+def derleme_hatalari(degisen):
+    """Değişen dosyaları `python -m py_compile` ile derler; hata satırları ["dosya: SyntaxError ..."]."""
+    hatalar = []
+    for f in degisen:
+        r = subprocess.run([sys.executable, "-m", "py_compile", f], capture_output=True, text=True, errors="replace", creationflags=0x08000000)
+        if r.returncode:
+            hatalar.append(f"{Path(f).name}: {(r.stderr.strip().splitlines() or ['derleme başarısız'])[-1]}")
+    return hatalar
+
+
+def yenile_karar(ilk, onceki, simdi=None):
+    """(karar, degisen, hatalar): karar 'yenile' (hepsi derleniyor) | 'alarm' (derleme hatası) | None (değişim yok ya da onceki ile aynı küme)."""
+    degisen = kod_degisti(ilk, simdi)
+    if not degisen or degisen == onceki:
+        return None, degisen, []
+    hatalar = derleme_hatalari(degisen)
+    return ("alarm" if hatalar else "yenile"), degisen, hatalar
+
+
+def yenile_et(degisen):
+    """Kendini yeniden başlatır. os.execv atexit çalıştırmaz → kilit elle bırakılır, kalp atışına çıkış izi yazılır."""
+    log("YENİLE", ", ".join(sorted(Path(f).name for f in degisen)))
+    kilit_sil()
+    try:
+        import yonetici_kalp
+        yonetici_kalp.kalp_yaz(K / "yonetici-kalp.txt", ram(), 0, "YENİLE", "YENİLE")
+    except Exception:
+        pass
+    betik = getattr(sys.modules["__main__"], "__file__", sys.argv[0])  # yonetici_gorev chdir yapar; __main__.__file__ mutlak yoldur
+    os.execv(sys.executable, [sys.executable, betik, *sys.argv[1:]])
+
+
 class MEM(ctypes.Structure):
     _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong)] + [(n, ctypes.c_ulonglong) for n in
                 ("t", "a", "tp", "ap", "tv", "av", "ae")]
@@ -557,6 +611,7 @@ def main():
     DEVAM.update(kurtar(kuyruk(), baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     ara_t, kapi_t = 0.0, {}
+    izle, son_degisen, yenile = izlenen_mtime(), {}, False  # YONETICI-YENILE-1: kod değişince çalışanlar bitince kendini yeniler
     while True:
         if time.time() - ara_t >= 120:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
             ara_t = time.time()
@@ -605,7 +660,27 @@ def main():
             arka_istek.isle(log=log)
         except Exception as e:
             log("arka-istek hata", repr(e)[:120])
+        karar, son_degisen, hatalar = yenile_karar(izle, son_degisen)  # YONETICI-YENILE-1: derleme hatası varsa yenileme yok, ALARM
+        if karar == "alarm":
+            yenile = False
+            log("ALARM", "YENİLE yok · derleme hatası:", "; ".join(hatalar))
+            try:
+                import beyin_dusun; beyin_dusun.olay("yenile-alarm", "yonetici", f"kod değişti ama derlenmiyor: {'; '.join(hatalar)}"[:300], True)
+            except Exception:
+                pass
+        elif karar == "yenile":
+            yenile = True
+            log("YENİLE BEKLE", ", ".join(sorted(Path(f).name for f in son_degisen)), f"· çalışan {len(calisan)} · bekleyen deneme {len(yeniden)} · yeni iş başlamıyor")
+        if yenile and not calisan and not yeniden:
+            try:
+                yenile_et(son_degisen)
+            except OSError as e:  # execv başarısız: kilidi geri al, eski kodla sürdür
+                yenile = False
+                kilit_al()
+                log("ALARM", "YENİLE execv hatası", repr(e)[:120])
         bekleyen = [y for y in yeniden if not y[0].endswith(("-a", "-a2"))] + [x for x in kuyruk() if x[0] not in baslayan] + [y for y in yeniden if y[0].endswith(("-a", "-a2"))]  # devam turları ana işlerin arkasında
+        if yenile:  # kuyruktan yeni iş yok; bellekteki yeniden denemeler restart'ta kaybolmasın diye bitirilir
+            bekleyen = list(yeniden)
         dis = dis_calisan(set(calisan))
         if not bekleyen and not calisan and not dis:  # 22 Eki (Ömer): kuyruk boşalınca ÇIKMA — sonradan eklenen işler başlamıyordu; bekle
             if "bos" not in uyari:

@@ -500,3 +500,42 @@ def test_gorev_yolu_mutlak_satir():
     s = ajan_sira.gorev_yolu_satir(".kos/kopru/gorev-havuz-genis-2.md")
     assert "[görev dosyası]" in s and os.path.isabs(s.split("] ", 1)[1].split(" (")[0])
     assert s.split("] ", 1)[1].split(" (")[0].endswith("gorev-havuz-genis-2.md")
+
+
+def test_yenile_mtime_degisince_yenile(tmp_path):
+    """YONETICI-YENILE-1: izlenen modülün mtime'ı değişince karar 'yenile'; aynı küme ikinci turda tekrar derlenmez."""
+    f = tmp_path / "m.py"
+    f.write_text("X = 1\n", encoding="utf-8")
+    ilk = {str(f): 100.0}
+    assert ajan_sira.yenile_karar(ilk, {}, {str(f): 100.0}) == (None, {}, [])
+    karar, degisen, hatalar = ajan_sira.yenile_karar(ilk, {}, {str(f): 200.0})
+    assert (karar, hatalar) == ("yenile", []) and degisen == {str(f): 200.0}
+    assert ajan_sira.yenile_karar(ilk, degisen, {str(f): 200.0}) == (None, degisen, [])
+
+
+def test_yenile_derleme_hatasi_yenileme_yok(tmp_path):
+    f = tmp_path / "bozuk.py"
+    f.write_text("def x(:\n", encoding="utf-8")
+    karar, degisen, hatalar = ajan_sira.yenile_karar({str(f): 1.0}, {}, {str(f): 2.0})
+    assert karar == "alarm" and len(hatalar) == 1 and hatalar[0].startswith("bozuk.py") and "SyntaxError" in hatalar[0]
+
+
+def test_yenile_yeni_modul_kayda_girer(tmp_path):
+    ilk = {}
+    assert ajan_sira.kod_degisti(ilk, {"a.py": 5.0}) == {} and ilk == {"a.py": 5.0}
+
+
+def test_izlenen_mtime_yerel_modulleri_alir():
+    m = ajan_sira.izlenen_mtime()
+    assert any(os.path.basename(f) == "maliyet_defter.py" for f in m) and not any("site-packages" in f for f in m)
+
+
+def test_yenile_et_kilidi_birakir_ve_execv(tmp_path, monkeypatch):
+    kilit = tmp_path / "ajan-sira.kilit"
+    kilit.write_text(f"{os.getpid()} 00:00:00", encoding="utf-8")
+    monkeypatch.setattr(ajan_sira, "KILIT", kilit)
+    gor = []
+    monkeypatch.setattr(ajan_sira.os, "execv", lambda exe, argv: gor.append((exe, argv, kilit.exists())))
+    ajan_sira.yenile_et({"x/ajan_sira.py": 1.0})
+    exe, argv, kilit_var = gor[0]
+    assert exe == sys.executable and argv[0] == sys.executable and not kilit_var
