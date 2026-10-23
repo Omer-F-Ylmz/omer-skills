@@ -62,7 +62,13 @@ GUV_IC = ("semgrep", "gitleaks")  # NİHAİ-DÜZELT-2 (Desktop kararı 1): kod d
 GUV_DIS = {"strix", "ecc-agentshield", "skillspector"}  # yalnız dış kod/bağımlılık/skill-plugin kurulumunda zorunlu
 KOD_ISARET = re.compile(r"(?i)\.(py|mjs|js|ts|ps1)\b|\btools/|\bbetik\w*|\bkod\b|\bajan_sira\b")
 DIS_KOD = re.compile(r"(?i)\bkurulum\w*|\binstall\w*|\bklon\w*|\bclone\w*|\bbağımlılık\w*|\bdependenc\w*|\bplugin\w*|\beklenti\w*|\bskill\s+(kur|yükle)\w*")
-METIN_ISI = re.compile(r"(?i)\bders kitab\w*|\bmüfredat\w*|\bmetin\b|\bdokümantasyon\b")
+METIN_ISI = re.compile(r"(?i)\bders kitab\w*|\bmüfredat\w*|\bmetin\b|\bdokümantasyon\b|\.(tsv|csv|md|txt)\b|\bbirleştir\w*")
+# DENETİM-AYAR-1: araç gereksinimi görev metnindeki anahtar sözcükten değil işin ÇIKTI türünden (teslim edilen dosya/eylem) türer
+GORSEL_DOSYA = re.compile(r"(?i)\.(png|jpe?g|svg|webp|gif|glb|gltf|blend|mp4|mov|webm)\b")
+VIDEO_ARAC = {"video-tarama", "video-uygula", "remotion-video-paket", "hyperframes-paket"}
+VIDEO_CIKTI = re.compile(r"(?i)youtu(\.be|be\.com)|\.(mp4|mov|webm|mkv)\b|\bvideo\w*\s+(üret|render|kes|montaj|yap|kur|oluştur|düzenle)\w*|\b(üret|render|oluştur)\w*\s+video|\bremotion\b|\bhyperframes\b")
+ARAMA_ARAC = {"awesome-rehber"}
+ARAMA_CIKTI = re.compile(r"(?i)\bawesome\b|dış araç|araç\s+(ara|bul|keşf|öner)\w*|yeni araç|araç aday\w*")
 
 
 def kod_guvenligi(kap):
@@ -73,7 +79,7 @@ def kod_guvenligi(kap):
 def gorsel_gerek(metin):
     """Desktop kararı 2: görsel-hakem yalnız görsel çıktı üreten işte; ders kitabı/metin işi (UI teslimi yoksa) görsel sayılmaz."""
     kap = kapsam(metin)
-    return bool(GORSEL.search(metin)) and (not METIN_ISI.search(kap) or bool(UI_TESLIM.search(kap)))
+    return bool(GORSEL.search(metin)) and (not METIN_ISI.search(kap) or bool(UI_TESLIM.search(kap) or GORSEL_DOSYA.search(kap)))
 
 
 def ui_isi(kap):
@@ -89,6 +95,15 @@ def gerekceli(ad, eksik):
         return []
     sat = [s for s in r.splitlines() if re.search(r"(?i)atlan|kullanılmad|kullanmad|gerek(siz| yok|mez)|uygun değil|kapsam dışı", s)]
     return [e for e in eksik if any(e.split(":")[-1].lower() in s.lower() and re.search(r"(?i)çünkü|neden|—|:|->|→|\(.{8,}\)", s) for s in sat)]
+
+
+def gorsel_gerekceli(ad):
+    """Ajan raporunda 'görsel çıktı yok/üretmedi' türü gerekçe satırı var mı."""
+    try:
+        r = json.loads((SIRA / f"{ad}.json").read_text(encoding="utf-8")).get("result") or ""
+    except (OSError, ValueError):
+        return False
+    return any(re.search(r"(?i)g[öo]rsel", s) and re.search(r"(?i)yok|üretmedi|gerek(siz|mez)|atlan|kullanılmad|değil", s) for s in r.splitlines())
 
 
 def kapsam(metin):
@@ -196,7 +211,9 @@ def araclar(metin):
                 o["dolgu"] = True
     kod_var, dis_var = kod_guvenligi(kap)  # NİHAİ-DÜZELT-2
     for o in sec:
-        if o["ad"].split(":")[-1] in GUV_DIS and not dis_var:
+        k = o["ad"].split(":")[-1]
+        if (k in GUV_DIS and not dis_var) or (k in GUV_IC and not kod_var) or (  # DENETİM-AYAR-1: çıktı türü kapıları (adı görevde geçen araç hariç)
+                k not in kap and ((k in VIDEO_ARAC and not VIDEO_CIKTI.search(kap)) or (k in ARAMA_ARAC and not ARAMA_CIKTI.search(kap)))):
             o["dolgu"] = True
     if kod_var:
         for a in GUV_IC:
@@ -378,7 +395,7 @@ def _ad_kullanildi(ad, k):
 CEKIRDEK_KULLAN = {  # ZORUNLU-ARAÇ-3 katman 1: ad → (skill/ajan/Bash/mcp adı olarak aranan eşanlamlılar)
     "beyin": ("beyin",), "ruflo": ("ruflo", "claude-flow", "agentdb"), "claude-mem": ("claude-mem",), "rtk": ("rtk",),
     "headroom": ("headroom", "headroom-compress"), "context-mode": ("context-mode", "strategic-compact", "context-mode-paket"),
-    "graphify": ("graphify", "sor2"),
+    "graphify": ("graphify", "sor2", "tara_hizli"),  # RAM-BEKCI-1: tam repo `graphify update .` yasak; tara_hizli.py çıktısı graphify gereksinimini karşılar
 }
 OGRENME_BASTA = ("pattern-search", "beyin.py ara", "beyin ara")
 OGRENME_SONDA = ("pattern-store", "beyin.py kaydet", "beyin kaydet", "hooks_intelligence_learn")
@@ -438,6 +455,8 @@ def denetle(ad):
         d.update(gerekceli=g, eksik=kalan)
         if not (n and len(kalan) >= min(3, math.ceil(n / 2))):
             d["durum"] = "+".join(x for x in d["durum"].split("+") if x != "arac_eksik" or d.get("cekirdek_eksik")) or "ok"
+    if "kanit_eksik" in d["durum"] and gorsel_gerekceli(ad):  # DENETİM-AYAR-1: "görsel çıktı üretmedi" gerekçesi kanıt_eksik tetiklemez
+        d["durum"] = "+".join(x for x in d["durum"].split("+") if x != "kanit_eksik") or "ok"
     (SIRA / f"{ad}.denetim.json").write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
     if "tur" in z:
         gecmis_yaz(ad, z["tur"], z["araclar"], d)
@@ -471,6 +490,38 @@ def oran_yeniden(adlar):
         say += 1
         eksik += "arac_eksik" in _hesapla(ad, z, k, False)["durum"]
     return eksik, say
+
+
+def kuru_kosu(saat):
+    """Son <saat> saatteki işaretli denetimler yeni araçlar()/gorsel_gerek() kuralıyla yeniden karara girer.
+    (işaretli, liste/görsel işareti kalkan, hiçbir işaret kalmayan=devam turu gereksiz)"""
+    tsv = {s.split("\t")[0]: s.split("\t")[1] for s in (KOK / ".kos/kopru/ajan-sira.tsv").read_text(encoding="utf-8").splitlines()
+           if "\t" in s and not s.startswith("#")}
+    sinir = time.time() - saat * 3600
+    isaretli, temiz, gereksiz = 0, [], []
+    for p in sorted(SIRA.glob("*.denetim.json"), key=lambda p: p.stat().st_mtime):
+        if p.stat().st_mtime < sinir:
+            continue
+        ad = p.name.split(".")[0]
+        try:
+            eski = json.loads(p.read_text(encoding="utf-8"))
+            z = json.loads((SIRA / f"{ad}.zorunlu.json").read_text(encoding="utf-8"))
+            k = _kullanimlar(json.loads((SIRA / f"{ad}.json").read_text(encoding="utf-8")).get("session_id"))
+            metin = (KOK / tsv[re.sub(r"-a2?$", "", ad)]).read_text(encoding="utf-8")
+        except (OSError, ValueError, KeyError):
+            continue
+        if k is None or not any(i in eski["durum"] for i in ISARET):
+            continue
+        isaretli += 1
+        ar, g = araclar(metin), gorsel_gerek(metin)
+        eski_l, yeni_l = karar(z["araclar"], z["gorsel"], k)[0], karar(ar, g, k)[0]
+        if eski_l == "ok" or yeni_l != "ok":
+            continue  # liste/görsel kaynaklı işaret yoktu ya da yeni kuralda da duruyor
+        temiz.append(ad)
+        yeni = _hesapla(ad, {**z, "araclar": ar, "gorsel": g}, k, False)
+        if yeni["durum"] == "ok":
+            gereksiz.append(ad)
+    return isaretli, temiz, gereksiz
 
 
 ISARET = ("arac_eksik", "kanit_eksik", "ogrenme_eksik")
@@ -594,6 +645,9 @@ if __name__ == "__main__":
         print("muaf kaydedildi")
     elif len(sys.argv) > 2 and sys.argv[1] == "--geri":
         geri(int(sys.argv[2]))
+    elif len(sys.argv) > 2 and sys.argv[1] == "--kuru":  # --kuru <saat>: yeni kuralla yeniden değerlendirme
+        _i, _t, _g = kuru_kosu(float(sys.argv[2]))
+        print(f"son {sys.argv[2]} saat · işaretli {_i} · liste/görsel işareti kalkan {len(_t)} · gereksiz devam turu {len(_g)}: {' '.join(_g)}")
     elif len(sys.argv) > 2 and sys.argv[1] == "--oran":
         _d = sorted(SIRA.glob("*.denetim.json"), key=lambda p: p.stat().st_mtime)[-int(sys.argv[2]):]
         _once = sum("arac_eksik" in json.loads(p.read_text(encoding="utf-8")).get("durum", "") for p in _d)

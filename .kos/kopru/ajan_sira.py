@@ -19,6 +19,7 @@ TAVAN_DOSYA = K / "ajan-sira.tavan"  # Desktop 20 Eki 12:15 (Ömer: haftalık %7
 sys.path.insert(0, str(KOK / "tools"))
 import zorunlu_arac  # ZORUNLU-ARAÇ-1: ön uçuş bloğu + son denetim
 import arka_istek  # ARKA-KALICI-1: ajan yerine yönetici başlatır
+import ajan_ram_bekci  # RAM-BEKCI-1: çalışan ajanların alt süreçleri için RAM bekçisi
 import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTut deny); CC_PROFIL_ZORLA=tam geri alır
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
@@ -189,6 +190,30 @@ def dis_calisan(bilinen):
         if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
             n += 1
     return n
+
+
+def kok_pidler(calisan):
+    """RAM-BEKCI-1: bu yöneticinin ajan kökleri = kendi başlattıkları + .basladi'dan canlı dış çalışanlar."""
+    pidler = {v[0].pid for v in calisan.values()}
+    for f in CIKTI.glob("*.basladi"):
+        p = f.read_text(encoding="utf-8", errors="replace").split()
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and claude_sureci(p[2], f.stat().st_mtime):
+            pidler.add(int(p[2]))
+    return pidler
+
+
+def ram_bekle(calisan):
+    """RAM-BEKCI-1: RAM >= %87 ise ajan alt süreç ağacının en büyüğünü bulur, >= %88'de durdurur; beyne olay yazar. Bekçi hatası döngüyü düşürmez."""
+    r = ram()
+    if r < ajan_ram_bekci.ADAY_ESIK:
+        return
+    try:
+        durum, h = ajan_ram_bekci.kontrol(r, kok_pidler(calisan), ajan_ram_bekci.surecler_listele(), ajan_ram_bekci.oldur_agac, log)
+        if durum in ("aday", "durdurdu"):
+            sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
+            beyin_dusun.olay("ram-bekci", "yonetici", f"RAM %{r} {durum} pid {h[0]} {h[2]} {h[3] // 2**20} MB", durum == "durdurdu")
+    except Exception as e:
+        log("ram-bekci hata", repr(e)[:120])
 
 
 KURTAR_TAVAN, KURTAR_TOPLAM, KURTAR_YAS = 2, 3, 6 * 3600  # YÖNETİCİ-BAĞIMSIZ-1 d3: iş başına en çok 2 deneme, açılış başına en çok 3 iş; KURTAR-FİX-1: >6 saatlik iş kurtarılmaz (alarm + Desktop'a soru)
@@ -622,6 +647,7 @@ def main():
                 beyin_dusun.bekci(len(calisan))
             except Exception:
                 pass
+        ram_bekle(calisan)  # RAM-BEKCI-1: çalışan ajanların alt süreçleri (iş başlatma kapısı aşağıda ayrı)
         for ad, (p, t0, fo, ef, mdl, bas, istem, kosul, cwd, butce) in list(calisan.items()):
             if p.poll() is not None or time.time() - t0 > SURE:
                 if p.poll() is None:
