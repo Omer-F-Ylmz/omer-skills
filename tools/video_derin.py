@@ -300,7 +300,13 @@ def calis(u):
     return durum
 
 
+GPU_PY = Path(os.environ.get("VD_OCR_PY") or KOK / ".kos/kopru/venv-ocr/Scripts/python.exe")
+
+
 def main():
+    # genel python'da onnxruntime CPU'dur (OCR ~19x yavaş: 0,33 → 6,5 sn/kare, OCR-HIZ-1); onnxruntime-gpu venv-ocr'de
+    if GPU_PY.is_file() and Path(sys.prefix).resolve() != GPU_PY.parents[1].resolve():
+        sys.exit(subprocess.call([str(GPU_PY), *sys.argv], stdout=sys.stdout, stderr=sys.stderr, creationflags=NW))  # NW tek başına çıktıyı yutar: akış açıkça verilir
     a = sys.argv[1:]
     en, es = 10**9, 3
     if "--en" in a:

@@ -66,3 +66,16 @@ def test_cerez_yalniz_instagram_icin_ve_dosya_varsa(tmp_path, monkeypatch):
     c.write_text("x")
     assert video_derin.cerez_arg("https://www.instagram.com/reel/X/") == ["--cookies", c]
     assert video_derin.cerez_arg("https://youtu.be/X") == []
+
+
+def test_genel_python_gpu_venve_yonlenir(tmp_path, monkeypatch):
+    gpu = tmp_path / "Scripts" / "python.exe"
+    gpu.parent.mkdir()
+    gpu.write_text("")
+    cagri = []
+    monkeypatch.setattr(video_derin, "GPU_PY", gpu)
+    monkeypatch.setattr(subprocess, "call", lambda cmd, **kw: cagri.append(cmd) or 0)
+    monkeypatch.setattr(sys, "argv", ["video_derin.py", "--en", "1"])
+    with pytest.raises(SystemExit) as e:
+        video_derin.main()
+    assert e.value.code == 0 and cagri == [[str(gpu), "video_derin.py", "--en", "1"]]
