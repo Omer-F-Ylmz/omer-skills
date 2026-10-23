@@ -1,0 +1,150 @@
+durum	ad	video_say	tur	ham	kanit	ornek_video	neden
+BELIRSIZ	skills	11	komut,repo	anthropics/skills|mattpocock/skills|skills|vercel-labs/skill	_inv_npm.txt: +-- skills@1.7.2	['Dd1gnAPCMGd', 'Dd1jV3AgDiG', 'DeIQfJsz2vc']	
+KURULU	hyperframes	4	komut,repo	heygen-com/hyperframes|hyperframes	_inv_plugin.txt: ❯ core-skills@hyperframes	['DeJhUeEDNEH', 'DeXJRhxEVIF', 'Dery8BLNDJK']	
+KURULU DEGIL	freellmapi	3	komut,repo	freellmapi|tashfeenahmed/freellmapi		['DeXNwmps3wW', 'Dertf_QNKyu', 'Det4Eo5RgSk']	ucretli/hesap (docs/kurulumlar: kurulum-turu-1.md)
+KURULU	graphify	3	repo	Graphify-Labs/graphify	_inv_uv.txt: - graphify	['DehO64bvSkV', 'Desw89eoG5a', 'DeupYVwjRiu']	
+KURULU	gstack	3	repo	garrytan/gstack	~\.claude\skills: gstack	['Da7xf8rviQU', 'DdmQWJzqP8H', 'DeupYVwjRiu']	
+KURULU	impeccable	3	komut,repo	impeccable|pbakaus/impeccable	_inv_plugin.txt: ❯ impeccable@impeccable	['Dd7uZoIBkfI', 'DeUdyDYoXvq', 'DeupYVwjRiu']	
+KURULU	agent-skills	2	repo	addyosmani/agent-skills	_inv_plugin.txt: ❯ agent-skills@addy-agent-skills	['DehO64bvSkV', 'Desw89eoG5a']	
+KURULU	assets	2	repo	user-aftachments/assets|user-altachments/assets|user-alttach	plugins/cache: assets	['DeXK9x7jQfb', 'Dew-EGglUpE']	
+KURULU DEGIL	lemo-opuscar	2	repo	Lemomo-ai/lemo-opuscar|lemomo-ai/lemo-opuscar|lemono-ai/lemo		['DeudXckt1W4', 'Dew2YFfth83']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	magic-mcp	2	repo	21st-dev/magic-mcp		['DehO64bvSkV', 'Desw89eoG5a']	ucretli/hesap (docs/kurulumlar: a-Dc8ojRUvOrL.md)
+KURULU DEGIL	moneyprinterturbo	2	repo	harry0703/MoneyPrinterTurbo|harryo703/MoneyPrinterTurbo|harr		['DeroxUoiAK_', 'DerpKungtI1']	guvenlik (docs/kurulumlar: kacan-adaylar.md)
+KURULU DEGIL	skils	2	repo	emikowalski/skils|mattpocock/skils		['DejfecRNhPL', 'DeupYVwjRiu']	bilinmiyor (kayit var, red nedeni yok: kacan-adaylar.md)
+KURULU	superpowers	2	repo	obra/superpowers	_inv_plugin.txt: ❯ superpowers@claude-plugins-official	['DdmQWJzqP8H', 'DeupYVwjRiu']	
+KURULU DEGIL	whisper	2	repo	openai/whisper		['DeSW9GFBQvF', 'DeupYVwjRiu']	ucretli/hesap (docs/kurulumlar: 2026-10-07-uygula.md)
+KURULU	yt-dlp	2	repo	yt-dlp/yt-dlp|yt-dp/yt-dlp	_inv_uv.txt: - yt-dlp	['DeSW9GFBQvF', 'DebqfLMkiPf']	
+KURULU DEGIL	agency-agents	1	repo	msitarzewski/agency-agents		['DdTdlm9i_Eg']	bilinmiyor (kayit var, red nedeni yok: kacan-adaylar.md)
+KURULU DEGIL	agent-orchestrator	1	repo	OrchestratorInc/agent-orchestrator		['Deu0KuOMfKl']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	agent-tars/cli	1	komut	@agent-tars/cli		['DYINtbpx96G']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	airllm	1	repo	lyogavin/airllm		['Ded57N9iD8_']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	aistupidmeter	1	repo	studioplatforms/aistupidmeter		['DehLU24Sm2x']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	aistupidmeter-	1	repo	studioplatforms/aistupidmeter-		['DehLU24Sm2x']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	apify/actors-mcp-server	1	komut	@apify/actors-mcp-server		['DeZFtvLkX6e']	ucretli/hesap (docs/kurulumlar: kurulum-turu-1.md)
+KURULU DEGIL	apify/actors-ncp-server	1	komut	@apify/actors-ncp-server		['DeZFtvLkX6e']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	apify/actorsmcp-server	1	komut	@apify/actorsmcp-server		['DeZFtvLkX6e']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	apify/tap/mcpc	1	komut	apify/tap/mcpc		['DeZFtvLkX6e']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	apity-mcp-server	1	repo	apity/apity-mcp-server		['DeZFtvLkX6e']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	autoagent	1	repo	HKUDS/AutoAgent		['DeiTwewgUbO']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	awesome-design-md	1	repo	voltagent/awesome-design-md		['DeUdyDYoXvq']	ucretli/hesap (docs/kurulumlar: kacan-adaylar.md)
+KURULU DEGIL	awesome-openso	1	repo	StefanoCecere/awesome-openso		['Dcj-dVpCTra']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	awesome-opensource-unity	1	repo	StefanoCecere/awesome-opensource-unity		['Dcj-dVpCTra']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	beads	1	repo	gastownhal/beads		['DdmQWJzqP8H']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	blender-ai-mcp-addon	1	repo	LiCinCan/blender-ai-mcp-addon		['DerD_Sqks87']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	blender-skills	1	repo	EL4CTE0/blender-skills		['DewdXceDG4A']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	buil	1	komut	buil		['DejzTLZtGiA']	lisans (docs/kurulumlar: 2026-09-23-uygula-17.md)
+KURULU DEGIL	build-partner	1	komut	build-partner		['DejzTLZtGiA']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	cavem	1	komut	cavem		['DesO_Hrjs8D']	bilinmiyor (kayit var, red nedeni yok: 2026-09-23-uygula-17.md)
+KURULU DEGIL	caveman	1	repo	JuliusBrussee/caveman		['DeupYVwjRiu']	bilinmiyor (kayit var, red nedeni yok: 2026-09-23-uygula-17.md)
+KURULU DEGIL	caveman@caveman	1	komut	caveman@caveman		['DesO_Hrjs8D']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	cc-usage	1	komut	cc-usage		['ngkwPKnnNKQ']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	ccbaga	1	repo	liseami/CcBaga		['Declah_AWHb']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	chatdev	1	repo	OpenBMB/ChatDev		['DeYASC1j8Zm']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	claude-code-	1	komut	claude-code-		['DewHApKDETC']	lisans (docs/kurulumlar: 2026-09-28-uygula.md)
+KURULU DEGIL	claude-code-mods	1	komut,repo	claude-code-mods|hamzafer/claude-code-mods		['DewHApKDETC']	bilinmiyor (kayit var, red nedeni yok: 2026-10-07-uygula.md)
+KURULU DEGIL	claude-code-modselatest	1	komut	claude-code-modselatest		['DewHApKDETC']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	claude-code-router	1	repo	musistudio/claude-code-router		['DdmQWJzqP8H']	ucretli/hesap (docs/kurulumlar: kacan-adaylar.md)
+KURULU DEGIL	claude-code-templates	1	komut	claude-code-templates		['DYwe8NLjYWo']	bilinmiyor (kayit var, red nedeni yok: kacan-adaylar.md)
+KURULU DEGIL	claude-men	1	komut	claude-men		['DeithvDucpZ']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	claude-watch	1	repo	taoufik123-collab/claude-watch		['DeXJRhxEVIF']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	claude-x-jev	1	repo	charlesdove977/cLaude-x-jev|charlesdove977/claude-x-jev		['DeSW9GFBQvF']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	codebur	1	komut	codebur		['DeithvDucpZ']	ucretli/hesap (docs/kurulumlar: kurulum-sirasi.md)
+KURULU DEGIL	codebura	1	komut	codebura		['DeithvDucpZ']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	codeburm	1	komut	codeburm		['DeithvDucpZ']	bilinmiyor (kurulum kaydi yok)
+KURULU	codeburn	1	komut	codeburn	_inv_npm.txt: +-- codeburn@0.9.25	['DeithvDucpZ']	
+KURULU DEGIL	codeburs	1	komut	codeburs		['DeithvDucpZ']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	compass	1	repo	AgriciDaniel/compass		['DeRM7RVjZLw']	bilinmiyor (kayit var, red nedeni yok: b-06.md)
+KURULU DEGIL	configuration	1	komut	Configuration		['DeYASC1j8Zm']	ucretli/hesap (docs/kurulumlar: 2026-09-28-uygula.md)
+KURULU DEGIL	context-bar@claude-code-mods	1	komut	context-bar@claude-code-mods		['DewHApKDETC']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	context-bargclaude-code-mods	1	komut	context-bargclaude-code-mods		['DewHApKDETC']	bilinmiyor (kurulum kaydi yok)
+KURULU	context7	1	repo	upstash/context7	_inv_mcp.txt: context7	['DehO64bvSkV']	
+KURULU DEGIL	creata-tnty-app	1	komut	creata-tnty-app		['Dd40YRPxuEB']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	create-video	1	komut	create-video		['DetCTmToK82']	bilinmiyor (kayit var, red nedeni yok: kacan-adaylar.md)
+KURULU DEGIL	create-videoptatest	1	komut	create-videoptatest		['DeSYR9fxKbV']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	daude-video	1	repo	bradautomates/daude-video		['DY8EtIPtKLC']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	diffsynth-	1	repo	modelscope/DiffSynth-		['DcYjSpTiEVQ']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	dra	1	repo	dramaclam/dra		['DcXvWV0z077']	guvenlik (docs/kurulumlar: 2026-09-24-uygula.md)
+KURULU DEGIL	dramaclaw	1	repo	dramaclam/dramaclaw		['DcXvWV0z077']	bilinmiyor (kurulum kaydi yok)
+KURULU	ecc	1	repo	afaan-m/ECC	_inv_plugin.txt: ❯ ecc@ecc	['DdmQWJzqP8H']	
+KURULU	editor	1	repo	diffusionstudio/editor	_inv_winget.txt: bree xlsx editor                                               msix\breeaitechpte.ltd.bree	['DcoIjyNOVE0']	
+KURULU DEGIL	enguin-harmess	1	repo	Prism-Shadow/enguin-harmess		['Dew-EGglUpE']	bilinmiyor (kurulum kaydi yok)
+KURULU	everything-claude-code	1	komut	affaan-m/everything-claude-code	_inv_skills.txt: everything-claude-code/	['DZZr2P_k1TY']	
+KURULU DEGIL	everything-claude-code@everything-claude-code	1	komut	everything-claude-code@everything-claude-code		['DZZr2P_k1TY']	bilinmiyor (kayit var, red nedeni yok: kurulum-sirasi.md)
+KURULU DEGIL	firecrawl	1	repo	firecrawl/firecrawl		['DeupYVwjRiu']	guvenlik (docs/kurulumlar: hesap-gereken.md)
+KURULU DEGIL	founder-skill	1	repo	Jakeschincariol/founder-skill		['DeYRMxMEfxd']	bilinmiyor (kayit var, red nedeni yok: b-02.md)
+KURULU DEGIL	frecraw	1	repo	recraw/frecraw		['DdmQWJzqP8H']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	harvey	1	repo	ethanplusai/harvey		['DedgqT_TBjn']	bilinmiyor (kayit var, red nedeni yok: blender-arastirma.md)
+KURULU	humanizer	1	repo	blader/humanizer	_inv_plugin.txt: ❯ humanizer@humanizer	['DeupYVwjRiu']	
+KURULU DEGIL	hummingbot.gi	1	repo	hummingbot/hummingbot.gi		['DewybS0FC3V']	bilinmiyor (kurulum kaydi yok)
+KURULU	hyperframes@hyperframes	1	komut	hyperframes@hyperframes	_inv_plugin.txt: ❯ hyperframes@hyperframes	['Dery8BLNDJK']	
+KURULU	img2threejs	1	repo	img2threejs/img2threejs	~\.claude\skills: img2threejs	['DeUdyDYoXvq']	
+KURULU DEGIL	inference	1	komut	Inference		['DcYjSpTiEVQ']	ucretli/hesap (docs/kurulumlar: hesap-gereken.md)
+KURULU DEGIL	insforge	1	repo	insForge/insForge|linsForge/insForge|lnsForge/insForge		['DeXK9x7jQfb']	bilinmiyor (kayit var, red nedeni yok: kacan-adaylar.md)
+KURULU DEGIL	jev-trader	1	repo	jarrodwatts/jev-trader		['Ddja2_uDxqr']	ucretli/hesap (docs/kurulumlar: a-DdtrqmqgJiN.md)
+KURULU DEGIL	kiln	1	repo	matthew-kissinger/kiln		['DdxkGdSiWlQ']	bilinmiyor (kayit var, red nedeni yok: blender-2-envanter.md)
+KURULU DEGIL	knowledge-work-plugins	1	repo	anthropics/knowledge-work-plugins		['DeemgMlE-yp']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	lamafactory	1	repo	hiyouga/lamaFactory		['Dew-EGglUpE']	bilinmiyor (kurulum kaydi yok)
+KURULU	last30days-skill	1	repo	mvanhorn/last30days-skill	_inv_plugin.txt: ❯ last30days@last30days-skill	['DeupYVwjRiu']	
+KURULU DEGIL	lemo-opuscar@lemolab	1	komut	lemo-opuscar@lemolab		['Dew2YFfth83']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	linkedin-agent-skil	1	repo	Jakeschincariol/linkedin-agent-skil		['DejRNgpiI1v']	bilinmiyor (kayit var, red nedeni yok: kurulum-turu-1.md)
+KURULU	linkedin-agent-skill	1	repo	Jakeschincariol/linkedin-agent-skill|Jakeschincarriol/linked	_inv_plugin.txt: ❯ linkedin-agent@linkedin-agent-skill	['DejRNgpiI1v']	
+KURULU DEGIL	llamafactory	1	repo	hiyouga/LlamaFactory|hiyouga/Llamafactory		['Dew-EGglUpE']	bilinmiyor (kurulum kaydi yok)
+KURULU	logo-design-skill	1	repo	kaankiziltug/logo-design-skill	_inv_plugin.txt: ❯ logo-design@logo-design-skill	['Dd0PMB5FQtK']	
+KURULU DEGIL	lucasmarkes/hairline	1	komut	@lucasmarkes/hairline		['DeIQfJsz2vc']	bilinmiyor (kayit var, red nedeni yok: b-05.md)
+KURULU DEGIL	mixamo-llm-mocap	1	repo	squall01337/mixamo-llm-mocap|squall1337/mixamo-llm-mocap|squ		['DcNOMyTCXmO']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	mixamo-m-mocap	1	repo	squall01337/mixamo-m-mocap		['DcNOMyTCXmO']	bilinmiyor (kurulum kaydi yok)
+KURULU	modelcontextprotocol/inspector	1	komut	@modelcontextprotocol/inspector	_inv_npm.txt: +-- @modelcontextprotocol/inspector@2.10.1	['DeZFtvLkX6e']	
+KURULU DEGIL	mortiflix-oss	1	repo	gtkottman/mortiflix-oss		['DeT98iukpRE']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	motion	1	repo	motiondivision/motion		['DYC-x8DogOI']	lisans (docs/kurulumlar: 2026-09-24-uygula.md)
+KURULU DEGIL	motion-web	1	repo	feitangyuan/motion-web		['Ddq_RtLEU7c']	bilinmiyor (kayit var, red nedeni yok: kacan-adaylar.md)
+KURULU DEGIL	motion-web-	1	repo	feitangyuan/motion-web.git-		['Ddq_RtLEU7c']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	motion2mixamorig	1	repo	MaxLiu22/Motion2MixamoRig|maxliu22/motion2mixamorig		['DeaOQ2bD9Zl']	bilinmiyor (kurulum kaydi yok)
+KURULU	n8n-mcp	1	repo	czlonkowski/n8n-mcp	_inv_mcp.txt: n8n-mcp	['DY8EtIPtKLC']	
+KURULU	npx	1	komut	npx	PATH: C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\npx.CMD	['DYINtbpx96G']	
+KURULU DEGIL	open-higgsfield-al	1	repo	Anil-matcha/Open-Higgsfield-Al		['DdRnP0TTEJM']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	open-webui	1	komut	open-webui		['DefTRngy4bF']	lisans (docs/kurulumlar: kurulum-turu-3.md)
+KURULU DEGIL	opensandbox	1	repo	opensandbox-group/OpenSandbox		['DcBuc3XuVif']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	penguin-hamess	1	repo	Prism-Shadow/penguin-hamess		['Dew-EGglUpE']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	pinchtab	1	repo	pinchtab/pinchtab		['DbRGB9QsGtb']	bilinmiyor (kurulum kaydi yok)
+BELIRSIZ	pip	1	komut	pip	_inv_pip.txt: pip                    25.0.1	['DcYjSpTiEVQ']	
+KURULU DEGIL	playwright-cli	1	repo	microsoft/playwright-cli		['DeUdyDYoXvq']	bilinmiyor (kayit var, red nedeni yok: awesome-adaylar.md)
+KURULU DEGIL	posti-app	1	repo	gitroomhq/posti-app		['DebBcSkggEA']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	postiz-app	1	repo	gitromhq/postiz-app|gitroomhq/postiz-app		['DebBcSkggEA']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	proceduralbuildingsthreejs	1	repo	achrefelouafi/ProceduralBuildingsThreeJS|achrefelouafi/proce		['DeGHCSSjCNu']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	prompt2rig	1	repo	blendi-remade/prompt2rig|blendl-remade/prompt2rig		['DevpUCAkWPl']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	reverse-api-engineer	1	repo	kalil0321/reverse-api-engineer		['DeuPC8oPU8v']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	roast-room	1	repo	nateherkai/roast-room		['DeaxjcMBKBy']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	security	1	repo	cloudflare/security		['Dd1gnAPCMGd']	lisans (docs/kurulumlar: kacan-adaylar.md)
+KURULU DEGIL	security-	1	repo	cloudflare/security-		['Dd1gnAPCMGd']	lisans (docs/kurulumlar: kacan-adaylar.md)
+KURULU DEGIL	security-audit-skill	1	repo	cloudflare/security-audit-skill		['DesJpohI7VN']	bilinmiyor (kayit var, red nedeni yok: kurulum-turu-1.md)
+KURULU	serena	1	repo	oraios/serena	_inv_mcp.txt: serena	['DdmQWJzqP8H']	
+KURULU DEGIL	shadcnglatest	1	komut	shadcngLatest		['Ddl3VNQBc3O']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	showwhat	1	komut	SHOWWHAT		['DewHApKDETC']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	signalcole	1	komut	SIGNALCole		['DbkhHb9TJSQ']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	skillo	1	repo	microsoft/SkilLo		['Ded7ZFWRGmP']	bilinmiyor (kayit var, red nedeni yok: kurulum-sirasi.md)
+KURULU DEGIL	skillopt	1	repo	microsoft/Skillopt		['Ded7ZFWRGmP']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	skillopt-sleep@skillopt-sleep	1	komut	skillopt-sleep@skillopt-sleep		['Ded7ZFWRGmP']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	skip	1	komut	skip		['DewHApKDETC']	lisans (docs/kurulumlar: kurulum-sirasi.md)
+KURULU DEGIL	solarrenderer	1	repo	enderfga/solarrenderer		['Dev6R4nCc_p']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	soma	1	repo	kai-jungshoefel/soma|kai-jungsthoefel/soma		['Devb42_CIpc']	bilinmiyor (kurulum kaydi yok)
+KURULU	strix	1	repo	usestrix/strix	_inv_uv.txt: - strix	['Desw89eoG5a']	
+KURULU DEGIL	supra-tex	1	repo	supra-3d/supra-tex		['Des4gGCoK1U']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	taste-skil	1	repo	Leonxinx/taste-skil		['DeupYVwjRiu']	ucretli/hesap (docs/kurulumlar: 2026-09-28-uygula.md)
+KURULU	taste-skill	1	repo	Leonxlnx/taste-skill	_inv_plugin.txt: ❯ taste-skill@taste-skill	['DeUdyDYoXvq']	
+KURULU DEGIL	temo-opu	1	repo	Lemomo-a1/temo-opu		['DeudXckt1W4']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	tradingagents	1	repo	TauricResearch/TradingAgents		['Dd0ZDPRjIWA']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	truefoundry/trueforge	1	komut	@truefoundry/trueforge		['DdRPipxzXNf']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	turbovec	1	komut,repo	RyanCodrai/turbovec|turbovec		['DZP_O5GOzN0']	bilinmiyor (kurulum kaydi yok)
+KURULU	ui-ux-pro-max	1	repo	nextlevelbuilder/ui-ux-pro-max	~\.claude\skills: ui-ux-pro-max	['DeupYVwjRiu']	
+KURULU DEGIL	ui-ux-pro-max-	1	repo	nextlevelbuilder/ui-ux-pro-max-		['DeupYVwjRiu']	bilinmiyor (kayit var, red nedeni yok: tasarim-skill-i-design-overhaul.md)
+KURULU	vercel	1	repo	vercel/vercel	_inv_npm.txt: `-- vercel@59.23.2	['DeupYVwjRiu']	
+KURULU DEGIL	vibe-wise@anthropic-plugin-directory	1	komut	vibe-wise@anthropic-plugin-directory		['Deaz4Kzgi3T']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	vicoa	1	repo	vicoa-ai/vicoa		['Dd8czNclQ-T']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	vicoa/cli	1	komut	@vicoa/cli		['Dd8czNclQ-T']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	video-use	1	repo	browser-use/video-use		['DeXJRhxEVIF']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	voicestud	1	repo	debpalash/VoiceStud		['DdyhyH1geFx']	lisans (docs/kurulumlar: kurulum-sirasi.md)
+KURULU DEGIL	xiryn	1	repo	SouravBeraAkaSpeed/xiryn		['Dews_cQjyMk']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	y-dp	1	repo	yt-dlp/y-dp		['DebqfLMkiPf']	bilinmiyor (kurulum kaydi yok)
+KURULU DEGIL	yamlplaceholdersuses	1	komut	YAMLplaceholdersUses		['DeYASC1j8Zm']	bilinmiyor (kurulum kaydi yok)
+KURULU	youtube-agent-skill	1	repo	Jakeschincariol/youtube-agent-skill	marketplaces: youtube-agent-skill	['DewxbWfjDHB']	
+KURULU DEGIL	yt-dp	1	repo	y-dlp/yt-dp|yt-dlp/yt-dp		['DebqfLMkiPf']	bilinmiyor (kurulum kaydi yok)
