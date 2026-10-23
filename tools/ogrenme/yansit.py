@@ -26,7 +26,7 @@ def yansit(olaylar, sor=b._sor):
         return metin
     istem = "Aşağıdaki iş olaylarından TEK satır ders yaz: ne pahalıydı ya da hata verdi, bir sonraki işte nasıl önlenir. Yalnız cümle.\n" + metin
     try:
-        ders, _ = sor("hafif", istem, 200)
+        ders, _ = sor("ozet", istem, 200)  # geçerli tur: ozet/hakem/yazim/uzun; "hafif" hiçbir halkayla eşleşmiyordu → DERS hep boştu
     except Exception:
         ders = None
     return metin + (f"\nDERS: {ders.strip()}" if ders and ders.strip() else "")

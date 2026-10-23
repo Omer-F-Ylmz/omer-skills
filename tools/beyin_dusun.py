@@ -19,6 +19,7 @@ from pathlib import Path
 
 KOK = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(KOK / "tools/ogrenme"))
+import atomik_yaz  # noqa: E402  Windows'ta WinError 5'e karşı yeniden deneme
 import ders  # noqa: E402  sır süzgeci + kök eşleme
 
 KOP = KOK / ".kos/kopru"
@@ -165,10 +166,7 @@ def _json(yol, varsayilan):
 
 
 def _yaz_bayt(yol, metin):
-    yol.parent.mkdir(parents=True, exist_ok=True)
-    t = yol.with_suffix(f".{os.getpid()}.tmp")
-    t.write_bytes(metin.encode("utf-8"))  # CRLF'siz
-    os.replace(t, yol)
+    atomik_yaz.yaz_bayt(yol, metin.encode("utf-8"))  # CRLF'siz
 
 
 def _kota():

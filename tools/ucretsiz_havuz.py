@@ -13,6 +13,7 @@ DURUM = DIZIN / "durum.json"
 NW = 0x08000000  # CREATE_NO_WINDOW
 KILIT = threading.Lock()
 sys.path.insert(0, str(Path(__file__).parent))
+import atomik_yaz  # noqa: E402
 
 # sağlayıcı: (uç, anahtar kaynağı, ağırlık = yük payı). github anahtarı `gh auth token`, omni ucuz_alt.anahtar.
 SAG = {"gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/chat/completions", "GEMINI_API_KEY", 3),
@@ -52,7 +53,7 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("nvidia", "nvidia/nemotron-3-ultra-550b-a55b", "nvidia", None, 30, 100_000, 1000, 100_000, (H, Y)),  # ORDU d8: 200 (1 sn); nemotron-3-super-120b/nano-3-30b/llama-3.1-nemotron-ultra-253b listede ama 404, 3.5-lightning/3.5-super-vl 200 boş içerik (düşünme jetonu)
        E("nvidia", "nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia", None, 30, 100_000, 1000, 100_000, (H, Y)),  # ORDU d9: 200 dolu içerik (max_tokens 8000; ~300 düşünme jetonu); max_tokens ≤1500 ile boş kalabilir
        E("nvidia", "google/gemma-4-31b-it", "google", None, 30, 100_000, 1000, 100_000, ()),  # KAPALI: llama-3.3 410, mistral-large/nemotron-70b 404, gemma/deepseek 60 sn zaman aşımı (20 Eki)
-       E("sambanova", "gpt-oss-120b", "openai", None, 20, 20_000, 20, 60_000, ()),  # KAPALI: 402 PAYMENT_METHOD_REQUIRED (ücretsiz bakiye yok, 20 Eki); Llama-3.3 yoğunluktan 429
+       E("sambanova", "gpt-oss-120b", "openai", None, 20, 20_000, 20, 60_000, (H,)),  # 23 Eki: 402 gitti, 429 "high demand" (geçici; soğuma atlatır); 20 Eki'de 402 PAYMENT_METHOD_REQUIRED idi
        E("ollama", "gpt-oss:120b", "openai", None, 6, 100_000, 100, 100_000, (Z, H, Y))]
 ad = lambda e: f"{e.prov}/{e.model}"  # noqa: E731
 ERT, SONUC = DIZIN / "ertelenen.jsonl", DIZIN / "ertelenen-sonuc.jsonl"
@@ -118,9 +119,8 @@ def _durum():
         return {}
 
 
-def _yaz(d):  # shortcut: süreçler arası kilit yok, son yazan kazanır (sayaç hafif eksik kalabilir); sık paralel süreçte dosya kilidi ekle
-    DIZIN.mkdir(parents=True, exist_ok=True)
-    t = DURUM.with_suffix(".tmp"); t.write_text(json.dumps(d), encoding="utf-8"); os.replace(t, DURUM)
+def _yaz(d):  # shortcut: süreçler arası kilit yok, son yazan kazanır (sayaç hafif eksik kalabilir)
+    atomik_yaz.yaz_bayt(DURUM, json.dumps(d).encode("utf-8"))
 
 
 def _oran(e, hata):
@@ -139,7 +139,7 @@ def _say(d, k, bugun):
     return v[1] if v and v[0] == bugun else 0
 
 
-def _sec(tur, tahmin, aile, haric, denenen, rezerv=None):
+def _sec(tur, tahmin, aile, haric, denenen, rezerv=None, saglayici=None):
     """Uygun halkaların en az yüklüsünü seçer ve kotasını hemen rezerve eder (paralel iş parçacıkları aşmasın)."""
     with KILIT:
         d = _durum(); now = time.time(); bugun = time.strftime("%Y-%m-%d", time.gmtime())
@@ -147,7 +147,7 @@ def _sec(tur, tahmin, aile, haric, denenen, rezerv=None):
             d.setdefault(k, {})
         uygun = []
         for e in ENT:
-            if tur not in e.turler or ad(e) in denenen or tahmin > e.baglam or (aile and e.aile != aile) or e.aile == haric:
+            if tur not in e.turler or ad(e) in denenen or tahmin > e.baglam or (aile and e.aile != aile) or e.aile == haric or (saglayici and e.prov != saglayici):
                 continue
             if d["soguma"].get(ad(e), 0) > now or d["soguma"].get("p:" + e.prov, 0) > now:
                 continue
@@ -241,10 +241,11 @@ def _haiku(istem):
     return j["result"].strip()
 
 
-def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False, sablon=None):
+def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False, sablon=None, saglayici=None):
     """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok).
     ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer.
     AJAN-AKIS-1: iş-akışı çekirdeği (tools/ajan_cekirdek.md) HER çağrıda istemin başına eklenir; zor=True ayrıca zor-iş bölümünü ekler.
+    saglayici=<ad>: yalnız o sağlayıcının halkaları (beyin_dusun sıralı dağıtımı).
     sablon=<tür>: egitim-1 damıtma şablonu (tools/ogret/sarmal.py) + ornek-<tür>.md istemin başına eklenir."""
     ham = istem
     if sablon:
@@ -255,7 +256,7 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
         import ders_dongu  # DERS-DONGU-1: çekirdekten sonra ≤5 ders (≤150 jeton); ders yok → ''
         istem = ajan_cekirdek.onek(zor) + ders_dongu.onek(ham) + istem
     tahmin, log, denenen = len(istem) // 3 + max_tokens, [], set()
-    while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2)):
+    while (e := _sec(tur, tahmin, aile, haric_aile, denenen, len(istem) // 3 + max_tokens // 2, saglayici)):
         denenen.add(ad(e))
         try:
             y = _istek(e, istem, max_tokens, zaman)
