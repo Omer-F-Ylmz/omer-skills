@@ -27,3 +27,4 @@ tools/laya/veri/*.log
 tools/laya/*.log
 skills/omer-kutuphaneler/raf/
 tools/adim_log.jsonl
+tools/code-mode/node_modules/

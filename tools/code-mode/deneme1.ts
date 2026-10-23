@@ -1,0 +1,10 @@
+const R = "C:\\Projeler\\omer-skills";
+const st = git.git_git_status({ repo_path: R });
+const lg = git.git_git_log({ repo_path: R, max_count: 25 });
+const t = gw.time_get_current_time({ timezone: "Europe/Istanbul" });
+const txt = typeof lg === "string" ? lg : JSON.stringify(lg);
+const etiket = (txt.match(/[A-Z][A-Z0-9]+(?:-[A-Z0-9]+)+(?=:)/g) || []).map(e => e.replace(/-\d+[A-Z]?$/i, ""));
+const say = {};
+for (const e of etiket) say[e] = (say[e] || 0) + 1;
+const stS = typeof st === "string" ? st : JSON.stringify(st);
+return { saat: t, status_satir: stS.split("\\n").length, son25_is: say };

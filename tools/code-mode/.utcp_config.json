@@ -1,0 +1,45 @@
+{
+  "manual_call_templates": [
+    {
+      "name": "gw",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "time": { "transport": "http", "url": "http://127.0.0.1:47800/servers/mcp-time/mcp" },
+          "fetch": { "transport": "http", "url": "http://127.0.0.1:47800/servers/mcp-fetch/mcp" },
+          "memory": { "transport": "http", "url": "http://127.0.0.1:47800/servers/mcp-memory/mcp" },
+          "brave": { "transport": "http", "url": "http://127.0.0.1:47800/servers/brave-search/mcp" },
+          "markitdown": { "transport": "http", "url": "http://127.0.0.1:47800/servers/markitdown/mcp" },
+          "arxiv": { "transport": "http", "url": "http://127.0.0.1:47800/servers/arxiv/mcp" }
+        }
+      }
+    },
+    {
+      "name": "git",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "git": { "transport": "stdio", "command": "C:\\Users\\pc\\.local\\bin\\mcp-server-git.exe", "args": [] }
+        }
+      }
+    },
+    {
+      "name": "fs",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "fs": { "transport": "stdio", "command": "node", "args": ["C:\\AI\\mcp\\mcp-filesystem\\node_modules\\@modelcontextprotocol\\server-filesystem\\dist\\index.js", "C:/Projeler", "C:/Users/pc/Desktop"] }
+        }
+      }
+    },
+    {
+      "name": "pw",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "pw": { "transport": "stdio", "command": "node", "args": ["C:\\AI\\mcp\\playwright\\node_modules\\@playwright\\mcp\\cli.js", "--isolated", "--headless"] }
+        }
+      }
+    }
+  ]
+}

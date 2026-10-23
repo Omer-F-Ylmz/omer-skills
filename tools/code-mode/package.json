@@ -1,0 +1,9 @@
+{
+  "name": "omer-code-mode",
+  "private": true,
+  "description": "UTCP Code Mode (CLI + MCP) yerel kurulum — CODE-MODE-1",
+  "dependencies": {
+    "@utcp/code-mode-cli": "0.1.1",
+    "@utcp/code-mode-mcp": "1.2.1"
+  }
+}
