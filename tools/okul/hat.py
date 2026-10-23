@@ -2,7 +2,7 @@
 Claude YOK: tüm model çağrıları tools/ucuz_alt.py (yalnız :free/ollama). Alıntı denetimi ($0) betikte.
   python tools/okul/hat.py <alan> [--kuru]       kaynak: docs/okul/kaynak/<alan>/*.md|*.txt (internet taraması çıktısı buraya konur)
 Çıkış: 0 doğrulandı · 2 kaynak yok · 3 alıntı/çelişki denetimi geçmedi (taslak yazıldı, ders kitabına GİRMEZ) · 5 ücretsiz yol yok (bekle)"""
-import json, re, subprocess, sys
+import json, os, re, subprocess, sys
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[2]
@@ -20,7 +20,7 @@ print(f"{alan}: {len(kaynak)} kaynak");
 if kuru: print("kuru: model çağrılmadı"); sys.exit(0)
 
 def ucuz(soru, cikti, dosyalar):
-    r = subprocess.run([sys.executable, str(KOK / "tools/ucuz_alt.py"), "--tur", "ozet", soru, str(cikti), *map(str, dosyalar)], capture_output=True, text=True, encoding="utf-8")
+    r = subprocess.run([sys.executable, str(KOK / "tools/ucuz_alt.py"), "--tur", "ozet", soru, str(cikti), *map(str, dosyalar)], capture_output=True, text=True, encoding="utf-8", errors="replace", env={**os.environ, "PYTHONIOENCODING": "utf-8"})
     print(r.stdout.strip()[-200:]); return r.returncode
 
 rc = ucuz(istem, A, kaynak)

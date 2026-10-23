@@ -1,13 +1,265 @@
 {
- "blender": {"ad":"Blender (3D)","anahtar":["blender","3d","threejs","gltf","render","geometry","retopo","rig"],"mcp":["blender"],"ek":"Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP","proje":"TELVE, NEFFEX, BHS5"},
- "oyun": {"ad":"Oyun","anahtar":["game","godot","unity","unreal","level-design","multiplayer"],"mcp":[],"ek":"Godot/Unity docs, itch.io, OpenGameArt, Kenney","proje":"BHS5"},
- "web": {"ad":"Site/UI/animasyon","anahtar":["frontend","motion","scroll","tailwind","ui-","design","css","gsap","remotion"],"mcp":["playwright","21st","rea"],"ek":"codrops, 21st, awwwards, MDN","proje":"freelance sitesi, TELVE"},
- "uygulama": {"ad":"Uygulama (mobil/masaüstü)","anahtar":["flutter","react-native","expo","avalonia","mobile","ios","electron"],"mcp":[],"ek":"Flutter/Expo/Avalonia docs","proje":"-"},
- "kod": {"ad":"Kodlama (.NET/Python/JS)","anahtar":["dotnet","csharp","python","javascript","typescript","tdd","debug","clean-code"],"mcp":["context7"],"ek":"mslearn, context7, docs.python.org","proje":"tüm repo"},
- "otomasyon": {"ad":"Otomasyon (n8n/mail/zamanlı)","anahtar":["n8n","automation","schedule","workflow","email","zapier","cron"],"mcp":["n8n"],"ek":"n8n docs/şablonlar","proje":"freelance, borsa botu"},
- "icerik": {"ad":"İçerik (YT/IG/TikTok)","anahtar":["yt-","video","youtube","instagram","tiktok","caption","thumbnail","reel","podcast"],"mcp":["premiere"],"ek":"video-tarama hattı, transkript","proje":"NEFFEX"},
- "borsa": {"ad":"Borsa/trading botu","anahtar":["trading","backtest","quant","risk-","market","financial","crypto","dca"],"mcp":[],"ek":"ccxt, backtrader/vectorbt docs","proje":"borsa botu"},
- "isletme": {"ad":"İşletme (teklif/fatura/pazarlama)","anahtar":["invoice","proposal","marketing","seo","pricing","sales","copywriting","small-business"],"mcp":[],"ek":"-","proje":"freelance"},
- "internet": {"ad":"İnternet & ücretsiz kaynaklar","anahtar":["research","search","web-","agent-reach","firecrawl","tavily","exa","deep-research"],"mcp":["rea"],"ek":"brave-search, Parallel, last30days, webcmd","proje":"tüm okul"},
- "araclarimiz": {"ad":"Kendi araçlarımız","anahtar":["graphify","jev","beyin","ruflo","headroom","rtk","skill-creator","plan-kur"],"mcp":["ruflo","kapi"],"ek":"USTALIK-1 ile birleşik","proje":"tüm repo"}
+ "blender": {
+  "ad": "Blender (3D)",
+  "anahtar": [
+   "blender",
+   "3d",
+   "threejs",
+   "gltf",
+   "render",
+   "geometry",
+   "retopo",
+   "rig"
+  ],
+  "mcp": [
+   "blender"
+  ],
+  "ek": "Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP",
+  "proje": "TELVE, NEFFEX, BHS5"
+ },
+ "oyun": {
+  "ad": "Oyun",
+  "anahtar": [
+   "game",
+   "godot",
+   "unity",
+   "unreal",
+   "level-design",
+   "multiplayer"
+  ],
+  "mcp": [],
+  "ek": "Godot/Unity docs, itch.io, OpenGameArt, Kenney",
+  "proje": "BHS5"
+ },
+ "web": {
+  "ad": "Site/UI/animasyon",
+  "anahtar": [
+   "frontend",
+   "motion",
+   "scroll",
+   "tailwind",
+   "ui-",
+   "design",
+   "css",
+   "gsap",
+   "remotion"
+  ],
+  "mcp": [
+   "playwright",
+   "21st",
+   "rea"
+  ],
+  "ek": "codrops, 21st, awwwards, MDN",
+  "proje": "freelance sitesi, TELVE"
+ },
+ "uygulama": {
+  "ad": "Uygulama (mobil/masaüstü)",
+  "anahtar": [
+   "flutter",
+   "react-native",
+   "expo",
+   "avalonia",
+   "mobile",
+   "ios",
+   "electron"
+  ],
+  "mcp": [],
+  "ek": "Flutter/Expo/Avalonia docs",
+  "proje": "-"
+ },
+ "kod": {
+  "ad": "Kodlama (.NET/Python/JS)",
+  "anahtar": [
+   "dotnet",
+   "csharp",
+   "python",
+   "javascript",
+   "typescript",
+   "tdd",
+   "debug",
+   "clean-code"
+  ],
+  "mcp": [
+   "context7"
+  ],
+  "ek": "mslearn, context7, docs.python.org",
+  "proje": "tüm repo"
+ },
+ "otomasyon": {
+  "ad": "Otomasyon (n8n/mail/zamanlı)",
+  "anahtar": [
+   "n8n",
+   "automation",
+   "schedule",
+   "workflow",
+   "email",
+   "zapier",
+   "cron"
+  ],
+  "mcp": [
+   "n8n"
+  ],
+  "ek": "n8n docs/şablonlar",
+  "proje": "freelance, borsa botu"
+ },
+ "icerik": {
+  "ad": "İçerik (YT/IG/TikTok)",
+  "anahtar": [
+   "yt-",
+   "video",
+   "youtube",
+   "instagram",
+   "tiktok",
+   "caption",
+   "thumbnail",
+   "reel",
+   "podcast"
+  ],
+  "mcp": [
+   "premiere"
+  ],
+  "ek": "video-tarama hattı, transkript",
+  "proje": "NEFFEX"
+ },
+ "borsa": {
+  "ad": "Borsa/trading botu",
+  "anahtar": [
+   "trading",
+   "backtest",
+   "quant",
+   "risk-",
+   "market",
+   "financial",
+   "crypto",
+   "dca"
+  ],
+  "mcp": [],
+  "ek": "ccxt, backtrader/vectorbt docs",
+  "proje": "borsa botu"
+ },
+ "isletme": {
+  "ad": "İşletme (teklif/fatura/pazarlama)",
+  "anahtar": [
+   "invoice",
+   "proposal",
+   "marketing",
+   "seo",
+   "pricing",
+   "sales",
+   "copywriting",
+   "small-business"
+  ],
+  "mcp": [],
+  "ek": "-",
+  "proje": "freelance"
+ },
+ "internet": {
+  "ad": "İnternet & ücretsiz kaynaklar",
+  "anahtar": [
+   "research",
+   "search",
+   "web-",
+   "agent-reach",
+   "firecrawl",
+   "tavily",
+   "exa",
+   "deep-research"
+  ],
+  "mcp": [
+   "rea"
+  ],
+  "ek": "brave-search, Parallel, last30days, webcmd",
+  "proje": "tüm okul"
+ },
+ "araclarimiz": {
+  "ad": "Kendi araçlarımız",
+  "anahtar": [
+   "graphify",
+   "jev",
+   "beyin",
+   "ruflo",
+   "headroom",
+   "rtk",
+   "skill-creator",
+   "plan-kur"
+  ],
+  "mcp": [
+   "ruflo",
+   "kapi"
+  ],
+  "ek": "USTALIK-1 ile birleşik",
+  "proje": "tüm repo"
+ },
+ "3d-a": {
+  "ad": "3D Modelleme (A)",
+  "anahtar": [
+   "blender",
+   "3d",
+   "threejs",
+   "gltf",
+   "render",
+   "geometry",
+   "retopo",
+   "rig"
+  ],
+  "mcp": [
+   "blender"
+  ],
+  "ek": "Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP",
+  "proje": "TELVE, NEFFEX, BHS5"
+ },
+ "3d-b": {
+  "ad": "3D Materyal/Işık/Render (B)",
+  "anahtar": [
+   "blender",
+   "3d",
+   "threejs",
+   "gltf",
+   "render",
+   "geometry",
+   "retopo",
+   "rig"
+  ],
+  "mcp": [
+   "blender"
+  ],
+  "ek": "Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP",
+  "proje": "TELVE, NEFFEX, BHS5"
+ },
+ "3d-c": {
+  "ad": "3D Animasyon (C)",
+  "anahtar": [
+   "blender",
+   "3d",
+   "threejs",
+   "gltf",
+   "render",
+   "geometry",
+   "retopo",
+   "rig"
+  ],
+  "mcp": [
+   "blender"
+  ],
+  "ek": "Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP",
+  "proje": "TELVE, NEFFEX, BHS5"
+ },
+ "3d-d": {
+  "ad": "3D Efekt/VFX (D)",
+  "anahtar": [
+   "blender",
+   "3d",
+   "threejs",
+   "gltf",
+   "render",
+   "geometry",
+   "retopo",
+   "rig"
+  ],
+  "mcp": [
+   "blender"
+  ],
+  "ek": "Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP",
+  "proje": "TELVE, NEFFEX, BHS5"
+ }
 }
