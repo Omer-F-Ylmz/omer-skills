@@ -8,7 +8,7 @@ HEDEF = {"python.exe", "pythonw.exe", "node.exe", "conhost.exe", "uv.exe", "uvx.
 # zincirde bu adlardan biri canlıysa süreç bir oturuma/runner'a bağlıdır
 BAGLI_AD = ("claude", "powershell", "pwsh", "explorer", "video.exe")
 # komut satırı (süreç ya da zincirindeki herhangi biri) bunlardan birini içeriyorsa dokunulmaz
-KORUNAN = ("headroom", "omniroute", "worker-service", "bun-runner", "37777", "20190", "ucretsiz_havuz", "ajan_sira",
+KORUNAN = ("headroom", "omniroute", "worker-service", "bun-runner", "37777", "20190", "ucretsiz_havuz", "ajan_sira", "yonetici_gorev",
            "video764", "cc-kopru", "obsidian", "chrome", "mem_bekci", "mem-bekci", "yetim.py", "ram_bekci", "arka.py",
            "mcp_paylasim", "mcp-proxy", "_kos.py")  # mcp-proxy havuzu bilerek ortak: altındaki MCP sunucuları yetim değil
 KOK = os.path.dirname(os.path.abspath(__file__))
