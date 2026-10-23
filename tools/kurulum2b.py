@@ -99,8 +99,8 @@ def sema_tamam(ad, cmd, args):
 def p2():
     out = []
     for p in NPM:
-        var = calis(["npm", "ls", "-g", p, "--depth=0"])[0] == 0 and not KURU
-        rc = 0 if var else calis(["npm", "i", "-g", p])[0]
+        var = calis(["npm.cmd", "ls", "-g", p, "--depth=0"])[0] == 0 and not KURU
+        rc = 0 if var else calis(["npm.cmd", "i", "-g", p])[0]
         out.append(f"npm {p}: {'zaten' if var else f'rc={rc}'}")
     for p in PIP:
         var = calis([sys.executable, "-m", "pip", "show", p])[0] == 0 and not KURU
