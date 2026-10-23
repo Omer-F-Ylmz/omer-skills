@@ -277,6 +277,51 @@ def isle(url):
         shutil.rmtree(d, ignore_errors=True)
 
 
+def isle_post(url):
+    """YENIDEN-GECIS-1: /p/ gönderisi — gallery-dl ile TÜM slaytlar, her görsele OCR, video slaytına ASR+kare OCR, açıklama."""
+    kod = kod_of(url)
+    hedef = CIKTI / f"{kod}.json"
+    if hedef.exists():
+        return kod, "var"
+    if kod in atla_kodlari():
+        return kod, "atla"
+    d = Path(tempfile.mkdtemp(prefix="vp_"))
+    try:
+        r = kos("gallery-dl", *cerez_arg(url), "-D", d, "--write-metadata", url, timeout=300)
+        slaytlar = sorted(p for p in d.iterdir() if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp", ".mp4"))
+        if not slaytlar:
+            return kod, "indirilemedi: " + (r.stderr.strip().splitlines() or ["slayt yok"])[-1][:120]
+        gorseller = [p for p in slaytlar if p.suffix.lower() != ".mp4"]
+        seg, ks, dil = [], list(gorseller), None
+        for i, v in enumerate(p for p in slaytlar if p.suffix.lower() == ".mp4"):
+            dv = d / f"v{i}"; dv.mkdir()
+            dil, s = asr(v, dv); seg += s
+            ks += kareler(v, dv, tavan=30)  # karusel video slaytı: 240 kare × 9 slayt OCR kuyruğunu saatlerce tıkıyordu
+        ekran = ocr(ks)
+        ekran_m = "\n".join(e["t"] for e in ekran)
+        duzeltme = []
+        for s in seg:
+            s["t"], ops = ekran_duzelt.duzelt(s["t"], ekran_m)
+            duzeltme += ops
+        aciklama = ""
+        for mj in d.glob("*.json"):
+            try:
+                j = json.loads(mj.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            aciklama = aciklama or str(j.get("description") or j.get("caption") or "")[:800]
+        metin = ekran_m + "\n" + " ".join(s["t"] for s in seg) + "\n" + aciklama
+        linkler = sorted({m.strip(".,)") for m in URL_RE.findall(metin)})
+        komutlar = sorted({m.strip() for m in KOMUT_RE.findall(metin)})
+        veri = {"kod": kod, "url": url, "dil": dil, "meta": {"aciklama": aciklama, "slayt": len(slaytlar)}, "transkript": seg, "ekran": ekran,
+                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": None, "kare_sayisi": len(ks), "duzeltme": duzeltme}
+        CIKTI.mkdir(parents=True, exist_ok=True)
+        hedef.write_text(json.dumps(veri, ensure_ascii=False, indent=1), encoding="utf-8")
+        return kod, f"ok post slayt={len(slaytlar)} ocr={len(ekran)} link={len(linkler)} komut={len(komutlar)}"
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 RAM_ESIK = 85  # yüzde: üstündeyken yeni video başlamaz (sınır Ömer'in RAM kuralı)
 
 
@@ -289,7 +334,7 @@ def calis(u):
     ram_bekle()
     t = time.time()
     try:
-        kod, durum = isle(u)
+        kod, durum = isle_post(u) if re.search(r"instagram\.com/p/", u) and shutil.which("gallery-dl") else isle(u)
     except Exception as e:  # tek video hatası toplu işi durdurmaz
         kod, durum = kod_of(u), f"hata: {str(e)[:120]}"
     satir = f"{kod}\t{durum}\t{time.time() - t:.0f}s"
