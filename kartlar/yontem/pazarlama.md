@@ -1,0 +1,197 @@
+# Yöntemler — pazarlama
+
+- **YouTube Kanal Gelişimi Raporu** (C3vg_ZdsXUF): Şubat ayında başlayan ve 5000 takipçi, 180 bin izlenme ve 74 dolar gelire ulaşan kanalın analitik raporlarının gösterilmesi — «180 bin izlenme, 3 bin takipçi, 74 dolar gelir elde edilmiş»
+- **Yüz Tanıma ile Sosyal Medya Taraması** (CqBV8KZo_a3): Tek bir fotoğraf kullanarak kişilerin tüm web üzerindeki fotoğraflarını bulan aracı tanıtma. — «facecheck.id sitesine yüklüyorlar»
+- **FinChat Tanıtımı** (CsvjON7Ajvy): Finansal analiz ve yatırımcılar için yapay zeka destekli sohbet platformu tanıtımı. — «Finansal ve yatırım konularında chat GPT'den kat kat daha iyi olan FinChat ile tanışın.»
+- **Google Ads Google AI Entegrasyonu** (CsyufqCIHQD): Google Ads'in Google AI ile birleştirilmesiyle ürün görsellerini çeşitlendirme, çözünürlük artırma, arka plan değiştirme ve metin tabanlı reklam üretimi. — «Google'un online reklam platformu Google Ads, bu firmanın yapay zeka platformu Google AI'a entegre oldu.»
+- **Yapay Zeka ile Video Düzenleme** (CxZ_Lqrsfuu): Sıkıcı videoları yapay zeka teknolojileriyle izlenilebilir hale getirme yöntemi. — «Sıkıcı bir videoyu yapay zeka kullanarak izlenilebilir hale getirebilirsiniz.»
+- **AI Etki Analizi** (Da0GU4JDzsp): Microsoft'un yapay zeka tarafından etkilenecek ve güvende kalacak meslekler üzerine yaptığı çalışmayı referans göstererek içerik üretimi. — «Microsoft’s research highlights which jobs contain the highest share of AI-doable work today»
+- **Ghost Font** (Da0xX_KEy-p): AI modellerinin okuyamadığı, insanların okuyabildiği hareketli yazı tipi — «GhostFont,createdbyEricLuatMixfont,revealseach letter throughmotion.»
+- **Pro AI Stack Karşılaştırması** (Da82brGEkJv): Başlangıç seviyesi AI araçlarından profesyonel seviyedeki araçlara geçiş merdiveni sunuluyor. — «Most people are stuck on beginner tools and don’t even know it. The pros aren’t smarter. They just quietly upgraded to the tool that actually does the job»
+- **Yüzsüz YouTube Geliri** (DaDgTktFTLJ): Kamera kullanmadan Claude ile senaryo yazdırıp otomatik araçlarla içerik üretme sistemi. — «Kameraya cikmadan ayda $37.380. $0 ile basla· araclar ayda $50 alti· yuz»
+- **Ürün Pazarlaması** (Db1DIhGsz01): İyi bir ürünün pazarlama olmadan satılamayacağı ve pazarlamaya ürün kadar önem verilmesi gerektiği. — «İyi bir ürünü boktan bir pazarlamayla satamazsınız.»
+- **Kampanya Oluşturma** (DbdShXhtZUu): Ürün linki üzerinden otomatik kampanya planı, hedef kitle ve içerik özeti çıkarma. — «It pulled real reviews, TikTok trends and YouTube comments and turned them into a full campaign plan.»
+- **kayıtlı masterclass teklifi** (DbevzliuW5v): İzleyicilere Claude Code kullanımını öğretmek için ücretsiz bir eğitim sunmak. — «make sure to comment 'Claude' below in the comments and I'll send you my free Claude Code masterclass»
+- **Kimi K3 Lansmanı** (DbLTQdlN6N9): Çin'in yeni açık ağırlıklı yapay zeka modeli Kimi K3'ün piyasaya sürülmesi ve etkileri üzerine bir haber analizi — «China’s Kimi K3 just became the biggest open-source model in history, 2.8 TRILLION parameters.»
+- **AI Search Performans Analizi** (Dbm-NzGBpAW): Yapay zekâ destekli arama motorlarında markaların görünürlüğünü ölçmek ve geliştirmek için kullanılan bir yöntem. — «Markanın ne kadar görünür olduğunu tek bir panelden takip etmeni sağlıyor.»
+- **Rakip Analizi** (Dbm-NzGBpAW): Rakiplerin hangi sorgularda daha üst sıralarda olduğunu belirlemek. — «Rakiplerin hangi sorgularda senden önde?»
+- **Sorguların Ekleme ve İzleme** (Dbm-NzGBpAW): Kendi sorgularını ekleyip, bu sorgularda hangi sırayı aldığını anlık olarak görmek. — «Kendin sorgular ekleyebiliyorsun. O sorgularda kaçıncı sırada çıktığını anlık olarak görebiliyorsun.»
+- **GitHub repo tanıtımı** (Dbn15A_DSlu): Wall Street quant fund'ların açık kaynaklı sistematik trading araçlarını tanıtarak, institutional-grade tooling'i lokal kullanıma sunar. — «open source the entire blueprint that Wall Street quant funds spent millions of dollars building»
+- **kapsamlı kaynak sunumu** (Dbn15A_DSlu): Python libraries, quantitative models, backtesting frameworks, execution tutorials gibi araçları bir arada sunar. — «massive curated collection of Python libraries, quantitative models, backtesting frameworks, and execution tutorials»
+- **enterprise alternatifi** (Dbn15A_DSlu): enterprise platform fees yerine lokal kullanım önerir. — «institutional grade quantitative tooling running right on your local machine»
+- **rival karşılaştırması** (Dbn15A_DSlu): Citadel ve Ken Griffin gibi finansal kuruluşlara karşı rekabetçi avantaj sunar. — «make Ken Griffin sweat and give Citadel a run for their money»
+- **Pomelli** (DbOUP9OPDAQ): Web sitesi linkinden marka için sosyal medya içeriği üretir. — «It's their free AI marketing tool that generates entire social media content for your brand from just a website link.»
+- **AI Visibility Testi** (DbQjiJwh2pp): Markanın yapay zekâ aramalarında görünürlüğünü ölçen bir test yöntemi. — «Tam olarak bunu test edebileceğin 10 soruluk bir AI visibility testi hazırladım.»
+- **organik_trafik** (DbqnQjrs1BX): Algoritma sıfır takipçili hesapları bile milyon izletebiliyor, kamera karşısında olmaktan çekinmeyin. — «Organik trafik.»
+- **topluluk_pazarlama** (DbqnQjrs1BX): Reddit, ekşi sözlük gibi topluluklarda hedef kitlenizin vakit geçirdiği formlara gidin ve doğrudan reklam yapmayın. — «Topluluk pazarlama.»
+- **urun_adakli_gelistirme** (DbqnQjrs1BX): Kullanıcı getirme avantajları sunarak (örn. 5 kullanıcı getir, 1 ay premium kullan). — «Ürün adaklı geliştirme.»
+- **mikro_influencerlar** (DbqnQjrs1BX): Etkileşimi iyi olan mikro influencerlarla pazarlık yapın. — «Mikro influencerlar.»
+- **yapay_zeka_arama_optimizasyonu** (DbqnQjrs1BX): Ürününüzün yapay zeka aramalarda öne çıkmasını sağlayın. — «Ve bence en önemlisi ürününüzün yapay zeka aramalarda öne çıkmasını sağlayın.»
+- **Ücretli araçlara ücretsiz alternatifler** (DbsSDgAm5JX): Popüler ücretli araçların (Notion, Calendly, Dropbox vb.) ücretsiz ve açık kaynaklı alternatiflerini sunarak maliyet tasarrufu sağlar. — «Fifteen tools, priced at their top tier, is $747 a month. $569 of that has a free replacement that does the same job.»
+- **Competitor Ads Extractor** (DbUQaEsgqeZ): Rakip reklamlarını, mesajlaşma kancalarını ve CTA'ları çeker. — «Competitor Ads Extractor. So this skill pulls live competitor ads, which means all their messaging, hooks, and CTAs that are working right now.»
+- **klausur/komisyon** (DbxcRQLjS9T): Ödeme işlemleri için Stripe kullanımı. — «Stripe → payments»
+- **abonelik** (DbxcRQLjS9T): E-posta abonelikleri için ConvertKit kullanımı. — «ConvertKit → newsletter»
+- **soğuk e-posta** (DbxcRQLjS9T): Soğuk e-posta otomasyonu için Instantly kullanımı. — «Instantly → cold email»
+- **Playwright CLI** (DbyJNRdPyCj): AI'ye tarayıcı açma, ekran görüntüsü alma ve hata yakalama yeteneği sağlar. — «This will give your AI the power to open browsers, screenshot what it just built, and catch messy outputs and errors before you guys even see it.»
+- **gizlilik koruma** (Dc1NYVJA8A2): API anahtarları ve secretların env dosyası dışında kullanımını kontrol etme ve env dosyasına taşınmasını sağlamak. — «1. API anahtarları veya sigaralar env dosyası dışında bir yerde kullanıldığımı kontrol ediyorum. Kullanılıyorsa silip env dosyasına taşıyorum.»
+- **Google Analytics & Search Console** (Dc1NYVJA8A2): Google Analytics ve Search Console kurulumlarını yapma. — «5. Google Analytics ve Search Console kurulumlarını yapıyorum.»
+- **yasal metin hazırlama** (Dc1NYVJA8A2): Gerekiyorsa yasal metinleri hazırlayıp kontrol etme. — «6. Gerekiyorsa yasal metinleri hazırlayıp kontrol ediyorum.»
+- **SkillSpector** (Dc1oIn8CyDW): NVIDIA tarafından geliştirilen, Claude skills'ini önceden tarayan güvenlik aracı. — «NVIDIA built SkillSpector: a free, open-source scanner that checks a skill before you install it.»
+- **kron işlevi tespiti** (Dc1oIn8CyDW): Terminal kapatıldıktan sonra çalışmaya devam eden cron job'ları tespit etme. — «the one setting up a cron job after you close the terminal so it keeps running»
+- **internetten script çekme tespiti** (Dc1oIn8CyDW): Skills'in internetten script çekip çalıştırması riskini tespit etme. — «the one pulling a script off the internet and running it»
+- **Perplexity** (Dc3P69wN68l): Claude'a gerçek zamanlı veri arama ve doğrulama yeteneği kazandırır. — «perplexity»
+- **Fire Crawl** (Dc3P69wN68l): Claude'a web tarama, veri çözme ve marka kaynaklarına erişim sağlar. — «fire crawl»
+- **Playwright** (Dc3P69wN68l): Claude'a tarayıcı kontrolü ve form doldurma yeteneği verir. — «playwright»
+- **Humanizer** (Dc8ojRUvOrL): Yapay zeka yazım belirtilerini kaldıran ve kullanıcının yazım stilini taklit eden bir yazım aracı. — «Then use Humanizer for writing. It removes all 33 tell tale signs of AI writing. It also studies your writing style so everything it outputs sounds exactly like you.»
+- **Kickback ile gelir elde etme** (Dc_7cQ2uWSr): Yapay zeka yanıt bekletme sürelerinde reklam göstererek gelir elde etme yöntemi. — «Kickback sayesinde artık alabilirsiniz. Vizü südü eklentisi olan Kickback, yapay zekaların istediğiniz işlemlerin yapılması aşamasında beklerken size para kazandırabiliyor.»
+- **App Store reklamları** (DcCUyaEsEoC): Anahtar kelimelerle arama sonucunda uygulamanın üst sıralarda görünmesi için ödenen reklam yöntemi. — «Birkaç tane anahtar kelime seçiyorsun, Apple Store'da bunu aratınca senin uygulaman en üste çıkıyor.»
+- **Pomelli** (DcI7RhdKVXC): Web sitesi bağlantısından sosyal medya içeriği oluşturma aracı — «Sadece bir web sitesi bağlantısından markanız için tüm sosyal medya içeriğini oluşturan ve ücretsiz yapay zeka pazarlama aracı.»
+- **redink** (Dcj_mRRv5tv): Asya sosyal ağları için e-ticaret trafiği arbitrajı için optimize edilmiş metin ve görsel üretimi. — «Text and image generation optimized for Red Note»
+- **free-api-derleme** (DcjEHTvyYBS): 40+ sağlayıcıdan 130+ API'nin bir arada listelenmesi ve tek tıklama ile entegrasyonu sağlayan GitHub repo'su. — «It lists over 130 free APIs from 40 different providers.»
+- **kullanıcı-öncelikli-öneri** (DcjEHTvyYBS): Kullanıcıların ücretsiz API'leri bulması ve kullanması için kolay erişim sağlama stratejisi. — «One place, every free tier. One click into Claude Code. Same for Codex and Cursor.»
+- **God Mode Classic** (DcJT3UGNcLl): Aynı prompt'a karşı 50+ AI modelinin yanıtlarını karşılaştırmak için yarıştıran özelliği. — «You type one prompt, and multiple AI models race against each other to give you the best answer.»
+- **GitHub trend** (DcNGpmXOR42): 80.000+ yıldız sayısıyla popüler bir proje olarak tanıtılır. — «This repo has around 80,000 stars on GitHub»
+- **özel eğitim** (DcNGpmXOR42): Kullanıcıya ücretsiz Cloud Code Masterclass sunulması teklif edilir. — «I'll send you my free Cloud Code Masterclass»
+- **meslek tanıtımı** (DcRTkIYtU13): Yapay zeka ajan yöneticiliği mesleğini tanıtarak, Türkiye'de bilinmemesini ve yurt dışındaki talep ve fırsatları vurgular. — «Türkiye'ye gelecek olan en güzel yapay zeka mesleklerinden birisi, yıllık 260 bin dolara kazandıran, şu an yurt dışında aktif olarak çalışan yapay zeka ajan yöneticisi veya baş ajan sorumlusu diye iki»
+- **engel giderme** (DcRTkIYtU13): Kod bilmeyenlerin de mesleğe kolayca girebileceğini vurgular. — «En güzel yanı ise mühendis olmayan ya da kod bilmenize gerek yok. Tek yapmanız gereken yapay zekayı nasıl güvenli bir şekilde koordine edebileceğinizi öğrenmek.»
+- **eğitim teşvik** (DcRTkIYtU13): Ücretsiz eğitim fırsatını ve sertifikasyon avantajını öne çıkarır. — «Bu yüzden abuk sabuk yapay zeka sertifikalarına binlerce TL para harcamak yerine Antropi'nin kendi cloud yapay zeka eğitimini mutlaka göz atın. Eğitimin sonunda bizzat Antropi yani cloud'dan sertifik »
+- **Web Sitesi Kontrol Listesi** (DcRVnOftH8c): Bir web sitesini yayına almadan önce Claude'a yaptırılması gereken 20 maddelik denetim listesi. — «Sitenizi yayina almadan önce Claude ye eklemesini söylemeniz gereken 20 Şey»
+- **reposu tanıtım** (DcSIIcAs8-4): Ömer referansını kullanarak, 5 açık kaynak GitHub deposunu tanıtarak satış platformlarının alternatiflerini sunar. — «These are the five free and open-source GitHub repos that replace all five of these platforms right over here.»
+- **CRM alternatifi** (DcSIIcAs8-4): Salesforce'ın alternatifini sunar ve CRM özelliklerini anlatır. — «Call 20, and it is a complete replacement of Salesforce. It has all the capabilities of a modern CRM, including contacts, companies, pipelines, automations, et cetera, et cetera.»
+- **Digital Camouflage T-Shirt** (DctC3lVj3G1): YOLO gibi nesne tespiti yapan yapay zeka kameralarını körleyen düşmanca desenli tişört tasarımı. — «This designer made a shirt that turns you invisible to AI surveillance cameras.»
+- **Session replays** (DcTU_tLgujm): Kullanıcı etkileşimlerini kayıt üzerinden izleme yöntemi. — «Watch real user sessions of interactions»
+- **Web analytics** (DcTU_tLgujm): Trafik ve kullanıcı oturumlarını izleme yöntemi. — «Monitor web traffic and user sessions with a GA-like dashboard.»
+- **Beehiiv** (Dcv-thTgj1l): Kitle ile ilişki kurma ve bülten platformu. — «Beehiiv kitle icin»
+- **Yayın Öncesi 20 Test** (DcwL8LqiuH6): Uygulamayı yayınlamadan önce telefonda yapılması gereken 20 test adımı. — «Uygulamanı yayınlamadan önce 20 kere kırman lazım.»
+- **CLAUDE.md Kullanımı** (DcY-csFDG6f): Claude'u daha zeki yapmak için CLAUDE.md dosyası ekleme. — «GitHub'da 176 bin yıldız alan sadece bir tane dosya var. Ve o dosyayı cloud'a yüklediğiniz anda olduğundan çok daha zeki hale geliyor.»
+- **NVIDIA API Bağlantısı** (Dcy8brJO7M2): Ücretsiz yapay zeka API anahtarının nasıl elde edildiği ve kullanıldığı anlatılır. — «Nvidia sayesinde artık çoğu yapay zekayı ücretsiz bir şekilde kullanabiliyoruz.»
+- **Amazon Bedrock** (Dd1766JOkfR): Ücretsiz Claude Premium erişimi için reklam yöntemi sunuyor. — «Amazon Bedrock üzerinden cloud ve chat GPT ve diğer önde gelen yapay zeka modellerine ücretsiz erişim sağlanabiliyor.»
+- **hook-arsenal** (Dd1zrTggHCW): Viral potansiyeli yüksek hook'ları bulur ve kullanır. — «find the outliers in your niche - the posts that went way past what that account normally does»
+- **go-viral** (Dd1zrTggHCW): İçeriğin viral olma potansiyelini artırır. — «the posts that went way past what that account normally does»
+- **scroll-stopper** (Dd1zrTggHCW): İçeriğin kullanıcıların kaydırmasını durduracak şekilde tasarlanmasını sağlar. — «hook says, how long it holds»
+- **story-audit** (Dd1zrTggHCW): Başarılı içeriklerin yapısını analiz eder. — «pull the structure out of them»
+- **dopamine-ladder** (Dd1zrTggHCW): İçeriğin kullanıcıların beynini tetikleyecek şekilde yapılandırılmasını sağlar. — «viral-emotion»
+- **hook-mining** (Dd1zrTggHCW): Başarılı hook'ları madencilik yöntemiyle bulur. — «hook-mining»
+- **marka karşılaştırması** (Dd2UAqOvDoO): Claude Sonnet 5.5'in Opus 5.5'e göre performans avantajlarını vurgulama. — «TERMINAL-BENCH4.0:7O.6VS66.4»
+- **fiyat/performans oranı** (Dd2UAqOvDoO): Sonnet 5.5'in fiyat/performans avantajlarını öne çıkarma. — «SAMEPRICE,FEWERTOKENSPERJOB»
+- **Open SEO** (Dd3t8ixmPHo): SEO işlerini ajanla tek panelde yönetme. — «Open SEO: SEO işlerini ajanla tek panelde yönet.»
+- **autopilot-reel-otomasyonu** (Dd3veoMgCEX): Instagram reellerini otomatik olarak oluşturup paylaşan Claude entegrasyonu. — «This Claude skill creates reels and posts them on autopilot»
+- **open-source promosyonu** (Dd3xTHfALLA): Kullanıcıların dikkatini çekmek için açık kaynak kodlu bir AI aracının avantajlarını vurgulama. — «🚨 Company Brain: an open-source AI teammate in Slack that remembers everything your team says — and goes and does the work.»
+- **GitHub starlarıyla tanıtım** (Dd3xTHfALLA): Projenin popülerliğini ve güvenilirliğini göstermek için yıldız sayısını kullanma. — «⭐ 832 stars on GitHub»
+- **hızlı başlangıç** (Dd3xTHfALLA): Kullanıcıların kolayca projeyi deneyebilmesi için hızlı kurulum rehberi sunma. — «Comment Agent below and I will DM you the direct repo link and setup guide instantly.»
+- **kullanıcı deneyimi** (Dd3xTHfALLA): Kullanıcıların projeyi deneyimlemesi için kolay erişim sağlama. — «github.com/supermemoryai/company-brain»
+- **yayınlı haberleşme** (Dd3xTHfALLA): Kullanıcıların proje hakkında güncel bilgilere erişebilmesi için haberleşme kanalları kullanma. — «📩 Get the 5 best repos every Monday — free newsletter, link in bio.»
+- **sosyal kanıt** (Dd3xTHfALLA): Kullanıcıların projeye güvenebilmesi için sosyal kanıtlar sunma. — «Used to be a paid product with thousands of users. Now it's free and open source.»
+- **faydali web siteleri** (Dd3zGoKArLr): Ogrenme, tasarim ve gunluk isler icin 9 web sitesi tanitildi. — «9web sitesi»
+- **AI Creative Brain** (Dd4uGjPOOOk): Marka sesini, ürünleri ve performans verilerini bir web sitesinden otomatik olarak kodlayarak AI tabanlı içerik üretim aracı oluşturma. — «I gave Claude one website URL and it built my entire AI creative brain in seconds»
+- **OpenShell** (Dd5YSAqFaHd): AI agent güvenliği için bir güvenlik katmanı sağlayan bir runtime çözümü. — «OpenShell is the safe, private runtime for autonomous AI agents.»
+- **OpenShell** (Dd5YSAqFaHd): Kullanıcıların AI agentlerine erişim izni belirlemesine ve bu izni zorlamasına olanak sağlayan bir güvenlik çerçevesi. — «Instead of letting an agent poke around your private files or copy your passwords, you set up a clear list of rules that it has to follow.»
+- **OpenShell** (Dd5YSAqFaHd): Kullanıcıların güvenlik politikalarını önceden kontrol ederek potansiyel açıkları önlemeye yönelik bir sistem. — «It even checks its own work to make sure your security rules aren't missing any hidden loopholes before they start.»
+- **OpenShell** (Dd5YSAqFaHd): AI agentlerinin çalışmasını izole edilmiş bir ortamda gerçekleştirerek kullanıcı verilerini koruma. — «It's basically a locked room for your agents.»
+- **taste** (Dd7B61FoV9x): Yüksek performanslı web sitelerinden örnek alan ve Claude'a referans olarak kullanan araç. — «This one makes Claude search for high-performing websites, take what works from them, and then use it as context when building yours.»
+- **Claude Skills** (Dd9DlJMk-Zr): Claude'un çıktısını iyileştirmek için 5 farklı beceri tanımlanması — «These 5 free Claude skills turn Claude into a specialist for the parts of your work it's currently guessing at.»
+- **Kılavuz paylaşımı** (Dd9nkV-AC9G): Kullanıcıya kılavuzu mesaj üzerinden gönderme. — «Duruma 'atom' yazın, size bu kılavuzu mesaj üzerinden gönderin.»
+- **Higgsfield API** (Dd9odgLvcNa): Tek bir API üzerinden farklı yapay zeka modellerine kullandığın kadar öde mantığıyla erişim sağlama. — «Xfield, bünyesindeki tüm modelleri tek bir AP üzerinden erişime açtı.»
+- **Redink** (Dd9T_81u8K2): Tek bir cümle girilerek profesyonel düzeyde tasarlanmış bir Instagram karusel postu otomatik olarak oluşturulur. — «You type a single sentence into red ink and get back a post ready to go up, every slide already designed.»
+- **marketing-ideas** (Dd_saTSI1Zb): 139 kanıtlanmış pazarlama yöntemi sunar — «marketing-ideas → İçinde 139 kanıtlanmış pazarlama yöntemi var.»
+- **copywriting** (Dd_saTSI1Zb): Satış sayfası metni hazırlar — «copywriting → Satış sayfanın metnini yazıyor.»
+- **email-sequence** (Dd_saTSI1Zb): Müşterilere gidecek e-posta dizilerini hazırlar — «email-sequence → Bekleme listene ve yeni kullanıcılarına gidecek e-posta dizisini hazırlıyor.»
+- **social-content** (Dd_saTSI1Zb): Platformlara özel sosyal medya içerikleri üretir — «social-content → Ürününün duyurusunu her platform için ayrı yazıyor, kanca formülleriyle.»
+- **referral-program** (Dd_saTSI1Zb): Arkadaş davet sistemi kurar — «referral-program → Kullanıcılarının seni arkadaşlarına önermesi için davet sistemini kuruyor.»
+- **Claude Skills GitHub Sıralaması** (Dd_wlJNqYVv): Eylül ayında en çok yıldız alan Claude yetenekleri ve GitHub depoları sıralanmıştır. — «Claude Skills had a massive September. These 10 GitHub repos gained the most stars in a single month»
+- **Yapay Zeka Şirket Tipleri Analizi** (DdbhDmCAnxB): Şirketlerin yapay zeka kullanım tiplerini ve etkinlik skorlarını değerlendirme. — «Herkese hesap agildi, kimse acmiyor.»
+- **API rotasyonu** (DdbkqpEH9t8): Kullanıcı kodunu değiştirmeden farklı sağlayıcıların arka planda kullanılması. — «Swap one base URL, keep your code, and it auto-rotates when a free tier hits its cap.»
+- **Yasal Risk Denetimi** (DdbYNbdIP2e): Uygulamanın yasal uyumluluk risklerini (COPPA, GDPR, CIPA, CAN-SPAM, ARL, DMCA) tek prompt ile denetleme. — «Send this video's link to Claude and ask it fix everything»
+- **Open SEO Skills** (Ddc1db7Cj_D): Claude ile kendi verilerinden SEO analizi yapar. — «Claude'la kendi verinden SEO analizi yap»
+- **Competitor Ads Extractor** (DdcBCJRRQFT): Rakiplerin reklamlarını analiz ederek metin, kanca, CTA ve kampanya bilgilerini çıkaran bir araç. — «Rakip reklam analizcisi. Bu yetenek rakiplerinizin yayındaki aktif reklamlarını çekiyor.»
+- **Deep Research** (DdcBCJRRQFT): Arka planda pazar analizi yapan yapay zeka asistanı. — «Siz işinize bakarken arka planda pazar analizi yapan çok adınlı bir yapay zeka asistanı.»
+- **Content Research Writer** (DdcBCJRRQFT): İçerik araştırması ve metin yazarlığı yaparak kaynak göstererek doğrulayan bir araç. — «İçerik araştırması ve metin yazarlığı yapıyor. Üstelik her şey kaynak göstererek doğruluyor.»
+- **New Client System** (DddrOAliOMK): Build a complete client acquisition system to win more clients. — «Build a complete client acquisition system.»
+- **Postiz** (Dddrwu3Dac7): Full self-hosted scheduler so you're not paying for Buffer or Later. — «postiz is a full self-hosted scheduler so you're not paying for Buffer or Later.»
+- **Yazılımda Gizli Maliyetler** (Dddv0paoNgi): Yazılım geliştirirken karşılaşılan yasal, vergi ve uyumluluk riskleri. — «Your vibe-coded app can owe $100,000 before it makes a single sale»
+- **FreeLLMAPI** (DdeVVlpT9zW): Ücretsiz AI modelleri bir araya getiren ve sınırsız token sunan bir araç. — «It's called FreeLLMAPI, and it links your clod code to over 600 free AI models all through one really easy setup.»
+- **MIT Lisansı** (DdgPH-poGbJ): Ücretsiz kullanım, dağıtım ve ticari ürünlerde kullanım izni. — «MIT — ship them in a paid product without asking anyone»
+- **MCP (Meta Campaign Protocol)** (DdI3LRbvV5a): Meta'nın AI aracılığıyla reklam kampanyaları yönetmek için kullandığı resmi protokol. — «MCP yolu en doğal AI deneyimini sunuyor, Claude doğrudan Meta Ads tool katmanıyla konuşuyor ve API işlerini arka planda hallediyor.»
+- **CLI (Command Line Interface)** (DdI3LRbvV5a): Terminal üzerinden Claude Code ile Meta Ads API'leri test edilebilen yöntem. — «CLI yolu ise terminal üzerinde Claude Code ile çalışmak isteyenler için ideal, komutları canlı hesaba uygulamadan önce inceleme imkanı veriyor.»
+- **DDoS riski** (Ddi5_OkoiDa): Statik web sitelerinin DDoS saldırısına karşı savunmasızlığını vurgulama. — «Your landing page is a static site, so it can't cost anything, until someone hits it with DDoS attack.»
+- **Strix** (DdipylAMC4D): Güvenlik açıklarını tespit eden, gerçek hacker saldırıları simüle eden AI tabanlı penetrasyon testi aracı. — «Birisi wipe code ile geliştirdiğiniz uygulamanızı bir hacker gibi saldıran ve gerçek bir hackerdan önce güvenlik açıklarını bulan ücretsiz bir yapay zeka aracı geliştirdi.»
+- **Red Ink** (DdJqGQuEeLl): Generate complete Xiaohongshu post with text, images, and carousel content. — «generate a complete Xiaohongshu post with text, images, and carousel content»
+- **CTA (Call-to-Action)** (DdKfJBHSlWN): İzleyicileri etkilemek için etkinlik teşvik etme yöntemi. — «"comment scope"»
+- **Impeccable** (Ddl_XL3Klza): Tasarım referanslarıyla Claude'a daha bilinçli tasarım kararları almasını sağlayan bir eklenti. — «Bu cloud'a premium referanslarınızdan alınan gerçek bir tasarım zevki kazandırır.»
+- **Humanizer** (Ddl_XL3Klza): Metinlerdeki yapay duran kalıpları temizleyerek daha doğal bir anlatım oluşturmayı sağlayan bir eklenti. — «Bu çalışmanızdaki AI yazımının 33 belirtisinin tamamını kaldırır.»
+- **YC başvuru reddi** (Ddlc8R9IOYh): Y Combinator başvurusunda yapılmaması gerekenleri ironik bir dille listeleyen strateji. — «here's how to get rejected in 60 seconds.»
+- **Claude-integrasyonları** (DdMIQE6kh8W): Claude AI'nin güçlendirilmesi için araçlar, beceriler, bağlatıcılar ve entegrasyonlar sunar. — «Claude becomes much more powerful when you set it up with the right tools, skills, connectors, and integrations.»
+- **Claude-özel araçlar** (DdMIQE6kh8W): Kodlama, araştırma, otomasyon, verimlilik ve günlük akışları iyileştirmek için 24 ekleme sunar. — «These 24 additions can help you improve coding, research, automation, productivity, and everyday workflows.»
+- **Claude-özel beceriler** (DdMIQE6kh8W): 263+ beceri platformları arasında birden fazla kullanım sağlar. — «263+ skills across every platform.»
+- **Frontend tasarım becerileri** (DdMIQE6kh8W): Vue ve Vite ekosisteminde tasarım becerileri sunar. — «Vue and Vite core team skills collection.»
+- **MCP Servers** (DdMIQE6kh8W): Claude'ı gerçek araçlarla etkileşimli bir operasyon katmanına dönüştürür. — «Connectors that turn Claude from a chat window into an operations layer. Reads and writes your real tools, live.»
+- **Slack entegrasyonu** (DdMIQE6kh8W): Güncellemeleri paylaşır ve kanal tarihçesini okuyabilir. — «Posts updates, reads channel history.»
+- **Zapier entegrasyonu** (DdMIQE6kh8W): 9.000+ uygulama ve 40.000+ eylem için tek bir bağlantı sunar. — «9,000+ apps, 40,000+ actions, one wire.»
+- **Cinematic video** (DdMIQE6kh8W): Tek bir prompt ile sinematik video oluşturur. — «Cinematic video from a single prompt.»
+- **Agent tarayıcı** (DdMIQE6kh8W): Token verimli tarayıcı otomasyonu sağlar. — «Token-efficient browser automation.»
+- **open-source-ai-satış-stratejisi** (DdmPJ-IN9bD): AI hizmetleri satarken ücretsiz açık kaynak projeleri kullanarak ücretli müşteri işleri oluşturma yöntemi. — «If you are selling AI services, here are seven free open source repos you can turn into paid client work this week.»
+- **etiketli mesaj gönderme** (DdMzoWqO8LB): Yorumlara etiket yazan kullanıcılara özel komutlar mesaj olarak gönderme yöntemi. — «Yorumlara etiket yazın, size 200 tane özel komutu mesaj olarak göndereyim.»
+- **SEO uzmanı rolü** (Ddn4nmUH9uf): Claude'ı SEO uzmanı olarak ayarlama ve SEO audit/önermeleri yapmasını sağlama. — «/seo-expert»
+- **AI tabanlı reklam otomasyonu** (DdolgdJjHMc): Birden fazla AI modeli kullanarak reklamlar oluşturma ve en ucuz sağlayıcıyı seçme. — «So you can tell Claude, create me 10 different ads for this product using three different image models and don't spend more than $3. Claude will go choose the models, it will write the prompts, it wil»
+- **deck.gallery** (Ddqj0svm6yq): Gerçek pitchdeck'ler (OpenAI, Perplexity gibi) için layout'ları çalma imkanı sağlar. — «Steal a layout for your pitch.»
+- **Öncelikli Araç Seçimi** (DdRd0SNkrW-): Kullanıcının ihtiyaçlarına göre 3-5 sunucu seçimi ve bu sunucuların sürümlerinin sabitlenmesi. — «Pick 3-5 that match what you actually do.»
+- **autoposting** (DdrHoHXMhQU): TikTok, Instagram ve YouTube Shorts'a doğrudan otomatik paylaşım. — «It even autoposts straight to TikTok, Instagram, and YouTube Shorts.»
+- **deck.gallery** (Ddsm5_8gAx6): Gerçek pitch deck örnekleri ve inspirasyon sağlayan bir platform. — «get inspiration from real-world pitch decks»
+- **GitHub stars** (DdSwfSNgFiJ): Projenin popülerliği ve tanınması — «This project has already caught the attention of the tech community, sitting at a solid 8,398 stars on GitHub right now.»
+- **Startup Playbook** (DdtyRefISWn): Genel giriş, fikir, pazar, ekip ve uygulama üzerine bir rehber. — «It covers idea, market, team, and execution.»
+- **Zero to One** (DdtyRefISWn): Farklılaşmayı ve yeni bir şey yaratmayı öğretir. — «Peter Thiel's Zero to One teaches you how to differentiate.»
+- **Working Backwards** (DdtyRefISWn): Müşteri ihtiyaçlarını ürün planına dönüştürür. — «Amazon's Working Backwards that turns customer needs into a product plan.»
+- **Lean Startup** (DdtyRefISWn): Aşırı geliştirmeden önce test etmeyi vurgular. — «Eric Rhee's Lean Startup that helps you test before overbuilding.»
+- **Do Things That Don't Scale** (DdtyRefISWn): İlk kullanıcıları elde etmek için ölçeklenmeyen taktikler önerir. — «Paul Graham's Do Things That Don't Scale shows you how to recruit your first users.»
+- **CRM entegrasyonu** (DdUu9f_uBL0): Her bot'a ayrı cloud bilgisayarı ve e-posta erişimi sağlayan XAI GrokBot yapısı. — «Each bot now gets its own cloud computer, signs into your email, and CM runs 24-setup.»
+- **webinar** (Ddv9jAJq0kb): Canlı eğitim/sunum platformu kullanarak katılımcı toplama ve bilgi aktarımı. — «Webinara katılma ücretsiz ancak yeriniz limitli.»
+- **DM (Direct Message)** (Ddv9jAJq0kb): Kayıt bağlantısını özel mesaj yoluyla paylaşma. — «3 günlük canlı webinarın kayıt bağlantısını sana DM’den göndereyim.»
+- **yorumlara webinar yaz** (Ddv9jAJq0kb): Katılım isteğini yorum bölümünde belirtilen kelimeyle ifade etme. — «yorumlara webinar yaz ✅»
+- **Prompt paylaşımı** (Ddw1dLUugTJ): Kullanıcıların beğendikleri prompt'ları paylaşarak diğerlerine aktarması. — «Go to Getlayers and Copy Prompt you like»
+- **GitHub repo** (DdWwZhgTnY_): Ücretsiz video üretim araçları sunar. — «There is a GitHub repo that turns Claude into a full video production studio, and it is free.»
+- **Viral Strateji** (Ddyt7zSt6lz): En viral videoları analiz edip sizin için uyarlama ve içerik stratejisi oluşturma. — «Sizin dışınızdaki en viral videoları buluyor, başlık kanca ve videonun içeriğini sizler için analiz edip sizin videolarınıza göre uyarlayıp geri veriyor.»
+- **open-seo** (DdZaB51gBVR): Open-source SEO tool for keyword analysis to improve search ranking and attract more visitors. — «open-seo is an open-source SEO tool providing keyword analysis capabilities to improve search ranking and attract more visitors.»
+- **mirofish** (DeaC2hYgubX): AI tabanlı hedef kitlesi testleme aracı. — «Someone just open sourced a tool that runs thousands of fake customers through your launch.»
+- **Claude brand content automation** (Deb6a1su1Pz): Claude'u kullanarak web sitesi analizi ve görsel referanslarla otomatik marka içerikleri üretme yöntemi. — «This Claude skill creates unlimited brand content on autopilot.»
+- **Google İşletme Profili Yorum Artırma** (DebJXTeNsUw): Müşterilere yemek sonrası NFC/QR üzerinden hızlı Google yorumu yaptırarak işletmeyi aramalarda üst sıraya taşıma — «It helps boost your business five to ten times more. When you're helping a customer, you're able to tell when they're enjoying their food and they're having a great time, right? So when clients are ge»
+- **OmniRoot** (DeCfWoGMIET): 300+ ücretsiz yapay zeka sağlayıcıya bağlayarak limiti artırır ve otomatik modele geçiş sağlar. — «Omni Route»
+- **otomasyon-paylasim** (Decgm97N-Th): Üçüncü taraf araçlarla Instagram, TikTok, YouTube'a otomatik paylaşım. — «Hatta eğer erişim verip 3. bir araç bağlarsanız otomatik olarak Instagram, TikTok ve YouTube'da da paylaşabiliyor.»
+- **AI Ads Agent** (Dechlk8ANSU): Yıllardır kazanan reklamları bulmak ve yeniden oluşturmak. — «Finds ads that have been winning for years, makes»
+- **Borsa MCP** (DeCixT6ilL7): BIST, KAP, TEFAS ve TCMB verilerini sohbete getirir. — «Borsa MCP»
+- **İhale MCP** (DeCixT6ilL7): EKAP kamu ihalelerini ve ilan.gov.tr’yi sohbete getirir. — «İhale MCP»
+- **marketingskills** (DeCixT6ilL7): CRO, metin yazarlığı ve SEO skill’leri içerir. — «marketingskills»
+- **claude-seo** (DeCixT6ilL7): Sitenizin 26 SEO skill’i ve 19 alt ajan içerir. — «claude-seo»
+- **Apify MCP** (DeCixT6ilL7): Siteleri taramak ve ihtiyaç duyulan veriyi çekmek için kullanılır. — «Apify MCP»
+- **Consensus MCP** (DeCixT6ilL7): Bilimsel makalelerden kaynaklı yanıtlar sunar. — «Consensus MCP»
+- **Firecrawl MCP** (DeCixT6ilL7): Siteleri taramak ve temiz Markdown’a çevirmek için kullanılır. — «Firecrawl MCP»
+- **Gemini Notebook** (DeCixT6ilL7): İnsanların son 30 günlük gerçek deneyimlerini birleştirir. — «Gemini Notebook»
+- **Timebevel** (DeCixT6ilL7): Literatüre göre kulak tırnağı (literatür taraması yapar). — «Timebevel»
+- **humanizer** (DeCixT6ilL7): Her taslakta yapay zeka izlerini siler. — «humanizer»
+- **Claude Limit Optimizasyonu** (DecuVEOlAx_): Claude limitini korumak için iş yükünü Opus ve Haiku 5.5 arasında paylaştırma yöntemi. — «So my skill sends searching files and reading logs to Haiku 5.5 and keeps the hard thinking on Opus.»
+- **MCPs (Model Context Protocol)** (Ded7XJut1pF): AI araçlarının dış kaynaklara, belgeler ve hizmetlere bağlanmasını sağlayan protokoller. — «MCPs (Model Context Protocol) help AI tools connect to external tools, documentation, and services, so they can do more than just generate code.»
+- **satış hazırlığı** (DeemgMlE-yp): Prospekt adını girdiğinizde, arka planda araştırma yaparak satış çağrısı öncesinde bilgi sağlar. — «Type slash sales call prep, drop in a prospect's name, and Claude will research them right before you even call.»
+- **hukuki risk tespiti** (DeemgMlE-yp): NDA'ları tarayarak sözleşmedeki riskleri işaretler. — «The legal one triads with your NDAs and flags the risk in a contract.»
+- **müşteri destek otomasyonu** (DeemgMlE-yp): Müşteri biletlerini otomatik olarak yardımcı makalelere dönüştürür. — «The support one turns yourself tickets into help articles.»
+- **iş süreçleri eğitimi** (DeemgMlE-yp): Kullanıcının iş modelini öğrenerek, özel şirket için tasarlanmış gibi çalışır. — «You can teach them how your business actually works, and they'll start working like they were built for your company.»
+- **AI reklam otomasyonu** (DeeqZ33j5ls): Reklam üretimini AI araçlarıyla düşük maliyetli ve hızlı hale getirmeyi sağlayan bir iş modeli. — «Instead of paying for a full shoot every time they need new creative, you can use GBD6 Astra as the creative director and Higgsfield as the production team.»
+- **Reklam örnek analizi** (DeeqZ33j5ls): Reklamların başarılı formatlarını rakiplerinden örnekleme ve bunları AI araçlarıyla yeniden kullanma. — «Just start by pulling the brand's competitors from the ad library and finding the formats that are already working.»
+- **UGC (User-Generated Content) dönüşümü** (DeeqZ33j5ls): AI tarafından oluşturulan reklam prompt'larını gerçek kullanıcı içeriği (UGC) veya statik reklamlara dönüştürme. — «Then Higgsfield can turn those into UGC videos and static ads.»
+- **Reklam paketleme hizmeti** (DeeqZ33j5ls): Aylık reklam paketleri sunarak müşterilere sürekli içerik akışı sağlama. — «So instead of selling one random AI video, package it as a monthly creative service. Maybe 20 videos and 30 statics every single month.»
+- **Örnek reklam gönderimi** (DeeqZ33j5ls): Müşterilere ücret ödemeden önce AI ile üretilen örnek reklamlar gönderme. — «So you can literally send brands custom samples before they ever even have to pay you.»
+- **Claude Code modları** (DeeUZo9TMAa): AI operasyon sistemine dönüştürmeyi sağlayan modlar. — «But with these mods, you can turn it into an entire AI operating system.»
+- **otomasyon** (DeeUZo9TMAa): Farklı Claude Code oturumlarının birbirleriyle iletişim kurmasını sağlayan mod. — «make different Claude Code sessions talk to each other.»
+- **maliyet tasarrufu** (DeeUZo9TMAa): Ucuza modelleri otomatik yönlendirme ve pahalı limitleri tasarruf etme. — «route the easy stuff to a cheaper model automatically. Claude stops burning your expensive limits on simple tasks.»
+- **mod oluşturma** (DeeUZo9TMAa): Sade İngilizce açıklama ile mod oluşturma. — «describe the mod you want in plain English and Claude builds it for you.»
+- **Project Artifacts** (DefSWyWpABP): Projenizi bir canlı durum sayfasına dönüştürerek müşterilere tamamlananlar, sonraki adımlar ve riskler hakkında bilgi verir. — «It turns your project into a live status page. You can send your clients what's done, what's next, and what's at risk.»
+- **linkedin-roast-skill** (DefXzHPlafB): LinkedIn profilini 5 Claude aracılığıyla eleştirel olarak yeniden yazma ve iyileştirme hizmeti. — «Five Claudes read your profile at the same time, each one alone, as someone different: a recruiter, a hiring manager, a founder, an expert in your field and a peer. Nobody sees the others' notes.»
+- **context-mode** (DegaY29py3J): AI kodlama aracı için context yönetimi optimizasyonu sağlayan plugin. — «cuts wasted context by 98%»
+- **sandbox işleme** (DegaY29py3J): Aracı çalıştırırken sadece çıktıyı geri döndürür, context'i temizler. — «runs that work in a sandbox and sends back only the answer»
+- **context kompaktasyonu** (DegaY29py3J): Yapılan değişiklikler, görevler ve kararlar yerel olarak izlenir ve sonraki oturumda devam edilir. — «tracks edits, tasks, and decisions locally, so after compaction, the agent can pick up where you left off»
+- **benchmark karşılaştırması** (DegaY29py3J): Kendi benchmark'ına göre %98 verimlilik iddia eder, hook'lar olmazsa %60'a düşer. — «98% is its own benchmark. Without hooks, it estimates 60% saved»
+- **MCP (Multi-Connector Platform)** (DegC4J4J2WM): Claude AI'nin performansını 10 kat artıran 4 farklı entegrasyon aracı seti. — «Without these 4 MCPs, Claude is only doing about 10% of what it can actually do.»
+- **Higgsfield** (DegC4J4J2WM): Claude'a AI görsel/video modellerini bir araya getiren ve anında oluşturma yeteneği sağlayan araç. — «This connects Claude to every single AI video and image and model in one place.»
+- **Composio** (DegC4J4J2WM): Claude'a Gmail, Notion, Slack gibi yüzlerce uygulamayı tek bir entegrasyon aracılığıyla bağlayan araç. — «This connects Claude to hundreds of apps that you already use.»
+- **Claude commercial skill** (Deh7lNluwHP): Kullanıcının fikrini, referanslarını ve ürün detaylarını kullanarak profesyonel bir marka reklamı oluşturur. — «It turns one idea, into a full brand commercial.»
+- **Startup School** (DeHF3GPTD_s): Başlangıç aşaması için eğitim ve kaynaklar. — «Startup School»
+- **Anti-AI Slop Writing** (DeHgoP8kxyV): AI tarafından oluşturulmuş metinlerdeki klişe ifadelerin ve yapıların tespit edilip düzeltilmesi. — «EliminatedetectableAlwritingpatterns andwritemorenatural,human-likecontent.»
+- **viral oyun stratejisi** (DehO5O3kXA1): Mega Chameleon ve Schedule One gibi oyunların viral potansiyeli vurgulandı. — «Games like Mega Chameleon and Schedule One absolutely went viral and made millions of dollars.»

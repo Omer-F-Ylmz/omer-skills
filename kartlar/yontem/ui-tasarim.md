@@ -1,0 +1,103 @@
+# Yöntemler — ui-tasarim
+
+- **OpenPencil** (DaIHoDKE9cT): AI destekli açık kaynaklı vektör tasarım aracı. — «The world's first open-sourceAl-native vector design tool.»
+- **Originkit Kullanımı** (DappXCcvuE3): Hazır animasyonlu UI bileşenlerini bulma ve projeye entegre etme platformu. — «Did you know if you go to this website, you can find almost any animated UI component?»
+- **UI UX Pro Max** (Daxj09yTmr_): AI tarafından otomatik olarak modern UI/UX tasarımları üreten bir beceri. — «you add the UI UX Pro Max skill so Claude builds clean modern layouts automatically.»
+- **Animaster Lib** (DayAzk0NR2c): 250+ animasyonlu bileşen, scroll etkileri, hero bölümleri ve fare etkileri sunan UI kütüphanesi. — «This single provides 250 plus animated components, scroll effects, hero sections, mouse interactions, and I'll use copy and paste and done.»
+- **Skipper UI** (DayAzk0NR2c): Hazır kullanıma hazır hero bölümleri, kartlar, fiyatlandırma sayfaları ve diğer bileşenler içeren UI kütüphanesi. — «This one provides hero sections, cards, pricing, pages, and tons of other components that are ready to use.»
+- **Vengeance UI** (DayAzk0NR2c): Modern animasyonlar ve premium tasarım blokları sunan, dakikalar içinde profesyonel görünüm sağlayan UI kütüphanesi. — «This one will provide modern animations, stunning design blocks, and components that can make your website look extremely premium in minutes.»
+- **Watermelon UI** (DbasXSvgVE1): 600'den fazla açık kaynaklı UI bileşeni sağlar. — «watermelon gives you 600 plus free open source ui components»
+- **Stitch** (DbOUP9OPDAQ): Normal promptları UI tasarımına dönüştürür ve kod olarak dışarı aktarır. — «It turns your normal prompts into beautiful modern UI designs for your apps and your websites.»
+- **HorizonX UI Library** (DbPNqdhNsQf): Tasarımcılar ve yazılımcılar için premium UI/UX varlıkları kütüphanesi kullanımı. — «Get instant access to 1,000+ premium UI/UX assets built for designers, developers, and vibe coders.»
+- **Apple Tasarım Kuralları Skill** (DbqME4tsTpb): Web tasarımında Apple'ın tasarım dilini Claude'a entegre eden bir cloud skill kullanımı. — «Birisi Apple'ın tasarım dilini bir cloud skilline dönüştürdü. Yani cloud'a bu siteyi daha premium yap demeyeceksiniz. Ona uyabileceği gerçek tasarım kurallarını vereceksiniz.»
+- **Layered Animated Portfolio** (DbtEb3CJbsZ): Katmanlı animasyonlu portfolyo tasarımı oluşturma — «1.Layered Animated Portfolio»
+- **Parallax Scroll Portfolio** (DbtEb3CJbsZ): Paraks kaydırma efektli portfolyo tasarımı — «5.Parallax Scroll Portfolio»
+- **NameThatUI** (Dbu-pe6IOHa): Web bileşenlerinin ve tasarım stillerinin teknik isimlerini öğrenmeyi sağlayan ücretsiz site. — «namethatui.com»
+- **Jitter** (Dc0gZmUSMnN): UI motion graphics için hızlı çözüm. — «fast UI motion graphics»
+- **Magic UI** (Dc0gZmUSMnN): Polished dark-mode UI bileşenleri için araç. — «polished dark-mode components»
+- **React Bits** (Dc1ENsHzNSj): Kopyalanabilir React animasyonları ve UI bileşenleri koleksiyonu. — «A huge collection of copy and paste React animations and UI components that can instantly make your site feel more polished.»
+- **mcp-uygulama** (Dc5YDjKI9ta): Limora AI üzerinden MCP (Midjourney Control Panel) ile arka plan tasarımı. — «I opened Limora AI, installed the MCP in one click, and asked for a hero background.»
+- **Taste** (Dc7hhAUEvu1): Claude'a AI görünümünden uzaklaşan, daha kaliteli frontend tasarımlar için kurallar sağlayan bir skill set. — «It's basically built to stop Claude from giving you a generic AI-looking UI.»
+- **Impeccable** (Dc7hhAUEvu1): Claude'a tasarım sistemleri ve canlı düzenleyici aracılığıyla tasarım dilini öğreten bir skill set. — «which goes even further by giving Claude an actual design system to work from. Plus, a live editor where you can tweak everything in your browser.»
+- **21st Dev MCP** (Dc8ojRUvOrL): Uygulamalar ve web siteleri için 10.000'den fazla profesyonel UI bileşeni ve şablonu sunar. — «And then combine it with 21st Dev MCP. You get access to over 10,000 professional UI components and templates for apps and websites.»
+- **Stitch** (DcI7RhdKVXC): Promptları modern kullanıcı arayüzü tasarımlarına dönüştürme aracı — «Normal promptlarınızı uygulamalarınız ve web siteleriniz için güzel, modern, kullanıcı arayüzü tasarımlarına dönüştürüyor.»
+- **UI UX Pro Max** (DcjijrZud4-): KI destekli tasarım önerileri ve akıllı UI/UX yapılandırma. — «Adım 3. UA UX, Pro Max yeteneğini ekleyin ve Cloud koda bunu kurmasını söyleyin.»
+- **origin-kit** (DcoKnHuzThn): Üretim hazırı UI bileşenleri koleksiyonu. — «origin kit a collection of beautiful production ready ui components that help you build modern websites in minutes instead of hours»
+- **daisy-ui** (DcoKnHuzThn): Tailwind CSS ile kolayca güzel arayüzler oluşturmak için hazır bileşenler ve temalar. — «daisy ui the easiest way to build beautiful interfaces with tailwind css hundreds of ready to use components and themes that make every project look premium»
+- **UI Libraries** (DcqoL0lTVza): Geliştiricilerin kullanabileceği ücretsiz UI bileşenleri koleksiyonu — «50+ Free UI libraries every developer should know»
+- **skiper-ui** (DcqpJt7yBUn): hero bölümleri, kartlar, fiyat sayfaları ve kullanıma hazır bloklar (shadcn/ui tabanlı) — «hero sections, cards, pricing pages and a stack of ready-to-use blocks built on shadcn/ui.»
+- **vengeance-ui** (DcqpJt7yBUn): modern animasyon ve tasarım blokları (daha hızlı premium görünüm için) — «modern animations and design blocks that make a landing page look expensive in minutes.»
+- **Awesome Cloud Design** (DcRhD2Nto7M): 68 hazır tasarım sistemi içeren bir koleksiyon. — «68 design systems ready to go»
+- **design-md-chrome** (DcRhD2Nto7M): Bir web sitesinin tasarım sistemini otomatik olarak çıkaran bir Chrome uzantısı. — «Open any site you like, hit the extension, and it pulls the whole design system out»
+- **Yükleme Durumları Tasarımı** (DctsIpfRW4p): Uygulamalardaki yüklenme, başarı, hata ve boş durumlarının kullanıcı deneyimi için kritik olduğu ve yükleme göstergelerinin sezgisel olması gerektiği anlatılmıştır. — «Uygulamanızdaki her sayfada 4 farklı durum olmalı. Yüklenme, başarı, hata ve boş durum.»
+- **Yükleme Süresi Optimizasyonu** (DcwUpluxnaL): Kullanıcı deneyimini iyileştirmek için yükleme animasyonları ve metin stratejileri belirleme — «Eğer sayfanızda 2-3 saniye boyunca hiçbir şey göstermiyorsanız kullanıcılar terk eder.»
+- **transitions.dev** (Dd3t72TH8uh): UI animasyonları (menüler, modaller, sayı pop-in'leri, başarı kontrolü gibi) için kopyalama-yapıştırma desteği sağlayan bir kaynak. — «Copy-paste Ul transitions: menus, modals, number pop-ins, success checks.»
+- **Taste** (Dd3wMMsnz2P): Palet, yazı tipi, hiyerarşi ve gerçek tasarım anlayışı sağlar. — «Gives Claude a palette, typeface, hierarchy, and actual taste.»
+- **Canvas Design** (Dd3wMMsnz2P): Bir cümleyi bitmiş PNG'ye dönüştürür. — «Describe the artwork. Get a finished PNG.»
+- **UX Designer** (Dd3wMMsnz2P): Akışları, hata durumlarını, dokunma hedeflerini ve WCAG uyumlu kontrastı planlar. — «Plans flows, error states, touch targets, and WCAG contrast.»
+- **Apple Design skill** (Dd4fm_9tMHH): Apple'ın tasarım dilini (fontlar, renkler, hareket ve kurallar) bir Claude yeteneği olarak sunar. — «Apple Design skill: Apple's design language (fonts, colors, motion, and rules) as a Claude skill»
+- **impeccable** (Dd7B61FoV9x): Mesafe, yazı tipleri, resimler ve renkler için UI'yi benzersiz hale getiren araç. — «This works on all the spacing, typography, and color gradients on your website so that your UI actually looks unique.»
+- **Bucklet UI** (Dd7W9zfkxrT): Şık grafikler ve veri görselleri sunar. — «İkincisi Bucklet UI, şık grafikler ve veri görselleri için.»
+- **Coconut UI** (Dd7W9zfkxrT): Animasyonları ve geçişleri hazır gelen bileşenler sunar. — «Üçüncüsü kesinlikle Coconut UI, animasyonları ve geçitleri hazır gelen 100 hazır birleşen sunuyor.»
+- **SuperDesign** (Dd9R75ej5jv): Yapay zeka ürünü tasarımları tipografi ve boşluk kullanımıyla iyileştiren bir ajan. — «It pushes the agent toward stronger typography, more deliberate whitespace and cleane»
+- **Design DNA** (Dd_iThjj32v): Tasarım analizi ve stil kopyalama — «zanwei/design-dna»
+- **Genjutsu** (Dd_iThjj32v): Ödüllü UI ve modern düzenler — «AThevon/genjutsu»
+- **Open Web UI** (Dd_j1EtoIyb): ChatGPT arayüzünü lokal, ücretsiz ve tamamen çevrim dışı çalıştıran versiyon. — «Üçüncüsü Open Web UI.»
+- **UI Bileşenleri** (DdAAEC-Sybw): Vibe coding için UI bileşenleri, temalar ve shader'lar. — «more than 12,000 UI components, templates, themes, shaders, gradients for vibe coding.»
+- **UI UX Pro Max Skill** (DdCs5vOiHRY): Builds that look designed. — «nextlevelbuilder / ui-ux-pro-max-skill»
+- **Taste Skill** (DdCs5vOiHRY): Kills the generic Al look. — «Leonxlnx / taste-skill»
+- **One-Click Setup** (DdfJn2uikSA): Kamera, ışıklandırma, arka plan ve kompozisyon ayarlarını birkaç tıklama ile yapma. — «Set up your camera, your lighting, your background and your composition with a few clicks.»
+- **Thinking Orbs** (DdgPH-poGbJ): Ürünlerin her aşamasını (bekleme, arama, çözümleme vs.) temsil eden 9 adet noktalı animasyon kümesi. — «These orb animations are everywhere right now — and somebody just open-sourced them 🔮»
+- **Düzenlenmiş boyutlar** (DdgPH-poGbJ): Chat için 64px, inline metin için 20px boyut seçenekleri, otomatik aydınlık/karanlık teması. — «two tuned sizes (64 for chat, 20 for inline text), auto light/dark from your page»
+- **Reduced Motion Uyumu** (DdgPH-poGbJ): prefers-reduced-motion ayarını otomatik olarak saygı gösteren statik temalı animasyonlar. — «respect prefers-reduced-motion out of the box (static frame, still themed)»
+- **Taste** (DdjVME_lbWd): Claude'a renk paleti, yazı tipini, hiyerarşiyi ve gerçek bir 'taste' (göz alıcı tasarım) verir. — «Gives Claude a palette, typeface, hierarchy, and actual taste.»
+- **Transitions.dev** (DdjVME_lbWd): Üretim hazırı animasyonlar (modal, dropdown, sayfa açılışları) sağlar. — «Production-ready motion for modals, dropdowns, and page reveals.»
+- **21stDevMCP** (Ddl_XL3Klza): Uygulama ve web sitesi tasarımları için UI bileşenleri ve şablonları sunan bir eklenti. — «Hem uygulamalar hem de web siteleri için 10 binden fazla profesyonel UI birleşimine ve şablonuna yarışın.»
+- **apple-design** (Ddmibn-iNJG): Apple'ın tasarım ve hareket tasarımı derslerini AI'nin takip edebileceği kurallara çevirir. — «Emil Kowalski’s free apple-design skill translates lessons from Apple’s interface and motion design talks into instructions your coding agent can actually follow.»
+- **hiyerarşi-değerlendirme** (Ddmibn-iNJG): Hiyerarşi, kısıtlama, açıklık, etkileşim geri bildirimi, boşluk, hareket, tipografi, malzemeler ve erişilebilirlik gibi faktörleri değerlendirir. — «Instead of guessing, the agent reviews hierarchy, restraint, clarity, interaction feedback, spacing, motion, typography, materials, and accessibility.»
+- **yüksek-öncelikli-problem-çözümü** (Ddmibn-iNJG): Ürün, kopyanın veya bilgi mimarisinin değiştirilmeden en yüksek etkiyi sağlayan sorunları düzeltir. — «Then it fixes the highest-impact problems without changing your product, copy, or information architecture.»
+- **ui-ux-pro-max** (DdO1UioAHAS): Çoklu platformlarda profesyonel UI/UX tasarımı için beceriler sunar. — «UIUX Pro Max»
+- **godly.design** (Ddqj0svm6yq): En iyi tasarlanmış web sitelerinin derlendiği bir platform; ekran görüntüsü alarak Claude'a layout, boşluk ve tipografi ayarlarını kopyalamasını söyle. — «Screenshot one you love, paste it into Claude and ask it to match the layout, spacing and type.»
+- **transitions.dev** (Ddqj0svm6yq): Kopyalanabilir UI geçişleri (menüler, modaller, sayı pop-up'ları, başarı kontrolü gibi) sağlar; ayrıca Claude Code'a 27+ geçişi öğrenmeyi sağlayan bir beceri içerir. — «Copy-paste UI transitions: menus, modals, number pop-ins, success checks.»
+- **UISkills** (DdrNeEUN63i): Tasarım mühendislerinin kullanımına dayalı boşluk, hareket ve erişilebilirlik kılavuzlarını AI agent'a sağlayan bir araçtır. — «It gives your agent the playbook real design engineers use for spacing, motion, and accessibility, so your app stops looking like every other AI-built website.»
+- **Fare Tabanlı Açılım** (DdRo-ZIRWJ9): Fare hareketleriyle gizli içeriklerin açılması ve kullanıcıya interaktif bir deneyim sunma. — «Hover based reveal»
+- **tasarım-planlama** (DdrySmWKwSY): ChatGPT image ile ekran görüntüsünün düzenlenmesi ve tasarım planının oluşturulması. — «ChatGPT image ile düzenle»
+- **godly.design** (Ddsm5_8gAx6): Websites tasarım inspirasyonu sağlayan bir platform. — «steal inspiration from beautifully designed websites»
+- **transitions.dev** (Ddsm5_8gAx6): Kopyalanabilir UI animasyonları sunan bir araç. — «copy-paste smooth UI animations»
+- **Anti Ul Slop** (DdtP_L9FljV): Ajanın jenerik SaaS arayüzleri yerine mevcut ürün, bileşen ve tokenlar ile çalışmasını sağlayan bir yöntem. — «Anti Ul Slop pushes your coding agent to work from the actual product, existing components, tokens, and real Ul patterns instead of inventing another generic SaaS interface.»
+- **Springs Studio** (DdveM-dDrFx): Gerçek UI'ler üzerinde motion token'ları oluşturur. — «Springs Studio builds motion tokens on real UI»
+- **UI UX Pro Max** (DdXFyD1AX3T): Düzenleme, tipografi, renk ve daha fazlası için Claude'a gerçek tasarım anlayışı kazandırır. — «design guidance for layouts, typography, colors, and more»
+- **Awesome Claude Design** (DdXFyD1AX3T): 68 adet önceden hazırlanmış tasarım sistemi sunar, boş sayfadan başlamadan önce bir başlangıç noktası sağlar. — «pre-built design systems you can use as a starting point»
+- **Design.md Chrome** (DdXFyD1AX3T): Bir web sitesinin tasarım sistemini otomatik olarak çıkartan bir Chrome uzantısı. — «extracts a site’s design system so you can reference its structure»
+- **Thumbnail Oluşturma** (Ddyt7zSt6lz): Küçük resimler (thumbnail) oluşturma. — «Biri küçük resimlerinizi oluşturuyor.»
+- **Open Design** (DeamDxDjmQV): Claude Design iş akışlarını ücretli uygulama olmadan açık kaynaklı bir alternatifle kullanma — «It's called Open Design and you can use it with whichever AI you like best.»
+- **impeccable** (DeC26aTPIGG): AI tarafından üretilen UI'lerdeki genelleştirilmiş hataları (örn. mor gradientler) tespit etme ve düzeltme yeteneği sağlayan bir cloud skill. — «impeccable it teaches claude how to spot and fix generic ai slop like the purple gradients that you see everywhere so that your ui looks like a real designer made it»
+- **shadcn-ui-mcp-server** (DeC26aTPIGG): Önceden tasarlanmış ve işlevsel UI bileşenleri (butonlar, menüler, giriş formları) içeren bir kütüphane. — «shad cn mcp this hands clawed a giant library of website pieces that already look good and work together things like buttons menus and login forms»
+- **chrome-devtools-mcp** (DeC26aTPIGG): Claude'ın ekran görüntüsü vermeden UI'yi görüntüleyebilmesi ve Chrome DevTools ile entegrasyon sağlayan bir cloud skill. — «chrome devtools mcp so this one lets claude actually see what it's making without you having to give it screenshots if you combine this against the first plugin i talked about it can actually open you»
+- **apple-design-skill** (DeC26aTPIGG): Apple'ın tasarım dilini (fontlar, renkler, hareketler, kurallar) cloud skill olarak kullanıma sunan bir araç. — «apple design skill this is apple's design language turned into a cloud skill so you can literally steal the fonts colors motions and rules of the best designers in the world»
+- **Figma MCP** (DeCixT6ilL7): Claude gerçek Figma dosyalarını oluşturur ve düzenler. — «Figma MCP»
+- **Canva MCP** (DeCixT6ilL7): Sunum, sosyal medya görselleri ve afişleri hazırlar. — «Canva MCP»
+- **ScreensDesign MCP** (DeCixT6ilL7): Ücretli UI/UX tasarım skill’leri. — «ScreensDesign MCP»
+- **ui-ux-pro-max** (DeCixT6ilL7): Yapay zeka işi gibi gerçek tasarım yapar. — «ui-ux-pro-max»
+- **Higgsfield MCP** (DeCixT6ilL7): Tek komutla görsel ve video üretir. — «Higgsfield MCP»
+- **taste-skill** (DeCixT6ilL7): Claude’ın zevk kazandırıcı çıkışlarını sağlar. — «taste-skill»
+- **Hero Hover** (DecLLaFO49k): Kahraman hover animasyonu. — «Hero Hover»
+- **About Us Section** (DecLLaFO49k): Hakkımızda bölüm animasyonu. — «About Us Sc»
+- **Carousel UI** (DecLLaFO49k): Karuzel UI animasyonu. — «Carousel Ul Animation»
+- **Penpot** (DeCUsonlChf): Profesyonel UI/UX tasarımı ve prototipleme aracı. — «Saticiya bagimli kalmadan profesyonel Ul/ux tasarimi ve prototipleme yap.»
+- **Magic UI** (Ded7XJut1pF): AI araçlarına animasyonlu UI bileşenleri keşfetme ve kullanma yardımcı olur. — «Magic UI — Helps AI tools discover and use beautiful, animated UI components.»
+- **Figma MCP** (Ded7XJut1pF): Figma tasarımlarını AI kodlama araçlarıyla daha akıcı bir şekilde bağlar. — «Figma MCP — Connects your Figma designs to AI coding tools for smoother design-to-code workflows.»
+- **dashboard** (Dee9GkoRqKM): ClaudeCode içine özelleştirilmiş bir arayüz ve proje yönetim paneli oluşturma. — «customise ClaudeCode's interface and build a dashboard right inside ClaudeCode, showing what your agents are doing, your project info, even your second brain, all in one place.»
+- **Impeccable** (DeFbRbLuE2n): Claude'un tasarım kararlarını güçlendirerek AI ile oluşturulan arayüzlerin standartlaşmasını önler. — «Claude'un daha güçlü tasarım kararları vermesine yardımcı oluyor. Özellikle AI ile oluşturulan o klasik, birbirine benzeyen arayüzlerden uzaklaşmak için kullanılabilir.»
+- **21st Dev MCP** (DeFbRbLuE2n): 10.000'den fazla kullanıcı arayüzü bileşeni ve şablonuna erişim sağlayan profesyonel UI araç seti. — «hem uygulamalar hem de web siteler için 10.000'den fazla kullanıcı arayüzü bileşeni ve şablonuna erişim sağlayın.»
+- **3dicons** (DeFBWx2E95r): 1,440+ ücretsiz 3D ikonlar (CC0 lisansı). — «1,440+ open source 3D icons. CC0, no credit.»
+- **Haikei** (DeFBWx2E95r): 15 ücretsiz dalga, blob ve gradient arka plan generatorı. — «15 free generators for waves, blobs and gradient backgrounds. Fine for client work, no credit.»
+- **Refero** (DeFLfJco13J): Ürün tasarımı için gerçek ekranlar ve kullanıcı akışları kütüphanesi. — «Refero for product design - real screens and full user flows from the best apps.»
+- **Design Spells** (DeFLfJco13J): Mikro etkileşimler ve tasarım detayları kütüphanesi. — «Design Spells for micro-interactions - the small details that make an app feel like magic.»
+- **Impeccable** (Deh4K2nITwD): AI tarafından üretilen tasarımlardaki hataları düzeltir. — «It teachesClaude tocatch and fixAlslop onyourwebsite,likethatpurplegradent»
+- **Shadcn MCP** (Deh4K2nITwD): Hazır UI bileşenlerini kullanır. — «Agiantlbraryot ready-madebuttons. menus and login forms,soClaude doesnt have toinventithem.»
+- **Apple Design Skill** (Deh4K2nITwD): Apple'ın font, renk ve gradyanlarını tasarıma uygular. — «Claude can borrow Apple'sfonts.colors and gradientsfrom some of the best developersintheworid.»
+- **UI/UX Pro Max** (DeHF3GPTD_s): Tasarım sürecini destekleyen AI aracı. — «UI UX Pro Max»
+- **Better typography with text-wrap** (DeHgoP8kxyV): Başlıkları daha doğal ve okunabilir yapmak için text-wrap:balance özelliğinin kullanılması. — «Usetext-wraptodistributetextevenlyacrosslinesforcleaner,more naturalheadingsandreadabletext.»
+- **Better Icons** (DeHgoP8kxyV): Farklı koleksiyonlardan gerçek SVG ikonların aranması ve alınması. — «Search and retrieve 200,000+ icons from 150+ collections.»
+- **Skeleton Loading** (DeIQAGtRF4m): Yükleme sırasında basit skelet yapıları kullanarak UI'nin hızlıca görünmesini sağlar. — «Skeleton»

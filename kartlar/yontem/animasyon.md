@@ -1,0 +1,24 @@
+# Yöntemler — animasyon
+
+- **Clone AI ile Video Dönüştürme** (CqDvgaVoZNx): Telefon videolarını yapay zeka desteğiyle animelere dönüştürme yöntemi. — «Buna inanamayacaksın ama yapay zeka desteğiyle telefonunla çektiğin videoları yüksek kaliteli animelere çevirebileceksin.»
+- **kill-frame** (CsgtXLyIPZu): Yapay zeka destekli animasyon programı. — «Cascader platformu yapay zeka destekli bir kill frame animasyon programıdır.»
+- **otofizik** (CsgtXLyIPZu): Fizik kurallarını kullanarak birkaç pozdan animasyon üreten yapay zeka özelliği. — «Sadece birkaç pozdan animasyon hazırlamak istiyorsanız otofizik özelliğini kullanın.»
+- **mirror tool** (CsgtXLyIPZu): Tek pozdan animasyon üreten araç. — «Programın mirror tool ve animation cycle özelliğini kullanarak sadece tek pozdan animasyon üretebilirsiniz.»
+- **animation cycle** (CsgtXLyIPZu): Tek pozdan döngüsel animasyon üreten araç. — «Programın mirror tool ve animation cycle özelliğini kullanarak sadece tek pozdan animasyon üretebilirsiniz.»
+- **secondary motion** (CsgtXLyIPZu): Karakter animasyonuna ekstra gerçeklik katmak için kullanılan özelliği. — «Karakterinizin animasyonuna ekstra gerçeklik katmak için secondary motion özelliğini aktif edin.»
+- **Scroll Animasyonu** (Db8vyOENQj7): Sıfır kodla kaydırmaya bağlı ürün scroll animasyonu yapma yöntemi — «Şirketlerin binlerce dolar istediği şu scroll animasyonlarının nasıl yapacağını anlatıyorum. 4 adımla sıfır kodla.»
+- **Geese App** (Dc1ENsHzNSj): Scroll animations, text reveals, image effects ve UI interactions için geliştiriciye yönelik ana kütüphane. — «The go-to animation library for developers. Scroll animations, text reveals, image effects, UI interactions.»
+- **React Spring** (Dck7FxNT2wX): Uygulamalara animasyon ekleme kütüphanesi. — «React Spring is an animation tool that brings your apps to life»
+- **Motion Primitives** (DdcLYmex8_9): Güzel animasyon kodları, sadece kopyala-yapıştır yeterli. — «Motion Primitives, güzel animasyon kodları sadece kopyalı yapıştır yeterli. Hiç animasyon kodu yazmaya gerek yok.»
+- **Design Motion Principles** (DdXFyD1AX3T): Katmanlar, animasyonlar, geçişler ve yumuşatma eğrileri ekleyerek tasarımlara hareketlilik kazandırır. — «adds animation, transitions, and motion principles»
+- **Hover Effect** (DecLLaFO49k): Hover etkisi animasyonları için UI/UX tasarımcılar için üst düzey kütüphaneler. — «Hover Effect»
+- **Micro Interaction** (DecLLaFO49k): Küçük etkileşim animasyonları için kütüphane. — «& Micro Interaction Library»
+- **UI Animation** (DecLLaFO49k): UI animasyonları için kütüphane. — «UI Animation»
+- **Carousel Animation** (DecLLaFO49k): Karuzel animasyonları için kütüphane. — «Carousel Ul Animation»
+- **Loop Animation** (DecLLaFO49k): Döngüsel animasyonlar için kütüphane. — «Loop Ui Animation»
+- **Text Animation** (DecLLaFO49k): Metin animasyonları için kütüphane. — «Text animation»
+- **Social Media Animation** (DecLLaFO49k): Sosyal medya animasyonları için kütüphane. — «Social media animation»
+- **Terminal Typing** (DecLLaFO49k): Terminal yazı tipine benzeyen animasyon. — «Terminal typing»
+- **Spotify Player** (DecLLaFO49k): Spotify oynatıcı animasyonu. — «SpotifyPlayerAnimation»
+- **Blob Effects** (DecLLaFO49k): Blob etkileri animasyonu. — «blobeffects»
+- **Concert Animation** (DecLLaFO49k): Konser animasyonu. — «Concert animation»

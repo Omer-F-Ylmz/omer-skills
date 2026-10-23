@@ -167,6 +167,11 @@ def nrm(s):
 def cagir(g):
     """(json | None, kaynak). ucretsiz_havuz (haiku_tavan=0 → ücretli halka yok); JSON dönmeyen yanıt sıradaki halkaya geçer"""
     import ucretsiz_havuz
+    if not getattr(ucretsiz_havuz, "_yaz_kilitli", False):  # aynı süreçteki iş parçacıkları ortak durum.<pid>.tmp'de çakışıyordu (PermissionError)
+        _y = ucretsiz_havuz._yaz
+        yk = threading.Lock()
+        ucretsiz_havuz._yaz = lambda d: (yk.acquire(), _y(d), yk.release())[1]
+        ucretsiz_havuz._yaz_kilitli = True
     ret = lambda y: None if isinstance(U.json_al(y), dict) else "JSON yok"
     y, k, _ = ucretsiz_havuz.cagir("ozet", g["messages"][0]["content"], max_tokens=4000, haiku_tavan=0, dogrula=ret, zaman=120)
     o = U.json_al(y) if y else None
@@ -257,7 +262,7 @@ def cmd_birlestir():
         for y in o.get("yontem") or []:
             if isinstance(y, dict) and y.get("alinti"):
                 satir.append([kod, "yontem", "", "llm", temiz(f"{y.get('konu')}: {y.get('ad')} — {y.get('ne')}"), y.get("dogru", "hayir"), temiz(y["alinti"])])
-                Y.setdefault(y.get("konu") or "diger", []).append((kod, y))
+                Y.setdefault(y.get("konu") if y.get("konu") in KONULAR.split("|") else "diger", []).append((kod, y))
         for a in o.get("akis") or []:
             if isinstance(a, dict) and a.get("alinti"):
                 satir.append([kod, "akis", str(a.get("zaman", "")), "llm", temiz(f"{a.get('n')}. {a.get('ne')}"), a.get("dogru", "hayir"), temiz(a["alinti"])])
@@ -284,6 +289,9 @@ def cmd_birlestir():
     kt = KOK / "kartlar/tarif"
     ky.mkdir(parents=True, exist_ok=True)
     kt.mkdir(parents=True, exist_ok=True)
+    for d_ in (ky, kt):  # önceki çalıştırmanın ürettiği kartlar (yeniden üretilir)
+        for f_ in d_.glob("*.md"):
+            f_.unlink()
     for konu, L in Y.items():
         L = [x for x in L if x[1].get("dogru") == "evet"]
         if L:

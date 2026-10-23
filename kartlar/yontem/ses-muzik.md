@@ -1,0 +1,90 @@
+# Yöntemler — ses-muzik
+
+- **Whisper AI** (C1aYS28MPyD): Gerçek zamanlı ses tanıma ve otomatik alt yazı oluşturma. — «Yapay zeka sayesinde artık dil engeli kalmadı. Türkçe konuşmama rağmen, bu inanılmaz sistem gerçek zamanlı olarak İngilizce, İspanyolca, Almanca gibi dillere çevirebiliyor.»
+- **voice.ai ses taklidi** (Cq5XLzYII6G): Yapay zeka kullanarak başkalarının sesini taklit etme ve ses değiştirme. — «voice.ai sitesine giriş yapıp programı indirip kurman lazım»
+- **EnhanceSpeech** (CqvbKEzoeD7): Yapay zeka ile ses dosyasını profesyonel düzeyde arttırma ve düzenleme. — «EnhanceSpeechfromAdobe»
+- **NVIDIA Broadcast** (Cqx7rSEIAVh): Yapay zeka destekli ses ve görüntü iyileştirme aracı. — «Nvidia'nın Broadcast programını indirmeniz lazım.»
+- **Eye Contact** (Cqx7rSEIAVh): Yapay zeka ile ekrana bakma simülasyonu. — «Görüntü bölümünde Eye Contact teknolojisini kullanabilirsiniz.»
+- **Arka Plan Sileme** (Cqx7rSEIAVh): Print Screen olmadan arka planı fluğlaştırma ve noyz giderme. — «Print Screen olmasa bile arka planınızı silebilirsiniz, arka planı fluğlaştırabilirsiniz ve aynı zamanda görüntünün noyzunu düşürebilirsiniz.»
+- **Ses Arttırma** (Cqx7rSEIAVh): Hoparlör/kulaklık ses kalitesini yapay zeka ile iyileştirme. — «Ses bölümünde ise yapay zeka desteğiyle hoparlörlerinizden veya kulaklığınızdan daha kaliteli ses alabilirsiniz.»
+- **Ses Temizleme** (Cqx7rSEIAVh): Yapay zeka ile noyz ve eko giderme. — «Mikrofon bölümünde yapay zeka desteğiyle noyz ve eko gibi sesleri sesinizden çıkarıp ve mikrofonunuzu profesyonelleştirebilirsiniz.»
+- **Fish Audio MCP** (DbaXC_zDEe1): Fish Audio tarafından sunulan MCP sunucusuyla ses üretilmesi ve metin okunması için bir entegrasyon yöntemi. — «Fish Audio ships an MCP server. Connecting it takes one line.»
+- **TAGS** (DbaXC_zDEe1): Metinde kullanılan [whispering], [excited] gibi etiketlerle ses tonunu ayarlama. — «Put a tag in square brackets inside the text. Fish Audio performs it instead of reading it out, which is how you fix a flat read.»
+- **Ses transkripsiyonu** (DbaXC_zDEe1): Kayıtlı ses dosyalarını metne çevirme ve işleme. — «Point Claude at a recording and it uploads the file, transcribes it, then keeps working with the text in the same thread.»
+- **senkronize-lyrics** (DbEIoM4Fd08): Müzik dosyalarının içeriğinin senkronize olarak oynatılması. — «music with synced lyrics»
+- **flipbook-animation** (Dbn5-kXqr3r): Işık kaynakları için el çizimi flipbook animasyonları kullanma. — «For light sources, we use hand-drawn animated flipbooks to keep them consistent with the illustrated style.»
+- **ai ses** (DbxcRQLjS9T): AI ses üretimi için ElevenLabs kullanımı. — «ElevenLabs → AI voice»
+- **OCR** (Dc8HMPmjUOL): Kamera ile fotoğraf çekilen belgeleri okur ve metin ekstraksiyonu yapar. — «Reads the information»
+- **sesli metin okuma** (Dc8HMPmjUOL): Cihazda metinleri sesli olarak okur. — «the text is read on device»
+- **lab değerleri işleme** (Dc8HMPmjUOL): Lab sonuçlarını okur ve yüksek/düşük değerleri belirler. — «flags if your results are high or low»
+- **belge sınıflandırma** (Dc8HMPmjUOL): Belgeleri tarih ve türlerine göre otomatik olarak sınıflandırır. — «organizes everything by date»
+- **Lyria3Pro** (Dcd7a6XgrkZ): Gerçek zamanlı müzik besteleme ve ses üretimi için ayrıntılı kontrol sağlayan Google AI modeli. — «Muzigi gercek zamanli besteleyin»
+- **Google AI Studio** (Dcd7a6XgrkZ): Prompt'lar ile uyumlu, minimal teknobeadlerden nuanslı vokal performanslarına kadar her şeyi üretebilen müzik üretim aracı. — «Promptan muzige Hz fikirleriveyagorselihamlaruyumlu, produksiyona hazirparcalaradonusturun.»
+- **Cloud Mem** (DcqJTFDAOrU): Cloud platformunun oturumlar arasında hafıza özelliği kazandırmak. — «Cloud'ı oturumlar arasında hafıza kazandırıyor.»
+- **Obsidian** (DcqJTFDAOrU): Cloud kodu ikinci bir beyin olarak kullanımını sağlayan not alma ve organizasyon aracı. — «Cloud kodu ikinci bir beyin gibi kullanmanı sağlıyor.»
+- **ses-klonlama** (DcSIIcAs8-4): 11Labs'ın alternatifini sunar ve ses-klonlama, metin-ses dönüşümü ve dictation özelliklerini anlatır. — «The next one is VoiceBox by Jamie Pine, and this is a complete replacement of 11Labs. You could do text-to-speech, dictation, and voice cloning with over 100 voices for completely free.»
+- **Wispr Flow** (Dcv-thTgj1l): Ses ile dikte ve not tutma aracı. — «Wispr Flow ses icin»
+- **OpenVoice** (DcWMIBythN6): Açık kaynaklı, ücretsiz ses klonlama aracı. — «Someone created a free open source voice cloner»
+- **Kullanıcı deneyimi** (Dd-6ZONhDGK): Kullanıcıya Photoshop'a benzer kısayollar ve arayüz sunar. — «The tools you already know. Layers, groups and masks, curves and levels with a live preview, healing brushes, the clone stamp, content-aware fill and Liquify.»
+- **ses işleme** (Dd1j5HMCKIa): Ses dosyalarını işleme ve düzenleme. — «Seedance 2.5»
+- **sesli-özetleme** (Dd1jV3AgDiG): Kısa videodaki anahtar noktaları sesli açıklamalarla özetleme. — «Olea Dev just solved the biggest headache with running heavy AI models locally.»
+- **sesli-prompt** (Dd1jV3AgDiG): Sesli açıklamalarla geliştiriciye yönelik prompt metinleri sunma. — «Running modern open-source LLMs usually requires expensive enterprise GPUs and complex drivers.»
+- **sesli-öneri** (Dd1jV3AgDiG): Kullanıcıya lokal çalıştırma için sesli öneriler sunma. — «Meet Olea. It connects directly into your developer workflow.»
+- **sesli-komut** (Dd1jV3AgDiG): Kullanıcıya sesli komutlar ve kurulum adımları sunma. — «Comment local below and I will DM you the direct repo link and setup guide instantly.»
+- **sesli-önbilgi** (Dd1jV3AgDiG): Kullanıcıya sesli ön bilgiler ve açıklamalar sunma. — «It optimizes C++ execution to run cutting-edge models locally with minimal memory.»
+- **sesli-uygulama** (Dd1jV3AgDiG): Kullanıcıya sesli açıklamalarla uygulamayı tanıtma. — «It hands control right back to you with zero friction.»
+- **VoiceStudio** (Dd2HMwIy6D3): Açık kaynaklı, yerel çalışan ses klonlama ve dublaj aracı — «A solo dev just open sourced a free version of 11labs»
+- **Lo-fi Beats** (Dd8-sBkE3xv): Background music for relaxation or focus. — «Lo-fi Beats»
+- **ArtistRadio** (Dd8-sBkE3xv): Stream music by specific artists. — «ArtistRadio»
+- **MidnightDrive** (Dd8-sBkE3xv): Playlist for late-night listening. — «MidnightDrive»
+- **Ocean Eyes** (Dd8-sBkE3xv): Playlist with calming music. — «Ocean Eyes»
+- **Sunflower** (Dd8-sBkE3xv): Playlist with uplifting music. — «Sunflower»
+- **Blinding Lights** (Dd8-sBkE3xv): Popular song by The Weeknd. — «Blinding Lights»
+- **Sunflower** (Dd8-sBkE3xv): Song by Post Malone & Swae Lee. — «Sunflower»
+- **Lo-fi Beats** (Dd8-sBkE3xv): Song by Post Malone & Swae Lee. — «Lo-fi Beats»
+- **Llama3.18B** (Dd8-sBkE3xv): Model used by AnythingLLM. — «Llama3.18B»
+- **Screen Recording Tool** (Dd8-sBkE3xv): Open-source alternative to Loom for screen recording. — «Open-source alternative to Loom for fast and beautiful screen recordings.»
+- **Open-glean** (Dd85NOcjWaK): Dosyalar, hatıralar ve bağlı uygulamaları bir arada aranabilir AI çalışma alanı haline getirir. — «Open-glean turns your files, memories, and connected apps into one searchable AI workspace.»
+- **Local Whisper Transkripsiyon** (Dd8pE6DgjVC): Yerel makinede çalışan Whisper modeli ile ses dosyalarını metne çevirme. — «F3 Anlana-localwhisper transcript+»
+- **Transkripsiyon Otomasyonu** (Dd8pE6DgjVC): Ses dosyalarını otomatik olarak metne çevirme ve düzenleme. — «auto mode on (shift+tab to cycle)·-for agents»
+- **VoiceStudio** (Dd9RvQDiUVH): Local voice cloning, dubbing, transcription and audiobook generation. — «debpalash / VoiceStudio»
+- **Persona Live** (Dd9T_81u8K2): Bir selfie ile canlı yayın için animasyonlu portre oluşturulur. — «One selfie is all it needs, and that frozen face is suddenly hosting a live stream.»
+- **ses entegrasyonu** (Dd_2M8njh_2): AI'nin voiceover, alt yazı, smooth transitions ve sound effects ekleyerek video tamamlaması. — «It adds voiceover, captions, smooth transitions, and sound effects, and hands you a finished MP4.»
+- **Voice DNA Creator** (Dd_H9QZMfjw): Kendi üslubunu Claude'a öğretme aracı. — «VDNA VOICE DNA CREATOR Kendi uslubunu Claude'a ogret»
+- **ses-uygulamaları** (DdBGaAgnQyL): Sesli AI chat yeteneği. — «chat GPT-like AI»
+- **Zoetrope** (Ddc1db7Cj_D): Claude Code oturumunu canlı grafik olarak izlemeyi sağlar. — «Claude Code oturumunu canlı grafik olarak izle»
+- **Voice DNA** (DdcBCJRRQFT): Kullanıcıların ses tonunu ve kelime haznesini analiz ederek reklam metinlerini uyumlu hale getiren araç. — «Bu araç cümle ilginizi ve kelime hazenizi analiz ediyor.»
+- **Eleven Labs** (DdcBCJRRQFT): Belgeyi sesli anlatıma veya podcast'e dönüştüren ses sentezleme aracı. — «Herhangi bir belgeyi veriyorsunuz o da yaklaşık 1 dakikada bunu sesli anlatıma ya da içkişilik bir podcast'e dönüştürüyor.»
+- **colibri** (DdccgmSG8E9): 744 milyar parametreye sahip bir modeli diskten akışla çalıştırır ve hafızayı azaltır. — «Colibri is one C file that streams a model's rarely used parts off your disk instead of loading the whole thing into memory.»
+- **colibri** (DdccgmSG8E9): 9 farklı model ailesini tek bir motorla çalıştırır. — «Nine model families, one engine.»
+- **ElevenLabs entegrasyonu** (DdcYvjuurzx): Kişisel sesli asistan için ses seçimi ve entegrasyonu. — «ElevenLabs ile istediğin sesi ekleyip takvimini, e-postalarını ve kullandığın diğer araçları bağlıyorsun.»
+- **whisper.cpp** (Dddrwu3Dac7): Transcribes everything locally, no cloud, no fees. — «whisper.cpp transcribes everything locally, no cloud, no fees.»
+- **Sesli uyarı** (Ddi5_OkoiDa): Dikkat çekici sesli uyarı kullanımı. — «If you vibe-coded an app and don't want to get sued for $100,000, watch this.»
+- **Örnek vererek riski vurgulama** (Ddi5_OkoiDa): Netlify faturalarını örnekle anlatma. — «Netlify bills per gigabyte, and one static site got an invoice for $104,500.»
+- **Veri sızıntısı riski** (Ddi5_OkoiDa): Supabase güvenlik ayarlarının ihmalinin tehlikelerini anlatma. — «Your database is on Supabase's free tier, and row-level security is off on the tables Claude made.»
+- **GSM yasağı ihlali** (Ddi5_OkoiDa): İzin alınmadan SMS gönderiminin yasal riskini vurgulama. — «You texted your waitlist about the launch. Without written consent, that's $500 per text under federal law.»
+- **Bütçe kontrolsüz harcaması** (Ddi5_OkoiDa): Kodun kendini çağırması sonucu oluşan maliyetleri anlatma. — «Claude wrote a function that calls itself. Budget alerts don't stop anything, so a startup that tested one woke up to a $72,000 bill.»
+- **watermark giderme** (DdUu9f_uBL0): Claude, Gemini ve OpenAI için açık kaynaklı suret giderme aracı. — «a new Watermark Remover open-source for Claude, Gemini, and OpenAI.»
+- **Meshfont** (DdveM-dDrFx): Tarayıcıda kendi yazı tipinizi oluşturmanızı sağlar. — «Meshfont lets you make your own font in the browser»
+- **Piper narration** (DdWwZhgTnY_): Offline sesli anlatım sağlar. — «Piper narration runs offline»
+- **localStorage** (DdZMSdTksDE): Verilerin tarayıcıda saklanması için kullanılan bir depolama yöntemi. — «Data persists in browser localStorage»
+- **taste-skill** (DeAf-XgiK_a): Claude'a iyi tadı verir ve generik çıktıyı öldürür. — «Gives Claude good taste and kills generic output»
+- **caveman** (DeAf-XgiK_a): Claude'ın yanıtlarını kısaltır. — «Cuts Claude's replies short»
+- **Limora AI MCP entegrasyonu** (DebPmJFgIbs): Limora AI MCP'yi terminal komutu ile bağlama ve tasarım sistemine uygun görsel oluşturma. — «connect Limora AI MCP and it generates a visual that matches the design.»
+- **sesli-uygulama-tanıtımı** (Decg_eOD3UM): Sesli açıklamalarla kullanıcıya uygulamayı anlatır. — «You can now vibe code an entire app without your company's data ever leaving its own cloud.»
+- **seslendirme-altyazi** (Decgm97N-Th): Seslendirme ve altyazı ekleme. — «Seslendirme, altyazı ve fon müziği ekliyor»
+- **HeyGen MCP** (DeCixT6ilL7): Senaryoyu avatar video sunucusuna çevirir. — «HeyGen MCP»
+- **HyperFrames** (DeCixT6ilL7): HTML yaz, video al. — «HyperFrames»
+- **Remotion skills** (DeCixT6ilL7): React koduyla video için resmî skill’ler. — «Remotion skills»
+- **ManyChat** (DeCixT6ilL7): Her yorumu otomatik DM’ye çevirir. — «ManyChat»
+- **Finance eklentisi** (DeCixT6ilL7): Anthropic’ten mutabakat ve aysonu kapanışı sağlar. — «Finance eklentisi»
+- **HeyGen MCP** (DeCixT6ilL7): Senaryoyu avatar video sunucusuna çevirir. — «HeyGen MCP»
+- **anthropics/skills** (DeCixT6ilL7): Google Drive’ında arar, okur, dosya oluşturur. — «anthropics/skills»
+- **Markdown** (DeCixT6ilL7): Gerçek Word, PowerPoint ve Excel dosyalarını oluşturur. — «Markdown»
+- **claude-mem** (DeCixT6ilL7): Oturumlar arası kalıcı hafıza sağlar. — «claude-mem»
+- **Composio** (DeCixT6ilL7): 1.000+ uygulamaya tek bağlantı sağlar. — «Composio»
+- **Notion MCP** (DeCixT6ilL7): Claude tarafından oluşturulur ve yazılır. — «Notion MCP»
+- **STAGGERFLIP** (Ded7XJut1pF): Ekrandaki görselde geçen animasyon/uygulama adı (belirtilen konu dışı, ancak ekranda görülebilir). — «STAGGERFLIP»
+- **Sonniss GDC bundle** (DeFBWx2E95r): Yıllık ücretsiz ses efektleri paketi (2015'ten beri). — «a new bundle of pro sound effects every year since 2015, and the past ones are free too. 200GB+ in total, no credit needed.»
+- **tts+mcpc** (DeHGj-mG-5V): Claude tarafından yazılan senaryoyu MCP connector üzerinden TTS motoru ile seslendirme. — «Claude writes the script and calls a TTS engine through an MCP connector.»
+- **Claude Video** (DeIGeHSDeGQ): Claude'ın videolarla çalışmasını sağlayan bir araç. — «Claude Video — lets Claude work with video»

@@ -1,0 +1,322 @@
+# Yöntemler — ajan-kod
+
+- **Claude araçları ve MCP kurulumu** (Da0M8Ipmpxo): Claude üzerinde yapay zeka deneyimini geliştirmek için plugin, yetenek ve MCP kullanımı. — «24 Things to Install in Claude»
+- **Kimi Code CLI** (Da2pSOSP-gU): Kimi platformu için kodlama CLI aracı. — «Send /help for help information.»
+- **Agentic OS** (Da6kEv3JMY3): Claude gibi yapay zeka ajanlarının özerk çalışmasını sağlamak için günlük kontrol, yönetici/denetçi ayrımı ve başarı oranına dayalı güven sistemi kurma. — «The full agentic OS setup, the loop, and the grading is the whole thing.»
+- **gstack** (Da7xf8rviQU): Gary Tan tarafından oluşturulan ve Claude Code'a tam yazılım geliştirme iş akışı sağlayan açık kaynaklı GitHub deposu. — «Use GarryTan's exact»
+- **Claude Code Setup** (DaagbUMP8Tg): Claude Code için optimize edilmiş eklenti kurulumu ve yapılandırması — «official free plugin called Cloud Code Setup»
+- **cognee memory layer** (DaC0iwVK5R5): AI ajanlarına kalıcı hafıza katmanı eklemek için açık kaynaklı bir platform kullanımı — «Instead, give your AI an actual memory layer, like Cogni. It's open source with over 20,000 stars on GitHub»
+- **The Agency AI** (DaF5vSIsLQU): Claude tabanlı 230'dan fazla açık kaynaklı AI ajanı içeren tam bir AI ajansı sistemi. — «Someone actually turned Claude into a full AI agency with more than 230 agents, completely free and open sourced.»
+- **Agent Swarm** (DafbtU_M-Pt): 300 yapay zeka ajanı aynı anda çalıştırma ve 50+ dosya/30 web sitesi aynı anda işleme. — «Agent Swarm diye çok kritik bir özelliği var. 300 tane yapay zeka ajanını aynı anda çalıştırabiliyorsun. Ve aynı anda 50'den fazla dosya okuyabiliyor. Tek bir seferde 30 tane web sitesi yapabiliyor.»
+- **Claude /brag Skill** (DaHYVmVS97V): Side project'leri hızlıca lansman videosuna dönüştüren Claude yeteneği. — «There's a Claude skill called Slash Brag that turns any side project into a fire 20 second launch video in seconds.»
+- **built-in memory system** (DaLUGUbMp4K): Yerleşik hafıza sistemi, ekstra kurulum gerektirmez. — «G-Code'un hiçbir ekstra kurulum gerektirmeyen yerleşik bir hafıza sistemi var.»
+- **agent teamwork** (DaLUGUbMp4K): Ajanlar kendi takım arkadaşlarını oluşturup aynı kod tabanında çalışır. — «Ajanlar kendi takım arkadaşlarını oluşturup aynı kod tabanında birlikte çalışabiliyor.»
+- **Loop Engineering** (DamUUJxjJDC): AI'nın bir hedefi gerçekleştirmek için kendini denetleyerek çalıştığı döngüsel sistem tasarımıdır. — «Instead of you prompting an Al agent step by step, you design a system that prompts the agent for you.»
+- **Doer-Checker Yapısı** (DamUUJxjJDC): İş yapan ajan (Doer) ve sonucu doğrulayan sistem (Checker) ayrımı. — «The model that wrote the code is too generous grading its own homework.»
+- **OmniRoute** (Dapjs58z0P0): 200'den fazla AI modelini birleştiren ve iş için en ucuz/iyi modeli otomatik seçen araç. — «It's called OmniRoot. It connects to 200 plus AI models and picks the cheapest and the best AI model for each job automatically.»
+- **Claude Code ile Marketing Ekibi Kurulumu** (DapwbVQAoiY): Claude Code içinde farklı roller için uzman ajanlar ve skill'ler tanımlayarak tek kişilik marketing ekibi oluşturma. — «Marketing icin ajans tutmadim, 5 kisilik ekip kurmadim. Claude Code'un icine herbiri birisi ustlenen uzmanlar tanimladim:biri strateji kurar,biri icerik yazar, biri pazari analiz eder, biri sureci oto»
+- **OmniRoute** (DaSs65mMrHk): Coding tool araçlarını 200+ AI modeline tek endpoint üzerinden bağlayan ve token tasarrufu sağlayan ücretsiz araç. — «It connects your coding tool to 200+ AI models through one endpoint.»
+- **OpenAlice** (DatpvftE-Iq): Yerel makinede çalışan, hisse, kripto ve emtia piyasalarında araştırma, pozisyon yönetimi ve çıkış işlemlerini otomatikleştiren yapay zeka tabanlı ticaret ajanı. — «OpenAlice runs an AI trading desk on your machine, automating research through exit across assets.»
+- **Superdesign** (DatZTo9ybM4): AI'ye tasarım kanvası verir, birkaç yönü mockup olarak hazırlar ve React + Tailwind kodunu döndürür. — «It gives Cloud an actual design canvas, mocks up a few polished directions at once, and hands back real React and Tailwind»
+- **Security Audit Skill Control Bits** (DatZTo9ybM4): AI'ye profesyonellerin kullandığı statik analiz aracını çalıştırır ve kodda gerçek zafiyetleri önceden tespit eder. — «Cloud runs the same static analysis tool as the pros use, and it flags the real vulnerabilities in your code before you ship»
+- **Carpathi Skill** (DatZTo9ybM4): AI'ye sadece görev gerektiren kısımları dokunmasını sağlar, gereksiz yeniden yazma ve bozma riskini ortadan kaldırır. — «Its whole rule is to touch only what the task needs, so Cloud stops rewriting what it would promote and breaking things it was never asked to.»
+- **Playwright Skill** (DatZTo9ybM4): AI'nin oluşturduğu işi gerçek bir tarayıcıda test eder ve arızaları düzeltir. — «Cloud opens a real browser, clicks through what it built, and fixes what breaks»
+- **Ponytail** (Dauv6MOyDR8): Claude Code'un çıktısını optimize ederek token kullanımını düşürür. — «It optimizes Claude Code's output and can cut your usage by over 50% without sacrificing accuracy.»
+- **Code Review** (Dauv6MOyDR8): Kod incelemesi için beş yapay zeka aracını paralel çalıştırır. — «Instead of one AI checking your code, five AI agents review it in parallel to catch bugs before they make it into your app.»
+- **Claude Mem** (Dauv6MOyDR8): Oturumlar arası hafıza sağlayarak projenin hatırlanmasını sağlar. — «It gives Claude memory across sessions, so it remembers your project instead of making you explain everything from scratch every single time.»
+- **Obsidian Skill** (Dauv6MOyDR8): Kod tabanını bağlantılı bir yapıya dönüştürerek Claude'un büyük resmi anlamasını sağlar. — «It turns your code base into a connected second brain, linking files and functions together so Claude understands the bigger picture.»
+- **Official Anthropic Skill Pack** (Dauv6MOyDR8): Kodlama, ön yüz ve verimlilik için seçilmiş resmi eklentiler bütünüdür. — «It's a curated collection of their best coding, front-end, and productivity skills, making it the perfect starting point for any Claude Code setup.»
+- **Fable 5 Tanıtımı** (DaVdkFHlEe-): Anthropic'in Mythos-sınıfı Fable 5 modelinin özellikleri ve kullanım alanları anlatılıyor. — «Anthropic'in ilk halka acik "Mythos-sinif1" modeli 3 hafta kapali kaldl, 1 Temmuz'da dondu.»
+- **Agency Agents** (Db0Kka1vxSH): Yapay zeka ajanlarından oluşan açık kaynaklı bir ajans yapısı ve masaüstü uygulaması. — «msitarzewski/agency-agents»
+- **OmniRoute** (Db1J34usxwh): Claude Code'u 200'den fazla ücretsiz yapay zeka sağlayıcısına bağlayarak limit dolduğunda otomatik model değişimi sağlar. — «Birincisi, 200'den fazla ücretsiz yapay zeka ve hapis ağlayıcısına bağlanarak Cloud Code'a neredeyse sınırsız kullanım imkanı sunan OmniRoot.»
+- **ClaudeMem** (Db1J34usxwh): Tüm oturumlar boyunca projeleri ve dosyaları hatırlayarak Claude'a kalıcı hafıza kazandırır. — «İkincisi, CloudMem. Cloud'a tüm oturumlar boyunca hafıza kazandırır.»
+- **Headroom** (Db1J34usxwh): Model ile kullanıcı arasında durarak sadece önemli kısımları iletir ve gereksiz detayları sıkıştırarak token tasarrufu sağlar. — «Üçüncüsü, Headroom. Bu eklenti sizinle yapay zeka modelinizle arasında durur ve yalnızca gerçekten önemli olan kısımları iletirken tüm gereksiz detayları sıkıştırır ve ortadan kaldırır.»
+- **Claude Code Setup** (Db1J34usxwh): Kod tabanını tarayarak en uygun hook, skill, ajan ve MCP sunucularını öneren resmi Anthropic eklentisidir. — «Dördüncüsü, tüm kod tabanınızı tarayan ve projenizi en uygun hook'ları, skillsleri, ajanları ve hatta MCP sunucuları öneren resmi bir antropik eklentisi olan Cloud Code Setup'dur.»
+- **Task Observer** (Db1J34usxwh): Çalışma tarzınızı izleyerek arka planda yeteneklerinizi otomatik olarak sürekli geliştirir. — «Ve son olarak ise Task Observer. Nasıl çalıştığınızı izler, tarzınızı öğrenir ve arka planda sizin için diğer yeteneklerinizi tamamen otomatik olarak sürekli geliştirir.»
+- **Manus.im** (Db4xrgaxvjU): Tek bir prompt ile kod yazan ve bir tıkla yayınlama imkanı sağlayan AI agent. — «Manus.im. It's an intelligent AI agent. Build insane websites with just one prompt. It writes all of the code for you. Publish your website with the click of a button.»
+- **V3Code** (Db8cNRlgMG3): Cursor, Claude Code ve Codex gibi yapay zeka editörlerine 6 katmanlı yerel bellek ve MCP entegrasyonu sağlar. — «v3code solves this with its six memory layers that all talk to each other locally on your machine.»
+- **Self-improving AI Agent** (Db8D5-Nzl06): Kendi kendini geliştiren, otonom döngülerle çalışan bir yapay zeka ajanıdır. — «autonomous loops designed to keep working, iterating, and improving its approach to a task»
+- **Agent-Reach** (Db_7HChtxFW): Claude'a canlı internet okuma ve 17 büyük platforma ücretsiz erişim sağlayan açık kaynaklı repo. — «It's called Age of Reach, and it gives Claude the ability to read the internet live.»
+- **Herder** (Db_GVNhOnQF): Farklı oturumlarda birden fazla ajanı aynı anda çalıştıran arka plan sunucusu. — «The first one is called Herder. Herder is a background server that can have multiple terminals open, all with different agents running different sessions at the same time.»
+- **Graphify** (Db_GVNhOnQF): Ajanlar için veriler arasında anlamsal ilişkiler kuran bellek çözümü. — «Number two is Graphify, and it's a perfect memory solution for your agents.»
+- **OmniRoute** (Db_GVNhOnQF): Claude Code ile herhangi bir yapay zeka modelini kullanmayı sağlayan eklenti. — «If you're hitting your Cloud Code limits, you can use this plugin to use any AI model with Cloud Code.»
+- **Claude Code Setup** (Db_GVNhOnQF): Proje için en iyi kanca, beceri, MCP ve alt ajanları öneren otomasyon. — «It's called Cloud Code Setup. You should run this on every Cloud Code project that you're setting up, and it's going to run an automation that recommends all the top hooks, skills, MCPs, and sub-agent»
+- **Task Observer** (Db_GVNhOnQF): Çalışan becerilerin nasıl geliştirilebileceğini söyleyen meta beceri. — «This is a meta skill that's going to improve all the skills that you already have running.»
+- **Borsa Botu** (DbA7SeXF96R): Kongre üyelerinin ve kurumsal yatırımcıların işlemlerini takip eden otomatik analiz botu kurulumu — «Claude'u Alpaca ile bağlayıp Kongre üyelerinin ve büyük kurumsal yatırımcıların halka açık işlem bildirimlerini takip eden bir bot kurabiliyorsun.»
+- **10x** (DbasXSvgVE1): Uygulama açıklamasından iOS paketi oluşturur. — «takes one description of your app and builds the entire ios package»
+- **ESP32 AI Arayüzü** (DbavLFUj5-l): ESP32'nin AI destekli bir sistemde Bluetooth iletişimi ve betikleme arayüzü olarak kullanılması. — «the ESP32 acts as the interface for an AI-powered system, handling Bluetooth communication and scripting»
+- **GitHub Ajan Kümeleri** (DbbkbsaNFPY): 230+ uzman ajanı içeren, 16 departmanı kapsayan yapay zeka personeli kümeleri. — «Yazılımcıdan tasarımcıya, pazarlamacıdan satışçıya kadar 16 farklı departman.»
+- **TopView MCP Kurulumu** (DbdShXhtZUu): Claude içerisine marketing verilerini (Amazon, TikTok, Shopee vb.) entegre eden bir MCP sunucusu bağlamak. — «It's a full stack marketing MCP with built-in data from Amazon, YouTube, TikTok, Shop and Shopee.»
+- **Claude Code** (DbevzliuW5v): AI tabanlı iş başvuru sürecini otomatikleştirmek için kullanılan bir araç. — «an AI job application framework built with Claude Code»
+- **Harness engineering** (DbG_xa3y_d6): Ajanın içinde hareket ettiği ortamın tasarlanması. — «Harness engineering — designing the environment your agent acts inside: the sandbox, the file system, the runtime surface.»
+- **Loop engineering** (DbG_xa3y_d6): Ajanın ne zaman tekrar çalışacağına ve ne zaman duracağına karar verilmesi. — «Loop engineering — deciding when the agent runs again, and when it stops.»
+- **Context engineering** (DbG_xa3y_d6): Doğru bilginin pencereye alınması ve yanlış bilginin dışarıda tutulması. — «Context engineering — getting the right information into the window and keeping the wrong information out.»
+- **Tool design** (DbG_xa3y_d6): Ajanın araçlarla yeteneklendirilmesi ve güvenliğinin uç durumlara göre sağlanması. — «Tool design — your agent is only as capable as the tools you hand it, and only as safe as their worst edge case.»
+- **Memory architecture** (DbG_xa3y_d6): Ajanın neyi, ne kadar süre hatırlayacağı ve neleri unutmasının serbest olduğu. — «Memory architecture — what the agent remembers, for how long, and what it's allowed to forget.»
+- **shadcn-ui-mcp-server** (DbKDOm4uNCJ): Claude'a web sitesi parçaları (butonlar, menüler, formlar) kütüphanesi sağlar. — «Jpisnice/shadcn-ui-mcp-server»
+- **magic-mcp** (DbKDOm4uNCJ): Claude'a web sitesi eklentileri (animasyonlar, stiller) için erişim verir. — «21st-dev/magic-mcp»
+- **frontend-design** (DbKDOm4uNCJ): Web sitesinin yazı tipi, renk ve animasyon kalitesini artırır. — «claude-code/plugins /frontend-design»
+- **WebDesign Guidelines** (DbKDOm4uNCJ): Web sitesini profesyonel tasarım kurallarına göre denetler. — «vercel-labs/agent-skills»
+- **chrome-devtools-mcp** (DbKDOm4uNCJ): Claude'un gerçek bir tarayıcıda siteyi görüntüleyip hataları düzeltmesini sağlar. — «chrome-devtools-mcp»
+- **Wrap Up Skill** (Dbm200gvDsG): Claude ve NotebookLM'i bağlayarak kalıcı bellek oluşturma yöntemi. — «The fix is a wrap up skill. At the end of a session Claude writes a structured summary of what happened, and that summary lives in a NotebookLM notebook you keep forever.»
+- **Claude Code Skills** (DbnAbBglD0e): Claude Code için geliştirilmiş 5 farklı beceri setinin yüklenmesi ve kullanımı. — «Most people never turn one on, which is why their output still looks like a default template. These are the 5 worth having if you build anything that moves»
+- **Strix: AI Penetration Testing Tool** (DbnZLJFMcSY): Open-source tool that deploys autonomous AI agents to simulate attackers and verify vulnerabilities — «Strix farklı çalışıyor. Hacker gibi davranan özel yapay zeka ajanlarını görevlendiriyor»
+- **Graphify** (DbOoGjsCo50): Projeyi haritalandırarak Claude'un bağlam tüketimini azaltan ve doğru dosyalara doğrudan erişmesini sağlayan araç. — «Graphify stops it. You install it straight from the repo, run it once inside your project, and Claude builds a map of where everything lives.»
+- **AntiGravity** (DbOUP9OPDAQ): AI kod editörü. — «AntiGravity, their own AI code editor that works just like Cloud Code and Curzer and is pretty solid for vibe coding.»
+- **Strix Sızma Testi Ajanı** (DbpsEzyMzR9): Uygulamalardaki güvenlik açıklarını tespit eden açık kaynaklı yapay zeka sızma testi aracı. — «GitHub’da şimdiden on binlerce yıldız toplayan açık kaynaklı bir yapay zeka sızma testi aracı.»
+- **LLM Council** (Dbpyz7FCLC3): Tek bir modele sormak yerine 5 farklı danışman (karşıt görüşlü, prensip üretici, fırsat bulan, dışarıdan bakan, uygulamacı) ve bir başkan ajan ile kararları test etme sistemi. — «Andrej Karpathy’nin LLM Council’i, soruyu tek modele değil bir konseye soruyor ve en tepedeki başkan model hepsini tartıp size en doğru yol haritasını çıkarıyor»
+- **perplexity** (Dbs-uI9sY2w): Claude'a gerçek zamanlı internet araştırması yapma yeteneği sağlayan AI araştırma modeli. — «Perplexity gives it real time research from anywhere on the internet.»
+- **firecrawl** (Dbs-uI9sY2w): Web sitelerini tarama, çözme, taraması ve etkileşimde bulunma yeteneği veren araç. — «Firecrawl lets it scrape and crawl any website.»
+- **playwright** (Dbs-uI9sY2w): Tarayıcıyı kontrol etme, formları doldurma, web sitelerini test etme ve veri çekme yeteneği sağlayan araç. — «Playwright lets it actually drive your browser and fill out forms.»
+- **context7** (Dbs-uI9sY2w): Bağlı araçların güncel belgelerini doğrudan Claude'a aktaran araç. — «Context7 keeps its documentation current for every tool you have connected.»
+- **OmniRoute** (Dbs8-TnKEhL): AI sağlayıcı limitlerini aşmak için otomatik model geçişi sağlar. — «OmniRoot, which connects you to 237 AI providers, 90 of which are free.»
+- **Claude Mem** (Dbs8-TnKEhL): Oturumlar arası hafıza ekleyerek proje bağlamını korur. — «It gives cloud memory across every session.»
+- **Headroom** (Dbs8-TnKEhL): Token tüketimini azaltmak için gereksiz veriyi filtreler. — «Headroom, which only passes through the parts that actually matter.»
+- **Task Observer** (Dbs8-TnKEhL): Kullanıcının çalışma şeklini izleyerek diğer becerileri iyileştirir. — «TaskObserver. It watches how you work, catches every correction you make, and quietly rewrites your other skills to match.»
+- **Bennett OS** (DbsM7RMBSzo): 37+ yapay zeka ajanı ile iş yönetimi otomasyonu — «this is how i run my 37 ai agent team to handle my business»
+- **Conductor Agent** (DbsM7RMBSzo): Görevleri diğer ajanlara dağıtan yönetici ajan — «my conductor commanding all of the other department heads on what to do»
+- **Prime Agent Harness** (DbtJytsumrO): Self-improving recursive language model framework for coding and long-running autonomous tasks — «Prime Intellect released Prime Agent, an open-source coding harness that uses a self-improving Recursive Language Model (RLM) framework.»
+- **FreeBuff** (Dbu-7UahX_4): Yapay zeka ile doğal dille mobil uygulama kodlama aracı. — «FreeBuff → Uygulamayı yapay zekâ ile geliştirmek için. Ne istediğimi doğal dille anlatıyorum, AI geliştiriyor.»
+- **AI Job Search Framework** (DbUg-kOFC-C): Kendi bilgisayarınızda çalışan, iş ilanlarını değerlendiren, özgeçmiş hazırlayan ve ön yazı yazan bir framework. — «AI Job Search is a free framework that runs job applications on your own computer using cloud code.»
+- **Remotion** (DbUQaEsgqeZ): Claude ile bağlanarak videolara animasyon ve motion graphics ekler. — «Remotion. Connect it with Clawed and it adds animations and motion graphics to your video.»
+- **claude-code-router** (DbyrEd2ysvL): Kullanıcı limiti aşıldığında otomatik olarak yedek AI modellerine (Gemini, Kimi, GLM) geçiş sağlayan açık kaynaklı araç. — «claude-code-router is a free, open-source tool that auto-switches your workflow to backup models (like Gemini or Kimi) the exact second your primary AI times out.»
+- **kod review** (Dc1NYVJA8A2): Yapay zeka aracılığıyla kod review yapma. — «3. Yapay zekaya kod review yaptırıyorum.»
+- **reverse-skill** (Dc3UbnBCR9I): AI destekli güvenlik ve tersine mühendislik iş akışları için beceri yönlendirici. — «zhaoxuya520/reverse-skill»
+- **dev-pair** (Dc3UbnBCR9I): Bir yapay zekanın kod yazdığı, diğerinin ise kodu inceleyip hata ayıkladığı eşli çalışma sistemi. — «justinjohnson2/dev-pair»
+- **Impeccable** (Dc8ojRUvOrL): Claude'a gerçek tasarım zevki ve premium referanslar kazandıran bir eklenti. — «First use Impeccable for design. It gives Claude real design taste pulled from premium references.»
+- **Claude Code Setup** (Dc8ojRUvOrL): Kod tabanını tarayıp en iyi kanca, yetenek, MCP ve alt ajanları kuran resmi Anthropic eklentisi. — «And finally Claude Code Setup for coding. It's an official Anthropic plugin. It scans your entire codebase and sets up the best hooks, skills, MCPs, and sub-agents your pro»
+- **Shadcn MCP** (Dc99nLNoD6Y): Web sitesi parça kütüphanesi erişimi sağlar. — «Shadcyan MCP. Bu kılığa da butonlar, menüler, giriş formları gibi zaten iyi görünen devasa bir web sitesi parça kütüphanesi veriyor.»
+- **Magic MCP** (Dc99nLNoD6Y): Web sitesi eklentileri ve animasyon yönetimi sağlar. — «Magic MCP. Bu kılığa da müthiş web sitesi eklentilerine erişim veriyor. Hero animasyonları, buton animasyonları ve tüm sitenin aynı formatı takip etmesini sağlayan komple site stilleri.»
+- **Web Design Guideline Skill** (Dc99nLNoD6Y): Tasarım kurallarına uygunluk denetimi sağlar. — «Web Design Guideline Skill. Bu aslında Versel'den geliyor ama sitenin inşası bittikten sonra her şeyi profesyonel tasarım kurallarına göre kontrol ediyor.»
+- **Chrome DevTools MCP** (Dc99nLNoD6Y): Tarayıcı tabanlı hata ayıklama ve düzeltme sağlar. — «Chrome DevTools MCP. Bu sayede cloud'i artık kör inşa etmiyor çünkü ne yaptığını gerçekten görebiliyor.»
+- **Agency Agents** (Dc_q4OqqVPx): 280 adet ücretsiz ve açık kaynak yapay zeka çalışanını bilgisayara kuran repo. — «Adı Agency Agents. 280 ajan, tamamen ücretsiz ve açık kaynak.»
+- **Unlazy** (Dcai_RLtvhC): AI'nın görevleri atlamasını engellemek için işi kanıtlamaya zorlayan ve işlemleri paralel çalıştıran bir sistem. — «It stops AI from taking shortcuts by forcing it to prove its work.»
+- **AI Uygulama Güvenliği Kontrol Listesi** (DcbDo37zTvJ): AI destekli uygulamalarda dikkat edilmesi gereken güvenlik zafiyetleri listelenmiştir. — «No MFA, account enumeration through user flows, business logic abuse, race conditions and critical ops, webhook replay attacks, insecure CICD permissions or exposed deployment credentials, untrusted G»
+- **Codebase Memory MCP** (DcBFIkCNDPy): Yapay zeka projelerini zihin haritası şeklinde indeksleyerek token tasarrufu sağlayan araç. — «Codebase Memory MCP'si tam olarak bu sorunu çözüyor.»
+- **Claude at Director skill** (DchCgDoOfCD): Claude içerisinde çalışan, karakter ve sahne betimlemelerinden sinematik reklam senaryosu ve görsel üretim komutları oluşturma aracı — «This Claude skill that creates an entire advertisement.»
+- **Ücretsiz LLM API dizini kullanımı** (DcHkggNMVdM): 134 farklı ücretsiz LLM API sağlayıcısını tek bir dizinden yönetme ve entegre etme. — «40'dan fazla providerdan tam 134 ücretsiz API listeliyor.»
+- **Antigravity** (DcI7RhdKVXC): Yapay zeka kod editörü — «Tıpkı Cloud Code ve Cursor gibi çalışan ve wipe coding için oldukça sağlam olan kendi yapay zeka kod editörleri.»
+- **openhands** (Dcj_mRRv5tv): Otomatik yazılım geliştirme için AI tabanlı bağımsız bir geliştirici. — «This is an autonomous AI software developer»
+- **Claude Code Repos** (DcN-pkGBLHE): GitHub üzerindeki en iyi Claude Code araç ve eklentileri tanıtılıyor. — «obra/superpowers»
+- **Superpowers** (DcN-pkGBLHE): Claude'a tam bir geliştirme iş akışı sağlar. — «obra/superpowers»
+- **Playwright MCP** (DcN-pkGBLHE): Claude'un tarayıcıyı kontrol etmesini sağlar. — «playwright-mcp»
+- **multi-agent pipeline** (DcNGpmXOR42): Kod tabanlarını analiz eder ve her dosya için bilgi grafi oluşturur. — «it basically analyzes your entire project using a multi-agent pipeline. It'll build a knowledge graph for every file in your project»
+- **Playwright CLI ile Tarayıcı Otomasyonu** (DcoaU2yjNOj): Claude Code kullanarak MCP sunucuları yerine Playwright CLI ile tarayıcı otomasyonu kurma ve otomatik test süreçlerini yönetme. — «Playwright CLI aynı işi çok daha azıyla yapıyor: kurulumu üç komut, kuralları CLAUDE.md’ye yazdığın anda Claude her oturumda kendi okuyor.»
+- **Code Review** (DcqJTFDAOrU): 5 farklı yapay zeka ajanı tarafından proje hataları ve riskli noktalarının yayına çıkmadan önce tespit edilmesi. — «5 farklı yapay zeka ajanı projeni aynı anda inceliyor. Yayına çıkmadan önce hataları ve riskli noktaları yakalamaya çalışıyor.»
+- **claude-blog** (DcTkpEztIaY): Yapay zeka tabanlı SEO blog yazım ve optimizasyon sistemi. — «claude-blogis»
+- **Jarvis AI Stack** (DctuYs3FK0r): Claude Code kullanarak sesli komutlarla çalışan, yerel bilgisayarda çalışan ücretsiz ve açık kaynaklı bir yapay zeka asistanı oluşturma yöntemi. — «Claude Code does the work»
+- **Ollama** (DcULCHHSogK): Yerel makinede büyük dil modellerini çalıştırma aracı. — «ollama/ollama»
+- **awesome-mcp-servers** (DcULCHHSogK): Yapay zeka ajanlarını farklı servislerle buluşturan bağlayıcılar. — «punkpeye/awesome-mcp-servers»
+- **Exa** (Dcv-thTgj1l): Araştırma için Exa arama motoru. — «Exa arastirma icin»
+- **Claude Code** (Dcv-thTgj1l): Uygulamalar ve kod geliştirme için Claude Code IDE. — «Claude Code uygulamalar icin»
+- **Securitymaxxing** (DcV4_XvTded): Uygulamalar için güvenlik riskleri listesi paylaşılıyor. — «Securitymaxxing for your vibe coded app»
+- **Heretic** (DcvL2bDEmVh): Açık kaynak modellerde reddetme davranışını otomatik olarak kaldıran Python kütüphanesi. — «Açık kaynak modellerdeki reddetme davranışını otomatik olarak kaldıran bir Python kütüphanesi.»
+- **LangGraph Setup Guide** (DcWDpKejYOE): LangGraph ile stateful AI ajanları kurma ve yapılandırma rehberi. — «class State(TypedDict): messages: Annotated[list, add_messages]»
+- **Dramaclaw** (DcXvWV0z077): A general-purpose AIGC video engine that turns a manuscript into a finished drama series. — «Drop a novel in and Dramaclaw gives you a finished drama series.»
+- **kod-inceleme-otomasyonu** (DcyUuWdsup3): CodeRabbit gibi araçlar kullanılarak kod hatalarının tespiti ve düzeltme önerileri. — «Herhangi bir yeni kodu yayınlamadan önce CodeRabbit gibi bir kod inceleme aracı kullanın. Karlarınızı inceler, sorunlarınızı tespit eder ve hatta size sorunu düzeltmek için gereken tam promptu verir.»
+- **Claude Skills** (Dd-Xxv2H4VH): Claude token tasarrufu ve oturum yönetimi için özel komut ve yeteneklerin kullanımı. — «Stop it with 5 skills»
+- **Agency Agents** (Dd0645CiHH9): 17 farklı departmanda 270 yapay zeka uzmanından oluşan açık kaynaklı ajan paketi. — «Agency Agents, 17 departmanda 270 uzman yapay zekâ ajanını değiştirip kendi projelerinde kullanabileceğin açık kaynaklı bir pakette topluyor.»
+- **Claude Repos Collection** (Dd0PFtECZvj): Claude ekosistemi için derlenmiş 40 yararlı repo ve becerinin listelenmesi. — «40 Claude repos. One list. A LOT of things to explore.»
+- **PromptAudit** (Dd15NcHvlNl): Claude.md dosyasını temizleyerek Opus 5.5 modelini daha akıllı ve ucuz hale getirme yöntemi. — «It's called PromptAudit, and it scans your entire file looking for these three problems.»
+- **ElevenLabs Claude Bağlantısı** (Dd18tq_IMQB): Claude üzerinden ElevenLabs bağlayarak ses, müzik ve video üretme — «Eleven Labs Cloud bağlantısını yeni güncelledi. Tek bir kurulumla Cloud artık ses, müzik, efekt, görsel ve dudak senkronizasyonlu videolar üretebiliyor.»
+- **Paperclip** (Dd1F7meCvdk): AI ajanlarından oluşan bir şirketi yönetmeyi sağlayan açık kaynaklı araç — «Paperclip is free and open source»
+- **Security Audit Skill** (Dd1gnAPCMGd): Claude Code içinde bağımsız doğrulama adımlarıyla güvenlik denetimi yapan açık kaynaklı yetenek. — «cloudflare/security-audit-skill»
+- **ARES** (Dd1WZCgBcZa): Açık kaynaklı OSINT ve siber güvenlik keşif otomasyon aracı. — «Ares is a powerful open-source OSINT toolkit that lets you automate advanced information gathering, threat intelligence, and vulnerability scanning directly from your terminal.»
+- **AI Creator Video Otomasyonu** (Dd1zthnR9dk): Claude Code ile API üzerinden toplu video oluşturma ve aynı AI karakteri kullanma. — «I gave Claude Code my Higgs field API key and one prompt. It writes the hooks, calls CDance and Kling for the video, and keeps the same AI creator in every clip.»
+- **Reverse Engineering Tool** (Dd378iLM0E7): Tersine mühendislik yeteneklerini geliştirmek için kullanılan bir rehber/araç seti. — «With this skill, you can reverse engineer any app, any software, completely free.»
+- **Twenty** (Dd40YRPxuEB): Satış ekibi ve müşteriler için açık kaynaklı CRM alternatifi sunar. — «20, businesses pay Salesforce for every person who logs in. You set this up instead, the client gets the same kind of customer database»
+- **Archify** (Dd4C4cEj3Ht): Gereksinimlerden etkileşimli HTML diyagramları oluşturur — «Archify DogaldilleyazilmisgereksinimlerdenetkilesimliHTML diyagramlariolusturur.Mimari,isakisi,siralama,veri akisve yasamdongusudiyagramlarinidestekler»
+- **Research** (Dd4C4cEj3Ht): Çok adımlı araştırma ve raporlama yapar — «Research Cokadimliarastirmayapar,bulgularitoparlar.Pazar,rakipve teknik on arastirma icinkullanislidir»
+- **Review** (Dd4C4cEj3Ht): Kod inceleme geri bildirimlerini sistemli uygular — «Review Kod inceleme geri bildirimlerini sistemli uygular.PR yorumlarinitektekislemekgerektigindeiseyarar»
+- **Article** (Dd4C4cEj3Ht): URL'den temiz makale metni çıkarır — «Article URL'dentemizmakalemetniikarir.Reklamlari,gezinme ogelerini ve diger gereksiz icerikleri kaldirip metni dosyaya kaydeder»
+- **Mantis** (Dd4j_vmKAP-): Kodlama ajanı için 16 farklı kurulabilir yeteneğe sahip güvenlik araç takımı — «Google just open-sourced Mantis: a security toolkit that turns your coding agent into a full review team.»
+- **Oh My Claude Code** (Dd4LrTSsx0i): Claude'u 19 özelleştirilmiş ajandan oluşan bir ekibe dönüştürür. — «The third is Oh My Claude Code, which turns Claude into a crew of 19 specialized agents.»
+- **Grok Agent Autonomy** (Dd5_1SBPda_): Grok agent analyzing Polymarket, tracking X sentiment, and executing trades autonomously. — «Someone gave a Grok Agent $50 and told it: “Pay for yourself or die.” Two days later, it reportedly had over $5,000 while autonomously analyzing Polymarket, tracking X sentiment, finding market mispri»
+- **Strix** (Dd7OINtIAaM): Uygulamayı bir saldırgan gibi analiz eden açık kaynaklı güvenlik aracı. — «Strix, uygulamanızı bir saldırgan gibi analiz ediyor.»
+- **OpenHands** (Dd7pn4nSh2t): Küçük işletmeler için kurulabilen açık kaynaklı yapay zeka kodlama ajanı. — «OpenHands: an open-source AI coding agent you can set up for a small business»
+- **Claude Code Setup** (Dd7uZoIBkfI): Kod tabanını okuyup hangi hooklar, beceriler ve alt-ajentlerin çalışması gerektiğini belirleyen okunur-yazılmaz bir araç. — «It basically reads your entire code base and tells you which hooks, skills, and sub-agents you should be running.»
+- **Manus** (Dd7W9zfkxrT): Arka uç uygulamalar ve web siteleri için kodlama gerektirmeden tek tıkla yayın yapmayı sağlar. — «Dördüncüsünün Manus, IM, Arco işte uygulamalar ve web siteleri için kodlama bilmene gerek yok. Tek tıkla yayını alıyorsun.»
+- **Claude Code Kurulumu** (Dd7WYSniFvP): Claude Code kullanarak hareketli grafikler oluşturmak için araçların kurulması ve yapılandırılması. — «Open Claude Code and pick Opus 5.5»
+- **VICOA** (Dd8czNclQ-T): Bir projenizin kopyalarını ayrı ayrı çalıştıran AI kod yardımcıları ekosistemi. — «Vicoa is an open-source place to run a whole team of AI coding helpers from your laptop or your phone — each on its own copy of your project.»
+- **OpenClaw Agent Setup** (Dd8wJp4SIhM): Peter Steinberger'in AI ajanlarını yönetmek için kullandığı açık kaynaklı dosya yapısı ve araç kütüphanesi. — «The creator of OpenClaw just open-sourced his entire agent setup and it's going viral.»
+- **YouTube Agent Skill** (Dd9jX-YtWL2): ChatGPT içerisinde farklı işler yapan 11 ajanı kullanarak YouTube iş akışını yönetmek. — «Her biri farklı iş yapan 11 tane ajanı barındırıyor içerisinde.»
+- **Paperclip** (Dd9RvQDiUVH): Open-source tool to turn PDFs, documents and other files into a knowledge base you can chat with using AI. — «paperclipai/paperclip»
+- **OpenMAIC** (Dd9RvQDiUVH): Open-source multi-agent framework for building, running and orchestrating AI agents to solve complex real-world tasks. — «THU-MAIC / OpenMAIC»
+- **Grok Build** (Dd9sASatocZ): XAI tarafından açık kaynaklı terminal kodlama aracı. — «Terminal coding agent, open-sourced.»
+- **DeepSeek Harness** (Dd9sASatocZ): Tüm işlevleri plugin olarak sunan kodlama aracı. — «An agent harness where everything is a plugin.»
+- **Superpowers** (Dd_-HzruoMJ): Yapay zekanın planlama, debugging ve proje tamamlama konusunda daha iyi çalışmasını sağlayan 20 hazır skill barındıran repo. — «1 numara Superpowers. İçinde yapay zekanın planlama, debugging ve proje tamamlama konusunda daha iyi çalışmasını sağlayan 20 hazır skill var.»
+- **Taskmaster AI** (Dd_-HzruoMJ): Büyük projeyi küçük görevlere bölüp sıraya koyarak yapay zekanın adım adım ilerlemesini sağlayan repo. — «3 numara Taskmaster AI. Büyük bir proje veriyorsunuz, projeyi küçük görevlere bölüyor, görevleri sıraya koyuyor ve yapay zekanın adım adım ilerlemesini sağlıyor.»
+- **Asim Agents** (Dd_-HzruoMJ): Açık kaynaklı yapay zeka ajanları ve araçlarından oluşan kütüphane. — «5 numara Asim Agents. Bu da insanların geliştirdiği açık kaynaklı yapay zeka ajanları ve araçlarından oluşan devasa bir kütüphane.»
+- **Vibe Coding Levels** (Dd_a83rn2Gd): Vibe coding seviyelerini ve araçlarını açıklar — «First, you use Claude to create a proper PRD, then give that to Al.»
+- **Claude Skill Generate** (Dd_cETXjfFN): Claude skill kullanarak farklı AI modelleriyle tek sohbet üzerinden görsel ve video üretme ve maliyet yönetimi yapma. — «Someone turned Claude into a mini Higgs field setup by using this Claude skill. It's called Generate.»
+- **Claude Skill ve Eklentileri** (Dd_H9QZMfjw): Claude'u planlamadan hafızaya, arayüz tasarımından içerik ve video üretimine kadar güçlendiren 7 skill ve eklentinin kullanımı. — «planlamadan hafızaya, arayüz tasarımından içerik ve video üretimine kadar Claude’u güçlendiren 7 skill ve eklentiyi sıraladım.»
+- **Find Skills** (Dd_H9QZMfjw): İhtiyaca uygun skill'i bulma aracı. — «FIND SKILLS intiyacina uygun skilli bul»
+- **Open Hands** (Dd_j1EtoIyb): Problemleri takip edip kod planlayan, yazan ve çalışan tamamen ücretsiz araç. — «Birincisi Open Hands.»
+- **Cline** (Dd_j1EtoIyb): API getirerek yapay zeka modellerini çok daha ucuza kullanmanızı sağlayan araç. — «İkincisi Client.»
+- **Claude Skills** (DdAAEC-Sybw): AI ajanları için hazır yetenekler deposu. — «huge directory of ready-made skills for Claude, Codex, Cursor, and other AI agents.»
+- **MCP Connector Marketplace** (DdAAEC-Sybw): AI ajanlarının dış araçlarla bağlantı kurmasını sağlayan pazar yeri. — «giant marketplace of connectors that lets AI work with browsers, databases, files, and business tools.»
+- **250-Agent AI Agency** (DdALfrwgap-): Open source repo with 250+ specialist agents across 18 divisions for building and managing projects. — «The Agency is an open source repo on GitHub, MIT licensed, sitting at over 150,000 stars.»
+- **kodlama-ajanı** (DdAuz8NDNOU): AI kodlama ajanı ile video oluşturma işlemlerini yönetme. — «coding agentswith skills,or as the rendering corebehind»
+- **Ponytail** (Ddb1UVZIakr): Claude Code çıktılarını optimize ederek token kullanımını %50'den fazla azaltır. — «Ponytail — makes Claude write the code you’d never write. Fewer lines, same behaviour, ~50% less token burn»
+- **OmniRoute** (Ddb1UVZIakr): Claude limiti dolduğunda otomatik olarak alternatif sağlayıcılara geçiş yapar. — «OmniRoute — one local endpoint, 352 providers, 154 free. When your Claude limit hits, it switches models on its own.»
+- **Graphify** (Ddb1UVZIakr): Kod tabanını bilgi grafiğine dönüştürerek ajanın dosyaları tekrar okumasını engeller. — «Graphify — turns your whole codebase into a knowledge graph so the agent queries instead of re-reading files.»
+- **Agent Skills** (Ddb1UVZIakr): Doğru aşamada otomatik olarak etkinleşen 24 farklı mühendislik yeteneği sağlar. — «Agent Skills — 24 skills from Google’s Addy Osmani: /spec /plan /build /test /review /ship.»
+- **Claude Araç Kurulumu** (Ddb7ibdKmBF): Claude'a kurulabilecek 24 aracın paylaşımı. — «Claude'a kurabilecegin 24 arac»
+- **Alibaba Open Code Review** (DdbyRoJtJV4): Pull request'ları SQL injection ve XSS gibi açıklar için tarar ve üretime hiçbir açıkla geçmez. — «It caught millions of defects inside Alibaba, and it reads every pull request you open for SQL injection and XSS, so nothing exploitable ever hits production.»
+- **hypit** (DdccgmSG8E9): Referans videoyu kod olarak yeniden oluşturur ve bir komutla yeniden çalıştırılabilir hale getirir. — «Hypit takes a reference clip and rebuilds it as editable code.»
+- **Awesome MCP Servers** (DdCs5vOiHRY): Every connector worth wiring up. — «punkpeye / awesome-mcp-servers»
+- **Playwright MCP** (DdCs5vOiHRY): It tests its own work in a real browser. — «microsoft/playwright-mcp»
+- **GitHub MCP** (DdCs5vOiHRY): Issues and PRs without leaving the chat. — «github/ github-mcp-server»
+- **Superpowers** (DdCs5vOiHRY): Fewer rewrites. It plans first. — «obra/superpowers»
+- **Andrej Karpathy Skills** (DdCs5vOiHRY): Behaves how you told it. — «multica-ai / andrej-karpathy-skills»
+- **Gstack** (DdCs5vOiHRY): 23 tools it can reach, plus the web. — «garrytan/ gstack»
+- **Ponytail** (DdCs5vOiHRY): Blunt code review, not flattery. — «DietrichGebert / ponytail»
+- **Codex Plugin CC** (DdCs5vOiHRY): A rival model marks Claude's homework. — «openai / codex-plugin-cc»
+- **Claude HUD** (DdCs5vOiHRY): See your context burn before it bites. — «jarrodwatts/ claude-hud»
+- **Anthropic Skills** (DdCs5vOiHRY): The official set, from Anthropic. — «anthropics / skills»
+- **Graphify** (DdCs5vOiHRY): It stops re-reading your whole repo. — «Graphify-Labs / graphify»
+- **Claude Mem** (DdCs5vOiHRY): It remembers you between sessions. — «thedotmack/ claude-mem»
+- **Repomix** (DdCs5vOiHRY): Your whole repo in one pasteable file. — «yamadashy / repomix»
+- **Four Agent Idea Validation** (DdD-10im_Of): Tek bir yapay zeka yerine dört farklı rol (Believer, Skeptic, Investor, Judge) kullanarak fikir doğrulama ve eleştiri sistemi. — «The fix is to stop asking one thing and start running four, each locked to a single lens, arguing about the same idea, with a judge that has to pick a side.»
+- **7 AI Agent Repositories** (DdD0FdkmTvh): AI ajanları geliştirmek için 7 faydalı GitHub deposu tanıtılıyor. — «seven github repos that will save you months of building ai agents»
+- **Lead Scraper Ai agent** (DddrOAliOMK): Find high-quality leads automatically and prepare outreach-ready data in minutes. — «Find high-quality leads automatically.»
+- **n8n Agent Builder Skill** (DddrOAliOMK): Create powerful AI agents and n8n workflows in one click. — «Create powerful Al agents in one click.»
+- **CLAUDE.md Talimat Seti** (DdeB8fQs8k9): Claude'un daha akıllı çalışması ve hata yapmaması için kurallar içeren talimat dosyası ekleme. — «Bu dosyayı direkt projene atıyorsun ve Cloud şu 4 şeyi yapma yanında bırakıyor.»
+- **Superpowers** (DdhF4hWI0Ym): Claude Code için ek yetenekler eklemeyi sağlayan bir araç. — «Superpowers: https://lnkd.in/dKp8VwQa»
+- **Matt Pocock Skills** (DdhF4hWI0Ym): Claude Code için özel yetenekler sunan bir koleksiyon. — «Matt Pocock Skills: https://lnkd.in/dR3n-Tzb»
+- **Find Skills** (DdhF4hWI0Ym): Claude Code için yeni yetenekler bulmaya yardımcı olan bir araç. — «Find Skills: https://lnkd.in/dZ4bHjWm»
+- **Naya** (DdjdN0CCcU8): Yerel olarak çalıştırılabilen, Jev benzeri hızlı bir System 1 karar motoru. — «It's called Naya, and it's a local System 1 model»
+- **OpenHands** (DdJqGQuEeLl): Autonomous AI developer that writes code and ships pull requests. — «an autonomous AI developer that can write code and work on pull requests»
+- **Claude Code Setup** (Ddl_XL3Klza): Kod tabanını inceleyerek proje ihtiyaçlarına uygun hook, skill, MCP ve sub-agent önerileri sunan bir eklenti. — «Bu tüm kod tabanınızı tarayan ve projeleriniz için ihtiyaç duyduğu en iyi hook'ları, skill'leri, MCP'leri ve sub-agent'ları kuran resmi bir antropik eklentistir.»
+- **Everything Claude Code** (DdlOsiCjMvG): Anthropic Hackathon kazananının geliştirdiği, 181 yetenek, 47 alt ajan ve 79 hazır komut içeren bir otomasyon paketi. — «181 yetenek, 47 alt ajan ve 79 hazır komut tek pakette.»
+- **Claude Code Optimizasyon** (DdlurQHG2Mm): Claude Code için token tasarrufu ve verimlilik sağlayan 10 eklentinin kullanımı. — «your Claude Code setup is probably wasting half its tokens right now. there are 10 plugins that fix this instantly.»
+- **Cost Tracking** (DdlurQHG2Mm): Claude Code oturumlarında gerçek zamanlı maliyet takibi. — «Real time cost tracking for every session»
+- **superpowers** (DdmQWJzqP8H): Agentic skills framework & software development methodology that works. — «An agentic skills framework&software development methodologythatworks.»
+- **anthropic-skills** (DdmQWJzqP8H): Public repository for Agent Skills. — «Public repository for Agent Skills.»
+- **everything-claude-code** (DdmQWJzqP8H): Agent harness performance optimization system (Skills, instincts, memory, security). — «The agent harness performance optimization system. Skills,instincts,memory,security.»
+- **gstack** (DdmQWJzqP8H): Use Garry Tan's exact Claude Code setup with opinionated tools. — «Use Garry Tan's exact Claude Code setup:23 opinionated tools.»
+- **claude-mem** (DdmQWJzqP8H): Persistent context across sessions for every agent. — «Persistent context across sessions for every agent.»
+- **context7** (DdmQWJzqP8H): Up-to-date code documentation for LLMs and AI code editors. — «Up-to-date code documentation for LLMs and Al code editors.»
+- **ECC (Engineering Code Companion)** (DdNA0xZShQh): Kodlama sürecini otomatize eden AI aracı; planlama, kod yazma, güvenlik testleri ve test kapsamı için uzmanlık sağlar. — «ECC gives your coding agent a library of specialists, reusable skills, and workflows for building software.»
+- **Skill Inspector** (DdrNeEUN63i): NVIDIA tarafından geliştirilen API key sızıntısını önleyen bir skill tarayıcıdır. — «NVIDIA's own scanner with over 18,000 stars. You just point it at any skill before you install it, so nothing you add ever quietly leaks your API keys.»
+- **Anti-Slop** (DdrNeEUN63i): AI'nin yazdığı temelsiz kod kalıplarını otomatik olarak reddeden kod kurallarının bir setidir. — «It's a set of code rules that automatically reject the lazy pattern AI loves to write, so Sloppy could never even make it into your project.»
+- **Claude Code tabanlı AI Sosyal Medya Ekibi** (DdscwJUROKo): Claude Code kullanarak araştırma, içerik üretimi, onay süreçleri ve raporlama yapan tam otomasyon sistemi. — «And running the whole thing? Claude code.»
+- **AI Agent Support** (Ddtwph-TEDl): Works with AI coding agents (Cursor, Claude, Copilot, ChatGPT, Gemini). — «AI coding-agent support for Cursor, Claude, Copilot, ChatGPT and Gemini»
+- **Test-FirstAutopilot** (Ddyxm8hk7DV): Test-first development otomasyonu. — «Runs red → green → refactor for you. Every feature ships behind a failing test that Claude writes first, then makes pass.»
+- **PlanPRTickets** (Ddyxm8hk7DV): Pull Request planlama otomasyonu. — «Turns a rough plan into clean, GitHub-ready engineering tasks - each one scoped to fit inside a single pull request.»
+- **TheSpec** (Ddyxm8hk7DV): Spec detaylandırma otomasyonu. — «Forces Claude to interview you before it writes a line. It digs out the edge cases and hidden assumptions until the spec is airtight.»
+- **Code** (Ddyxm8hk7DV): Kod ön araştırma otomasyonu. — «Gathers implementation context and prior art across your repo and the web before Claude touches a single line of code.»
+- **TheArchitecture** (Ddyxm8hk7DV): Kod tabanı mimari audit otomasyonu. — «Audits your repo structure and proposes cleaner systems before tech debt compounds - boundaries, layers, and dependencies.»
+- **claude-agent** (DdZMSdTksDE): Kullanıcı sorularına yanıt veren ve projeyi otomatik olarak ilerleten AI agent. — «Claude Code v2.1.143»
+- **FastJev Compaction** (DdznBJLyoEz): Claude Code için konuşma özetleme yerine içeriği koruyan açık kaynaklı bir eklenti. — «fast-jev-compaction is an open source Claude Code plugin (MIT) that replaces the /compact summary.»
+- **GEO Optimizer Skill** (DdZPRfiStXv): Web sitesini üretken arama motoru optimizasyonu standartlarına göre optimize eden eklenti. — «GeoOptimizer Skill»
+- **AI-Trader** (De0WtFUxzOC): Tam otomatik işlem yapan ajan. — «fully automated agent that trades on its own»
+- **NOFX** (De0WtFUxzOC): Hisse, altın, forex ve kripto için AI işlem masası. — «an AI trading desk for stocks gold forex and crypto»
+- **Dexter** (De0WtFUxzOC): Hisse senedi analizi yapan AI analisti. — «an AI analyst that researches any stock for you»
+- **ValueCell** (De0WtFUxzOC): Portföy için AI ajan takımı. — «a whole team of AI agents working on your portfolio»
+- **Kronos** (De0WtFUxzOC): Mum grafiklerini okumak için eğitilmiş AI modeli. — «an AI model trained to read candlestick charts»
+- **Claude Anatomy Skill** (DeaaLMglDHj): Claude üzerinde çalışan ve fikirleri çalışan bir makine objesine dönüştüren açık kaynaklı bir skill. — «anatomy is a free, open-source (MIT) Claude skill that explains an idea by building it as a working object»
+- **Humanizer** (DeaaTXUN0nI): Yapay zeka metinlerini insan diline daha yakın hale getiren araç. — «blader/humanizer»
+- **Agent Skills** (DeaaTXUN0nI): Görevleri ve özellikleri dosya olarak kaydederek yapay zeka oturumlarının sürekliliğini sağlar. — «addyosmani/agent-skitls»
+- **Google Workspace CLI** (DeaaTXUN0nI): Claude'u Google uygulamalarına bağlar. — «googleworkspace/cli»
+- **Superpowers** (DeaERPzGF22): Claude'a kodlama planlama, hatalı kod tespiti ve proje tamamlanması için 20 beceri sağlayan bir araç. — «20 skills that help Claude plan, debug, and execute coding tasks.»
+- **Taskmaster AI** (DeaERPzGF22): Büyük projeyi yapılandırılmış görevlere ayırarak Claude'a daha temiz bir görev listesi sağlayan bir yöntem. — «Break big projects into structured, manageable tasks.»
+- **Awesome Agents** (DeaERPzGF22): Kendi agentinizi sıfırdan inşa etmeden önce açık kaynaklı agentleri keşfetmenizi sağlayan bir kaynak. — «Discover open-source AI agents before building your own from scratch.»
+- **Model Yönlendirme** (DeahkTBEcJ1): Magpie aracı ile Claude Code modellerini başka sağlayıcılarla (DeepSeek, Kimi vb.) değiştirme. — «magpie is an open source app (MIT license) that lets you pick the model behind Claude Code»
+- **Agent Workflow** (DeaJVE_iBNd): Claude'un kod yazarken hataları azaltması için 6 beceri ve 1 dosyadan oluşan bir iş akışı sistemi. — «it's not one skill it's six plus one file that makes claude run them in the same order»
+- **Cloudflare AI security skill** (DeaKZZ5Dmn5): Yapay zeka tabanlı güvenlik testi ve otomatik yama oluşturma aracıdır. — «Cloudflare just open-sourced the exact AI security skill»
+- **BetterAlt** (DecFOnPNUXV): Giriş sistemi, kayıt ve şifre sıfırlama fonksiyonlarını ekler. — «Projene giriş, kayıt ve şifre sıfırlama ekliyor.»
+- **Rivet** (DecFOnPNUXV): Ajanların durumu ve devamını tutan altyapı sağlar. — «Hapay zeka ajanının durumu tutan altyapı.»
+- **Paseo** (DecFOnPNUXV): Telefon üzerinden Cloud Code/Codex'teki ajanları tek ekranda yönetmeyi kolaylaştırır. — «Cloud Code ve Codex'de telefonundan tek bir ekranın içerisinden yönetebilmene yardımcı oluyor.»
+- **MemZero** (DecFOnPNUXV): Ajanlara hafıza katmanı ekler. — «Ajanına bir hafıza katmanı ekliyor.»
+- **yapay-zeka-entegrasyonu** (Decgm97N-Th): Claude, ChatGPT, Gemini, DeepSeek, Qwen gibi modellerle entegrasyon. — «Claude, ChatGPT, Gemini, DeepSeek, Qwen gibi modellere bağlanıyor»
+- **AI Projects Repository** (DeChE4DChaA): GitHub üzerinde 100'den fazla yapay zeka projesi ve aracının bulunduğu bir kaynak deposu. — «One GitHub repo packed with 100+ AI projects you can actually build and run.»
+- **Jev** (DeCjTAWiSMn): TypeSafe tarafından geliştirilen hızlı karar modeli (TypeSafe Decision Model) — «Jev is TypeSafe's fast decision model»
+- **Jev MCP** (DeCjTAWiSMn): Herhangi bir ajan içine Jev entegrasyonu — «Jev inside any agent»
+- **Jev Codex Router** (DeCjTAWiSMn): Her turda Codex modelini seçen yönlendirme sistemi — «picks Codex's model every turn»
+- **Winnow** (DeCjTAWiSMn): Claude'ın context'ine giren verileri filtreleyen sistem — «filters what gets into Claude's context»
+- **SemDecide** (DeCjTAWiSMn): Terminal'de AI karar destekli araç — «AI decisions in your terminal»
+- **Jev Review** (DeCjTAWiSMn): Staged code review işlemleri için Jev kullanımı — «staged code reviews»
+- **Blink** (DeCjTAWiSMn): Codebase arama için Jev tabanlı araç — «codebase search»
+- **agent-desktop** (DeCjTAWiSMn): Desktop kullanımını otomatikleştirme — «computer use on your desktop»
+- **TypeSafe Mario** (DeCjTAWiSMn): Super Mario oyununu Jev ile oynatma — «plays Super Mario»
+- **Jev Drone** (DeCjTAWiSMn): Kamera üzerinden simüle edilmiş drone uçuşu — «flies a simulated drone off a camera»
+- **OneVOneJev** (DeCjTAWiSMn): Kişi karşı kişiye şutör oyunları — «a shooter you play against»
+- **Jev Ultrafast** (DeCjTAWiSMn): En hızlı ve ucuz web ajanı — «the fastest and cheapest web agent»
+- **Fast Jev Compaction** (DeCjTAWiSMn): Claude Code bellek optimizasyonu — «Claude Code memory that doesn't lose anything»
+- **JSON Renderer** (DeCjTAWiSMn): Anında oluşturulan arayüzler için JSON tabanlı araç — «interfaces built on the fly»
+- **AI Agents** (DeCSMxroRMi): Özel görevler için önceden hazırlanmış AI araçları kullanımı. — «Every agent has its own role, specialized workflow, and expertise to handle specific tasks.»
+- **AutoGPT** (DeCuH4lgGQj): Tam otomasyonlu akışlar için AI agentleri oluşturma, çalıştırma ve dağıtma. — «AutoGPT helps users build, deploy, and run AI agents for complete workflows, using plain-language goals or visual controls, schedules, and triggers.»
+- **OpenInterpreter** (DeCuH4lgGQj): Düşük maliyetli modeller için terminal tabanlı kodlama agenti. — «Open Interpreter is a Rust coding agent for low-cost models, offering terminal sessions, harness switching, sandboxed commands, and app testing.»
+- **Cline** (DeCuH4lgGQj): IDE, terminal ve masaüstü uygulamaları için açık kaynaklı kodlama agenti. — «Open-source coding agent for IDEs, terminals, and desktop apps that edits projects, runs commands, uses tools, and supports SDK integrations.»
+- **Founder** (Decx7yCFdLb): İş fikrini test etmek için yapay zeka tabanlı 100 farklı müşteri profili oluşturma ve teklifi değerlendirtme yöntemi. — «It's called Founder and it's a free set of 11 clawed skills.»
+- **Xtool** (DecztN5xvxV): Claude Code'un Swift projelerini derleyip, imzalayıp doğrudan iPhone'a yüklemesini sağlayan açık kaynaklı bir araç. — «So there's this open source tool called Xtool, and basically it gives Claude Code a way to build, sign, and install actual iOS applications.»
+- **Repolyze** (DeD8sC4gqrO): GitHub deposu analizi — «Bir GitHub deposu yapistir; kod kalitesi, mimarisi, guivenligi ve bagimliliklari hakkinda yapay zeka analizi al.»
+- **OpenRig** (DeD8sC4gqrO): Kodlama ekibi yönetimi — «ClaudeCodeve Codex'i tekbiryazilim ekibine donusturur. Sen lider ajanla konusursun; o, isleri dagitir ve sonuclarl inceler.»
+- **Foreman** (DeD8sC4gqrO): Ajan denetimi — «Kodlama ajanlarin icin bir denetci. Ajanin ne zaman takildigini, hedeften saptiginl, teste ihtiyac duydugunu veya isi gercekten bitirdigini degerlendirir.»
+- **Matt Pocock Skills** (Ded9Eo2Ruql): Geliştiricilerin her gün kullandığı, Claude Code, Codex, Copilot veya Gemini CLI ile uyumlu ajan yetenekleri deposu. — «It's called matpocock slash skills, and it's built for real engineering, not vibe coding.»
+- **OpenQodex/OpenCodex** (Dee-j47gkgP): Kod denetleme aracı; ikinci bir Claude modeli tarafından değiştirilen kod satırları kontrol edilir. — «Someone open sourced a code reviewer where a second clod checks your code before you push.»
+- **ikinci-model-kontrol** (Dee-j47gkgP): Kendi kodunu değerlendirmeyen bağımsız bir Claude modeli tarafından denetleme. — «It hands every line you changed to a second, fresh Claude, so the Claude that wrote the code never grades its own work.»
+- **önyükleme-taraması** (Dee-j47gkgP): 22 adet önceden tanımlı güvenlik taraması (sızma anahtarları, güvenlik açıkları, riskli paketler). — «First it runs free scanners (22 built in) for leaked keys, security holes and risky packages, only on the files you changed.»
+- **bulgu-önemlendirme** (Dee-j47gkgP): Her bulguyu saklama veya atma kararı ile açıklama zorunluluğu. — «The reviewer must keep or drop every scanner finding and give a reason.»
+- **bug-taraması** (Dee-j47gkgP): 153 tane ekstra konumlandırılmış hata bulma başarısı (129/153). — «In its planted-bug test, the Claude reviewer caught 129 of 153 bugs.»
+- **sub-agent** (Dee3AxgN_th): Çalışmayı birden fazla agent arasında bölerek paralel işleme sağlar. — «launch sub-agents»
+- **implementation spec** (Dee3AxgN_th): Planı önceden belirterek hataları erken tespit etmeye yardımcı olur. — «write me an implementation spec»
+- **interview** (Dee3AxgN_th): Kullanıcıdan sorular sorarak doğrudan prompt oluşturma ihtiyacını ortadan kaldırır. — «interview me»
+- **verify** (Dee3AxgN_th): Sonuç doğrulaması için önceden plan yaparak sonucun doğruluğunu garanti altına alır. — «verify before you build»
+- **skill** (Dee3AxgN_th): Çözülen bir problemi tekrar kullanılabilir bir akışa dönüştürür. — «based on this conversation, build me a skill»
+- **Remotion'un ajan becerileri** (Deeb6f6tHeV): Animasyon yazmayı öğreten yapı. — «Cloud kodunuza ya da kullandığınız yapay zeka sistemine animasyonları nasıl yazacağını öğretiyor.»
+- **Superpowers** (Deeb6f6tHeV): Kodun planlama ve test yeteneği. — «Yani sizin videolarınızı oluştururken Cloud kodun planlama ve test alışkanlığını kazanmasını sağlıyor.»
+- **CLAUDE.md Optimizasyonu** (DeeFTVpCS8L): CLAUDE.md dosyasını yeteneklere (skills) bölerek bağlam sınırını korumak ve performansı artırmak — «ask Claude to move your rarely used steps into skills, since a skill only loads when it's used.»
+- **AI Courtroom Simulation** (DeEH5Z9OkGk): Claude'u kendi kendine tartıştırarak fikir test etme yöntemi. — «I built a courtroom where 12 clods put your idea on trial.»
+- **Superpowers** (DeEiGKKIKqB): Claude'un doğrudan koda dalmasını engeller, spec oluşturur ve sub-agent'lar ile test yazdırır. — «It asks what you’re building, turns it into a spec you sign off on, then hands the work to subagents that write the tests first.»
+- **Karpathy skills** (DeEiGKKIKqB): Claude.md dosyası üzerinden gereksiz kod yazımını engelleyen 4 kural uygular. — «Think before coding, keep it simple, touch only what you were asked to, prove it works.»
+- **I Have ADHD** (DeEiGKKIKqB): Gereksiz nezaket cümlelerini kaldırıp doğrudan aksiyona odaklanılmasını sağlar. — «Next action first, steps numbered, lists capped at five. No «Great question!», no «Hope this helps!».»
+- **Claude Octopus** (DeEiGKKIKqB): Görevi 12 farklı modele göndererek tutarsızlıkları işaretler. — «sends the same task to up to 12 other models, like Codex, Copilot and Grok, and flags every place they disagree before you ship»
+- **Claude Code Eklentileri** (DeeIjeUlmEF): Claude Code'un çalışma mantığını iyileştiren 4 yardımcı eklenti kullanımı — «Claude Code'a "bana bir uygulama yap" yazmadan önce şu 4 eklentiyi kur.»
+- **Gitleaks** (DeEJV9mgfNz): Kod tabanındaki sızıntıları ve API anahtarlarını bulan güvenlik aracı. — «Gitleaks»
+- **Trail of Bits Security Skills** (DeEJV9mgfNz): Projeye saldırgan gözüyle bakarak riskleri analiz eden güvenlik aracı. — «Trail of Bits Security Skills»
+- **AI Şirket İşletim Sistemi** (DeelntGS8Ku): Her departmanın kendi AI ajanlarına sahip olduğu ve birbirine bağlı çalıştığı bir işletim sistemi yapısı. — «I just built my own AI company where every department has its own AI agents, and they all work together automatically.»
+- **knowledge-work-plugins** (DeemgMlE-yp): Claude için open-source iş bilimi eklentileri, iş süreçlerini otomatikleştirmek için tasarlanmış 11 adet plugin. — «They're open source and they live right inside of Claude.»
+- **Caveman** (DefSWyWpABP): Claude'ın konuşmasını basitleştirerek token sayısını azaltır ve kodun daha uzun süre geçerli olmasını sağlar. — «It makes Clawed talk like an actual caveman. It strips out the filler so you get the exact same code with way fewer tokens and your plan lasts way longer.»
+- **Claude Code Setup** (DefSWyWpABP): Projenizi tarayarak en iyi hook'lar, script'ler, sub-agent'lar ve MCP sunucuları önerir. — «It's an official Anthropic plugin that scans your project and recommends the best hooks, scripts, sub-agents, and MCP servers for it.»
+- **Harvey** (Degi9N3B-eb): Claude tabanlı müşteri bulma ve satış otomasyonu aracı. — «Someone just built a Claude code agent whose only job is to get you customers. It's called Harvey and it's open source and free.»
+- **/threat-model** (DegQ7IjD9Hv): Kodun zayıf noktalarını haritalar ve saldırganın girmesi muhtemel yerleri belirler. — «maps where an attacker would get into your code, so Claude only scans the spots that matter.»
+- **/vuln-scan** (DegQ7IjD9Hv): Kaynak kodunu okur ve her güvenlik deliğini dosya ve satır numarasıyla listeler. — «reads your source and lists every security hole it finds, with the file and line.»
+- **/triage** (DegQ7IjD9Hv): Her bulguyu üç bağımsız oyla tekrar kontrol eder, tekrarlanan ve yanlış alarmları atar ve kalanları tehlike düzeyine göre sıralar. — «double-checks each finding with three independent votes, drops duplicates and false alarms, and ranks the rest.»
+- **/patch** (DegQ7IjD9Hv): Onaylanmış her deliğin için bir düzeltme yazar ve diff olarak sunar; kendisi düzeltmeyi uygulamaz. — «writes a fix for each confirmed hole as a diff you review. It never applies the fix on its own.»
+- **Chrome DevTools MCP** (Deh4K2nITwD): Claude'un kendi çalışmasını kontrol etmesini ve ekran görüntüsü almasını sağlar. — «Claude checksitsownwork takes screenshots andrunsImpeccable on itself before handing youa design.»
+- **OmniRoute** (DeHbBTZjx5O): ClaudeCode'u 350'den fazla modele bağlayarak limit dolduğunda otomatik geçiş sağlar. — «The first is OmniRoute. It connects ClaudeCode to over 350 providers, 150 of them free, so the moment your limit runs out, it switches to the next best model on its own»
+- **Ponytail** (DeHbBTZjx5O): Claude'un daha az token harcayarak kod yazmasını sağlar. — «The second is Ponytail. It makes Claude write the smallest code that works, which cuts your token usage by up to half.»
+- **Graphify** (DeHbBTZjx5O): Kod tabanını bilgi grafiğine dönüştürerek Claude'un dosyaları tekrar okumasını engeller. — «The third is Graphify. It turns your whole codebase into a knowledge graph, so Claude doesn't waste tokens rereading the same files again and again.»
+- **AgentSkills** (DeHbBTZjx5O): Planlama, test etme, inceleme ve gönderme becerileri ekleyerek Claude'un senior mühendis gibi kod yazmasını sağlar. — «The fourth is AgentSkills, a pack of 25 skills from Addy Osmani at Google. It has dedicated skills for planning, testing, reviewing, and shipping»
+- **ClaudeMem** (DeHbBTZjx5O): Oturumlar arası hafıza ekleyerek Claude'un önceki bağlamı hatırlamasını sağlar. — «The fifth is ClaudeMem. It gives Claude a memory across sessions, so tomorrow it still knows what it did today»
+- **Firecrawl** (DehDbr9TkTW): Web sitelerini temiz markdown formatına dönüştüren veya veri çeken araç. — «Point it at any website and it turns the entire page into clean markdom or pulls out exactly the data you asked for»
+- **Playwright** (DehDbr9TkTW): Ekran görüntüsü tahmini yapmadan sayfa yapısını okuyarak etkileşim kuran test aracı. — «It doesn't guess from screenshots, it reads the structure of the page.»
+- **Chrome DevTools** (DehDbr9TkTW): Claude'un tarayıcıdaki hataları ve istekleri doğrudan görmesini sağlayan araç. — «select a broken button or a failed request and claude sees the exact same error as you»
+- **Claude Projects** (DehEgnEAaPn): Karmaşık hedefleri otomatik olarak birden fazla paralel iş parçacığına (threads) bölen, her birinin kendi pull request'ini yönettiği ve bulut tabanlı çalıştığı bir sistem. — «Claude Projects. You give it one big goal, and a coordinator splits it into threads that all run in parallel.»
+- **Everything Claude Code** (DeheVnTD9Fd): Yazılım geliştirme sürecini otomatize eden 286 yetenek ve 68 alt ajandan oluşan açık kaynaklı araç seti. — «It's called Everything Claude Code. 286 skills and 68 subagents.»
+- **Superpowers** (DehGmoDOf3Z): Yapay zeka ile kod geliştirme sürecini yöneten bir araç. — «Önce seninle ne istediğini konuşuyor. İşi küçük parçalara bölüyor. Testler yazıyor, kodu yazıyor. En sonunda da yazdığı şeyleri kontrol ediyor.»
+- **Taskmaster** (DehGmoDOf3Z): Projeyi görevlere bölen ve sıralayan bir araç. — «Yapmak istediğin projeyi düz yazıyla anlatıyorsun. O bunu görevlere bölüyor. Küçük parçalara yani. Hangisinin önce gelmesi gerektiğini anlıyor. Onlara göre sıralıyor.»
+- **I have ADHD** (DehGmoDOf3Z): Claude'un cevap verme şeklini optimize eden sistem. — «Cloud'un sana cevap verme şeklini değiştiriyor. Önce cevabı veriyor. Adımları numaralandırıyor. Giriş cümlesi vermiyor.»
+- **Awesome AI Agent** (DehGmoDOf3Z): Yapay zeka ajanlarını listeleyen katalog. — «Bütün yapay zeka ajanları tek bir listede toplamışlar. Açık kaynaklıları, ücretlileri hepsini buradan bulabiliyor. Ve ne iş yapmasını istiyorlar. İstediğine göre filtreleyebiliyorsun.»
+- **Self-Improving Agent Strategy** (DeHGRXvg6Xm): Kendi kendini geliştiren bir ticaret ajanı için veri stratejisi ve birleştirme yöntemi anlatılıyor. — «To build an agent that improves itself you need four things: a strategy, the data behind it, something that turns it into one table, and a backtest that scores it.»
+- **Agent Skills** (DehO64bvSkV): Geliştirme döngüsü için 24 beceri paketi — «It's a pack of 24 skills built by a former director at Google, which covers your entire dev cycle»
+- **Strix** (DehO64bvSkV): Güvenlik açıkları için tarama yapar — «Strix, which attacks your vibe-coded app just like a real hacker to find and fix any security vulnerabilities you might have left behind.»
+- **REA (Reverse Engineering Agent)** (DehpVQuDA52): Uygulamalardaki özellikleri analiz edip kendi projene kopyalamayı sağlayan araç — «someone just dropped a repo that lets you clone any feature from any app»
+- **CloudMem** (DehQ41UoYHy): Oturumlar arası hafıza yönetimi sağlar. — «gives cloud memory across sessions, so it'll remember your projects and files without re-explaining anything.»
+- **FindSkills** (DehQ41UoYHy): İnşa edilen projeye göre 100.000+ yetenek arasından uygun olanları arar ve kurar. — «search its library of over 100,000 skills to find and install the best ones.»
+- **Claude Code Setup** (DehQ41UoYHy): Kod tabanını tarayarak proje için en uygun kancaları, yetenekleri, alt ajanları ve MCP sunucularını önerir. — «scans your code base, recommending the best hooks, skills, sub-agents, and MCP servers for your project»
+- **BotForge** (DeHsnHBDcWy): Kullanıcıdan aldığı bir cümle ile isim, yüz, hafıza, yetenek ve rutinlere sahip bir yapay zeka çalışanı oluşturur. — «You just say make me a sales assistant or make me a researcher and it builds you a complete AI worker with its own name, face, memory, skills and daily routines.»
+- **Claude Subscription** (DeHsnHBDcWy): Hermes'i halihazırda ödenen Claude aboneliği üzerinde çalıştırmayı sağlar. — «Experimental modelprovider thatrunsHermesturnsona ClaudePro/Maxsubscription through theofficial Claude Code CLI»
+- **Deja Memory** (DeHsnHBDcWy): Geçmişteki yerel kodlama oturumlarından (Claude Code, Codex, Cursor) hafıza sağlar. — «A Hermes memory provider that answers from the coding sessions already on this machine: Claude Code,Codex,Cursor, Hermes itself and the other agents deja reads»
+- **LinkedIn Roast Skill** (DehtnvujYLA): Beş farklı perspektiften (işe alım uzmanı, kurucu, vb.) profil analizi yapan ve ardından profil içeriğini revize eden bir otomasyon. — «I built a roast where five clods shred your LinkedIn so you can fix it.»
+- **AgentSkills** (DeHz9pjRytv): Google'ın eski AI mühendis direktörü tarafından tasarlanan 24 beceri paketi, planlama, kodlama, test ve yayınlama aşamalarında otomatik olarak doğru beceriyi etkinleştirir. — «a collection of skills designed to help Claude handle different stages of development, from planning and coding to testing and publishing.»
+- **Observe** (DeIGeHSDeGQ): Session recaps için bir araç. — «Observe — session recaps»
+- **Context Mode** (DeIGeHSDeGQ): Uzun oturumları yönetmek için kullanılan bir yöntem. — «Context Mode — helps manage long sessions»
+- **Security Sweep** (DeIGeHSDeGQ): Sızmış anahtarları taramak için kullanılan bir araç. — «Security Sweep — checks for leaked keys»
+- **OmniRoute** (DeIGeHSDeGQ): Sağlayıcıları değiştirmek için kullanılan bir yöntem. — «OmniRoute — switch between providers»
+- **Headroom** (DeIGeHSDeGQ): Token sıkıştırması için kullanılan bir araç. — «Headroom — token compression»
+- **Cost Guardian** (DeIGeHSDeGQ): Bütçe kontrolü için kullanılan bir araç. — «Cost Guardian — budget controls»
+- **Caveman** (DeIGeHSDeGQ): Kısa yanıtlar için kullanılan bir araç. — «Caveman — shorter responses»
+- **Claude Mem** (DeIGeHSDeGQ): Oturumlar arasında bellek sağlayan bir araç. — «Claude Mem — memory across sessions»

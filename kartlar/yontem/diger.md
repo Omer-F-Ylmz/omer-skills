@@ -1,0 +1,212 @@
+# Yöntemler — diger
+
+- **Manuel Hatırlatıcı** (bVRvtd-ksXU): Kullanıcının özel bir anı hatırlatmak için alarm kurup manuel mesaj atması süreci. — «he set his alarm for 8.35, so he would never miss that moment, no matter how busy work got. He had never set the messages to be automatic.»
+- **Finch 3D** (CseOCH6Ih-X): Yapay zeka destekli mimari platform. — «Finch 3D bir yapay zeka destekli mimari platformudur.»
+- **kat_plan_olusturma** (CseOCH6Ih-X): Tek tıkla kat planları hazırlama. — «tek tıkla kat planlarınızı hazırlayabilirsiniz.»
+- **karbon_ayak_izi_olcum** (CseOCH6Ih-X): Planların karbon ayak izini ölçme. — «planlarınızın karbon ayak izini de ölçebiliyorsunuz.»
+- **mimari_proje_olusturma** (CseOCH6Ih-X): Tek tıkla mimari proje dosyaları hazırlama. — «mimari plan ve proje dosyalarını A'dan Z'ye tek tıkla hazırlayabiliyorsunuz.»
+- **API** (Da5-vksijqk): HTTP API üzerinden SMS gönderme ve almayı sağlayan bir sistem. — «You make an API call, and your phone sends the text.»
+- **webhook** (Da5-vksijqk): Gelen SMS'lerin webhook endpoint'e yönlendirilmesini sağlayan bir mekanizma. — «Incoming texts get forwarded to your webhook.»
+- **end-to-end encryption** (Da5-vksijqk): Mesajların güvenli iletilmesini sağlayan şifreleme yöntemi. — «It supports end-to-end encryption»
+- **Docker** (Da5-vksijqk): Self-hosted kurulum için kullanılan konteynerleştirme teknolojisi. — «You can self-host everything with Docker.»
+- **Skool topluluk takibi** (DaFoQbIiEHT): Kullanıcıların otomasyon ve proje başarılarını paylaştığı Skool platformu arayüzü. — «Leaderboard(30-day)»
+- **Mimari Sunum** (DaTXAqdMgCr): Mimari render ve animasyonları etkileşimli sunumlara dönüştürme yöntemi. — «We’ve taken architectural renderings and animations to the next level, turning them into immersive, interactive presentations.»
+- **Kimi Agent Swarm** (DaV01myIs4s): 300 yapay zeka ajanını aynı anda çalıştırabilen bir özellik — «300 tane yapay zeka ajanını aynı anda çalıştırabiliyorsun»
+- **uydurma-kaynak-tespiti** (DaXh_wnRjqG): Uydurma kaynakları tespit etmek için özel kontrolleri var. — «Uydurma kaynakları tespit etmek için özel kontrolleri var.»
+- **hakem-gözden-geçirme** (DaXh_wnRjqG): Makaleyi hakem gözüyle inceleyip eksik yerleri gösteriyor ve gerekiyorsa review ediyor. — «Ardından hakem gözüyle inceleyip eksik yerleri gösteriyor ve gerekiyorsa review ediyor.»
+- **stil-öğrenimi** (DaXh_wnRjqG): Eski makaleleri tarayıp, analiz edip yazım stilinde öğrenebiliyor. — «Eski makaleleri tarayıp, analiz edip yazım stilinde öğrenebiliyor.»
+- **TradingView Claude MCP** (Db_Tk2Ds_Zr): Connecting Claude to TradingView using MCP bridge — «Connecting Claude to trading view to use Al to help you make money»
+- **raylight.app** (DbI_v6gMDW1): Hızlı motion design için hazır şablonlar kullanarak animasyon oluşturma. — «In just a few minutes, you can create professional level animations using their ready-made templates.»
+- **Google Search Console** (Dbje8dMhOkJ): Web sitenizi Google'a sunma süreci için kullanılan araç. — «submit your website to Google Search Console»
+- **XML sitemap** (Dbje8dMhOkJ): Google'ın sitenizi daha hızlı keşfetmesi için gereken harita dosyası. — «submit your XML sitemap»
+- **SEO optimizasyonu** (Dbje8dMhOkJ): Anahtar kelimeler için sayfalarınızı optimize etme süreci. — «optimize your pages to rank for the keywords»
+- **Meta titles & descriptions** (Dbje8dMhOkJ): Arama sonuçlarında görünecek başlık ve açıklama metinleri. — «meta titles and descriptions»
+- **AI Search vs. SEO** (DbjFZ5sSEfD): AI Search ve SEO arasındaki farkı açıklayan kavramsal karşılaştırma. — «SEO bambaşka bir şey, AI Search bambaşka bir şey.»
+- **Strix** (DbqCLP8otJb): Güvenlik açığı taraması yapan açık kaynak araç. — «Bir hacker gibi düşünen ücretsiz bir araç var. Kodundaki açığı sen bulmadan o buluyor ve en önemli kısmını sona sakladım.»
+- **MVP** (DbqWpnVTVIM): Minimum Viable Product (MVP) oluşturma yöntemi. — «Finish a small, playable MVP»
+- **polish** (DbqWpnVTVIM): Oyun deneyimini geliştirme ve iyileştirme. — «Polish the experience»
+- **test** (DbqWpnVTVIM): Gerçek kullanıcı testleri yapma. — «Test with real players»
+- **Stealth Mode** (DbRGB9QsGtb): Görünmez otomasyon için gelişmiş yöntemler. — «WITH ADVANCED STEALTH»
+- **Smart Diff Mode** (DbRGB9QsGtb): Değişiklikleri okuyan agentler için optimizasyon. — «Smart diff mode so agents only read what change»
+- **Page Snapshots** (DbRGB9QsGtb): ~800 tokenluk sayfa görüntüleri (13x daha ucuz). — «Page snapshots for ~800 tokens (13x cheaper than screenshots)»
+- **Multi-Instance Orchestration** (DbRGB9QsGtb): Çoklu otomasyon yönetimi. — «multi-instance orchestrator»
+- **Persistent Sessions** (DbRGB9QsGtb): Devamlı oturumlar. — «persistent sessions»
+- **Zero Config** (DbRGB9QsGtb): Yükleme ve kurulumda ayar gerektirmez. — «Single Go binary, zero config or dependencies»
+- **Accessibility DOM** (DbRGB9QsGtb): Stabil element referanslarıyla erişilebilir DOM. — «Accessibility DOM with stable element refs»
+- **veri tabanı** (DbxcRQLjS9T): Verileri depolamak için MongoDB kullanımı. — «MongoDB → database»
+- **crn** (DbxcRQLjS9T): Müşteri ilişkileri yönetimi için GHL (Shiney.AI) kullanımı. — «GHL → CRM»
+- **vektör depolama** (DbxcRQLjS9T): Vektör verilerini depolamak için Pinecone kullanımı. — «Pinecone → vector storage»
+- **komünikasyon** (DbxcRQLjS9T): İletişim yönetimi için ClickUp kullanımı. — «ClickUp → communications»
+- **sop** (DbxcRQLjS9T): İş süreçlerini belgeler için Google Docs kullanımı. — «Google Docs → SOPs»
+- **takip** (DbxcRQLjS9T): Veri takibi için Google Sheets kullanımı. — «Google Sheets → tracking»
+- **Bytez** (DbyNa6Np-pz): 100.000+ açık kaynaklı AI modeline tek bir API anahtarıyla erişim sağlar. — «Over 100,000 open-source AI models for text, image, video, and audio, all through one single API key.»
+- **NVIDIA_NIM** (DbyNa6Np-pz): 80+ AI modeline ücretsiz erişim sunar (ChatGPT, DeepSeek, Kimi gibi). — «You get free access to over 80 top AI models, like ChatGPT, DeepSeek, Kimi, and many more, with a 40 requests per minute limit.»
+- **OpenRouter** (DbyNa6Np-pz): GLM, Kimi, Llama gibi 20+ model için ücretsiz API anahtarı sağlar. — «It gives free API keys for GLM, Kimi, Quinn, Llama, and over 20 other models, all with generous rate limits.»
+- **ClaudeCode** (Dc1NGcnA9PB): AI agentleri, beceriler ve komutlar ile Claude'ı bir geliştirme ekibi haline getiren açık kaynaklı bir repo. — «64 AI agents, 261 skills, and 84 commands + hooks»
+- **anthropic-cybersecurity-skills** (Dc3pMkakrid): Modern kodlama ajantları için tasarlanmış güvenlik becerileri. — «Anthropic Cybersecurity Skills — cybersecurity capabilities designed for modern coding agents.»
+- **30 Days of Python** (Dc9-DXtIckn): Python'a sıfırdan başlayıp 30 gün içinde gerçek projeleri inşa etmeyi sağlayan bir meydan okuma — «30 Days of Python, bu sene Python'a sıfırdan başlayıp 30 gün içinde gerçek projeleri inşa edecek seviyeye getiren yapılandırılmış bir 30 günlük meydan okuma.»
+- **Build Your Own X** (Dc9-DXtIckn): Kendi projelerini inşa ederek kodlamayı öğrenme ve teknolojileri sıfırdan yeniden oluşturma — «Build Your Own X, bununla harika projeleriniz üzerinde çalışarak ve eksiksiz tutorial'lar takip ederek kodlamayı öğrenebilirsiniz. GitHub'ı, bir tarayıcıyı, bir veri tabanını veya daha fazlasını sıfır»
+- **Developer Roadmap** (Dc9-DXtIckn): Frontend, backend ve devops için görsel bir kariyer haritası — «Developer Roadmap, bu repo frontend, backend ve devops için görsel bir kariyer haritası. Yani sırada tam olarak neyi öğrenmen gerektiğini her zaman biliyorsun.»
+- **Coding Interview University** (Dc9-DXtIckn): Yeni başlayanlar için çalışma planı — «Coding Interview University, bu tamamen yeni başlayanlar için hazırlanmış, kendi kendine öğrenme odaklı bir çalışma planı.»
+- **System Design Primer** (Dc9-DXtIckn): Sistem tasarımı mülakatları ve büyük ölçekli sistem mimarileri için rehber — «System Design Premier, daha derine inmek istiyorsan bu repo sistem tasarımı mülakatlarını geçmen ve büyük ölçekli sistemlerin nasıl inşa edildiğini gerçekten anlamak için ihtiyacın olan her şeyi içeri»
+- **App Store Review** (DcbkUCONxWx): Apple uygulama inceleme sürecini anlatan teknik yöntemler. — «Apple'da bir insan senin uygulamanı 90 saniye boyunca inceliyor.»
+- **yer-tutucu-icerik-kontrolu** (DcbkUCONxWx): Uygulamada yer tutucu içerik (lorem ipsum, 'yakında', boş ekran) varsa reddedilir. — «İlk yaptıkları şey her butona tek tek basmak. Yer tutucu içerik arıyorlar.»
+- **demo-hesap-zorunlulugu** (DcbkUCONxWx): App Review notlarında demo hesap bilgileri olmadan uygulama reddedilir. — «App Review notlarında demo hesap bilgileri yoksa reddediliyor.»
+- **apple-odeme-sistemi** (DcbkUCONxWx): Uygulama içi satışlar Apple'ın ödeme sisteminden geçmelidir; Stripe yasaklanmıştır. — «Uygulamada herhangi bir şey satıyorsa, abonelik, tek seferlik ödeme her neyse, Apple'ın kendi ödeme sisteminden geçmek zorundasın. Stripe kullanamazsın.»
+- **izin-gerekcelendirmesi** (DcbkUCONxWx): Kamera, konum, mikrofon gibi izinler için net bir gerekçe sunulmalıdır. — «Uygulamanın bu izinlere neden ihtiyacı olduğunu gerekçelendirmesi gerekiyor.»
+- **ai-icerigi-beyan** (DcbkUCONxWx): Uygulama AI içeriği üretiyorsa bu beyan edilmelidir. — «Uygulaman herhangi bir AI içeriği üretiyorsa bunu beyan etmek zorundasın.»
+- **tasarim-uygulama-kontrolu** (DcbkUCONxWx): Ekran görüntüleri ve canlı uygulama karşılaştırıldığında yapılamamış özellikler reddedilir. — «Yapılmamış bir özelliği ya da var olmayan bir tasarımı gösterdiysen işaretleniyor.»
+- **sosyal-giris-zorunlulugu** (DcbkUCONxWx): Sosyal giriş sunuyorsan Apple ile giriş seçeneği zorunludur. — «Sosyal giriş sunuyorsan Apple ile girişi de eklemek zorundasın.»
+- **hesap-silme-ozelligi** (DcbkUCONxWx): Hesap oluşturma olan uygulamalarda kullanıcıların hesaplarını uygulamadan silebilmeleri gerekir. — «Uygulaman hesap oluşturmaya izin veriyorsa, kullanıcılar hesaplarını doğrudan uygulama içinden silebilmeli.»
+- **model-tahmin** (DcbU0dTFG4h): GLM-5.x ile Ox Alpha'nın benzerlik analizi yapıldı. — «Researcher Ben Davis puts it at 99% certainty this is Z.ai’s unreleased GLM-5.x.»
+- **benchmark-test** (DcbU0dTFG4h): DeepSWE benchmark'inde 10 task'tan alınan %80 skoru, tam benchmark'te %63'e düştü. — «The 80% DeepSWE score everyone quoted came from 10 tasks. The full run says 63%.»
+- **moo_moo_ai_novel** (Dcj_mRRv5tv): Kitaplar, öyküler ve romanlar için AI destekli kütüphane yazarlığı. — «AI assistant for mass writing books, plots, and novels»
+- **Windows verileri temizleme** (DcJhjeftnsY): Windows'un kaydettiği faaliyet geçmişini ve Microsoft hesabı verilerini silme yöntemi. — «Windows'u ilk açtığın günden beri 10 yıl 15 yıl öncesinden bahsediyorum. Bilgisayarında açtığın her klasörü, açtığın her PDF'i, açtığın her videoyu, Google'da yaptığın her aramayı kaydediyor. Gelin bu»
+- **checkpoint-compression** (DcjlgleALHo): 5.5 TB model compressed to 8.24 GB RAM via selective loading and quantization. — «Five and a half terabytes down to just 8 gigs.»
+- **token-routing** (DcjlgleALHo): Only relevant model experts activated per token, reducing memory footprint. — «They stay on the SSD and only get read when a token actually routes to them.»
+- **c-optimization** (DcjlgleALHo): Entire inference engine written in 176 KB of C99 for portability and efficiency. — «The whole engine is 176 kilobytes of C.»
+- **ssd-caching** (DcjlgleALHo): Model experts stored on SSD as read-only files, reducing RAM usage. — «They stay on the SSD and only get read when a token actually routes to them.»
+- **byte-identical-output** (DcjlgleALHo): Same output quality as full-precision model despite reduced memory usage. — «Same output byte for byte.»
+- **Godly** (Dck7FxNT2wX): İlham verici web sitesi galerisi. — «Godly is a live gallery for some of the best websites on the internet»
+- **Skill-Based Workflow** (DcoU-a2D1uC): Her görev için özel bir AI agent (skill) kullanarak işleri parçalara ayırarak ve otomatik olarak entegre ederek çalışma akışını optimize eder. — «Instead of one clod trying to do everything, this hands every job to whoever is actually built for it.»
+- **Security Scanning** (DcoU-a2D1uC): 102 adet güvenlik kontrolü yaparak kodda potansiyel sızıntıları tespit eder. — «That security piece runs 102 checks across your setup, hunting for the stuff that leaks.»
+- **Memory Vault** (DcoU-a2D1uC): Markdown dosyaları kullanarak AI'nin öğrendiklerini uzun süreli depolamak ve farklı araçlar arasında geçiş yaparken tekrar tekrar açıklamaya gerek kalmadan çalışmayı sağlar. — «memory vault, plain markdown files sitting on your own machine, so what clod learned about your project on monday is still there on friday.»
+- **Continuous Learning** (DcoU-a2D1uC): Her kullanıcı oturumunda öğrenilenler otomatik olarak yeni skill'lara dönüştürülerek sistemin zamanla gelişmesini sağlar. — «This setup watches your sessions and turns the things that worked into brand new skills, automatically.»
+- **Unlimited OCR** (DcQaLzWPlwD): 100 sayfalık PDF'leri tek seferde okuyabilen 3 milyar parametreli yapay zeka modeli. — «Unlimited-OCR, yüz sayfalık bir PDF'i sayfa sayfa bölmeden tek akışta okuyabiliyor.»
+- **AI Agents for Marketing** (DcQjXeuyFfJ): Yapay zeka kod ajanları kullanarak pazarlama görevlerini (SEO, copywriting, analytics) otomatize etme koleksiyonu. — «A collectionofAlagentskillsfocusedon marketingtasks.Builtfortechnicalmarketers andfounderswhowantAlcodingagentstohelp withconversionoptimization,copywriting,SEo, analytics,andgrowthengineering.»
+- **Miro MCP (Miro Cloud Platform)** (DcRLpCbKd7w): Miro boardlarını doğrudan Claude'a bağlayan bir entegrasyon yöntemi. — «Miro yeni bir MCP yayınladı. Sahip olduğun her board'u doğrudan Claude'a bağlıyor.»
+- **App Store Ret Giderme** (DctdIykgb9C): Uygulama mağazası inceleme sürecinde reddedilme sebeplerini analiz etme ve itiraz etme yöntemi. — «Reddedildiğinde tartışabiliyorsun. Çoğu kişi bunu bilmediği için sessizce yeni sürüm gönderip iki hafta kaybediyor.»
+- **Public APIs Repo İncelemesi** (DcthaPNoqQm): GitHub üzerindeki 1700'den fazla API içeren Public APIs reposunun tanıtılması. — «Repomuzu aşağılara doğru indiğimizde hangi kategorilerde apilerimizin olduğunu görebilirsiniz.»
+- **free-for-dev** (DcULCHHSogK): Ücretli yazılımlara ücretsiz alternatifler sunan kaynak havuzu. — «ripienaar/free-for-dev»
+- **public-apis** (DcULCHHSogK): Çeşitli kategorilerde ücretsiz API koleksiyonu. — «public-apis/public-apis»
+- **Scrapling** (DcULCHHSogK): Cloudflare engellerini aşabilen web kazıma aracı. — «D4Vinci/Scrapling»
+- **DeepSeek Harness** (Dcw20sWpLgs): Açık kaynaklı ajan yönetim aracı. — «DeepSeek Harness. This is the fastest growing repo of all time.»
+- **Umachi** (Dcw20sWpLgs): Ajanları temel altyapıya entegre eden özel Linux dağıtımı. — «This is a custom Linux distribution that makes AI agents part of the core infrastructure.»
+- **AnyDoc** (Dcw20sWpLgs): Belgeleri yapay zeka sistemleri için Markdown formatına dönüştüren araç. — «This allows you to convert any document into Markdown»
+- **Herder** (Dcw20sWpLgs): Terminalde çoklu ajan yönetimini kolaylaştıran araç. — «Herder makes managing multiple agents inside the terminal infinitely easier.»
+- **Orca** (Dcw20sWpLgs): VS Code üzerinde çalışan, yapay zeka ajanları için optimize edilmiş VS Code benzeri ortam. — «Think of VS Code on steroids and if it was made specifically for AI agents.»
+- **CloudX Loop** (Dcw20sWpLgs): Planlama ve yürütme süreçlerinde Cloud Code ve Codex birleşimi. — «it lets you combine Cloud Code and Codex in both the planning and execution process.»
+- **OmniRoute** (Dcw20sWpLgs): 300'den fazla yapay zeka modeline bağlanan bir yapay zeka ağ geçidi. — «This turns your computer into an AI gateway. It connects you to 300 plus AI models.»
+- **Clod of Tanks** (Dcw20sWpLgs): 3JS ve yapay zeka ile geliştirilmiş yüksek seviyeli video oyunu projesi. — «perfect example of how to create a very high level video game purely in 3JS with AI.»
+- **morning-note** (Dcxya4mtW7w): Finans sektöründe hisse analizi için kullanılan basit not alma yöntemi. — «morning note yazın ve yanına herhangi istediğiniz bir hisseyi yazabilirsiniz.»
+- **otomatize-raporlama** (Dcxya4mtW7w): Çeyrek verileri, bilanço toplantıları ve güncel haberleri otomatik olarak toplayıp rapor haline getirme. — «Cloud da çeyrek verilerini, bilanço toplantısını ve güncel haberleri çekip topluyor.»
+- **finans-rule-engine** (Dcxya4mtW7w): Finans analisti gibi kural tabanlı analiz ve raporlama yapabilme. — «gerçek bir finans analistinin neler yapabildiği ve tüm süreçleri nasıl ele alabilene dahi birçok kural yapılandırılmış.»
+- **hata-mesajlari** (DcyqKF9sb31): Kullanıcı dostu, teknik detayları gizleyerek güvenlik ve UX'yi iyileştirme yöntemi. — «Birincisi, sıradan bir kullanıcı bunun ne anlama geldiğini nereden bilsin? İkincisi, bu durum back-endinizin detaylarını açığa çıkartan bir güvenlik açığı olabilir.»
+- **Logo Design Skill** (Dd0PMB5FQtK): AI ajanlarını profesyonel kimlik tasarımcılarına dönüştüren kapsamlı logo tasarım becerisi. — «LogoDesignSkill for Claude&AI Agents»
+- **MuMu AI Novel** (Dd7pn4nSh2t): Uzun hikayeler ve kitaplar için yapay zeka yazım aracı. — «MuMu AI Novel: an AI writing tool for long stories and books»
+- **product analytics** (Dd85OwXN4Gl): PostHog ile event tracking yapma. — «PostHog'la event tracking yap ve kayıt → ilk kullanım → satın alma funnel’ını izle.»
+- **AI Agents** (Dd9ZUN4DiEy): Yapay zekâ ajanları geliştirmeye başlamak için 18 ders içeren kaynak. — «Yapay zekâ ajanları geliştirmeye başlamak için 18 ders.»
+- **Claude Code Depoları Listesi** (Dd_dybEMDog): Videonun içeriği, çeşitli 'Claude-code' ile ilgili GitHub repolarının ve araçlarının hızlı bir listesinden oluşmaktadır. — «Superpowers, Anthropic Skills, Carpathy Skills, Everything Claw Code, Gustavo, Ponytail, Caveman, Graphify, Clawed Mem, Planning with Files, Taste Skill, UI UX Pro Max, Matt Peacock, W Shubson, Awesom»
+- **AI Araç Dizini** (DdAAEC-Sybw): AI araçları ve kaynakları için bir dizin sitesi. — «Five websites that feel totally illegal to know.»
+- **Lokal AI Kurulumu** (DdC3rjQslx4): Açık kaynak modelleri lokal bilgisayarda çalıştırmak için GPU yatırımı yaparak maliyeti sıfırlamak. — «Zaten iş için güçlü bir bilgisayara ihtiyacım vardı ama GPU'ya ekstra yatırım yaptım.»
+- **Bulut AI Kullanımı** (DdC3rjQslx4): Planlama ve dokümentasyon gibi karmaşık işleri bulut tabanlı güçlü modellerden (örn. Cloudy) kullanmak. — «Ben maksimum verimi almak için şunu yapıyorum, planlama, dokümentasyon gibi işleri Cloudy gibi güçlü modellere yaptırıyorum.»
+- **Lokal AI Optimizasyonu** (DdC3rjQslx4): Tekrarlı, kararlı işleri lokal modellerle yaparak maliyet ve performans dengesi sağlamak. — «Daha kararlı, daha mekanik işleri lokal modellere yaptırıyorum.»
+- **Hyperframes** (Ddcd73yAshV): HTML yazımı ve görsel kavramların net şekilde sunulmasını sağlar. — «Writes HTML and helps render visual concepts clearly.»
+- **Emil** (Ddcd73yAshV): Güzel ve akıcı animasyonlar oluşturur. — «Creates beautiful, smooth interface animations.»
+- **self-hosted** (DdCUfgfOb_5): Sunucuda ücretsiz olarak çalıştırılabilecek yazılımların listelenmesi. — «Bu repomuzun ismi Evsom Self-Hosted. İsmini anlayacağınız gibi burada sunucumuzda kullanabileceğimiz ücretsiz yazılımlar burada mevcut.»
+- **kategorize** (DdCUfgfOb_5): 1250+ ücretsiz yazılımın 95 kategoriye ayrılması. — «Repomuzda birazcık daha aşağılara doğru indiğimizde burada 95 tane kategorin olduğunu görmektesiniz.»
+- **file-transfer** (DdCUfgfOb_5): Ücretsiz dosya transfer uygulamalarının sunulması. — «Ben örnek olarak file transfer kısmına gidiyorum. File transfer kısmına geldiğimizde burada ücretsiz olarak kullanabileceğimiz uygulamalar mevcut.»
+- **agentic-engineering** (DdFQ-K0AJ0b): AI ile yapılandırılmış, adım adım test edilen ve kontrol edilen bir geliştirme süreci. — «Agentic engineering, on the other hand, is a more structured process where you remain in control at every step of the process.»
+- **vibe-coding** (DdFQ-K0AJ0b): Rahatsız edici, test edilmeyen ve kontrolsüz prompt kullanımı. — «Vibe coding is just prompting and hoping for the best.»
+- **grill-meat** (DdFQ-K0AJ0b): Kullanıcıyı sorularla planını netleştirmek için AI agent kullanımı. — «Number one is grill meat. Agents will interview you relentlessly until your plan for what you want to build is absolutely crystal clear.»
+- **specs** (DdFQ-K0AJ0b): Kullanıcı konuşmasını teknik olmayan bir spesifikasyon haline çevirme. — «Number two is specs. The agent turns your conversation into a written spec that outlines exactly what's going to be built in plain English.»
+- **tickets** (DdFQ-K0AJ0b): Spesifikasyonu teknik talimatlarla parçalara ayırma ve AI'nin bu parçaları uygulaması. — «Number three is tickets. AI breaks that spec down into smaller chunks with technical instructions that AI can then go and implement.»
+- **build** (DdFQ-K0AJ0b): Her biletin yeni bir AI agent tarafından ayrı bir context window'da uygulanması. — «Number four is build. Each ticket is implemented by a new agent with a fresh context window.»
+- **Public APIs Listesi Kullanımı** (Ddj9-pzx3GD): Ücretsiz API'leri keşfetmek ve projelerde kullanmak için kapsamlı bir GitHub deposu kullanımı. — «GitHub'da 478 binden fazla yıldız almış bu rapor içinde kullanabileceğin yüzlerce tamamen ücretsiz API'yi tek bir yerde toplamış.»
+- **email-verification** (DdjfghctK7x): Cold email lead doğrulama için ücretsiz bir alternatif sağlayan bir araç. — «This tool is a complete free alternative to Millionaire Verifier»
+- **Claude Skill** (DdjgNfBtToS): Claude için üst seviye yetenekler listesi. — «Cloud'un en üst seviyeye çıkaracak olan skill de 1, 2, 3, 4, 5, 6, 7.»
+- **Karakter Tasarımı** (DdKOhx6sOiT): Karakter tasarımını daha hızlı ve etkili yapmak için temel prensipler ve alışkanlıklar. — «Learn how to master character design faster than 99% of people and finally create characters that actually feel unique, expressive, and memorable»
+- **scientific-agent-skills** (Ddl4bemIeyC): 160+ beceri seti ile genel bir agenti araştırma asistanına dönüştüren bir araç kümesi. — «160+ skills designed to turn a general-purpose agent into a research assistant.»
+- **anthropic-cybersecurity-skills** (Ddl4bemIeyC): Modern kodlama agentleri için geliştirilmiş siber güvenlik odaklı beceri seti. — «Cybersecurity-focused skills designed for modern coding agents.»
+- **agentic coding** (Ddmjn_3RSNf): Kodlama agentlerinin performansını ölçen ve geliştirmeyi kolaylaştıran yapay zeka destekli kodlama yöntemi. — «Agentic coding»
+- **agentic terminal coding** (Ddmjn_3RSNf): Terminal ortamında kodlama görevlerini otomatikleştiren ve yöneten yapay zeka destekli yöntem. — «Terminal-Bench4.0·agentic terminal coding»
+- **export-as-wav** (DdnQtgBCUZu): Her izi veya tüm izleri WAV formatında dışa aktarır. — «Export any stem (or all) as WAV»
+- **agent-kod** (DdO1UioAHAS): Klaude tabanlı agentik kodlama becerileri ve araçları için eğitim ve kaynaklar sunar. — «Learn Claw Code»
+- **kapathi-skills** (DdO1UioAHAS): Klaude kodlama becerilerini geliştirmek için pratikler ve pitfall'lar sunar. — «Kapathi Skills»
+- **superpowers** (DdO1UioAHAS): Agentik beceriler için çalışma yöntemleri ve metodolojiler sunar. — «Superpowers»
+- **ponytail** (DdO1UioAHAS): Kod yazımını kolaylaştıran ve geliştirme sürecini hızlandıran araçlar sunar. — «Ponytail»
+- **oh-my-claudecode** (DdO1UioAHAS): Klaude kodlama için konfigürasyon ve yönetim araçları sunar. — «Oh My Claw Code»
+- **taste-skills** (DdO1UioAHAS): Klaude kullanıcıları için temel beceriler ve pratikler sunar. — «Taste Skills»
+- **anthropic-skills** (DdO1UioAHAS): Anthropic tarafından geliştirilen Klaude becerileri ve pratikler sunar. — «Anthropic Skills»
+- **mattpocock-skills** (DdO1UioAHAS): Matt Pocock tarafından geliştirilen Klaude becerileri ve pratikler sunar. — «Matt Pocock Skills»
+- **wshobson-agents** (DdO1UioAHAS): Klaude tabanlı agentler için geliştirme araçları sunar. — «Wapshawn Agents»
+- **claude-plugins** (DdO1UioAHAS): Klaude için resmi ve üçüncü taraf ekstraksiyon ve entegrasyon araçları sunar. — «Claw Plugins»
+- **addyosmani-skills** (DdO1UioAHAS): Üst düzey Klaude becerileri ve pratikler sunar. — «Addy Yoshimani Skills»
+- **awesome-claude-skills** (DdO1UioAHAS): Klaude kullanıcıları için seçkin beceriler ve kaynaklar sunar. — «Awesome Clawed Skills»
+- **planning-with-files** (DdO1UioAHAS): Klaude kodlama için dosya yönetimi ve planlama araçları sunar. — «Planning with Files»
+- **claude-mem** (DdO1UioAHAS): Agentlerin oturumlar arası sürekli bağlamı sağlayan araçlar sunar. — «Clawed Mem»
+- **codegraph** (DdO1UioAHAS): Kod tabanlı bilgi grafları oluşturmak için araçlar sunar. — «Code Graph»
+- **graphify** (DdO1UioAHAS): Kod tabanlı dokümantasyon ve SQL sorguları için araçlar sunar. — «Graphify»
+- **repomix** (DdO1UioAHAS): Kod deposunu Large Language Model'lar için hazırlamak için araçlar sunar. — «Repo Mix»
+- **agentmemory** (DdO1UioAHAS): Agentlerin bellek ve bağlamını yönetmek için araçlar sunar. — «Agent Memory»
+- **tasarım-örnekleri** (Ddoo0lITcnF): Kendi tasarımlarınız için ilham almak ve fikir edinmek için tasarım örneklerini inceleme yöntemi. — «Appkittie gibi siteler üzerinden tasarım araştırması yapabilir, farklı örnekleri inceleyerek kendi tasarımlarınız için fikir edinebilirsiniz.»
+- **repo önerisi** (DdoRKQUAdeM): Kod ajanı otomasyonları için GitHub repo'ları paylaşma yöntemi. — «Comment “AGENTS” below and I’ll send you the repo links.»
+- **persistent-knowledge-graph** (Ddq_d1bDV_Z): Kod tabanını sürekli bir bilgi grafiğine dönüştürür. — «Storing in persistent knowledge graph..»
+- **Claude Code Setup Plugin** (Ddrki7GugWV): Kod tabanını analiz ederek uygun yetenekleri, kancaları ve MCP sunucularını öneren eklenti. — «Kod tabanınızı baştan sona tarar ve projeniz için en uygun yetenekleri, kancaları, alt ajanları ve MCP sunucularını önerir.»
+- **GitHub repo kullanımı** (DdSkPLHI7pO): Ücretsiz geliştirici araçları ve kaynakları bir araya getiren bir liste sunan bir GitHub reposu tanıtımı. — «1600'den fazla geliştirici tarafından oluşturulmuş GitHub'da 129 binden fazla yıldızı var.»
+- **Higgsfield büyüme stratejisi** (Ddtcx1MIxqT): Higgsfield, açık kaynaklı araçlar ve API erişimi ile kurumsal benimsemeyi artırarak 18 ayda 1 milyar dolar yıllık gelire ulaştı. — «Higgsfield hit $1B in annualized revenue, 18 months after launch, 20x growth in a single year»
+- **blink** (DdtrqmqgJiN): Kod tabanını tarar ve önemli parçaları bulur. — «Moves around a whole codebase to find what matters.»
+- **Plan Mode** (DdW9enHTUDb): Kod yazmadan önce planlama yaparak hataları önlemek için kullanılan mod. — «Plan eşittir daha az hata demek.»
+- **Cloud MD** (DdW9enHTUDb): Agent hataları kalıcı olarak kaydetmek ve hataları önlemek için kullanılan dosya sistemine dayalı yöntem. — «Agent her hata yaptığında kendi Cloud MD dosyasını güncellemesini söyleyebilir.»
+- **Alt-Agent Sistemleri** (DdW9enHTUDb): İş akışını otomatikleştirmek için kod yazan, kodları inceleyen ve yayına alan farklı agentlerin birbirleriyle işbirliği yapması. — «Bir agent kod yazsın, diğer agent kodu incelesin, bir başkası da tüm bunları otomatik olarak çalıştırsın ve yayına alsın.»
+- **Strix** (DdZmPY4u-xd): Programa kötü niyetli saldırı simülasyonu yaparak gizli güvenlik açıklarını tespit eder. — «Acemi usulü kodlanmış programınıza tıpkı bir korsan kötü yazılım gibi saldırır. Gözden kaçırdığınız güvenlik açıklarını tek tek tespit eder.»
+- **Agent Reach** (DdZmPY4u-xd): Kapalı platformlar (LinkedIn, Instagram, X, Reddit) dahil her türlü veriyi API anahtarı olmadan çeker. — «İnternetteki her türlü veriyi çekmenizi sağlar. Hatta LinkedIn, Instagram, X ve Reddit gibi kapalı platformlardan bile tek bir API anahtarına para ödemeden veri toplamanızı sağlar.»
+- **Claude Skills** (DdZnbGqMfqO): GitHub üzerinden Claude projelerine erişim ve teknik beceri kullanımı — «Claude Skills»
+- **Neurons** (DdZO49mI8s2): Reklamlar için nörobilim tabanlı optimizasyon aracı. — «Test & Optimize Yo»
+- **motion-tasarim-ilham** (DdzpkF4BDP7): Hareketli grafik tasarımı için referans alınabilecek web sitelerinin listelenmesi. — «Five websites to steal motion ideas from.»
+- **I Have ADHD** (DeaERPzGF22): AI yanıtlarını daha kısa ve anlaşılır hale getiren, makaleyi adım adım özetleyen bir proje. — «A project designed to make AI responses more concise and easier to follow.»
+- **logo-design-skill** (DeazRGlxSoe): AI'ye logo tasarımı için eğitimli bir yetenek sağlar. — «This free skill makes Claude design like a real identity designer.»
+- **kategori/teknik/coğrafya/duygu analizi** (DeazRGlxSoe): 1,400+ gerçek SVG logo veritabanını inceleyerek standartları haritalar ve benzerlikleri önler. — «It studies over 1,400 real logos, so it knows which cliches to avoid.»
+- **konsept testleme** (DeazRGlxSoe): Her konsepti test eder ve 16 piksel, tek renk, 'splinting' gibi sınırlamalarla duraklar. — «Then it tests every concept. 16 pixels, one color, splinting, and it stops to show you the options before it builds anything.»
+- **ClaudeAI** (Deb9pYuS1P_): AI tabanlı CV yorumlama ve iyileştirme aracı. — «I made seven Claudes tell me.»
+- **robot-filtreleme** (Deb9pYuS1P_): İnsan gözünden önce geçen algoritmik filtreleme süreci. — «One, the robot filter.»
+- **hiring-manager** (Deb9pYuS1P_): İşveren tarafından yapılan CV değerlendirmesi. — «Two, the hiring manager.»
+- **recruiter** (Deb9pYuS1P_): İş arayanları değerlendiren personel. — «a recruiter»
+- **team-lead** (Deb9pYuS1P_): Takım lideri tarafından yapılan CV incelemesi. — «a team lead»
+- **peer-review** (Deb9pYuS1P_): Rekabetçi adayların CV değerlendirmesi. — «Even a rival applicant»
+- **CEO** (Deb9pYuS1P_): Yönetim kurulu tarafından yapılan CV incelemesi. — «And the CEO»
+- **api-ayar-otomasyonu** (DeB_xCxDT_F): API'lerin base URL, model ID ve config ayarlarını otomatik olarak kullanıcılara sunma. — «with the base URL, model ID and config for each. One-click setup for Claude Code, Cursor, Codex and Aider.»
+- **kaynak-erişim-simplifikasyonu** (DeB_xCxDT_F): Ücretsiz API'lerin erişimini kolaylaştırmak için email tabanlı kayıt sistemi sunma. — «Most need only an email.»
+- **Sterling PDF** (DebRohmE8b_): Tüm PDF araçlarını bir tek uygulama içinde ücretsiz sunan çözüm. — «every pdf tool ever made free in one app»
+- **WAP Neobank Blueprint** (DeC6XtipCQJ): AI ile 5 dakikada Coinbase benzeri bir neobank kurma yöntemi. — «Just one click, and I have a live Neobank.»
+- **open-source** (DecMMTcD5yS): Adobe uygulamalarını tamamen yeniden yazıp ücretsiz dağıtma. — «open source them which means that you can download every single one for free»
+- **humanizer** (DecQ0rOAtzu): AI yazılarını insan yazmış gibi görüntülemek için kullanılan bir yöntem. — «HumanizermakesAl-writtentextsoundlikeapersonwroteit, withoutchangingwhatitsays.»
+- **tell-removal** (DecQ0rOAtzu): AI yazılarında insanlar tarafından kolayca tespit edilen yazım özniteliklerini kaldırmak. — «Strip the tells, keep the truth.»
+- **markdown-tells** (DecQ0rOAtzu): AI'nin belirli yazım özniteliklerini kullanmasını engellemek için bir markdown dosyası oluşturmak. — «this guy wrote every single one of those tells into one markdown file»
+- **skill-forcing** (DecQ0rOAtzu): AI modelinin belirli bir yeteneği (skill) zorla kullanmasını sağlamak. — «you can force Claude to use it»
+- **Cal.com** (DeCUsonlChf): Açık kaynaklı planlama ve randevu sistemi. — «Kontrolu sanaveren acikkaynakli planlama aracl.»
+- **yt-dlp** (DeCUsonlChf): Komut satırı üzerinden ses ve video indirme aracı. — «YouTube,X,TikTok,Instagramve1.ooo'den fazla baska siteden video indir.»
+- **Whisper** (DeCUsonlChf): Ses dosyalarını metne dönüştüren konuşma tanıma modeli. — «99+ dilde konusmalari hizli ve dogru bicimde metne donustur.»
+- **Bitwarden** (DeCUsonlChf): Uçtan uca şifrelemeli parola yöneticisi. — «Sifrelerini, gecis anahtarlarini ve hassas bilgilerini uctan uca sifrelemeyle guvenle sakla.»
+- **AppFlowy** (DeCUsonlChf): Notion alternatifi açık kaynaklı çalışma alanı. — «The OpenSourceAlternativeToNotion»
+- **OpenJev** (DeD8sC4gqrO): Anlık karar modeli — «Anlik kararlar icin acik bir model: evet veya hayir de, bir secenek belirle ya da puan ver.»
+- **MinerU** (DeD8sC4gqrO): Belge dönüştürme — «PDF'leri,taramalari,Word dosyalarinive slaytlari yapay zekanin okuyabilecegi temiz Markdown'a donusturur.»
+- **PentAGI** (DedZGr6mUyS): Open-source autonomous AI Red Team for penetration testing. — «PentAGI is an open-source autonomous AI Red Team.»
+- **multi-agent** (DedZGr6mUyS): Multiple AI agents coordinate and share findings. — «Multiple AI agents coordinate and share findings»
+- **attack-planning** (DedZGr6mUyS): Plans attacks and runs security tools. — «Plans attacks and runs security tools»
+- **target-investigation** (DedZGr6mUyS): Investigates weaknesses in authorized targets. — «Investigates weaknesses in authorized targets»
+- **workflow-handling** (DedZGr6mUyS): Handles the workflow after you set the task. — «Handles the workflow after you set the task»
+- **Little Language Lessons** (DeEfRrDD5qg): Bağlama dayalı, yapay zeka destekli dil öğrenme yöntemi. — «Sistem sana o senaryoda gerçekten işine yarayacak kelimeleri, kalıpları ve ifadeleri hazırlıyor.»
+- **Slang Hang** (DeEfRrDD5qg): Günlük konuşma dili ve deyimlere odaklanan öğrenme yöntemi. — «Slang Hang Ozelligi sana insanlarin gunluk hayatta gercekten kullandigi ifadeleri ogretiyor.»
+- **Siber Güvenlik Cihazları Tanıtımı** (DeEkmIAguB3): Dijital güvenliği tehdit edebilecek 12 farklı fiziksel cihazın çalışma prensiplerinin tanıtımı yapılmıştır. — «Wi-Fi Pineapple’dan Flipper Zero’ya, O.MG kablolarından RFID okuyuculara kadar 12 cihazı ve ne işe yaradıklarını bu gönderide topladım.»
+- **Productivity** (DeeUKZLAEKR): Claude'a görev, takvim ve şirket işleyişinin hatırlamasını sağlar. — «gives Claude your tasks, your calendar, and a memory of how your workplace runs»
+- **Enterprise Search** (DeeUKZLAEKR): Claude'a Slack, belgeler ve diğer araçlar üzerinden arama yeteneği verir. — «lets Claude search across Slack, your docs, and your other tools at once»
+- **Sales** (DeeUKZLAEKR): Claude'ı CRM'ye bağlar ve görüşme öncesi hazırlık ve sonrası yazımını yapar. — «plugs Claude into your CRM, so it preps you before a call and writes the follow-up after it»
+- **PluginCreate** (DeeUKZLAEKR): Şirketin bir işlemini tarif ettikten sonra Claude'ın bunu bir plugin haline dönüştürmesini sağlar. — «where you describe how your company does something and Claude turns it into a plugin your whole team can use»
+- **Vanta** (DeexITYieW2): SOC 2 uyumluluğunu otomatik olarak sağlayan ve test eden agentic platform. — «Vanta connects to the tools you already use. It pulls the evidence itself. Then runs over 1,400 tests across them.»
+- **GSC MCP** (DeFG9nBuFfL): Google Search Console verilerini Claude'a bağlayarak SEO performansını analiz eder. — «Claude'u Google Search Console verilerinize bağlayarak mevcut performansınızı analiz etmenize yardımcı oluyor.»
+- **OpenSEO** (DeFG9nBuFfL): Ahrefs ve SEMrush'a alternatif olarak ücretsiz anahtar kelime araştırması, sıralama takibi, backlink kontrolü ve site denetimi yapar. — «Ahrefs ve SEMrush'a alternatif olarak ücretsiz anahtar kelime araştırmanızı, sıra takibinizi, bank link kontrollerinizi ve eksiksiz site denetimlerinizi üstlenir.»
+- **Jio Optimizer** (DeFG9nBuFfL): Web sitenizi Jio standartlarına göre inceler ve optimize eder. — «Web sitenizi Jio standartlarına göre inceler ve optimize eder.»
+- **Supabase Güvenlik Denetimi** (DeFKAw1xM1b): Supabase üzerindeki 5 temel güvenlik açığının tespiti ve giderilmesi. — «Supabase kullanıyorsan bu 5 şeye dikkat et.»
+- **claude.md** (DefRPnlkU6x): Projeye claude.md dosyası ekleyerek adlandırmalar, kütüphaneler ve kuralların her oturumda otomatik öğrenilmesini sağlamak. — «drop a claude.md file into your project and it automatically learns your naming conventions, libraries and rules every single session.»
+- **teach** (Deg8OIdjEg1): Öğrenmek istediğin konuyu söylediğinde ders planı yazar, özetler hazırlar ve ilerlemeyi hatırlar. — «Tell Claude what you want to learn and it becomes your personal tutor: it writes your lessons, makes cheat sheets and remembers exactly where you left off.»
+- **last-30-days** (Deg8OIdjEg1): Belirtilen konu hakkında son 30 günlük Reddit, X, YouTube ve TikTok verilerini derler. — «Give it any topic and it digs through Reddit, X, YouTube and TikTok to tell you exactly what people said about it last month.»
+- **Midjourney** (DegbWU2iMHu): Mood ve estetik için harika; topluluk tarafından oluşturulan birçok stil sunar. — «Great for mood and aesthetics. Lots of styles from the community.»
+- **Colibri AI** (DehErZxDfkE): Büyük AI modellerini RAM üzerinden değil diskten streaming ile çalıştırma yöntemi — «Colibri keeps that in RAM and streams the rest from your drive, like Netflix instead of a download.»
+- **vercel** (DehIM6ljqmB): Claude Code'dan direkt olarak web uygulamalarını canlıya yayınlar ve logları izlemeyi sağlar. — «'deploy et' diyorsun, Claude Code'dan çıkmadan siten yayında.»
+- **model-test** (DeHMM45NaFt): 400 kararlık test ile Jev modelinin alternatiflerinin performansını ölçme. — «Üstelik 400 kararlık bir testte Jev'i çok az farkla geçmiş kendisi.»
+- **API seçimi** (DehRnvjtul7): Ücretsiz LLM API'lerini karşılaştırarak kart gerektirmeyenleri seçme. — «Hangisi kredi kart istiyor, hangisi istemiyor, hangisine ödeme yapmanız lazım. Hepsi yanında yazıyor.»
+- **API entegrasyonu** (DehRnvjtul7): Ücretsiz API'leri Cloudco, Coursera, Codex veya Hermes Agent gibi platformlara bağlama. — «Bu modelleri alıp istediğiniz gibi Cloudco'da, Coursera, Codex'e hatta Hermes Agent içerisine bağlayabilirsiniz.»
+- **Dokümantasyon hazırlama** (DehRnvjtul7): API entegrasyonunu adım adım belgeleme. — «Bunu Cloudco'da nasıl bağlayabileceğinizi adım adım bir doküman haline getirdim.»
+- **open-source araçlar** (DehSTSsCQ6t): Tasarım araçlarını tamamen ücretsiz olarak yerine geçen 6 açık kaynaklı repo öneriyor. — «these 6 open-source repos replace your entire stack and they're free.»
+- **kullanım avantajları** (DehSTSsCQ6t): Abonelik, kullanıcı sınırı veya kilitlenmiş dosya formatları yok. — «no subscriptions. no seat limits. no locked-in file formats.»

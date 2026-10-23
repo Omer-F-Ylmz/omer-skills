@@ -1,0 +1,63 @@
+# Yöntemler — prompt-hilesi
+
+- **clear** (1Jb517FRX7I): Konuşma geçmişini temizler ve token kullanımını azaltır. — «Using the clear command between unrelated tasks.»
+- **MCP kapatma** (1Jb517FRX7I): Kullanılmayan MCP sunucularını kapatmak token israfını önler. — «Two, close the MCPs. You disconnect unused MCP servers.»
+- **Prompt birleştirme** (1Jb517FRX7I): Adımları tek bir mesajda toplayarak token kullanımını optimize eder. — «Combine prompts. Gather the steps into a single message.»
+- **Planlama modu** (1Jb517FRX7I): Projeyi planlamadan önce başlatmamak token israfını azaltır. — «Let's plan this, don't start yet.»
+- **Model hibrid kullanımı** (1Jb517FRX7I): Opus ve Sonnet modellerini sırayla kullanarak maliyet optimizasyonu yapar. — «After writing the base model, you can use Opus first and then use Sonnet afterwards.»
+- **Yeni konuşma başlatma** (1Jb517FRX7I): Uzun sohbetlerin token maliyetini azaltmak için yeni bir konuşma başlatır. — «One, start a new conversation.»
+- **Smart Paste** (1Jb517FRX7I): Yapılan işlemleri daha verimli bir şekilde tekrar kullanmak için kullanılır. — «Smart paste concept.»
+- **Prompt Diyeti** (5LLLxHxkCnI): Yapay zeka modellerine çok uzun ve detaylı promptlar yerine kısa brifler vererek modelin yaratıcılığını ve performansını artırma yöntemi. — «In this video, I will show you why that is. I'll explain why writing long prompts is now ridiculous. Not just ridiculous, but why it lowers model performance.»
+- **Claude Sistem Promptu Entegrasyonu** (AHqd07eSfX8): Sızdırılan Claude sistem promptunu ücretsiz modellere vererek çıktı kalitesini artırma yöntemi. — «The moment Anthropic released Opus 3.5, someone leaked its entire system prompt, which is over 100,000 characters long»
+- **Chet Chippity** (Db6urS4sQZR): ChatGPT'yi özel çalışma sistemine dönüştürmek için kullanılan 4 komutlu yöntem. — «Bu Chet Chippity komutları gerçekten muazzam. Sadece 4 basit komutta Chet Chippity tamamen sizi özel bir çalışma sistemine dönüştürebilirsiniz.»
+- **/analyze-property** (DbKJuD2mWbb): Command to analyze property — «/analyze-property "123 Main St"»
+- **Code Based Memory** (DbL-SXnMKDF): Repo tabanlı hafıza haritası oluşturma — «Code Based Memory»
+- **OmniRoute** (DbQx7UrM7Ud): Claude Code limitlerini aşan token tüketimini %90'a kadar azaltır ve otomatik model switch yapar. — «Bunu siz de denemek istiyorsanız yorumlara 'cloud' yazın, size göndereyim.»
+- **Voice DNA** (DbUQaEsgqeZ): Cümle ritmini ve kelime dağarcığını çıkararak Claude'un sizin gibi yazmasını sağlar. — «Voice DNA. This one extracts your sentence rhythm and vocabulary so that any future copy that Clawed writes will sound exactly as if you wrote it.»
+- **interaktif-avatar** (Dc5YDjKI9ta): Kullanıcı girdisine tepki veren avatarlı form prompti. — «I asked for a form where the avatar reacts to whatever you type.»
+- **OmniRoute** (Dc7G9Pxu_1O): Claude'a sınırsız kod kullanımı sağlayan 300+ AI API sağlayıcıyla entegrasyon. — «It gives Claude code almost unlimited usage by connecting to over 300 AI API providers.»
+- **Caveman** (Dc7G9Pxu_1O): Doldurucu sözcükleri ve hoşgörü ifadelerini kaldırarak token tüketimini azaltan doğrudan kod üreten plugin. — «It strips out filler words and pleasantries so you get the exact same code while burning way fewer tokens.»
+- **Perplexity MCP** (Dclo7W4jjQj): Claude searches the internet in real time directly from the terminal, without switching tabs or copy‑pasting. — «First is Perplexity MCP.»
+- **Playwright MCP** (Dclo7W4jjQj): Claude gains full control of any browser, allowing automatic interaction like clicking buttons, filling forms, and testing web apps. — «Second is Playwright MCP.»
+- **Firecrawl MCP** (Dclo7W4jjQj): Claude retrieves entire website content cleanly into the conversation, eliminating messy HTML. — «Third is Firecrawl MCP.»
+- **Higgsfield MCP** (Dclo7W4jjQj): Claude connects to over 30 image‑and‑video generation models, selecting the appropriate model based on user description. — «Fourth is Higgsfield MCP.»
+- **Chrome DevTools MCP** (Dclo7W4jjQj): Claude can see and interact with whatever is currently open in Chrome, enabling debugging, testing, and automation without leaving the terminal. — «Fifth is Chrome DevTools MCP.»
+- **9 Claude Skills** (Dcn3KY8A9Wa): Karmaşık fikirleri temiz görev tanımlarına dönüştüren dokuz farklı prompt stratejisi. — «9 Claude Skills that write your prompts for you.»
+- **/cheatsheet** (DcojLhFS2a3): Her konuyu hızlı görsel özet haline dönüştürür. — «/cheatsheet»
+- **/flashcards** (DcojLhFS2a3): Anında revizyon kartları oluşturur. — «/flashcards»
+- **/blueprint** (DcojLhFS2a3): Karışık konuları basit görsel rehberlere ayırır. — «/blueprint»
+- **Prompt Master** (DcR3mgtPMOP): AI prompt'lerini otomatik olarak optimize eden ve kredi tüketimini azaltan bir Claude skill'ı. — «Prompt Master is a free Claude skill that takes the messy paragraph you were going to send and turns it into an actual work order before it ever reaches the model.»
+- **hatırlama blokları** (DcR3mgtPMOP): Önceki düşünce süreçlerini hatırlayarak çelişkileri önleyen bir Memory Block sistemi. — «and it remembers your old thought process, so it even stops contradicting you on every chat.»
+- **Boss Loop** (DcrhGgKyBD8): AI kodlama ajanı için bir döngü sistemi oluşturmak için görevleri alt-ajentlere bölme ve bir 'boss' ajanı ile kalite kontrolü yapma. — «You give Claude a task, you tell it to spawn a team of worker sub-agents, and then you add a third line that most people leave out: appoint one agent as a strict boss whose only job is to open the rea»
+- **/grill-me** (DcRlYhYMHwZ): Kod yazmadan önce seni detaylıca sorgular — «/grill-me»
+- **TDD workflow** (DcRlYhYMHwZ): Test yazdırır ardından kod yazılmasına izin verir — «TDD workflow»
+- **Git guardrails** (DcRlYhYMHwZ): Güvenli commit ve PR alışkanlıklarını ileri sürdürüyor — «Git guardrails»
+- **Caveman skill** (DcRlYhYMHwZ): Token maliyetini %75’e kadar düşürür — «Caveman skill»
+- **npx skills add mattpocock/skills** (DcRlYhYMHwZ): Kodu çalıştırmak için komut — «npx skills add mattpocock/skills»
+- **Claude skill** (Dct7Hc1OO5V): video prompt generation — «Claude skill»
+- **Markitdown** (DcTI5sfoLGR): PDF, Word, Excel, PowerPoint ve YouTube videolarını temiz Markdown'a dönüştürerek token harcamasını %70 azaltan Microsoft'un ücretsiz aracı. — «Bu Microsoft'un ücretsiz bir aracı ve şimdiden GitHub'da 110.000'den fazla yıldızı var. Buraya herhangi bir şey yüklüyorsun. PDF, Word, Excel, PowerPoint hatta YouTube videoları bile yükleyebiliyorsun»
+- **DSLR Photo Enhancement** (DcvnLr2mHAz): Akıllı telefon fotoğraflarını ChatGPT kullanarak DSLR kalitesinde profesyonel portrelere ve çekimlere dönüştürme. — «CHATGPT CAN MAKE YOUR PHOTOSLOOK PROFESSIONALLY SHOT.HERE ARE8PROMPTSTO USE.»
+- **api-anahtarı-çıkarma** (DcyUuWdsup3): Wipecoding uygulamalarının network trafiğini inceleyerek API anahtarını bulma yöntemi. — «Wipecoding görünümlü herhangi bir uygulama bulun, sağ tıklayın ve incelemeye basın. Sonra network sayfasına gidin, sayfayı yenileyin ve eskiyi araması yapın.»
+- **distillation** (Dd6U-v6MMiY): Bir güçlü öğretici modelin yanıtlarını toplama ve bunları kullanarak öğrenci modelini eğitme yöntemi. — «The technique is called distillation.»
+- **Humanizer** (Dd7uZoIBkfI): AI yazımında 33 spesifik kalıba dayalı dökümantasyon ve yazıyı insan benzeri hale getirmek için kullanılan bir araç. — «This thing has 45,000 stars on GitHub and it hunts for 33 specific patterns that are seen in AI writing.»
+- **Impeccable** (Dd7uZoIBkfI): LLM'ler kullanmadan 61 tane belirleyici kurala dayanan AI yazımını tespit eden ve insan benzeri yazı üretebilen bir araç. — «This one has 61 different detector rules that work without LLMs.»
+- **Git Diagram** (Dd7W3RzlQlo): Bir GitHub linkinin başlığına `git diagram` eklenerek, Enter'a basılmasıyla projenin görsel bir diyagramı oluşturulur. — «git diagram»
+- **Git Ingest** (Dd7W3RzlQlo): Bir GitHub linkinin başlığına `git ingest` eklenerek, Enter'a basılmasıyla projenin özeti, klasör yapısı ve dosya içerikleri tek bir belgede toplanır. — «git ingest»
+- **Prompt Master** (Dd9HttYsLEX): Claude'un yanlış iş yapmasını engelleyen, token yaktığı bilinen hataları kontrol eden ve kararları hatırlayan ücretsiz bir beceri. — «Adı Prompt Master. GitHub’da 11.000 yıldız, MIT lisanslı, tamamen ücretsiz.»
+- **I Have ADHD** (Dd_-HzruoMJ): Yapay zekanın gereksiz detaylar vermesini önleyerek direkt adım adım ne yapılması gerektiğini söyleyen repo. — «4 numara I Have ADHD. Yapay zekanın cevabı gereksiz detayların arasında gömmesinden sıkıldıysan bu çok iyi. Size. Direkt ne yapmanız gerektiğini adım adım söylüyor.»
+- **Prompt Engineering** (Ddcd73yAshV): AI ile etkili çalışmayı öğrenmek için pratik yöntemler sunar. — «Prompt engineering 🎯»
+- **API anahtarı ücretsiz erişim** (Ddjo8rhBPXD): GitHub reposu üzerinden ücretsiz yapay zeka API'lerine erişim sağlama yöntemi. — «Artık yapay zeka API anahtarlarına para ödemene gerek kalmadı. Çünkü bu GitHub reposunun içerisinde ücretsiz API'ler var.»
+- **Cloud davranış paketi** (DdL6Q0rox-Z): Cloud MD'ye eklenen davranış paketi, kullanıcı şikayetlerini çözerek AI performansını artırır. — «Bu sistem aslında bir davranış paketi. Bunu Cloud MD'ne ekliyorsun. Ve bu genel Cloud kullanıcılarının %99'una şikayet ettiği konulara değinerek onları çözüyor senin için.»
+- **ClaudeMD** (DdoV5mik0DU): Claude AI'nin davranışsal becerilerini geliştirmek için kullanılan tek dosya yöntemi. — «behavior skills ClaudeMD»
+- **prompt paylaşımı** (DdrrLtFsd5z): Yorumlara "PROMPT" yazma — «Yorumlara "PROMPT" yazın»
+- **fiyat karşılaştırmalı otomatik seçici** (DdrsFDAu7qv): Çeşitli AI sağlayıcıların fiyatlarını karşılaştırarak en ucuz seçeneği otomatik olarak belirler. — «instead of one subscription the skill plugs claude into every provider at once then whenever you generate something it compares every offer and then automatically picks the cheapest»
+- **Effortless** (Debf2CdhWCE): Claude modu, prompt'leri okuyarak çaba seviyesini otomatik ayarlar. — «Effortless picks the effort level for every prompt.»
+- **brand-DNA prompt** (Debhj5guuoI): Markanın kimliğini içeren URL ve görsel referanslardan otomatik prompt oluşturma. — «It then uses its internal content guidelines to write the image generation prompt around your brand DNA.»
+- **AI-agent-ayırma** (Decg_eOD3UM): Geniş AI agent'lerini uzmanlaşmış alt-agent'lere bölerek işlemleri paralelleştirir. — «Most AI builders hand the whole build to one giant agent, but Superblocks splits it across specialized agents.»
+- **frontier-model-kullanımı** (Decg_eOD3UM): Zor mantık işlemleri için önde gelen modelleri kullanır. — «It uses frontier models for the difficult reasoning, and then it hands build work to cheaper open source models running in parallel.»
+- **ekonomik-parallel-inceleme** (Decg_eOD3UM): Geliştirme işini ucuz açık kaynaklı modellerle eşzamanlı olarak yürütür. — «cheaper open source models running in parallel.»
+- **AirLLM** (Ded57N9iD8_): 70B AI model'i 4GB GPU'da çalıştırmak için diskten katmanlı yükleme yöntemi. — «It loads one layer at a time, never the whole model.»
+- **Humanizer** (DeFbRbLuE2n): Yapay zeka izlerini temizleyerek metinlerin doğal görünmesini sağlayan yazım araçları. — «yapay zeka izleri taşıyan 33 belirgin göstergenin tamamını temizleyen Humanizer'ı kullanın.»
+- **plan-mode** (DefRPnlkU6x): Shift+Tab tuş kombinasyonu ile Plan Mode'u etkinleştirerek projeyi kod yazmadan önce haritalandırma. — «hit shift plus tab to activate plan mode and it maps out your entire project before writing a single line of code.»
+- **subagent-optimizasyon** (DegASWXxIDY): Claude API limitini aşmamak için zekice görev dağılımı yapar. — «someone built a skill that sorts every task first. The easy stuff like searching files and reading logs get sent to Haiku 5.5 and only the real thinking goes to Opus.»
+- **Ponytail** (DeHz9pjRytv): Claude Code çıktısını optimize eder ve token kullanımını %50+ azaltırken doğruluğu korur. — «optimizes Claude Code’s output and can reduce unnecessary token usage while keeping the results accurate.»
