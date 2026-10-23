@@ -8,6 +8,8 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 
 Kaynak: `docs/envanter/is-arac.md` §2. Satırda soldan sağa: önce kurulu ve ölçülmüş olan. `ajan:` = alt ajan; claude.ai'de alt ajan yok → bu klasördeki `ajanlar/<ad>.md` talimatını kendin uygula.
 
+Yeni eklenti aileleri (SKILL-YUKLE-1, 23 Eki): aile → departman eşlemesi `docs/kurulumlar/skill-yukle-1-eslesme.md`; ilgili departman-* müdürü o tabloya bakar.
+
 ## Sıra
 | İş türü | Sıra | Taraf notu |
 |---|---|---|
