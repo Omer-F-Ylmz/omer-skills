@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 import tempfile
 import time
@@ -12,12 +13,13 @@ import beyin_dusun as b
 class Taban(unittest.TestCase):
     def setUp(self):
         d = Path(tempfile.mkdtemp())
-        self.eski = {k: getattr(b, k) for k in ("OLAY", "DURUM", "KOTA", "ONERI", "BESLEME", "IS_KAYDI", "ICGORU", "ONERILER", "ONAY", "KILIT", "KART", "LIMIT", "_havuz", "_ram", "_derin_kaynak")}
+        self.eski = {k: getattr(b, k) for k in ("OLAY", "DURUM", "KOTA", "ONERI", "BESLEME", "IS_KAYDI", "ICGORU", "ONERILER", "ONAY", "KILIT", "KART", "LIMIT", "_havuz", "_kurallar", "_ollama", "ETKI", "_ram", "_derin_kaynak")}
         b.OLAY, b.DURUM, b.KOTA, b.ONERI, b.BESLEME = (d / n for n in ("olay.jsonl", "durum.json", "kota.json", "oneri.jsonl", "besleme.jsonl"))
         b.IS_KAYDI, b.ICGORU, b.ONERILER, b.ONAY, b.KILIT, b.KART = d / "is.tsv", d / "icgoru", d / "oneriler.md", d / "onay.md", d / "kilit", d / "kart.md"
         b.LIMIT = {p: 100 for p in b.SIRA}
         b._ram = lambda: 10
         b._derin_kaynak = lambda: "kaynak"
+        b._kurallar = lambda: []
         self.cagrilar = []
         self.yanit = "[]"
         b._havuz = self._sahte
@@ -72,11 +74,16 @@ class Tur(Taban):
         self.assertEqual(b.tur(), "atla")
         self.assertEqual(self.cagrilar, [])
 
-    def test_ram_yuksekse_bekler(self):
+    def test_ram_yuksekse_uzak_havuz_koşar_yerel_ollama_açılmaz(self):
         b.olay("arac", "Bash", "x", False)
         b._ram = lambda: 85
-        self.assertEqual(b.tur(), "bekle")
-        self.assertEqual(self.cagrilar, [])
+        self.assertEqual(b.tur(), "ok")  # uzak ücretsiz havuz RAM yemez: döngü RAM yüzünden durmaz
+        b.olay("arac", "Bash", "y", False)
+        b.LIMIT = {p: 0 for p in b.SIRA}
+        self.ollama_cagri = []
+        b._ollama = lambda istem, mt: self.ollama_cagri.append(1)
+        self.assertEqual(b.tur(), "kota-dolu")
+        self.assertEqual(self.ollama_cagri, [])  # RAM yüksekken Ollama açılmaz
 
     def test_olaylar_tek_istekte_oneri_olur(self):
         for i in range(5):
@@ -312,6 +319,118 @@ class Canli(Taban):
         b._oneri_yaz([{"id": "k1", "metin": "Paralel koş zamandan kazan", "tetik": "paralel hız koş", "tur": "", "kural": False, "durum": "kural", "destek": 3,
                        "kaynaklar": ["a"], "olusma": 0, "deneme": 0, "sebep": "", "gecmis": []}])
         self.assertIn("Paralel koş", b.satirlar("paralel hız koş görevi"))
+
+
+
+class Koc(Canli):
+    """BEYIN-CANLI-1b: bozuk satır dayanıklılığı, Claude'suz, Ollama yedeği, koçluk, çelişki, geri çekme."""
+
+    def setUp(self):
+        super().setUp()
+        b.ETKI = b.OLAY.parent / "etki.jsonl"
+        self.ollama = []
+        b._ollama = lambda istem, mt: self.ollama.append(istem) or "yerel yanıt"
+        self.addCleanup(os.environ.pop, "BEYIN_DUSUN", None)  # calis() bunu açar
+
+    def _kural(self, metin, tetik, durum="kural", destek=3, tur=""):
+        return {"id": metin[:3], "metin": metin, "tetik": tetik, "tur": tur, "kural": False, "durum": durum, "destek": destek,
+                "kaynaklar": ["a"], "olusma": 0, "deneme": 0, "sebep": "", "gecmis": []}
+
+    def _etki_kur(self, ad, once, sonra):
+        simdi = time.time()
+        z = lambda dk: time.strftime("%Y-%m-%d %H:%M", time.localtime(simdi + dk * 60))  # noqa: E731
+        o = self._kural(ad, "etki kural", durum="kural")
+        o["olusma"] = simdi - 7200
+        b._oneri_yaz([o])
+        b.BESLEME.write_text("".join(json.dumps({"t": simdi + i * 600, "ids": [o["id"]]}) + "\n" for i in range(3)), encoding="utf-8")
+        satir = [(z(-100 + 10 * i), f"e{i}", u, s) for i, (u, s) in enumerate(once)] + [(z(1 + 10 * i), f"y{i}", u, s) for i, (u, s) in enumerate(sonra)]
+        b.IS_KAYDI.write_text("zaman\tis\tefor\tdk\tadim\tagirlikli\tusd\tsonuc\tkalite\n" + "".join(
+            f"{zz}\t{i}\t-\t1\t1\t1\t{u}\t{s}\t-\n" for zz, i, u, s in satir), encoding="utf-8")
+        return o
+
+    def test_bozuk_olay_satiri_donguyu_cokertmez(self):
+        b.olay("arac", "Bash", "ok")
+        with b.OLAY.open("ab") as f:
+            f.write(b'{"zaman": "2026-10-23", "olay": "ders", "konu": "X"}\n[1, 2]\n{"tur": "arac"}\n')
+        olaylar, _ = b._olay_oku(0)
+        self.assertEqual(len(olaylar), 2)
+        self.assertTrue(all("tur" in o and "arac" in o and "hata" in o and "ozet" in o for o in olaylar))
+        self.assertIn("olay", b._ozet_olay(olaylar))
+        self.assertEqual(b.tur(), "ok")
+
+    def test_calis_hatada_alarm_yazar_ve_tur_t_ilerler(self):
+        def patla():
+            raise RuntimeError("deneme")
+        eski = b.tur
+        b.tur = patla
+        try:
+            self.assertEqual(b.calis(), "hata")
+        finally:
+            b.tur = eski
+        self.assertIn("RuntimeError", b.ALARM.read_text(encoding="utf-8"))
+        self.assertIn("tur_t", b._json(b.DURUM, {}))
+
+    def test_claude_yolu_yok(self):
+        kaynak = Path(b.__file__).read_text(encoding="utf-8")
+        for yasak in ("claude -p", '["claude"', "api.anthropic.com", "haiku_tavan=1", "haiku_tavan=2"):
+            self.assertNotIn(yasak, kaynak)
+        b.olay("arac", "Bash", "x")
+        b.tur()
+        b.kocluk_uret("is-1", "DUR · kalite düşük")
+        self.assertTrue(self.cagrilar)
+        self.assertTrue(all(kw.get("haiku_tavan", 0) == 0 for _, kw in self.cagrilar))
+
+    def test_hepsi_doluysa_ollama_yerelde_claude_yok(self):
+        b.LIMIT = {p: 0 for p in b.SIRA}  # hepsi %80 üstü
+        self.assertEqual(b._sor("ozet", "soru", 100), ("yerel yanıt", "ollama/yerel"))
+        self.assertEqual(self.cagrilar, [])
+
+    def test_ollama_da_yoksa_bekler(self):
+        b.LIMIT = {p: 0 for p in b.SIRA}
+        b._ollama = lambda istem, mt: None
+        self.assertEqual(b._sor("ozet", "soru", 100), (None, None))
+
+    def test_kocluk_uret_ucretsiz_model_yazar(self):
+        self.yanit = "Ben olsam önce testi koşardım, sonra commit ederdim."
+        self.assertTrue(b.kocluk_uret("video-1", "DUR · eksik araç: markitdown"))
+        o = [x for x in self._olaylar() if x["tur"] == "kocluk"]
+        self.assertEqual(len(o), 1)
+        self.assertIn("ucretsiz", o[0]["arac"])
+        self.assertIn("testi koşardım", o[0]["ozet"])
+
+    def test_kocluk_desktop_okuyucu_ve_oncelik(self):
+        b.DESKTOP.write_text(json.dumps({"tur": "kocluk", "hedef": "test koş", "ozet": "Önce kırmızı testi gör", "ders": "kırmızıyı kanıtla"}) + "\n"
+                             + json.dumps({"tur": "hata", "ozet": "x", "ders": "y"}) + "\n", encoding="utf-8")
+        self.assertEqual(b.kocluk_oku(), 1)
+        self.assertEqual(b.kocluk_oku(), 0)  # ofset ilerler
+        b._oneri_yaz(b.oneri_oku() + [self._kural("Paralel koş zamandan kazan test", "test koş paralel", durum="kural", destek=9)])
+        blok = b.satirlar("test koş kırmızı kanıtla işi")
+        self.assertTrue(blok.splitlines()[0].startswith("- KOÇLUK"))
+
+    def test_celiskili_ders_reddedilir(self):
+        b._kurallar = lambda: ["K2h önce ücretsiz havuz kullan; Claude yalnız karar ve birleştirme"]
+        self.yanit = "ÇELİŞİR"
+        d, _ = b.oneri_ekle({"tur": "ucuz", "oneri": "Ağır işi doğrudan Claude ile yap ücretsiz havuzu atla", "tetik": "ağır iş ücretsiz havuz", "kural": False}, "a/m")
+        self.assertEqual(d, "ret")
+        self.assertEqual(b.oneri_oku(), [])
+        self.assertIn("çelişki", " ".join(o["ozet"] for o in self._olaylar() if o["tur"] == "celiski"))
+        self.yanit = "ÇELİŞMEZ"
+        d, _ = b.oneri_ekle({"tur": "ucuz", "oneri": "Ağır işi ücretsiz havuzda iki aile ile doğrula", "tetik": "ağır iş ücretsiz havuz", "kural": False}, "a/m")
+        self.assertEqual(d, "yeni")
+
+    def test_zararli_kural_geri_cekilir(self):
+        o = self._etki_kur("Zararlı kural metni burada", [(0.4, "success")] * 3, [(1.0, "fail"), (1.0, "success"), (1.0, "fail")])
+        b.kanitla()
+        self.assertEqual(b.oneri_oku()[0]["durum"], "geri-cekildi")
+        self.assertIn("geri-cekildi", [x["tur"] for x in self._olaylar()])
+        self.assertIn(o["id"], b.ETKI.read_text(encoding="utf-8"))
+        self.assertNotIn("Zararlı", b.satirlar("etki kural işi"))
+
+    def test_faydali_kural_kalir(self):
+        self._etki_kur("Faydalı kural metni burada", [(1.0, "success")] * 3, [(0.4, "success")] * 3)
+        b.kanitla()
+        self.assertEqual(b.oneri_oku()[0]["durum"], "kural")
+        self.assertIn('"karar": "kal"', b.ETKI.read_text(encoding="utf-8"))
 
 
 if __name__ == "__main__":

@@ -24,13 +24,14 @@ import ders  # noqa: E402  sır süzgeci + kök eşleme
 KOP = KOK / ".kos/kopru"
 OLAY, DURUM, KOTA, ONERI, BESLEME = (KOP / n for n in ("beyin-olay.jsonl", "beyin-durum.json", "beyin-kota.json", "beyin-oneri.jsonl", "beyin-besleme.jsonl"))
 KILIT, KART, ONAY, IS_KAYDI = KOP / "beyin-kilit", KOP / "icgoru-kart.md", KOP / "onay-bekliyor.md", KOP / "is-kaydi.tsv"
-ALARM, OZET, DESKTOP = (KOP / n for n in ("beyin-alarm.txt", "beyin-ozet.md", "beyin-desktop.jsonl"))
+ALARM, OZET, DESKTOP, ETKI = (KOP / n for n in ("beyin-alarm.txt", "beyin-ozet.md", "beyin-desktop.jsonl", "beyin-etki.jsonl"))
 GOREV = "omer-beyin-dusun"  # onay/beyin_dusun.py zamanlanmış görevi (2 dk)
 KASA = Path(r"C:\Users\pc\Desktop\Obsidian")
 ICGORU, ONERILER = KASA / "20-icgoru", KASA / "10-kararlar/oneriler.md"
 SIRA = ["gemini", "groq", "nvidia", "mistral", "cloudflare", "openrouter"]
 LIMIT = None  # sağlayıcı günlük istek sınırı; None → havuz ENT'sinden (bkz. _limit)
 ESIK, RAM_ESIK, MAX_DENEME, ISTEM_TAVAN = 0.8, 80, 3, 3500
+OLLAMA_MODEL = "gemma4:12b"  # yerel yedek: hiçbir ücretsiz sağlayıcı kalmadıysa aç-işle-kapat
 HATA_RE = re.compile(r"Traceback \(most|exit code [1-9]|\bFAILED\b|rc=[1-9]")
 KURAL_RE = re.compile(r"\bK\d+[a-z-]*\b|CLAUDE\.md|Kurallar\.md|kural\w* (kaldır|değiştir|gevşet|sil)|nihai kural", re.I)
 JSON_ISTEM = ('Yalnız JSON liste ver (en fazla {n} madde, yoksa []): [{{"tur":"hata|ucuz|hiz|kalite|arac|ram|akis","oneri":"tek kısa emir cümlesi, ≤80 karakter",'
@@ -40,6 +41,10 @@ ISTEM_HAFIF = ("Aşağıda bir yazılım ajanının son 2 dakikadaki araç olayl
 ISTEM_DERIN = ("Aşağıda son saatlerin beyin notları, raporlar, iş kaydı ($/kalite), dersler, denetim satırları var. Yaptığımız HER ŞEY için "
                "daha hatasız / ucuz / hızlı / kaliteli yolu düşün: tekrar eden hata kalıbı → tek kural, en ucuz+kaliteli kombin, bir ajanın çözümünün "
                "başka iş türüne uyumu, eksik araç kullanımı, bir sonraki işte denenecek fikir. Yalnız kanıtlı olanı yaz.\n" + JSON_ISTEM.format(n=5) + "Kaynak:\n")
+ISTEM_KOCLUK = ("Aşağıda bir ajanın işinin sonucu ve denetim satırı var. Deneyimli bir koç gibi TEK cümle yaz: 'Ben olsam ...' ile başla, bu iş türünde bir sonraki "
+                "ajanın daha hatasız/ucuz/hızlı yapması için somut yöntem öner (≤140 karakter, yalnız kanıtlı çıkarım, genel öğüt yok).\nİş: ")
+ISTEM_CELISKI = ("Tek kelime yanıtla: ÇELİŞİR ya da ÇELİŞMEZ. Yeni ders aşağıdaki mevcut kurallardan birine aykırı bir davranış mı öneriyor?\n"
+                 "Kurallar:\n{k}\nYeni ders: {m} (tetik: {t})\n")
 ISTEM_DUZELT = ('Şu öneri denendi ve kötüleştirdi. Neden kötüleştiğini düşün, düzeltilmiş halini ver. Yalnız JSON: {{"oneri":"≤80 karakter emir cümlesi","tetik":"3-6 sözcük"}}\n'
                 'Öneri: {m}\nTetik: {t}\nKötüleşme: {s}\nÖnceki denemeler: {g}\n')
 
@@ -134,9 +139,11 @@ def _olay_oku(ofset):
     out = []
     for s in ham[:bitis].decode("utf-8", "replace").splitlines():
         try:
-            out.append(json.loads(s))
+            x = json.loads(s)
         except ValueError:
-            pass
+            continue
+        if isinstance(x, dict) and x.get("tur"):  # beyin_kayit.py gibi şemasız satırlar döngüyü çökertmesin
+            out.append({"t": 0, "arac": "", "ozet": "", "hata": False, **x})
     return out, ofset + bitis
 
 
@@ -218,13 +225,43 @@ def _aile(kaynak):
     return next((e.aile for e in h.ENT if h.ad(e) == kaynak), (kaynak or "").split("/")[0])
 
 
+def _ollama(istem, max_tokens):
+    """Yerel Ollama: sunucu kapalıysa aç, işle, kapat (RAM sonra serbest). Yanıt yoksa None."""
+    import urllib.request
+
+    def uc(yol, veri=None, zaman=5):
+        r = urllib.request.Request("http://127.0.0.1:11434" + yol, data=json.dumps(veri).encode() if veri else None, headers={"Content-Type": "application/json"})
+        return json.load(urllib.request.urlopen(r, timeout=zaman))
+    proc = None
+    try:
+        try:
+            uc("/api/tags", zaman=2)
+        except OSError:
+            proc = subprocess.Popen(["ollama", "serve"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)
+            for _ in range(30):
+                time.sleep(1)
+                try:
+                    uc("/api/tags", zaman=2); break
+                except OSError:
+                    pass
+        y = uc("/api/chat", {"model": OLLAMA_MODEL, "stream": False, "think": False, "keep_alive": 0, "messages": [{"role": "user", "content": istem}],
+                             "options": {"num_ctx": 8192, "num_predict": max_tokens}}, zaman=180)
+        return (y.get("message") or {}).get("content") or None
+    except (OSError, ValueError, KeyError):
+        return None
+    finally:
+        if proc:
+            subprocess.run(["taskkill", "/T", "/F", "/PID", str(proc.pid)], capture_output=True, creationflags=0x08000000)
+
+
 def _sor(tur, istem, max_tokens, zaman=60, rotasyon=True, **kw):
     """→ (metin, kaynak). rotasyon: sağlayıcılar sırayla (hafif tur); değilse havuz seçer (derin tur). Her deneme kotaya yazılır. Claude'a düşmez (haiku_tavan=0)."""
     denenen = set()
     while True:
         p = siradaki(denenen) if rotasyon else None
-        if rotasyon and p is None:
-            return None, None
+        if rotasyon and p is None:  # ücretsiz sağlayıcıların hepsi dolu → yerel Ollama (Claude'a düşme yok); o da yoksa bekle
+            y = _ollama(istem, max_tokens) if _ram() < RAM_ESIK else None
+            return (y, "ollama/yerel") if y else (None, None)
         y, k, _ = _havuz(tur, istem, max_tokens=max_tokens, zaman=zaman, **({"saglayici": p} if p else {}), **kw)
         _kota_ekle(p or (k or "?/?").split("/")[0], len(istem) // 3 + max_tokens)
         if y or not rotasyon:
@@ -249,6 +286,24 @@ def _oneri_yaz(liste):
     _yaz_bayt(ONERI, "".join(json.dumps(x, ensure_ascii=False) + "\n" for x in liste))
 
 
+def _kurallar():
+    """Mevcut kural satırları: Kurallar.md (Obsidian) + kalıcılaşmış (durum=kural) dersler."""
+    kf = KASA / "10-kararlar/Kurallar.md"
+    satir = [s.strip() for s in kf.read_text(encoding="utf-8", errors="replace").splitlines() if len(s.strip()) > 20] if kf.exists() else []
+    return satir + [x["metin"] for x in oneri_oku() if x["durum"] == "kural"]
+
+
+def celiski(metin, tetik):
+    """→ çelişen kural satırı | ''. Kural eşleştirme (≥2 ortak kök, en çok 3 aday) sonra ücretsiz model: ÇELİŞİR/ÇELİŞMEZ."""
+    a = set(ders.kelimeler(metin + " " + tetik))
+    aday = sorted(((len(a & set(ders.kelimeler(k))), k) for k in _kurallar()), reverse=True)
+    aday = [k for n, k in aday[:3] if n >= 2]
+    if not aday:
+        return ""
+    y, _ = _sor("ozet", ISTEM_CELISKI.format(k="\n".join("- " + k[:200] for k in aday), m=metin, t=tetik), 20)
+    return aday[0] if y and re.search(r"ÇELİŞİR", y.upper()) and "ÇELİŞMEZ" not in y.upper() else ""
+
+
 def oneri_ekle(o, kaynak):
     """→ ('yeni'|'destek'|'ret', öneri). Benzer öneri birleşir; farklı 2 aile ya da kaynak → deneniyor (kural değiştiren hariç)."""
     metin, tetik = str(o.get("oneri", "")).strip()[:90], str(o.get("tetik", "")).strip()[:80]
@@ -269,6 +324,10 @@ def oneri_ekle(o, kaynak):
                 x["durum"] = "onay-bekliyor" if x["kural"] else "deneniyor"
             _oneri_yaz(liste)
             return "destek", x
+    cakisan = celiski(metin, tetik)
+    if cakisan:
+        olay("celiski", kaynak, f"çelişki: '{metin[:60]}' ↔ '{cakisan[:60]}'")
+        return "ret", None
     yeni = {"id": hashlib.sha1(metin.encode()).hexdigest()[:6], "metin": metin, "tetik": tetik, "tur": str(o.get("tur", ""))[:12], "kural": kural,
             "durum": "taslak", "destek": 1, "kaynaklar": [kaynak], "olusma": time.time(), "deneme": 0, "sebep": "", "gecmis": []}
     _oneri_yaz(liste + [yeni])
@@ -293,11 +352,16 @@ def _ort(rows):
     return sum(r[1] for r in rows) / len(rows), sum(r[2] for r in rows) / len(rows)
 
 
+def _etki_yaz(x):
+    with ETKI.open("ab") as f:
+        f.write((json.dumps(x, ensure_ascii=False) + "\n").encode("utf-8"))
+
+
 def kanitla(min_n=3):
-    """Önerinin beslendiği işler (besleme anından sonraki ilk iş satırı) ↔ diğer işler: $ ve hata oranı. İyileşti → kanitlandi, kötüleşti → elendi."""
+    """Önerinin beslendiği işler (besleme anından sonraki ilk iş satırı) ↔ diğer işler: $ ve hata oranı. İyileşti → kanitlandi, kötüleşti → elendi (kural ise geri-cekildi); her karar etki defterine."""
     rows, besleme, liste = _is_oku(), [json.loads(s) for s in BESLEME.read_text(encoding="utf-8").splitlines() if s.strip()] if BESLEME.exists() else [], oneri_oku()
     for o in liste:
-        if o["durum"] not in ("deneniyor", "kanitlandi"):
+        if o["durum"] not in ("deneniyor", "kanitlandi", "kural"):
             continue
         bagli = set()
         for t in sorted(x["t"] for x in besleme if o["id"] in x["ids"] and x["t"] >= o["olusma"]):
@@ -309,7 +373,13 @@ def kanitla(min_n=3):
             continue
         (uw, hw), (uo, ho) = _ort(w), _ort(wo)
         ozet = f"önerili {len(w)} iş ${uw:.2f} hata %{hw * 100:.0f}; diğer {len(wo)} iş ${uo:.2f} hata %{ho * 100:.0f}"
-        if hw > ho or uw > 1.25 * uo:
+        kotu = hw > ho or uw > 1.25 * uo
+        _etki_yaz({"t": time.time(), "id": o["id"], "metin": o["metin"], "is": len(w), "usd_ile": round(uw, 2), "usd_siz": round(uo, 2),
+                   "hata_ile": round(hw, 2), "hata_siz": round(ho, 2), "karar": "geri" if kotu and o["durum"] == "kural" else "elendi" if kotu else "kal"})
+        if kotu and o["durum"] == "kural":  # BEYIN-CANLI-1b: kurala dönmüş ders zarar verdi → otomatik geri çek, nedeni beyne
+            o["durum"], o["sebep"] = "geri-cekildi", ozet
+            olay("geri-cekildi", o["id"], f"geri çekildi '{o['metin'][:60]}': {ozet}", True)
+        elif kotu:
             o["durum"], o["sebep"] = "elendi", ozet
         elif o["durum"] == "deneniyor" and hw <= ho and uw <= 1.1 * uo and (hw < ho or uw < uo):
             o["durum"], o["sebep"] = "kanitlandi", ozet
@@ -335,6 +405,59 @@ def duzelt():
         o["gecmis"].append({"metin": o["metin"], "sebep": o["sebep"]})
         o.update(metin=m, tetik=str(j.get("tetik", o["tetik"]))[:80], durum="taslak", deneme=o["deneme"] + 1, kaynaklar=[k], destek=1, olusma=time.time())
     _oneri_yaz(liste)
+
+
+# ---- koçluk ($0: notu ücretsiz model üretir; Desktop yalnız kaçırdığını ekler) ----
+def kocluk_ekle(hedef, metin, kaynak):
+    """Koçluk notu → öneri deposu (tur=kocluk, ikinci aileyi beklemez: deneniyor). Etkisi kanitla ile ölçülür."""
+    d, x = oneri_ekle({"tur": "kocluk", "oneri": metin, "tetik": hedef, "kural": False}, kaynak)
+    if x and x["durum"] == "taslak":
+        liste = oneri_oku()
+        for o in liste:
+            if o["id"] == x["id"]:
+                o["durum"], o["tur"] = "deneniyor", "kocluk"
+        _oneri_yaz(liste)
+    return d
+
+
+def kocluk_uret(ad, sonuc):
+    """Biten işin sonuç/denetim satırından 'ben olsam' notu (ücretsiz model, Claude yok) → olay tur=kocluk, kaynak=ucretsiz."""
+    y, k = _sor("ozet", ISTEM_KOCLUK + f"{ad}: {sonuc}"[:900], 120)
+    y = " ".join((y or "").split())[:160]
+    if len(y) < 15:
+        return False
+    return olay("kocluk", f"ucretsiz:{k}", y)
+
+
+def kocluk_isle(en_cok=2):
+    """Yeni biten işler ('is' olayı) + denetim satırları → kocluk_uret; ofset DURUM'da (koc_t)."""
+    d = _json(DURUM, {})
+    olaylar, _ = _olay_oku(0)
+    yeni = [o for o in olaylar if o["tur"] == "is" and o["t"] > d.get("koc_t", 0)]
+    for o in sorted(yeni, key=lambda o: not o["hata"])[:en_cok]:
+        den = " | ".join(x["ozet"] for x in olaylar if x["tur"] == "denetim" and x["arac"] == o["arac"])
+        kocluk_uret(o["arac"], o["ozet"] + (" · " + den if den else ""))
+    if yeni:
+        _yaz_bayt(DURUM, json.dumps({**_json(DURUM, {}), "koc_t": max(o["t"] for o in yeni)}))
+    return len(yeni)
+
+
+def kocluk_oku():
+    """beyin-desktop.jsonl'daki tur=kocluk satırları → koçluk önerisi (kaynak desktop); ofset DURUM'da."""
+    if not DESKTOP.exists():
+        return 0
+    d, satir = _json(DURUM, {}), DESKTOP.read_text(encoding="utf-8", errors="replace").splitlines()
+    n = 0
+    for s in satir[d.get("koc_ofset", 0):]:
+        try:
+            x = json.loads(s)
+        except ValueError:
+            continue
+        if isinstance(x, dict) and x.get("tur") == "kocluk":
+            kocluk_ekle(str(x.get("hedef", "")) + " " + str(x.get("ders", "")), str(x.get("ozet", "")) or str(x.get("ders", "")), "desktop/kocluk")
+            n += 1
+    _yaz_bayt(DURUM, json.dumps({**_json(DURUM, {}), "koc_ofset": len(satir)}))
+    return n
 
 
 # ---- yaz ----
@@ -408,15 +531,16 @@ def satirlar(gorev):
         sorgu, ab = set(ders.kelimeler(gorev[:600])), int(hashlib.sha1(gorev[:600].encode()).hexdigest()[:2], 16) % 2
         aday = []
         for o in oneri_oku():
-            if o["durum"] not in ("kural", "kanitlandi", "deneniyor") or o["kural"] or (o["durum"] == "deneniyor" and ab):
+            koc = o["tur"] == "kocluk"
+            if o["durum"] not in ("kural", "kanitlandi", "deneniyor") or o["kural"] or (o["durum"] == "deneniyor" and ab and not koc):
                 continue
             ortak = len(sorgu & set(ders.kelimeler(o["tetik"] + " " + o["metin"])))
             if ortak >= 2:
-                aday.append(({"kural": 2, "kanitlandi": 1}.get(o["durum"], 0), ortak, o["destek"], o))
+                aday.append((3 if koc else {"kural": 2, "kanitlandi": 1}.get(o["durum"], 0), ortak, o["destek"], o))
         sec = [a[3] for a in sorted(aday, key=lambda a: a[:3], reverse=True)[:2]]
         if not sec:
             return ""
-        blok = "\n".join(f"- {o['metin'][:80]}" for o in sec)
+        blok = "\n".join(f"- {'KOÇLUK: ' if o['tur'] == 'kocluk' else ''}{o['metin'][:80]}" for o in sec)
         with BESLEME.open("ab") as f:
             f.write((json.dumps({"t": time.time(), "ids": [o["id"] for o in sec], "jeton": len(blok) // 3}) + "\n").encode("utf-8"))
         return blok
@@ -426,13 +550,11 @@ def satirlar(gorev):
 
 # ---- düşün ----
 def tur():
-    """Hafif tur → 'atla' (olay yok) | 'bekle' (RAM) | 'kota-dolu' | 'havuz-yok' | 'ok'. Başarısızlıkta ofset ilerlemez (olaylar kaybolmaz)."""
+    """Hafif tur → 'atla' (olay yok) | 'kota-dolu' (Ollama da yok/RAM yüksek) | 'havuz-yok' | 'ok'. Başarısızlıkta ofset ilerlemez (olaylar kaybolmaz)."""
     d = _json(DURUM, {})
     olaylar, ofset = _olay_oku(d.get("ofset", 0))
     if not olaylar:
         return "atla"
-    if _ram() >= RAM_ESIK:
-        return "bekle"
     y, k = _sor("ozet", ISTEM_HAFIF + _ozet_olay(olaylar), 700)
     if k is None:
         return "kota-dolu"
@@ -496,8 +618,9 @@ def calis():
     if not _kilit_al():
         return "mesgul"
     try:
-        desktop_al()
-        r = tur(); d = _json(DURUM, {}); gec = time.time() - d.get("derin_t", 0)
+        desktop_al(); kocluk_oku()
+        r = tur(); kocluk_isle() if r == "ok" else None
+        d = _json(DURUM, {}); gec = time.time() - d.get("derin_t", 0)
         if r != "bekle" and (gec >= 7200 or (r == "atla" and gec >= 1800 and d.get("olay_say", 0) > 0)):
             r += "+derin:" + derin()
         if r != "bekle":
@@ -505,6 +628,10 @@ def calis():
         ozet_yaz()
         _yaz_bayt(DURUM, json.dumps({**_json(DURUM, {}), "tur_t": time.time()}))
         return r
+    except Exception as e:  # sessiz ölüm yok: alarm + tur_t ilerler (bekçi "ölü" saymasın, Desktop alarmı okur)
+        _yaz_bayt(ALARM, f"{time.strftime('%d %H:%M')} döngü hatası: {type(e).__name__}: {str(e)[:120]}\n")
+        _yaz_bayt(DURUM, json.dumps({**_json(DURUM, {}), "tur_t": time.time()}))
+        return "hata"
     finally:
         KILIT.unlink(missing_ok=True)
 

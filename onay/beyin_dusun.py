@@ -21,6 +21,16 @@ AYAR = Path.home() / ".claude" / "settings.json"
 OLAYLAR = ("UserPromptSubmit", "PostToolUse", "PostToolUseFailure", "Stop")
 
 
+def _gorev_kur():
+    """ASLA durmaz: her 2 dk sonsuz (yeniden başlatma/oturum açılışından sonra ilk dilimde sürer; AtLogOn tetiği yönetici ister, gerekmez), uykudan dönünce kaçan tur hemen (StartWhenAvailable), pilde de koşar, takılırsa 10 dk sonra öldürülür."""
+    arg = f'--headless "{sys.executable}" "{BETIK}" tur'
+    ps = (f"$a = New-ScheduledTaskAction -Execute 'C:\\Windows\\System32\\conhost.exe' -Argument '{arg}'; "
+          "$t = New-ScheduledTaskTrigger -Once -At (Get-Date).Date -RepetitionInterval (New-TimeSpan -Minutes 2); "
+          "$s = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 10); "
+          f"Register-ScheduledTask -TaskName '{AD}' -Action $a -Trigger $t -Settings $s -Force | Out-Null; Start-ScheduledTask -TaskName '{AD}'")
+    return subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True)
+
+
 def _kanca_mi(h):
     return "beyin_dusun.py" in h.get("command", "")
 
@@ -42,7 +52,7 @@ kip = sys.argv[1] if len(sys.argv) > 1 else "--kuru"
 if kip == "--kuru":
     mevcut = subprocess.run(["schtasks", "/Query", "/TN", AD], capture_output=True).returncode == 0
     print(f"görev {AD}: {'VAR' if mevcut else 'yok'} · pythonw {os.path.exists(PYW)} · betik {os.path.exists(BETIK)}")
-    print(f"uygula: schtasks /Create /TN {AD} /SC MINUTE /MO 2 /TR {TR} /F")
+    print(f"uygula: Register-ScheduledTask {AD} (2 dk sonsuz, StartWhenAvailable, pilde de) · yalnız görev için: gorev")
     print(f"kanca olayları: {', '.join(OLAYLAR)} → {KOMUT}")
 elif kip == "uygula":
     if not os.path.exists(PYW):
@@ -55,8 +65,11 @@ elif kip == "uygula":
         a.setdefault("hooks", {}).setdefault(o, []).append({"hooks": [{"type": "command", "command": KOMUT, "timeout": 5}]})
     a["hooks"].setdefault("SessionStart", []).append({"hooks": [{"type": "command", "command": OZET_KMT, "timeout": 5}]})  # BEYIN-CANLI-1: 2. beyin özeti oturum bağlamına
     _yaz(a)
-    r = subprocess.run(["schtasks", "/Create", "/TN", AD, "/SC", "MINUTE", "/MO", "2", "/TR", TR, "/F"], capture_output=True, text=True)
-    print("yedek:", yed.name, "·", r.stdout.strip() or r.stderr.strip())
+    r = _gorev_kur()
+    print("yedek:", yed.name, "·", r.stdout.strip() or r.stderr.strip() or "görev kuruldu")
+elif kip == "gorev":  # yalnız zamanlanmış görevi (yeniden) kur; settings.json'a dokunmaz
+    r = _gorev_kur()
+    print(r.stdout.strip() or r.stderr.strip() or "görev kuruldu")
 elif kip == "--geri":
     a = json.loads(AYAR.read_text(encoding="utf-8"))
     _temizle(a)
