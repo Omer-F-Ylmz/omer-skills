@@ -762,6 +762,10 @@ def main():
                           "bitir, doğrula, raporla. Hedefi aştıysan raporda nedenini tek satır yaz.")
                 metin += f"\n[ara kayıt] Uzun işte her parça sonunda commit ya da .kos/kopru/ara/{ad}.md ilerleme notu yaz; yönetici kesilirse iş buradan sürer."  # d4
                 metin += gorev_yolu_satir(istem)  # NİHAİ-DÜZELT-2 C: görev dosyası MUTLAK yol
+                try:
+                    sys.path.insert(0, str(KOK / "tools")); import mcp_profil; metin += mcp_profil.codemode()  # CODE-MODE-AB-1: CC_CODEMODE=1
+                except Exception:
+                    pass
                 kesik = DEVAM.pop(ad, None)  # d3: kurtarılan iş transkripti varsa aynı oturumdan sürer
                 sid = kesik or str(uuid.uuid4())
                 if kesik:

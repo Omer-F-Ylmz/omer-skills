@@ -26,8 +26,8 @@ python C:/Projeler/omer-skills/tools/cm.py run -c "return gw.time_get_current_ti
 - Tarayıcı (pw.*) oturumu tek `run` içinde yaşar: navigate → snapshot → close aynı dosyada.
 - Varsayılan zaman aşımı 60 sn (`--timeout 120000`).
 
-## Bağlı manual'lar (tools/code-mode/.utcp_config.json, 91 araç)
-- `gw.*` — time, fetch, memory (graph), brave (web/haber/görsel arama), markitdown, arxiv (yerel ağ geçidi :47800)
+## Bağlı manual'lar (tools/code-mode/.utcp_config.json, 139 araç)
+- `gw.*` — time, fetch, memory (graph), brave (web/haber/görsel arama), markitdown, arxiv, context7 (yerel ağ geçidi :47800)
 - `git.*` — mcp-server-git (status/log/diff/show/branch/commit...)
 - `fs.*` — dosya sistemi (C:/Projeler, Desktop)
 - `pw.*` — Playwright (headless)

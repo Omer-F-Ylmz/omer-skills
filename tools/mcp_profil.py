@@ -30,6 +30,15 @@ ARACLAR = Path(__file__).resolve().parents[1] / ".kos" / "kopru" / "mcp-araclar.
 KAYNAK = [Path.home() / ".claude.json", *sorted((Path.home() / ".claude/plugins/cache/ecc/ecc").glob("*/.mcp.json"))]
 
 
+CODEMODE = ("[codemode K2p] 2+ ardışık araç ya da büyük çıktı (git log/diff/show, web arama+fetch, tarayıcı gezintisi) gerektiğinde araçları tek tek "
+            "çağırma: Bash ile `python C:/Projeler/omer-skills/tools/cm.py run -c \"<düz JS>\"` (önce `cm.py search \"<görev>\"`); say/süz, yalnız özeti return et.")
+
+
+def codemode():
+    """CODE-MODE-AB-1: CC_CODEMODE=1 → ajan istemine K2p hatırlatması (Bash ajan profilinde zaten açık). Ölçüm: Bash+cm.py kolu token −73/−90%, doğruluk 6/6 (A: 4/6)."""
+    return "\n" + CODEMODE if os.environ.get("CC_CODEMODE") == "1" else ""
+
+
 def tanimlar():
     t = {}
     for f in KAYNAK:

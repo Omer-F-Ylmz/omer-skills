@@ -15,6 +15,23 @@ D = os.path.join(KOK, "code-mode")
 CLI = os.path.join(D, "node_modules", "@utcp", "code-mode-cli", "dist", "index.js")
 
 
+GURULTU = ("[McpCommunicationProtocol]", "Calling tool", "Successfully registered", "UTCP Client closed")
+
+
+def suz(metin, json_ozet=True):
+    """CLI çıktısından protokol gürültüsünü ayıklar; son satır {result,...} JSON ise boş `logs` düşer."""
+    satirlar = [s for s in (metin or "").splitlines() if s.strip() and not s.startswith(GURULTU)]
+    out = "\n".join(satirlar)
+    if json_ozet:
+        try:
+            j = json.loads(satirlar[-1]) if satirlar else None
+            if isinstance(j, dict) and "result" in j:
+                out = json.dumps({k: v for k, v in j.items() if not (k == "logs" and not v)}, ensure_ascii=False)
+        except ValueError:
+            pass
+    return out
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__); return 0
@@ -25,20 +42,12 @@ def main(argv):
         a += ["--timeout", "60000"]
     r = subprocess.run(["node", CLI, *a, "--config", os.path.join(D, ".utcp_config.json")], cwd=D,
                        capture_output=True, text=True, encoding="utf-8", errors="replace",
+                       env={**os.environ, "gh_GITHUB_PAT": os.environ.get("GITHUB_PAT", "")},  # UTCP değişkeni manual adıyla önekler (gh_)
                        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
-    satirlar = [s for s in (r.stdout or "").splitlines() if s.strip() and not s.startswith(("[McpCommunicationProtocol]", "Calling tool", "Successfully registered", "UTCP Client closed"))]
-    out = "\n".join(satirlar)
-    try:
-        j = json.loads(satirlar[-1]) if satirlar else None
-        if isinstance(j, dict) and "result" in j:
-            out = json.dumps({k: v for k, v in j.items() if not (k == "logs" and not v)}, ensure_ascii=False)
-    except ValueError:
-        pass
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    print(out)
+    print(suz(r.stdout))
     if r.returncode and r.stderr:
-        hata = [s for s in r.stderr.splitlines() if not s.startswith(("[McpCommunicationProtocol]", "Calling tool", "Successfully registered", "UTCP Client closed"))]
-        print("\n".join(hata)[-1500:], file=sys.stderr)
+        print(suz(r.stderr, json_ozet=False)[-1500:], file=sys.stderr)
     return r.returncode
 
 

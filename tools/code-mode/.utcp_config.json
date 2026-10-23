@@ -10,7 +10,17 @@
           "memory": { "transport": "http", "url": "http://127.0.0.1:47800/servers/mcp-memory/mcp" },
           "brave": { "transport": "http", "url": "http://127.0.0.1:47800/servers/brave-search/mcp" },
           "markitdown": { "transport": "http", "url": "http://127.0.0.1:47800/servers/markitdown/mcp" },
-          "arxiv": { "transport": "http", "url": "http://127.0.0.1:47800/servers/arxiv/mcp" }
+          "arxiv": { "transport": "http", "url": "http://127.0.0.1:47800/servers/arxiv/mcp" },
+          "context7": { "transport": "http", "url": "http://127.0.0.1:47800/servers/context7/mcp" }
+        }
+      }
+    },
+    {
+      "name": "gh",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "github": { "transport": "http", "url": "https://api.githubcopilot.com/mcp/", "headers": { "Authorization": "Bearer ${GITHUB_PAT}" } }
         }
       }
     },
