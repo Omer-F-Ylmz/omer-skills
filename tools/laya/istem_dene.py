@@ -1,9 +1,9 @@
 """LAYA-2 kurul istemi denemesi: Opus etiketli alt kümede istem varyantı × sağlayıcı → Spearman ρ (Claude $0).
   python istem_dene.py <varyant> [sağlayıcılar,] [n=100] [işçi=6]   çıktı: .claude/laya2/dene-<varyant>.jsonl (yeniden koşunca devam)
   python istem_dene.py rapor <varyant,...>                         varyant×sağlayıcı ρ tablosu"""
+import functools
 import json
 import random
-import re
 import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
@@ -13,6 +13,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 KOK = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(KOK / "tools"))
 sys.path.insert(0, str(KOK.parent / "omer-skills-wt/jev/.claude/jev1"))
+import puan  # noqa: E402
 import ucretsiz_havuz as uh  # noqa: E402
 
 D = KOK / ".claude/laya2"
@@ -32,16 +33,33 @@ IST = {
 
 
 def ayikla(m):
-    r = re.findall(r'"score"\s*:\s*(\d+(?:\.\d+)?)', m or "")
-    return float(r[-1]) if r and float(r[-1]) <= 10 else None
+    return puan.ayikla(m, 10)
+
+
+@functools.lru_cache(maxsize=None)
+def altin():
+    """v3 kalibrasyon örnekleri: yalnız eğitim yarısından, Opus düzeyi başına en kısa yanıtlar; altkume'ye girmez."""
+    op = [k for k in map(json.loads, open(D / "opus.jsonl", encoding="utf-8")) if not k["test"]]
+    return [k for d, adet in ((4, 1), (6, 1), (8, 2), (10, 2)) for k in sorted((k for k in op if k["opus"] == d), key=lambda k: len(k["state"]["yanit"]))[:adet]]
+
+
+def ornek_blok():
+    return "USTA PUANLI ÖRNEKLER (aynı ölçek; bu örneklerin puanını ölçek çapası al):\n" + "".join(
+        f"- GÖREV: {k['state']['gorev'][:250]} | ÖLÇÜT: {k['state'].get('kabul', '')[:250]} | YANIT: {k['state']['yanit'][:450]} => {{\"score\": {k['opus']}}}\n"
+        for k in altin()) + "\n"
 
 
 def istem(v, s):
-    return IST[v].format(gorev=s["gorev"][:1500], kabul=s.get("kabul", "")[:600], yanit=s["yanit"][:3000])
+    p = IST["v2" if v == "v3" else v].format(gorev=s["gorev"][:1500], kabul=s.get("kabul", "")[:600], yanit=s["yanit"][:3000])
+    if v == "v3":
+        bas, son = p.split("GÖREV:\n", 1)
+        p = bas + ornek_blok() + "GÖREV:\n" + son
+    return p
 
 
 def altkume(n):
-    op = [json.loads(x) for x in open(D / "opus.jsonl", encoding="utf-8")]
+    ay = {k["id"] for k in altin()}
+    op = [k for k in map(json.loads, open(D / "opus.jsonl", encoding="utf-8")) if k["id"] not in ay]
     dusuk = [k for k in op if k["opus"] <= 6]
     diger = [k for k in op if k["opus"] > 6]
     random.Random(7).shuffle(diger)

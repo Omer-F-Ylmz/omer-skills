@@ -2,7 +2,6 @@
   python kurul.py <girdi.jsonl> <cikti.jsonl> [k=3] [işçi=6] [sınır]   girdi: {id, state:{gorev,kabul,yanit}}
 Çıktı satırı: {id, puan:{sağlayıcı: 0-5}}; yeniden koşunca biten id'ler atlanır (kota dolunca devam). Sağlayıcı yanıtlamazsa sıradakine geçilir."""
 import json
-import re
 import sys
 import threading
 import time
@@ -11,6 +10,7 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import puan  # noqa: E402
 import ucretsiz_havuz as uh  # noqa: E402
 
 SAG = ["gemini", "groq", "openrouter", "mistral", "nvidia", "cloudflare", "ollama", "omniroute"]
@@ -37,8 +37,8 @@ def istem(s):
 
 
 def ayikla(m):
-    r = re.search(r'"score"\s*:\s*([0-5])\b', m or "")
-    return int(r.group(1)) if r else None
+    p = puan.ayikla(m)
+    return None if p is None else int(p)
 
 
 def puanla(k, ag, sag):
