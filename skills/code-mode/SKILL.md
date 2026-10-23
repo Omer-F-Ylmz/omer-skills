@@ -31,6 +31,8 @@ python C:/Projeler/omer-skills/tools/cm.py run -c "return gw.time_get_current_ti
 - `git.*` — mcp-server-git (status/log/diff/show/branch/commit...)
 - `fs.*` — dosya sistemi (C:/Projeler, Desktop)
 - `pw.*` — Playwright (headless)
+- `gh.*` — GitHub (46 araç)
+Araç adı manual önekini tekrarlar: `fs.fs_read_text_file`, `git.git_git_status`, `gw.time_get_current_time`. Emin değilsen `cm.py info <ad>` (search çıktısı ~12k karakter; yalnız ad bilinmiyorsa kullan).
 Yeni MCP: config'e manual ekle → `python tools/cm.py validate`.
 
 ## Ne zaman KULLANMA
