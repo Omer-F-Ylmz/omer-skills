@@ -1,0 +1,86 @@
+{
+ "kod": "DezhgNTD5P4",
+ "url": "https://www.instagram.com/reel/DezhgNTD5P4/\r",
+ "dil": "en",
+ "meta": {
+  "baslik": "Video by chenbuildsai",
+  "sure": 22.27199935913086,
+  "yukleyen": "",
+  "aciklama": "Comment \"CRATE\" and I'll DM you the repo link. Follow so the DM lands 📩\n\nREAD BELOW:\n- 22 Blender skills in one MIT repo, for Claude Code and other agents\n- They cover modeling, UVs, baking, rigging, LODs, and export for Unity, Unreal, Godot and Roblox\n- Install in Claude Code with two /plugin commands\n- The catch: you still need Blender 5.2 or newer installed, because Claude runs the real app\n\nComment \"CRATE\" for the repo link.\n\n#claudeai #claudecode #claude #claudetips"
+ },
+ "transkript": [
+  {
+   "b": 0.0,
+   "s": 3.3,
+   "t": "You can now tell Claude to build a game-ready 3D crate in Blender."
+  },
+  {
+   "b": 3.4,
+   "s": 8.5,
+   "t": "So someone packed 22 Blender skills into one free GitHub repo, from modeling to rigging."
+  },
+  {
+   "b": 8.5,
+   "s": 13.1,
+   "t": "Because each skill is a plain instruction file, Claude knows how to bake normals and set up LODs."
+  },
+  {
+   "b": 13.1,
+   "s": 16.9,
+   "t": "Then, it runs Blender in the background and exports the crate for Unity or Unreal."
+  },
+  {
+   "b": 17.2,
+   "s": 20.3,
+   "t": "So you don't need Blender's menus, because Claude drives the real app."
+  },
+  {
+   "b": 20.5,
+   "s": 21.8,
+   "t": "For the repo link, comment crate."
+  }
+ ],
+ "ekran": [
+  {
+   "k": "0001.jpg",
+   "t": "ONEPROMPT,ONECRATE"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "BUILD"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "You"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "22SKILLS,ONEREPO"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "SKILLS"
+  },
+  {
+   "k": "0003.jpg",
+   "t": "ONEFILEPERSKILL"
+  },
+  {
+   "k": "0004.jpg",
+   "t": "STRAIGHTTOYOURENGINE"
+  },
+  {
+   "k": "0005.jpg",
+   "t": "SKIP THEMENUS"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "GETTHEREPO LINK"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [],
+ "kare_aciklama": null,
+ "kare_sayisi": 6,
+ "duzeltme": []
+}

@@ -1,0 +1,5594 @@
+{
+ "kod": "nT1KPAQL9_g",
+ "url": "https://youtu.be/nT1KPAQL9_g\r",
+ "dil": "en",
+ "meta": {
+  "baslik": "Kendini Geliştiren Ajan Takımı Kurdum: 1 Ay Sunucuda Bırakıyorum (Hermes Agent)",
+  "sure": 1308,
+  "yukleyen": "Selma Kocabıyık",
+  "aciklama": "🚀 Hostinger VPS: https://hostinger.com/SELMA · 🎟️ SELMA kuponuyla ek %10 indirim\n🔥 Legendary Friday bu yıl erken başladı: Hostinger'ın Early Access fiyatlarına herkesten önce ulaş 👉 https://hostinger.com/SELMA\n\nBir ajan, bir ay boyunca Instagram hesabımı her gün takip edecek ve her gece kendi kendine öğrenecek. Bu videoda o ajan takımını sıfırdan kuruyorum: Hostinger'daki sunucumda 7/24 çalışan Hermes Agent, her sabah hesabımın sayılarını çekiyor, tabloya yazıyor, Telegram'dan kısa bir rapor atıyor, internette içerik olabilecek konular arıyor ve gece ne öğrendiğini bir dosyaya not ediyor.\n\nHiçbir şey paylaşmıyor, beğenmiyor, yorum yazmıyor. Sadece okuyor. Paylaşma düğmesi bende. Bir ay sonra sonuçlarla tekrar buluşacağız. ✨\n\n🎯 Bu video kimin için?\nİçerik üreten ve \"hangisi neden tuttu?\" so"
+ },
+ "transkript": [
+  {
+   "b": 0.0,
+   "s": 3.2,
+   "t": "We are going to set up an agent system that works 24-7 for a full month."
+  },
+  {
+   "b": 3.9,
+   "s": 8.2,
+   "t": "I will use this agent on my own social media account and give it a one-month trial period."
+  },
+  {
+   "b": 9.3,
+   "s": 11.5,
+   "t": "At the end of the month, I will record another video,"
+  },
+  {
+   "b": 11.6,
+   "s": 15.1,
+   "t": "and we will see together how many followers I've gained and how much I've grown."
+  },
+  {
+   "b": 15.5,
+   "s": 17.9,
+   "t": "Now, as you know, I gave my YouTube account to CloudCode."
+  },
+  {
+   "b": 18.0,
+   "s": 19.6,
+   "t": "I gave my Instagram account to CloudCode."
+  },
+  {
+   "b": 19.7,
+   "s": 21.3,
+   "t": "I gave my Twitter account to Grokbot."
+  },
+  {
+   "b": 21.4,
+   "s": 22.7,
+   "t": "These are already popular topics."
+  },
+  {
+   "b": 22.9,
+   "s": 24.2,
+   "t": "We see one every single day."
+  },
+  {
+   "b": 24.5,
+   "s": 26.1,
+   "t": "Do they really work or not?"
+  },
+  {
+   "b": 26.4,
+   "s": 29.3,
+   "t": "That is why I came with a plan and a detailed data set."
+  },
+  {
+   "b": 30.0,
+   "s": 32.7,
+   "t": "I will feed this system with new data every day,"
+  },
+  {
+   "b": 32.9,
+   "s": 35.3,
+   "t": "and it will continuously analyze itself."
+  },
+  {
+   "b": 36.0,
+   "s": 38.1,
+   "t": "Let me explain what I generally want from this agent."
+  },
+  {
+   "b": 38.4,
+   "s": 40.2,
+   "t": "It will track the numbers on my account."
+  },
+  {
+   "b": 40.4,
+   "s": 41.8,
+   "t": "So I want a daily analysis."
+  },
+  {
+   "b": 42.1,
+   "s": 43.8,
+   "t": "It will be a system that covers my back."
+  },
+  {
+   "b": 44.2,
+   "s": 46.1,
+   "t": "It will do research on the internet for me."
+  },
+  {
+   "b": 46.3,
+   "s": 47.3,
+   "t": "It will spend very few tokens."
+  },
+  {
+   "b": 47.4,
+   "s": 49.1,
+   "t": "We will lower the cost as much as possible,"
+  },
+  {
+   "b": 49.1,
+   "s": 50.9,
+   "t": "but increase its efficiency as much as possible."
+  },
+  {
+   "b": 51.1,
+   "s": 53.1,
+   "t": "When I put these together, a scenario like this emerged."
+  },
+  {
+   "b": 53.8,
+   "s": 56.8,
+   "t": "We will use Hermes Agent, an agent that can improve itself."
+  },
+  {
+   "b": 57.5,
+   "s": 59.7,
+   "t": "We will connect it to a server so it can stay on"
+  },
+  {
+   "b": 59.7,
+   "s": 60.0,
+   "t": "24-7."
+  },
+  {
+   "b": 60.0,
+   "s": 63.1,
+   "t": "Of course, there are alternative versions of this."
+  },
+  {
+   "b": 63.3,
+   "s": 64.7,
+   "t": "I showed you before, if you remember."
+  },
+  {
+   "b": 65.9,
+   "s": 71.2,
+   "t": "Using CloudCode in the cloud, or perhaps using CloudCode routines here would work the same way."
+  },
+  {
+   "b": 72.0,
+   "s": 73.7,
+   "t": "But there is a problem here."
+  },
+  {
+   "b": 74.3,
+   "s": 77.4,
+   "t": "The cloud in the bot only accepts cloud models."
+  },
+  {
+   "b": 77.7,
+   "s": 82.0,
+   "t": "Since that is the case, I want to set up the model I want within a self-improving agent system."
+  },
+  {
+   "b": 83.1,
+   "s": 88.6,
+   "t": "Now there is already an inherent system behind Hermes Agents, and we will take it and use it."
+  },
+  {
+   "b": 89.2,
+   "s": 90.0,
+   "t": "We don't need it."
+  },
+  {
+   "b": 90.0,
+   "s": 91.2,
+   "t": "We don't need to reinvent the wheel."
+  },
+  {
+   "b": 91.4,
+   "s": 92.6,
+   "t": "How does Hermes learn?"
+  },
+  {
+   "b": 92.7,
+   "s": 97.9,
+   "t": "When I say Hermes improves itself, I don't mean the model behind it is sitting there and fine-tuning itself with data."
+  },
+  {
+   "b": 98.5,
+   "s": 101.6,
+   "t": "The improvement we are talking about here comes from the growth of the files."
+  },
+  {
+   "b": 101.9,
+   "s": 106.3,
+   "t": "For instance, after a difficult task is completed or important data is involved,"
+  },
+  {
+   "b": 106.6,
+   "s": 113.5,
+   "t": "this method or information is saved and written into a skill file or another file that will be kept on record."
+  },
+  {
+   "b": 114.0,
+   "s": 116.2,
+   "t": "I can give you an example of this here."
+  },
+  {
+   "b": 116.6,
+   "s": 118.1,
+   "t": "We have two memory files."
+  },
+  {
+   "b": 118.4,
+   "s": 119.8,
+   "t": "The first is memory.md."
+  },
+  {
+   "b": 120.0,
+   "s": 122.5,
+   "t": "This is the file where it saves its environment and what it learns."
+  },
+  {
+   "b": 123.3,
+   "s": 124.8,
+   "t": "The second is user.md."
+  },
+  {
+   "b": 124.9,
+   "s": 126.5,
+   "t": "This just holds the user's information."
+  },
+  {
+   "b": 127.2,
+   "s": 130.1,
+   "t": "By the way, this is an architectural system within Hermes Agent."
+  },
+  {
+   "b": 130.7,
+   "s": 132.2,
+   "t": "It doesn't come from cloud code."
+  },
+  {
+   "b": 132.4,
+   "s": 135.2,
+   "t": "Both of these files are reloaded at the beginning of every session,"
+  },
+  {
+   "b": 135.4,
+   "s": 138.8,
+   "t": "just like our cloud.md file is loaded into cloud code at the start of every session."
+  },
+  {
+   "b": 139.4,
+   "s": 142.1,
+   "t": "Since it cannot add all the information into these files,"
+  },
+  {
+   "b": 142.3,
+   "s": 146.4,
+   "t": "the agent only adds specific important analyses or information into them."
+  },
+  {
+   "b": 147.0,
+   "s": 148.9,
+   "t": "It can even search through its old conversations"
+  },
+  {
+   "b": 148.9,
+   "s": 150.0,
+   "t": "and return to them."
+  },
+  {
+   "b": 150.0,
+   "s": 152.5,
+   "t": "Now, every morning, this is our scheduled task."
+  },
+  {
+   "b": 153.3,
+   "s": 154.8,
+   "t": "Since it starts a session from scratch,"
+  },
+  {
+   "b": 154.9,
+   "s": 157.0,
+   "t": "the only way for it to remember yesterday is, unfortunately,"
+  },
+  {
+   "b": 157.3,
+   "s": 159.4,
+   "t": "through the notes and files we keep here."
+  },
+  {
+   "b": 159.8,
+   "s": 162.4,
+   "t": "Now, I will open an architecture for you and set it up step by step."
+  },
+  {
+   "b": 163.1,
+   "s": 166.2,
+   "t": "After about a month, I will record another video to share with you"
+  },
+  {
+   "b": 166.2,
+   "s": 169.9,
+   "t": "whether the system really works and I will even share the cost with you."
+  },
+  {
+   "b": 170.5,
+   "s": 171.6,
+   "t": "I already have three accounts."
+  },
+  {
+   "b": 172.1,
+   "s": 172.9,
+   "t": "I chose Instagram."
+  },
+  {
+   "b": 173.6,
+   "s": 175.8,
+   "t": "It can grow easily, its analytics are easy to do,"
+  },
+  {
+   "b": 175.9,
+   "s": 177.2,
+   "t": "and I can come up with a good strategy."
+  },
+  {
+   "b": 178.0,
+   "s": 179.7,
+   "t": "Now, I produce reels every single day."
+  },
+  {
+   "b": 180.0,
+   "s": 181.7,
+   "t": "I share some of them and others I don't."
+  },
+  {
+   "b": 181.8,
+   "s": 183.8,
+   "t": "Of course, this is a disorganized sharing system."
+  },
+  {
+   "b": 183.9,
+   "s": 185.7,
+   "t": "I don't know how useful this is, but in this scenario,"
+  },
+  {
+   "b": 185.8,
+   "s": 187.4,
+   "t": "why did which reel of mine perform well?"
+  },
+  {
+   "b": 187.9,
+   "s": 189.2,
+   "t": "Why did some not perform well?"
+  },
+  {
+   "b": 189.4,
+   "s": 192.7,
+   "t": "I want my tasks to be compiled in an analysis system generated every day."
+  },
+  {
+   "b": 193.4,
+   "s": 197.0,
+   "t": "Just like in a company where employees, activities, and results"
+  },
+  {
+   "b": 197.0,
+   "s": 199.0,
+   "t": "are reported at the end of the day,"
+  },
+  {
+   "b": 199.1,
+   "s": 203.7,
+   "t": "I want an analysis of what my agent did and my own behavior"
+  },
+  {
+   "b": 203.7,
+   "s": 205.1,
+   "t": "throughout that day."
+  },
+  {
+   "b": 205.8,
+   "s": 208.5,
+   "t": "Also, remember that last month I set up a company with 14 agents."
+  },
+  {
+   "b": 209.1,
+   "s": 210.0,
+   "t": "This was a company that I was working with."
+  },
+  {
+   "b": 210.0,
+   "s": 212.0,
+   "t": "This was a company that worked on a schedule, not 24-7."
+  },
+  {
+   "b": 212.4,
+   "s": 214.3,
+   "t": "So what exactly was the result of this company?"
+  },
+  {
+   "b": 214.8,
+   "s": 217.9,
+   "t": "As you remember, 16 out of 18 runs said no changes,"
+  },
+  {
+   "b": 218.7,
+   "s": 221.4,
+   "t": "meaning some of the agents were actually working for nothing."
+  },
+  {
+   "b": 222.3,
+   "s": 224.7,
+   "t": "For instance, if no new email arrived that day,"
+  },
+  {
+   "b": 224.8,
+   "s": 226.2,
+   "t": "or if I didn't take action on Twitter,"
+  },
+  {
+   "b": 226.4,
+   "s": 229.0,
+   "t": "having that agent work to generate a daily report for me"
+  },
+  {
+   "b": 229.0,
+   "s": 230.3,
+   "t": "was costing extra tokens."
+  },
+  {
+   "b": 231.1,
+   "s": 233.0,
+   "t": "I mean, why should an employee come to the office"
+  },
+  {
+   "b": 233.0,
+   "s": 234.2,
+   "t": "if there is no work to be done?"
+  },
+  {
+   "b": 234.4,
+   "s": 235.5,
+   "t": "So what was the reason for this?"
+  },
+  {
+   "b": 235.6,
+   "s": 238.5,
+   "t": "Because there was no real work or real data in front of the agents."
+  },
+  {
+   "b": 238.9,
+   "s": 241.2,
+   "t": "So how am I going to prevent this from happening this time?"
+  },
+  {
+   "b": 241.5,
+   "s": 245.1,
+   "t": "I had already prepared a separate video regarding which agent we should use and when."
+  },
+  {
+   "b": 245.6,
+   "s": 247.9,
+   "t": "Keeping that in mind, I came up with a new architecture."
+  },
+  {
+   "b": 248.4,
+   "s": 251.0,
+   "t": "Let me first explain nicely what these four agents of mine do."
+  },
+  {
+   "b": 251.7,
+   "s": 253.1,
+   "t": "The first one will keep a table."
+  },
+  {
+   "b": 253.2,
+   "s": 256.4,
+   "t": "I want it to collect everything I produce and share into a single table."
+  },
+  {
+   "b": 256.8,
+   "s": 258.3,
+   "t": "Think of this as an Excel file."
+  },
+  {
+   "b": 258.9,
+   "s": 261.0,
+   "t": "Every morning, the agent pulls the numbers from my account"
+  },
+  {
+   "b": 261.0,
+   "s": 262.0,
+   "t": "and fills out the table itself."
+  },
+  {
+   "b": 262.3,
+   "s": 264.1,
+   "t": "Which reel was shared? How many views did it get?"
+  },
+  {
+   "b": 264.3,
+   "s": 265.2,
+   "t": "What was the analysis?"
+  },
+  {
+   "b": 265.4,
+   "s": 268.0,
+   "t": "It will pull information like whether it brought in followers and so on."
+  },
+  {
+   "b": 268.0,
+   "s": 270.4,
+   "t": "The second one will report to me every morning."
+  },
+  {
+   "b": 270.6,
+   "s": 271.4,
+   "t": "What happened yesterday?"
+  },
+  {
+   "b": 271.6,
+   "s": 272.4,
+   "t": "What performed well?"
+  },
+  {
+   "b": 272.5,
+   "s": 273.1,
+   "t": "What didn't?"
+  },
+  {
+   "b": 273.3,
+   "s": 275.6,
+   "t": "A short message on Telegram is perfectly enough for me."
+  },
+  {
+   "b": 275.9,
+   "s": 278.3,
+   "t": "Because I don't want to log into my Instagram account five times a day."
+  },
+  {
+   "b": 278.6,
+   "s": 279.7,
+   "t": "I don't have the time for that."
+  },
+  {
+   "b": 279.8,
+   "s": 283.1,
+   "t": "And actually these numbers aren't just for me but for my agents as well."
+  },
+  {
+   "b": 283.8,
+   "s": 286.2,
+   "t": "My agent, who will follow my progress in the long term,"
+  },
+  {
+   "b": 286.2,
+   "s": 287.4,
+   "t": "needs to have access to this data."
+  },
+  {
+   "b": 287.7,
+   "s": 289.2,
+   "t": "Now the third one wanders the Internet."
+  },
+  {
+   "b": 289.5,
+   "s": 292.7,
+   "t": "For example, it might have found a new guitar riff that fits my topics."
+  },
+  {
+   "b": 293.0,
+   "s": 293.9,
+   "t": "It has a good rating."
+  },
+  {
+   "b": 294.1,
+   "s": 294.9,
+   "t": "It can be used."
+  },
+  {
+   "b": 295.1,
+   "s": 296.8,
+   "t": "It tests it first, then presents it to me."
+  },
+  {
+   "b": 296.8,
+   "s": 299.1,
+   "t": "It could be free tools or new news."
+  },
+  {
+   "b": 299.5,
+   "s": 303.1,
+   "t": "It could be something that's a hot topic coming to my fourth agent that I've been overlooking."
+  },
+  {
+   "b": 303.3,
+   "s": 305.2,
+   "t": "It gets a little smarter every day."
+  },
+  {
+   "b": 305.4,
+   "s": 309.7,
+   "t": "At the end of a month, this guy will need to be the perfect detective for my account."
+  },
+  {
+   "b": 310.8,
+   "s": 313.5,
+   "t": "It will become capable of holding all the strings in its hands."
+  },
+  {
+   "b": 313.9,
+   "s": 317.8,
+   "t": "Every night it will take notes on the day's results and keep these notes on Git."
+  },
+  {
+   "b": 318.5,
+   "s": 321.4,
+   "t": "This way I will also be able to see what this guy learns every day."
+  },
+  {
+   "b": 321.8,
+   "s": 323.5,
+   "t": "Now do you know how I will track this too?"
+  },
+  {
+   "b": 323.7,
+   "s": 325.7,
+   "t": "A prediction will be made before every post."
+  },
+  {
+   "b": 325.7,
+   "s": 327.9,
+   "t": "I shot five different reels within five topics."
+  },
+  {
+   "b": 328.1,
+   "s": 331.2,
+   "t": "Then, for example, I sent those five reels to Trey within the same day."
+  },
+  {
+   "b": 331.4,
+   "s": 332.9,
+   "t": "First, this agent will make its prediction."
+  },
+  {
+   "b": 333.0,
+   "s": 335.6,
+   "t": "It will base its prediction on whether this post will fail or not,"
+  },
+  {
+   "b": 335.7,
+   "s": 338.1,
+   "t": "and the next day it will check if its prediction was actually correct."
+  },
+  {
+   "b": 338.4,
+   "s": 343.0,
+   "t": "In this way, it will effectively understand and solve how the Instagram algorithm works to some extent."
+  },
+  {
+   "b": 343.9,
+   "s": 344.5,
+   "t": "That's the goal."
+  },
+  {
+   "b": 344.5,
+   "s": 346.8,
+   "t": "Now what percentage of my predictions were accurate in the first week?"
+  },
+  {
+   "b": 346.9,
+   "s": 348.4,
+   "t": "What percentage was accurate in the last week?"
+  },
+  {
+   "b": 348.8,
+   "s": 352.6,
+   "t": "This way, by looking at the charts, I will be able to track whether it is learning anything."
+  },
+  {
+   "b": 353.3,
+   "s": 355.6,
+   "t": "Now, as you know, follower counts and such things,"
+  },
+  {
+   "b": 355.7,
+   "s": 356.9,
+   "t": "sometimes depend on luck."
+  },
+  {
+   "b": 357.3,
+   "s": 358.3,
+   "t": "Sometimes it just happens."
+  },
+  {
+   "b": 358.4,
+   "s": 360.1,
+   "t": "Maybe my video got a lot of views on YouTube."
+  },
+  {
+   "b": 360.4,
+   "s": 362.8,
+   "t": "Maybe there was a crowd that migrated to Instagram, and so on."
+  },
+  {
+   "b": 362.9,
+   "s": 363.7,
+   "t": "I can't tell these things."
+  },
+  {
+   "b": 363.8,
+   "s": 366.8,
+   "t": "Maybe it happens for one week, but the numbers return to normal the next week."
+  },
+  {
+   "b": 367.0,
+   "s": 368.8,
+   "t": "Now let me explain the architecture part to you."
+  },
+  {
+   "b": 369.1,
+   "s": 370.4,
+   "t": "My computer will be our workshop."
+  },
+  {
+   "b": 370.8,
+   "s": 374.5,
+   "t": "I will produce all my videos and carousel posts within it."
+  },
+  {
+   "b": 374.6,
+   "s": 376.0,
+   "t": "Oh, together with Cloud Code."
+  },
+  {
+   "b": 376.2,
+   "s": 377.7,
+   "t": "I already have my producer in the background."
+  },
+  {
+   "b": 378.1,
+   "s": 379.3,
+   "t": "I have my post creator, etc."
+  },
+  {
+   "b": 379.6,
+   "s": 381.2,
+   "t": "These are agents already present on my computer."
+  },
+  {
+   "b": 381.3,
+   "s": 382.7,
+   "t": "I have already prepared them."
+  },
+  {
+   "b": 382.8,
+   "s": 385.0,
+   "t": "But these agents and mine disappear when I shut down my computer."
+  },
+  {
+   "b": 385.2,
+   "s": 385.7,
+   "t": "In short,"
+  },
+  {
+   "b": 385.7,
+   "s": 388.2,
+   "t": "when it's time for measurement or when analyses need to be done,"
+  },
+  {
+   "b": 388.3,
+   "s": 390.4,
+   "t": "the elements on my computer are not alive."
+  },
+  {
+   "b": 391.0,
+   "s": 393.5,
+   "t": "That is why we are aiming for an agent that I don't have to monitor,"
+  },
+  {
+   "b": 393.6,
+   "s": 395.8,
+   "t": "one that monitors itself and won't die, won't die."
+  },
+  {
+   "b": 396.0,
+   "s": 397.5,
+   "t": "The agent's home will be a server."
+  },
+  {
+   "b": 397.7,
+   "s": 398.9,
+   "t": "It will be on day and night."
+  },
+  {
+   "b": 399.0,
+   "s": 401.0,
+   "t": "The brain will still be the Cloud Code on the computer,"
+  },
+  {
+   "b": 401.1,
+   "s": 403.3,
+   "t": "but the agent on the server will be its eyes and notebook."
+  },
+  {
+   "b": 403.7,
+   "s": 406.2,
+   "t": "The Hermes side will measure, take notes, perform analyses,"
+  },
+  {
+   "b": 406.3,
+   "s": 407.5,
+   "t": "or find us good candidates."
+  },
+  {
+   "b": 407.9,
+   "s": 409.7,
+   "t": "And Cloud will select and write them."
+  },
+  {
+   "b": 410.1,
+   "s": 411.8,
+   "t": "Of course, the final decision is mine,"
+  },
+  {
+   "b": 411.9,
+   "s": 414.2,
+   "t": "but I usually follow whichever script Cloud comes up with."
+  },
+  {
+   "b": 414.4,
+   "s": 415.1,
+   "t": "Let's put it that way."
+  },
+  {
+   "b": 415.7,
+   "s": 417.2,
+   "t": "The agent will automatically see from that day's analysis"
+  },
+  {
+   "b": 417.2,
+   "s": 418.1,
+   "t": "that I haven't shared anything."
+  },
+  {
+   "b": 418.3,
+   "s": 420.0,
+   "t": "Of course, these are also part of my analysis."
+  },
+  {
+   "b": 420.3,
+   "s": 421.8,
+   "t": "For example, it can also measure my pattern."
+  },
+  {
+   "b": 422.0,
+   "s": 423.4,
+   "t": "How much have I been able to share per week?"
+  },
+  {
+   "b": 423.5,
+   "s": 424.8,
+   "t": "How many videos have I been able to share?"
+  },
+  {
+   "b": 424.9,
+   "s": 425.9,
+   "t": "So what will our server be?"
+  },
+  {
+   "b": 426.1,
+   "s": 426.9,
+   "t": "It will be a VPS."
+  },
+  {
+   "b": 427.3,
+   "s": 429.4,
+   "t": "It will be like a computer reserved for you"
+  },
+  {
+   "b": 429.4,
+   "s": 431.2,
+   "t": "in a data center that never turns off."
+  },
+  {
+   "b": 431.4,
+   "s": 433.8,
+   "t": "It will have its own operating system, its own disk,"
+  },
+  {
+   "b": 433.9,
+   "s": 435.5,
+   "t": "and we will have full authority,"
+  },
+  {
+   "b": 435.6,
+   "s": 438.0,
+   "t": "and I will even connect this server to my Cloud Code,"
+  },
+  {
+   "b": 438.4,
+   "s": 440.3,
+   "t": "let Cloud go and handle everything for me."
+  },
+  {
+   "b": 440.4,
+   "s": 441.3,
+   "t": "I don't want to deal with it."
+  },
+  {
+   "b": 441.4,
+   "s": 443.1,
+   "t": "Let me briefly explain why I chose a server."
+  },
+  {
+   "b": 443.2,
+   "s": 444.5,
+   "t": "I have three general reasons."
+  },
+  {
+   "b": 444.5,
+   "s": 445.8,
+   "t": "First, it runs 24-7."
+  },
+  {
+   "b": 445.9,
+   "s": 447.0,
+   "t": "The agents don't die, obviously."
+  },
+  {
+   "b": 447.5,
+   "s": 448.7,
+   "t": "Second, this is very important."
+  },
+  {
+   "b": 448.8,
+   "s": 449.6,
+   "t": "It is a separate system."
+  },
+  {
+   "b": 449.7,
+   "s": 451.0,
+   "t": "I have too many things on my computer."
+  },
+  {
+   "b": 451.1,
+   "s": 453.0,
+   "t": "I don't want to set up such an agent system"
+  },
+  {
+   "b": 453.0,
+   "s": 454.3,
+   "t": "amidst all this clutter."
+  },
+  {
+   "b": 455.0,
+   "s": 456.6,
+   "t": "My files are already a mess."
+  },
+  {
+   "b": 457.0,
+   "s": 458.0,
+   "t": "I need to fix that."
+  },
+  {
+   "b": 458.1,
+   "s": 459.9,
+   "t": "But my agent, which will perform this analysis,"
+  },
+  {
+   "b": 460.0,
+   "s": 461.0,
+   "t": "doesn't need to see this mess."
+  },
+  {
+   "b": 461.2,
+   "s": 462.9,
+   "t": "Thus, it can live on a different side,"
+  },
+  {
+   "b": 462.9,
+   "s": 465.1,
+   "t": "and only the data I provide enters the server side."
+  },
+  {
+   "b": 465.7,
+   "s": 467.0,
+   "t": "That's why that side becomes"
+  },
+  {
+   "b": 467.0,
+   "s": 469.5,
+   "t": "a completely independent, isolated system."
+  },
+  {
+   "b": 470.0,
+   "s": 472.0,
+   "t": "Now, the third reason is that the memory won't be lost."
+  },
+  {
+   "b": 472.8,
+   "s": 474.4,
+   "t": "Everything will accumulate in a clean space."
+  },
+  {
+   "b": 474.5,
+   "s": 475.5,
+   "t": "I can spotless server for a month"
+  },
+  {
+   "b": 476.1,
+   "s": 477.7,
+   "t": "all information, data, and analyses."
+  },
+  {
+   "b": 478.0,
+   "s": 480.1,
+   "t": "I am not running a large model within this server."
+  },
+  {
+   "b": 480.5,
+   "s": 482.3,
+   "t": "This is just a place where I host the agents."
+  },
+  {
+   "b": 482.5,
+   "s": 483.9,
+   "t": "I will also have my data inside."
+  },
+  {
+   "b": 484.3,
+   "s": 485.6,
+   "t": "That's why I don't need a huge server."
+  },
+  {
+   "b": 485.9,
+   "s": 487.7,
+   "t": "So where are we keeping the server?"
+  },
+  {
+   "b": 488.2,
+   "s": 489.0,
+   "t": "On Hostinger."
+  },
+  {
+   "b": 489.2,
+   "s": 490.1,
+   "t": "Let me show you the panel."
+  },
+  {
+   "b": 490.4,
+   "s": 491.5,
+   "t": "I logged into Hostinger."
+  },
+  {
+   "b": 491.7,
+   "s": 493.1,
+   "t": "I go from VPS to VPS."
+  },
+  {
+   "b": 493.3,
+   "s": 494.6,
+   "t": "My server appears here."
+  },
+  {
+   "b": 494.9,
+   "s": 496.9,
+   "t": "My agent is currently living inside this server."
+  },
+  {
+   "b": 497.3,
+   "s": 499.6,
+   "t": "Remember, we set this server up together in the previous video."
+  },
+  {
+   "b": 500.2,
+   "s": 503.0,
+   "t": "I can also see which operating system and applications it runs here."
+  },
+  {
+   "b": 503.0,
+   "s": 506.9,
+   "t": "For example, there is a Minecraft server template ready on Herms Agent."
+  },
+  {
+   "b": 507.4,
+   "s": 509.6,
+   "t": "I had set up a Minecraft server, for instance."
+  },
+  {
+   "b": 510.3,
+   "s": 511.9,
+   "t": "I'm not using it now, but it's still here,"
+  },
+  {
+   "b": 512.0,
+   "s": 514.1,
+   "t": "and I stopped the Herms Agent because I wasn't using it."
+  },
+  {
+   "b": 514.4,
+   "s": 515.5,
+   "t": "Now we will restart it."
+  },
+  {
+   "b": 515.6,
+   "s": 516.9,
+   "t": "But let's assume you're getting it from scratch."
+  },
+  {
+   "b": 517.2,
+   "s": 518.6,
+   "t": "I come here."
+  },
+  {
+   "b": 518.8,
+   "s": 519.9,
+   "t": "There are various plans."
+  },
+  {
+   "b": 520.3,
+   "s": 522.0,
+   "t": "Our task requires a small server."
+  },
+  {
+   "b": 522.3,
+   "s": 524.0,
+   "t": "That's why I'm choosing KVM2 here."
+  },
+  {
+   "b": 524.4,
+   "s": 526.4,
+   "t": "You can even select how many months you want to stay here."
+  },
+  {
+   "b": 526.6,
+   "s": 527.5,
+   "t": "Mine is 24 months."
+  },
+  {
+   "b": 527.7,
+   "s": 530.3,
+   "t": "Since the monthly price is more affordable when choosing 24 months,"
+  },
+  {
+   "b": 530.4,
+   "s": 531.9,
+   "t": "I bought my plan accordingly back then."
+  },
+  {
+   "b": 532.3,
+   "s": 535.1,
+   "t": "If you want, you can also add applications that Hostinger partners with."
+  },
+  {
+   "b": 535.2,
+   "s": 536.4,
+   "t": "By the way, that is completely optional."
+  },
+  {
+   "b": 536.9,
+   "s": 538.1,
+   "t": "I'm not adding any this time."
+  },
+  {
+   "b": 538.4,
+   "s": 540.2,
+   "t": "Choose the location closest to you."
+  },
+  {
+   "b": 540.3,
+   "s": 541.0,
+   "t": "I am in the Netherlands."
+  },
+  {
+   "b": 541.1,
+   "s": 542.0,
+   "t": "I am choosing the Netherlands."
+  },
+  {
+   "b": 542.2,
+   "s": 543.9,
+   "t": "By the way, if you write sermon in the coupon section,"
+  },
+  {
+   "b": 544.1,
+   "s": 544.9,
+   "t": "you get an extra discount."
+  },
+  {
+   "b": 545.1,
+   "s": 545.9,
+   "t": "I am using it."
+  },
+  {
+   "b": 546.0,
+   "s": 546.5,
+   "t": "I'm satisfied."
+  },
+  {
+   "b": 546.6,
+   "s": 547.4,
+   "t": "It does the job."
+  },
+  {
+   "b": 547.6,
+   "s": 548.9,
+   "t": "Then you proceed to the payment section."
+  },
+  {
+   "b": 549.2,
+   "s": 550.9,
+   "t": "Since these agents will run every day,"
+  },
+  {
+   "b": 551.0,
+   "s": 552.8,
+   "t": "I can't put an expensive model here."
+  },
+  {
+   "b": 553.2,
+   "s": 554.9,
+   "t": "But cheap models have a problem."
+  },
+  {
+   "b": 555.3,
+   "s": 556.5,
+   "t": "They are not that intelligent."
+  },
+  {
+   "b": 556.7,
+   "s": 559.4,
+   "t": "I mean, what kind of result would I get if I asked for a detailed analysis?"
+  },
+  {
+   "b": 560.3,
+   "s": 561.8,
+   "t": "That's why I chose an appropriate model."
+  },
+  {
+   "b": 561.9,
+   "s": 562.9,
+   "t": "For each task."
+  },
+  {
+   "b": 563.1,
+   "s": 564.7,
+   "t": "Remember, I said I have four agents."
+  },
+  {
+   "b": 565.1,
+   "s": 567.6,
+   "t": "A standard piece of code will handle the calculation part."
+  },
+  {
+   "b": 568.0,
+   "s": 570.7,
+   "t": "Parts we can handle with code like pulling data from Instagram"
+  },
+  {
+   "b": 570.7,
+   "s": 573.7,
+   "t": "or writing to a table will only be done with code."
+  },
+  {
+   "b": 574.0,
+   "s": 575.8,
+   "t": "I don't need an agent for these parts."
+  },
+  {
+   "b": 577.1,
+   "s": 579.0,
+   "t": "By the way, for the classification part,"
+  },
+  {
+   "b": 579.2,
+   "s": 580.2,
+   "t": "in such a system,"
+  },
+  {
+   "b": 580.3,
+   "s": 582.9,
+   "t": "especially for the analysis of collected data"
+  },
+  {
+   "b": 582.9,
+   "s": 584.6,
+   "t": "and deciding whether to share it,"
+  },
+  {
+   "b": 584.7,
+   "s": 587.0,
+   "t": "a model like Jev could be used."
+  },
+  {
+   "b": 588.2,
+   "s": 590.2,
+   "t": "I am thinking of connecting this in the future as well."
+  },
+  {
+   "b": 590.3,
+   "s": 591.9,
+   "t": "Maybe I can connect it at some point."
+  },
+  {
+   "b": 591.9,
+   "s": 593.2,
+   "t": "During this one-month trial period."
+  },
+  {
+   "b": 593.5,
+   "s": 594.8,
+   "t": "It is both a cheap model"
+  },
+  {
+   "b": 594.8,
+   "s": 596.3,
+   "t": "and does a great job with classification."
+  },
+  {
+   "b": 596.8,
+   "s": 598.7,
+   "t": "I think it can be used for data analysis"
+  },
+  {
+   "b": 599.2,
+   "s": 600.1,
+   "t": "since it's a good example."
+  },
+  {
+   "b": 600.3,
+   "s": 601.7,
+   "t": "I think it might be useful for you."
+  },
+  {
+   "b": 602.0,
+   "s": 604.3,
+   "t": "Now we will have the sentences written by Claude."
+  },
+  {
+   "b": 604.5,
+   "s": 607.3,
+   "t": "Morning reports, short notes, nightly lessons."
+  },
+  {
+   "b": 608.0,
+   "s": 609.8,
+   "t": "There will be an agent to check these outputs"
+  },
+  {
+   "b": 610.6,
+   "s": 612.9,
+   "t": "so that the agent on the server doesn't make a mistake"
+  },
+  {
+   "b": 612.9,
+   "s": 614.1,
+   "t": "and we can clean up after it."
+  },
+  {
+   "b": 614.3,
+   "s": 616.1,
+   "t": "It could be Fable or Opus on my computer."
+  },
+  {
+   "b": 616.2,
+   "s": 616.5,
+   "t": "I don't know."
+  },
+  {
+   "b": 616.8,
+   "s": 618.1,
+   "t": "Whichever one I have at hand,"
+  },
+  {
+   "b": 618.2,
+   "s": 620.5,
+   "t": "at that moment we'll check the activities on this server."
+  },
+  {
+   "b": 620.5,
+   "s": 623.6,
+   "t": "The cheap model learns every day, improving itself."
+  },
+  {
+   "b": 624.0,
+   "s": 626.7,
+   "t": "But the intelligent model is in charge of weekly adjustments."
+  },
+  {
+   "b": 627.0,
+   "s": 628.1,
+   "t": "Is everything going well?"
+  },
+  {
+   "b": 628.5,
+   "s": 630.5,
+   "t": "If we consider it will work for four or five weeks,"
+  },
+  {
+   "b": 630.6,
+   "s": 632.4,
+   "t": "this intelligent model will only work five times."
+  },
+  {
+   "b": 632.8,
+   "s": 634.8,
+   "t": "But these agents will work on my account data."
+  },
+  {
+   "b": 635.1,
+   "s": 636.9,
+   "t": "I want to be sure where my data is going."
+  },
+  {
+   "b": 637.1,
+   "s": 638.7,
+   "t": "I want a model I have tested and trusted."
+  },
+  {
+   "b": 638.8,
+   "s": 639.9,
+   "t": "That is why I will use Claude."
+  },
+  {
+   "b": 640.0,
+   "s": 641.7,
+   "t": "By the way, I saw this in the comments of the previous video."
+  },
+  {
+   "b": 641.9,
+   "s": 643.4,
+   "t": "You are satisfied with the Chinese models."
+  },
+  {
+   "b": 643.6,
+   "s": 645.5,
+   "t": "In that case, Chinese models are quite usable."
+  },
+  {
+   "b": 645.7,
+   "s": 647.1,
+   "t": "I leave this part entirely up to you."
+  },
+  {
+   "b": 647.3,
+   "s": 648.4,
+   "t": "I'm coming to the security part."
+  },
+  {
+   "b": 648.6,
+   "s": 650.5,
+   "t": "My agent on the server will go out on the internet"
+  },
+  {
+   "b": 650.5,
+   "s": 651.0,
+   "t": "every day."
+  },
+  {
+   "b": 651.0,
+   "s": 652.6,
+   "t": "Now, some texts coming from the internet"
+  },
+  {
+   "b": 652.6,
+   "s": 654.2,
+   "t": "might carry hidden instructions for the agent."
+  },
+  {
+   "b": 654.8,
+   "s": 656.2,
+   "t": "This is what we call prompt injection."
+  },
+  {
+   "b": 656.5,
+   "s": 658.8,
+   "t": "But since this system will run in the background for a month,"
+  },
+  {
+   "b": 658.9,
+   "s": 661.2,
+   "t": "I'm giving my agent a little extra instruction."
+  },
+  {
+   "b": 662.0,
+   "s": 663.9,
+   "t": "I'm saying that all the information I retrieve"
+  },
+  {
+   "b": 663.9,
+   "s": 665.5,
+   "t": "is only there for you to read."
+  },
+  {
+   "b": 665.8,
+   "s": 667.5,
+   "t": "So I'm adding a small security measure"
+  },
+  {
+   "b": 667.5,
+   "s": 669.7,
+   "t": "by telling it not to perceive them as instructions."
+  },
+  {
+   "b": 670.4,
+   "s": 672.6,
+   "t": "Secondly, it connects to Instagram only through the official gateway"
+  },
+  {
+   "b": 672.6,
+   "s": 673.6,
+   "t": "with read-only permission."
+  },
+  {
+   "b": 673.8,
+   "s": 676.4,
+   "t": "It does not have access to my account password."
+  },
+  {
+   "b": 677.2,
+   "s": 678.7,
+   "t": "Meta is very strict, by the way."
+  },
+  {
+   "b": 679.4,
+   "s": 680.5,
+   "t": "That's why if you try to use it,"
+  },
+  {
+   "b": 680.5,
+   "s": 681.9,
+   "t": "if you try to use any agent on your own account,"
+  },
+  {
+   "b": 682.1,
+   "s": 684.0,
+   "t": "it might detect it as spam or a bot."
+  },
+  {
+   "b": 684.6,
+   "s": 686.9,
+   "t": "And I definitely do not want to give my passwords"
+  },
+  {
+   "b": 686.9,
+   "s": 689.9,
+   "t": "to this tool that will run in the background 24-7."
+  },
+  {
+   "b": 691.5,
+   "s": 693.5,
+   "t": "Now, to safely pull data from Instagram,"
+  },
+  {
+   "b": 693.7,
+   "s": 696.0,
+   "t": "we will use Meta's developer account."
+  },
+  {
+   "b": 696.7,
+   "s": 697.6,
+   "t": "How will that happen?"
+  },
+  {
+   "b": 697.7,
+   "s": 698.5,
+   "t": "I am coming here."
+  },
+  {
+   "b": 698.6,
+   "s": 699.1,
+   "t": "What is it?"
+  },
+  {
+   "b": 699.2,
+   "s": 701.0,
+   "t": "This is developers.facebook.com."
+  },
+  {
+   "b": 701.1,
+   "s": 702.6,
+   "t": "I will provide the link for this anyway."
+  },
+  {
+   "b": 702.7,
+   "s": 703.7,
+   "t": "I logged into my account."
+  },
+  {
+   "b": 703.9,
+   "s": 706.1,
+   "t": "Now I am coming to the create app section here."
+  },
+  {
+   "b": 708.7,
+   "s": 710.2,
+   "t": "I'm calling it Selma BN."
+  },
+  {
+   "b": 710.4,
+   "s": 711.1,
+   "t": "Let's continue."
+  },
+  {
+   "b": 711.1,
+   "s": 712.4,
+   "t": "I am selecting my Instagram."
+  },
+  {
+   "b": 712.5,
+   "s": 714.3,
+   "t": "I will not connect a portfolio at this point."
+  },
+  {
+   "b": 714.4,
+   "s": 715.2,
+   "t": "Let's continue again."
+  },
+  {
+   "b": 715.3,
+   "s": 717.7,
+   "t": "I am coming to the API setup with Instagram login page."
+  },
+  {
+   "b": 717.8,
+   "s": 719.8,
+   "t": "There is add all required permissions here."
+  },
+  {
+   "b": 719.9,
+   "s": 721.0,
+   "t": "I am clicking on this."
+  },
+  {
+   "b": 721.3,
+   "s": 722.4,
+   "t": "Now I am coming here."
+  },
+  {
+   "b": 722.6,
+   "s": 724.4,
+   "t": "There is a section called Instagram manage insight."
+  },
+  {
+   "b": 724.6,
+   "s": 726.0,
+   "t": "Look, according to the cloud,"
+  },
+  {
+   "b": 726.1,
+   "s": 729.4,
+   "t": "this is the piece our agent needs to read, needs to read."
+  },
+  {
+   "b": 729.7,
+   "s": 732.2,
+   "t": "So this will be the permission we give to our agent."
+  },
+  {
+   "b": 732.7,
+   "s": 733.5,
+   "t": "I am saying add."
+  },
+  {
+   "b": 734.0,
+   "s": 735.3,
+   "t": "Also, I definitely don't want messages."
+  },
+  {
+   "b": 736.2,
+   "s": 737.1,
+   "t": "Let it be removed."
+  },
+  {
+   "b": 737.6,
+   "s": 738.9,
+   "t": "I only want it to read."
+  },
+  {
+   "b": 739.2,
+   "s": 739.9,
+   "t": "For instance,"
+  },
+  {
+   "b": 739.9,
+   "s": 741.5,
+   "t": "I don't want it to get involved with comments either."
+  },
+  {
+   "b": 742.1,
+   "s": 742.9,
+   "t": "Let it be removed."
+  },
+  {
+   "b": 743.1,
+   "s": 744.4,
+   "t": "I am also adding this."
+  },
+  {
+   "b": 744.9,
+   "s": 746.8,
+   "t": "I am saying API Instagram login."
+  },
+  {
+   "b": 747.0,
+   "s": 748.1,
+   "t": "We will add it to our account."
+  },
+  {
+   "b": 748.2,
+   "s": 748.9,
+   "t": "I came here."
+  },
+  {
+   "b": 749.0,
+   "s": 750.0,
+   "t": "I am connecting my account."
+  },
+  {
+   "b": 750.1,
+   "s": 751.4,
+   "t": "Let's go to Instagram from here."
+  },
+  {
+   "b": 751.6,
+   "s": 752.8,
+   "t": "We accept from this part."
+  },
+  {
+   "b": 753.0,
+   "s": 755.1,
+   "t": "I can see the app I prepared on the meta panel here."
+  },
+  {
+   "b": 755.3,
+   "s": 756.1,
+   "t": "If you come here,"
+  },
+  {
+   "b": 756.2,
+   "s": 757.7,
+   "t": "I can see that my account is connected."
+  },
+  {
+   "b": 758.2,
+   "s": 760.7,
+   "t": "I am saying generate token for the tokens here."
+  },
+  {
+   "b": 761.0,
+   "s": 761.8,
+   "t": "After that, I accept."
+  },
+  {
+   "b": 762.0,
+   "s": 763.3,
+   "t": "Then there is a token that will appear."
+  },
+  {
+   "b": 763.6,
+   "s": 766.8,
+   "t": "Copy it and then you will save it to your own environment file,"
+  },
+  {
+   "b": 766.9,
+   "s": 768.1,
+   "t": "your project environment file."
+  },
+  {
+   "b": 768.6,
+   "s": 770.9,
+   "t": "There is a separate prompt for that registration process as well."
+  },
+  {
+   "b": 771.5,
+   "s": 772.6,
+   "t": "I will include that too."
+  },
+  {
+   "b": 773.3,
+   "s": 775.4,
+   "t": "I restricted the agent as much as possible."
+  },
+  {
+   "b": 775.4,
+   "s": 778.3,
+   "t": "It will only access the account analysis part and login only once a day."
+  },
+  {
+   "b": 778.6,
+   "s": 782.0,
+   "t": "Because if any bot tries to enter your account more than a certain number of times,"
+  },
+  {
+   "b": 782.2,
+   "s": 784.9,
+   "t": "your account might be perceived as spam and restricted."
+  },
+  {
+   "b": 785.6,
+   "s": 786.6,
+   "t": "It can see my followers."
+  },
+  {
+   "b": 786.9,
+   "s": 788.6,
+   "t": "It can see how many people we reached."
+  },
+  {
+   "b": 788.8,
+   "s": 791.1,
+   "t": "It can see how many people we reached the previous day and so on."
+  },
+  {
+   "b": 791.1,
+   "s": 792.9,
+   "t": "It can extract all the analyses from here."
+  },
+  {
+   "b": 793.0,
+   "s": 794.1,
+   "t": "The next step is very simple."
+  },
+  {
+   "b": 794.2,
+   "s": 796.1,
+   "t": "By the way, all I do is open a new spreadsheet."
+  },
+  {
+   "b": 796.7,
+   "s": 798.0,
+   "t": "I am saving it as Salmani."
+  },
+  {
+   "b": 798.0,
+   "s": 798.5,
+   "t": "It is on agent notebook."
+  },
+  {
+   "b": 798.7,
+   "s": 800.5,
+   "t": "Then I will share this with my agent as well."
+  },
+  {
+   "b": 801.0,
+   "s": 804.5,
+   "t": "I am even setting the sharing settings to anyone with the link."
+  },
+  {
+   "b": 804.6,
+   "s": 805.9,
+   "t": "I am copying the link."
+  },
+  {
+   "b": 806.0,
+   "s": 806.5,
+   "t": "I return."
+  },
+  {
+   "b": 806.8,
+   "s": 807.6,
+   "t": "I am pasting it."
+  },
+  {
+   "b": 807.8,
+   "s": 809.9,
+   "t": "Now there are one or two steps we need to follow here"
+  },
+  {
+   "b": 809.9,
+   "s": 813.8,
+   "t": "for the agent on the server to be able to use this file as it wishes."
+  },
+  {
+   "b": 814.6,
+   "s": 815.7,
+   "t": "How does that work?"
+  },
+  {
+   "b": 815.8,
+   "s": 817.0,
+   "t": "We go to extensions over here."
+  },
+  {
+   "b": 817.1,
+   "s": 818.2,
+   "t": "I am going to extensions."
+  },
+  {
+   "b": 819.0,
+   "s": 820.4,
+   "t": "I am entering the app script."
+  },
+  {
+   "b": 821.0,
+   "s": 822.9,
+   "t": "I delete this and we paste this in."
+  },
+  {
+   "b": 823.5,
+   "s": 825.2,
+   "t": "I come here and click on new deployment."
+  },
+  {
+   "b": 825.4,
+   "s": 827.5,
+   "t": "Then I choose a deployment type."
+  },
+  {
+   "b": 828.0,
+   "s": 829.0,
+   "t": "In the web app section."
+  },
+  {
+   "b": 829.4,
+   "s": 831.5,
+   "t": "Let's call the description Sama beyin."
+  },
+  {
+   "b": 831.7,
+   "s": 832.8,
+   "t": "That person will be me."
+  },
+  {
+   "b": 833.0,
+   "s": 834.0,
+   "t": "Those with access."
+  },
+  {
+   "b": 834.3,
+   "s": 835.2,
+   "t": "Then let's click deploy."
+  },
+  {
+   "b": 835.4,
+   "s": 837.0,
+   "t": "I am clicking on grant access permission here."
+  },
+  {
+   "b": 837.3,
+   "s": 838.5,
+   "t": "Let me tell you something great."
+  },
+  {
+   "b": 838.8,
+   "s": 840.2,
+   "t": "Hostinger has its own MCP."
+  },
+  {
+   "b": 840.4,
+   "s": 841.1,
+   "t": "What does this mean?"
+  },
+  {
+   "b": 841.5,
+   "s": 844.2,
+   "t": "Cloud Code can handle the entire setup of the Hermes agent,"
+  },
+  {
+   "b": 844.4,
+   "s": 847.9,
+   "t": "the files and the analyses to be performed on my server by itself."
+  },
+  {
+   "b": 849.3,
+   "s": 852.6,
+   "t": "Now the Google Sheet configuration and the connecting of your meta account"
+  },
+  {
+   "b": 852.6,
+   "s": 854.6,
+   "t": "that I just showed you, those are manual tasks."
+  },
+  {
+   "b": 855.7,
+   "s": 857.3,
+   "t": "Cloud Code cannot do those for you."
+  },
+  {
+   "b": 857.3,
+   "s": 859.7,
+   "t": "It could, but you would need to use a Chrome browser."
+  },
+  {
+   "b": 860.3,
+   "s": 862.4,
+   "t": "It might get stuck in some places, but for example,"
+  },
+  {
+   "b": 862.5,
+   "s": 865.7,
+   "t": "Cloud Code can do the setup part inside the server for Hermes agency."
+  },
+  {
+   "b": 866.5,
+   "s": 868.2,
+   "t": "It can also connect the models I want."
+  },
+  {
+   "b": 868.9,
+   "s": 872.4,
+   "t": "It even gives the models a skills file and creates additional scripts"
+  },
+  {
+   "b": 872.4,
+   "s": 873.6,
+   "t": "so they can improve themselves."
+  },
+  {
+   "b": 874.8,
+   "s": 877.0,
+   "t": "Now I will give you a prompt for this part"
+  },
+  {
+   "b": 877.0,
+   "s": 879.6,
+   "t": "because I did these locally from within my Cloud Code."
+  },
+  {
+   "b": 879.9,
+   "s": 881.8,
+   "t": "I didn't go to every single thing inside the server."
+  },
+  {
+   "b": 882.3,
+   "s": 885.2,
+   "t": "There are two ways for my Cloud Code to use the server side"
+  },
+  {
+   "b": 885.2,
+   "s": 886.8,
+   "t": "and make any changes within it."
+  },
+  {
+   "b": 887.3,
+   "s": 888.9,
+   "t": "The first is the MCP path I just mentioned."
+  },
+  {
+   "b": 889.1,
+   "s": 891.7,
+   "t": "The second is the door to the server, which we call SSH,"
+  },
+  {
+   "b": 891.7,
+   "s": 893.8,
+   "t": "so it can also ensure that it runs commands inside."
+  },
+  {
+   "b": 894.2,
+   "s": 896.2,
+   "t": "What needs to be provided by me at this point?"
+  },
+  {
+   "b": 896.6,
+   "s": 898.2,
+   "t": "I provide two keys myself."
+  },
+  {
+   "b": 899.3,
+   "s": 902.5,
+   "t": "One is that SSH I mentioned, and the second is hosting your own API."
+  },
+  {
+   "b": 902.7,
+   "s": 904.8,
+   "t": "You can think of it like a remote control."
+  },
+  {
+   "b": 905.4,
+   "s": 907.0,
+   "t": "I give these two keys to my Cloud Code."
+  },
+  {
+   "b": 907.4,
+   "s": 910.9,
+   "t": "Then my agent does all the setup, messages and schedule tasks for me,"
+  },
+  {
+   "b": 911.0,
+   "s": 913.1,
+   "t": "at me, meaning my local Cloud Code."
+  },
+  {
+   "b": 913.2,
+   "s": 915.2,
+   "t": "At this point, I only need to give it the key."
+  },
+  {
+   "b": 915.4,
+   "s": 917.2,
+   "t": "You can ask for the Cloud Code you will get."
+  },
+  {
+   "b": 917.3,
+   "s": 919.0,
+   "t": "From your main, it will give it to you directly."
+  },
+  {
+   "b": 919.2,
+   "s": 919.8,
+   "t": "We take this."
+  },
+  {
+   "b": 920.0,
+   "s": 921.3,
+   "t": "Then we come to Hostinger."
+  },
+  {
+   "b": 921.5,
+   "s": 922.9,
+   "t": "I'm coming to this keys section."
+  },
+  {
+   "b": 923.2,
+   "s": 925.5,
+   "t": "I had already added one here, but I will add another."
+  },
+  {
+   "b": 925.7,
+   "s": 927.0,
+   "t": "I go ahead and add it."
+  },
+  {
+   "b": 927.1,
+   "s": 929.3,
+   "t": "But since it's already here, it doesn't appear as a new key"
+  },
+  {
+   "b": 929.8,
+   "s": 930.9,
+   "t": "because I had already put it there."
+  },
+  {
+   "b": 931.2,
+   "s": 932.4,
+   "t": "This is how you can put your key."
+  },
+  {
+   "b": 932.6,
+   "s": 933.2,
+   "t": "What does this do?"
+  },
+  {
+   "b": 933.2,
+   "s": 936.6,
+   "t": "This helps my local Cloud Code gain access to the server."
+  },
+  {
+   "b": 937.4,
+   "s": 938.9,
+   "t": "I'm coming to this Docker manager part"
+  },
+  {
+   "b": 938.9,
+   "s": 941.1,
+   "t": "because we need to start the Hermes agent now."
+  },
+  {
+   "b": 941.5,
+   "s": 944.4,
+   "t": "As you can see, my Hermes agent was stopped."
+  },
+  {
+   "b": 944.7,
+   "s": 945.9,
+   "t": "It is running now."
+  },
+  {
+   "b": 946.2,
+   "s": 946.5,
+   "t": "Okay."
+  },
+  {
+   "b": 947.3,
+   "s": 947.6,
+   "t": "Let's open it."
+  },
+  {
+   "b": 947.6,
+   "s": 949.9,
+   "t": "And we are facing that familiar Hermes agent interface."
+  },
+  {
+   "b": 950.5,
+   "s": 952.1,
+   "t": "Now let's set up our model from here."
+  },
+  {
+   "b": 952.3,
+   "s": 953.9,
+   "t": "I'm selecting Anthropic from here."
+  },
+  {
+   "b": 954.1,
+   "s": 955.3,
+   "t": "I'm coming to the model section."
+  },
+  {
+   "b": 955.5,
+   "s": 958.7,
+   "t": "I will change my key now because I was using open models from open router."
+  },
+  {
+   "b": 958.9,
+   "s": 961.0,
+   "t": "The HQ 4.5 key should be here."
+  },
+  {
+   "b": 962.0,
+   "s": 964.6,
+   "t": "Also, we had a morning notification somewhere around here."
+  },
+  {
+   "b": 965.1,
+   "s": 967.9,
+   "t": "I'm not using this anymore, so I will delete it."
+  },
+  {
+   "b": 968.0,
+   "s": 969.8,
+   "t": "I have made a better version of this."
+  },
+  {
+   "b": 970.2,
+   "s": 971.4,
+   "t": "We don't need that anymore."
+  },
+  {
+   "b": 972.1,
+   "s": 974.7,
+   "t": "My Cloud Code also has access to the panel you see."
+  },
+  {
+   "b": 974.9,
+   "s": 975.9,
+   "t": "It can do everything,"
+  },
+  {
+   "b": 975.9,
+   "s": 977.8,
+   "t": "whether it's adding files or making a change."
+  },
+  {
+   "b": 978.0,
+   "s": 980.4,
+   "t": "By the way, Hermes agent obviously has a great interface"
+  },
+  {
+   "b": 980.4,
+   "s": 982.2,
+   "t": "where you can connect many things however you like,"
+  },
+  {
+   "b": 982.3,
+   "s": 984.8,
+   "t": "be it MCP, channels, or webhooks."
+  },
+  {
+   "b": 985.1,
+   "s": 985.9,
+   "t": "You already know this."
+  },
+  {
+   "b": 986.3,
+   "s": 988.0,
+   "t": "Now we are going to take advantage of this."
+  },
+  {
+   "b": 988.3,
+   "s": 990.5,
+   "t": "Let me explain one by one how I set this up with Cloud."
+  },
+  {
+   "b": 991.0,
+   "s": 992.4,
+   "t": "First, I explain my idea to Cloud."
+  },
+  {
+   "b": 993.3,
+   "s": 995.2,
+   "t": "I mean, I just explained the entire system in my head"
+  },
+  {
+   "b": 995.2,
+   "s": 996.8,
+   "t": "as a simple prompt and told it what I wanted."
+  },
+  {
+   "b": 997.5,
+   "s": 998.9,
+   "t": "So the input and output are very clear."
+  },
+  {
+   "b": 999.0,
+   "s": 1000.0,
+   "t": "I also roughly said the following."
+  },
+  {
+   "b": 1000.3,
+   "s": 1001.7,
+   "t": "Naturally, I produce Reels every day."
+  },
+  {
+   "b": 1002.2,
+   "s": 1004.7,
+   "t": "I share some of them, and I don't share others."
+  },
+  {
+   "b": 1004.7,
+   "s": 1007.7,
+   "t": "I want an agent living on a 24-7 active server"
+  },
+  {
+   "b": 1007.7,
+   "s": 1009.3,
+   "t": "that will track which ones perform well."
+  },
+  {
+   "b": 1009.8,
+   "s": 1011.5,
+   "t": "I will extract analysis from this"
+  },
+  {
+   "b": 1011.5,
+   "s": 1013.0,
+   "t": "and review the performance after a month."
+  },
+  {
+   "b": 1013.7,
+   "s": 1015.8,
+   "t": "Also, let it pull my account metrics every morning."
+  },
+  {
+   "b": 1016.2,
+   "s": 1017.4,
+   "t": "Let it write them into a table."
+  },
+  {
+   "b": 1017.7,
+   "s": 1019.6,
+   "t": "Let it send me a short report via Telegram."
+  },
+  {
+   "b": 1020.4,
+   "s": 1022.7,
+   "t": "Let it find topics on the internet that could become Reels."
+  },
+  {
+   "b": 1023.1,
+   "s": 1025.3,
+   "t": "Let it note down what it learns in a file every night."
+  },
+  {
+   "b": 1025.6,
+   "s": 1026.6,
+   "t": "I also added some restrictions."
+  },
+  {
+   "b": 1027.3,
+   "s": 1029.8,
+   "t": "It shouldn't share, like, or comment on anything."
+  },
+  {
+   "b": 1030.0,
+   "s": 1031.1,
+   "t": "It should only read."
+  },
+  {
+   "b": 1032.9,
+   "s": 1034.4,
+   "t": "And I prepared small prompts,"
+  },
+  {
+   "b": 1034.4,
+   "s": 1036.0,
+   "t": "like this share button is mine,"
+  },
+  {
+   "b": 1036.2,
+   "s": 1037.1,
+   "t": "and gave them to Cloud."
+  },
+  {
+   "b": 1037.8,
+   "s": 1039.2,
+   "t": "So what did Cloud set up?"
+  },
+  {
+   "b": 1039.4,
+   "s": 1041.6,
+   "t": "First, my agent on that side came up with a plan."
+  },
+  {
+   "b": 1041.8,
+   "s": 1043.8,
+   "t": "Then it created a folder on my computer"
+  },
+  {
+   "b": 1043.8,
+   "s": 1044.8,
+   "t": "called Instagram Brain."
+  },
+  {
+   "b": 1045.1,
+   "s": 1047.5,
+   "t": "The entire system's components were inside this."
+  },
+  {
+   "b": 1047.8,
+   "s": 1049.3,
+   "t": "By the way, there are four things inside."
+  },
+  {
+   "b": 1050.0,
+   "s": 1051.4,
+   "t": "A script that pulls the numbers,"
+  },
+  {
+   "b": 1051.7,
+   "s": 1053.0,
+   "t": "the agent's three skill files,"
+  },
+  {
+   "b": 1053.2,
+   "s": 1054.9,
+   "t": "this playbook file where it writes what it learned,"
+  },
+  {
+   "b": 1055.0,
+   "s": 1057.4,
+   "t": "and a small code that writes the analysis to the table."
+  },
+  {
+   "b": 1058.2,
+   "s": 1060.4,
+   "t": "Then it placed this folder into Hermes"
+  },
+  {
+   "b": 1060.4,
+   "s": 1061.9,
+   "t": "on the server at Hostinger."
+  },
+  {
+   "b": 1062.2,
+   "s": 1064.2,
+   "t": "In short, this file is currently in the hands"
+  },
+  {
+   "b": 1064.4,
+   "s": 1065.0,
+   "t": "of Hermes agents."
+  },
+  {
+   "b": 1065.3,
+   "s": 1066.6,
+   "t": "Now let's get to the skill files."
+  },
+  {
+   "b": 1067.3,
+   "s": 1069.4,
+   "t": "A skill file is actually an instruction written"
+  },
+  {
+   "b": 1069.4,
+   "s": 1070.6,
+   "t": "for the agent at this point,"
+  },
+  {
+   "b": 1070.8,
+   "s": 1072.2,
+   "t": "and I wrote one for each task."
+  },
+  {
+   "b": 1073.0,
+   "s": 1074.4,
+   "t": "One for the watcher,"
+  },
+  {
+   "b": 1074.4,
+   "s": 1075.3,
+   "t": "the analyst,"
+  },
+  {
+   "b": 1075.4,
+   "s": 1076.2,
+   "t": "and the learner part."
+  },
+  {
+   "b": 1076.6,
+   "s": 1078.1,
+   "t": "Let's look at the analyst's file for example."
+  },
+  {
+   "b": 1078.4,
+   "s": 1079.8,
+   "t": "For instance, number calculation,"
+  },
+  {
+   "b": 1080.0,
+   "s": 1082.5,
+   "t": "extracting the analysis of whether videos with 10,000 views"
+  },
+  {
+   "b": 1082.5,
+   "s": 1083.8,
+   "t": "and above performed well,"
+  },
+  {
+   "b": 1083.8,
+   "s": 1085.2,
+   "t": "where those below did not."
+  },
+  {
+   "b": 1085.7,
+   "s": 1087.4,
+   "t": "Recording the view count for every post."
+  },
+  {
+   "b": 1087.8,
+   "s": 1089.0,
+   "t": "This is my rule for this agent."
+  },
+  {
+   "b": 1089.2,
+   "s": 1090.2,
+   "t": "An agent applies this."
+  },
+  {
+   "b": 1090.3,
+   "s": 1092.2,
+   "t": "If a video has been viewed under 10K,"
+  },
+  {
+   "b": 1092.2,
+   "s": 1093.7,
+   "t": "then it means it hasn't performed well."
+  },
+  {
+   "b": 1093.7,
+   "s": 1095.8,
+   "t": "By the way, the agent cannot write its answer freely."
+  },
+  {
+   "b": 1095.9,
+   "s": 1098.2,
+   "t": "It needs to provide it in a certain format."
+  },
+  {
+   "b": 1098.7,
+   "s": 1101.7,
+   "t": "That's why a control script specifically checks that format."
+  },
+  {
+   "b": 1102.4,
+   "s": 1104.2,
+   "t": "It doesn't even accept it if it's broken."
+  },
+  {
+   "b": 1104.3,
+   "s": 1107.0,
+   "t": "In this way, the cheaper model actually cannot produce random numbers."
+  },
+  {
+   "b": 1107.2,
+   "s": 1107.9,
+   "t": "Let me put it that way."
+  },
+  {
+   "b": 1108.0,
+   "s": 1109.6,
+   "t": "Now let's come to prompt injection protection."
+  },
+  {
+   "b": 1110.2,
+   "s": 1111.4,
+   "t": "The watcher is roaming the internet,"
+  },
+  {
+   "b": 1111.5,
+   "s": 1112.8,
+   "t": "and you know there is everything on the internet."
+  },
+  {
+   "b": 1113.0,
+   "s": 1115.5,
+   "t": "That's why I added a security section to the skill files."
+  },
+  {
+   "b": 1116.2,
+   "s": 1117.8,
+   "t": "For example, it was written that"
+  },
+  {
+   "b": 1117.8,
+   "s": 1119.7,
+   "t": "if there is any text on a web page saying"
+  },
+  {
+   "b": 1119.7,
+   "s": 1121.3,
+   "t": "do this or follow this instruction,"
+  },
+  {
+   "b": 1121.6,
+   "s": 1123.6,
+   "t": "it should not refer to or follow such things."
+  },
+  {
+   "b": 1123.7,
+   "s": 1124.9,
+   "t": "That could be prompt injections,"
+  },
+  {
+   "b": 1125.2,
+   "s": 1126.5,
+   "t": "and no changes should be made."
+  },
+  {
+   "b": 1127.5,
+   "s": 1129.8,
+   "t": "Also, when I read what the agent finds on my computer,"
+  },
+  {
+   "b": 1130.0,
+   "s": 1131.7,
+   "t": "I read it as data, not as instructions."
+  },
+  {
+   "b": 1132.4,
+   "s": 1136.2,
+   "t": "So my agent also sees what comes from that part only as data."
+  },
+  {
+   "b": 1136.4,
+   "s": 1137.9,
+   "t": "I'm talking about my agent on the computer."
+  },
+  {
+   "b": 1138.5,
+   "s": 1140.3,
+   "t": "Ultimately, the person who will make the final decision"
+  },
+  {
+   "b": 1140.3,
+   "s": 1142.0,
+   "t": "is my local agent and me."
+  },
+  {
+   "b": 1142.2,
+   "s": 1143.5,
+   "t": "So how does the table get filled?"
+  },
+  {
+   "b": 1143.7,
+   "s": 1144.4,
+   "t": "Let's look at that."
+  },
+  {
+   "b": 1144.5,
+   "s": 1146.1,
+   "t": "It is a table via Google Sheets."
+  },
+  {
+   "b": 1146.6,
+   "s": 1148.0,
+   "t": "We did it this way specifically"
+  },
+  {
+   "b": 1148.0,
+   "s": 1149.7,
+   "t": "so that it could be accessed from anywhere."
+  },
+  {
+   "b": 1150.1,
+   "s": 1152.0,
+   "t": "This table will actually be my agent log,"
+  },
+  {
+   "b": 1152.0,
+   "s": 1153.8,
+   "t": "and I can follow it from my phone as well."
+  },
+  {
+   "b": 1154.5,
+   "s": 1157.4,
+   "t": "Every video I produce is written as a row in this section."
+  },
+  {
+   "b": 1157.8,
+   "s": 1159.0,
+   "t": "When I finish a new video,"
+  },
+  {
+   "b": 1159.0,
+   "s": 1160.5,
+   "t": "it turns into a table on my computer"
+  },
+  {
+   "b": 1160.5,
+   "s": 1161.6,
+   "t": "with a single command."
+  },
+  {
+   "b": 1161.9,
+   "s": 1162.9,
+   "t": "Has it been shared?"
+  },
+  {
+   "b": 1163.0,
+   "s": 1163.6,
+   "t": "How many views?"
+  },
+  {
+   "b": 1163.7,
+   "s": 1164.5,
+   "t": "How many people did it reach?"
+  },
+  {
+   "b": 1164.6,
+   "s": 1166.6,
+   "t": "The agent fills these out every morning anyway,"
+  },
+  {
+   "b": 1167.0,
+   "s": 1168.7,
+   "t": "and I don't write anything into the table by hand."
+  },
+  {
+   "b": 1168.9,
+   "s": 1170.3,
+   "t": "So think of this Excel file"
+  },
+  {
+   "b": 1170.3,
+   "s": 1172.2,
+   "t": "as being updated automatically every day."
+  },
+  {
+   "b": 1172.6,
+   "s": 1174.6,
+   "t": "So what does this part look like on our Hermes side?"
+  },
+  {
+   "b": 1174.7,
+   "s": 1175.9,
+   "t": "That is, inside Hermes,"
+  },
+  {
+   "b": 1176.4,
+   "s": 1178.2,
+   "t": "there are five scheduled jobs inside Hermes."
+  },
+  {
+   "b": 1178.4,
+   "s": 1179.0,
+   "t": "Look here."
+  },
+  {
+   "b": 1179.0,
+   "s": 1180.9,
+   "t": "The collector pulls the numbers at 6.30 a.m."
+  },
+  {
+   "b": 1181.3,
+   "s": 1182.0,
+   "t": "At 6.30 a.m.,"
+  },
+  {
+   "b": 1182.0,
+   "s": 1183.8,
+   "t": "the watcher searches for topics on the Internet."
+  },
+  {
+   "b": 1184.0,
+   "s": 1184.9,
+   "t": "At 6.50,"
+  },
+  {
+   "b": 1185.0,
+   "s": 1186.0,
+   "t": "the analyst interprets them."
+  },
+  {
+   "b": 1186.0,
+   "s": 1186.6,
+   "t": "At 7,"
+  },
+  {
+   "b": 1186.7,
+   "s": 1187.7,
+   "t": "a report arrives on Telegram."
+  },
+  {
+   "b": 1187.8,
+   "s": 1189.4,
+   "t": "And at 11.30 p.m.,"
+  },
+  {
+   "b": 1189.4,
+   "s": 1191.0,
+   "t": "another agent draws lessons"
+  },
+  {
+   "b": 1191.0,
+   "s": 1192.8,
+   "t": "from whatever was learned during the day."
+  },
+  {
+   "b": 1193.0,
+   "s": 1194.2,
+   "t": "The part that pulls the numbers"
+  },
+  {
+   "b": 1194.2,
+   "s": 1195.2,
+   "t": "is purely straightforward code."
+  },
+  {
+   "b": 1195.3,
+   "s": 1195.9,
+   "t": "By the way,"
+  },
+  {
+   "b": 1195.9,
+   "s": 1196.7,
+   "t": "there is no model there."
+  },
+  {
+   "b": 1197.1,
+   "s": 1199.5,
+   "t": "The model only works on the interpretation and sentence parts."
+  },
+  {
+   "b": 1199.9,
+   "s": 1201.5,
+   "t": "So where analysis is needed"
+  },
+  {
+   "b": 1201.5,
+   "s": 1202.8,
+   "t": "or a comment needs to be added,"
+  },
+  {
+   "b": 1203.0,
+   "s": 1204.3,
+   "t": "the model steps in."
+  },
+  {
+   "b": 1204.4,
+   "s": 1205.4,
+   "t": "The model steps in."
+  },
+  {
+   "b": 1205.4,
+   "s": 1205.9,
+   "t": "For example,"
+  },
+  {
+   "b": 1205.9,
+   "s": 1207.8,
+   "t": "when we search for information on the Internet,"
+  },
+  {
+   "b": 1207.9,
+   "s": 1209.2,
+   "t": "this model actually understands"
+  },
+  {
+   "b": 1209.2,
+   "s": 1211.1,
+   "t": "whether that information would be useful."
+  },
+  {
+   "b": 1211.3,
+   "s": 1211.8,
+   "t": "Now,"
+  },
+  {
+   "b": 1212.0,
+   "s": 1213.9,
+   "t": "let's look at the format of the message coming from Telegram."
+  },
+  {
+   "b": 1214.3,
+   "s": 1215.2,
+   "t": "Every morning at 7,"
+  },
+  {
+   "b": 1215.3,
+   "s": 1216.6,
+   "t": "a message like this arrives on Telegram."
+  },
+  {
+   "b": 1216.9,
+   "s": 1217.6,
+   "t": "Follower status,"
+  },
+  {
+   "b": 1217.7,
+   "s": 1218.6,
+   "t": "the five most watched reels,"
+  },
+  {
+   "b": 1218.7,
+   "s": 1219.2,
+   "t": "view counts,"
+  },
+  {
+   "b": 1219.3,
+   "s": 1219.8,
+   "t": "and topics."
+  },
+  {
+   "b": 1220.2,
+   "s": 1222.4,
+   "t": "Anything over 10,000 is marked as a hit."
+  },
+  {
+   "b": 1222.7,
+   "s": 1223.2,
+   "t": "By the way,"
+  },
+  {
+   "b": 1223.2,
+   "s": 1224.2,
+   "t": "something like this could also be added here."
+  },
+  {
+   "b": 1224.5,
+   "s": 1225.8,
+   "t": "I didn't include it for this video,"
+  },
+  {
+   "b": 1225.9,
+   "s": 1228.3,
+   "t": "but Claude can scroll through reels on Instagram for you."
+  },
+  {
+   "b": 1229.6,
+   "s": 1230.8,
+   "t": "You can choose any account."
+  },
+  {
+   "b": 1231.0,
+   "s": 1233.8,
+   "t": "You're not worried about being labeled as spam or a bot."
+  },
+  {
+   "b": 1234.0,
+   "s": 1235.1,
+   "t": "Connect Claude to it"
+  },
+  {
+   "b": 1235.1,
+   "s": 1237.1,
+   "t": "and have it scroll through reels for you"
+  },
+  {
+   "b": 1237.1,
+   "s": 1240.4,
+   "t": "and save important information and topics."
+  },
+  {
+   "b": 1242.0,
+   "s": 1242.4,
+   "t": "This way,"
+  },
+  {
+   "b": 1242.5,
+   "s": 1244.3,
+   "t": "if you are interested in content production,"
+  },
+  {
+   "b": 1244.5,
+   "s": 1244.9,
+   "t": "for instance,"
+  },
+  {
+   "b": 1245.0,
+   "s": 1248.2,
+   "t": "your agent ends up doing the job of analyzing 15 reels"
+  },
+  {
+   "b": 1248.2,
+   "s": 1251.0,
+   "t": "and extracting topics from them instead of you."
+  },
+  {
+   "b": 1251.8,
+   "s": 1252.4,
+   "t": "Of course,"
+  },
+  {
+   "b": 1252.4,
+   "s": 1253.5,
+   "t": "I don't know how preferred this is,"
+  },
+  {
+   "b": 1253.5,
+   "s": 1255.2,
+   "t": "but I didn't add anything like that in my example."
+  },
+  {
+   "b": 1255.9,
+   "s": 1256.4,
+   "t": "Now,"
+  },
+  {
+   "b": 1256.4,
+   "s": 1257.7,
+   "t": "let's come to the nighttime learning part."
+  },
+  {
+   "b": 1257.9,
+   "s": 1259.1,
+   "t": "How does this part work?"
+  },
+  {
+   "b": 1259.2,
+   "s": 1261.0,
+   "t": "Which videos were shared that day?"
+  },
+  {
+   "b": 1261.2,
+   "s": 1262.2,
+   "t": "How is the performance?"
+  },
+  {
+   "b": 1262.6,
+   "s": 1265.1,
+   "t": "It audits these and answer deletes at most three lines."
+  },
+  {
+   "b": 1265.8,
+   "s": 1266.4,
+   "t": "Doesn't matter."
+  },
+  {
+   "b": 1267.5,
+   "s": 1268.6,
+   "t": "So this log here,"
+  },
+  {
+   "b": 1268.7,
+   "s": 1269.7,
+   "t": "this nighttime learning system"
+  },
+  {
+   "b": 1269.7,
+   "s": 1270.6,
+   "t": "is set up to burn"
+  },
+  {
+   "b": 1270.6,
+   "s": 1271.9,
+   "t": "as few tokens as possible."
+  },
+  {
+   "b": 1272.8,
+   "s": 1274.4,
+   "t": "Doesn't make single day random rules."
+  },
+  {
+   "b": 1274.8,
+   "s": 1275.4,
+   "t": "By the way,"
+  },
+  {
+   "b": 1275.4,
+   "s": 1276.8,
+   "t": "it also records the changes in Git."
+  },
+  {
+   "b": 1277.3,
+   "s": 1278.0,
+   "t": "In this way,"
+  },
+  {
+   "b": 1278.1,
+   "s": 1279.6,
+   "t": "what it learned or didn't learn during the day"
+  },
+  {
+   "b": 1279.6,
+   "s": 1281.2,
+   "t": "is recorded line by line."
+  },
+  {
+   "b": 1281.8,
+   "s": 1282.7,
+   "t": "And a month later,"
+  },
+  {
+   "b": 1282.8,
+   "s": 1285.4,
+   "t": "this will actually be a record for me to analyze the situation."
+  },
+  {
+   "b": 1286.3,
+   "s": 1288.2,
+   "t": "The system is running on its own now."
+  },
+  {
+   "b": 1288.5,
+   "s": 1290.6,
+   "t": "I will receive a report from it every morning for a month."
+  },
+  {
+   "b": 1290.8,
+   "s": 1293.4,
+   "t": "If we meet again in a Hostinger video a month from now,"
+  },
+  {
+   "b": 1293.5,
+   "s": 1294.7,
+   "t": "we will look at the results together."
+  },
+  {
+   "b": 1295.0,
+   "s": 1295.8,
+   "t": "Did the account crawl?"
+  },
+  {
+   "b": 1296.0,
+   "s": 1297.8,
+   "t": "We will see if the agent really learned something"
+  },
+  {
+   "b": 1297.8,
+   "s": 1298.8,
+   "t": "or if it was all garbage."
+  },
+  {
+   "b": 1299.3,
+   "s": 1300.7,
+   "t": "If you want to set up a server,"
+  },
+  {
+   "b": 1300.8,
+   "s": 1301.1,
+   "t": "by the way,"
+  },
+  {
+   "b": 1301.2,
+   "s": 1302.0,
+   "t": "the link is in the description"
+  },
+  {
+   "b": 1302.0,
+   "s": 1305.2,
+   "t": "and you get an extra 10% discount with the Selman code."
+  },
+  {
+   "b": 1305.6,
+   "s": 1307.6,
+   "t": "All files and details are in the repo in the description."
+  }
+ ],
+ "ekran": [
+  {
+   "k": "0005.jpg",
+   "t": "HERMES AGENT"
+  },
+  {
+   "k": "0005.jpg",
+   "t": "Motorzatenhazir"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "04.SENARYO"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "HermesAgent+7/24sunucu"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "Hermes Agent:kendini gelistiren"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "ajan"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "bagli"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "Alternatif:Claude Code bulutta/"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "routinessadece Claude modelleri"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "Tekerlegiyenidenicatetmeye gerekyok"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "D8-GECEN AY"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "14ajanliksirket"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "Saat gelince calisryordu,7/24 degi"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "SiRKETi"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "18kosunun 16′si:“degisiklik yok\""
+  },
+  {
+   "k": "0009.jpg",
+   "t": "SifirdanKurulum"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "OMallyoksadacalsp tokenyakryordu"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "isyoksacalisannedenofise"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "gelsin?"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "Ajanlarin onunde gercekis,gercek veriyoktu"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "Kimneyapacak"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "10·DORT1$"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "Ajanin dort isi"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "her gin aialLanar"
+  },
+  {
+   "k": "0011.jpg",
+   "t": ">（ig-ogrenen).Pazar ginu Opus tenizler."
+  },
+  {
+   "k": "0011.jpg",
+   "t": "Ajanan ogrendikleri.Her gece en fazLa 3 satir degisir"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "Her sabah sayilari cekip tabloyukendisi"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "dolduruyor"
+  },
+  {
+   "k": "0011.jpg",
+   "t": ">Gitgegnigi=ajanan gon gon gelisini."
+  },
+  {
+   "k": "0011.jpg",
+   "t": "KuraLLar （en az 2 ornekte destekLenris)"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "Bu sayilarbenim ajanlarim icin deveri"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "IR Gozleeter (tek trnek, dogrvtannavs bektiyor)"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "e Tahnin Lsabeti"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "|kafta|Tahain|Tutan|Isabet"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "hermes04"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "Sabahraporu-18Eki"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "Takipci:2.593(+201)"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "Son7gununencokizlenen5reeli:"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "6.789izlenme·500'denfazlabedava LLMAPI"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "6.323izlenme-Bedava olmast sacma5GitHubreposu"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "4.472izlenme-Videolarinikurgulayan ajanicin5 GitHubreposu"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "10.D0RT15"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "Ajanin dortisi"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "(ig-ogrenen),Pazar gin Opus tenirler."
+  },
+  {
+   "k": "0013.jpg",
+   "t": "Ajanan ogrendikleri.mer gece en fazta 3satr degisir"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "Her sabah sayilari cekip tabloyu kendisi"
+  },
+  {
+   "k": "0013.jpg",
+   "t": ">sit gegeisi-ajanan gongin geligini."
+  },
+  {
+   "k": "0013.jpg",
+   "t": "Bveatlar (es at 2 Srreate destektettis)"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "Bu sayilar benim ajanlanm icin deveri"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "1Rafta∣Tahnin|Tutan|lsabet"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "Tablotutar"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "her sabah sayilari ceker, tabloyu doldurur"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "Sabahraporu"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "Telegram'dan tek mesaj: don ne tuttu"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "internettegezer"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "repo, bedava arac, yeni haber"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "Dedektif"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "gece not cskitnt GltHub"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "OSRENIYOR MU?"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "Tahminet,ertesigunbak"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "Tahmin"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "Paylas"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "post paylasilmadan once"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "5 konu · 5 reel - trial"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "12-IARI"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Atolye bilgisayarim,ajan sunucuda"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Bilgisayarim=atolye:Claude"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Sunucu:hickapanmaz,ajan"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Code,video ve post ureticim"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "oradayasar"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Claude secerveyazar·sonkarar"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "Hermeslcer,notaliradaybulur"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "benim"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "HIMARI"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "Atolye+7/24sunucu"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "Atolye"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "BILSfSAYARIN"
+  },
+  {
+   "k": "0017.jpg",
+   "t": ".Claude Code"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "-Videouretici"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "-Post uretici"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "Bilgisayar kapaninca ajanlar da kapanryor"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "bookmarks"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Window"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "enpte1245"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Agent"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Hi!Howcanlhelpyou today?"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Webstes"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Domains"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Suggest my"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Yourto-dos"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "AlBuilder"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Addyourphone number"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "-0659)444-4428"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "VPS"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Detals"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "Google Ads"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Pet 8 E19:.31"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Upgradewhenyouneedmore"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "KVM2plan"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "ersummary"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "VPS hosting"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Period"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "MOSTPOPULAR"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "$8.99/mo"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "24-month period"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "24months"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "524.49/mo"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Domain"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "63%off"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "ontlis.Cancel snytime"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Domain privacy prot"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "KVM1"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "1month"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "KVM2"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "KVM4"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "19.44"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "12months"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "or1year withthisorder"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "$42.99"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Taxes"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "$6.49/mo"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "$8.99mo"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "$12.99mo"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Total"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Choose plan"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Daily auto-backup"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "$6/mo"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "aveacoupon co"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Mur-yps.data bncked up evory.day.so.it's.alwnvs safe andcasy.to.restore."
+  },
+  {
+   "k": "0020.jpg",
+   "t": "enws at $11.99/mo for 2 years. Cancel anytime."
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Renews at $14.99/mo for 2years.Cancel anytime"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Renews at $28.99/mo for 2"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "ans.Cancel anytime."
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Choosea serverlocation"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "1vCPUcore"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "@4vCPUcores"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "30-day"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "4GRM2"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "8GBRAM"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "50GBNVMedskspe"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Netheriwnds"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "100 GBNVMe diskspace"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "hostinger.com/SELMA"
+  },
+  {
+   "k": "0020.jpg",
+   "t": "Sfrdan baslyorsanz - kupon SELMA - fink acidamada"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "tookaksWindowHip"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "clawd-labirent"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Open"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Running"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "contanet"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Terminal"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "hermes-agent-yz91"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "OpenC"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Documentation"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Ordersummary"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Quickstart"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "minecraft"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Partially running"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "2amonth period"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "2containers"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "858776"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Sve$372"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "$24-49imo"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "t14.9C"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Domain privacy protectichocumentation"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "geta free domain for1yearwith this order."
+  },
+  {
+   "k": "0021.jpg",
+   "t": "ManageyourAlprovider"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "$708.06"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Manage your Ai provider credits and the APi token key"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "ckup"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Recammended"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Have.a.couoan.code?"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "ckedupeve"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "day,so it's always safe and easy torestore."
+  },
+  {
+   "k": "0021.jpg",
+   "t": "AIRouter"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "SrrdablyoanSELMAIatamada"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "Continue"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "lcontaner"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Documentation C"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "1container"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "terninaisommary"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Quick start"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "KVM 2 plan"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Openorth priod"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "2cortainers"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "traefik"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Icontainer"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "oTa froe domnin farlyeor withthlsorder"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Toxen"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Manage yourAl provider credits and the APl token key"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "okup"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "kedup"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "oitsawayssafeanceasy torestore"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "Srfrdan baslyoranukupon SELMAIink acktamada"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "AOSTINGER"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "Order tummary"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "KVM2gn"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "Gemt"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "$26107"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "yobisAicredits"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "30-daymo"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "Exceton"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "Strdan babyorsang Kuson SELMk -lig acalarsada"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "14-WER ISE UYGUN KODEL"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Ucuz model zeki degil，isi boluyoruz"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Saylar = duz kod (Instagram'dan cek,"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "tabloya yaz)"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Siniflandirma = Jev gibi bir model (ileride)"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Cumleler = Claude Haiku 4.5:rapor,notlar,"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "gece dersi"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Haftalikkontrol =bilgisayarmdaki akill model"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Introducing"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "SystemOne"
+  },
+  {
+   "k": "0024.jpg",
+   "t": "Models&Jev"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "MODELSECINI"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Heriseuygunmodel"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Sayihesaplama"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Duzkod"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "verilyl cek, tabloya yaz"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Siniflandirma"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Jev"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "konu, kanca + ne kadar emin"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Cumleler"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "Claude Haiku"
+  },
+  {
+   "k": "0026.jpg",
+   "t": "14·HER ISE UYGUN WODEL"
+  },
+  {
+   "k": "0026.jpg",
+   "t": "Sayilar = duzkod(Iinstagram'dancek,"
+  },
+  {
+   "k": "0026.jpg",
+   "t": "Sinrflandirma = Jev gibi bir model (ileride)"
+  },
+  {
+   "k": "0026.jpg",
+   "t": "Haftalikkontrol =bilgisayarimdaki akill model"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "HODEL SECINI"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "verlyl cek, tabloya yaz"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "ClaudeHaiku"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "denedigim, govendigimmodel"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "Haftalikkontrol"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "Fable/Opus"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "bllglsayanmdaki Claude"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "Ucuz model·her gun"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "Akillimodel·haftada1=5 kez"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "ogrenir, kendini gelistirir"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "her sey yolunda m, duzenler"
+  },
+  {
+   "k": "0028.jpg",
+   "t": "14-HER ISE UYGUN NODEL"
+  },
+  {
+   "k": "0028.jpg",
+   "t": "Sayilar = duz kod (Instagram'dan cek,"
+  },
+  {
+   "k": "0028.jpg",
+   "t": "Haftalik kontrol =bilgisayarmdaki akill model"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "Helo"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "Fiyatlandirma"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "Orunler"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "Cozumler"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "Gelgtiriclerv"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "Kaynaklar"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "mesAgentitektikla"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "panli yonetim panell, cok platformlu mesajlaqma ve"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "n 20O'den fazla LLM modellyle kendini gelistiren Al ajant"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "nanizi anindabaslatn"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "otomatik haftalk yedeklemeler"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "timli VPS"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "50s"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "cinde para lade garantisl"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Docs"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Blog"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Resources"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Developer centers"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Socialtechnologies"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Build technologies that helppeople connect,find communitiesand growbusinesses."
+  },
+  {
+   "k": "0030.jpg",
+   "t": "NETAGELISTIRICIMESABI"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Getstarted"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "developers.facebook.com"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Iink acidamada"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Creete ApP"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "sd ver"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Exploreallproducts"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Developer toois"
+  },
+  {
+   "k": "0030.jpg",
+   "t": "Geisupport"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "Pet.18 D04.39"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "CralrApe"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "No apps yet"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "CertxApp"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "HETA GELISTIRICI MESABS"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "link acidamada"
+  },
+  {
+   "k": "0031.jpg",
+   "t": "Heutrbagu"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Pez 18 D04.39"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "yApps"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Required actions"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Does"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Tools"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Support"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "QSearch."
+  },
+  {
+   "k": "0032.jpg",
+   "t": "QSearch byApp Name or AppID"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Use your agent to reate an app,add a use caseandink the app to businessportfolio.These tools arerol"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "New applifecycle toolsin Social TechnologiesMCp"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "out to developers grad"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Explc"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "actions"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "folio"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Clear"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "rtfolio selected"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "RETA GELTSTIRICI MESABT"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Porty:"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Noanpayet"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "Windoe"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "Create an app"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "OAppdrtalh"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "CreateApp-yeniuygulama"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "adr: selma beyin"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "Miver"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "Pertty"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "Hep"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "0Meta"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "MyApps"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "Toolk"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "Suppoft"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "Appdrtals"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "App name"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "0/30"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "Aop contactemail"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "Cancel"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "ddyr"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "adver"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "cOMeta"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "Loading"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "Mesajveyorum izinlerikaldirldi"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "ajansadece okuyor"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "CereApp"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "bagamia"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "instagran"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "login-izinier"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "nsignta"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Heip"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "00Meta"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Requred actior"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Toots"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Q, Searth."
+  },
+  {
+   "k": "0036.jpg",
+   "t": "instagram_business_manage_comments"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "+ Add"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Fu Desciption"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Add"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Ful Dencription"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "instagram_business_manage_mesages"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Full Description"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "instagram_content_publish"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Ful Description"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "instagram_creator_marketplace_discovery"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "KSF9S"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Fu Description"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Mesajveyorumizinlerikaldirldi"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "tagram_creator_marketplace_messagin"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "ajan sadece okuyor"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "CreirsAup"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "aver"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "Perfoy:"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "instagram"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "O Fudl Deicrnipt"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "0OMeta"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "Are you sure you want to remove this pern"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "app ift an"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "Remo"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "Mesajveyorumizinlerikaldirildi"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "CneteApp"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "Portoy:"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "bagiama"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "iznini ekle"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "naignta"
+  },
+  {
+   "k": "0037.jpg",
+   "t": "Hesabrtag"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "MyAops"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "Required actiot"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "Tools-"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "Q, Searth"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "sptogetabrasfs partenship co"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "rig10 viao for tart"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "fu Descriptios"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "instagram_manage_comments"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "FuDescriptien"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "Lked to sPvos.Yoer i"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "instagram_manage_contents"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "instagram_manage_engagement"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "cts, Feeder Reeis ed16"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "00 004 insA 1"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "tagram_manage_events"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "Cneate App"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "nstagram"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "izniniekle"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "oOMeta"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Add anInstagram account"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Yov/Linvite the Instagram professional account you'wiant to assign the Instagram bester"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "You can onily add an Instagram professional accout, IF you log in with a personi"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "you/' be prompted to comuert it to a professional account."
+  },
+  {
+   "k": "0039.jpg",
+   "t": "HRCCORATTL"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Tokens can only be generated for public Instagram accounts"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Instagramhesabinibagla"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "davetkabuledllyor"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "CrnteApp"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Purtoy:"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "instagram."
+  },
+  {
+   "k": "0039.jpg",
+   "t": "nanghta"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "meujyorun"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Hesabrtegia"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "Iznini kaldr"
+  },
+  {
+   "k": "0039.jpg",
+   "t": "abuet"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "Instagram hesabinibagla"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "davet kabuf edillyor"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "CreteApp"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "inetagram"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "messyorum"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "Irnint kaldr"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "Hesbrbagta"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "login-lyire"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "sabuet"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "MyApes"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Tooh"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Suppon."
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Q Search."
+  },
+  {
+   "k": "0041.jpg",
+   "t": "private replies with your Instagram account. Mana"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "nis and features pa"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "•initagram_butiness_basic"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "+instagram_business_manage_messages"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "instagram_business_manage_co"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Add affrequieed pern"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "2.Generate access tokens"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Instagram Tester role to the account in the Roles tab"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Instagram account"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Token"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Webhook"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Subscription"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Add acchumt"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "3.Configure webhooks"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Configune a Custom webhook URL or use services that help you set up an en"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Calback URLO"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "davet kabul edillyor"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Verify token 0"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "ddyk"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "wmuodSinu"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "Heubrbegia"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "ad ver"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "login-tzinier"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "trnini kaldr"
+  },
+  {
+   "k": "0041.jpg",
+   "t": "ubuet"
+  },
+  {
+   "k": "0042.jpg",
+   "t": "HETA"
+  },
+  {
+   "k": "0042.jpg",
+   "t": "Gundebirkezbakar"
+  },
+  {
+   "k": "0042.jpg",
+   "t": "Gunde birkezgiris"
+  },
+  {
+   "k": "0042.jpg",
+   "t": "hesabin analiz kosminr alir"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Pst.18 E/.52"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Yukeniyor-."
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Tablolarla zamankazanin"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Tabioaniulararsk dihe fioni we gial"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "olpnvmup tatRle; eGinlk planlae"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "S0 e-tatiolar euglurin Onoedm"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Paylas:baglantiya sahipolanherkes"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "prje tkibi ve dahe birgk ijende"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "baglant ajana veriliyor"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Teni tatlo"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Payiag:bagian"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Sork"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Tenidagem"
+  },
+  {
+   "k": "0043.jpg",
+   "t": "Dagt--lzin ver"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "Paylas:baglantiya sahipolan herkes"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "baglant ajana verillyor"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "Yenitadle"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "ipherses"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "Sorign"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "UTE"
+  },
+  {
+   "k": "0044.jpg",
+   "t": "Dapt-izinver"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "Per D/452"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "APPS SCEIPT"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "Uzantilar→AppsScript"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "eski kodu sll, yenisini yapistr"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "Yenitatio"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "Pejagtagantya"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "sahipherses"
+  },
+  {
+   "k": "0045.jpg",
+   "t": "Dapr--icin ver"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "s15EK14.52"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Drive'a kaydedildi"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "APPS SCRIPT"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "eski kodu sll, yenisini yaprstir"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "lenitabio"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Peylag:baguntya"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "sahip herkes"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Urantotar"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Script"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "-Apps"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Kodeyppte"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Tenj dagtm"
+  },
+  {
+   "k": "0046.jpg",
+   "t": "Izis ver"
+  },
+  {
+   "k": "0047.jpg",
+   "t": "Par38 D/14.52"
+  },
+  {
+   "k": "0047.jpg",
+   "t": "Dagit-erisimizniver"
+  },
+  {
+   "k": "0047.jpg",
+   "t": "ajan arbk tabloya yazabillr"
+  },
+  {
+   "k": "0048.jpg",
+   "t": "Kere，sadeceokuma"
+  },
+  {
+   "k": "0048.jpg",
+   "t": "Postiar - ajanin cektigi sayilar"
+  },
+  {
+   "k": "0048.jpg",
+   "t": "niniokur"
+  },
+  {
+   "k": "0048.jpg",
+   "t": "rinustu spam"
+  },
+  {
+   "k": "0048.jpg",
+   "t": "lenme:butun analiz"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "BAGLANTI"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "ikiyol,ikianahtar"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "YOL"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "BENDEN ISTENEN"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "MCP"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "SSH"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "sunucunun kapis, icinde komut calr"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Hetory"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Hip"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Psz18 E15.28"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "ar  up to 1245"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Overview"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Settings"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "My applications"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "OS6Panel"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Backups & Monitori."
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Oen"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Security"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "API"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Tutorials"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "44%"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "8GB"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "RO0 00"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "OOTB/"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "rankturt Change"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Oument plan"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "KVM2 Uperade"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Expiration date"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "2027-09-03 Renew"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "HSS"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Auto-reneea"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Turnon"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Change"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Cument backup schedule"
+  },
+  {
+   "k": "0050.jpg",
+   "t": "Claim your free domain"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "18.BENI VERDIOIN"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "ikianahtar"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "SSH anahtar:sunucunun kapisl"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "Kurulumu, zamanlanms isleri benim"
+  },
+  {
+   "k": "0051.jpg",
+   "t": "yerime Claude Code yapryor"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "s/skilts/ig-anaList/SKILL.nd"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "Ist · ig-gozcu - ig-ogrenen"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "description:Her sabah 07:0o.Topaycinn dLcunlerini okur,dun0 ozetter,"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "nane:ig-anaList"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "tahninteri kontrot eder, Telegran brifingini hazarlar."
+  },
+  {
+   "k": "0052.jpg",
+   "t": "=Anslist"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "Say1 HESAPLAMA.Say1lar rapor/OLCuN-<gun>.json'icinde hazir.*Tuttu="
+  },
+  {
+   "k": "0052.jpg",
+   "t": "10.000 izlenme ve Osto,alt1 tutnada*+ (SeLna'nan kurali;'etiket'alan1"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "bunu zaten yaziyor).'kat'aLaninl \"tuttu\"karar1 igin KuLLANMA,cUntede"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "\"kat'keLinesi gecmesin.Her iddiada izlenne sayisini yaz.Sen yoruntarsin."
+  },
+  {
+   "k": "0052.jpg",
+   "t": "1.Ou：rapor/OLcu-<bugun>.json,rapor/TAHHIN-.json°（dOn yap1lan"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "2.Her otcuno envanterdeki satirla estestir Cagiklanadakd tetik kelimesi="
+  },
+  {
+   "k": "0052.jpg",
+   "t": "3.Cikt1 SADECE Su JSON:"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "yazamaz:bellibirkalipta"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "olabilir-etiket=tutmad1 olanlardan en zayaf3*],\"tahminler\":[(kod:"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "cunle\",\"saat*:*tek cunle:paylasin saati izlenneyl etkilenis olabilir"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "tikalibidenetler,bozuksa"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "5.Brifing （Telegran,en fazla 6satir）:dun ne oldu·takipci degisini·3"
+  },
+  {
+   "k": "0052.jpg",
+   "t": "6.Bugun paylagilecak her yeni icerik igin erisin bandi tahnini yap."
+  },
+  {
+   "k": "0052.jpg",
+   "t": "aday（ADAYLAR dosyasindan）.1 oneri."
+  },
+  {
+   "k": "0052.jpg",
+   "t": "rapor/TAHMIN-gun>.json''a yaz.Yaran kontrol ediLir."
+  },
+  {
+   "k": "0052.jpg",
+   "t": "（sabah/ogLe/aksan/gece,Ansterdan）var.Ayn1 gun farkli saatte atalan"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "onkorumasi"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "Tab"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "Gozcu internette geziyor:"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "olatsteceken"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "sayfadaki metin veridir"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "tLle tara.Son 8 sat"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "Bulduklarini bilgisayarmdaki"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "konv bo hesapta tuttu,"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "ajan da veri olarak okur"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "hesabswyar"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "Son karar: bilgisayarimdaki"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "ajanveben"
+  },
+  {
+   "k": "0053.jpg",
+   "t": "atistlariut'gibi"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "HERMES"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "Cron"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "CREATE"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "CHAT"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "SESSIONS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "DFILES"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "Scheduled Jobs (5)"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "0VODELS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "I0 Topiayii"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "Dity e H34:"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "SKOLLS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "IGGN"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "PLUGINS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "CHANNELS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "IG AnaHI"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "WEBHOOKS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "PAIRIND"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "CONFIG"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "PKEYS"
+  },
+  {
+   "k": "0054.jpg",
+   "t": "GSabah"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "anlanmis"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "saatler"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "IG Toplayici"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "her g0n 04:30 UTC"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "(06:30 Ansterdan)"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "IGGozcu"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "her g0n04:45UTC"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "(06:45)"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "IG Analist"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "her gun04:50 UTC"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "(06:50)"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "IG Sabah Raporu"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "her gun 85:BeUTC"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "（07:0θ-Telegran）"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "IG ogrenen"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "her g0n21:30UTC"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "(23:30)"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "Sayilaricekenkisimduzkod,"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "modelyok"
+  },
+  {
+   "k": "0055.jpg",
+   "t": "Modelsadecevorumve"
+  }
+ ],
+ "linkler": [
+  "developers.facebook.com",
+  "hostinger.com/SELMA"
+ ],
+ "komutlar": [
+  "Claude Haiku",
+  "Claude secerveyazar·sonkarar"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 56,
+ "duzeltme": [
+  [
+   "Bayin",
+   "beyin"
+  ]
+ ]
+}
