@@ -29,11 +29,12 @@ def norm(s):
 
 
 son = [""]
+bos = [0]
 
 
 def hakem(ev, maddeler, aile):
     num = "\n".join("%d. %s" % (i + 1, m) for i, m in enumerate(maddeler))
-    for t in range(30):
+    for t in range(8):
         m = None
         try:
             m, k, _ = h.cagir("hakem", IST % (ev[:7000], num), max_tokens=900, haric_aile=aile, etiket="kart-dogrula",
@@ -47,6 +48,7 @@ def hakem(ev, maddeler, aile):
             son[0] = type(e).__name__ + str(e)[:40]
             time.sleep(5)
             continue
+        print("  havuz bos, deneme", t + 1, son[0], flush=True)
         time.sleep(20)
     return None, ""
 
@@ -89,6 +91,10 @@ async def bir(br, sem, ex, f, sat):
     sonuc, hk = (None, "")
     if len(ev) > 150 and idx:
         sonuc, hk = await asyncio.get_running_loop().run_in_executor(ex, hakem, ev, [satirlar[i].strip("- ").strip() for i in idx], aile)
+        bos[0] = 0 if sonuc is not None else bos[0] + 1
+        if bos[0] >= 3:  # havuz kotasi bitti: bos donguyle bekleme, durup yeniden baslatilabilir cik
+            print("havuz tukendi (ardisik 3 kart hakemsiz), cikis; yeniden baslat", flush=True)
+            os._exit(3)
     kanitli = kanitsiz = 0
     if sonuc is not None:
         en = norm(ev)
