@@ -157,3 +157,5 @@ variant: Builds multiple variants of a component you're working
 Slash katalog (iş türü → /komut·skill): `yetenek-getir/reference/slash-katalog.md` — Read; oturuma yüklenmez.
 
 Kombo adayları (A/B ölçümü geçmedi; önerme, yalnız ipucu): fe-referans-diff, fe-a11y-perf-kapisi, fe-sahne-animasyon, fe-desktop-referans-devri, fe-pixeljury-yargi.
+
+Ders kitabı (web okulu, alıntı denetimli): `docs/okul/web-s1.md` (temel) · `docs/okul/web-s2.md` (animasyon/scroll) · taslak: `docs/okul/web-taslak.md`, Read; oturuma yüklenmez.
