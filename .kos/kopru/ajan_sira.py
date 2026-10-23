@@ -191,7 +191,7 @@ def dis_calisan(bilinen):
     return n
 
 
-KURTAR_TAVAN, KURTAR_TOPLAM, KURTAR_YAS = 2, 3, 86400  # YÖNETİCİ-BAĞIMSIZ-1 d3: iş başına en çok 2 deneme, açılış başına en çok 3 iş, en çok 24 saat önce başlamış
+KURTAR_TAVAN, KURTAR_TOPLAM, KURTAR_YAS = 2, 3, 6 * 3600  # YÖNETİCİ-BAĞIMSIZ-1 d3: iş başına en çok 2 deneme, açılış başına en çok 3 iş; KURTAR-FİX-1: >6 saatlik iş kurtarılmaz (alarm + Desktop'a soru)
 DEVAM = {}  # ad → kesilen oturumun session_id'si (transkript varsa --resume) ya da None (baştan)
 DEVAM_ISTEM = "Oturum yönetici/Desktop kapanınca yarıda kesildi. Kaldığın yerden devam et, görevi bitir ve raporla."
 
@@ -207,16 +207,40 @@ def sonuc_var(ad):
     return False
 
 
-def kurtar(adlar, baslayan):
+def git_var(ad):
+    """git log'da görev adı (tam sözcük olarak) geçen commit var mı? KURTAR-FİX-1: iş başka adla/elle bitmiş olabilir."""
+    r = subprocess.run(["git", "log", "-1", "--format=%h", "-E", f"--grep=(^|[^A-Za-z0-9-]){re.escape(ad)}($|[^A-Za-z0-9-])"],
+                       cwd=KOK, capture_output=True, text=True, errors="replace", creationflags=0x08000000)
+    return bool(r.stdout.strip())
+
+
+def kurtar(satirlar, baslayan):
     """YÖNETİCİ-BAĞIMSIZ-1 d3: kuyruktaki, .basladi'sı olup sonucu olmayan ve süreci ölmüş işleri baslayan'dan çıkarır (yeniden sıraya girer).
+    satirlar = kuyruk() satırları (ad, görev dosyası, ...). KURTAR-FİX-1: aynı görev dosyasını kullanan başka satırın sonucu varsa, git log'da
+    görev adı geçiyorsa ya da iş >6 saatlikse kurtarma YOK ("KURTAR-ATLA <ad> neden"; yaşlıysa ayrıca beyin alarmı).
     Dönüş {ad: session_id|None}: transkripti diskte olan oturum --resume, yoksa baştan."""
     devam = {}
-    for ad in adlar:
+    for ad, dosya, *_ in satirlar:
         f = CIKTI / f"{ad}.basladi"
-        if len(devam) >= KURTAR_TOPLAM or ad not in baslayan or not f.exists() or sonuc_var(ad) or time.time() - f.stat().st_mtime > KURTAR_YAS:
+        if len(devam) >= KURTAR_TOPLAM or ad not in baslayan or not f.exists() or sonuc_var(ad):
             continue
         p = f.read_text(encoding="utf-8", errors="replace").split()
         if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
+            continue
+        kardes = next((x[0] for x in satirlar if x[0] != ad and x[1] == dosya and sonuc_var(x[0])), None)
+        if kardes:
+            log("KURTAR-ATLA", ad, f"aynı görev dosyasıyla {kardes} bitmiş")
+            continue
+        if git_var(ad):
+            log("KURTAR-ATLA", ad, "git log'da görev adı var (iş commit'lenmiş)")
+            continue
+        if time.time() - f.stat().st_mtime > KURTAR_YAS:
+            log("KURTAR-ATLA", ad, "yaş >6 saat; Desktop'a soru: yeniden koşsun mu?")
+            try:
+                sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
+                beyin_dusun.olay("kurtar-atla", ad, f"{ad} >6 saatlik yarım iş, kurtarılmadı; Desktop: yeniden koşsun mu?", True)
+            except Exception:
+                pass
             continue
         sayac = CIKTI / f"{ad}.kurtar"
         n = int(sayac.read_text(encoding="utf-8") or 0) if sayac.exists() else 0
@@ -484,7 +508,7 @@ def main():
     yeniden, tekrar, uyari = [], set(), set()  # merdiven: başarısız işin bir üst basamakta tek yeniden denemesi; uyari: "cwd yok" günlüğü bir kez
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
-    DEVAM.update(kurtar([x[0] for x in kuyruk()], baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
+    DEVAM.update(kurtar(kuyruk(), baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     ara_t = 0.0
     while True:
@@ -520,7 +544,7 @@ def main():
                         pass
                     yeni, dk = zorunlu_arac.devam(ad, den)  # ARAÇ-KAPI-1: üç işaretten biri → en fazla 2 devam turu (Haiku), sonra DUR
                     if zorunlu_arac.YENIDEN and dk == "devam" and yeni not in tekrar:
-                        yeniden.append((yeni, zorunlu_arac.yeniden_istem(ad, istem, zorunlu_arac.eksik_liste(den), yeni), kosul, None, None, 0, cwd))
+                        yeniden.append((yeni, zorunlu_arac.yeniden_istem(ad, istem, zorunlu_arac.eksik_liste(den), yeni), kosul, ef, mdl, bas or 0, cwd))  # asıl işin efor/modeli
                         tekrar.add(yeni)
                     elif dk == "dur":
                         log("DUR", ad, "2 devam turundan sonra hâlâ eksik:", ", ".join(zorunlu_arac.eksik_liste(den)))
@@ -530,7 +554,7 @@ def main():
             arka_istek.isle(log=log)
         except Exception as e:
             log("arka-istek hata", repr(e)[:120])
-        bekleyen = yeniden + [x for x in kuyruk() if x[0] not in baslayan]
+        bekleyen = [y for y in yeniden if not y[0].endswith(("-a", "-a2"))] + [x for x in kuyruk() if x[0] not in baslayan] + [y for y in yeniden if y[0].endswith(("-a", "-a2"))]  # devam turları ana işlerin arkasında
         dis = dis_calisan(set(calisan))
         if not bekleyen and not calisan and not dis:  # 22 Eki (Ömer): kuyruk boşalınca ÇIKMA — sonradan eklenen işler başlamıyordu; bekle
             if "bos" not in uyari:

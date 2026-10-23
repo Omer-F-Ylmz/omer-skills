@@ -338,3 +338,63 @@ def test_hayalet_basladi_calisan_sayilmaz(tmp_path, monkeypatch):
     (tmp_path / "sahte.basladi").write_text(f"12:00:00 pid {ep}", encoding="utf-8")
     assert ajan_sira.pid_canli(ep)
     assert ajan_sira.dis_calisan(set()) == 0
+
+
+def _olu_is(tmp_path, ad, yas_sn=60):
+    """Süreci ölmüş, sonucu olmayan iş: .basladi (ölü pid) + boş json."""
+    f = tmp_path / f"{ad}.basladi"
+    f.write_text("12:00:00 pid 999999", encoding="utf-8")
+    (tmp_path / f"{ad}.json").write_text("", encoding="utf-8")
+    t = ajan_sira.time.time() - yas_sn
+    os.utime(f, (t, t))
+
+
+def _kurtar_ortam(tmp_path, monkeypatch, git=False):
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "git_var", lambda ad: git)
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: None)
+
+
+def test_kurtar_olu_is_yeniden_siraya(tmp_path, monkeypatch):
+    _kurtar_ortam(tmp_path, monkeypatch)
+    _olu_is(tmp_path, "is-a")
+    baslayan = {"is-a"}
+    assert ajan_sira.kurtar([("is-a", "g.md")], baslayan) == {"is-a": None}
+    assert "is-a" not in baslayan
+
+
+def test_kurtar_ayni_gorev_dosyasi_baska_satir_bitmis(tmp_path, monkeypatch):
+    """arac-bul-2 / 2b olayı: aynı görev dosyasını kullanan başka satırın sonucu var → kurtarma yok."""
+    _kurtar_ortam(tmp_path, monkeypatch)
+    _olu_is(tmp_path, "arac-2")
+    (tmp_path / "arac-2b.json").write_text('{"type": "result"}\n', encoding="utf-8")
+    baslayan = {"arac-2"}
+    satirlar = [("arac-2", "g.md"), ("arac-2b", "g.md")]
+    assert ajan_sira.kurtar(satirlar, baslayan) == {}
+    assert "arac-2" in baslayan and not (tmp_path / "arac-2.kurtar").exists()
+
+
+def test_kurtar_git_logda_gorev_adi_var(tmp_path, monkeypatch):
+    _kurtar_ortam(tmp_path, monkeypatch, git=True)
+    _olu_is(tmp_path, "is-g")
+    assert ajan_sira.kurtar([("is-g", "g.md")], {"is-g"}) == {}
+
+
+def test_kurtar_yas_alti_saat_alarm(tmp_path, monkeypatch):
+    """Yaş >6 saat: kurtarma yok, beyin alarmı (hata olayı) ve Desktop'a soru."""
+    _kurtar_ortam(tmp_path, monkeypatch)
+    _olu_is(tmp_path, "is-eski", yas_sn=7 * 3600)
+    assert ajan_sira.kurtar([("is-eski", "g.md")], {"is-eski"}) == {}
+    import beyin_dusun
+    olaylar = [json.loads(s) for s in beyin_dusun.OLAY.read_text(encoding="utf-8").splitlines()]
+    assert any(o["tur"] == "kurtar-atla" and o["arac"] == "is-eski" and o["hata"] for o in olaylar)
+
+
+def test_kurtar_atla_gunlugu_neden_yazar(tmp_path, monkeypatch):
+    _kurtar_ortam(tmp_path, monkeypatch)
+    satirlar = []
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: satirlar.append(" ".join(map(str, a))))
+    _olu_is(tmp_path, "is-x")
+    (tmp_path / "is-y.json").write_text('{"type": "result"}\n', encoding="utf-8")
+    ajan_sira.kurtar([("is-x", "g.md"), ("is-y", "g.md")], {"is-x"})
+    assert any(s.startswith("KURTAR-ATLA is-x") and "is-y" in s for s in satirlar)
