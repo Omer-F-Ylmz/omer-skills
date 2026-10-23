@@ -40,6 +40,43 @@ def test_istek_baslar_pid_yazar_tekrar_baslatmaz(tmp_path):
         subprocess.run(["taskkill", "/T", "/F", "/PID", str(pid)], capture_output=True)
 
 
+def _sahte_arka(tmp_path):
+    arka = tmp_path / "sahte_arka.py"
+    arka.write_text("print('arka pid 4242')\n", encoding="utf-8")
+    return arka
+
+
+def test_olu_pid_bitmemis_isi_yeniden_baslatir(tmp_path):
+    klasor = tmp_path / "istek"
+    klasor.mkdir()
+    gunluk = tmp_path / "is.log"
+    gunluk.write_text("ADIM x\n", encoding="utf-8")
+    (klasor / "is1.json").write_text(json.dumps({"komut": ["a.py"], "gunluk": str(gunluk), "pid": 999999, "basladi": "2026-10-23 09:00:00"}), encoding="utf-8")
+    arka_istek.isle(klasor, arka=_sahte_arka(tmp_path), log=lambda *a: None)
+    d = json.loads((klasor / "is1.json").read_text(encoding="utf-8"))
+    assert d["pid"] == 4242 and d["yeniden"] == 1
+
+
+def test_olu_pid_bitmisse_yeniden_baslatmaz(tmp_path):
+    klasor = tmp_path / "istek"
+    klasor.mkdir()
+    gunluk = tmp_path / "is.log"
+    gunluk.write_text("ADIM x\nBITIS\n", encoding="utf-8")
+    (klasor / "is1.json").write_text(json.dumps({"komut": ["a.py"], "gunluk": str(gunluk), "pid": 999999, "basladi": "2026-10-23 09:00:00"}), encoding="utf-8")
+    arka_istek.isle(klasor, arka=_sahte_arka(tmp_path), log=lambda *a: None)
+    assert json.loads((klasor / "is1.json").read_text(encoding="utf-8"))["pid"] == 999999
+
+
+def test_yeniden_basi_uc_ile_sinirli(tmp_path):
+    klasor = tmp_path / "istek"
+    klasor.mkdir()
+    gunluk = tmp_path / "is.log"
+    gunluk.write_text("ADIM x\n", encoding="utf-8")
+    (klasor / "is1.json").write_text(json.dumps({"komut": ["a.py"], "gunluk": str(gunluk), "pid": 999999, "yeniden": 3}), encoding="utf-8")
+    arka_istek.isle(klasor, arka=_sahte_arka(tmp_path), log=lambda *a: None)
+    assert json.loads((klasor / "is1.json").read_text(encoding="utf-8"))["pid"] == 999999
+
+
 def test_gecersiz_istek_hata_yazar_baslatmaz(tmp_path):
     (tmp_path / "kotu.json").write_text(json.dumps({"komut": []}), encoding="utf-8")
     arka_istek.isle(tmp_path, log=lambda *a: None)
