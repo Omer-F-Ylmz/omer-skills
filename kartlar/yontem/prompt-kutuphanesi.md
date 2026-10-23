@@ -2778,6 +2778,45 @@ Arka plan, nesneler, farklı elementler hepsi temiz bir şekilde ayrılıyor.
 ## DXy35WpiIJU 0:26-0:27
 Kendin de denemek istersen yorumlara görsel yaz, linkini DM'den ileteyim.
 
+## DY8EtIPtKLC 0:29-0:33
+Aşağıdaki metni olduğu gibi kopyalayıp Claude Code’a yapıştırın — kurulumu kendisi yapıp test ediyor. Bu prompt Claude Code terminaline yapıştırılır — tarayıcının arama çubuğuna değil. Ön koşul: Claude Code kurulu olmalı ve “code execution” açık olmalı. Claude Code’a video izleme yetenegi kazandiralim. github.com/bradautomates/claude-video deposundaki “watch” skill’ini kur ve test et: 1. Depoyu ~/.claude/skills/watch klasorune kur (Windows: %USERPROFILE%\.claude\skills\watch). Boylece her projede calisir. Zaten
+
+## DY8EtIPtKLC 0:38-0:41
+Test için RustGal'e bir video seçti. İlk 10 saniyesini bize anlatmasını istedi.
+
+## DY8EtIPtKLC 0:49-0:54
+Burada kaç frame olduğunu tespit ettikten sonra saniye saniye orada neler olduğunu yazdı.
+
+## DY8EtIPtKLC 0:57-1:02
+Dolayısıyla beni heyecanlandırdı. Çünkü çok aradığım bir araçtı ve gerçekten çalışıyor.
+
+## DY8EtIPtKLC 0:00-0:05
+Selam dostlar. Bugün Cloud Code'a video izletebilmemizi sağlayan bir repo göstereceğim.
+
+## DY8EtIPtKLC 0:21-0:26
+Repomuz burası arkadaşlar. Buraya verip Desktop Commander gibi bir araçla kurmasını isteyebilirsiniz. Ben Cloud Code'la kurmanızı sağlayacak bir prompt vereceğim.
+
+## DY8EtIPtKLC 0:26-0:29
+Veya kurulmanın nasıl yapılacağını sorarsınız. Adım adım söyler. Takip edebilirsiniz.
+
+## DY8EtIPtKLC 0:41-0:49
+Niye bunu seçti bilmiyorum ama böyle bir video seçti. İlk 10 saniyesi.
+
+## DY8EtIPtKLC 1:09-1:15
+Birisi N8N MCP. Bu otomasyonla alakalı birçok şeyde çok işe yarayan bir şey.
+
+## DY8EtIPtKLC 1:15-1:21
+Bunu indirip N8N'i de bilgisayarınıza desktop yani lokalden çalıştırmanı sağlayacak şekilde kurmasını isteyebilirsiniz.
+
+## DY8EtIPtKLC 1:21-1:27
+Bu Playwright'ın kendi kendini öğrenip kendini geliştiren bir versiyonuymuş.
+
+## DY8EtIPtKLC 1:27-1:33
+Playwright ne derseniz Playwright sayesinde Google Chrome üzerinden Cloud bizim için browserda kendisi hareket edebiliyor.
+
+## DY8EtIPtKLC 1:33-1:41
+Biri de bu Kerry Robbs. Bu da iş aramamıza yardımcı oluyor. CV düzenlememize ve benzeri işlerimize yardımcı oluyor.
+
 ## DYA1MUFuid- 0:04
 This is the Claude AI ad studio and the best part, you don't write a single line of prompt.
 
@@ -3038,6 +3077,33 @@ Sadece şuradaki yazıyı küçültmesini istiyorum ve sayfanın geri kalanında
 
 ## JfmAm3sxCSc 6:17-6:27
 Sayfanın geri kalanındaki yazılar içinde scroll ile beraber tetiklenen bir görsel galeri var. Şimdi yavaşça yüklenmesini istiyorum.
+
+## nT1KPAQL9_g 0:38-0:40
+It will track the numbers on my account. So I want a daily analysis.
+
+## nT1KPAQL9_g 1:38-1:41
+The improvement we are talking about here comes from the growth of the files.
+
+## nT1KPAQL9_g 2:00-2:04
+The first is memory.md. This is the file where it saves its environment and what it learns. The second is user.md. This just holds the user's information.
+
+## nT1KPAQL9_g 3:13-3:17
+Just like in a company where employees, activities, and results are reported at the end of the day, I want an analysis of what my agent did and my own behavior throughout that day.
+
+## nT1KPAQL9_g 4:11-4:13
+The first one will keep a table. I want it to collect everything I produce and share into a single table.
+
+## nT1KPAQL9_g 4:28-4:33
+The second one will report to me every morning. What happened yesterday? What performed well? What didn't? A short message on Telegram is perfectly enough for me.
+
+## nT1KPAQL9_g 4:49-4:56
+The third one wanders the Internet. For example, it might have found a new guitar riff that fits my topics. It has a good rating. It can be used. It tests it first, then presents it to me. It could be free tools or new news.
+
+## nT1KPAQL9_g 5:25-5:35
+A prediction will be made before every post. I shot five different reels within five topics. Then, for example, I sent those five reels to Trey within the same day. First, this agent will make its prediction. It will base its prediction on whether this post will fail or not, and the next day it will check if its prediction was actually correct.
+
+## nT1KPAQL9_g 9:48-9:51
+Maybe I can connect it at some point. During this one-month trial period.
 
 ## vcU85OrwuV0 3:09-3:19
 Imagine that I am doing this big thing and for whom is it. Their need is deep and deep. And keeping this topic in mind, can you help me write an email about this client?

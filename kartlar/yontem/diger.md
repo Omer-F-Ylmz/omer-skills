@@ -365,6 +365,8 @@
 - **Fine Grain Image Enhancer** (DWQ10oLE-FU): Bulanık fotoğrafları yüksek çözünürlüklü görsellere çeviren ücretsiz AI aracı. — «Finegrain Image Enhancer»
 - **Universal Link Downloader** (DXrZxxhDmEM): Herhangi bir linkten videolar, sesler, görseller, gönderiler gibi içerikleri indirmeyi sağlayan bir araç. — «This tool downloads literally anything from any link.»
 - **open_source** (DY4icdJs-dI): Tüm kaynaklar Apache 2.0 lisansı altında açık kaynaklıdır. — «Apache2.0»
+- **frame-tespiti** (DY8EtIPtKLC): Videonun ilk 10 saniyesinde kaç frame olduğunu tespit etme ve saniye saniye içeriği analiz etme. — «Burada kaç frame olduğunu tespit ettikten sonra saniye saniye orada neler olduğunu yazdı.»
+- **gorsel-hook-analizi** (DY8EtIPtKLC): Videonun görsel hook'larını (görsel ipuçlarını) tespit etme ve analiz etme. — «Sonrasında da bir görsel hook analizi yaptı.»
 - **CoCounsel connector** (DYd19cHDBaH): Westlaw verilerini çekip özetlemeyi sağlayan entegrasyon. — «Claude pulls cases from Westlaw through the CoCounsel connector.»
 - **partner ağları** (DYjnDAADBo3): Cloud entegrasyonu için partner ağlarına katılma gerekliliği. — «Sertifikayı alabilmek için partner ağlarına katılman gerekiyor.»
 - **cloud entegrasyonu** (DYjnDAADBo3): Cloud'u şirketlere entegre eden ajans kurma. — «Cloud'u şirketlere entegre eden bir ajans açmak.»
