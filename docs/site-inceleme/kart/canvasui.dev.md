@@ -1,0 +1,17 @@
+---
+site: https://canvasui.dev
+tur: component/animasyon kutuphanesi
+kaynak: icerik+teknik
+kart-modeli: mistral/ministral-8b-latest
+---
+# canvasui.dev
+
+
+- **Ne sunuyor**: WebGL/WebGPU tabanlı HTML-için-canvas bileşenleri kütüphanesi. Canva'da canlı HTML'i ASCII, ASCII Sweep, Blaze, Bubble, Canvas, Cloth, Clouds, Decrypt gibi etkileyici animasyon ve efektlerle dönüştürür. 35+ bileşen, GLB/glTF modelleri, SVG'ler ve resimleri destekler.
+- **Ücretsiz kısım**: Tamamen açık kaynak, ömür boyu ücretsiz.
+- **İndirilebilir kaynak**: GitHub'da mevcut (`canvasui.dev/_next` scriptleri referans).
+- **Teknoloji**: Framework bağımsız (React, Vue, Next.js gibi desteklenmez; Three.js kullanır).
+- **Bizde kullanım**: WebGL/WebGPU animasyonları, etkileşimli UI efektleri, ASCII sanatı, 3D modelleri canlı HTML'e entegre etmek için kullanılır.
+
+
+Tur: [[Siteler/component-animasyon kutuphanesi]]
