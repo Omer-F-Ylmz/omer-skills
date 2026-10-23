@@ -14,7 +14,7 @@ TUR = [  # (desen, MCP'ler); türler birleşir
     (r"(?i)\bvideo\w*", ["premiere-pro"]),
 ]
 KEEP = {  # MCP-AÇ-2: yalnız bu araçlar açık kalır; listede olmayan MCP'ler (blender, context7, premiere-pro) tam kalır
-    "ruflo": ["agentdb_pattern-search", "agentdb_pattern-store", "memory_search", "memory_store", "memory_retrieve"],
+    "ruflo": ["agentdb_pattern-search", "agentdb_pattern-store", "hooks_intelligence_pattern-search", "hooks_intelligence_pattern-store", "memory_search", "memory_store", "memory_retrieve"],
     "rea": ["capture_web_screenshot", "inspect_web_page", "analyze_web_bundle", "compare_web_screenshots", "compare_web_captures",
             "capture_browser_scenario", "list_browser_targets", "inspect_web_network_capture", "export_web_scripts", "observe_web_session",
             "trace_web_module_imports", "trace_web_source_location", "discover_webmcp_tools", "open_binary", "close_binary"],

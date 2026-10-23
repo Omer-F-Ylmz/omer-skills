@@ -380,6 +380,7 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
     if butce is not None:  # 22 Eki (Ömer): bütçe HEDEFTİR, işi kesmez. Sert sınır yalnız kaçak döngüye karşı emniyet: hedefin 8 katı (≥ $3)
         argv = [*argv, "--max-budget-usd", f"{max(3.0, butce * EMNIYET_KAT):g}"]
     env = taze_env()
+    env.setdefault("MCP_TIMEOUT", "240000")  # RUFLO-BAG-1: yük altında ruflo soğuk başlangıcı ~165 sn; CC varsayılanı 30 sn → MCP 'failed', araçlar hiç gelmiyordu
     env["AJAN_SIRA_KUYRUK"] = "1"  # SAYAC-FIX-1: cagri_sayac.py bu ajanda devir/DUR uyarısı basmaz
     if "max-old-space-size" not in env.get("NODE_OPTIONS", ""):  # RAM-1: ajan başı node MCP'leri (rea, chrome-devtools) sınırsız heap büyütmesin
         env["NODE_OPTIONS"] = (env.get("NODE_OPTIONS", "") + " --max-old-space-size=2048").strip()

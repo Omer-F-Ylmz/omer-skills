@@ -69,6 +69,26 @@ def test_baslat_argv_env(tmp_path, monkeypatch):
     assert argv == ajan_sira.ARGV and isinstance(env, dict)
 
 
+def test_ruflo_ogren_araclari_kapanmaz(tmp_path, monkeypatch):
+    """RUFLO-BAG-1: ogren_blok'un istediği hooks_intelligence_pattern-* araçları KEEP'te olmalı, --disallowedTools'a düşmemeli."""
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+    import mcp_profil
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")
+    monkeypatch.setattr(mcp_profil, "ARACLAR", tmp_path / "araclar.json")
+    (tmp_path / "araclar.json").write_text('{"ruflo": ["hooks_intelligence_pattern-search", "hooks_intelligence_pattern-store", "memory_delete"]}', encoding="utf-8")
+    mcp = tmp_path / "mcp.json"
+    mcp.write_text('{"mcpServers": {"ruflo": {}}}', encoding="utf-8")
+    argv, _ = ajan_sira.baslat_argv("", "haiku", mcp)
+    assert argv[argv.index("--disallowedTools") + 1] == "mcp__ruflo__memory_delete"
+
+
+def test_ajan_env_mcp_timeout(monkeypatch):
+    """RUFLO-BAG-1: ruflo soğuk başlangıç yük altında 30 sn varsayılanı aşıyor ('failed'); ajan env'inde MCP_TIMEOUT ≥120 sn."""
+    monkeypatch.delenv("MCP_TIMEOUT", raising=False)
+    _, env = ajan_sira.baslat_argv("", "haiku")
+    assert int(env["MCP_TIMEOUT"]) >= 120000
+
+
 def test_baslat_argv_mcp_ertele(tmp_path, monkeypatch):
     """MCP-AÇ-2: mcp verilince KEEP dışı araçlar kapalı; CC_MCP_ERTELE=0 ya da mcp yoksa eski argv."""
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
