@@ -56,3 +56,5 @@ Ana ajan paket.md, altyazı dosyası ya da segmentler.jsonl açmaz; alt ajan dö
 - İzleme ücretsiz Gemini'de (konuşma + ekran metni + açıklama/yorum linkleri → `gemini.json`; paralel metin geçişi → `gemini-metin.json`; temperature 0 + seed, önbellekli); Claude ham paket/kare okumaz, yalnız JSON'u tek `claude -p` oturumunda (efor low) değerlendirir.
 - Katalog önce: ig-41 kararı ya da kurulu sözlükte olan araç yalnız fark notu alır; bilinmeyen → repo bulunur, `gh api` künye + README özeti `tools/ucuz_alt.py` (Claude-dışı), repo başı önbellek.
 - Hiçbir video/araç elenmez; rapor araç başı ≤2 satır → `<cikti>/<id>.md` + `oturum.json` (iz: süre, jeton).
+
+ARKA-KALICI-1 : uzun toplu iş = arka-istek — ajan arka.py/toplu_gozetmen'i kendisi başlatmaz (ajan bitince job'la ölür); `.kos/kopru/arka-istek/<ad>.json` yazar: {"komut":["tools/x.py",...],"gunluk":"...","cwd":"..."}; ajan_sira (yönetici) başlatıp pid'i dosyaya yazar.

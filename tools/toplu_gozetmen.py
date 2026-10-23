@@ -1,6 +1,7 @@
 """Uzun toplu işi gözetir: python toplu_gozetmen.py <gunluk> <komut> [arg...]
 Çocuk "BITIS" satırı yazmadan ya da rc≠0 ile ölürse en fazla 3 kez yeniden başlatır (bitenleri iş kendi atlar).
-Günlüğe "DURUM basladi|bitti|oldu|vazgecti" satırları yazar. Başlamadan önce RAM ≥%84 ise düşene dek bekler."""
+Günlüğe "DURUM basladi|bitti|oldu|vazgecti" satırları yazar. Başlamadan önce RAM ≥%84 ise düşene dek bekler.
+ARKA-KALICI-1: ajan bunu doğrudan başlatmaz; .kos/kopru/arka-istek/<ad>.json yazar (bkz. arka_istek.py), yönetici başlatır."""
 import ctypes
 import subprocess
 import sys

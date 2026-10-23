@@ -104,3 +104,5 @@ Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+s
 - Ömer panelin Ömer sütununa AL / RED / ERTELE yazar → `video panel uygula <panel.md>` (`video karar` ile; boş satır dokunulmaz).
 - `video parti kapat <pid>`: rapor-denetle → gitleaks (sızıntıda DUR, commit yok) → commit + `kuyruk --isle` + push.
 - Alt ajan yok; çağrı ve $ tavanı parti başında sabit, yalnız `--cagri-ek/--usd-ek` ile açıkça yükselir.
+
+ARKA-KALICI-1 : uzun toplu iş = arka-istek — ajan arka.py/toplu_gozetmen'i kendisi başlatmaz (ajan bitince job'la ölür); `.kos/kopru/arka-istek/<ad>.json` yazar: {"komut":["tools/x.py",...],"gunluk":"...","cwd":"..."}; ajan_sira (yönetici) başlatıp pid'i dosyaya yazar.

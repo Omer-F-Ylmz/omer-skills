@@ -18,6 +18,7 @@ ESIK, TAVAN, ARA, SURE = 82, 3, 90, 10800
 TAVAN_DOSYA = K / "ajan-sira.tavan"  # Desktop 20 Eki 12:15 (Ömer: haftalık %7, token düşsün): tavan dosyadan, varsayılan 3  # Desktop 14 Eki 19:45: 88'de başlatılan işle RAM %89'a çıktı (sınır %90, yeni iş ≥%85 yok)
 sys.path.insert(0, str(KOK / "tools"))
 import zorunlu_arac  # ZORUNLU-ARAÇ-1: ön uçuş bloğu + son denetim
+import arka_istek  # ARKA-KALICI-1: ajan yerine yönetici başlatır
 import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTut deny); CC_PROFIL_ZORLA=tam geri alır
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
@@ -458,6 +459,10 @@ def main():
                     uyari.add(("k", ad))
                     if u := zorunlu_arac.kosul_uyari(kosul, istem):
                         log("KOŞUL UYARI", ad, u)
+        try:  # ARKA-KALICI-1: ajanların yazdığı uzun iş istekleri burada (ajandan bağımsız) başlar
+            arka_istek.isle(log=log)
+        except Exception as e:
+            log("arka-istek hata", repr(e)[:120])
                 if not kosul_tamam(kosul):
                     continue
                 hedef = cwd_hedef(cwd)
