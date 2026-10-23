@@ -67,12 +67,12 @@ def test_olu_pid_bitmisse_yeniden_baslatmaz(tmp_path):
     assert json.loads((klasor / "is1.json").read_text(encoding="utf-8"))["pid"] == 999999
 
 
-def test_yeniden_basi_uc_ile_sinirli(tmp_path):
+def test_yeniden_basi_bes_ile_sinirli(tmp_path):
     klasor = tmp_path / "istek"
     klasor.mkdir()
     gunluk = tmp_path / "is.log"
     gunluk.write_text("ADIM x\n", encoding="utf-8")
-    (klasor / "is1.json").write_text(json.dumps({"komut": ["a.py"], "gunluk": str(gunluk), "pid": 999999, "yeniden": 3}), encoding="utf-8")
+    (klasor / "is1.json").write_text(json.dumps({"komut": ["a.py"], "gunluk": str(gunluk), "pid": 999999, "yeniden": 5}), encoding="utf-8")
     arka_istek.isle(klasor, arka=_sahte_arka(tmp_path), log=lambda *a: None)
     assert json.loads((klasor / "is1.json").read_text(encoding="utf-8"))["pid"] == 999999
 
@@ -82,3 +82,39 @@ def test_gecersiz_istek_hata_yazar_baslatmaz(tmp_path):
     arka_istek.isle(tmp_path, log=lambda *a: None)
     d = json.loads((tmp_path / "kotu.json").read_text(encoding="utf-8"))
     assert "hata" in d and "pid" not in d
+
+
+def _istek_baslat(tmp_path, kod):
+    betik = tmp_path / "uzun.py"
+    betik.write_text(kod, encoding="utf-8")
+    klasor = tmp_path / "istek"
+    klasor.mkdir()
+    (klasor / "is1.json").write_text(json.dumps({"komut": [str(betik)], "gunluk": str(tmp_path / "uzun.log")}), encoding="utf-8")
+    kayit = []
+    arka_istek.isle(klasor, log=lambda *a: kayit.append(a))
+    return klasor, kayit, json.loads((klasor / "is1.json").read_text(encoding="utf-8"))
+
+
+def test_olen_is_bitissiz_yeniden_baslar(tmp_path):
+    """Oturum job'ı kapanınca süreç ağacı BITIS yazmadan ölür → yönetici bir sonraki döngüde yeniden başlatır."""
+    klasor, kayit, d = _istek_baslat(tmp_path, "import time\nprint('BASLADI', flush=True)\ntime.sleep(25)\n")
+    ilk = d["pid"]
+    yeni = None
+    try:
+        subprocess.run(["taskkill", "/T", "/F", "/PID", str(ilk)], capture_output=True)
+        time.sleep(1)
+        arka_istek.isle(klasor, log=lambda *a: kayit.append(a))
+        yeni = json.loads((klasor / "is1.json").read_text(encoding="utf-8"))
+        assert yeni["pid"] != ilk and yeni["yeniden"] == 1
+        assert any(k[0] == "ARKA-YENIDEN" for k in kayit)
+    finally:
+        if yeni:
+            subprocess.run(["taskkill", "/T", "/F", "/PID", str(yeni["pid"])], capture_output=True)
+
+
+def test_bitis_yazan_is_yeniden_baslamaz(tmp_path):
+    klasor, kayit, d = _istek_baslat(tmp_path, "print('BITIS islenen=0', flush=True)\n")
+    time.sleep(2)
+    arka_istek.isle(klasor, log=lambda *a: kayit.append(a))
+    son = json.loads((klasor / "is1.json").read_text(encoding="utf-8"))
+    assert son["pid"] == d["pid"] and "yeniden" not in son
