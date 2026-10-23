@@ -1,0 +1,193 @@
+site	repo	npm
+21st.dev		21st;@21st-dev/cli@latest
+ace.c9.io	ajaxorg/ace;ajaxorg/ace-builds;ajaxorg/ace.git	
+adele.uxpin.com	FirefoxUX/photon;appearhere/bloom;auth0/styleguide	
+agencyagents.app	msitarzewski/agency-agents;msitarzewski/agency-agents-app	npm
+agenthubstack.dev	owner/repository;user/repo	
+agents.build	JulietaUla/Montserrat;clauseggers/Playfair-Display	
+agentskills.io	OpenHands/OpenHands;agentskills/agentskills;autohandai/code-cli	
+agricidaniel.com	AgriciDaniel/claude-ads;AgriciDaniel/claude-blog;AgriciDaniel/claude-obsidian	
+ahmed-ibrahim.com	AhmadIbrahiim/PResto;AhmadIbrahiim/Website-downloader;AhmadIbrahiim/hiccup	
+amd.com	Xilinx/Vitis_Libraries	
+animations.dev	emilkowalski/sonner;emilkowalski/vaul	
+api.ecc.tools	ECC-Tools/ECC-website;affaan-m/ECC;affaan-m/agentshield	ecc-universal
+apps.cansincengiz.me	dokploy/dokploy	
+astral.sh	astral-sh/ruff	
+audiobookshelf.org	advplyr/audiobookshelf	
+base-ui.21st.dev	mui/base-ui	@21st-dev/cli@latest
+before.click	rit3zh/expo-dy;rit3zh/expo-dynamic-notifications	
+blog.llamafactory.net	adityatelange/hugo-PaperMod;fla-org/flash-linear-attention;hiyouga/LLaMA-Factory	
+browser.lexmount.com	lexmount/browser-cli-rs;lexmount/moli;lexmount/webfetch-cli-rs	
+buzzsumo.com	bramstein/fontfaceobserver;taylorhakes/promise-polyfill	
+canirank.com	newrelic/newrelic-browser-agent	
+canvasui.dev	DavidHDev/canvas-ui	shadcn@latest
+casky.ai	VoltAgent/awesome-agent-skills;mukul975/Anthropic-Cybersecurity-Skills	
+changedetection.io	caronc/apprise;dgtlmoon/changedetection.io	
+codercup.ai	TestSprite/CoderCup;TestSprite/codercup.ai	
+component.gallery	RedHat-UX/red-hat-design-system;ariakit/ariakit;elastic/eui	
+componentry.dev	harshjdhv/componentry	shadcn
+components.build	vercel/components.build	
+composio.dev	composiohq/composio	
+condor.hummingbot.org	hummingbot/condor;hummingbot/condor-docs;pacocoursey/next-themes	
+context7.com	anomalyco/opencode;better-auth/better-auth;cloudflare/cloudflare-docs	ctx7
+craft.gustavofior.com	gustavo-fior/craft	skills
+cult-ui.com	nolly-studio/cult-ui	
+cultofclaude.com	affaan-m/everything-claude-code;anthropics/claude-code;iannuttall/claude-agents	
+deerflow.tech	agent-infra/sandbox;bytedance/deer-flow	
+designskills.dev		degit
+desktop.telegram.org	telegramdesktop/tdesktop	
+devansh.ai	JulietaUla/Montserrat;clauseggers/Playfair-Display	
+developer.nvidia.com	NVIDIA-NeMo/gym;ai-dynamo/dynamo;triton-inference-server/server	
+docs.dokploy.com	Dokploy/dokploy;dokploy/dokploy	
+docs.headroomlabs.ai	headroomlabs-ai/headroom	headroom-ai
+docs.nvidia.com	barbagroup/CFDPython;nv-legate/legate.core	
+docs.strix.ai	pacocoursey/next-themes;usestrix/strix	
+ecc.tools	ECC-Tools/ECC-website;affaan-m/ECC;affaan-m/agentshield	ecc-universal
+edx.org	newrelic/newrelic-browser-agent	
+electronjs.org	electron/electron;electron/fiddle;electron/forge	--save-dev
+exercism.org	exercism/exercism	
+fancycomponents.dev	danielpetho/fancy	
+favstash.app	alisadiq-ai/favstash-ai-video-editing-skills	
+filesync.app	polius/filesync	
+firecrawl.dev	firecrawl/firecrawl	firecrawl-cli@latest
+fontjoy.com	Jack000/fontjoy	
+free-for.dev	ripienaar/free-for-dev	
+freecodecamp.github.io	freeCodeCamp/freeCodeCamp.github.io	
+freellmapi.co	tashfeenahmed/freellmapi	
+game-icons.net	game-icons/icons	
+gemini.google.com	apps/google-integrations	
+geminicli.com	google-gemini/gemini-cli	
+getartcraft.com	storytold/artcraft	
+getbootstrap.com	twbs/bootstrap;twbs/examples;twbs/icons	bootstrap@6.0.0-alpha.1;skills
+ghcr.io	_private/browser;cmc_internal/api;en/billing	
+github.co	_private/browser;cmc_internal/api;enterprise/premium-support	
+github.io	en/github;en/pages	
+gitingest.com	coderamp-labs/gitingest;excalidraw/excalidraw;fastapi/fastapi	
+gkurt.com	gkurt/tegaki	
+godmod3.ai	elder-plinius/L1B3RT4S	
+golang.org	Azure/azure-sdk-for-go;chzyer/readline;elastic/go-elasticsearch	
+googlefonts.github.io	google/fonts;googlefonts/googlefonts.github.io	
+goose-docs.ai	aaif-goose/goose	
+gpui.rs	apps/renovate;zed-industries/zed	
+gradients.sh		shadcn@latest
+graphify.com	Graphify-Labs/graphify;lucasrosati/claude-code-memory-setup	
+gsap.com	greensock/GreenSock-JS	
+hairline.lucasmarkes.com	lucasmarkes/hairline	@lucasmarkes/hairline;shadcn@latest
+herdr.dev	herdrdev/herdr	
+highlightjs.org	highlightjs/highlight.js;highlightjs/highlightjs.org;orgs/highlightjs	highlight.js
+hindsight.vectorize.io	vectorize-io/hindsight	skills
+hitlistai.com	deepseek-ai/DeepInfer	
+home-assistant.io	coogie/oscailte	
+httrack.com	xroche/httrack	
+hummingbot.org	hummingbot/condor;hummingbot/gateway;hummingbot/hummingbot	
+img.shields.io	badges/awesome-badges;badges/endpoint-badges-directory;badges/shields	badge-maker
+impeccable.style	pbakaus/impeccable	impeccable;skills
+insforge.dev	InsForge/InsForge	
+javis-ai.com	Javis603/Discord-AIBot;Javis603/token-monitor	
+jevlist.ai	AppitStudio/awesome-jev	skills
+jquery.com	jquery/jquery	
+jsbeautifier.org	Dither/readable-javascript;HookyQR/VSCodeBeautify;MakingOddEdit/CodeBeautify	
+karakeep.app	karakeep-app/karakeep	skills
+kickbacks.ai		@kickbacksai/install;isn
+kokonutui.com	kokonut-labs/kokonutui	shadcn@latest
+lenis.dev	darkroomengineering/lenis;locomotivemtl/locomotive-scroll	
+libraries.dev	Jakubantalik/Libraries.dev	border-beam;one-liner
+librechat.ai	LibreChat-AI/LibreChat	
+listmonk.app	knadh/listmonk	
+llamafactory.readthedocs.io	hiyouga/LlamaFactory;pradyunsg/furo	
+local-ai-zone.github.io	GGUFloader/gguf-loader	
+locallyuncensored.com	PurpleDoubleD/locally-uncensored	
+locomotive.ca	necolas/normalize.css	
+lordicon.com		@lordicon/element
+lucide.dev	lucide-icons/lucide	
+macos.telegram.org	overtake/TelegramSwift	
+marketingskills.sh		skills
+mcp.so	chatmcp/mcp-directory	
+mobilenext.ai	mobile-next/Milliways-ios;mobile-next/mobile-mcp;mobile-next/mobilecli	
+motion-canvas.io	motion-canvas/examples;motion-canvas/motion-canvas	
+motion.dev	motiondivision/motion	motion;motion-ai
+n8n-skills.com	czlonkowski/n8n-mcp;czlonkowski/n8n-skills;czlonkowski/n8n-skills.git	skills
+nautilustrader.io	nautechsystems/nautilus_trader	
+navbar.gallery	relumetech/powerups	
+networkchuck.com	Checkmk/checkmk;NousResearch/hermes-agent;megadose/holehe	
+nodejs.org	nodejs/node	
+ollaya.dev	AbdelStark/jev-benchmarks;bespokelabsai/nimble;ollaya-dev/ollaya	
+omarchy.org	ETroll/omarchy-airplay;badlogic/pi-mono;can1357/oh-my-pi	
+omniroute.online	BerriAI/litellm;decolua/9router;diegosouzapw/OmniCopilot	omniroute
+open-creator.ai	krillinai/KrillinAI;krillinai/OpenCreator	
+open-design.ai	nexu-io/open-design	
+open-llm-vtuber.github.io	Open-LLM-VTuber/open-llm-vtuber	
+open-notebook.ai	lfnovo/open-notebook	
+openbmb.github.io	OpenBMB/MiniCPM-o	
+openclaudia.com	OpenClaudia/openclaudia-skills	openclaudia
+opencode.ai	anomalyco/opencode	
+opencut.app	OpenCut-app/OpenCut	
+openhands.dev	OpenHands/OpenHands	
+openjsf.org	openjs-foundation/ai-collab-space;openjs-foundation/cross-project-council;openjs-foundation/package-metadata-interoperability-collab-space	
+openresearch.sh	alphaXiv/OpenResearch;alphaXiv/openresearch-cli	
+openseo.so	every-app/open-seo	
+openship.io	oblien/openship	openship
+opensource.adobe.com	adobe-fonts/source-sans-pro	
+openwebui.com	open-webui/open-webui	
+penpot.app	penpot/penpot	
+photopea.com	photopea/photopea	
+podcast.adobe.com	newrelic/newrelic-browser-agent	
+postiz.com	gitroomhq/postiz-app	skills
+pptr.dev	ChromeDevTools/chrome-devtools-mcp;npm/rfcs;puppeteer/puppeteer	puppeteer
+projectnomad.us	Crosstalk-Solutions/project-nomad	
+python.org	python/cpython;python/pythondotorg	
+rams.ai	apps/rams-design-review;marketplace/rams-design-review	
+raw.githubusercontent.com	_private/browser;cmc_internal/api;enterprise/premium-support	
+react-spring.dev	pmndrs/leva;pmndrs/react-spring;pmndrs/react-three-fiber	@react-spring/web
+reactbits.dev	DavidHDev/react-bits	
+realtimecolors.com	juxtopposed/realtimecolors	
+registry.modelcontextprotocol.io	modelcontextprotocol/registry	
+remotion.dev	remotion-dev/remotion	create-video@latest
+reverseapi.dev	kalil0321/reverse-api-engineer	
+rocm.docs.amd.com	ROCm/rocm-docs;ROCm/rocm-examples	
+scrollhaus.ai	amj1994/scrollhaus-free	
+shields.io	badges/awesome-badges;badges/endpoint-badges-directory;badges/shields	badge-maker
+skecher-ui.com	CoDesign-Spa27/skecher-ui;sketch-the-art/sketch-the-art	shadcn@latest
+skillleaderboard.com	anthropics/skills	
+skills.sh		skills
+skills.wheresryan.sh	wheresryan22/anatomy	anatomy-figures;skills
+skillsplayground.com	2389-research/claude-plugins;89jobrien/steve;addyosmani/web-quality-skills	@anthropic-ai/claude-code
+slack.dev	slack-samples/bolt-js-assistant-template	
+socket.io	orgs/socketio;socketio/socket.io	
+squoosh.app	GoogleChromeLabs/squoosh	
+stably.ai	stablyai/orca	
+stagehand.dev	browserbase/stagehand	@browserbasehq/stagehand
+star-history.com	star-history/star-history	
+strix.ai	usestrix/strix	
+swarms.xyz	The-Swarm-Corporation/AutoHedge;The-Swarm-Corporation/ClawSwarm;kyegomez/swarms	
+syncthing.net	syncthing/syncthing	
+taiga.io	taigaio/taiga-front	
+tasteskill.dev	Leonxlnx/taste-skill;Leonxlnx/tastecode	skills
+techflow.com	newrelic/newrelic-browser-agent	
+testsprite.com	TestSprite/testsprite-cli	
+the-decoder.com	jinlabneurogenomics/distributed_agent	
+theunwindai.com	Shubhamsaboo/awesome-llm-apps	
+threlte.xyz	threlte/threlte	
+tinyhumans.ai	tinyhumansai/medulla;tinyhumansai/opencompany;tinyhumansai/openhuman	
+tmux.sh	tmux/tmux	
+tourmind.com	necolas/normalize.css	
+trigger.dev	triggerdotdev/trigger.dev	
+tryatlas.cc	pacifio/atlas	
+twenty.com	twentyhq/twenty	
+ui-skills.com	ibelick/ui-skills	
+uiarc.dev	kuratlielia/arc-library	shadcn
+uizze.com	uizze/uizze	
+understand-anything.com	Egonex-AI/Understand-Anything	
+usehallmark.com	Nutlope/hallmark	skills
+userinterface.wiki	raphaelsalaja/userinterface-wiki	
+vantajs.com	tengbao/vanta	
+vengenceui.com	Ashutoshx7/VengenceUI	shadcn@latest
+vibekanban.com	BloopAI/vibe-kanban;mdevel-uy/fluke	vibe-kanban
+vibetrading.wiki	HKUDS/Vibe-Trading	
+vicoa.ai	vicoa-ai/vicoa	@vicoa/cli
+visx.21st.dev	airbnb/visx	@21st-dev/cli@latest
+voicebox.sh	jamiepine/voicebox	
+xiryn.com	SouravBeraAkaSpeed/xiryn	
+zapier.com	zapier/sdk;zapier/zapier-mcp	
+zed.dev	identicons/zed.png;zed-industries/zed	
+zoetrope.furkankly.dev	furkankly/zoetrope;ratatui/ratzilla	
