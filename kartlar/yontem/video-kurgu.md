@@ -71,11 +71,13 @@
 - **animos.app** (Ddsm5_8gAx6): Ekran görüntüleriyle hızlı launch videoları oluşturma. — «turn app screenshots into launch videos»
 - **Emil Kowalski's skill** (DdtP_L9FljV): Animasyon, easing ve etkileşim davranışlarına odaklanan tasarım becerisi. — «Emil Kowalski's skill focuses on the craft layer: animation, easing, components, interaction behavior, and the small decisions that make software feel right.»
 - **Full Motion Graphics** (DdTuk2dungo): Generate motion graphics videos in 5 minutes using Claude — «Claude can now generate full motion graphics videos in just five minutes.»
+- **Remotion** (DdUk0Lrx0rw): Otomatik video editörü ve motion grafikler için kullanılan bir araç. — «Cloud'u video editörün yapmak istiyorsan bunu eklemelisin. Reels videoları, otomatik altyazılar, motion grafikler, veri görselleri, yüzlerce videonun farklı versiyonlarını otomatik üretmek bununla müm»
 - **Animos** (DdveM-dDrFx): Tasarımlarınızı MP4 gösteri dosyaları olarak dışa aktarır. — «Animos exports your designs as MP4 showcases»
 - **slash-brag** (DdWmIHTC322): Claude skill ile side project'leri 20 saniyelik launch videolarına dönüştürme. — «There's a Claude skill called slash brag that turns any side project into a fire 20 second launch video in seconds.»
 - **OpenMontage** (DdWwZhgTnY_): AI destekli video üretim sistemini otomatikleştirir. — «OpenMontage makes your AI coding assistant the director. You type a plain-language brief, and the agent runs the whole pipeline: research, proposal, script, scene plan, assets, edit, compose, then han»
 - **approval gate** (DdWwZhgTnY_): Her aşamayı onaylamak için kullanıcı müdahalesi gerektirir. — «Every creative stage has an approval gate, and the checkpoint writer refuses to mark a gated stage complete without your recorded yes.»
 - **Remotion/HyperFrames/FFmpeg** (DdWwZhgTnY_): Video bileşimi ve alt yazı entegrasyonu yapar. — «Remotion, HyperFrames and FFmpeg do the composition and subtitles»
+- **brag** (DdY-K9oDbHl): Proje dosyalarını kullanarak otomatik video oluşturma ve anlatım ekleme. — «This tool called Brag changes the game by using your existing project files to automatically stitch together a video, complete with music and even a voiceover to explain what you've built.»
 - **SupoClip** (Ddy8IKZBsFl): Open-source OpusClip alternatifi, uzun videoları viral olma potansiyeli yüksek kısa kliplere ayırır. — «It scores every clip. An AI reads the transcript, picks the 3-7 best moments and scores each one on hook, engagement, value and shareability.»
 - **Otomatik Kırpma** (Ddy8IKZBsFl): Klipleri 9:16 oranına kırpar ve konuşmacının yüzünü ekranda merkezler. — «Every clip is cropped to 9:16, face tracking keeps the speaker centred»
 - **Sözlü Alt Yazı Senkronizasyonu** (Ddy8IKZBsFl): Kelime-kelime eşleştirilmiş alt yazılar ekler. — «subtitles are synced word by word»
@@ -91,6 +93,8 @@
 - **HyperFrames** (DeaHjsfz6VI): Claude kullanarak HTML, CSS ve JavaScript ile animasyonlu videolar oluşturma ve düzenleme aracı. — «So there's this open source tool called HyperFrames, and basically it lets Claude build entire animations using HTML, CSS, and JavaScript.»
 - **Mekan Tanıtım Çekim Tekniği** (DebJXTeNsUw): Mekan içinde kapıdan girerken yapılan özel kamera hareketi — «Record from right to left. Record yourself going inside. Open the door with a good frame. And then look to the right.»
 - **yt-dlp** (DebRohmE8b_): Video ve ses dosyalarını herhangi bir web sitesinden indirebilmeyi sağlayan araç. — «download video and audio from basically any website»
+- **InfiniteTalk** (Debtol5Gcvr): Bir fotoğrafı ses ekleyerek konuşma tarzı video oluşturma. — «One photo → A whole script on camera. Upload a portrait, add a voice track, and turn it into a talking-head video.»
+- **Open Edit** (Debtol5Gcvr): Klip dosyalarını ilk kesit haline dönüştürme. — «Turn a folder of clips into a first cut. Ask Claude to trim the footage, add captions, and build in graphics.»
 - **MoneyPrinterTurbo** (Decgm97N-Th): End-to-end video otomasyonu sağlayan açık kaynak araç. — «Çinli bir geliştirici komple bir video otomasyon sistemi oluşturdu. Adı Moneyprinter Turbo.»
 - **senaryo-otomasyonu** (Decgm97N-Th): Kullanıcıdan alınan konudan senaryo yazma ve görsel içerik üretme. — «Verdiğin konudan senaryoyu yazıyor»
 - **stok-görüntü-ara** (Decgm97N-Th): Konuya uygun stok görüntüleri bulma ve ara sahneleri dizme. — «Konuya uygun stok görüntüleri buluyor, ara sahneleri diziyor»
@@ -123,3 +127,173 @@
 - **Claude Animation Base** (DehpfyuDRCv): Clawd başrollü elle çizilmiş çizgi filmler çizer. — «Claude Animation Base paints hand-drawn cartoons starring Clawd.»
 - **Lemo Opuscar** (DehpfyuDRCv): 43 film stili içeren, her karesi kodla yazılan video modeli olmayan bir araçtır. — «Lemo Opuscar has 43 film styles, every frame written in code, no video model.»
 - **DaVinci Resolve Plugin** (DeHsnHBDcWy): Yapay zekanın zaman çizelgeleri oluşturmasını, görüntü eklemesini ve kurgu yapmasını sağlar. — «Control DaVinci Resolve Studio live,or generate importable interchange filesfor freeDaVinci Resolve»
+- **kod-tabanlı video üretimi** (DeI_kH3EcCg): AI ile tamamen kodlanmış, uzun-format video oluşturma süreci. — «entirely from code»
+- **otomatize edilmiş senaryo yazma** (DeI_kH3EcCg): AI tarafından araştırılan konu üzerine tam senaryo yazımı. — «It researches the story and writes the whole script»
+- **yerel renderlama** (DeI_kH3EcCg): Video tamamen kullanıcının bilgisayarında renderlanır. — «renders the whole thing on your computer»
+- **ClaudeShorts** (Deidr7QOet0): Interaktif uzun-format kısa-format video oluşturucu. — «This is a Claude skill which transcribes the provided video, analyzes the video, and then identifies the best possible snippets that can be turned into short form clips.»
+- **segment scoring** (Deidr7QOet0): Kliplerin hook strength, coherence, emotion, value density ve ultimate payoff gibi kriterlere göre puanlama yapması. — «It uses re-motion, animated captions, segment scoring, which scores each clip across multiple different categories like the hook strength, the coherence, emotion, value density, and ultimate payoff.»
+- **cursor tracking** (Deidr7QOet0): Dikey video dönüşümü için kelime ve cümle sınırlarını koruyarak kesintisiz dönüştürme. — «It uses cursor tracking to really take care of that issue of converting a long form horizontal video into a short form vertical video and it never cuts things mid-word or mid-sentence.»
+- **re-motion** (Deidr7QOet0): Klip animasyonu ve efektleri için kullanılan teknoloji. — «It uses re-motion»
+- **Kod ile Video Oluşturma** (DeJhUeEDNEH): Video kısıtlamalarını aşmak için uzun metrajlı videoların kod yazarak oluşturulması. — «You can now build a 1-hour documentary entirely from code.»
+- **kinetik-tip** (DejiNdHuaUd): Hareketli yazı ve şekillerle dinamik video oluşturma. — «kinetic type»
+- **AI video kurgu** (DejoN2ZBZmT): Kullanıcının açıklamalarına göre otomatik olarak içerik bulup, ekran kaydı yaparak, sesli açıklamaları eşleştiren, hareketli görseller üreten ve video montajı yapan bir sistem. — «Every single clip that you're seeing in this video, Claude went out and found it on its own and then edited this whole thing.»
+- **Website ekran kaydı** (DejoN2ZBZmT): Zorlanılan bir web sitesini açar, ekran kaydı yapar ve kullanıcıya göstermek için zoom yapar. — «If I mention a website, it opens up the site in a browser, records the screen with a cursor moving around to the exact thing that I'm talking about, and it zooms in so that you guys can actually read »
+- **Kişi bulma ve gerçek klip çekme** (DejoN2ZBZmT): Zorlanılan bir kişinin gerçek konuşma klipini bulup ekrana getirir. — «If I name a person, it will go pull up a real clip of them from one of their own talks.»
+- **AI video oluşturma** (DejoN2ZBZmT): Gerçek içerik yoksa, AI ile hareketli bir video oluşturur. — «And if nothing real exists, then it will just go ahead and generate an AI video, never a still image because every shot has to have motion, so it's engaging.»
+- **Ses ve görsel senkronizasyon** (DejoN2ZBZmT): Her görsel klipte ses efektini eşitleyerek ve hareketli grafikler ekleyerek video montajını tamamlar. — «Then it cuts through my pauses, it adds the motion graphics, and it times the sound effect to every single shot.»
+- **Kısa videolar için otomatik kurgu** (DejoN2ZBZmT): Kullanıcının reels tarzını anlayarak, kısa videolar için otomatik olarak B-roll, ses efektleri ve grafikler ekler. — «I basically just had to explain how I like my reels, and it analyzed them and it turned this all into a skill.»
+- **Kod ile Video Üretimi** (DeJt637CpcM): HeyGen'in açık kaynak aracı HyperFrames kullanarak metin tabanlı komutlarla video oluşturma yöntemi. — «HeyGen open-sourced the way they make videos from code»
+- **AI Production Studio** (DeKHCW7iBvJ): Koddan AI tabanlı tam üretim stüdyosu oluşturma. — «It basically works just like a real production team, with a researcher, a script writer, a voice artist, and even an editor, all run by AI.»
+- **OpenMontage** (DeKHCW7iBvJ): Açık kaynaklı video montaj teknolojisi. — «OpenMontage»
+- **Seedance 2.5** (DeKjPRQuRta): Geriye dönük inşaat süreci animasyonu oluşturma aracı. — «Seedence'a evin tamamlanmış halinin bir görselini verin. Ve tüm inşaat sürecini geriye yönelik oluşturmasını isteyin.»
+- **animos.app** (DeL7DvgFLRM): Uygulama ekran görüntülerinden hızlı lansman videoları hazırlamak. — «animos.app»
+- **klasik-ai-video-uygulaması** (DeMgL8IDfD5): AI'yi yönetmen, yazar, tasarımcı, ses tasarımcısı ve video editörü olarak kullanarak konuyu 30-90 saniyelik açıklayıcı video haline getirme. — «It's a free prompt that asks Claude to act as a director, writer, designer, sound designer and video editor, and to turn any topic into a finished 30–90 second explainer video with sound and captions.»
+- **Remotion** (DeNAVCRuc54): Claude ile tek prompttan animasyonlu video oluşturma aracı. — «@RemotionAgentSkills»
+- **OpenMontage** (DeNTvqHI41o): Yapay zeka tabanlı otomatik video üretim aracı. — «GitHub'da 63 binden fazla yıldızı olan, tamamen açık kaynak bir proje.»
+- **code-based motion graphics** (DeOuCSrDCj8): Opus 5.5 kullanarak HTML/JS ile animasyon kodları yazılıp, headless browser ile frame-by-frame render edilerek video oluşturulur. — «Claude writes each animation as code, then a headless browser renders it to video frame by frame, so every export comes out identical.»
+- **OpenMontage** (DePnhO5Ran0): Bir AI'nin tam YouTube video üretimi için kullanılan end-to-end çözüm. — «Open source AI that makes entire YouTube videos from start to finish.»
+- **rendering** (DePnhO5Ran0): Son video dosyasının oluşturulması ve hazırlanması. — «then cuts it all together and renders the final video»
+- **kod-tabanlı animasyon** (DeQ6wBIh7Zc): Video modelleri kullanmadan, metin/veri/şekilleri kod ile animasyonlu video haline getirme. — «it doesn't use any video model and it animates everything with code.»
+- **kullanıcı dostu video oluşturma** (DeQ6wBIh7Zc): Sıfır deneyimle, saniyeler içinde profesyonel kalitede animasyonlu video üretme. — «you can make videos that would take an After Effects expert hours to make in just minutes with zero experience required.»
+- **Higgsfield** (DeR11OUkobq): Claude ile entegre AI araçları kullanarak tek prompt ile reklam içeriği (resim + video) oluşturma. — «Higgsfield gives Claude the power to make images and video ads - from inside the chat. One image. One prompt. It goes from basic photo → explainer infographic → product shot → listing graphic → UGC vi»
+- **Virality Predictor** (DeR8IEFAPCz): Bir videonun viral olma potansiyelini tahmin eden AI araç. — «Claude can now predict how viral your reel's gonna be before you even post it. It's called the Virality Predictor. It's in Higgs Field and it plugs right into Claude Code.»
+- **retention analizi** (DerJrfHoy-J): İzleyici tutma grafiğini okuyarak, izleyicilerin ne zaman kanalı terk ettiğini belirleme. — «one reads your retention graph and tells you the exact second people left.»
+- **MoneyPrinterTurbo** (DeroxUoiAK_): Bir konu girildiğinde otomatik olarak senaryo, görüntü, seslendirme, alt yazı ve müzik üreten açık kaynaklı video oluşturma aracı. — «There's a free tool that turns one topic into a finished video. It's called MoneyPrinterTurbo: free, open source, 132,000+ stars on GitHub.»
+- **Claude Code entegrasyonu** (DeroxUoiAK_): Claude Code aracılığıyla bir satır girilerek otomatik olarak video oluşturma işlemi. — «Paste one line into Claude Code with your topic»
+- **Pexels entegrasyonu** (DeroxUoiAK_): Ücretsiz Pexels anahtarı kullanılarak görüntü materyali sağlama. — «Get a free Pexels key (that's where the footage comes from)»
+- **Pexels API** (DerpKungtI1): Ücretsiz video materyali sağlayan platform. — «Get a free Pexels key (that's where the footage comes from)»
+- **hyperframes-student-kit** (DeRvxD6gDCu): Editing workflows plus 406 draft motion-graphics cards. — «github.com/nateherkai/hyperframes-student-kit»
+- **hyperframes** (DeRvxD6gDCu): Turns HTML, CSS and timed animation into MP4 video. — «github.com/heygen-com/hyperframes»
+- **remotion** (DeRvxD6gDCu): Builds and renders videos with React components. — «github.com/remotion-dev/remotion»
+- **claude-remotion-skill** (DeRvxD6gDCu): Remotion video workflow for captions, B-roll and sound. — «github.com/haidrry/claude-remotion-skill»
+- **product-launch-motion** (DeRvxD6gDCu): Launch films with voiceover, camera moves and audio sync. — «github.com/AbubakrChan/product-launch-motion»
+- **hyperframes** (Dery8BLNDJK): Açık kaynak video framework'i, HTML ile video oluşturma ve MP4'a dönüştürme. — «HTML yaz, MP4 video al»
+- **agent-integrasyon** (Dery8BLNDJK): AI ajanı ile video kodlama ve animasyon desteği. — «Claude Code, Codex, Cursor için skill'ler»
+- **Blender** (DeT6XXkiPwj): 3D modellerin düzenlenmesi ve animasyon yapımında kullanılır. — «Blender'da olusturdugu 3D modelleri sekiz yonden 2D sprite'lara ilk denemede calismiyor.»
+- **adım-adım onay** (DeT98iukpRE): Kullanıcı her aşamayı (senaryo, stil çerçeveleri, geçiş panosu, animatik, son kesim) onaylar. — «Instead of guessing with one prompt, you approve every stage, from the script to the final cut, right on your screen.»
+- **not ekleme** (DeT98iukpRE): Kullanıcı hatalı kareye veya anına not ekleyerek düzeltme talimatı verir. — «If you spot a mistake, you pin a note to the exact frame, and the system fixes it in the next version.»
+- **özel partikül motoru** (DeT98iukpRE): Mortiflix kendi partikül motorunu kullanarak animasyonlar oluşturur. — «Mortiflix's own particle engine.»
+- **Remotion** (DetCTmToK82): Koddan düzenlenebilir video oluşturur. — «It turns code into editable video.»
+- **Motion Canvas** (DetCTmToK82): Açıklamalar ve diyagramlar için kullanılır. — «For explainers and diagrams, use Motion Canvas.»
+- **FFmpeg** (DetCTmToK82): Son video export ve boyut ayarları için kullanılır. — «FFmpeg exports and resizes your final video.»
+- **referans-tabanlı-animasyon** (DeTo0LzsCcL): Referans videoları kullanarak kod tabanlı animasyon oluşturma yöntemi. — «Birincisi, işe asla sıfırdan başlama. Her zaman bir referansın olsun.»
+- **kod-tabanlı-animasyon** (DeTo0LzsCcL): Cloud'un kod yazarak animasyonlar oluşturması için Hyperframes veya Remotion kullanımı. — «En büyük iki hücresi seçenek Hyperframes veya Remotion. İkisi de Cloud'un kod yazarak harika animasyonlar üretmesini sağlıyor.»
+- **iteratif-geri-bildirim** (DeTo0LzsCcL): İlk versiyonun mükemmel olmaması durumunda geri bildirim ve tekrar süreci. — «Ve son adım en önemlisi Cloud ilk versiyonu çıkardığında mükemmel olmayacak. Ama pes etme. Geri bildirim vermeye devam et.»
+- **LTX 2.3** (DeuDpLwiulE): Yazıdan veya görselden video oluşturma modeli. — «Modelin ismi LTX 2.3 ve hem yazıdan video oluşturabiliyorsun hem de görselden video oluşturabiliyorsun.»
+- **CloudCode** (DeuDpLwiulE): LTX 2.3 modelini kullanarak sahneleri otomatik oluşturma ve video kurgulama. — «Ve şimdi vereceğim repo içerisinde de aslında CloudCode bunu kurmasını istediğinizde istediğiniz sahneleri CloudCode kendisi oluşturacak ve videoyu çevirmiş oluyor.»
+- **programmatic reel creation** (DeUG1aZFYSH): Real code composing real frames, not by an AI video model guessing at one — «These reels are made programmatically, real code composing real frames, not by an AI video model guessing at one»
+- **Hunyuan Video** (DeuI4iMgq9l): Çoklu video modeli, tek bir görselden video üretebilir. — «Hunyuan Video is an open-source AI video model that can turn a single image into stunning videos.»
+- **ComfyUI-HunyuanVideoWrapper** (DeuI4iMgq9l): ComfyUI için Hunyuan Video entegrasyonu. — «ComfyUI-HunyuanVideoWrapperbyKijai»
+- **FastVideo** (DeuI4iMgq9l): Konsistanslı video üretilmesi için distile edilmiş model. — «FastVideoandSlidingTileAttentionbyHao AlLab»
+- **HunyuanVideo-gguf** (DeuI4iMgq9l): GGUF sürümü ve kuantizasyon desteği. — «HunyuanVideo-ggufbycity96»
+- **Enhance-A-Video** (DeuI4iMgq9l): Ücretsiz daha iyi video üretilmesi için iyileştirme. — «Enhance-A-VideobyNUS-HPC-AI-Lab»
+- **HunyuanVideoGP** (DeuI4iMgq9l): GPU performansı düşük cihazlar için uyarlanmış sürüm. — «HunyuanVideoGPbyDeepBeepMeep»
+- **FramePack** (DeuI4iMgq9l): Sonraki çerçeve tahmin modelleri için giriş çerçevelerinin paketlenmesi. — «FramePackbyLvminZhang»
+- **Jenga** (DeuI4iMgq9l): Eğitimsiz verimli video üretimi için dinamik token kesimi. — «JengabyDVLab»
+- **Pinterest API entegrasyonu** (DeuiCgWqKoa): Gerçek referanslar çekmek için API kullanımı. — «First Claude connects to the Pinterest API and pulls real references.»
+- **screenshot-based cinematic video** (Deuj4MPkdcc): Kullanıcının ekran görüntülerini ve metinlerini kullanarak anlatım video oluşturur. — «Someone open-sourced a Claude skill that turns your own screenshots into a cinematic launch video»
+- **motion recipe kullanımı** (Deuj4MPkdcc): 120+ hareket şablonu (motion recipe) ile sahneleri seçer ve düzenler. — «picks shots from a library of over 120 motion recipes and storyboards the film»
+- **müzik senkronizasyonu** (Deuj4MPkdcc): Müzik ritmine göre sahneleri keser ve animasyonlar yapar. — «cuts it to the music beat»
+- **kod tabanlı animasyon** (Deuj4MPkdcc): Her sahnede kod tabanlı animasyon yapar ve her frame'ı kontrol eder. — «animates every scene in code, cuts it to the music beat, adds sound and checks every frame»
+- **browser-based editör** (Deuj4MPkdcc): Oluşturulan videoyu tarayıcıda düzenleme imkanı sağlar. — «You get an MP4 you can keep editing in its browser workbench»
+- **kod-tabanlı animasyon** (DeuZ4BnhCqA): Blender ve Claude Opus 5.5 kullanılarak kod ile 3D animasyon ve video oluşturma. — «Claude Opus 5.5 wrote the whole thing as code. It built the After Effects interface as a web page. It wrote a Python script that builds a 3D scene in Blender. It animated this little guy hopping acros»
+- **SolarRenderer** (Dev6R4nCc_p): Rough sketches veya 3D wireframe'ları aniden bitmiş videoya dönüştürür. — «SolarRenderer is the video tool that turns rough sketches into finished clips in just four steps.»
+- **scriptwriter** (DevLZXwDjPZ): Seçilen hook'u 30-45 saniyelik tam script'e dönüştürür. — «builds your favorite out to 30 to 45 seconds.»
+- **open-source** (DevSPYCu2v6): Kullanıcının kendi tasarım sistemlerini kullanarak web sayfaları, sunumlar, görseller, videolar ve animasyonlar oluşturabilmesini sağlayan bir araç. — «So somebody just open-sourced Claw Design so you can now generate apps, websites, images, and videos without any limits.»
+- **kod-tabanlı film üretimi** (Dew2YFfth83): Kodla her kare, kesme ve nokta belirlenerek film oluşturulur. — «Her kare, her kesme ve her nokta kodla yazılıyor.»
+- **FilmCraft** (Dew8r1UAXX3): Adobe Premiere Pro'nun açık kaynaklı, Rust ile yazılmış alternatifi. — «Adobe Premiere Pro'nun açık kaynak sıfırdan yazılmış hali.»
+- **FFmpeg alternatifi** (Dew8r1UAXX3): Kendi codec'leriyle FFmpeg işlevlerini yerine getiren Rust tabanlı çözüm. — «FFmpeg yok, codec'ler sıfırdan Rust ile»
+- **openart.ai** (DeWBKEaovxT): AI tabanlı video animasyon oluşturma platformu. — «openart.ai slash go»
+- **director mode** (DeWBKEaovxT): Kullanıcıya animasyon yönetimi sağlayan AI aracı. — «director mode»
+- **explainer function** (DeWBKEaovxT): Anlatım video oluşturma özelliği. — «the explainer function under quick starts»
+- **kodu kullanarak frame-by-frame kontrol** (Dewd8ySu4jo): Her frame için Claude tarafından yazılan Python kodu ile Blender'ın render edilmesini sağlar. — «A webpage draws the interface, a canvas draws the title as it gets built, and a Python script tells Blender where every object, light, and camera goes on every single frame.»
+- **video-edit** (DeWi4GMmlyB): Video içeriğini düzenleme ve işleme. — «Edit your videos»
+- **hızlı özetleme** (DewM_Z1seAD): Konuyu 6 saniyede anlatmak. — «İşte bu haftanın yapay zeka gündemini 6 saniyede anlatıyorum.»
+- **Figma Connector** (Dewt3VZEejR): Figma'da tasarımları doğrudan düzenlenebilir hale getirme. — «Official Figma connector»
+- **edit-list** (DewxbWfjDHB): Transkriptten zamanlanmış kesim listesi oluşturma. — «One turns your transcript into an edit list with every cut timed.»
+- **previz** (Dex9_YAzDcJ): AI video çekimleri için 3D ön planlama yöntemi. — «It's called Previz.»
+- **kamera-ön-planlama** (Dex9_YAzDcJ): Ücretsiz ve açık kaynaklı 3D Previz aracı. — «Cozy Clay is a free open source Previz tool that runs in your browser.»
+- **sesli-video-analizi** (DexaaQujQ8v): Video sesini saniyelik bir transkripsiyon yapar ve 7 profesyonel launch film profiline göre puanlar. — «Point it at a whole video and it writes a second-by-second listening transcript, then scores it against a profile of 7 professional launch films with timestamped fixes»
+- **HyperFrames** (DexBgdGKrrI): AI tabanlı video motoru, senaryo yazma, sahne tasarımı, 3D grafikler, seslendirme ve ses entegrasyonu sağlar. — «HeyGen open-sourced its video engine: HyperFrames. Give your AI a topic and it writes the script, designs every scene (kinetic titles, timelines, 3D, voiceover, sound) and renders every frame on your »
+- **lemo-opuscar** (DexSZ6BG_df): Claude kullanarak her frame'i kodla çizen, 51 farklı film stili üreten açık kaynaklı bir araç. — «lemo-opuscar is an open-source Claude Code skill (MIT, over 4,300 stars) with 51 film styles: watercolor, ukiyo-e, 16-bit pixel RPG, 1920s silent film, brick toy, stained glass and more. Each style co»
+- **kod-tabanlı frame çizimi** (DexSZ6BG_df): Her frame'in WebGL ve canvas üzerinde kodla çizilmesi. — «Claude draws every frame on canvas and WebGL pages»
+- **motion-designer** (DeY-_0Qn_nH): Bir prompt'i tek seferde video'ya dönüştürür. — «turns one prompt into video»
+- **code-based motion graphics** (DeyQg57pIvw): Kodla (JavaScript) oluşturulan motion graphics teknolojisi. — «All the motion graphics are created with code, specifically things like JavaScript.»
+- **browser-based editor** (DeyQg57pIvw): Tarayıcıda çalışan editör aracılığıyla video düzenleme. — «it adds transitions, it adds music, and it even includes an editor that you can use inside of your browser.»
+- **script-based frame analysis** (DeYZpq3gthM): 53 profesyonel motion moment'ından ölçülü kurallar uygular. — «uses scripts to actually look at the frames and catch lazy patterns like flat colors or boring fades.»
+- **slash-brag** (Dezc4qeimex): Bir side projesi için 20 saniyelik tanıtım videosu otomatik olarak oluşturur. — «there's a cloud skill called slash brag that turns any side project into a fire 20 second launch video in seconds»
+- **Add Zooms** (DezDOqotg0_): Vurgulanan kelimeler üzerine zoom ve ekran görüntüleme. — «To punch in on the words you stress, and zoom on your screen, use Add Zooms.»
+- **B-Roll Finder** (DezDOqotg0_): B-roll materyallerini bulma ve video içindeki yerleştirme. — «If you're looking for B-rolls, and where to put them on your video, use B-Roll Finder.»
+- **Clipify** (DezDOqotg0_): Uzun videoyu alt yazlı dikey klip haline dönüştürme. — «To turn one long video into captioned vertical clips, there’s Clipify.»
+- **ButterCut** (DezDOqotg0_): Claude'ın önerdiği kurgunun Final Cut, Premiere veya DaVinci Resolve'da timeline olarak kullanımı. — «And for Claude’s rough cut as a timeline in Final Cut, Premiere or DaVinci Resolve, so you keep the final say, that’s ButterCut.»
+- **yt-dlp** (DezJtlGRbUX): Videoları indirme ve işleme hazırlama. — «Claudedownloadsthevideo»
+- **FFmpeg** (DezJtlGRbUX): Video ve ses işleme, çerçeveleri analiz etme. — «Claudewatches the framesfor the template»
+- **HyperFrames** (DezJtlGRbUX): Kullanıcıdan alınan girdiye göre kazanan videoyu oluşturma. — «Claudemakes thewinningvideowithyourinput»
+- **/yt-edit** (DeZQTggyJax): Transkriptten kesim listesi oluşturulması. — «a cut list from your transcript»
+- **/yt-shorts** (DeZQTggyJax): Uzun videodaki Shorts'ları tespit etme. — «the Shorts hiding in your long video»
+- **/yt-retention** (DeZQTggyJax): Seyircilerin tam olarak hangi saniyede ayrıldığını ve ne söylendiğini belirtme. — «the exact second viewers left»
+- **Apify** (DezQzdnEV7Z): Kazanan konuları ve videoları bulmak için arama yapar. — «Apify finds the topic.»
+- **Hypit** (DezQzdnEV7Z): Kazanan bir videoyu yeniden kullanılabilir bir şablona dönüştürür. — «Hypit turns the winner into a template.»
+- **yt-dlp** (DezQzdnEV7Z): Referans videoyu indirir. — «yt-dlp downloads it.»
+- **FFmpeg** (DezQzdnEV7Z): Videodan çerçeveleri çıkartır ve Claude'ın görsel ve sesli içerikleri incelemesine izin verir. — «FFmpeg and Whisper let Claude study every frame and word.»
+- **HyperFrames** (DezQzdnEV7Z): Kendi içeriğinizle yeni bir video oluşturmanıza yardımcı olur. — «HyperFrames builds your version.»
+- **Zernio** (DezQzdnEV7Z): Bitişik videoyu yayınlama platformlarına yükler. — «Zernio posts it.»
+- **OCR** (Dezr7EcPUV7): Baidu tarafından geliştirilen, taranmış PDF'leri metne dönüştüren açık kaynaklı bir OCR modeli. — «Baidu released Unlimited OCR. It's a free, open-source model that turns scanned pages into clean text.»
+- **OCR** (Dezr7EcPUV7): MIT lisansı ile açık kaynaklıdır ve GitHub'da 27.940 yıldız toplayarak popülerdir. — «It's open source MIT license with almost 28,000 stars on GitHub.»
+- **referanslı AI tasarım** (DeZRVmkvhiR): AI'nin gerçek UI/asset'ler kullanmasını zorlamak için referans vermek. — «Then, you need to give it a reference in real assets because on its own, Cloud will default to all cap-centered text on a gradient which really looks like AI slop.»
+- **Claude Motion** (DeZZkgcAUGb): Veri tabanlı (rapor/spreadsheet) animasyonlu video oluşturma. — «It turns your reports and charts into animated videos from one prompt.»
+- **AI omni-model** (DHe5X_CMbdU): Tek bir araçla metin, görüntü ve sesi birden işleyerek hiper-realistik videolar üretir. — «Character 3 is the first AI omni model. It processes text, images, and audio all at once.»
+- **Pinocchio** (DIVq3ZmMRS1): Open-source AI platform for local video/image/voice generation. — «The tool is called Pinocchio, and it lets you easily install and run multiple open source AI models like Flux, WAN, and Stable Diffusion locally on your computer with just one click.»
+- **WAN 2.1** (DJmOf9dMcp0): Text-to-video ve image-to-video oluşturma, ses efektleri ekleme. — «Wan 2.1, the best open source video model on the market right now. It can create videos from text, images, and even add matching sound effects too.»
+- **Hunyuan Image-to-Video** (DJmOf9dMcp0): Image-to-video dönüşümü, hiper-realistik sonuçlar. — «Hunyuan Image-to-Video. It's a new Chinese AI model that can turn your images into super realistic videos just like these.»
+- **COG Video** (DJmOf9dMcp0): Hafif video modeli, 6GB VRAM ile çalışabilme. — «COG Video. It's a video model so small that you guys can actually run it on average laptops with only 6GB of VRAM.»
+- **Veo 2** (DJRbJA0Myhm): Google'ın ücretsiz AI video modeli, Kling ve Runway'dan daha üstün performans sunar. — «Google just dropped something big. And it’s free. It’s called Veo 2. The world’s best AI video model. Better than Kling. Better than Runway.»
+- **Veo 2** (DJRbJA0Myhm): Tek bir prompt ile iki video (her biri max 8 saniye) üretebilir. — «Generates two videos at a time, up to 8 seconds each»
+- **Veo 2** (DJRbJA0Myhm): Metin veya görselden sınırsız video oluşturma. — «Create unlimited videos from your text or images»
+- **fotoğraf-kare-video** (DRAKDV8DG1D): Tek bir fotoğraf karesini otomatik olarak videoya dönüştürme. — «hiçbir şey yapmamıza gerek olmadan bunu videoya çeviren bir komut var.»
+- **nim.video** (DRhpH5DjAnM): Tek bir fotoğrafı kullanarak ürün çekimi, reklam sahnesi ve video oluşturma. — «Burada gördüğün her şeyi tek bir fotoğraftan yaptım.»
+- **Product Photoshoot** (DRhpH5DjAnM): Ürün fotoğraflarını otomatik olarak oluşturma. — «Size gösterdiğim fotoğrafları ben Product Photoshoot'la yaptım.»
+- **Image to Video** (DRhpH5DjAnM): Fotoğrafı video formatına dönüştürme. — «Sol taraftaki Image to Video'ya basarak bu video oluşturabiliyorsunuz.»
+- **AI Prompt Yazma** (DRhpH5DjAnM): Kullanıcıya otomatik prompt önerme. — «Write with AI diyerek AI'ya yazdırabiliyorsunuz.»
+- **vmec.ai** (DRq3bIniAp1): AI tabanlı video çeviri ve dubbing hizmeti sağlayan platform. — «Video Translate»
+- **OBI** (DTabXgXDfA4): Açık kaynaklı video üretim yapay zekası. — «Dünyada ilk açık kaynaklı video üretim yapay zekası.»
+- **Twin backbone cross-modal fusion for audio-video generation** (DTabXgXDfA4): Sesli ve ses efekti videoları öğrenme ve üretebilme teknolojisi. — «Twin backbone cross-modal fusion for audio-video generation»
+- **LtX-2** (DUdjul-E2_o): Open-source video generation model for local AI video creation. — «Lightrix just released a fully open source video generation model that runs on your own computer.»
+- **Clink** (DUJB_FcDL8g): Görselleri ve prompt'ı birleştirerek video oluşturma. — «Asetlerime girip göstereceğim. Sol tarafa kapalı görseli koyuyoruz. Sağ tarafa açık görseli koyuyoruz. Ve altına bu prompt'u yine yapıştırıyoruz.»
+- **LLM-tabanlı otomatik reklam oluşturma** (DVl1BYciESr): Ürün fotoğrafı ve logo ile başlayarak, LLM'nin otomatik prompt oluşturması ve animasyon/şutlar için kullanılması. — «Create an AI commercial without writing a single line of prompt.»
+- **AI Storytelling Engine** (DVnYQi1gH_p): Utopai Studios'un PAI modeli ile uzun öyküsel video üretimi için kullanılan bir araç. — «PAI by Utopai Studios is designed as a cinematic storytelling engine and the first long-form video generation model, built for narrative continuity across scenes and sequences with real story-level cr»
+- **Remotion** (DWzpImJIuci): Cloud Code'da entegre edilen motion design araçları için otomatik kurulum ve kullanım. — «Remotion Inside Cloud Code»
+- **C-Dance 2.0** (DX4iwBosR2_): Video oluşturma için kullanılan AI modeli. — «Videoyu C-Dance ile yapıyoruz. C-Dance 2.0 modeliyle beraber.»
+- **Clink Motion Control** (DXchz1zhtcf): Video animasyonu için karakter hareketleri ekleme ve kontrolü sağlayan bir araç. — «Clink Motion Control»
+- **Final Cut Camera** (DXhsibrjYG4): Apple'ın gizli kamera uygulaması, detaylı ışıklandırma ve zoom ayarlarıyla iPhone kamerasını geliştirmek için kullanılır. — «Bakın burada gördüğünüz gibi bu zaten Apple'ın kendi kamera uygulaması.»
+- **ad animator skill** (DXnCpVAuhzZ): Üretilen reklam görsellerini Kling 3.0 ile canlandırma. — «Finally, run the ad animator skill. It brings every ad to life using Kling 3.0.»
+- **Cloud Code entegrasyonu** (DXpE4ggiD3x): Sinematik videoların otonom kurgulanması. — «Ve şimdi vereceğim repo içerisinde de aslında Cloud Code'a bunu kurmasını istediğinizde istediğiniz sahneleri Cloud Code kendisi oluşturacak ve videoyu çevirmiş oluyor.»
+- **Multi-platform destek** (DXpE4ggiD3x): Cloud Code, Anti-Gravity, Codex gibi platformlarda çalışabilme. — «Ve aynı zamanda Cloud Code, Anti-Gravity, Codex gibi birçok platformda da çalışır.»
+- **LongCat Video Avatar** (DY3yhrNiQXZ): Bir fotoğraf ve eşleşen ses kullanarak gerçekçi konuşan avatar videoları oluşturma. — «You can now generate expressive talking avatar videos from one image and a matching voice.»
+- **Seedance 2.0** (DY7gIpxiSw-): Yüksek çözünürlüklü (720p) video üretimi için kullanılan AI modeli. — «Seedance 2.0»
+- **Animator** (DYA1MUFuid-): Sahneleri analiz eder ve canlandırır. — «animator skill»
+- **Cloud Opus** (DYh5eS_uB7u): En iyi video oluşturma prompt'lerini yazma — «Cloud Opus to write the best video generation prompts»
+- **Video Generator** (DYKSiyRCbkk): Kullanıcı taleplerine göre video içerikleri otomatik olarak üretebilme. — «VIDEO GENERATOR»
+- **Geçiş videosu** (DYkU-6VsOrm): Hero görselden geçiş videosu oluşturur. — «Sonra bunu kısa bir geçiş videosuna dönüştürün.»
+- **Cinema Studio** (DYUgRHeid_A): Gerçek kamera kontrolü sağlayan AI video kurgu aracı. — «Real camera controls like: Lens • Focal Length • Aperture»
+- **Anijam.ai** (DYzz3yOorI5): Tek seferde hikaye yazımı, karakter/objek oluşturma, video üretimi ve birleştirme yapan yapay zeka destekli platform. — «Yapay zeka destekli bir yönetmen gibi düşünün. İçine giriyorsunuz, hikayenizi yazıyorsunuz. O size karakterleri oluşturuyor, yan karakterleri oluşturuyor, hatta objeleri oluşturuyor. Hepsiyle beraber »
+- **kandida** (DZCg9CDDBCu): Candlestick verisiyle eğitilmiş AI modeli kullanarak finansal grafik analizi. — «Kronos grafikleri, ChatGPT'nin İngilizce okuduğu gibi okuyor. 45 borsadan 12 milyar candlestick ile eğitildi ve candlestick verisini kendi ana dili gibi işliyor.»
+- **AI video oluşturma** (DZDJEV8oD1b): Tek bir fotoğrafı drone videoya dönüştürme. — «Onu bir drone ile çekmedim, yapay zeka kullanmamı desem ne dersiniz?»
+- **Asiline** (DZj4HrLhC_o): WebSocket ile metin karakterleri kullanarak video akışı oluşturma. — «It's called Asiline, and instead of streaming pixels, the server converts every frame into colored text characters and sends them through web sockets.»
+- **video-analiz** (DZqNTY4jE1b): Videodaki görüntüleri ve sesi zamanlı olarak okuma ve anlamlandırma. — «It pulls frames as images and reads a timestamped transcript of the audio, then reasons about what was shown and what was said together.»
+- **video-trimming** (DZqNTY4jE1b): Videoyu başlangıç ve bitiş zamanlarıyla kırpma. — «Slide 5 has the exact command for trimming to a start and end time.»
+- **Google Earth + Flow** (DZX2Qr-o3kv): Referans haritadan uçuş yolu çizilip, Google Maps üzerinden bu yolu Flow'a yüklenerek otomatik video üretilmesi. — «The attached screenshot from Google Earth is a REFERENCE MAP ONLY — it is NOT part of the video. The red line on the map is an invisible navigation path that indicates the camera trajectory; it must N»
+- **FFmpeg** (ezCmuRCAVXY): Kodlanmış görüntüleri ve ses dosyalarını birleştirerek video oluşturur. — «FFmpeg hat sie zu dem Video zusammengefügt»
+- **AI-tabanlı video düzenleme** (GnFFcLnmWuQ): Kullanıcı geri bildirimleriyle otomatik düzenleme yapar. — «So I taught Claude to edit my videos just by telling it what I didn't like.»
+- **kontrast kontrolü** (GnFFcLnmWuQ): Yazıların arka plan rengini ölçer ve uygun kontrast sağlar. — «So now it measures the pixels behind every caption and puts each one on the same dark box.»
+- **AI video b-roll** (GnFFcLnmWuQ): AI still görüntüler yerine AI video veya gerçek materyaller kullanır. — «it used AI images as b-roll, and I told it that every shot has to move, it has to be dynamic, and now a still image breaks the build. So instead it makes AI videos or will pull real footage instead.»
+- **lip-senkronizasyon kontrolü** (GnFFcLnmWuQ): Ses ve görüntü senkronizasyonunu otomatik olarak kontrol eder. — «And by the end of one reel my lips were slightly behind my voice. Now it checks every cut frame against the raw footage before I ever watch it.»
+- **öğrenen düzenleme becerileri** (GnFFcLnmWuQ): Kullanıcı notları otomatik olarak 'skill' olarak saklar ve tekrar kullanır. — «Every note that I give it gets written inside of a skill, so I never have to say something twice.»
+- **MCP Server** (nqotDg85Qqg): DaVinci Resolve ile AI entegrasyonu için MCP sunucusunun kullanımı. — «خادم MCP رسمي للتو»
+- **AI Tüm Zaman Çizelgesi Kontrolü** (nqotDg85Qqg): AI aracılığıyla video düzenleme işlemlerinin tamamen sohbet yoluyla yönetilmesi. — «تحكم في خطك الزمني بالكامل من خلال محادثة»
+- **Renk Düzenleme** (nqotDg85Qqg): AI ile video karelerinin renk tonlarının otomatik olarak ayarlanması. — «قم بتصحيح ألوان لقطاتك»
+- **Motion Graphics** (nqotDg85Qqg): AI tarafından oluşturulan hareketli grafiklerin video içine entegrasyonu. — «وبناء رسوم متحركة»
+- **Multi-Cam Edit** (nqotDg85Qqg): Çok kamera kaydı için AI tarafından otomatik olarak düzenleme yapılması. — «إنشاء قصصات متعددة الكاميرات»
+- **Ses Etkileri Ekleme** (nqotDg85Qqg): AI tarafından video içine ses efektlerinin otomatik olarak eklenmesi. — «إضافة مؤثرات صوتية»
+- **Müzik Entegrasyonu** (nqotDg85Qqg): AI ile video düzenlemelerine uygun müzikin otomatik olarak ayarlanması. — «حتى ضبط موسيقىك لتتناسب تماما مع التعديلات»
+- **B-Roll Oluşturma** (nqotDg85Qqg): AI tarafından eksik B-roll görüntülerin otomatik olarak oluşturulması ve zaman çizelgesine eklenmesi. — «اجعل السحابة تولدها وتضعها مباشرة في الخط الزمني»

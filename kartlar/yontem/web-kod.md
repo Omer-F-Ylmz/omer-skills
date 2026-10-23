@@ -158,6 +158,10 @@
 - **CDN** (Ddtwph-TEDl): Zero-setup CDN integration for quick usage. — «Zero-setup CDN integration»
 - **NPM** (Ddtwph-TEDl): NPM package for modern frameworks (React, Next.js, Vite, Vue, Node.js). — «NPM package for modern frameworks»
 - **Customization** (Ddtwph-TEDl): Customizable size, color, and stroke width via props. — «Customizable size, color and stroke width»
+- **Playwright** (DdUf3qJOvTO): Tarayıcı kontrolü ve otomatik test otomasyonu sağlayan eklenti. — «Playwright»
+- **OmniRoot** (DdUf3qJOvTO): Kullanım limiti aşılınca otomatik olarak başka bir model üzerinden çalışmaya devam etmeyi sağlayan eklenti. — «OmniRoot»
+- **Headroom** (DdUf3qJOvTO): Gereksiz veri gürültüsünü engelleyerek daha verimli ve ekonomik çıktı elde etmeyi sağlayan eklenti. — «Headroom»
+- **Mempolize** (DdUf3qJOvTO): Kalıcı hafıza özelliği ile sohbetler arasında projeler hakkında bilgi kaydetmeyi sağlayan eklenti. — «Mempolize»
 - **URL tabanlı site yeniden yapılandırma** (DdUu9f_uBL0): Claude skill'ının Chrome'u kullanarak tek bir URL'den tüm bir web sitesini yeniden oluşturma yeteneği. — «a new Claude skill that drives Chrome to rebuild any site from a single URL»
 - **Balsa** (DdveM-dDrFx): Tasarlanan tasarım sistemini kod haline dönüştürerek agentlerin kullanabileceği bir araç sağlar. — «Balsa turns your design system into code your agents can use»
 - **Obscura** (Ddw2K7_CtrK): Chrome yerine alternatif bir headless browser kullanımı sağlayan Rust tabanlı açık kaynaklı çözüm. — «It’s an open-source headless browser built in Rust, with no Chromium required.»
@@ -176,6 +180,8 @@
 - **Refero.design kullanımı** (Deb3d8pBE7u): Popüler web sitelerinin tasarım stillerini ve promptlarını keşfedip projelerde kullanma. — «styles.refero.design»
 - **design-sistem-uygulaması** (DebPmJFgIbs): AI ile tasarım sistemini kodlamak için marka referanslarını kullanma yöntemi. — «Every website you love runs on a design system, and now you can hand it straight to your AI.»
 - **marka-tasarım-dosyası-kullanımı** (DebPmJFgIbs): DESIGN.md dosyasını AI araçlarına aktarma ve kodlama için kullanma. — «It has every color, font, spacing value and component all in one file.»
+- **GSAP** (DebtKK3DrMQ): JavaScript animasyon kütüphanesi ve ScrollTrigger ile scroll-driven animasyonlar için standart çözüm. — «GSAP is the industry standard for animating anything on the web. Pair it with scroll trigger for timelines that pin, scrub, and reveal on scroll.»
+- **ScrollTrigger** (DebtKK3DrMQ): GSAP'ın scroll-based animasyonları kontrol etmek için kullanılan plugin. — «Pair it with scroll trigger for timelines that pin, scrub, and reveal on scroll.»
 - **AI Website Builder** (Dechlk8ANSU): Tesisat firmaları için premium bir site oluşturmak, lead form eklemek ve her lead için otomatik yanıt oluşturmak. — «A premium site with a lead form, live the same day, and every lead gets a reply drafted for you.»
 - **Netlify MCP** (DeCixT6ilL7): Sitenizi tek cümleyle yayınlama ve görüntülemeyi sağlar. — «Netlify MCP»
 - **Playwright MCP** (DeCixT6ilL7): Gerçek bir tarayıcıyı sürer, gördüğünü test eder. — «Playwright MCP»
@@ -190,11 +196,184 @@
 - **Jitter** (DecLLaFO49k): Kreatif ekibin animasyon tasarımını ve üretimini kolaylaştıran bir araç. — «Jitter.video»
 - **MotionSites.ai** (DectyxhCV8I): AI ile animasyonlu web siteleri hızlı oluşturma platformu. — «Go to MotionSites.ai»
 - **Prompt tabanlı kod üretimi** (DectyxhCV8I): Kullanıcıdan alınan prompt'ten otomatik olarak GSAP timeline ve bileşenler üretilir. — «Cursor ran it and wrote the components, the GSAP timeline, the type scale without a second round.»
+- **Awesome Design** (Ded9I6SAzJq): Claude'a üst düzey web tasarım sistemleri (tipografi, boşluklar, renkler, düğmeler) sağlar. — «Gives Claude an entire design system pulled from top sites, typography, spacing, colors, and buttons already dialed in.»
+- **Web Design Guidelines** (Ded9I6SAzJq): Kodu Vercel tasarım standartlarına göre kontrol eder ve zayıf noktaları işaretler. — «Runs your code through Vercel's design standards and flags anything weak before you ship.»
+- **Taste Skill** (Ded9I6SAzJq): Claude'a premium tasarım referansları verir, UI'nin generik görünmesini önler. — «Feeds Claude premium design references so your UI stops looking generic.»
+- **Playwright CLI** (Ded9I6SAzJq): Claude'a tarayıcı açma, ekran görüntüsü alma ve hatalı çıktıyı tespit etme yeteneği verir. — «Let's Claude spin up a browser, grab a screenshot of what it built, and catch broken output before you do.»
+- **Image to Code** (Ded9I6SAzJq): Mock-up'u alıp temiz, çalışan kod haline dönüştürür. — «Hand it a mock-up and Claude rebuilds it as clean, working code without losing the details.»
 - **screenshot-to-code** (Deec1cgindT): Ekran görüntüsünü HTML, React veya Vue koduna çeviren açık kaynak araç. — «Artık bir ekran görüntüsünü web sitesine çevirebilirsin. Ve tamamen de ücretsiz açık bir kaynakla. Sistemin adı screenshot'lı kod. Yani ekran resmini alıyorsun ve onu uygulamaya çeviriyorsun.»
 - **React Bits** (DeesHfYAZfN): Kullanıcıların React uygulamaları için kullanabileceği ücretsiz bileşenler sunan bir kütüphane. — «basically a free collection of components to make your websites pop.»
 - **MCP (Multi-Component Prompt)** (DeesHfYAZfN): Bileşenleri prompt ile ekleyerek kullanıcı arayüzlerini canlandıran bir yöntem. — «So I just grabbed that MCP link, paste it into Claude. Now I can just add components with prompts»
 - **AI-Websites** (DefL97Uupu6): Cinematic AI websites hızlı olarak oluşturulması için AI araçları kullanımı. — «First, you'll need this tool for creating cinematic AI websites.»
 - **Prompt-Kullanımı** (DefL97Uupu6): Önceden hazırlanmış prompt'lerin AI araçlarına yapıştırılması ve otomatik web sitesi oluşturulması. — «Just copy a prompt, paste it into your AI tool, and watch it build.»
 - **Obsidian-Vault** (DefL97Uupu6): Obsidian Vault kullanarak AI agent'ının eğitimi ve web sitesinin özelleştirilmesi. — «The source code also comes with a ready-made Obsidian Vault that trains your agent, so you can take the website in any direction you want.»
+- **RBAC (Role-Based Access Control)** (DefTRngy4bF): Admin roles, groups, and permissions for granular user access. — «Gives admins roles, groups and permissions»
+- **Multi-Model Support** (DefTRngy4bF): Supports local models and OpenAI-compatible APIs. — «Connects local models or any OpenAI-compatible API»
+- **Token Usage Tracking** (DefTRngy4bF): Admin dashboard shows token consumption per user. — «Shows token use and cost per user»
+- **Neuform** (DeIGcthDcYm): Prompt-to-production tasarım akışını hızlandırma. — «Prompt to landing page, plus DESIGN.md files for agents»
+- **Libraries.dev** (DeIGcthDcYm): React için UI efektleri ve animasyon kütüphaneleri sunma. — «Beam, Orb, Gooey, Metal and Image effects for React»
 - **Agentation** (Deiow9ut9lO): AI kod ajanı için görsel geri bildirim aracı. — «you click any element on your page, add a note, and it hands the agent structured context (selector, source location, classes) so the agent can find the exact code you mean.»
 - **MCP (Multi-Cloud Proxy)** (Deiow9ut9lO): Cloud'da tıklanmaları doğrudan okumaya izin veren ayar. — «no copy-paste»
+- **reactbits.dev** (Deju1RFgN1E): Ücretsiz animasyon arka planları ve etkileşimli bileşenler sağlar. — «free animated backgrounds and interactive components you can drop straight into your project.»
+- **Free Faces** (DeKgEE2yRnS): Unique font collection with license checks for typography. — «i know that i will never find a boring font on here because every typeface feels so unique and packed with personality i would just check each font's license before i use it because each typeface is l»
+- **CloudCode** (DeKjPRQuRta): Figma tasarımını otomatik kodlama aracı. — «CloudCode sizin yerinize tüm siteyi zaten kodlayacak.»
+- **Anime.js** (DeMeuQ6KfOf): Web'de tek bir kütüphaneyle her şeyi animate etmeyi sağlayan animasyon motoru. — «Animate anything on the web with a single library»
+- **Animos** (DeMk_4_E7Mo): Tasarımcıların tasarımlarını loop animasyonlarına çeviren browser-based araç. — «It runs in your browser. You don't need an account or an install.»
+- **Template-based animation** (DeMk_4_E7Mo): Kullanıcıların hazır şablonlardan seçim yaparak animasyon oluşturması. — «Pick a looping template. Drop in your designs.»
+- **Quod** (DeMmzkxMpFZ): AI ile animasyonlu web siteleri hızlıca oluşturma aracı. — «cinematic AI websites»
+- **Open WebUI** (DeMwM03Deph): Lokal ChatGPT benzeri arayüzü sağlayan web tabanlı araç. — «WebUI kendi bilgisayarında adeta bir chat GPT arayüzüyle çevrilmiş olarak çalışabilmeni sağlıyor. Bu sayede aylık 20 doları ödemekten kurtulmuş oluyorsun.»
+- **Reactbits.dev** (DeNmjCrFCDI): 130+ animated React ve Next.js bileşeni, tamamen özelleştirilebilir, yüksek kaliteli etkileşimler sunar. — «130+ animated react and next.js components, fully customizable, insane quality interactions»
+- **21st.dev** (DePBMFZiGkO): 12,000+ UI inspirasyonu ve React bileşenleri — «21st.dev interface library - 12,000+ inspo assets»
+- **Gitpod** (DePIgOcMOzi): Gitpod ile hazır kodlama ortamını sağlama. — «Gitpod Ready-to-Code»
+- **AGPLv3 Lisansı** (DePIgOcMOzi): Ever Gauzy'nin AGPLv3 lisansıyla açık kaynaklı olduğunu belirtme. — «License AGPLV3»
+- **Post Planlama** (DePJIkfkSpb): İçerik planlaması ve otomatik yayınlama (yazı, resim, videolar). — «Schedule your posts while you sleep, caption and all»
+- **GSAP** (DePLcw_Dbwo): Profesyonel tasarımlara canlı animasyonlar eklemek için kullanılan bir animasyon kütüphanesi. — «This is an animation tool that professionals use to make their designs look incredible»
+- **Lenis** (DePLcw_Dbwo): Smooth buttery scroll animasyonu sağlayan bir kütüphane. — «which gives your site that smooth buttery scroll animation that makes everything feel expensive»
+- **React Bits** (DePLcw_Dbwo): Kopyalama yapıştırma ile kullanılan animasyonlar ve UI parçaları içeren bir kütüphane. — «basically a library of animations you just copy and paste like a moving text and backgrounds buttons»
+- **live web research** (DePnhO5Ran0): Canlı web araştırması ve içerik toplanması. — «plus live web research»
+- **browser_use** (DeqmrMLulD0): AI agent'in gerçek tarayıcı kullanarak otomatize iş akışları yürütmesi. — «browser use, where your agent opens a real browser and runs the whole workflow the way a person would, clicking through pages and filling everything out on its own.»
+- **Binance API** (DeqrGwHAfoN): API used to stream real‑time market data from Binance. — «binance api»
+- **Blender Add-on** (DerD_Sqks87): Blender için AI entegrasyonu sağlayan bir ekstra modül geliştirme. — «MCP for Blender Pro is a free Blender add-on with a visual chat workspace and a built-in MCP server.»
+- **claude-motion** (DeRvxD6gDCu): Motion direction, frame review and code-generated sound. — «github.com/whaleyxbt/claude-motion»
+- **claude-motion-design** (DeRvxD6gDCu): HTML video workflow using Playwright and FFmpeg. — «github.com/howseen-ai/claude-motion-design»
+- **motion-graphics-skills** (DeRvxD6gDCu): 13 skills for launch videos, charts and motion graphics. — «github.com/charlie947/motion-graphics-skills»
+- **Remotion Agent Skills** (DeRvxD6gDCu): Official guidance for agents working in Remotion. — «github.com/remotion-dev/skills»
+- **GSAP** (DeRvxD6gDCu): JavaScript timelines for web and coded video animation. — «github.com/greensock/GSAP»
+- **awesome-motion-design-agent-skills** (DeRvxD6gDCu): Curated motion resources plus installable agent skills. — «github.com/frankxai/awesome-motion-design-agent-skills»
+- **motion-dev-animations-skill** (DeRvxD6gDCu): Motion.dev patterns for scroll, springs and interactive UI. — «github.com/199-biotechnologies/motion-dev-animations-skill»
+- **motion** (DeRvxD6gDCu): Animation library for JavaScript, React and Vue. — «github.com/motiondivision/motion»
+- **lottie-web** (DeRvxD6gDCu): Plays Lottie JSON animations in the browser. — «github.com/airbnb/lottie-web»
+- **Three.js Components** (DerYPmtB3y7): Interaktif 3D bileşenleri ve etkileri sunan bir web sitesi kullanımı. — «threeui.com»
+- **Langflow** (DesPQv5Ao2_): Sıfır kodla AI iş akışlarını sürükleyip bırakarak oluşturmanızı sağlayan bir araç. — «drag and drop entire AI workflows with zero code»
+- **Supabase** (DesPQv5Ao2_): 2 saniyede Postgres tabanlı veritabanı, kimlik doğrulama ve depolama sunan bir araç. — «gives you a full Postgres database with auth and storage in 2 seconds»
+- **Dify** (DesPQv5Ao2_): Tek bir kod satırı olmadan üretim hazır AI uygulamaları oluşturmanızı sağlayan bir araç. — «ships production AI apps without a single line of glue code»
+- **React Three Fiber** (Det5xG1iNIN): Web sitesine gerçek 3D eklemeyi sağlayan bir React kütüphanesi. — «Bring interactive 3D into your website.»
+- **Godot** (DeT6XXkiPwj): Oyun motoru olarak 2D/3D oyun geliştirmeyi destekler. — «Bir gelistirici, tarihi RPG'sindeki balikcilik, ticaret ve dovus mekaniklerini Claude yardimiyla Godot'ta hazirliyor.»
+- **prompt-uyarlama** (DeT8XphH4jq): Bir web sitesinin tasarımını Claude'a aktarmak için prompt oluşturma. — «Paste any site into Claude and say "make mine look like this."»
+- **init** (DeteLcPiN5d): Proje başlatma ve referans ayarları için ilk adım. — «/init first»
+- **DESIGN.md** (DeteLcPiN5d): Renkler ve boşluklar için referans belgesi. — «awesome DESIGN.md for real references»
+- **Refero** (DeteLcPiN5d): Tüm sistemin kopyalanmasını sağlayan araç. — «Refero copies the whole system»
+- **skillui** (DeteLcPiN5d): Herhangi bir sitenin kopyalanmasını sağlayan araç. — «skillui copies any site»
+- **hallmark** (DeteLcPiN5d): Yeniden tasarlama olmadan restil yapma. — «hallmark restyles without rebuilding»
+- **polish** (DeteLcPiN5d): Siteyi yayınlamadan önce son detayları ayarlama. — «/polish before you ship»
+- **node-graph** (DetLwPNjgwo): Visual node-based workflow builder for AI pipelines. — «visual node graph for reusable workflows»
+- **async-weight-streaming** (DetLwPNjgwo): Asynchronous weight loading for efficient VRAM/GPU usage. — «asynchronous weight streaming»
+- **local-api** (DetLwPNjgwo): Local API integration for production pipelines. — «Provides local API for integration into pipelines»
+- **design.md** (DetxKHPN7rR): Bir web sitesinin tasarımını metin olarak (Markdown) çıkartma ve AI araçlarıyla yeniden oluşturma yöntemi. — «extract a design.md from any website and use it legally»
+- **AI Websites** (DeU3kyru8v2): Cinematic AI websites oluşturmak için AI araçları kullanarak hızlı web tasarımı. — «First, you'll need this tool for creating cinematic AI websites.»
+- **Prompt-Based Website Generation** (DeU3kyru8v2): Önceden hazırlanmış prompt'leri kopyalayıp AI araçlarına yapıştırarak web sayfaları oluşturma. — «Just copy a prompt, paste it into your AI tool and watch it build.»
+- **Obsidian Vault Training** (DeU3kyru8v2): Hazırlanmış Obsidian Vault'ları kullanarak AI agent'larını eğitmek ve web tasarımını özelleştirmek. — «The source code also comes with a ready-made Obsidian Vault that trains your agent, so you can take the website in any direction you want.»
+- **OmniRoute** (DeUbXXoo2mi): API sağlayıcılarına bağlanma ve limit aşımında alternatif modelleri otomatik kullanma. — «Cloud Code'u 200'den fazla yapay zeka API sağlayıcısına bağlayabiliyor ve bir modelin limiti dolduğunda alternatif modellere geçerek ücretsiz kodlardan yararlanmanı sağlıyor.»
+- **Claude Code Setup** (DeUbXXoo2mi): Kod tabanını analiz ederek proje için en uygun hukları, skill'leri, alt ajanları ve MCP sunucularını önerme. — «Bu Antropik'in resmi eklentisi. Kod tabanını analiz ederek projen için en uygun hukları, skill'leri, alt ajanları ve MCP sunucularını öneriyor.»
+- **Claude-Mem** (DeUbXXoo2mi): Oturumlar arası hafıza özelliği ekleme. — «Cloud Code'u oturumlar arası hafıza kazandırıyor. Önceki çalışmalarından önemli bilgileri saklayarak projelerine kaldığın yerden devam etmeni kolaylaştırıyor.»
+- **Headroom** (DeUbXXoo2mi): Gereksiz verileri sıkıştırarak token tüketimini azaltma. — «Gereksiz verileri sıkıştırarak token tüketimini azaltmayı hedefliyor. Böylece özellikle uzun ve karmaşık işlemlerde daha verimli çalışabiliyorsun.»
+- **Task Observer** (DeUbXXoo2mi): Tekrar eden işlemleri ve düzeltmeleri gözlemleyerek yeni skill önerileri oluşturma. — «Çalışma şeklini gözlemleyerek tekrar ettiğin işlemleri ve yaptığın düzeltmeleri tespit ediyor. Bunlardan yeni skill önerileri oluşturabiliyor ve mevcut skill'lerini geliştirmeni kolaylaştırıyor.»
+- **Taste** (DeUdyDYoXvq): AI için gerçek tasarım kuralları sağlayan bir araç. — «It's called Taste. And it hands-clawed a set of real design rules.»
+- **Impeccable** (DeUdyDYoXvq): Kendi komut dili ve canlı modu ile tasarım dili sunan bir araç. — «It's a full design language with its own commands, and it's got a live mode where you change things right there in the browser.»
+- **Awesome Design** (DeUdyDYoXvq): Gerçek markaların tasarım sistemlerini içeren bir kütüphane. — «which is a library of design systems taken from real brands.»
+- **Chrome** (DeUem9KjcIE): Tarayıcında açık olan sekmeleri cloud kod tarayabilen araç. — «Chrome da açık sekmelerini tarıyor.»
+- **Browser Use** (Deug7QaJPWz): Web sitelerinde tıklama, yazma ve formları doldurma gibi işlemleri AI agent'larının gerçekleştirebildiği bir araç. — «Your agent clicks, types, and fills forms on websites.»
+- **awesome-design** (DeuHUPFjuvW): Claude'a gerçek web sitelerinden ilham alan tasarım sistemleri sağlar. — «It gives Claude entire design systems inspired by real websites like Notion, including typography, spacing, buttons, components, and layouts.»
+- **Taste Skill** (DeUKUjQPnm1): İnsan tasarım örneklerinden ilham alarak benzersiz web tasarımları üretir. — «Add the taste skill and it can take inspiration from great websites instead of creating the usual generic AI design.»
+- **Figma MCP** (DeUKUjQPnm1): Figma ile tasarım ve prototip oluşturma entegrasyonu sağlar. — «Then connect Figma, MCP, and Playwright»
+- **Playwright** (DeUKUjQPnm1): Web sitesinin test edilmesi ve ekran görüntüleri alınması için otomatikleştirme aracı. — «Playwright»
+- **Otomatik Web Tasarım Workflow** (DeUKUjQPnm1): Kullanıcıdan basit İngilizce açıklamalar alarak tasarım, geliştirme, test ve ekran görüntüleri alma işlemlerini birleştirir. — «Design, build, test, and capture screenshots of your website—all from plain English.»
+- **Playwright** (DeuLXZXtkGH): Tarayıcıyı kodla kontrol eden otomasyon aracı. — «Playwright tarayıcıyı kodla kontrol etmeli sağlayabilen bir araç.»
+- **Anthropic webapp-testing skill** (DeuLXZXtkGH): AI'nin tarayıcı testlerini otomatik olarak hazırlayıp çalıştıran bir araç. — «Anthropic’in webapp-testing skill’ini projeye kopyaladık.»
+- **gradient.sh** (DeuMhtqtDcQ): Web sitesine canlı, animasyonlu gradient arka planlar eklemek için kullanılan bir araç. — «Meet gradients.sh — a tool that lets you create beautiful, animated gradient backgrounds for landing pages, portfolios, and web apps.»
+- **Reverse API Engineer** (DeuPC8oPU8v): Websiteleri kendi API'sine dönüştürmeyi sağlayan açık kaynaklı araç. — «It's called Reverse API Engineer, and it's a free and open source tool that plugs straight into your cloud code.»
+- **After Effects simülasyonu** (DeuZ4BnhCqA): Puppeteer ile After Effects tarzı bir arayüz oluşturma. — «It built the After Effects interface as a web page.»
+- **AI-agent entegrasyonu** (DevSPYCu2v6): Claw Design ile uyumlu AI agentleri (Clawd Code, Codex, Hermes, Gemini) kullanarak tasarım işlemlerini destekleme. — «it's compatible with a number of AI agents like Clawd Code, Codex, Hermes, Gemini, and so much more.»
+- **skill-creator** (DeW4HJXij_s): Kendi becerilerinizi oluşturun. — «build your own skills»
+- **webapp-testing** (DeW4HJXij_s): Tarayıcıda uygulamanızı test eder. — «tests your app in a browser»
+- **mcp-builder** (DeW4HJXij_s): MCP sunucularını oluşturun. — «build MCP servers»
+- **web-artifacts-builder** (DeW4HJXij_s): Büyük React bileşenleri oluşturun. — «bigger React artifacts»
+- **systematic-debugging** (DeW4HJXij_s): Kök nedeni bulur. — «finds the root cause»
+- **test-driven-development** (DeW4HJXij_s): Testler öncelikli. — «tests first»
+- **find-skills** (DeW4HJXij_s): Daha fazla beceri bulur. — «finds more skills»
+- **UxDesigner** (DeW5NQ1DZhh): UX akışları, hata durumları, dokunma hedefleri ve WCAG kontrastı gibi tasarım öncesi planlama yapar. — «ux flows, error states, touch targets, WCAG contrast, all planned out before you write a line of code.»
+- **Awesome Design MD** (DeW7v7oCZZf): 73 gerçek sitesin tasarım sistemlerini Claude'a sağlar. — «It gives Claude the design systems of 73 real sites, like Stripe and Linear.»
+- **Impeccable** (DeW7v7oCZZf): 24 tasarım komutu ve 59 kuralı kullanarak UI'yi denetler, düzeltir ve AI yapısıyla ilgili hataları tespit eder. — «It adds 24 design commands to audit, polish, and fix your UI, plus 59 rules that spot the typical AI-made look before your users do.»
+- **Taste Skill** (DeW7v7oCZZf): Tasarımın ne kadar kalın, animasyonlu ve yoğun olacağını ayarlamak için kullanılır. — «It lets you set how bold, how animated, and how packed your design should be, so Claude builds in your style.»
+- **Web Design Guidelines (Vercel)** (DeW7v7oCZZf): Kullanıcıların tıramayacağı düğmeler, zoom ayarları ve yüklenme durumunu olmayan düğmeleri tespit eder. — «It flags buttons too small to tap, zoom turned off, and buttons with no loading state, so you fix them before your users find them.»
+- **Playwright MCP (Microsoft)** (DeW7v7oCZZf): Gerçek bir tarayıcıda Claude'ın oluşturduğu tasarımı açar, tıklayarak test eder, ekran görüntüleri alır ve hataları düzeltir. — «It lets Claude open a real browser, click through what it built, take screenshots, and fix what's broken.»
+- **Understand Anything** (Dew85DiOGb8): Yapay zeka tarafından yazdırılan kodların çalışma mantığını görsel haritalar aracılığıyla anlaşılmasını sağlayan araç. — «Understand Anything, Egonics, AI tarafından geliştirilen bu araç Cloud Code, Codex veya Kursör gibi yapay zeka kodlama araçları üzerinde çalışıyor.»
+- **website-build** (DeWi4GMmlyB): Web sitelerini kodlama ve tasarlama. — «Build your websites»
+- **Claude Code** (Dewt3VZEejR): Web sitesini otomatik olarak tasarım ve kodlama için kullanma. — «Claude Code to editable Figma frames»
+- **TradingView MCP** (DexhboUDukF): Claude Code ile TradingView entegrasyonu sağlayan, PineScript yazma, hataları düzeltme ve çizim yapma araçları sunan açık kaynaklı bir araç. — «It's called TradingView MCP: free, open source, and it connects Claude Code to the TradingView app on your computer.»
+- **PineScript** (DexhboUDukF): TradingView için yazılan programlama dili; çizimler, göstergeler ve otomasyonlar için kullanılır. — «It writes PineScript, compiles it, and fixes its own errors.»
+- **Taste** (DeXJcXmFLMv): Clod Opus 5.5 için UI tasarım kuralları ve stil yönetimi sağlayan bir plugin. — «It stops Clod from defaulting to the same generic AI-looking UI and gives it much stronger rules for what good front-end design should actually look like.»
+- **Impeccable** (DeXJcXmFLMv): Canlı editör ve tasarım sistemleriyle web sitelerini doğrudan tarayıcıda düzenlemeyi sağlayan bir plugin. — «This gives Clod a proper design system to work from, plus a live editor you can actually tweak your websites from directly in your browser.»
+- **Playwright CLI** (DeXJcXmFLMv): Clod tarafından oluşturulan siteleri çoklu tarayıcıda otomatik olarak test etmeyi sağlayan bir araç. — «Instead of manually checking everything Clod builds, it can now open sites in multiple browsers and test whether everything actually works.»
+- **Awesome Design** (DeXJcXmFLMv): Gerçek web sitelerinden ilham alan tasarım sistemleri ve bileşenleri sağlayan bir koleksiyon. — «This gives Clod Design systems inspired by real websites, including their typography, spacing, buttons, and components, so it has better references to actually build from.»
+- **prompt-tabanlı AI website oluşturma** (DeXZ__MuNl-): AI araçlarıyla 5 dakikada web sitesi tasarlama ve kodlama yöntemi. — «How I build websites like these in 5 minutes with Claude.»
+- **Obsidian Vault eğitimi** (DeXZ__MuNl-): AI agentınızı eğitmek için hazır Obsidian Vault kullanımı. — «The source code also comes with a ready-made Obsidian Vault that trains your agent, so you can take the website in any direction you want.»
+- **prompt kopya-pasta yöntemi** (DeXZ__MuNl-): AI araçlarına prompt metinlerini kopyalayıp yapıştırarak web sitesi oluşturma. — «Just copy a prompt, paste it into your AI tool and watch it build.»
+- **cinematic AI website oluşturma** (DeXZ__MuNl-): AI araçlarıyla görsel olarak etkileyici web siteleri oluşturma. — «First, you'll need this tool for creating cinematic AI websites.»
+- **engineer** (DeY-_0Qn_nH): Projeyi bilgi grafiğine dönüştürerek kodlamadan önce planlar. — «Plans the whole job before it writes any code»
+- **qa-tester** (DeY-_0Qn_nH): Gerçek tarayıcıda test yaparak hataları bulur. — «Drives a real browser and tests what it sees»
+- **shadcn/ui** (DeYfv2rBGGu): UI bileşenleri ekleme ve yönetme — «pnpm dlx shadcn add @skiper-ui/skdper42»
+- **Manus.im** (DeYvC4CjpiU): Arka planda AI ile hatasız web siteleri ve uygulamalar oluşturma. — «Build flawless backend powered websites and apps with AI»
+- **Apify MCP Server** (DeZFtvLkX6e): TypeScript tabanlı Model Context Protocol sunucusu, AI agentlerine canlı web verilerine erişim sağlar. — «Give your AI agents full access to live web data with the Apify MCP Server.»
+- **Agentic Payments** (DeZFtvLkX6e): X402 veya AGI ile ödeme destekli otomasyon. — «It even handles agentic payments with X402 or AGI.»
+- **MCP** (DeZIytjudwz): AI agent'ları ile canvasta kod editörü entegrasyonu sağlayan platform. — «connect Claude through MCP»
+- **snapshot** (DeZIytjudwz): Canvasta gerçek zamanlı web sayfası taraması ve kodlu katmanlara dönüştürme. — «Paper's snapshot feature»
+- **Jiro AI Builder** (DeZWHwizSjA): AI ile web sitesi tasarımı için önceden hazırlanmış prompt temelleri kullanarak hızlı prototipleme. — «The fix isn’t a better prompt. It’s starting from a design that already works.»
+- **Kexio** (DeZYb-Wo9r-): Canlı animasyonlu bileşenler ve arka planlar için kod/kod prompt'ları kopyalanabilir. — «A library of animated components and backgrounds, and you can copy the code or the AI prompt behind each one.»
+- **ShadCN** (DeZYb-Wo9r-): Güzel, hazır bileşenler ve sayfa blokları projeye doğrudan eklenebilir. — «Beautiful, ready-made components and page blocks you can drop straight into your project.»
+- **WebsitePrompts.ai** (DeZYb-Wo9r-): Detaylı website prompt'ları (layout, renk, bölümler) Claude veya Cursor'da kullanıma hazır. — «Detailed website prompts with layouts, colors, and sections, ready to use in Claude code or cursor, so you skip the design phase.»
+- **kodlama** (DHxlRfNM47U): Tüm yazılım kodlarını bağımsız olarak kodlama yeteneği. — «code entire software on its own.»
+- **Klein AI** (DIvYtnrsLum): VS Code için AI kod yardımcı programı (Cursor Agent Mode benzeri) — «It's an AI coding agent that works really similarly to Cursor's Agent Mode.»
+- **Google AI Studio** (DIvYtnrsLum): Ücretsiz API anahtarı sağlayan Google AI platformu — «go to Google's AI Studio and grab your free API key.»
+- **Rosebud AI** (DKKeXWKoPhZ): Türkçe oyun tarifine dayalı oyun oluşturma platformu. — «CREATE WITH ROSEBUD AI»
+- **React Native** (DNbH6BMtMEB): Cross-platform mobil uygulama geliştirme çerçevesi. — «React Native ile yazdığınıza emin olmanız lazım.»
+- **Expo** (DNbH6BMtMEB): React Native uygulamalarının IPA dosyası oluşturulmasında kullanılan araç. — «React Native'ı kullandığınız için Expo kullanmış oluyorsunuz.»
+- **Cursor** (DOq3CxcCO-T): Kendi kodlarını yazan, ChatGPT benzeri esnek bir geliştirme ortamı. — «GitHub bağlantısı ile birlikte Curzor'a aldım. Curzor çok kabaca, chat GPT içinde kullanabildiğiniz ve kendi kodlarını yazan bir uygulama.»
+- **Serve** (DOq3CxcCO-T): Ücretsiz fotoğraf barındırma servisi. — «Serve diye bir yer buldum. Curzor'a Serve'e bağlanması için bir prompt yazdım ve API bağlantısı sayesinde fotoğrafları oraya gönderebildim.»
+- **Netlify** (DOq3CxcCO-T): Ücretsiz hosting platformu. — «Curzor'daki bütün dosyalarımı Netlify'e gönderdim ve 1 dakika içerisinde hazırdım.»
+- **AntiGravity** (DSm-QQ_Dxh3): Google'ın AI kod editörü, prompt ile tam işlevsel uygulamalar/websiteler oluşturur. — «Google's AI code editor. Works like Cursor. I recently asked it to build a simple dashboard app. Just typed: "Make a responsive e-commerce page with login." Boom. Full code. Preview. Ready to deploy.»
+- **tarayıcıdan giriş** (DTNj7pIiLGH): Instagram'ın tarayıcıdan giriş sayfasını kullanarak gizli bir yöntemle ikon değiştirme. — «Öncelikle Google'a normal Instagram yazıp aratıyoruz. Ardından Instagram'a tarayıcıdan girmeye çalışıyoruz.»
+- **3D immersive website** (DVGYuZ7kTPk): AI ile tam 3D içeren, sinematik, etkileşimli, scroll-reaktif yüksek kaliteli web siteleri oluşturma. — «AI can now generate full 3D immersive websites, cinematic, interactive, scroll-reactive, high-end experiences.»
+- **scroll-driven storytelling** (DVGYuZ7kTPk): Scroll hareketine bağlı anlatım teknolojisi kullanarak etkileşimli hikaye anlatımı. — «scroll-driven storytelling»
+- **custom cursor physics** (DVGYuZ7kTPk): Özel fare fizikleri (mıknatıs faresi, partikül etkileşimleri gibi). — «magnetic cursors, particle systems»
+- **parallax depth** (DVGYuZ7kTPk): Paralaks derinliği ile 3D etkisi yaratma. — «floating sections, parallax depth»
+- **glassmorphism layers** (DVGYuZ7kTPk): Cam görünümlü (transparan) katmanlar kullanımı. — «glassmorphism layers»
+- **physics-based interactions** (DVGYuZ7kTPk): Fiziksel etkileşimli animasyonlar (örn. 3D nesnelerin hareketleri). — «Add physics-based interactions»
+- **real-time animations** (DVGYuZ7kTPk): Canlı zamanlı animasyonlar. — «real-time animations»
+- **Figma Make** (DVMexOcD4vd): AI destekli web tasarım ve geliştirme platformu. — «With Claude Opus 4.6 + Figma Make, you can build a fully designed, conversion focused, developer ready website in under 2 hours.»
+- **scroll-based 3D website generation** (DVnNflYAN4_): Tek bir prompt ile tamamen içe çeken 3D web siteleri oluşturma. — «I built Draftly, a tool that can generate fully immersive 3D websites from a single prompt. Not just another AI builder stacking sections on a page, but actual scroll-based depth, motion, and interact»
+- **dynamic website creation** (DVnNflYAN4_): Statik landing page yerine dinamik, içe çeken ve etkileşimli web deneyimleri oluşturma. — «Draftly goes a step further by turning your idea into a dynamic, immersive website that looks and feels completely different.»
+- **Antigravity** (DVQd446DxqG): Basit metin komutlarıyla uygulamalar geliştirmeyi sağlayan yapay zeka kod editörü. — «tıpkı Cursor gibi çalışıyor, sadece basit metin komutlarıyla uygulamalar geliştirmeni sağlayan yeni yapay zeka kod editörü.»
+- **kodu otomatik üreteç** (DVRZxXbk4Ll): AI tarafından HTML/CSS/JS kodunu otomatik olarak üreten bir platform. — «Gemini AI generating code...»
+- **Draftly** (DWY3Mphimwg): LLM (GPT/Gemini) prompt'ini 3D web sitesine dönüştürme — «No coding. No design skills. No complicated setup.»
+- **Cloud Code** (DX3iYGwM6Di): Web sitesi tasarımı ve animasyon için kodsuz platform. — «Cloud Code ile birlikte binlerce dolarlık web sitesi tasarlıyoruz.»
+- **Framer Motion** (DX3iYGwM6Di): Web animasyonları için JavaScript kütüphanesi. — «İkinci adım, Primer ile birlikte tüm animasyonları hallediyoruz.»
+- **UI UX Pro Max** (DX3iYGwM6Di): UI/UX tasarım yetenekleri için skill. — «Üçüncü adım, UI UX Pro Max skillini indiriyoruz.»
+- **21st.dev** (DX3iYGwM6Di): Web site entegrasyon ve yapılandırma platformu. — «Dördüncü adım olarak bu verdiğim siteye git.»
+- **Playwright MCP** (DX8i0U3vTA1): Claude'ın dinamik içeriği tarayabilmesi için sayfa navigasyonu, form doldurma ve buton tıklaması sağlar. — «it allows Claude to navigate content pages, fill out forms, click buttons, and scrape dynamic content»
+- **Video-to-Web** (DXtn-yBiGvj): Ekran kaydı alınan web sitesi animasyon ve etkileriyle kodlanarak canlı hale getirilir. — «İlki videodan web sitesi yapmak. İstediğin bir web sitenin ekran kaydını alıyorsun. Animasyonlar, kaydırma efektleri her şey dahil. Sonra bunu sadece sisteme yüklüyorsun. Kimi videoyu izliyor, her şey»
+- **Claude Code** (DYC-x8DogOI): Terminal'de çalışan AI kodlama aracı. — «Claude Code v2.1.81»
+- **21st.dev** (DYC-x8DogOI): Hero bölümleri ve tasarım örnekleri sağlayan bir kaynak. — «Hero sections from 21st.dev»
+- **Framer Motion** (DYC-x8DogOI): React için açık kaynaklı animasyon kütüphanesi. — «Framer Motion for instant animations»
+- **Website Builder** (DYKSiyRCbkk): Kullanıcı tarafından oluşturulan web sitelerini otomatik olarak inşa etme. — «WEBSITE BUILDER»
+- **Firecrawl** (DYkU-6VsOrm): Müşterinin sitesini tarar, brand.json oluşturur. — «Firecrawl müşterinin sitesini tarar, logoları, renkleri, fontları, kopyayı 30 saniyede brand.json'a çıkarır.»
+- **CloudCode** (DYkU-6VsOrm): Geçiş videosunu alarak web sitesi oluşturma workflow'u başlatır. — «Bir web sitesi oluşturma workflow'u başlatın. Branding, Layout, Mobile hepsi hazır olmuş olacak.»
+- **HTML kodlama** (DYkU-6VsOrm): Müşterinin mevcut HTML kodunu entegre eder. — «Müşterinizin mevcut HTML kodunu yapıştırın.»
+- **Claude Code** (DYSM2zSsbmk): Web sitesi oluşturma için kodlama ve tasarım entegrasyonu sağlayan CLI araç. — «onceClaudeCode'ukurun»
+- **Framer Motion** (DYSM2zSsbmk): Fade-in, scroll animasyonu ve geçiş efektleri gibi profesyonel animasyonlar için kullanılan kütüphane. — «Framer Motion'u yükleyin»
+- **MCP Builder** (DYxChxKM5Wn): Özel MCP sunucuları oluşturmak için API dökümanlarına dayalı otomatik kurulum sağlar. — «Herhangi bir API dökümanını yapıştırın. Cloud size tam bir MCP sunucusu kuracak.»
+- **llama.cpp** (DZ5CcdsjRHW): LLM'leri yerel olarak çalıştırmak için kullanılan C/C++ kütüphanesi. — «build llama.cpp from source. This is the engine that actually runs the model on your hardware.»
+- **Hugging Face CLI** (DZ5CcdsjRHW): Model ağırlıklarını indirmek için kullanılan komut satırı aracı. — «pip install huggingface_hub»
+- **design-sync** (DZ7HcTGGD5P): Claude Design ve Claude Code arasında iki yönlü senkronizasyon sağlayan komut. — «/design-sync»
+- **Cloud Code** (DZhaBZakfr0): Estetik animasyon ve tasarım sistemleri için kullanılan bir araç seti. — «Temelde cloud code içinde tam bir tasarım sistemi kuruyor.»
+- **UIUX Pro Max + Magic MCP Server** (DZsygU-MpBj): Claude Code ile otomatik UI/UX optimizasyonu sağlayan iki araç kombinasyonu. — «UIUX Pro Max skill'i ve Magic MCP server.»
+- **Python-Skript** (ezCmuRCAVXY): After Effects arayüzünü web tabanlı olarak yeniden oluşturur ve Blender 3D sahnelerini kodlamak için kullanılır. — «Er schrieb ein Python-Skript, das eine 3D-Szene in Blender erstellt.»
+- **Three.js + GSAP** (JfmAm3sxCSc): 3D spiral galeri animasyonu ve scroll etkileri ile dinamik web tasarımı oluşturmak için kullanılan teknolojiler. — «Three.js, GSAP, scroll animasyonları ve premium bir hero tasarımıyla ortaya nasıl bir sonuç çıktığını yazılımcı gözüyle inceliyoruz.»
+- **Prompt Optimizasyonu** (JfmAm3sxCSc): Detaylı prompt yazımı ve İngilizce kullanımı ile AI'nin daha doğru ve yaratıcı çıktı vermesini sağlamak. — «Tam olarak videoda bunları inceleyeceğiz. Ve Cloud tarafına geçmeden evvel size biraz daha web siteden bahsetmek istiyorum.»
+- **Scroll Animasyonu** (JfmAm3sxCSc): Kullanıcı hareketlerine göre dinamik olarak animasyonları tetiklemek ve yavaşça yüklenmesini sağlamak. — «Yani scroll animasyonuyla beraber bakın burası da hareket ediyor. Yazılar biraz daha yavaş bir şekilde geliyor.»
+- **Hover Etkileri** (JfmAm3sxCSc): Mouse hareketleriyle etkileşimli görsel efektler eklemek. — «Üstüne hover yaptığımızda. Yani mouse ile üstüne geldiğimizde. Yavaşça böyle geriye gidiyor görsel.»
+- **Claude Design Skills** (TixdV5DP7oc): Üç adet ücretsiz skill (Emil Kowalski Motion Skill, Impeccable & Taste) kullanarak AI'nin web tasarım yeteneklerini geliştirme. — «Lade drei kostenlose Skills und zwei Connectors und du erhältst eine Seite für die Agenturen 10.000 Dollar verlangen.»
+- **Playwright** (TixdV5DP7oc): Web sayfalarının otomatik test edilmesi ve çalışma doğrulaması için kullanılan araç. — «Playwright»
+- **Claude Code** (TixdV5DP7oc): AI'nin tasarım, kodlama ve test sürecini otomatikleştirmesi. — «Jetzt entwirft Cloud die Seite, baut sie, öffnet sie im echten Browser und testet sie selbstständig.»
+- **GitHub Radar** (yp7gg8cG5wc): GitHub'daki değerli ve gizli proje/skill'leri araştırmak için yapay zeka destekli bir sistem oluşturmak. — «Wir starten mit der Recherche, gefolgt von Organisieren, Bewerten, Auswählen und Automatisieren.»
+- **Swup** (yp7gg8cG5wc): Web sayfalarının hızlı ve akıcı geçişleri sağlayan bir araç. — «swup/swup»

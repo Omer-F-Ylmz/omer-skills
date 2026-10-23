@@ -22,3 +22,12 @@
 - **Spotify Player** (DecLLaFO49k): Spotify oynatıcı animasyonu. — «SpotifyPlayerAnimation»
 - **Blob Effects** (DecLLaFO49k): Blob etkileri animasyonu. — «blobeffects»
 - **Concert Animation** (DecLLaFO49k): Konser animasyonu. — «Concert animation»
+- **Design Motion Principles** (DeJuYIwoByh): Animasyon ve geçişlerin daha kaliteli olmasını sağlar. — «Design Motion Principles»
+- **gsap-lottie-threejs** (Dery8BLNDJK): GSAP, Lottie ve Three.js animasyon desteği sağlayan framework. — «GSAP, Lottie, Three.js animasyon desteği»
+- **Animasyon prompt oluşturma** (DeuiCgWqKoa): Seçilen storyboard'ın animasyon promptı oluşturulması. — «Claude for the animation prompt and we hit generate.»
+- **gsap.com** (DeWQJuHxx4I): Ücretsiz animasyon kütüphanesi sunar. — «Animasyon için G-Set. Eskiden ücretli olan eklentileri dahi şu an tamamen ücretsiz.»
+- **slideshow animasyonu** (DezkWyyANhZ): Çizimleri tek tek değiştirerek animasyon yapma yöntemi. — «ask an AI to animate a character and it swaps one drawing for the next, so it moves like a slideshow.»
+- **real animator tricks** (DezkWyyANhZ): Tek bir saat (clock) için tüm sahne kontrolü, gerçek dönüş noktaları (pivots) ve ritme uyumlu hareketler. — «one clock for the whole scene, parts that turn on their real pivots, and parts that follow a beat later.»
+- **face/obje animasyonu** (DezkWyyANhZ): Göz kırpma, gülme, giysi hareketleri, ateş, duman, su gibi detaylı animasyonlar. — «faces that blink and smile, cloth, fire, smoke, water, logos, charts and whole scenes»
+- **AI animasyon** (DFkMix_MamT): Yapay zeka ile ürün animasyonu oluşturma — «Bir ürünün var ve bu ürünü animasyonda bir şekilde göstermen lazım.»
+- **Text Match Cut** (DQUct_ZjDWr): Metinleri frame-by-frame animasyon olarak dönüştürme yöntemi. — «Şu havalı animasyonu yapabilmeniz için kağıda defalarca aynı kelimeyi yazmanıza gerek yok.»

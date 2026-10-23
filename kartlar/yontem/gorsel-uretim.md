@@ -60,6 +60,7 @@
 - **real-world physics** (Ddq_RtLEU7c): Gerçek dünyada görülen yavaşlama, titreşim ve yatışma etkilerini simüle eden fiziksel modeller. — «Everything slows down, bounces, and settles like it would in real life.»
 - **Claude Banana** (DdRU_fqK3YN): Oda fotoğrafını yükleyip komutla yeniden tasarlama sistemi — «Cloud Code'a Banana isimli bir yetenek dosyası kuruyor ve Google AI Stüdyo'dan aldığınız API anahtarını bağlıyorsunuz.»
 - **Impeccable** (DdtP_L9FljV): Ajanlara hiyerarşi, tipografi ve boşluk konusunda güçlü bir tasarım kelime hazinesi kazandıran bir araç. — «Impeccable detects common Al-design patterns and gives agents a much stronger design vocabulary for hierarchy, typography, spacing, color, motion, responsive behavior, and refnement.»
+- **Unicorn.studio** (DdupQchgt8X): 3D tasarım motoru ile yazılım gerektirmeyen estetik görsellik oluşturma. — «It's a 3D design engine where you can make aesthetic visuals with no software. It has hundreds of preloaded templates, and they're all easily customizable.»
 - **Tegaki** (DdveM-dDrFx): Herhangi bir yazı tipinin her kelimeyi çizgi çizgi animasyonlaştırır. — «Tegaki animates any font stroke by stroke»
 - **ideogram.ai** (DdWjNO2iCVc): Ücretsiz AI görsel oluşturma platformu. — «ideogram.ai»
 - **Craiyon** (DdWjNO2iCVc): Ücretsiz AI görsel üreten platform. — «craiyon.com»
@@ -75,17 +76,103 @@
 - **Napkin** (DeaLsyEzEip): Metni görsele dönüştüren bir yapay zeka aracı. — «Napkin turnsyour tex»
 - **Image** (DebRohmE8b_): Kendi makinenizde özel bir Google Photos benzeri fotoğraf yönetim sistemi oluşturma. — «your own private google photos on your machine»
 - **Upscale** (DebRohmE8b_): AI ile bulanık görüntüleri netleştirmeyi sağlayan ücretsiz araç. — «free ai that turns blurry images sharp»
+- **Hyperframes** (Debtol5Gcvr): Tanımla animasyon oluştur ve MP4 olarak render et. — «Describe the ad → Watch it move. Give Claude your message and brand assets. It writes the animation and renders it into an MP4.»
 - **Graphify** (DeCfWoGMIET): Kod tabanını bilgi grafiğine dönüştürür. — «Graphify»
 - **Model Otomasyonu** (DecgPILOtoL): Kullanıcı tarafından verilen prompt'a göre en uygun fiyatlı sağlayıcıyı seçer ve üretimi gerçekleştirir. — «Bundan sonraki Cloud gider, tüm modelleri kendisi seçer, promptları hazırlar ve tüm üretimleri gerçekleştirir.»
 - **Yerel Kaydetme** (DecgPILOtoL): Üretilen içeriklerin tam prompt metniyle birlikte yerel olarak kaydedilmesi. — «Üretilen her içerik onu oluşturan tam isten metniyle birlikte doğrudan bilgisayarınıza yerel olarak kaydedilir.»
 - **Voronoi+Layer Weight+Glass BSDF+Emission** (Ded44J2y7qV): Blender'de plasma kabarcığı efektini oluşturmak için kullanılan yöntem. — «Plasma Bubble Effect using Voronoi, Layer Weight, Glass BSDF and Emission.»
+- **Scrapling** (DedkCc6olmo): Web sitelerinden görsel ve teknik bilgileri otomatize olarak derleme. — «Scrapling»
+- **Diagram Design** (DedkCc6olmo): Teknik çizim ve diagram tasarımı için araçlar. — «Diagram Design»
+- **Polishinterfaceswith** (DedkCc6olmo): UI/UX arayüzlerini daha profesyonel hale getirme. — «Polishinterfaceswith»
+- **Generatepolished** (DedkCc6olmo): Daha kaliteli ve profesyonel görsel içerik üretme. — «Generatepolished»
+- **Discovertrendsfrom** (DedkCc6olmo): Son trendleri ve araştırma sonuçlarını keşfetme. — «Discovertrendsfrom»
+- **Scrapewebsitesfor** (DedkCc6olmo): Web sitelerinden veri toplama ve analiz etme. — «Scrapewebsitesfor»
+- **Create interactive** (DedkCc6olmo): Etkileşimli görsel içerikler oluşturma. — «Create interactive»
+- **design-focused** (DedkCc6olmo): Tasarım odaklı görsel içerikler üretme. — «design-focused»
+- **consistent UI designs** (DedkCc6olmo): Konsistent UI tasarımları oluşturma. — «consistent UI designs»
+- **research insights** (DedkCc6olmo): Araştırma sonuçlarını görsel olarak sunma. — «research insights»
+- **technicalillustrations** (DedkCc6olmo): Teknik çizim ve resimler oluşturma. — «technicalillustrations»
+- **commands** (DedkCc6olmo): Görsel içerik oluşturma için komutlar. — «commands»
 - **Texturelabs** (DeFBWx2E95r): Film, grunge, kağıt, mührü ve lens efektleri için ücretsiz tekstürler. — «film, grunge, paper, ink and lens textures. No signup, no credit.»
 - **Noto Animated Emoji** (DeFBWx2E95r): Google'ın animasyonlu emoji seti (GIF, WebP, Lottie). — «Google’s emoji, animated, as GIF, WebP or Lottie. Free under CC BY 4.0, so credit Google.»
 - **The Met Open Access** (DeFBWx2E95r): 492.000+ kamusal alan resimleri (reklamda kullanılabilir). — «492,000+ images of public domain art you can use anywhere, even in ads. Tick the Open Access filter when you search.»
 - **details.so** (DeFLfJco13J): Web sitesi tasarımı için ilham ve kopyalanabilir prompt kütüphanesi. — «details.so for website inspo - handpicked sites, each with a prompt you can copy.»
 - **anatomy** (Deg8OIdjEg1): Teknik konuları açıklarken metin yerine etkileşimli bir makine oluşturur. — «Ask Claude to explain anything technical and instead of text, it builds an interactive machine you can actually play with.»
 - **Motion** (DeGDZpOM43C): Web için profesyonel animasyon çözümü. — «Production-grade animation for the web.»
+- **Diagram Design** (DegjdaVEUaZ): Claude Code iş akışları için temiz bir diagram seti. — «a clean set of diagrams for Claude Code workflows.»
+- **Editorial Grain** (DeGTXaHkidF): Basılı dergi sayfası görünümünde video tasarımı. — «It should look like a printed magazine page, not a screen.»
 - **AwesomeGPT Image 2** (DehGmoDOf3Z): OpenAI modelleri için görsel üretim promptları içeren kütüphane. — «OpenAI'nin görsel modeli için 2000'den fazla hazır prompt var. Her birinin yanında da o promptta çıkan görselin örneğini görebiliyorsun.»
 - **chrome-devtools-mcp** (DehIM6ljqmB): Claude'a tarayıcıda gerçek zamanlı hatalarını, performansını ve ekran görüntülerini izleme imkanı sağlar. — «Claude'a gerçek bir tarayıcıda göz veriyor. Konsol hatalarını okuyor, ekran görüntüsü alıyor, performansı ölçüyor.»
 - **CUSUM** (DehLU24Sm2x): AI performansında ani düşüşleri tespit etmek için kullanılan istatistiksel yöntem. — «It uses a smart statistical method called CUSUM to spot sudden drops in performance»
 - **Graphify** (DeHz9pjRytv): Kod tabanını bilgi grafiğine dönüştürerek agentin dosyaları tekrar tekrar okumasına gerek kalmadan projeyi anlayabilmesini sağlar. — «turns your codebase into a knowledge graph, helping your agent understand your project without repeatedly re-reading the same files.»
+- **eksik görüntülerin AI tarafından oluşturulması** (DeI_kH3EcCg): Eğer bir sahne mevcut değilse, AI tarafından motion graphics oluşturulur. — «If a shot doesn't exist, it creates its own motion graphics»
+- **3D Icons** (DeiwHSZTwUM): Modern ve cilalı arayüzler için 3D ikon koleksiyonu. — «3D Icons, a collection of 3D icons that instantly make any interface look modern and polished.»
+- **Claude Code Animasyon** (DeIwVxbCvPr): Claude Code kullanarak 20 farklı animasyon stili oluşturulması. — «20 insane Claude Code animation styles»
+- **Book of Shapes** (DeKgEE2yRnS): Customizable SVG pattern library for backgrounds/branding. — «this one is for anyone who wants patterns that feel custom it's a collection of all these minimal generative svg patterns they're sorted into different styles like grid flow radial noise isometric you»
+- **Algorithmic Art** (DeMsuI4E3gJ): Kullanıcıdan fikir alıp gerçek zamanlı ayarlanabilir interaktif generatif sanat üretir. — «You give Claude an idea. You get back an interactive piece of generative art.»
+- **Canvas Design** (DeMsuI4E3gJ): Tasarım felsefesi temelinde gerçek görsel tasarımlar üretir (poster, kapak, infografik). — «Claude creates real designed visuals — not AI image generation.»
+- **Snapzy** (DePeKi4gE1V): macOS için yerel ekran görüntüleri, kayıtlar, videolar ve GIF'ler için düzenleme ve etiketleme. — «Snapzy captures and edits screenshots, recordings, videos, and GIFs in a native macOS app with annotations and exports.»
+- **storyboard otomasyonu** (DePnhO5Ran0): AI tarafından çizimli senaryo oluşturulması. — «It writes the script, sketches the storyboard»
+- **interactive knowledge graph** (Deqni2Tic2N): İnteraktif bilgi haritası oluşturma. — «builds a knowledge graph you can visually explore through an interactive dashboard»
+- **title-thumbnail uyum kontrolü** (DerJrfHoy-J): Başlık ve özet görselinin (thumbnail) birbiriyle uyumlu olup olmadığını değerlendirme. — «One checks your title and thumbnail together.»
+- **GitLeaks** (DeRqwZ7Nhtn): Git history ve kodunu API anahtarları/passwordlar için tarar. — «It scans your code and your entire git history for API keys and passwords, before they ever go public.»
+- **TruffleHog** (DeRqwZ7Nhtn): Leaked credentials'ini bulur ve çalışıp çalışmadığını kontrol eder. — «It finds leaked credentials and actually checks whether they still work, so you know exactly which keys to kill first.»
+- **Trivy** (DeRqwZ7Nhtn): Packages, configs ve containers'ı birden kontrol eder. — «It checks your packages, your configs, and your containers in one go, instead of you running three different tools.»
+- **Nuclei** (DeRqwZ7Nhtn): Canlı siteyi gerçek bir hacker gibi saldırıya uğratır. — «It attacks your live site just like a real hacker would, using checks written by the whole security community.»
+- **Semgrep** (DeRqwZ7Nhtn): Kodu yazarken güvenlik açığına işaret eder. — «It flags insecure code the moment you write it, without waiting for anyone to ever review it.»
+- **klik-anim-skill-creation** (DeRvxD6gDCu): Animation, camera and production guidance for Remotion. — «github.com/t3knobox/klik-anim-skill-creation»
+- **hyperframes-motion-reel-skill** (DeRvxD6gDCu): Beat-synced HyperFrames showreels with coded sound. — «github.com/Sunwood-ai-labs/hyperframes-motion-reel-skill»
+- **animate** (DeRvxD6gDCu): Short Canvas animations, storyboarded before rendering. — «github.com/cth9191/animate»
+- **motion-design-skills** (DeRvxD6gDCu): Skills for timing, color, composition, logos and video. — «github.com/iart-ai/motion-design-skills»
+- **motion-design-skill** (DeRvxD6gDCu): Timing and choreography principles across animation tools. — «github.com/LottieFiles/motion-design-skill»
+- **motion-graphics** (DeRvxD6gDCu): Motion B-roll timed to a supplied video and transcript. — «github.com/Barty-Bart/motion-graphics»
+- **Stirling PDF** (DesPQv5Ao2_): Yerel olarak PDF dosyalarını birleştirme, bölme, imzalamak ve OCR yapmanızı sağlayan bir araç. — «Merge, split, sign, and OCR PDFs locally»
+- **Shader Gradient** (Det5xG1iNIN): Premium landing page'lerde görülen yumuşak, animasyonlu gradient arka planlar oluşturmak için kullanılan bir teknik. — «Create smooth, animated gradient backgrounds for premium landing pages.»
+- **Liquid Logo** (Det5xG1iNIN): Sabit bir logo'yu hareketli, akışkan krom animasyonuna dönüştüren bir yöntem. — «Turn a flat logo into a liquid chrome animation.»
+- **font-pair** (DeteLcPiN5d): Düzgün bir görsel deneyimi için font seçimi. — «A real font pair»
+- **frontend-slides** (DeteLcPiN5d): Tasarım stili seçmeyi sağlayan araç. — «frontend-slides picks the style»
+- **compress-hero** (DeteLcPiN5d): Kahraman görüntüsünü sıkıştırma. — «compress the hero image»
+- **AI Stüdyosu** (Dett6EFIfx3): Gemini modellerini ücretsiz kullanma yöntemi. — «Burada Gemini modellerini ücretsiz bir şekilde kullanabilirsin.»
+- **Open Router** (Dett6EFIfx3): Her gün bedava modeller sunan platform. — «Open Router'da her gün bedava kullanabileceğin modeller var.»
+- **Photocraft** (Deug7QaJPWz): AI agent'larının kontrol edebildiği Photoshop tarzı bir düzenleme aracı. — «A Photoshop-style editor that agents can control.»
+- **researcher** (DevLZXwDjPZ): En popüler reel'in her frame'ını analiz eder, formatı kanıtlar. — «studies every frame of the top reel so your script builds on a proven format.»
+- **pdfread** (DeW4HJXij_s): PDF'leri okuyup doldurun. — «read and fill PDFs»
+- **xlsx** (DeW4HJXij_s): Çizelgeler oluşturun. — «build spreadsheets»
+- **pptx** (DeW4HJXij_s): Sunum kitaplıkları oluşturun. — «make slide decks»
+- **canvas-design** (DeW4HJXij_s): Poster ve görseller tasarlayın. — «posters and visuals»
+- **theme-factory** (DeW4HJXij_s): Çıktıyı herhangi bir stil ile oluşturun. — «style any output»
+- **algorithmic-art** (DeW4HJXij_s): Oluşturucu sanat yapın. — «generative art»
+- **slack-gif-creator** (DeW4HJXij_s): Özel GIF'ler oluşturun. — «custom GIFs»
+- **Png-Gen** (DeW5NQ1DZhh): Sade bir açıklama alıp hazır bir PNG dosyası üretir. — «one skill takes a plain description and hands you back a finished png.»
+- **AppStore-Mockup** (DeW5NQ1DZhh): Tüm gereken uygulama mağaza ekran boyutlarını mockup, alt yazılar ve aydınlık/karanlık varyasyonlarıyla otomatik olarak üretir. — «another builds every required app store screenshot size with mockups, captions, and light and dark variants done automatically.»
+- **Renk Düzenleme** (Dew8r1UAXX3): Eğriler ve scope'lar ile profesyonel renk ayarı. — «Renk düzenleme, eğriler ve scope'lar»
+- **Show Me** (Dewgqrvjz3P): Sorulan konuyu metin yerine basit bir şema/diagram gösterir. — «ASK CLAUDE TO EXPLAIN SOMETHING AND YOU GET A QUICK DIAGRAM OR SIMPLE VISUAL INSTEAD OF A WALL OF TEXT.»
+- **realtimecolors.com** (DeWQJuHxx4I): Gerçek sitelerdeki renk paletlerini görselleştirir. — «Renk için real time colors. Renk paletini gerçek bir sitenin üzerine görüntüleyebiliyorsun.»
+- **squoosh.app** (DeWQJuHxx4I): Kaliteyi bozmadan görselleri küçültür. — «Görselleri küçültmek için Squoosh. Kaliteyi hiç bozmadan dosyanı küçültebiliyorsun.»
+- **şader-birleştirme** (DexBGD6xEVp): Parçaları tek bir vücut olarak görüntülemek için shader kullanılır. — «A shader blends them together into one body.»
+- **HyperFrames** (DexiUuuIw3v): Kod yazımıyla videolar oluşturur ve grafikler için hareketli animasyonlar ekler. — «Claude writes your videos in code and turns them into reel videos with motion graphics.»
+- **hyperframes** (DeXJRhxEVIF): Kodları hareketli grafiklere dönüştüren bir araç. — «It turns code into motion graphics.»
+- **Diagram Design** (DeYIlSDty-H): 44 farklı diagram türüyle AI agent'larına grafik oluşturma imkanı sunar. — «Diagram design. 44 diagram types your agents can build for free.»
+- **Higgsfield** (DeZ0Y1UAHvT): Claude'a en iyi görsel modelleri bağlar. — «Claude can’t make images or videos on its own. This gives it the best image and video models, so it can create anything visual.»
+- **shader library** (DeZIytjudwz): Canvasta gerçek zamanlı efektler (shader) oluşturma ve uygulama. — «The canvas has a shader library built in.»
+- **AI-generated assets** (DeZIytjudwz): Canvasta AI ile görsel/arka plan/şekil üretimi. — «Generate it right there.»
+- **Expioromoce** (DeZL6TxgJ5s): AI ile etkileşimli görsel tasarım. — «Expioromoce»
+- **anlık-uretim** (DHqWqQJsN-o): Yapay zeka ile anlık görsel üretimi sağlayan bir yöntem. — «Bu yapay zekayı merak ediyorsan ücretsiz bir şekilde sana göndereceğim.»
+- **Stable Diffusion** (DIVq3ZmMRS1): AI model for image generation. — «Stable Diffusion»
+- **gözlük-ekleme** (DPmEdzKDMOc): Yapay zeka tarafından yanlış yorumlanan göz yapısını düzeltmek için gözlük ekleme. — «Gözlük eklemek. Benim gibi gözlüklüyseniz zaten şanslısınız ama gözlüklü değilseniz güneş gözlüğü ekleyebilirsiniz.»
+- **face-swapper** (DPmEdzKDMOc): Referans fotoğrafı ve kendi yüzünüzü birleştirerek yüz tutarını artırma. — «Bir yüz değiştirici program kullanmak. Bunun sayesinde bir referans fotoğrafı veriyorsunuz, kendi yüzünüzü veriyorsunuz. O ikisini birleştirip sizin yüzünüz haline getiriyor.»
+- **Affinity Fotoğraf Düzenleme** (DQgxzeMDAxH): Photoshop'a alternatif ücretsiz grafik düzenleme aracı. — «Bütün hemen hemen Photoshop'ta bulunan özellikleri burada da buluyorsunuz.»
+- **Seedream 4.5** (DR4Y2Mij95N): 4K ultra gerçekçi görüntüler oluşturma. — «ये आपकी photo को 4K ultra realistic quality में बना देती है, जो nano बनाना की quality से भी अच्छी होती है»
+- **Hyper-realistic studio portrait** (DTLQcCsjOCa): Yüksek detaylı fotoğrafçılık tarzında portre oluşturma. — «Hyper-realistic studio portrait of my face»
+- **NotebookLM** (DU3WOxVjOgI): YouTube videolarından tek sayfalık infografik özetler oluşturma. — «Google Notebook Elem'in öyle bir bilinmeyen özelliği var ki PowerPoint ve Canva kullanımınızı bitirebilir veya değiştirebilir.»
+- **Haylu** (DUJB_FcDL8g): Prompt tabanlı görsel oluşturma. — «Ben görselleri Haylu ile oluşturuyorum. Haylu'ya gidip buradaki prompt'un aynısını yazdığım zaman bana zaten buradaki görseli gördüğünüz gibi veriyor.»
+- **3D animasyonlu web tasarımı** (DVRZxXbk4Ll): Tek bir prompt ile 3D, katmanlı ve etkileşimli web siteleri oluşturma. — «These are fully 3D virtual websites. Cinematic, interactive, layered with depth.»
+- **resim tarifi** (DVRZxXbk4Ll): Arka plan vibesını tanımlayan prompt temelli resim üreteç. — «Now describe the background vibe you want.»
+- **resim tarifi** (DVRZxXbk4Ll): Prompt temelli animasyon tarifi. — «write your own motion prompt describing exactly how elements should move»
+- **nanobanana** (DX4iwBosR2_): Render ve dış görsel oluşturma için kullanılan AI araç. — «Bu kısmı nanobanana ile yapıyoruz.»
+- **ad generator skill** (DXnCpVAuhzZ): Ürün görseli ve referans reklamları çekilerek tüm reklam metinlerini otomatik olarak oluşturma ve GPT Image 2.0 ile görselleri üretilmesi. — «You're going to drag in one product image and some reference ads and then run the ad generator skill. It writes all the image generation prompts and uses GPT image 2.0 to generate every ad with perfec»
+- **Slide Creator** (DYKSiyRCbkk): Sunum slaytlarını otomatik olarak tasarlama ve oluşturma. — «SLIDESCREATOR»
+- **brand-import** (DZ7HcTGGD5P): GitHub repo, tasarım dosyaları veya yüklemelerden marka sistemini içe aktarma. — «Import your design system from a GitHub repo, design files, or uploads»
+- **export-pdf/pptx** (DZ7HcTGGD5P): Tasarım çalışmalarını PDF veya PPTX olarak dışa aktarma. — «Export finished work to PDF or PPTX»
+- **alfabe-pratik** (DZnxSQSsuSf): Harflerin sesli gösterimi ve örnek kelimelerle öğrenme. — «The whole alphabet's in here. Tap any letter and you hear it.»
+- **File.ai** (VWVUJdZm-lM): Ortaklık yaptığımız şirket; görsel ve video modellerine tek kaynaktan erişim sağlayan, pazarın en uygun fiyatlı seçeneklerinden biri. — «access all image and video models from a single source here, and they offer some of the most affordable prices on the market.»

@@ -86,5 +86,47 @@
 - **Notion MCP** (DeCixT6ilL7): Claude tarafından oluşturulur ve yazılır. — «Notion MCP»
 - **STAGGERFLIP** (Ded7XJut1pF): Ekrandaki görselde geçen animasyon/uygulama adı (belirtilen konu dışı, ancak ekranda görülebilir). — «STAGGERFLIP»
 - **Sonniss GDC bundle** (DeFBWx2E95r): Yıllık ücretsiz ses efektleri paketi (2015'ten beri). — «a new bundle of pro sound effects every year since 2015, and the past ones are free too. 200GB+ in total, no credit needed.»
+- **Katmanlı yükleme** (DegiJfWlFSX): GPU bellek tasarrufu için tek katmanlı model çalıştırma. — «Basically, it loads one layer of the model at a time, runs it, then loads the next.»
+- **Disk-based loading** (DegiJfWlFSX): Yüksek performans kaybıyla birlikte diskten katmanlar halinde model yükleme. — «And get this, the same trick runs a 70 billion parameter model, which normally needs about 140GB on a 4GB card. But it's slow, because every layer comes off your disk, so you need lots of free space.»
 - **tts+mcpc** (DeHGj-mG-5V): Claude tarafından yazılan senaryoyu MCP connector üzerinden TTS motoru ile seslendirme. — «Claude writes the script and calls a TTS engine through an MCP connector.»
+- **ses entegrasyonu** (DeI_kH3EcCg): Seslendirme, altyazı, geçişler ve ses efektleri eklenir. — «layers in voiceover, captions, transitions and sound effects»
+- **animated captions** (Deidr7QOet0): İnteraktif animasyonlu altyazı destekleme. — «It uses re-motion, animated captions»
 - **Claude Video** (DeIGeHSDeGQ): Claude'ın videolarla çalışmasını sağlayan bir araç. — «Claude Video — lets Claude work with video»
+- **Chatterbox** (DeMwM03Deph): 5 saniyelik ses örneği üreten ve 11Naps'ı geçen ses sentezleyici. — «5 saniyelik bir sesten herhangi bir sesi kullanılabiliyor. Karanlık testlerde ise 11Naps'i tamamıyla tokatlamış. Üstelik 11Naps ayda 99 dolar istiyor.»
+- **OpenWhisper** (DePGXHGtniA): Whisperflow'a ücretsiz alternatif; sesli komutları destekler ve abonelik ücreti gerektirmez. — «You just talk to Claude instead of typing. And you never pay for a monthly subscription.»
+- **voiceover otomasyonu** (DePnhO5Ran0): Sesli anlatımın AI tarafından oluşturulması. — «makes the visuals and the voiceover»
+- **referans tabanlı stil uyarlama** (DePnhO5Ran0): Verilen referans stilini taklit edebilme. — «the option to match any reference you give it»
+- **sesli anlatım otomasyonu** (DePnhO5Ran0): AI tarafından sesli anlatımın otomatik oluşturulması. — «makes the visuals and the voiceover»
+- **Tree-sitter** (Deqni2Tic2N): Kod analizi için Tree-sitter kullanımı. — «Combines Tree-sitter for determ»
+- **Text-to-Speech (TTS)** (DerpKungtI1): Metinleri seslendirme teknolojisi. — «and adds the voice»
+- **earshot** (Desfsnps9ew): Ses verilerini etiketli olaylar, spektrogram ve ses seviyesi gibi kanıtlara dönüştürür. — «It turns sound into evidence: an agent can catch a hit that lands 80 ms after the cut, then read a sheet of labelled sound events, spectrogram and loudness.»
+- **MCP server** (Desfsnps9ew): CLI çağrıları için performans artırmak için kullanılan sunucu. — «so for more than a few calls use the MCP server.»
+- **spektrogram analizi** (Desfsnps9ew): Ses verilerini görselleştirme ve etiketleme. — «read a sheet of labelled sound events, spectrogram and loudness.»
+- **ses etiketleme** (Desfsnps9ew): Ses olaylarını etiketleme ve sınıflandırma. — «calibrated tags (z) with the closest alternative readings»
+- **Open Web UI** (DesPQv5Ao2_): ChatGPT tarzı bir arayüzü kendi makinenizde çalıştırabilmenizi sağlayan bir araç. — «spin up your own ChatGPT interface with Open Web UI»
+- **yt-dlp** (DeSYR9fxKbV): Rakip içeriklerini indirmek için kullanılır. — «Claude downloads competitor content for review»
+- **Whisper** (DetwYlqiDo5): Ses dosyalarını metne dönüştürme ve zamanlı transkripsiyon yapma teknolojisi. — «It's called Whisper. It listens to any recording, writes down every word, and marks the exact time each line was said.»
+- **Luminous Ölçer ve Mikser** (Dew8r1UAXX3): Yayın standartlarına uygun ses ölçümü ve karıştırma aracı. — «Ses tarafında yayın standartında luminous ölçer ve mixer var.»
+- **ses-etkisi-üretimi** (DexaaQujQ8v): 200+ ses efektini koddan üretir ve iyileştirir. — «It ships a bank of 201 sound effects stored as code (whooshes, clicks, pops, hits) that render in seconds, and it can make new ones and improve them by listening.»
+- **Stable Audio 3** (DexEF-hjqzn): Yerel ses/müzik üretimi için kullanılan AI modeli. — «It generates the audio locally with Stable Audio 3»
+- **MCP server** (DexEF-hjqzn): Claude Code veya Desktop için ekstra işlevsellik sağlayan bir uzantı. — «It's an add-on (MCP server)»
+- **FreeFlow** (DexiUuuIw3v): Wi-Fi olmadan yerel olarak sesli/videolu içeriği metne çevirir. — «It writes down each word in any audio or video, right on your own laptop for free with no Wi-Fi.»
+- **sesli anlatım + müzik entegrasyonu** (DexSZ6BG_df): Özgün müzik (free sample libraries'den) ve text-to-speech anlatım ekleme. — «scores original music from free sample libraries, adds a text-to-speech narrator and mixes it.»
+- **taste-skill** (DeY-_0Qn_nH): Claude'a iyi tadı kazandırır ve generik çıktıları ortadan kaldırır. — «Gives Claude good taste and kills generic output»
+- **Whisper** (DezJtlGRbUX): Video içeriğinden ses transkripsiyonu yapma. — «Claudelistenstothevideo»
+- **Anime.js** (DeZL6TxgJ5s): Animasyon timelineri ve animasyon yönetimi. — «Anime.js»
+- **spring physics** (DeZRVmkvhiR): Ses ve animasyonlarda gerçekçi fiziksel hareketleri (spring) kullanarak AI çıkışını iyileştirme. — «Make sure to enforce real spring physics in audio.»
+- **Voice Cloning** (DIVq3ZmMRS1): AI-based voice cloning for synthetic speech generation. — «voice cloners»
+- **FailnSpeech** (DIVq3ZmMRS1): AI-based speech synthesis with flow matching. — «FailnSpeech wiFlowMatchng»
+- **e2-f5-tts** (DIVq3ZmMRS1): AI model for speech synthesis. — «e2-f5-tts»
+- **Pinocchio** (DJegJ4dMvyG): Offline çalışma için Dia'nın yerel kurulumu sağlayan araç. — «to run it offline on your computer, you can either set it up using **Pinocchio**»
+- **voice-agent** (DObXsDXjMx2): AI sesli asistan oluşturma ve test etme. — «Create me a voice agent for Pepsi.»
+- **SpeechMA** (DP6bY1iCGpn): 400+ ses, 60 dil, sınırsız ücretsiz kullanım (kaydolma gerektirmeyen AI ses üretimi). — «400'den fazla sesi, 60 dili destekliyor ve kaydolma gerektirmeden tamamen sınırsız.»
+- **Love Voice AI** (DP6bY1iCGpn): 300+ gerçekçi ses, 70+ dil, sınırsız ücretsiz kullanım. — «Neredeyse 300 gerçekçi AI sesi ve 70'den fazla dilde sınırsız kullanım sunuyor.»
+- **Natural Readers** (DP6bY1iCGpn): 200+ doğal ses + kendi ses klonlama özelliği. — «200'den fazla doğal sesi sahip ve kendi sesinizi klonlama özelliği de var.»
+- **LLM-tabanlı animasyon** (DVl1BYciESr): LLM'nin şutları otomatik olarak animasyon haline getirdiği işlem. — «it will also animate your shots.»
+- **AI Analiz** (DVq3h3zEQAP): Yapay zekanın anlık verileri tarama ve trendleri tespit etmesi. — «It scans everything instantly. Detects trending conflicts, unusual movements and geopolitical signals before they blow up.»
+- **fall-ai-integrasyonu** (DW4-DC0IJ-7): Nano Banana gibi araçlara erişim sağlayan Fall AI ile entegrasyon. — «We're connected to Fall AI»
+- **sesli_yapay_zeka_telefon_agent** (DYkKKKDiKHs): Sesli yapay zeka telefon agent sistemi kurulumu. — «Sesli yapay zeka telefon agent sistemi kurulumu saglayacagiz.»
+- **Lip Sync Studio** (DYUgRHeid_A): AI karakterlerin konuşmasını senkronize eden araç. — «Make AI characters talk.»
+- **Sound-Effekte** (ezCmuRCAVXY): Tüm ses efektleri ve müzik tamamen kodlanarak oluşturulmuştur. — «und hat sogar die Musik und jeden einzelnen Sound-Effekt von Grund auf erzeugt.»
