@@ -447,6 +447,10 @@ def main():
                         log("DUR", ad, "2 devam turundan sonra hâlâ eksik:", ", ".join(zorunlu_arac.eksik_liste(den)))
                 subprocess.Popen([sys.executable, str(KOK / "tools" / "beyin_kayit.py"), ad], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=0x08000000)  # BEYIN-KAYIT-1: ikinci beyne yaz (arka plan, beklemez)
                 del calisan[ad]
+        try:  # ARKA-KALICI-1: ajanların yazdığı uzun iş istekleri burada (ajandan bağımsız) başlar
+            arka_istek.isle(log=log)
+        except Exception as e:
+            log("arka-istek hata", repr(e)[:120])
         bekleyen = yeniden + [x for x in kuyruk() if x[0] not in baslayan]
         dis = dis_calisan(set(calisan))
         if not bekleyen and not calisan and not dis:
@@ -459,10 +463,6 @@ def main():
                     uyari.add(("k", ad))
                     if u := zorunlu_arac.kosul_uyari(kosul, istem):
                         log("KOŞUL UYARI", ad, u)
-        try:  # ARKA-KALICI-1: ajanların yazdığı uzun iş istekleri burada (ajandan bağımsız) başlar
-            arka_istek.isle(log=log)
-        except Exception as e:
-            log("arka-istek hata", repr(e)[:120])
                 if not kosul_tamam(kosul):
                     continue
                 hedef = cwd_hedef(cwd)
