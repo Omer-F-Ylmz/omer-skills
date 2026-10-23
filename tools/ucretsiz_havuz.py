@@ -32,6 +32,7 @@ E = namedtuple("E", "prov model aile kova rpm tpm rpd baglam turler")
 Z, H, Y, U, K = "ozet", "hakem", "yazim", "uzun", "kod"
 # Sınırlar muhafazakâr belge/ölçüm değerleri (envanter.tsv); gerçek 429 gelirse soğuma devreye girer. baglam = jeton.
 # kova: openrouter :free hesap başına ortak; diğerlerinde model başına.
+SINIF_TUR = {"kolay": Z, "orta": H, "zor": Y}  # ordu.py zorluk sınıfı → havuz türü (HAVUZ-ONAR-1: sınıf adı tür sanılınca aday boş kalıyordu)
 ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 900_000, (Z, H, U)),
        E("gemini", "gemini-3.5-flash-lite", "google", None, 10, 200_000, 200, 900_000, (Z, H, U)),
        E("gemini", "gemini-3.6-flash", "google", None, 5, 200_000, 100, 900_000, (H, Y, U)),
@@ -263,6 +264,9 @@ def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=No
     AJAN-AKIS-1: iş-akışı çekirdeği (tools/ajan_cekirdek.md) HER çağrıda istemin başına eklenir; zor=True ayrıca zor-iş bölümünü ekler.
     saglayici=<ad>: yalnız o sağlayıcının halkaları (beyin_dusun sıralı dağıtımı).
     sablon=<tür>: egitim-1 damıtma şablonu (tools/ogret/sarmal.py) + ornek-<tür>.md istemin başına eklenir."""
+    tur = SINIF_TUR.get(tur, tur)
+    if not any(tur.split("-")[0] in e.turler for e in ENT):
+        raise ValueError(f"bilinmeyen tür {tur!r}; geçerli: {sorted({t for e in ENT for t in e.turler} | set(SINIF_TUR))}")
     ham = istem
     if sablon:
         from ogret.sarmal import onek
