@@ -24,4 +24,9 @@ except (OSError, ValueError, IndexError):
     eski = 0
 if eski and eski != os.getpid() and ajan_sira.ajan_sira_canli(eski):
     sys.exit(0)
+import yonetici_kalp  # YONETICI-OLUM-2: sessiz ölüm kanıtı (kalp atışı, atexit, faulthandler)
+
+_olum = yonetici_kalp.kur(K, K / "ajan-sira.log", ajan_sira.ram)
+if _olum:
+    ajan_sira.log("ÖNCEKİ ÖLÜM", _olum)
 ajan_sira.main()
