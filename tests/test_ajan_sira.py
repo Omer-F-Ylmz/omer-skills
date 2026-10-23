@@ -14,6 +14,14 @@ ajan_sira = importlib.util.module_from_spec(_s)
 _s.loader.exec_module(ajan_sira)
 
 
+@pytest.fixture(autouse=True)
+def _beyin_olay_izole(tmp_path, monkeypatch):
+    """is_kaydi 2. beyin olay günlüğüne yazar; testler gerçek beyin-olay.jsonl'ı kirletmesin."""
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+    import beyin_dusun
+    monkeypatch.setattr(beyin_dusun, "OLAY", tmp_path / "beyin-olay.jsonl")
+
+
 def test_ders_onek_bayrakli(tmp_path, monkeypatch):
     monkeypatch.setenv("OGRENME_DIZIN", str(tmp_path))
     bayrak = tmp_path / "ders.bayrak"
