@@ -49,9 +49,9 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U)),
        # 20 Eki canlı: mistral 429 (hız sınırı, kendini toparlarsa açılır) · cloudflare 200 · ollama "Free usage limit" 429; sınırlar acilabilir.md'deki belge değerlerinin muhafazakârı; ilk 429'da soğuma devreye girer
        E("mistral", "mistral-small-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, U)),
-       E("mistral", "ministral-8b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y)),
+       E("mistral", "ministral-8b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H)),
        E("mistral", "ministral-14b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, K)),  # HAVUZ-GENIS-2 23 Eki canlı 200 (TR iyi); medium/small/magistral/vibe 429, labs 403
-       E("mistral", "ministral-3b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, Y)),
+       E("mistral", "ministral-3b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z,)),
        E("mistral", "codestral-latest", "mistral", None, 30, 100_000, 1000, 100_000, (K, Y)),  # HAVUZ-3: mistral-small/medium 429 (1300), large 403 tier; ministral 200
        E("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "meta", "cloudflare", 60, 20_000, 150, 20_000, (Z, H, Y)),
        E("nvidia", "openai/gpt-oss-20b", "openai", "nvidia", 40, 100_000, 1000, 100_000, ()),  # KAPALI 23 Eki: canlı 599 zaman aşımı; HAVUZ-3: 200 (2 sn); llama-3.3 410, nemotron-nano 404, deepseek-v4.1-flash/gemma-4 zaman aşımı

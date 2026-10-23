@@ -85,10 +85,13 @@ if ex == "A1":  # cezve (lathe) — v1: ham silindir, v2: profil + bevel + bakı
         bpy.context.view_layer.objects.active = o
         bpy.ops.object.shade_smooth()
         o.data.materials.append(mat("Bakir", (0.95, 0.5, 0.28, 1), 1.0, 0.35))
-        bpy.ops.mesh.primitive_cylinder_add(radius=0.04, depth=1.1, location=(1.3, 0, 0.75), rotation=(0, math.radians(75), 0))
+        # USTA-BLENDER-4: sap iç ucu gövde duvarının içine gömülü (x≈0.3, duvarın içinde), gövdeye parent → kopuk değil
+        bpy.ops.mesh.primitive_cylinder_add(radius=0.045, depth=1.2, location=(0.88, 0, 0.72), rotation=(0, math.radians(75), 0))
         h = bpy.context.object
         h.data.materials.append(mat("Sap", (0.08, 0.04, 0.02, 1), 0, 0.5))
         bpy.ops.object.shade_smooth()
+        h.parent = o
+        h.matrix_parent_inverse = o.matrix_world.inverted()
         world_sky(0.45)
         light("AREA", (3, -3, 4), 800, 3)
     else:
