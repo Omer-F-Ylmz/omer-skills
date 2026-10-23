@@ -32,12 +32,27 @@ def suz(metin, json_ozet=True):
     return out
 
 
+def kisa_search(metin, en=8):
+    """search ciktisi (~12k karakter, TS arayuzleri) -> ad + 100 karakter aciklama. Tam hali: search ... --tam"""
+    try:
+        j = json.loads(metin)
+    except ValueError:
+        return metin
+    if not isinstance(j, dict) or not isinstance(j.get("tools"), list):
+        return metin
+    satir = [f"{t.get('name')} — {(t.get('description') or '')[:100]}" for t in j["tools"][:en]]
+    return "\n".join(satir) + "\n(arayuz: cm.py info <ad> · tam liste: search ... --tam)"
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__); return 0
     a = list(argv)
     if a[0] == "run" and len(a) >= 2 and a[1] not in ("-c",) and not a[1].startswith("--") and os.path.isfile(a[1]):
         a = ["run", "--file", os.path.abspath(a[1])] + a[2:]
+    tam = "--tam" in a
+    if tam:
+        a.remove("--tam")
     if a[0] == "run" and "--timeout" not in a:
         a += ["--timeout", "60000"]
     r = subprocess.run(["node", CLI, *a, "--config", os.path.join(D, ".utcp_config.json")], cwd=D,
@@ -45,7 +60,8 @@ def main(argv):
                        env={**os.environ, "gh_GITHUB_PAT": os.environ.get("GITHUB_PAT", "")},  # UTCP değişkeni manual adıyla önekler (gh_)
                        creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    print(suz(r.stdout))
+    cikti = suz(r.stdout)
+    print(kisa_search(cikti) if a[0] == "search" and not tam else cikti)
     if r.returncode and r.stderr:
         print(suz(r.stderr, json_ozet=False)[-1500:], file=sys.stderr)
     return r.returncode

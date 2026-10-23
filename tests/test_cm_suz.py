@@ -41,6 +41,18 @@ class AbPuan(unittest.TestCase):
         self.assertFalse(cm_ab.dogru("c", iyi.replace('"links":4', '"links":5')))
 
 
+class SearchKisa(unittest.TestCase):
+    def test_kisa(self):
+        import cm
+        uzun = json.dumps({"tools": [{"name": "fs.fs_read_text_file", "description": "Read the complete contents " + "x" * 500,
+                                       "typescript_interface": "y" * 3000}] * 6})
+        k = cm.kisa_search(uzun)
+        self.assertIn("fs.fs_read_text_file", k)
+        self.assertNotIn("yyyy", k)
+        self.assertLess(len(k), 1200)
+        self.assertEqual(cm.kisa_search("duz metin"), "duz metin")
+
+
 class CodemodeKip(unittest.TestCase):
     def test_bayrak(self):
         eski = os.environ.pop("CC_CODEMODE", None)

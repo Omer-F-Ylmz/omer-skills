@@ -32,7 +32,7 @@ python C:/Projeler/omer-skills/tools/cm.py run -c "return gw.time_get_current_ti
 - `fs.*` — dosya sistemi (C:/Projeler, Desktop)
 - `pw.*` — Playwright (headless)
 - `gh.*` — GitHub (46 araç)
-Araç adı manual önekini tekrarlar: `fs.fs_read_text_file`, `git.git_git_status`, `gw.time_get_current_time`. Emin değilsen `cm.py info <ad>` (search çıktısı ~12k karakter; yalnız ad bilinmiyorsa kullan).
+Araç adı manual önekini tekrarlar: `fs.fs_read_text_file`, `git.git_git_status`, `gw.time_get_current_time`. Adı bilmiyorsan `cm.py search "<görev>"` (kısa liste: ad + açıklama, ~1k karakter; tam TS arayüzü için `--tam`), sonra `cm.py info <ad>`.
 Yeni MCP: config'e manual ekle → `python tools/cm.py validate`.
 
 ## Ne zaman KULLANMA
