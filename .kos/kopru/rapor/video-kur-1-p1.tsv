@@ -1,0 +1,224 @@
+aday	tür	video_sayısı	kaynak_videolar	karar	kanıt	gerekçe
+name:claude-skills	kavram	13	1nGx7WR8YLE;2K1Ps-l4yxk;AWBsGEuVhuE;BwSMNbleLAE;IgNBqyU9lZo;Vok_nReMFaU	gürültü		genel terim; skill sistemi zaten kurulu
+name:claude-md	kavram	9	6Ij9-f2T2Ck;BKX9EHtttC0;BwSMNbleLAE;KGGpiYJWXHU;LDn7rQKIFro;hvfflSAIDaE	gürültü		CLAUDE.md dosyası; araç değil (claude-md-management kurulu)
+site:star-history.com	site	9	A1NrAlw1lHw;DB7DFLa40N4;DSlg2sQxvO4;OhnKe-L5-lU;QIevCKcRbUs;QrCqBSBHCIo	kurulu	star-history-paket	star-history paket skill'i kurulu
+name:agent-skills	skill	8	2X_allmlnnc;AWBsGEuVhuE;IgNBqyU9lZo;KGGpiYJWXHU;U6xZX4YWFkU;Vok_nReMFaU	kurulu	agent-skills	addy agent-skills eklentisi kurulu
+name:claude-code	uygulama	8	FaChtkkG9X4;Pw2x2yXTIUE;XZK4AQ5ZFkw;YDAK1lvVXho;b2QkhmQ0sT0;eD2WncwdnKg	kurulu	claude-code-guide	Claude Code ana araç
+name:code-review	plugin	8	JlRiNyHS5ks;Vok_nReMFaU;b2QkhmQ0sT0;eD2WncwdnKg;fZIBK_4fKq8;geuBwE3l0HM	kurulu	code-review	code-review eklentisi kurulu
+gh:star-history/star-history	repo	5	DB7DFLa40N4;OhnKe-L5-lU;QIevCKcRbUs;fZIBK_4fKq8;y6Jo7lq3i8s	kurulu	star-history-paket	grafik servisi; paket skill'i yeterli
+name:claude-agents	kavram	5	AWBsGEuVhuE;DqSQG2MjXrs;EL9iPRnoWl4;ig-Dd0645CiHH9;yUuFvL1lK4k	gürültü		genel terim (.claude/agents)
+name:claude-code-setup	plugin	5	2K1Ps-l4yxk;A1NrAlw1lHw;LDn7rQKIFro;T7xJ1gaZP7I;eJnk0dTaDPA	kurulu	claude-code-setup	eklenti kurulu
+name:design-review	skill	5	BJhyAatSo1A;KGGpiYJWXHU;eJnk0dTaDPA;hvfflSAIDaE;zke3bTtvmLo	kurulu	design-review	skill kurulu
+gh:remotion-dev/remotion	kütüphane	4	0sQxSXyVPwI;CzGKgU26dP8;ig-DeEzJ6mCEY3;zm6qZXGbFvU	kurulu	remotion-best-practices	skill kurulu; npm paketi proje başı. lisans: Remotion Lisansı (≤3 kişi ücretsiz)
+name:claude-fable-5	model	4	1nGx7WR8YLE;DqSQG2MjXrs;QrCqBSBHCIo;rscb1DgJtNg	gürültü		model adı, kurulacak araç yok
+name:github-cli	CLI	4	6Ij9-f2T2Ck;OhnKe-L5-lU;WYJxGSfXLZQ;ig-DdDncIvs_rJ	kurulu	bin:gh	gh kurulu
+name:install-skills	kavram	4	IgNBqyU9lZo;KGGpiYJWXHU;hvfflSAIDaE;tmjEIYMLxsA	gürültü		genel eylem
+site:github.com	site	4	0sQxSXyVPwI;CzGKgU26dP8;ig-DeEzJ6mCEY3;zm6qZXGbFvU	gürültü		genel alan adı
+site:remotion.dev	site	4	0sQxSXyVPwI;CzGKgU26dP8;ig-DeEzJ6mCEY3;zm6qZXGbFvU	kurulu	remotion-best-practices	doküman; skill kurulu
+name:browser-use	skill	3	SwXcetzsSeI;XjCOxsRU3N8;Xv9GJZSMCPU	kurulu	browser-use	skill kurulu (pip kütüphanesi ayrı: gerekirse proje başı)
+name:claude-design	site	3	DqSQG2MjXrs;Pw2x2yXTIUE;sUvLZHSXslQ	kurulu	design	claude-design köprüsü + design eklentisi (bellek notu)
+name:frontend-design-skill	skill	3	A1NrAlw1lHw;XgodrpnfmHY;pR2nuRcLqbI	kurulu	frontend-design	kurulu
+name:nano-banana-2	plugin	3	JLxM8NjvuEw;LDn7rQKIFro;s9stQXjITkI	kurulu	nano-banana-2	kurulu
+site:apify.com	API-servis	3	DqSQG2MjXrs;OhnKe-L5-lU;Xv9GJZSMCPU	kurulu	mcp:apify	Apify MCP kurulu
+site:banger.show	site	3	0sQxSXyVPwI;CzGKgU26dP8;ig-DeEzJ6mCEY3	KUR		Remotion video şablon sitesi; referans/incele
+site:higgsfield.ai	API-servis	3	OFvi-pvHmbo;eD2WncwdnKg;snErQUyqwCU	KUR		AI video servisi; hesap + MCP; ücretsiz muadil: fal.ai (kurulu)
+site:insiderforce.io	site	3	KGGpiYJWXHU;SwXcetzsSeI;rgSR8ggOwV4	KUR		bilinmiyor, doğrulanacak; ref bağlantısı olabilir (güvenlik tara)
+site:microsoft.com	site	3	Vok_nReMFaU;geuBwE3l0HM;wjvUIPylcy0	gürültü		genel alan adı
+gh:activepieces/activepieces	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		MIT çekirdek; self-host otomasyon (Zapier muadili)
+gh:actualbudget/actual	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		MIT; yerel bütçe uygulaması
+gh:anthropics/claude-code	repo	2	DqSQG2MjXrs;_0NSNY7n5lE	kurulu	claude-code-guide	Claude Code kurulu
+gh:anthropics/courses	repo	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		eğitim notebook'ları; klonla (lisans doğrula)
+gh:apify/crawlee	kütüphane	2	DqSQG2MjXrs;OhnKe-L5-lU	KUR		Apache-2; npm crawlee proje başı
+gh:christopherkahler/base	repo	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		bilinmiyor, doğrulanacak (lisans oku)
+gh:dani-garcia/vaultwarden	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		AGPL-3; self-host parola yöneticisi (kod gömme yok)
+gh:documenso/documenso	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		AGPL-3; self-host e-imza (document-signing skill ayrı)
+gh:dubinc/dub	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		AGPL-3 çekirdek; self-host link kısaltıcı
+gh:immich-app/immich	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		AGPL-3; self-host fotoğraf; Docker + disk gerekir
+gh:kde/kdenlive	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		GPL-3; video editörü, winget ile
+gh:leonxlnx/taste-skill	skill	2	QIevCKcRbUs;eWdvFbDxkJE	kurulu	taste-skill	MIT, kurulu (bellek: lisans kapısı)
+gh:pbakaus/impeccable	skill	2	QIevCKcRbUs;eWdvFbDxkJE	kurulu	impeccable	kurulu
+gh:stirling-tools/stirling-pdf	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		MIT çekirdek; PDF araç seti
+gh:voltagent/awesome-design-md	repo	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		MIT; marka DESIGN.md koleksiyonu (design-md skill ayrı, kısmen)
+gh:zachlatta/freeflow	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		freeflow-paket skill'i var, aracın kendisi kurulu değil
+gh:zackriya-solutions/meetily	uygulama	2	QIevCKcRbUs;eWdvFbDxkJE	KUR		MIT; yerel toplantı notu (Whisper)
+name:claude-api	skill	2	JLxM8NjvuEw;jaAI2evZF44	kurulu	claude-api	kurulu
+name:claude-fable-5-1	model	2	2qM93WXeKdY;U6xZX4YWFkU	gürültü		model adı
+name:nvidia-nim	API-servis	2	BKX9EHtttC0;QrCqBSBHCIo	KUR		ücretsiz NIM API anahtarı (hesap); ücretsiz havuza aday
+site:21st.dev	MCP	2	Srjqf8B3k4c;ig-DdBscjLqzfg	kurulu	mcp:21st	MCP kurulu
+site:amazon.com	site	2	DqSQG2MjXrs;ig-DbnZLJFMcSY	gürültü		genel alan adı
+site:blender.org	uygulama	2	Hrcq00y9EhU;OFvi-pvHmbo	kurulu	app:blender	Blender 5.2 kurulu
+site:context.dev	API-servis	2	83YfBtINu74;KGGpiYJWXHU	KUR		bilinmiyor, doğrula; context7 kurulu ayrı
+site:crawlee.dev	kütüphane	2	DqSQG2MjXrs;OhnKe-L5-lU	KUR		crawlee dokümanı; bkz gh:apify/crawlee
+site:dataforseo.com	API-servis	2	7eVylM1pTrA;DqSQG2MjXrs	KUR		ücretli API (hesap); claude-seo:seo-dataforseo skill'i var
+site:github.io	site	2	CaHT7D_B03s;fzaHuV9l3g8	gürültü		genel alan adı
+gh:affaan-m/ecc	repo	1	UI-FviGoSuY	KUR		everything-claude-code; MIT; skill/ajan koleksiyonu
+gh:anthropics/claude-plugins-official	repo	1	DqSQG2MjXrs	kurulu	claude-code-setup@claude-plugins-official	resmî marketplace etkin
+gh:apify/impit	kütüphane	1	DqSQG2MjXrs	KUR		tarayıcı-taklidi HTTP istemcisi (MIT)
+gh:berriai/litellm	kütüphane	1	fZIBK_4fKq8	KUR		MIT; pip litellm yok; OmniRoute zaten benzer
+gh:calesthio/openmontagel	repo	1	ig-DeEzJ6mCEY3	KUR		yazım hatası: calesthio/OpenMontage; AGPL olabilir, lisans oku
+gh:decolua/9router	CLI	1	fZIBK_4fKq8	KUR		9router-paket skill'i var, aracın kendisi yok
+gh:diegosouzapw/omnicopilot	eklenti	1	fZIBK_4fKq8	KUR-sonra		OmniRoute için VSCode eklentisi (VS Code önkoşul)
+gh:diegosouzapw/omniroute	uygulama	1	fZIBK_4fKq8	kurulu	bin:node	OmniRoute 127.0.0.1:20128'de çalışıyor (tools/ucuz_alt.py)
+gh:firecrawl/firecrawl-docs	repo	1	Xv9GJZSMCPU	KUR		doküman deposu; firecrawl-scraper skill'i kurulu
+gh:github/gitignore	repo	1	Vok_nReMFaU	KUR		CC0 şablonlar; referans klon yeterli
+gh:herdrdev/herdr	CLI	1	eWdvFbDxkJE	kurulu	herdr	herdr skill/paket kurulu
+gh:hermoso-ai/hermoso	plugin	1	DqSQG2MjXrs	kurulu	hermoso	eklenti kurulu
+gh:igorbrigadir/twitter-advanced-search	repo	1	DqSQG2MjXrs	KUR		doküman; referans klon
+gh:jakeschincar1ol/1inkedin-agent-:	repo	1	wx-AOllxnww	atla-güvenlik		typosquat görünümlü hesap/ad (1inkedin); kod çalıştırma
+gh:nvidia/skillspectd	repo	1	jYyHjpndukk	KUR		yazım hatası: nvidia SkillSpector; lisans oku
+gh:nvidia/skillspectrd	repo	1	jYyHjpndukk	KUR		yazım hatası: nvidia SkillSpector; gh:nvidia/skillspectd ile aynı
+gh:pbákaus/ipeccabile	skill	1	hvfflSAIDaE	kurulu	impeccable	yazım hatası: pbakaus/impeccable; kurulu
+gh:pydantic/httpx2	kütüphane	1	DqSQG2MjXrs	kurulu	pip:httpx2	pip kurulu
+gh:remotion-dev/skills	skill	1	0sQxSXyVPwI	kurulu	remotion-best-practices	kurulu
+gh:router-for-me/cliproxyapi	CLI	1	fZIBK_4fKq8	KUR		MIT; CLI abonelikleri OpenAI-uyumlu API yapar (OmniRoute benzeri)
+gh:tailwindlabs/tailwindcss	kütüphane	1	Vok_nReMFaU	KUR		MIT; npm proje başı; tailwind-patterns skill'i kurulu
+gh:zk/claude-mods	repo	1	U6xZX4YWFkU	KUR		bilinmiyor, doğrulanacak
+gh:ςalesthio/openl	repo	1	0sQxSXyVPwI	KUR		yazım hatası: calesthio/OpenMontage; bkz gh:calesthio/openmontagel
+ghuser:jsdelivr	site	1	eJnk0dTaDPA	gürültü		CDN, kurulacak şey yok
+ghuser:new	site	1	pX-7WMwPCrw	gürültü		kırık yol
+name:agent-sdk-dev	plugin	1	A1NrAlw1lHw	kurulu	agent-sdk-dev	kurulu
+name:alt-ajanlar	kavram	1	UI-FviGoSuY	gürültü		genel terim
+name:andrej-karpathy-skills	skill	1	U6xZX4YWFkU	kurulu	andrej-karpathy-skills	kurulu
+name:chatllm-abacus-ai	API-servis	1	SwXcetzsSeI	KUR		Abacus ChatLLM (ücretli, hesap)
+name:claude-code-mods	repo	1	U6xZX4YWFkU	KUR		bilinmiyor, doğrulanacak
+name:claude-md-management	plugin	1	A1NrAlw1lHw	kurulu	claude-md-management	kurulu
+name:claudepluginhub	site	1	KGGpiYJWXHU	KUR		eklenti dizini; katalog kaynağı olarak tara
+name:code-modernization	plugin	1	A1NrAlw1lHw	KUR		resmî eklenti adayı; kurulu değil
+name:code-simplifier	plugin	1	UI-FviGoSuY	kurulu	code-simplifier	kurulu
+name:codex-skill	skill	1	hvfflSAIDaE	KUR		bilinmiyor, doğrulanacak (codex-review kurulu)
+name:commit-commands	plugin	1	A1NrAlw1lHw	kurulu	commit-commands	kurulu
+name:console.apify.com/store-search	API-servis	1	Xv9GJZSMCPU	kurulu	mcp:apify	Apify mağazası; MCP kurulu
+name:context7-mcp	MCP	1	XgodrpnfmHY	kurulu	mcp:context7	kurulu
+name:create-next-appelatest	CLI	1	sUN3y3CRylc	KUR		yazım hatası: create-next-app@latest; npx ile anlık
+name:csharp-lsp	plugin	1	A1NrAlw1lHw	kurulu	csharp-lsp	kurulu
+name:cskillry.dev/ai	site	1	rscb1DgJtNg	KUR		yazım hatası: skillry.dev
+name:cwc-makers	?	1	A1NrAlw1lHw	KUR		bilinmiyor, doğrulanacak
+name:design-dna	skill	1	1nGx7WR8YLE	kurulu	design	designlang:dna skill'i kurulu (design* eşleşmesi; tam ad designlang)
+name:design-html	skill	1	2K1Ps-l4yxk	KUR		bilinmiyor, doğrulanacak
+name:docs.firecrawl.dev/mcp-server	MCP	1	Xv9GJZSMCPU	kurulu	firecrawl-scraper	firecrawl MCP dokümanı; skill kurulu
+name:document-generate	skill	1	2K1Ps-l4yxk	kurulu	document-generate	kurulu
+name:document-release	skill	1	2K1Ps-l4yxk	kurulu	document-release	kurulu
+name:example-skills	plugin	1	jDtLcMOLjIQ	kurulu	example-skills	kurulu
+name:explanatory-output-style	plugin	1	A1NrAlw1lHw	kurulu	explanatory-output-style	kurulu
+name:fable-advisor	plugin	1	U6xZX4YWFkU	kurulu	fable-advisor	kurulu
+name:framer-motion	kütüphane	1	aZe5ZTYcF1M	KUR		MIT; npm motion/framer-motion proje başı (motion skill kurulu)
+name:frontend-design	skill	1	1nGx7WR8YLE	kurulu	frontend-design	kurulu
+name:github-mcp-server	MCP	1	XgodrpnfmHY	kurulu	mcp:github	kurulu
+name:github.com/barty	repo	1	6Ij9-f2T2Ck	KUR		kırpık depo adı (barty/?), doğrulanacak
+name:github.com/data	site	1	U6xZX4YWFkU	gürültü		kırık/genel yol
+name:github.com/langchain-aiflanggraph	kütüphane	1	pX-7WMwPCrw	KUR		langchain-ai/langgraph (MIT); langgraph skill kurulu, pip proje başı
+name:gitmcp.io/docs	MCP	1	pX-7WMwPCrw	KUR		bkz site:gitmcp.io
+name:google-fonts	site	1	Pw2x2yXTIUE	KUR		yazı tipi kaynağı; yerel indirme proje başı
+name:grill-me	skill	1	IgNBqyU9lZo	kurulu	grill	grill skill'i kurulu
+name:gstack-upgrade	skill	1	2K1Ps-l4yxk	kurulu	gstack-upgrade	kurulu
+name:higgsfield.ai/mcp	MCP	1	OFvi-pvHmbo	KUR		higgsfield MCP; bkz site:higgsfield.ai
+name:higgsfield.ai/pricing	site	1	snErQUyqwCU	gürültü		fiyat sayfası; bkz site:higgsfield.ai
+name:hostinger-api-mcp	MCP	1	snErQUyqwCU	kurulu	hostinger	hostinger eklentisi kurulu
+name:image-generation-skill	skill	1	JLxM8NjvuEw	kurulu	image-generation-skill	kurulu
+name:learning-output-style	plugin	1	A1NrAlw1lHw	kurulu	learning-output-style	kurulu
+name:lua-lsp	plugin	1	A1NrAlw1lHw	KUR		resmî LSP eklentisi; Lua kullanılırsa
+name:math-proof	?	1	WYJxGSfXLZQ	KUR		bilinmiyor, doğrulanacak
+name:mattpocock-skills	skill	1	IgNBqyU9lZo	kurulu	mattpocock-skills	kurulu
+name:mcp-git	MCP	1	vyrVH8S9JVE	kurulu	mcp:mcp-git	kurulu
+name:muapi.ai/open-gener	API-servis	1	ig-DdDncIvs_rJ	KUR		bilinmiyor, doğrula (kırpık metin)
+name:next-js	kütüphane	1	Vok_nReMFaU	KUR		MIT; proje başı npm
+name:pixel-aoests	kavram	1	OhnKe-L5-lU	gürültü		kırık metin (pixel assets?)
+name:plan-ceo-review	skill	1	2K1Ps-l4yxk	kurulu	plan-ceo-review	kurulu
+name:plan-eng-review	skill	1	pR2nuRcLqbI	kurulu	plan-eng-review	kurulu
+name:plugin-dev	plugin	1	A1NrAlw1lHw	kurulu	plugin-dev	kurulu
+name:qa-only	skill	1	2K1Ps-l4yxk	kurulu	qa-only	kurulu
+name:rivecn.com/courses	kütüphane	1	Hrcq00y9EhU	KUR		bkz site:rivecn.com
+name:scroll-craft	skill	1	1nGx7WR8YLE	kurulu	scroll-craft	kurulu
+name:security-review	skill	1	UI-FviGoSuY	kurulu	cc-skill-security-review	kurulu
+name:setup-gbrain	skill	1	2K1Ps-l4yxk	kurulu	setup-gbrain	kurulu
+name:skill-creator	skill	1	FaChtkkG9X4	kurulu	skill-creator	kurulu
+name:skills@latest	CLI	1	Vok_nReMFaU	KUR		npx skills@latest (skill kurucu CLI); anlık, kalıcı kurulum yok
+name:skilly.dev/ai	site	1	rscb1DgJtNg	KUR		yazım hatası: skillry.dev
+name:u8i3yg.abacusai.app/api-docs	site	1	SwXcetzsSeI	gürültü		tek kullanımlık uygulama dokümanı
+name:vercel-cli	CLI	1	oEnVigmlHPA	KUR		npm i -g vercel; MIT
+name:write-a-prd	skill	1	NOnIrDx2b_4	kurulu	mattpocock-skills	mattpocock paketinin parçası
+name:you-should-know	kavram	1	Vok_nReMFaU	gürültü		genel terim
+npm:@omniroute/opencode-provider	kütüphane	1	fZIBK_4fKq8	KUR		OpenCode kullanılırsa; OmniRoute sağlayıcısı
+npm:omniroute	uygulama	1	fZIBK_4fKq8	kurulu	bin:node	OmniRoute çalışıyor (~/.omniroute/storage.sqlite var)
+site:.co	gürültü	1	LbP3BYSTzdw	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:aemon.ai	API-servis	1	Xv9GJZSMCPU	KUR		bilinmiyor, doğrula
+site:com.tr	gürültü	1	U6xZX4YWFkU	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:aisa.one	API-servis	1	DqSQG2MjXrs	KUR		SEO/sosyal veri API'si (hesap, ücretli)
+site:aloud.sh	CLI	1	Pw2x2yXTIUE	KUR		bilinmiyor, doğrula
+site:hermoso.ai	site	1	DqSQG2MjXrs	kurulu	hermoso	hermoso eklentisi kurulu
+site:photoroom.com	API-servis	1	Xv9GJZSMCPU	KUR		görsel arkaplan API (ücretli, hesap)
+site:asp.net	site	1	geuBwE3l0HM	gürültü		genel alan adı
+site:augmentcode.com	uygulama	1	pX-7WMwPCrw	KUR		Auggie CLI/eklenti; kapalı kaynak, ücretsiz katman
+site:notion.site	site	1	d_UE-wHLoZY	gürültü		genel alan adı
+site:cacrush-app-	gürültü	1	SwXcetzsSeI	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:candy-crush-app-	gürültü	1	SwXcetzsSeI	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:chargeback.io	API-servis	1	DqSQG2MjXrs	KUR		SaaS; hesap
+site:tavily.com	API-servis	1	DqSQG2MjXrs	kurulu	tavily	tavily eklentisi kurulu
+site:chatbase.co	API-servis	1	DqSQG2MjXrs	KUR		SaaS (hesap)
+site:abacus.ai	API-servis	1	SwXcetzsSeI	KUR		bkz name:chatllm-abacus-ai
+site:cheaperinference.com	API-servis	1	fZIBK_4fKq8	KUR		bilinmiyor, doğrula
+site:claude.a	site	1	LbP3BYSTzdw	gürültü		kırık alan adı (claude.ai)
+site:cline.bot	eklenti	1	pX-7WMwPCrw	KUR-sonra		Apache-2; VSCode ajan eklentisi (VS Code önkoşul)
+site:cline.tools	eklenti	1	pX-7WMwPCrw	KUR-sonra		bkz site:cline.bot
+site:rive.app	uygulama	1	Hrcq00y9EhU	KUR		Rive editörü (web) + MIT runtime; rivecn bileşenleri
+site:composio.dev	API-servis	1	Xv9GJZSMCPU	KUR		MCP/SDK katmanı (MIT SDK), hesap gerekir
+site:mistral.ai	API-servis	1	fzaHuV9l3g8	KUR		ücretsiz API katmanı (hesap); ucretsiz_havuz'da mistral var
+site:convex.com	API-servis	1	ig-DbnZLJFMcSY	kurulu	convex	convex skill'i kurulu
+site:creati	site	1	zaBDyEfhrnk	gürültü		kırık alan adı
+site:cursor.com	uygulama	1	pX-7WMwPCrw	KUR		IDE; kapalı kaynak, ücretsiz katman
+site:firecrawl.dev	API-servis	1	Xv9GJZSMCPU	kurulu	firecrawl-scraper	firecrawl-scraper skill'i kurulu
+site:highlightai.com	uygulama	1	pX-7WMwPCrw	KUR		masaüstü AI asistanı (kapalı)
+site:msty.ai	uygulama	1	pX-7WMwPCrw	KUR		yerel LLM istemcisi; ücretsiz sürüm
+site:riotters.com	site	1	Pw2x2yXTIUE	KUR		bilinmiyor, doğrula
+site:fal.ai	API-servis	1	wjvUIPylcy0	kurulu	fal-generate	fal-* skill'leri kurulu
+site:formabledocs.com	site	1	Pw2x2yXTIUE	KUR		bilinmiyor, doğrula
+site:.	gürültü	1	jYyHjpndukk	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:gitmcp.io	MCP	1	pX-7WMwPCrw	KUR		uzak MCP, kurulum yok (URL ile eklenir); ücretsiz
+site:graphifylabs.ai	CLI	1	1YAss6m8QDo	kurulu	graphify	graphify kurulu
+site:herdr.dev	CLI	1	eWdvFbDxkJE	kurulu	herdr	kurulu
+site:insomnia.rest	uygulama	1	DqSQG2MjXrs	KUR		Apache-2; API istemcisi (Postman muadili)
+site:instantly.ai	API-servis	1	DqSQG2MjXrs	KUR		soğuk e-posta SaaS (hesap)
+site:apple.com	site	1	Xv9GJZSMCPU	gürültü		genel alan adı
+site:kali.org	uygulama	1	Uc18mso08Ro	KUR		Kali WSL; pentest araç seti; WSL + disk gerekir
+site:korabench.ai	site	1	fzaHuV9l3g8	KUR		bilinmiyor, doğrula
+site:land-book.com	site	1	Pw2x2yXTIUE	KUR		tasarım galerisi; docs/site-inceleme listesine referans ekle
+site:localrank.so	API-servis	1	DqSQG2MjXrs	KUR		yerel SEO SaaS
+site:manyreach.com	API-servis	1	DqSQG2MjXrs	KUR		soğuk e-posta SaaS
+site:topview.ai	API-servis	1	1nGx7WR8YLE	KUR		AI video SaaS; ücretsiz muadil fal.ai
+site:muz.li	site	1	Pw2x2yXTIUE	KUR		tasarım ilham sitesi; referans listeye
+site:memory2.co	site	1	Vok_nReMFaU	KUR		bilinmiyor, doğrula
+site:mintlify.com	API-servis	1	Pw2x2yXTIUE	kurulu	mintlify	mintlify eklentisi kurulu
+site:modal.com	API-servis	1	geuBwE3l0HM	kurulu	modal	modal skill'i kurulu
+site:modelcontextprotocol.io	site	1	DqSQG2MjXrs	gürültü		MCP doküman sitesi; mcp-builder kurulu
+site:msty.studio	uygulama	1	pX-7WMwPCrw	KUR		bkz site:msty.ai
+site:ocalhost:37777	gürültü	1	VRqW0d8-dIU	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:ocalhost:8080	gürültü	1	nPxMF2YV77I	gürültü		kırık/boş metin, araç adı çıkarılamadı
+site:open-vsx.org	site	1	fZIBK_4fKq8	gürültü		genel kayıt sitesi
+site:openseo.so	API-servis	1	7eVylM1pTrA	KUR		SEO SaaS
+site:postman.com	uygulama	1	DqSQG2MjXrs	KUR		API istemcisi; kapalı kaynak, ücretsiz katman
+site:pypi.org	site	1	DqSQG2MjXrs	gürültü		genel kayıt sitesi
+site:rankie.ai	API-servis	1	U6xZX4YWFkU	KUR		SEO SaaS
+site:vercel.app	site	1	Hrcq00y9EhU	gürültü		genel barındırma alan adı
+site:rive.cool	site	1	Hrcq00y9EhU	KUR		Rive ilham/kaynak sitesi
+site:rivecn.com	kütüphane	1	Hrcq00y9EhU	KUR		Rive shadcn bileşenleri; lisans oku
+site:ryandoser.com	site	1	DqSQG2MjXrs	KUR		SEO aracı sitesi; doğrula
+site:serpapi.com	API-servis	1	DqSQG2MjXrs	KUR		ücretli API, 100 sorgu/ay ücretsiz
+site:skillry.dev	site	1	rscb1DgJtNg	KUR		skill dizini; katalog kaynağı olarak tara
+site:snyk.io	CLI	1	Vok_nReMFaU	KUR		güvenlik taraması; ücretsiz katman, PARÇA 2 güvenlik adayı
+site:strix.ai	CLI	1	ig-DbnZLJFMcSY	kurulu	bin:strix	strix kurulu
+site:subclip.app	API-servis	1	7eVylM1pTrA	KUR		video klip SaaS
+site:pubtailer.com	site	1	sUvLZHSXslQ	gürültü		izleme/ref bağlantısı
+site:typesafe.ai	plugin	1	9ywqgu3R_mw	kurulu	typesafe	typesafe eklentisi kurulu
+site:xcom	gürültü	1	rscb1DgJtNg	gürültü		kırık/boş metin, araç adı çıkarılamadı
+vsx:	gürültü	1	wjvUIPylcy0	gürültü		kırık/boş metin, araç adı çıkarılamadı
+vsx:itemName=Stripe.vscode-stripe	eklenti	1	wjvUIPylcy0	KUR-sonra		VS Code kurulunca; stripe eklentisi ayrıca kurulu
+vsx:itemName=anthropic.claude-code	eklenti	1	wjvUIPylcy0	KUR-sonra		VS Code kurulunca (Claude Code uygulaması kurulu)
+vsx:itemName=diegosouzapw.omnicopilot	eklenti	1	fZIBK_4fKq8	KUR-sonra		VS Code kurulunca
+vsx:itemName=eamodio.gitlens	eklenti	1	wjvUIPylcy0	KUR-sonra		MIT çekirdek; VS Code kurulunca
+vsx:itemName=mongodb.mongodb-vscode	eklenti	1	wjvUIPylcy0	KUR-sonra		Apache-2; VS Code kurulunca
+vsx:itemName=ms-azuretools.vscode-azure-github-copilot	eklenti	1	wjvUIPylcy0	KUR-sonra		MS lisansı; yalnız resmî VS Code
+vsx:itemName=ms-dotnettools.csdevkit	eklenti	1	wjvUIPylcy0	KUR-sonra		MS lisansı; Visual Studio 2022 zaten kurulu (işlevsel muadil)
+vsx:itemName=ms-python.python	eklenti	1	wjvUIPylcy0	KUR-sonra		MIT; VS Code kurulunca
+vsx:itemName=ms-toolsai.jupyter	eklenti	1	wjvUIPylcy0	KUR-sonra		MIT; VS Code kurulunca
+vsx:itemName=ms-vscode-remote.vscode-remote-extensionpack	eklenti	1	wjvUIPylcy0	KUR-sonra		MS lisansı; yalnız resmî VS Code
+vsx:itemName=ms-vscode.cpptools	eklenti	1	wjvUIPylcy0	KUR-sonra		MS lisansı; yalnız resmî VS Code
