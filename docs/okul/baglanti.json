@@ -1,0 +1,15 @@
+{
+ "web": {
+  "ders": [
+   "docs/okul/web-s1.md",
+   "docs/okul/web-s2.md"
+  ],
+  "taslak": "docs/okul/web-taslak.md",
+  "obsidian": "30-okul/web/",
+  "skill": [
+   "departman-frontend",
+   "frontend-craft",
+   "scroll-craft"
+  ]
+ }
+}

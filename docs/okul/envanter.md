@@ -56,3 +56,23 @@ skill dizini: 2396 · MCP: 44
 - skill 13: awesome-jev-contributor, awesome-jev-guide, beyin, convertkit-automation, evolving-skill-creator, graphify, graphify-desktop, jev, plan-kur, rtk-desktop, sentry-sdk-skill-creator, skill-creator …
 - MCP var: ['ruflo'] · eksik: ['kapi']
 - ek kaynak: USTALIK-1 ile birleşik · proje: tüm repo · ders kitabı: YOK
+
+## 3d-a — 3D Modelleme (A)
+- skill 72: 3d-cloth-material, 3d-falling-leaves, 3d-four-seasons, 3d-games, 3d-high-poly-models, 3d-high-resolution-textures, 3d-metal-material, 3d-object, 3d-orbit-inspect-demo, 3d-paper-material, 3d-retina-resolution, 3d-sky-background …
+- MCP var: ['blender'] · eksik: -
+- ek kaynak: Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP · proje: TELVE, NEFFEX, BHS5 · ders kitabı: YOK
+
+## 3d-b — 3D Materyal/Işık/Render (B)
+- skill 72: 3d-cloth-material, 3d-falling-leaves, 3d-four-seasons, 3d-games, 3d-high-poly-models, 3d-high-resolution-textures, 3d-metal-material, 3d-object, 3d-orbit-inspect-demo, 3d-paper-material, 3d-retina-resolution, 3d-sky-background …
+- MCP var: ['blender'] · eksik: -
+- ek kaynak: Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP · proje: TELVE, NEFFEX, BHS5 · ders kitabı: YOK
+
+## 3d-c — 3D Animasyon (C)
+- skill 72: 3d-cloth-material, 3d-falling-leaves, 3d-four-seasons, 3d-games, 3d-high-poly-models, 3d-high-resolution-textures, 3d-metal-material, 3d-object, 3d-orbit-inspect-demo, 3d-paper-material, 3d-retina-resolution, 3d-sky-background …
+- MCP var: ['blender'] · eksik: -
+- ek kaynak: Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP · proje: TELVE, NEFFEX, BHS5 · ders kitabı: YOK
+
+## 3d-d — 3D Efekt/VFX (D)
+- skill 72: 3d-cloth-material, 3d-falling-leaves, 3d-four-seasons, 3d-games, 3d-high-poly-models, 3d-high-resolution-textures, 3d-metal-material, 3d-object, 3d-orbit-inspect-demo, 3d-paper-material, 3d-retina-resolution, 3d-sky-background …
+- MCP var: ['blender'] · eksik: -
+- ek kaynak: Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP · proje: TELVE, NEFFEX, BHS5 · ders kitabı: YOK

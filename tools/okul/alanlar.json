@@ -261,5 +261,89 @@
   ],
   "ek": "Poly Haven, BlenderKit, Sketchfab, ambientCG; resmi: Blender manual MCP",
   "proje": "TELVE, NEFFEX, BHS5"
+ },
+ "web-s1": {
+  "ad": "Web S1 Temel (tasarım yönü, kalite kapısı, erişilebilirlik)",
+  "anahtar": [
+   "frontend",
+   "motion",
+   "scroll",
+   "tailwind",
+   "ui-",
+   "design",
+   "css",
+   "gsap",
+   "remotion"
+  ],
+  "mcp": [
+   "playwright",
+   "21st",
+   "rea"
+  ],
+  "ek": "codrops, 21st, awwwards, MDN",
+  "proje": "freelance sitesi, TELVE"
+ },
+ "web-s2": {
+  "ad": "Web S2 Animasyon/Scroll (GSAP, ScrollTrigger, smooth scroll)",
+  "anahtar": [
+   "frontend",
+   "motion",
+   "scroll",
+   "tailwind",
+   "ui-",
+   "design",
+   "css",
+   "gsap",
+   "remotion"
+  ],
+  "mcp": [
+   "playwright",
+   "21st",
+   "rea"
+  ],
+  "ek": "codrops, 21st, awwwards, MDN",
+  "proje": "freelance sitesi, TELVE"
+ },
+ "web-s3": {
+  "ad": "Web S3 3D/WebGL sahne (taslak)",
+  "anahtar": [
+   "frontend",
+   "motion",
+   "scroll",
+   "tailwind",
+   "ui-",
+   "design",
+   "css",
+   "gsap",
+   "remotion"
+  ],
+  "mcp": [
+   "playwright",
+   "21st",
+   "rea"
+  ],
+  "ek": "codrops, 21st, awwwards, MDN",
+  "proje": "freelance sitesi, TELVE"
+ },
+ "web-s4": {
+  "ad": "Web S4 Performans/Vite (taslak)",
+  "anahtar": [
+   "frontend",
+   "motion",
+   "scroll",
+   "tailwind",
+   "ui-",
+   "design",
+   "css",
+   "gsap",
+   "remotion"
+  ],
+  "mcp": [
+   "playwright",
+   "21st",
+   "rea"
+  ],
+  "ek": "codrops, 21st, awwwards, MDN",
+  "proje": "freelance sitesi, TELVE"
  }
 }
