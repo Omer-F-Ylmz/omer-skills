@@ -479,7 +479,7 @@ def test_nihai_bitis_tam(tmp_path, monkeypatch):
     b, _ = _kapi_izole(tmp_path, monkeypatch)
     t0 = time.time() - 60
     b.olay("arac", "mcp__ruflo__agentdb_pattern-store", "ders")
-    assert ajan_sira.nihai_bitis("is-y", t0, time.time()) == []
+    assert ajan_sira.nihai_bitis("is-y", t0, time.time() + 1) == []  # olay t'si round(,1) ile yukarı yuvarlanır; +1 sn olmadan ~%50 dalgalanır
     assert not b.ALARM.exists()
 
 
