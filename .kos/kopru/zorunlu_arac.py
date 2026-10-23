@@ -51,6 +51,28 @@ CANLI_TUR = {"site-3d", "kod-backend"}  # canlı/yayın deseni yalnız bu türle
 KOD_TUR = {"site-3d", "kod-backend", "guvenlik", "mod", "kurulum", "render"}  # graphify çekirdeği yalnız kod işinde zorunlu
 
 
+UI_ARAC = {"departman-frontend", "frontend-craft", "impeccable", "pixeljury", "playwright-cli", "scroll-craft", "web-sahne-desenleri",
+           "threejs-3d-paket", "gsap-core", "seo-audit", "accessibility-audit", "copywriting", "marketing-skills", "fe-meta-seo-duzeltici",
+           "lighthouse-chrome-devtools", "strix", "ecc-agentshield"}  # yalnız kullanıcıya açık web/UI çıktısında zorunlu
+IC_ISARET = re.compile(r"(?i)\.py\b|\.kos/|\btools/|\bbetik\w*|\bajan_sira\b|\bders kitab\w*|\bmüfredat\w*|\bdokümantasyon\b|\bkart_dogrula\b")
+UI_TESLIM = re.compile(r"(?i)\blanding\b|\bcanl[ıi]ya\b|\byayına\b|\barayüz\w*\s+(yap|tasarla|kur)|\bsite\s+(yap|kur|tasarla|üret)|\bpixeljury\b|\b3d site\b")
+
+
+def ui_isi(kap):
+    """Çıktı kullanıcıya açık web/UI mi: iç-iş işareti var ve güçlü UI teslimi yoksa False (SEO/a11y/frontend/strix zorunlu olmaz)."""
+    return not IC_ISARET.search(kap) or bool(UI_TESLIM.search(kap))
+
+
+def gerekceli(ad, eksik):
+    """Ajan raporunda 'atlandı/kullanılmadı + neden' satırı olan eksik araçlar (kısa ad, aynı satırda gerekçe işareti)."""
+    try:
+        r = json.loads((SIRA / f"{ad}.json").read_text(encoding="utf-8")).get("result") or ""
+    except (OSError, ValueError):
+        return []
+    sat = [s for s in r.splitlines() if re.search(r"(?i)atlan|kullanılmad|kullanmad|gerek(siz| yok|mez)|uygun değil|kapsam dışı", s)]
+    return [e for e in eksik if any(e.split(":")[-1].lower() in s.lower() and re.search(r"(?i)çünkü|neden|—|:|->|→|\(.{8,}\)", s) for s in sat)]
+
+
 def kapsam(metin):
     """Başlık (önekli 'ad-N —' atılmış) + İLK VE BAĞLAYICI bölümü; bölüm yoksa ilk 800 karakter."""
     satir = metin.lstrip().split("\n", 1)
@@ -150,6 +172,10 @@ def araclar(metin):
         bm += [o for _, _, o in puan[:40] if o not in bm and o["tur"] in sira and o["ad"] not in GENEL and "reposunda" not in o["metin"]][:3 - len(bm)]
     for o in katalog_ara.suz(bm, katalog_ara.yigin(q))[0]:
         ekle(o)
+    if not ui_isi(kap):  # NİHAİ-DÜZELT-1: iç betik / ders kitabı işi SEO·a11y·frontend·strix dayatmaz (önerilir, zorunlu değil)
+        for o in sec:
+            if o["ad"].split(":")[-1] in UI_ARAC:
+                o["dolgu"] = True
     return sec
 
 
@@ -366,6 +392,13 @@ def denetle(ad):
     if k is None:
         return None
     d = _hesapla(ad, z, k)
+    g = gerekceli(ad, d["eksik"])  # gerekçeli atlama kullanılmış sayılır: yeniden koşu tetiklemez
+    if g:
+        n = len([o for o in z["araclar"] if not o.get("dolgu")])
+        kalan = [e for e in d["eksik"] if e not in g]
+        d.update(gerekceli=g, eksik=kalan)
+        if not (n and len(kalan) >= min(3, math.ceil(n / 2))):
+            d["durum"] = "+".join(x for x in d["durum"].split("+") if x != "arac_eksik" or d.get("cekirdek_eksik")) or "ok"
     (SIRA / f"{ad}.denetim.json").write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
     if "tur" in z:
         gecmis_yaz(ad, z["tur"], z["araclar"], d)

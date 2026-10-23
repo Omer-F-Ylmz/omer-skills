@@ -285,3 +285,34 @@ def test_kapi_liste_yoksa_izin(tmp_path, monkeypatch):
 def test_dolgu_arac_denetime_girmez():
     liste = [{"ad": "a", "tur": "skill", "cagri": "", "ne": ""}, {"ad": "premiere-pro", "tur": "mcp", "cagri": "", "ne": "", "dolgu": True}]
     assert z.karar(liste, False, ([], [], [], [])) == ("arac_eksik", ["a"])  # premiere-pro eksik listesinde yok
+
+
+def test_ui_isi_ic_betik_seo_istemez_site_ister():
+    assert not z.ui_isi("arka-aski-1 — kart_dogrula.py havuz-bos dongusu düzeltmesi, tools/ betiği")
+    assert not z.ui_isi("usta-web-1 — web okulu ders kitabı, frontend dersleri")
+    assert z.ui_isi("landing page yap: site tasarla")
+    assert z.ui_isi("tools/ıcı betik değil, landing sayfası canlıya çıkacak")
+    assert z.ui_isi("yeni site yapılacak, hero bölümü")
+
+
+def _denetim_kur(tmp, monkeypatch, sonuc):
+    monkeypatch.setattr(z, "SIRA", tmp)
+    monkeypatch.setattr(z, "PROJELER", tmp)
+    (tmp / "g1.json").write_text(json.dumps({"session_id": "s1", "result": sonuc}), encoding="utf-8")
+    (tmp / "g1.zorunlu.json").write_text(json.dumps({"araclar": LISTE, "gorsel": False}), encoding="utf-8")
+    dokum(tmp, "s1", [("Bash", {"command": "git status"})])
+
+
+def test_gerekceli_atlama_yeniden_kosu_tetiklemez(tmp_path, monkeypatch):
+    _denetim_kur(tmp_path, monkeypatch, "Atlanan araç: pixeljury — çünkü iç betik, görsel çıktı yok\nokuyucu kullanılmadı: tek dosya işi, gerek yok (neden: küçük)\nffmpeg atlandı: video işi değil -> gerekçe")
+    d = z.denetle("g1")
+    assert set(d["gerekceli"]) == {"pixeljury", "okuyucu", "ffmpeg"}
+    assert "arac_eksik" not in d["durum"]
+
+
+def test_gerekcesiz_atlama_arac_eksik_kalir(tmp_path, monkeypatch):
+    _denetim_kur(tmp_path, monkeypatch, "iş bitti, 3 test geçti")
+    d = z.denetle("g1")
+    assert "arac_eksik" in d["durum"] and not d.get("gerekceli")
+    assert z.devam("g1", d) == ("g1-a", "devam")
+    assert z.devam("g1-a2", d) == (None, "dur")
