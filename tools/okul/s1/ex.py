@@ -167,7 +167,9 @@ elif ex == "D1":  # duman — v1: varsayılan quick smoke; v2: ayar (çözünür
         ds.beta = 0.5
         ds.use_dissolve_smoke = False
     ds.cache_directory = out + "/cache_" + ver
-    bpy.ops.fluid.bake_all()
+    ds.cache_frame_end = 40
+    for f in range(1, 41):  # headless bake_all yalnız kare 1 yazar (async iş); REPLAY'de kareleri sırayla gezmek simülasyonu koşar
+        sc.frame_set(f)
     sc.frame_set(40)
     w = bpy.data.worlds.new('W'); w.use_nodes = True; sc.world = w
     w.node_tree.nodes['Background'].inputs[0].default_value = (0.02, 0.02, 0.03, 1)
