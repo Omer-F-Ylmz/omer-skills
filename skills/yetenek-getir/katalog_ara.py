@@ -42,6 +42,7 @@ ES = {
     "altyazi": "subtitle caption transcript", "kilit": "deadlock lock", "deadlock": "kilitlenme lock",
     "dogrula": "validation validate verify", "uctan": "e2e end-to-end", "orneklem": "sample size statistics experiment testing",
     "kirili": "flaky intermittent", "flaky": "flaky intermittent", "jwt": "jwt token", "dokum": "transcript", "pdf": "pdf document",
+    "kirp": "trim", "sikistir": "compress",
 }
 ORAN, GENIS, UZUN, ILK = 0.3, 0.5, 30, 5
 KAVRAM, SIRA, BAYAG = 0.5, 3, 0.05
@@ -112,6 +113,7 @@ def puanla(q, tur=None, satirlar=None):
     kavram = [set(kelimeler(w) + kelimeler(" ".join(ileri([w])))) for w in kelimeler(q)
               if not w.endswith("~") and df[w] < BAYAG * N and w not in DURAK]
     gerek = math.ceil(KAVRAM * len(kavram))
+    qkel = set(kelimeler(q))
     puan = []
     for o, d in zip(rows, docs):
         tf, s = Counter(d), 0.0
@@ -124,7 +126,8 @@ def puanla(q, tur=None, satirlar=None):
         if s > 0:
             # kapsama tetik HARİÇ sayılır: deterministik tetik ES açılımı taşır ("video" → "ffmpeg"), her kaydı kavramlı gösterir
             ham = set(kelimeler(f"{o['ad']} {o['is']} {o['metin']}"))
-            puan.append((s, sum(1 for c in kavram if ham & c), o))
+            # sorgudaki sözcük kaydın adıyla birebir aynıysa ("ffmpeg ile ...") kapsama tamam: katalog büyüyüp sözcük %5'i aşsa da elenmez
+            puan.append((s, gerek if o["ad"].lower() in qkel else sum(1 for c in kavram if ham & c), o))
     puan.sort(key=lambda x: -x[0])
     return puan, gerek
 
