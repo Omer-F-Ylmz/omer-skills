@@ -58,6 +58,24 @@ IC_ISARET = re.compile(r"(?i)\.py\b|\.kos/|\btools/|\bbetik\w*|\bajan_sira\b|\bd
 UI_TESLIM = re.compile(r"(?i)\blanding\b|\bcanl[ıi]ya\b|\byayına\b|\barayüz\w*\s+(yap|tasarla|kur)|\bsite\s+(yap|kur|tasarla|üret)|\bpixeljury\b|\b3d site\b")
 
 
+GUV_IC = ("semgrep", "gitleaks")  # NİHAİ-DÜZELT-2 (Desktop kararı 1): kod değiştiyse zorunlu
+GUV_DIS = {"strix", "ecc-agentshield", "skillspector"}  # yalnız dış kod/bağımlılık/skill-plugin kurulumunda zorunlu
+KOD_ISARET = re.compile(r"(?i)\.(py|mjs|js|ts|ps1)\b|\btools/|\bbetik\w*|\bkod\b|\bajan_sira\b")
+DIS_KOD = re.compile(r"(?i)\bkurulum\w*|\binstall\w*|\bklon\w*|\bclone\w*|\bbağımlılık\w*|\bdependenc\w*|\bplugin\w*|\beklenti\w*|\bskill\s+(kur|yükle)\w*")
+METIN_ISI = re.compile(r"(?i)\bders kitab\w*|\bmüfredat\w*|\bmetin\b|\bdokümantasyon\b")
+
+
+def kod_guvenligi(kap):
+    """(kod değişiyor mu, dış kod/bağımlılık/skill-plugin kurulumu var mı) — semgrep+gitleaks ilkine, strix/agentshield/skillspector ikincisine bağlı."""
+    return bool(KOD_ISARET.search(kap)), bool(DIS_KOD.search(kap))
+
+
+def gorsel_gerek(metin):
+    """Desktop kararı 2: görsel-hakem yalnız görsel çıktı üreten işte; ders kitabı/metin işi (UI teslimi yoksa) görsel sayılmaz."""
+    kap = kapsam(metin)
+    return bool(GORSEL.search(metin)) and (not METIN_ISI.search(kap) or bool(UI_TESLIM.search(kap)))
+
+
 def ui_isi(kap):
     """Çıktı kullanıcıya açık web/UI mi: iç-iş işareti var ve güçlü UI teslimi yoksa False (SEO/a11y/frontend/strix zorunlu olmaz)."""
     return not IC_ISARET.search(kap) or bool(UI_TESLIM.search(kap))
@@ -176,6 +194,17 @@ def araclar(metin):
         for o in sec:
             if o["ad"].split(":")[-1] in UI_ARAC:
                 o["dolgu"] = True
+    kod_var, dis_var = kod_guvenligi(kap)  # NİHAİ-DÜZELT-2
+    for o in sec:
+        if o["ad"].split(":")[-1] in GUV_DIS and not dis_var:
+            o["dolgu"] = True
+    if kod_var:
+        for a in GUV_IC:
+            if a in dizin:
+                ekle(dizin[a], False)
+        for o in sec:
+            if o["ad"].split(":")[-1] in GUV_IC:
+                o.pop("dolgu", None)
     return sec
 
 
@@ -219,7 +248,7 @@ def blok(ad, metin):
     kombin = kombinler(metin)
     tur = tur_bul(kapsam(metin))[0]
     gec = gecmis_ders(tur)
-    (SIRA / f"{ad}.zorunlu.json").write_text(json.dumps({"araclar": ar, "gorsel": bool(GORSEL.search(metin)), "kombin": kombin,
+    (SIRA / f"{ad}.zorunlu.json").write_text(json.dumps({"araclar": ar, "gorsel": gorsel_gerek(metin), "kombin": kombin,
                                                          "tur": tur, "hata": hata[:200],
                                                          "onucus": [a for a, v in (("beyin", ders), ("ruflo", hata)) if v]}, ensure_ascii=False), encoding="utf-8")
     s = ["ZORUNLU ARAÇLAR (bitişte oturum dökümünden sayılır; ≥%d kullanılmazsa görev arac_eksik işaretlenir ve yeniden kuyruğa girer):" % min(3, math.ceil(len([o for o in ar if not o.get("dolgu")]) / 2))]
@@ -227,7 +256,7 @@ def blok(ad, metin):
     if any(o.get("dolgu") for o in ar):
         s.append("İSTEĞE BAĞLI (zorunlu değil, işe uyarsa kullan): " + ", ".join(o["ad"] for o in ar if o.get("dolgu")))
     s.append("PLAN TABLOSU: her araç için ilk turda tek satır `araç | kullanılacak adım / kullanılmama gerekçesi`; gerekçesiz atlama = arac_eksik.")
-    if GORSEL.search(metin):
+    if gorsel_gerek(metin):
         s.append("- gorsel_hakem (görsel iş: `python .kos/kopru/gorsel_hakem.py` çağrısı olmadan kanit_eksik)")
     s += [f"- KOMBİN {o['id']}: " + " > ".join(o["adimlar"]) for o in kombin]
     s.append("YARATICI KOMBİN: " + yaratici(metin, tur))
@@ -539,7 +568,7 @@ def geri(n):
         ar = araclar(metin)
         if k is None or not ar:
             continue
-        durum, yok = karar(ar, bool(GORSEL.search(metin)), k)
+        durum, yok = karar(ar, gorsel_gerek(metin), k)
         say += 1
         eksik += durum != "ok"
         print(f"{p.stem}\t{len(ar)}\t{len(ar) - len(yok)}\t{durum}\t{tur_bul(kapsam(metin))[0]}\t{' '.join(o['ad'] for o in ar)}")

@@ -316,3 +316,19 @@ def test_gerekcesiz_atlama_arac_eksik_kalir(tmp_path, monkeypatch):
     assert "arac_eksik" in d["durum"] and not d.get("gerekceli")
     assert z.devam("g1", d) == ("g1-a", "devam")
     assert z.devam("g1-a2", d) == (None, "dur")
+
+
+def test_guvenlik_seti_kod_ve_dis_kod():
+    ic, dis = z.kod_guvenligi("arka-aski-1 — kart_dogrula.py düzeltmesi, tools/ betiği")
+    assert ic and not dis  # iç betik: semgrep+gitleaks zorunlu, strix/agentshield/skillspector değil
+    ic, dis = z.kod_guvenligi("kurulum-dalgasi — dış repo klon + skill kurulumu, tools/ladder.py")
+    assert ic and dis
+    ic, dis = z.kod_guvenligi("usta-web-1 — web okulu ders kitabı, frontend dersleri")
+    assert not ic and not dis
+
+
+def test_gorsel_hakem_yalniz_gorsel_cikti():
+    assert not z.gorsel_gerek("usta-web-1 — web okulu ders kitabı\n## İLK VE BAĞLAYICI\nvideo dersleri metin olarak yazılacak")
+    assert z.gorsel_gerek("logo-1 — marka logo üret\n## İLK VE BAĞLAYICI\nlogo render al")
+    assert z.gorsel_gerek("intro — 3d render\n## İLK VE BAĞLAYICI\nlanding canlıya çıkacak, render")
+    assert not z.gorsel_gerek("kart_dogrula.py düzeltmesi")
