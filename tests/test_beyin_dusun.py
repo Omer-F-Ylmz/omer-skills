@@ -433,5 +433,17 @@ class Koc(Canli):
         self.assertIn('"karar": "kal"', b.ETKI.read_text(encoding="utf-8"))
 
 
+class GostergeTest(unittest.TestCase):
+    def test_tekrar_eden_hata_orani_ve_sayaclar(self):
+        t = time.time()
+        olaylar = [{"t": t, "hata": True, "ozet": "x"}, {"t": t, "hata": True, "ozet": "x"}, {"t": t, "hata": False, "ozet": "y"}]
+        liste = [{"olusma": t, "durum": "kural"}, {"olusma": 0, "durum": "elendi"}]
+        s = b.gosterge(liste, olaylar)
+        self.assertIn("yeni ders 1", s)
+        self.assertIn("kurala dönen 1", s)
+        self.assertIn("geri çekilen 1", s)
+        self.assertIn("tekrar eden hata %50 (2 hata)", s)
+
+
 if __name__ == "__main__":
     unittest.main()

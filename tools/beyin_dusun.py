@@ -498,6 +498,20 @@ def kurala_cevir(min_destek=3):
     return n
 
 
+def gosterge(liste, olaylar):
+    """ÖĞRENME-2 canlı gösterge (tek satır): bugün olay · yeni ders · kurala dönen · geri çekilen · $ 7 gün eğilimi · tekrar eden hata oranı (7 gün)."""
+    simdi, gun = time.time(), 86400
+    bugun = time.mktime(time.strptime(time.strftime("%Y-%m-%d"), "%Y-%m-%d"))
+    rows = _is_oku()
+    son7, onceki7 = [r for r in rows if r[0] >= simdi - 7 * gun], [r for r in rows if simdi - 14 * gun <= r[0] < simdi - 7 * gun]
+    egilim = f"${_ort(son7)[0]:.2f} (önceki 7g " + (f"${_ort(onceki7)[0]:.2f})" if onceki7 else "-)") if son7 else "-"
+    hatalar = [o["ozet"][:60] for o in olaylar if o["hata"] and o["t"] >= simdi - 7 * gun]
+    tekrar = f"%{100 * (len(hatalar) - len(set(hatalar))) / len(hatalar):.0f}" if hatalar else "-"
+    return (f"GÖSTERGE: bugün {sum(o['t'] >= bugun for o in olaylar)} olay · yeni ders {sum(x['olusma'] >= bugun for x in liste)} · "
+            f"kurala dönen {sum(x['durum'] == 'kural' for x in liste)} · geri çekilen {sum(x['durum'] in ('elendi', 'kalici-elendi') for x in liste)} · "
+            f"iş başı $ 7g {egilim} · tekrar eden hata {tekrar} ({len(hatalar)} hata)")
+
+
 def ozet_yaz():
     """Desktop her kontrolde, CC SessionStart'ta okur: ≤20 satır (alarm · kurallar · kanıtlı içgörüler · son maliyet dersleri · iş başı ortalama $)."""
     liste, olaylar, satir = oneri_oku(), _olay_oku(0)[0], []
@@ -512,6 +526,7 @@ def ozet_yaz():
     if rows:
         u, h = _ort(rows)
         satir.append(f"İŞ BAŞI ORT: son {len(rows)} iş ${u:.2f}, hata %{h * 100:.0f} (hedef $0.50)")
+    satir.append(gosterge(liste, olaylar))
     _yaz_bayt(OZET, "\n".join(satir[:20]) + "\n")
 
 
