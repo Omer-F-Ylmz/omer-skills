@@ -5,7 +5,7 @@ Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) me
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
   python arka.py .kos/kopru/ajan-sira.log .kos/kopru/ajan_sira.py"""
-import atexit, ctypes, json, os, re, subprocess, sys, tempfile, time
+import atexit, ctypes, json, os, re, subprocess, sys, tempfile, time, uuid
 from pathlib import Path
 
 import maliyet_defter  # maliyet.tsv: biten her iş + haftalık Haiku-zayıf türler (merdiven başlangıcı)
@@ -171,6 +171,47 @@ def dis_calisan(bilinen):
         if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
             n += 1
     return n
+
+
+KURTAR_TAVAN, KURTAR_TOPLAM, KURTAR_YAS = 2, 3, 86400  # YÖNETİCİ-BAĞIMSIZ-1 d3: iş başına en çok 2 deneme, açılış başına en çok 3 iş, en çok 24 saat önce başlamış
+DEVAM = {}  # ad → kesilen oturumun session_id'si (transkript varsa --resume) ya da None (baştan)
+DEVAM_ISTEM = "Oturum yönetici/Desktop kapanınca yarıda kesildi. Kaldığın yerden devam et, görevi bitir ve raporla."
+
+
+def sonuc_var(ad):
+    """ad.json'un son JSON satırı claude -p sonucu (type=result) mu? Öldürülen iş sonucu sonda yazdığı için boş/yarım kalır."""
+    try:
+        for s in reversed((CIKTI / f"{ad}.json").read_text(encoding="utf-8", errors="replace").splitlines()):
+            if s.startswith("{"):
+                return json.loads(s).get("type") == "result"
+    except (OSError, ValueError):
+        pass
+    return False
+
+
+def kurtar(adlar, baslayan):
+    """YÖNETİCİ-BAĞIMSIZ-1 d3: kuyruktaki, .basladi'sı olup sonucu olmayan ve süreci ölmüş işleri baslayan'dan çıkarır (yeniden sıraya girer).
+    Dönüş {ad: session_id|None}: transkripti diskte olan oturum --resume, yoksa baştan."""
+    devam = {}
+    for ad in adlar:
+        f = CIKTI / f"{ad}.basladi"
+        if len(devam) >= KURTAR_TOPLAM or ad not in baslayan or not f.exists() or sonuc_var(ad) or time.time() - f.stat().st_mtime > KURTAR_YAS:
+            continue
+        p = f.read_text(encoding="utf-8", errors="replace").split()
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
+            continue
+        sayac = CIKTI / f"{ad}.kurtar"
+        n = int(sayac.read_text(encoding="utf-8") or 0) if sayac.exists() else 0
+        if n >= KURTAR_TAVAN:
+            continue
+        sayac.write_text(str(n + 1), encoding="utf-8")
+        sid = p[4] if len(p) >= 5 and p[3] == "sid" else None
+        if sid and not any(Path.home().glob(f".claude/projects/*/{sid}.jsonl")):
+            sid = None
+        devam[ad] = sid
+        baslayan.discard(ad)
+        log("KURTAR", ad, f"deneme {n + 1}/{KURTAR_TAVAN}", f"--resume {sid}" if sid else "baştan")
+    return devam
 
 
 KILIT = K / "ajan-sira.kilit"  # TEKİL-YÖNETİCİ: "pid saat"; canlı bir başka ajan_sira varsa ikinci kopya çıkar
@@ -425,6 +466,7 @@ def main():
     yeniden, tekrar, uyari = [], set(), set()  # merdiven: başarısız işin bir üst basamakta tek yeniden denemesi; uyari: "cwd yok" günlüğü bir kez
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
+    DEVAM.update(kurtar([x[0] for x in kuyruk()], baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     ara_t = 0.0
     while True:
@@ -511,6 +553,11 @@ def main():
                 metin = ogren_blok((KOK / istem).read_text(encoding="utf-8")) + metin
                 metin += (f"\n\n[bütçe] Hedef ${butce:.2f}: az oku, az dene, ücretsiz araç önce. Hedefi aşman gerekse bile işi YARIM BIRAKMA — "
                           "bitir, doğrula, raporla. Hedefi aştıysan raporda nedenini tek satır yaz.")
+                metin += f"\n[ara kayıt] Uzun işte her parça sonunda commit ya da .kos/kopru/ara/{ad}.md ilerleme notu yaz; yönetici kesilirse iş buradan sürer."  # d4
+                kesik = DEVAM.pop(ad, None)  # d3: kurtarılan iş transkripti varsa aynı oturumdan sürer
+                sid = kesik or str(uuid.uuid4())
+                if kesik:
+                    metin = DEVAM_ISTEM
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
                 mcp = None
                 if not os.environ.get("CC_MCP_BOS"):  # MCP-AÇ-1: tür bazlı MCP profili; CC_MCP_BOS=1 eski boş config'e döner
@@ -522,6 +569,7 @@ def main():
                         mcp = None
                         log("MCP profil hatası", ad, repr(e)[:80])
                 argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad), butce)
+                argv += ["--resume" if kesik else "--session-id", sid]
                 p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)
                 p.stdin.write(metin.encode("utf-8"))
@@ -529,7 +577,7 @@ def main():
                 calisan[ad] = (p, time.time(), fo, efor, model, bas, istem, kosul, cwd, butce)
                 baslayan.add(ad)
                 yeniden = [y for y in yeniden if y[0] != ad]
-                (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid}", encoding="utf-8")
+                (CIKTI / f"{ad}.basladi").write_text(time.strftime("%H:%M:%S") + f" pid {p.pid} sid {sid}", encoding="utf-8")
                 son = time.time()
                 log("BAŞLAT", ad, model, efor or "-", "pid", p.pid, f"RAM %{r}", f"tahmin {tah} MB", "çalışan", len(calisan) + dis)
                 break

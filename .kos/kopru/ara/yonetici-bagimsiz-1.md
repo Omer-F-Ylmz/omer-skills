@@ -1,0 +1,1 @@
+YÖNETİCİ-BAĞIMSIZ-1 ilerleme (23 Eki 11:55): d1 job_uyelik.py + d2 AjanSira görevi (kayıtlı, job ayrımı kanıtlı) + d3 kurtar() + d4 ara kayıt + d5 Desktop kapanma analizi bitti; kalan: tam suit, commit, geçiş (ajan yokken `python .kos/kopru/yonetici_yenile.py`).
