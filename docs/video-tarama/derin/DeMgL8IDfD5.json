@@ -1,0 +1,156 @@
+{
+ "kod": "DeMgL8IDfD5",
+ "url": "https://www.instagram.com/p/DeMgL8IDfD5/",
+ "dil": "en",
+ "meta": {
+  "baslik": "Post by vyzual.ai",
+  "sure": null,
+  "yukleyen": "Vyzual AI",
+  "aciklama": "Comment \"PROMPT\" to get full prompt.\n\nThis one prompt turns Claude into a full video studio 🎬🤖\n\nIt's a free prompt that asks Claude to act as a director, writer, designer, sound designer and video editor, and to turn any topic into a finished 30–90 second explainer video with sound and captions.\n\nWhat makes it different:\n🎯 Story first: start with the thing people get wrong, then explain, prove, and pay off\n🚫 Bans \"AI slop\": no neon glow, floating particles, 3D blobs or fake numbers\n✍️ Simple text: max 8 words per line, and every number needs a source\n♿ Accessible: captions, readable contrast, no fast flashes\n✅ Checks itself: watches the video muted, listens audio-only, and reviews its own design\n📱 3 sizes: for YouTube, Reels and square posts\n\nWho made it?\nIt was written by @0xCarnagee, ins"
+ },
+ "transkript": [
+  {
+   "b": 0,
+   "s": 10,
+   "t": "🎵"
+  },
+  {
+   "b": 30,
+   "s": 48.6,
+   "t": "Outro Music"
+  }
+ ],
+ "ekran": [
+  {
+   "k": "0001.jpg",
+   "t": "BLACKWELL"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "@vyzual.ai"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "THIS ONE PROMPT TURNS"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "CLAUDE OPUS 5.5 INT0 A"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "MOTION DESIGN STUDIO"
+  },
+  {
+   "k": "0001.jpg",
+   "t": "SWIPEFORMORE"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "CONCEPTUALDEPLOYMENT"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "CLAUDE OPUS 5.5 INTO A"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "INSIDETHE CARD"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "LOGICAL BLOCKLAYOUT"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "ONE STREAMING MULTIPROCESSOR"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "INSIDE THEPROCESSING BLOCK"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "CLAUDE 0PUS 5.5 INT0 A"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "REGISTERFILE-16,384×32-BIT"
+  },
+  {
+   "k": "0019.jpg",
+   "t": "ONE MEMORY CELL:SIX TRANSISTORS"
+  },
+  {
+   "k": "0021.jpg",
+   "t": "READING THE BIT"
+  },
+  {
+   "k": "0022.jpg",
+   "t": "ONE CUDA CORE"
+  },
+  {
+   "k": "0023.jpg",
+   "t": "INSIDE ONE CUDA CORE"
+  },
+  {
+   "k": "0025.jpg",
+   "t": "INTO THEELECTRON MICROSCOPE"
+  },
+  {
+   "k": "0027.jpg",
+   "t": "THE TILE WE ZOOM INTO"
+  },
+  {
+   "k": "0029.jpg",
+   "t": "ONE FULL-ADDER TILE"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "Gatemetai"
+  },
+  {
+   "k": "0032.jpg",
+   "t": "GATE.FIN,CHANNEL"
+  },
+  {
+   "k": "0033.jpg",
+   "t": "SILICONATOMS"
+  },
+  {
+   "k": "0034.jpg",
+   "t": "SILICON ATOMS"
+  },
+  {
+   "k": "0035.jpg",
+   "t": "CRYSTAL AND GATESTACK"
+  },
+  {
+   "k": "0036.jpg",
+   "t": "CRYSTAL AND GATE STACK"
+  },
+  {
+   "k": "0038.jpg",
+   "t": "ATOMS0.235NMAPART"
+  },
+  {
+   "k": "0040.jpg",
+   "t": "6.3BILLION TIMES CLOSER"
+  },
+  {
+   "k": "0049.jpg",
+   "t": "72.4"
+  }
+ ],
+ "linkler": [
+  "vyzual.ai"
+ ],
+ "komutlar": [
+  "CLAUDE 0PUS 5.5 INT0 A",
+  "CLAUDE OPUS 5.5 INT0 A",
+  "CLAUDE OPUS 5.5 INTO A"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 49,
+ "duzeltme": []
+}

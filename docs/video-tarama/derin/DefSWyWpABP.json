@@ -1,0 +1,205 @@
+{
+ "kod": "DefSWyWpABP",
+ "url": "https://www.instagram.com/reel/DefSWyWpABP/",
+ "dil": "en",
+ "meta": {
+  "baslik": "Video by rondresilk",
+  "sure": 54.5880012512207,
+  "yukleyen": "Rondre Silk",
+  "aciklama": "Top 5 Claude plugins to install if you build for clients 🔌\n\t1.\tSuperpowers: turns Claude into a full dev team\n\t2.\tCaveman: same code, way fewer tokens\n\t3.\tClaude Code Setup: recommends hooks, skills, sub-agents and MCP servers for your project\n\t4.\tProject Artifact: a live status page for your project\n\t5.\tClaude Security: agents hunt bugs and hand you the fixes\nComment “AI” and I’ll send you all 5 links + install commands 👇"
+ },
+ "transkript": [
+  {
+   "b": 0.0,
+   "s": 1.7,
+   "t": "Top five plugins to install in Clawed."
+  },
+  {
+   "b": 1.7,
+   "s": 2.8,
+   "t": "The first one is Superpowers."
+  },
+  {
+   "b": 2.9,
+   "s": 4.6,
+   "t": "It turns Clawed from a single agent"
+  },
+  {
+   "b": 4.6,
+   "s": 6.1,
+   "t": "into an entire dev team."
+  },
+  {
+   "b": 6.3,
+   "s": 9.0,
+   "t": "It brainstorms with you, plans to build, writes the tests,"
+  },
+  {
+   "b": 9.2,
+   "s": 12.4,
+   "t": "and reviews its own code before your client ever sees it."
+  },
+  {
+   "b": 12.5,
+   "s": 13.8,
+   "t": "The second one is Caveman."
+  },
+  {
+   "b": 14.0,
+   "s": 16.1,
+   "t": "It makes Clawed talk like an actual caveman."
+  },
+  {
+   "b": 16.2,
+   "s": 19.1,
+   "t": "It strips out the filler so you get the exact same code"
+  },
+  {
+   "b": 19.1,
+   "s": 22.5,
+   "t": "with way fewer tokens and your plan lasts way longer."
+  },
+  {
+   "b": 22.8,
+   "s": 24.4,
+   "t": "Third is Clawed Code Setup."
+  },
+  {
+   "b": 24.5,
+   "s": 27.4,
+   "t": "It's an official Anthropic plugin that scans your project"
+  },
+  {
+   "b": 27.4,
+   "s": 30.0,
+   "t": "and recommends the best hooks, scripts, sub-agents,"
+  },
+  {
+   "b": 30.0,
+   "s": 31.8,
+   "t": "and MCP servers for it."
+  },
+  {
+   "b": 31.9,
+   "s": 33.7,
+   "t": "The fourth one is Project Artifacts."
+  },
+  {
+   "b": 33.8,
+   "s": 36.0,
+   "t": "Also from Anthropic, it turns your project"
+  },
+  {
+   "b": 36.0,
+   "s": 37.7,
+   "t": "into a live status page."
+  },
+  {
+   "b": 37.8,
+   "s": 40.1,
+   "t": "You can send your clients what's done, what's next,"
+  },
+  {
+   "b": 40.2,
+   "s": 41.3,
+   "t": "and what's at risk."
+  },
+  {
+   "b": 41.4,
+   "s": 42.9,
+   "t": "And finally, Clawed Security."
+  },
+  {
+   "b": 43.3,
+   "s": 45.1,
+   "t": "It's Anthropic's own security scan."
+  },
+  {
+   "b": 45.3,
+   "s": 47.3,
+   "t": "A team of agent hunts through your code,"
+  },
+  {
+   "b": 47.5,
+   "s": 49.8,
+   "t": "double checks every finding, and hands you the fixes"
+  },
+  {
+   "b": 49.8,
+   "s": 51.6,
+   "t": "before you ship it to a client."
+  },
+  {
+   "b": 51.9,
+   "s": 54.2,
+   "t": "Comment AI and I'll send you all five links."
+  }
+ ],
+ "ekran": [
+  {
+   "k": "0002.jpg",
+   "t": "Top5"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "Claudeplugins"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "toinstallrightnow"
+  },
+  {
+   "k": "0003.jpg",
+   "t": "Claude plugins to install"
+  },
+  {
+   "k": "0004.jpg",
+   "t": "Plugin#1"
+  },
+  {
+   "k": "0004.jpg",
+   "t": "Superpowers"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "Plugin#2"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "Caveman"
+  },
+  {
+   "k": "0008.jpg",
+   "t": "Plugin#3"
+  },
+  {
+   "k": "0008.jpg",
+   "t": "Claude CodeSetup"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "Plugin#4"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "Project Artifacts"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "Plugin#5"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "Claude Security"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [
+  "Claude CodeSetup",
+  "Claude Security",
+  "Claude plugins to install"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 13,
+ "duzeltme": []
+}

@@ -1,0 +1,58 @@
+2026-10-23 05:05:28 DURUM basladi deneme=1
+2026-10-23 05:05:39 DURUM basladi deneme=1
+Dewp1qYmhXQ	indirilemedi: ERROR: [Instagram] Dewp1qYmhXQ: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	2s
+DevBV1Rjdmw	indirilemedi: ERROR: [Instagram] DevBV1Rjdmw: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	1s
+DeEA2e0mVTW	indirilemedi: ERROR: [Instagram] DeEA2e0mVTW: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	1s
+DebTspWtak-	indirilemedi: ERROR: [Instagram] DebTspWtak-: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	2s
+Dd2t-93GUQQ	indirilemedi: ERROR: [Instagram] Dd2t-93GUQQ: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	2s
+device=groq model=whisper-large-v3
+2026-10-23 05:05:48,321 - OrtInferSession - WARNING: CUDAExecutionProvider is not in available providers (['AzureExecutionProvider', 'CPUExecutionProvider']). Use AzureExecutionProvider inference by default.
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: !!!Recommend to use rapidocr_paddle for inference on GPU.
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: (For reference only) If you want to use GPU acceleration, you must do:
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: First, uninstall all onnxruntime pakcages in current environment.
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: Second, install onnxruntime-gpu by `pip install onnxruntime-gpu`.
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: 	Note the onnxruntime-gpu version must match your cuda and cudnn version.
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: 	You can refer this link: https://onnxruntime.ai/docs/execution-providers/CUDA-EP.html
+2026-10-23 05:05:48,321 - OrtInferSession - INFO: Third, ensure CUDAExecutionProvider is in available providers list. e.g. ['CUDAExecutionProvider', 'CPUExecutionProvider']
+2026-10-23 05:05:48,430 - OrtInferSession - WARNING: CUDAExecutionProvider is not in available providers (['AzureExecutionProvider', 'CPUExecutionProvider']). Use AzureExecutionProvider inference by default.
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: !!!Recommend to use rapidocr_paddle for inference on GPU.
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: (For reference only) If you want to use GPU acceleration, you must do:
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: First, uninstall all onnxruntime pakcages in current environment.
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: Second, install onnxruntime-gpu by `pip install onnxruntime-gpu`.
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: 	Note the onnxruntime-gpu version must match your cuda and cudnn version.
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: 	You can refer this link: https://onnxruntime.ai/docs/execution-providers/CUDA-EP.html
+2026-10-23 05:05:48,430 - OrtInferSession - INFO: Third, ensure CUDAExecutionProvider is in available providers list. e.g. ['CUDAExecutionProvider', 'CPUExecutionProvider']
+2026-10-23 05:05:48,532 - OrtInferSession - WARNING: CUDAExecutionProvider is not in available providers (['AzureExecutionProvider', 'CPUExecutionProvider']). Use AzureExecutionProvider inference by default.
+2026-10-23 05:05:48,532 - OrtInferSession - INFO: !!!Recommend to use rapidocr_paddle for inference on GPU.
+2026-10-23 05:05:48,532 - OrtInferSession - INFO: (For reference only) If you want to use GPU acceleration, you must do:
+2026-10-23 05:05:48,533 - OrtInferSession - INFO: First, uninstall all onnxruntime pakcages in current environment.
+2026-10-23 05:05:48,533 - OrtInferSession - INFO: Second, install onnxruntime-gpu by `pip install onnxruntime-gpu`.
+2026-10-23 05:05:48,533 - OrtInferSession - INFO: 	Note the onnxruntime-gpu version must match your cuda and cudnn version.
+2026-10-23 05:05:48,533 - OrtInferSession - INFO: 	You can refer this link: https://onnxruntime.ai/docs/execution-providers/CUDA-EP.html
+2026-10-23 05:05:48,533 - OrtInferSession - INFO: Third, ensure CUDAExecutionProvider is in available providers list. e.g. ['CUDAExecutionProvider', 'CPUExecutionProvider']
+ocr aygit=cpu
+device=groq model=whisper-large-v3
+device=cuda model=large-v3
+ADIM DecHeyPtZTJ {"indir": 3.4, "asr": 0.6, "kare": 1.7, "acik_s": 2.6, "ocr_s": 21.7, "ocr": 21.7, "acik": 0.6}
+DecHeyPtZTJ	ok seg=1 ocr=42 link=1 komut=0	28s
+device=cuda model=large-v3
+ADIM Dauv6MOyDR8 {"indir": 3.5, "asr": 17.9, "kare": 0.7, "acik_s": 2.0, "ocr_s": 24.4, "ocr": 24.4, "acik": 0.1}
+Dauv6MOyDR8	ok seg=16 ocr=35 link=0 komut=2	47s
+DefQmQMxuUQ	indirilemedi: ERROR: [Instagram] DefQmQMxuUQ: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	4s
+ADIM Ded7XJut1pF {"indir": 9.7, "asr": 1.2, "kare": 0.9, "acik_s": 2.0, "ocr_s": 4.4, "ocr": 4.4, "acik": 0.0}
+Ded7XJut1pF	ok seg=0 ocr=13 link=0 komut=0	16s
+Defnzj2kbfO	indirilemedi: ERROR: [Instagram] Defnzj2kbfO: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	1s
+device=groq model=whisper-large-v3
+device=cuda model=large-v3
+ADIM DYcaq-GIpCV {"indir": 4.1, "asr": 4.0, "kare": 0.6, "ocr_s": 24.5, "acik_s": 63.7, "ocr": 63.7, "acik": 0.0}
+DYcaq-GIpCV	ok seg=24 ocr=47 link=0 komut=0	72s
+DeiJpPuPlmZ	indirilemedi: ERROR: [Instagram] DeiJpPuPlmZ: Video info extraction failed: HTTP Error 400: Bad Request (caused by <HTTPError 400: Bad	7s
+ADIM DefSWyWpABP {"indir": 4.8, "asr": 6.0, "kare": 0.4, "acik_s": 2.0, "ocr_s": 25.4, "ocr": 25.4, "acik": 0.0}
+DefSWyWpABP	ok seg=25 ocr=14 link=0 komut=3	37s
+device=cuda model=large-v3
+ADIM DeWBKEaovxT {"indir": 7.6, "asr": 17.2, "kare": 3.6, "acik_s": 2.1, "ocr_s": 38.9, "ocr": 38.9, "acik": 0.0}
+DeWBKEaovxT	ok seg=23 ocr=115 link=2 komut=0	67s
+ADIM DeMgL8IDfD5 {"indir": 2.7, "asr": 2.2, "kare": 0.8, "acik_s": 2.0, "ocr_s": 91.1, "ocr": 91.1, "acik": 0.0}
+DeMgL8IDfD5	ok seg=2 ocr=30 link=1 komut=3	97s
+BITIS islenen=15 {'ok seg=16 ocr=35 link=0 komut=2': 1, 'ok seg=24 ocr=47 link=0 komut=0': 1, 'indirilemedi': 8, 'ok seg=1 ocr=42 link=1 komut=0': 1, 'ok seg=0 ocr=13 link=0 komut=0': 1, 'ok seg=25 ocr=14 link=0 komut=3': 1, 'ok seg=2 ocr=30 link=1 komut=3': 1, 'ok seg=23 ocr=115 link=2 komut=0': 1}
+2026-10-23 05:08:09 DURUM bitti

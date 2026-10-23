@@ -1,0 +1,243 @@
+{
+ "kod": "Dauv6MOyDR8",
+ "url": "https://www.instagram.com/reel/Dauv6MOyDR8/",
+ "dil": "en",
+ "meta": {
+  "baslik": "Video by algorithmswithpeter",
+  "sure": 67.16600036621094,
+  "yukleyen": "Peter Griffin (Coding Expert)",
+  "aciklama": "If you’re using Claude Code, you probably don’t need 20+ plugins… you just need the right ones.\n\nThe five in this video are the ones I keep seeing recommended because they help with things like reducing token usage, improving code reviews, adding long-term memory, understanding large codebases, and getting started with Anthropic’s official skill pack.\n\nA good setup isn’t about installing everything—it’s about installing what you’ll actually use.\n\nIf you also want to try this, just hit that like button and comment ‘Claude’ and you’ll receive all the skills.\n\nHashtags:\n\n#ClaudeCode #ClaudeAI #Anthropic #AICoding #claudeskills"
+ },
+ "transkript": [
+  {
+   "b": 0.0,
+   "s": 4.6,
+   "t": "Peter, give me the best skills to make my Claude Code setup actually useful, rather than just being a token eating monster."
+  },
+  {
+   "b": 4.8,
+   "s": 5.7,
+   "t": "You only need these five."
+  },
+  {
+   "b": 5.9,
+   "s": 6.4,
+   "t": "Which ones?"
+  },
+  {
+   "b": 6.6,
+   "s": 12.1,
+   "t": "First, Ponytail. It optimizes Claude Code's output and can cut your usage by over 50% without sacrificing accuracy."
+  },
+  {
+   "b": 12.4,
+   "s": 13.2,
+   "t": "That's actually huge."
+  },
+  {
+   "b": 13.4,
+   "s": 21.1,
+   "t": "Next is Code Review. Instead of one AI checking your code, five AI agents review it in parallel to catch bugs before they make it into your app."
+  },
+  {
+   "b": 21.3,
+   "s": 25.4,
+   "t": "Ah, yes. Five AI reviewers. Somehow still fewer comments than a senior developer."
+  },
+  {
+   "b": 25.6,
+   "s": 26.1,
+   "t": "What else?"
+  },
+  {
+   "b": 26.1,
+   "s": 33.8,
+   "t": "Claude Mem. It gives Claude memory across sessions, so it remembers your project instead of making you explain everything from scratch every single time."
+  },
+  {
+   "b": 34.0,
+   "s": 34.5,
+   "t": "Finally!"
+  },
+  {
+   "b": 34.7,
+   "s": 42.4,
+   "t": "Then there's the Obsidian Skill. It turns your code base into a connected second brain, linking files and functions together so Claude understands the bigger picture."
+  },
+  {
+   "b": 42.8,
+   "s": 46.0,
+   "t": "Incredible! We finally taught AI to remember where it left its keys!"
+  },
+  {
+   "b": 46.4,
+   "s": 46.9,
+   "t": "And the last one?"
+  },
+  {
+   "b": 47.2,
+   "s": 55.9,
+   "t": "The Official Anthropic Skill Pack. It's a curated collection of their best coding, front-end, and productivity skills, making it the perfect starting point for any Claude Code setup."
+  },
+  {
+   "b": 56.1,
+   "s": 61.0,
+   "t": "Beautiful! Stop installing random plugins from the internet, and start with the ones that actually make a difference."
+  },
+  {
+   "b": 61.3,
+   "s": 66.7,
+   "t": "If you want to try all of these, just hit that like button and comment Claude, and I'll share these with you and follow for more AI resources."
+  }
+ ],
+ "ekran": [
+  {
+   "k": "0001.jpg",
+   "t": "PETER GIVE ME"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "-Claude Code"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "ACTUALLY"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "USEFUL,"
+  },
+  {
+   "k": "0002.jpg",
+   "t": "RATHER"
+  },
+  {
+   "k": "0003.jpg",
+   "t": "FIRST, PONYTAIL."
+  },
+  {
+   "k": "0004.jpg",
+   "t": "OPTIMIZES"
+  },
+  {
+   "k": "0004.jpg",
+   "t": "CLAUDE"
+  },
+  {
+   "k": "0004.jpg",
+   "t": "CODES"
+  },
+  {
+   "k": "0005.jpg",
+   "t": "THAN A SENIOR"
+  },
+  {
+   "k": "0006.jpg",
+   "t": "WHAT ELSE?"
+  },
+  {
+   "k": "0007.jpg",
+   "t": "StarHistory"
+  },
+  {
+   "k": "0007.jpg",
+   "t": "MEM."
+  },
+  {
+   "k": "0008.jpg",
+   "t": "cZaude-mem"
+  },
+  {
+   "k": "0008.jpg",
+   "t": "PROJECT INSTEAD"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "SforHistory"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "EVERYTHING FROM"
+  },
+  {
+   "k": "0009.jpg",
+   "t": "SCRATCH"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "obsidlan-"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "second."
+  },
+  {
+   "k": "0010.jpg",
+   "t": "braln"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "obsidian-second-brain"
+  },
+  {
+   "k": "0010.jpg",
+   "t": "OBSIDIAN SKILL. IT"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "THE OFFICIAL"
+  },
+  {
+   "k": "0011.jpg",
+   "t": "ANTHROPIC"
+  },
+  {
+   "k": "0012.jpg",
+   "t": "SKILL PACK. ITS"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "CODING, FRONTEND"
+  },
+  {
+   "k": "0013.jpg",
+   "t": "AND"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "PRODUCTIVITY"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "SKILLS,"
+  },
+  {
+   "k": "0014.jpg",
+   "t": "MAKING"
+  },
+  {
+   "k": "0015.jpg",
+   "t": "IT THE PERFECT"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "BEAUTIFUL. STOP"
+  },
+  {
+   "k": "0016.jpg",
+   "t": "INSTALLING"
+  },
+  {
+   "k": "0017.jpg",
+   "t": "CLAUDE AND ILL"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [
+  "CLAUDE\nCODES",
+  "CLAUDE AND ILL"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 17,
+ "duzeltme": []
+}
