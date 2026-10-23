@@ -284,6 +284,15 @@ class Canli(Taban):
         self.assertEqual(self.baslatildi, [1])
         self.assertIn("döngü ölü", b.ALARM.read_text(encoding="utf-8"))
 
+    def test_bekci_alarm_cozulunce_10_dk_sonra_temizlenir(self):
+        b.ALARM.write_text("eski alarm\n", encoding="utf-8")
+        t0 = b.ALARM.stat().st_mtime
+        b.DURUM.write_text(json.dumps({"tur_t": t0 + 500}), encoding="utf-8")
+        self.assertEqual(b.bekci(0, t0 + 300), "ok")  # sorun yok ama alarm 10 dk kalır (Desktop görsün)
+        self.assertTrue(b.ALARM.exists())
+        self.assertEqual(b.bekci(0, t0 + 601), "ok")
+        self.assertFalse(b.ALARM.exists())
+
     def test_kurala_cevir(self):
         def oneri(metin, tetik, destek, durum="deneniyor", gecmis=()):
             return {"id": metin[:3], "metin": metin, "tetik": tetik, "tur": "", "kural": False, "durum": durum, "destek": destek, "kaynaklar": ["a/x"],

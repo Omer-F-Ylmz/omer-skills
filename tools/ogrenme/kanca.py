@@ -249,13 +249,14 @@ def _yargic(kayitlar, model=None):
             for i in range(1, len(kayitlar) + 1)]
 
 
-def _damit(istem, model="haiku"):
-    sys.path.insert(0, str(KOK / "tools" / "olcum"))
-    os.environ.pop("ANTHROPIC_API_KEY", None)  # Ömer 12 Eki: API kredisi kapalı, plan limiti
-    os.environ["OGRENME_KANCA"] = "0"  # damıtma oturumu kendi kancasını tetiklemez
-    import kosucu
-    o = kosucu.kos(istem, ek=["--strict-mcp-config", "--max-turns", "1"], model=model, butce=0.2 if model == "haiku" else 0.6, timeout=180)
-    return o["metin"]
+def _damit(istem, model=None):
+    """K2n: Claude yok — ücretsiz havuz (haiku_tavan=0); yanıt gelmezse RuntimeError → isle kuyruğu 'atlandı' bırakır."""
+    sys.path.insert(0, str(KOK / "tools"))
+    import ucretsiz_havuz
+    y, _, log = ucretsiz_havuz.cagir("ozet", istem, max_tokens=1500, haiku_tavan=0, etiket="ogrenme-kanca", zaman=120)
+    if not y:
+        raise RuntimeError("havuz boş " + ",".join(log)[:120])
+    return y
 
 
 def main():

@@ -75,3 +75,12 @@ def test_havuz_ve_yerel_kapaliyken_bos_doner(monkeypatch):
 
     monkeypatch.setattr(bk, "yerel", kapali)
     assert bk.ozetle("sonuç") == []
+
+
+def test_cli_yardim_ve_olay(monkeypatch, capsys):
+    import beyin_dusun
+    gelen = []
+    monkeypatch.setattr(beyin_dusun, "olay", lambda *a, **k: gelen.append((a, k)) or True)
+    assert bk.cli(["--help"]).startswith("Kullanım") and not gelen  # '--help' ad sanılıp FileNotFoundError vermesin
+    assert bk.cli(["olay", "ders", "K2m: arka planda bekleme", "--hata"]) == "olay yazıldı: ders"
+    assert gelen == [(("ders", "claude", "K2m: arka planda bekleme"), {"hata": True})]

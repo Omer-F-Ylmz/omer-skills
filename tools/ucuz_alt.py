@@ -1,12 +1,12 @@
 """TOKEN-2 K8 + OMNİ-AYIR: ucuz alt adım — küçük yan işi (özet · lisans · etiket · görsel) YALNIZ ücretsiz modele yaptırır.
 Claude oturumu ham metni okumaz: bağlam dosyaları burada birleşir, yanıt dosyaya yazılır, stdout'a yalnız yol + model + jeton.
 Zincir: tür başı ölçülmüş :free sırası → combo cc-ucuz-free. Her yanıt doğrulanır (JSON şema · bağlamdan birebir alıntı ·
-boş/"belirsiz" ret); geçmezse sonraki model, hepsi geçmezse çıkış 3 (çekişmeli → çağıran Claude). Ücretli modele ASLA yükselmez:
+boş/"belirsiz" ret); geçmezse sonraki model, hepsi geçmezse çıkış 5 (bekle ve yeniden dene; Claude'a düşülmez). Ücretli modele ASLA yükselmez:
 model adı :free / ollama yerel değilse çağrı reddedilir, yanıttaki model de denetlenir. Limit yedeği cc-yedek-dis (omniroute.mjs) ayrı.
 Anahtar OMNIROUTE_KEY (env ya da HKCU) hiçbir çıktıya yazılmaz.
   python tools/ucuz_alt.py [--tur ozet|lisans|etiket|gorsel] [--secenek a,b,c] <istem.md|istem metni> <cikti.md> [bağlam...]
 Kesik (finish=length) / 429 / zaman aşımı → sonraki model (429 alan model soguma.json ile paralel süreçlerce de atlanır).
-Çıkış: 0 doğrulandı · 1 hata · 3 çekişmeli/taslak (Claude doğrular) · 4 ücretli model reddi."""
+Çıkış: 0 doğrulandı · 1 hata · 3 taslak (çıktı yazıldı, doğrulama çağıranda) · 4 ücretli model reddi · 5 hiçbir ücretsiz yol yanıtlamadı (bekle)."""
 import base64
 import hashlib
 import json
@@ -29,7 +29,7 @@ DB = os.path.expanduser("~/.omniroute/storage.sqlite")
 DIZIN = Path(__file__).resolve().parents[1] / ".kos/kopru/ucuz-onbellek"
 # OMNİ-AYIR ölçümü (docs/ogren/token.md "Ücretsiz yol"); Groq gpt-oss üç ailede red (OMNIROUTE-2) → zincirde yok
 # UCRETSIZ-HAVUZ-1: ("havuz", tür) = tools/ucretsiz_havuz (tüm sağlayıcılar, yük dağıtımlı); art arda üç halka = ret'te başka sağlayıcıya geçiş
-HAVUZ = [("havuz", "ozet"), ("havuz", "hakem"), ("havuz", "yazim"), ("omni", COMBO)]
+HAVUZ = [("havuz", "ozet"), ("havuz", "hakem"), ("havuz", "yazim"), ("omni", COMBO), ("ollama", "qwen3.5:9b")]  # son halka yerel (RAM ≥%80 atlar)
 ZINCIR = {"ozet": HAVUZ, "lisans": HAVUZ, "etiket": HAVUZ,
           "gorsel": [("omni", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free")]}
 TASLAK = {"etiket", "gorsel", "ozet"}  # kapı ≥%98'e ulaşmayan türler: çıktı yazılır ama çıkış 3 (Claude doğrular); ozet kör hakem 78/84
@@ -237,8 +237,8 @@ def main(argv):
         print(f"HATA {type(e).__name__} {getattr(e, 'code', '')}".strip())
         return 1
     if o is None:
-        print(f"ÇEKİŞMELİ {tur} · {deneme} deneme · Claude'a{' · ÜCRETLİ RED' if red else ''} · {time.time() - t:.0f} sn")
-        return 4 if red and not deneme else 3
+        print(f"ÇEKİŞMELİ {tur} · {deneme} deneme · BEKLE (ücretsiz → yerel doldu; yeniden dene){' · ÜCRETLİ RED' if red else ''} · {time.time() - t:.0f} sn")
+        return 4 if red and not deneme else 5
     Path(cikti).write_text(str(o["ozet"]) if tur == "ozet" else json.dumps(o, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{cikti} · {tur} · model {model} · deneme {deneme} · girdi {u.get('prompt_tokens')} çıktı {u.get('completion_tokens')} · "
           f"{time.time() - t:.0f} sn{' · TASLAK: Claude doğrular' if tur in TASLAK else ''}")

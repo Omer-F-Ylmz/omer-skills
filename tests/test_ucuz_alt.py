@@ -90,8 +90,10 @@ def test_hepsi_gecmezse_cekismeli_ucretliye_yukselmez(ortam, monkeypatch, capsys
     modeller = []
     monkeypatch.setattr(ucuz_alt, "iste", lambda g: modeller.append(g["model"]) or yanit('{"ozet": "x", "alinti": ["uydurma alıntı metni"]}'))
     monkeypatch.setattr(ucuz_alt, "sor", lambda k, m, g: (modeller.append(m), ('{"ozet": "x", "alinti": ["yok böyle bir şey"]}', "stop", m, {}))[1])
-    assert ucuz_alt.main(["özetle", str(ortam / "c.md"), str(ortam / "b.txt")]) == 3
-    assert not (ortam / "c.md").exists() and "ÇEKİŞMELİ" in capsys.readouterr().out
+    assert ucuz_alt.main(["özetle", str(ortam / "c.md"), str(ortam / "b.txt")]) == 5
+    cikti = capsys.readouterr().out
+    assert not (ortam / "c.md").exists() and "ÇEKİŞMELİ" in cikti and "BEKLE" in cikti and "Claude" not in cikti
+    assert ucuz_alt.HAVUZ[-1][0] == "ollama"  # ücretsiz → yerel → bekle
     assert modeller == [m for _, m in ucuz_alt.ZINCIR["ozet"]] and not any("gpt-6" in m or "grok" in m for m in modeller)
 
 
