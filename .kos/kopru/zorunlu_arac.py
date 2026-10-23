@@ -85,8 +85,11 @@ def yaratici(metin, tur):
     return y.get(tur) or y.get("diğer", "")
 
 
-def _kayit(o):
-    return {"ad": o["ad"], "tur": o["tur"], "cagri": o["cagri"], "ne": (o["is"] or o["metin"])[:90]}
+def _kayit(o, dolgu=False):
+    k = {"ad": o["ad"], "tur": o["tur"], "cagri": o["cagri"], "ne": (o["is"] or o["metin"])[:90]}
+    if dolgu:  # BM25/MCP dolgusu: önerilir, zorunlu sayılmaz (ilgisiz araç dayatma hatası, 23 Eki)
+        k["dolgu"] = True
+    return k
 
 
 def araclar(metin):
@@ -115,7 +118,7 @@ def araclar(metin):
         k = o["ad"].split(":")[-1]
         if k not in goruldu and (not tavan or len(sec) < sinir[0]):
             goruldu.add(k)
-            sec.append(_kayit(o))
+            sec.append(_kayit(o, tavan))
 
     kod = set(re.findall(r"`([^`\s]+)`", kap))
     anilan = {}
@@ -137,7 +140,7 @@ def araclar(metin):
         if tur != "diğer" and m not in mcp_profil.TEMEL and m in tanim and len([o for o in sec if o["tur"] == "mcp"]) < 2:
             if m not in goruldu:
                 goruldu.add(m)
-                sec.append({"ad": m, "tur": "mcp", "cagri": f"mcp__{m}__*", "ne": "MCP profilinde (görev türü)"})
+                sec.append({"ad": m, "tur": "mcp", "cagri": f"mcp__{m}__*", "ne": "MCP profilinde (görev türü)", "dolgu": True})
     q = f"{kap.splitlines()[0]} {tur if tur != 'diğer' else ''}"
     puan, gerek = katalog_ara.puanla(q, satirlar=rows)
     tepe = puan[0][0] if puan else 0
@@ -193,8 +196,10 @@ def blok(ad, metin):
     (SIRA / f"{ad}.zorunlu.json").write_text(json.dumps({"araclar": ar, "gorsel": bool(GORSEL.search(metin)), "kombin": kombin,
                                                          "tur": tur, "hata": hata[:200],
                                                          "onucus": [a for a, v in (("beyin", ders), ("ruflo", hata)) if v]}, ensure_ascii=False), encoding="utf-8")
-    s = ["ZORUNLU ARAÇLAR (bitişte oturum dökümünden sayılır; ≥%d kullanılmazsa görev arac_eksik işaretlenir ve yeniden kuyruğa girer):" % min(3, math.ceil(len(ar) / 2))]
-    s += [f"- {o['ad']} ({o['tur']}) · {o['ne']} · çağrı: {o['cagri'][:60]}" for o in ar]
+    s = ["ZORUNLU ARAÇLAR (bitişte oturum dökümünden sayılır; ≥%d kullanılmazsa görev arac_eksik işaretlenir ve yeniden kuyruğa girer):" % min(3, math.ceil(len([o for o in ar if not o.get("dolgu")]) / 2))]
+    s += [f"- {o['ad']} ({o['tur']}) · {o['ne']} · çağrı: {o['cagri'][:60]}" for o in ar if not o.get("dolgu")]
+    if any(o.get("dolgu") for o in ar):
+        s.append("İSTEĞE BAĞLI (zorunlu değil, işe uyarsa kullan): " + ", ".join(o["ad"] for o in ar if o.get("dolgu")))
     s.append("PLAN TABLOSU: her araç için ilk turda tek satır `araç | kullanılacak adım / kullanılmama gerekçesi`; gerekçesiz atlama = arac_eksik.")
     if GORSEL.search(metin):
         s.append("- gorsel_hakem (görsel iş: `python .kos/kopru/gorsel_hakem.py` çağrısı olmadan kanit_eksik)")
@@ -286,6 +291,7 @@ def _kullanildi(o, k):
 
 def karar(liste, gorsel, k):
     """(durum, kullanılmayanlar) — saf karar; k = _kullanimlar çıktısı."""
+    liste = [o for o in liste if not o.get("dolgu")]  # dolgu denetime girmez, devam turu açtırmaz
     yok = [o["ad"] for o in liste if not _kullanildi(o, k)]
     durum = []
     if liste and len(yok) >= min(3, math.ceil(len(liste) / 2)):
@@ -396,6 +402,52 @@ def oran_yeniden(adlar):
 
 
 ISARET = ("arac_eksik", "kanit_eksik", "ogrenme_eksik")
+OTURUM = Path.home() / ".claude/zorunlu"  # etkileşimli oturum listeleri: <sid>.json {araclar, muaf: {ad: gerekçe}, red: n}
+MUAF_LOG = KOK / ".kos/kopru/zorunlu-muaf.jsonl"  # gerekçeli muafiyetler denetime düşer
+RED_TAVAN = 2  # aynı oturumda en çok bu kadar red; sonra bitişe izin + rapor (sonsuz döngü yok)
+
+
+def oturum_yaz(sid, metin):
+    """Etkileşimli oturum için zorunlu liste (dolgu hariç) → OTURUM/<sid>.json; boş liste yazılmaz."""
+    ar = [o for o in araclar(metin) if not o.get("dolgu")]
+    if ar:
+        OTURUM.mkdir(parents=True, exist_ok=True)
+        (OTURUM / f"{sid}.json").write_text(json.dumps({"araclar": ar, "muaf": {}, "red": 0}, ensure_ascii=False), encoding="utf-8")
+    return ar
+
+
+def muaf_ekle(sid, ad, gerekce):
+    """Aracı gerekçeyle muaf say; gerekçe boşsa ValueError. Satır MUAF_LOG'a düşer."""
+    if not gerekce.strip():
+        raise ValueError("gerekçe boş")
+    yol = OTURUM / f"{sid}.json"
+    o = json.loads(yol.read_text(encoding="utf-8"))
+    o["muaf"][ad] = gerekce.strip()
+    yol.write_text(json.dumps(o, ensure_ascii=False), encoding="utf-8")
+    with MUAF_LOG.open("a", encoding="utf-8") as f:
+        f.write(json.dumps({"sid": sid, "ad": ad, "gerekce": gerekce.strip(), "t": int(time.time())}, ensure_ascii=False) + "\n")
+
+
+def kapi(sid):
+    """Stop kapısı: (karar, eksikler) — 'izin' (liste yok/tamam/red tavanı) ya da 'red'. Eşik: listedeki HER araç (muaf hariç)."""
+    yol = OTURUM / f"{sid}.json"
+    try:
+        o = json.loads(yol.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return "izin", []
+    k = _kullanimlar(sid)
+    if k is None:
+        return "izin", []
+    yok = [a["ad"] for a in o["araclar"] if a["ad"] not in o.get("muaf", {}) and not _kullanildi(a, k)]
+    if not yok:
+        return "izin", []
+    if o.get("red", 0) >= RED_TAVAN:
+        with (KOK / ".kos/kopru/arac-eksik-rapor.jsonl").open("a", encoding="utf-8") as f:  # sessiz kapanma yok: Desktop'a raporlanır
+            f.write(json.dumps({"sid": sid, "eksik": yok, "t": int(time.time())}, ensure_ascii=False) + "\n")
+        return "izin", yok
+    o["red"] = o.get("red", 0) + 1
+    yol.write_text(json.dumps(o, ensure_ascii=False), encoding="utf-8")
+    return "red", yok
 
 
 def devam(ad, den):
@@ -463,7 +515,12 @@ def geri(n):
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
-    if len(sys.argv) > 2 and sys.argv[1] == "--geri":
+    if len(sys.argv) > 3 and sys.argv[1] == "--oturum":  # --oturum <sid> "<görev metni>"
+        print(", ".join(o["ad"] for o in oturum_yaz(sys.argv[2], sys.argv[3])) or "liste boş")
+    elif len(sys.argv) > 4 and sys.argv[1] == "--muaf":  # --muaf <sid> <araç> "<gerekçe>"
+        muaf_ekle(sys.argv[2], sys.argv[3], sys.argv[4])
+        print("muaf kaydedildi")
+    elif len(sys.argv) > 2 and sys.argv[1] == "--geri":
         geri(int(sys.argv[2]))
     elif len(sys.argv) > 2 and sys.argv[1] == "--oran":
         _d = sorted(SIRA.glob("*.denetim.json"), key=lambda p: p.stat().st_mtime)[-int(sys.argv[2]):]

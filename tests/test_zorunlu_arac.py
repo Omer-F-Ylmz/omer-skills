@@ -236,3 +236,52 @@ def test_yeniden_istem_yalniz_eksik_adim(tmp_path, monkeypatch):
     (tmp_path / "g.md").write_text("iş", encoding="utf-8")
     yol = z.yeniden_istem("g", "g.md", ["x"])
     assert "baştan yapma" in (tmp_path / "g-a.md").read_text(encoding="utf-8") and yol.endswith("g-a.md")
+
+
+# ---- ZORUNLU-KULLANIM-1: Stop kapısı ----
+
+def kapi_kur(tmp, monkeypatch, sid, liste, araclar):
+    monkeypatch.setattr(z, "PROJELER", tmp)
+    monkeypatch.setattr(z, "OTURUM", tmp / "zorunlu")
+    monkeypatch.setattr(z, "MUAF_LOG", tmp / "muaf.jsonl")
+    monkeypatch.setattr(z, "KOK", tmp)
+    (tmp / ".kos/kopru").mkdir(parents=True)
+    (tmp / "zorunlu").mkdir()
+    (tmp / "zorunlu" / f"{sid}.json").write_text(json.dumps({"araclar": liste, "muaf": {}, "red": 0}), encoding="utf-8")
+    dokum(tmp, sid, araclar)
+
+
+def test_kapi_atlayan_oturumu_reddeder(tmp_path, monkeypatch):
+    kapi_kur(tmp_path, monkeypatch, "k1", LISTE[:2], [("Skill", {"skill": "pixeljury"})])
+    assert z.kapi("k1") == ("red", ["okuyucu"])  # HER araç şart: 2'den 1'i yetmez
+
+
+def test_kapi_hepsi_kullanildiysa_izin(tmp_path, monkeypatch):
+    kapi_kur(tmp_path, monkeypatch, "k2", LISTE[:2], [("Skill", {"skill": "pixeljury"}), ("Agent", {"subagent_type": "okuyucu"})])
+    assert z.kapi("k2") == ("izin", [])
+
+
+def test_kapi_gerekceli_muafiyet_gecer_gerekcesiz_gecmez(tmp_path, monkeypatch):
+    kapi_kur(tmp_path, monkeypatch, "k3", LISTE[:2], [("Skill", {"skill": "pixeljury"})])
+    with __import__("pytest").raises(ValueError):
+        z.muaf_ekle("k3", "okuyucu", "  ")
+    z.muaf_ekle("k3", "okuyucu", "salt okuma yok, işe uymuyor")
+    assert z.kapi("k3") == ("izin", [])
+    assert "okuyucu" in (tmp_path / "muaf.jsonl").read_text(encoding="utf-8")  # denetime düştü
+
+
+def test_kapi_red_tavani_sonra_izin_ve_rapor(tmp_path, monkeypatch):
+    kapi_kur(tmp_path, monkeypatch, "k4", LISTE[:1], [("Read", {})])
+    assert [z.kapi("k4")[0] for _ in range(z.RED_TAVAN)] == ["red"] * z.RED_TAVAN
+    assert z.kapi("k4") == ("izin", ["pixeljury"])
+    assert "k4" in (tmp_path / ".kos/kopru/arac-eksik-rapor.jsonl").read_text(encoding="utf-8")
+
+
+def test_kapi_liste_yoksa_izin(tmp_path, monkeypatch):
+    monkeypatch.setattr(z, "OTURUM", tmp_path)
+    assert z.kapi("yok") == ("izin", [])
+
+
+def test_dolgu_arac_denetime_girmez():
+    liste = [{"ad": "a", "tur": "skill", "cagri": "", "ne": ""}, {"ad": "premiere-pro", "tur": "mcp", "cagri": "", "ne": "", "dolgu": True}]
+    assert z.karar(liste, False, ([], [], [], [])) == ("arac_eksik", ["a"])  # premiere-pro eksik listesinde yok
