@@ -32,5 +32,23 @@
    "3d",
    "threejs"
   ]
+ },
+ "3d-d": {
+  "ders": "docs/okul/3d-d.md",
+  "obsidian": "30-okul/3d-d/ders-kitabi.md",
+  "skill": [
+   "blender",
+   "3d",
+   "threejs"
+  ]
+ },
+ "3d-a": {
+  "ders": "docs/okul/3d-a.md",
+  "obsidian": "30-okul/3d-a/ders-kitabi.md",
+  "skill": [
+   "blender",
+   "3d",
+   "threejs"
+  ]
  }
 }

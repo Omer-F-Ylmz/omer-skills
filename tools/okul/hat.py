@@ -20,7 +20,7 @@ print(f"{alan}: {len(kaynak)} kaynak");
 if kuru: print("kuru: model çağrılmadı"); sys.exit(0)
 
 sys.path.insert(0, str(KOK / "tools")); import ucretsiz_havuz
-norm = lambda s: re.sub(r"\s+", " ", s).strip().lower()
+norm = lambda s: re.sub(r"\s+", " ", re.sub(r"[*`]", "", s)).strip().lower()  # biçim süsü (**, `) sayılmaz; sözcükler birebir
 bag = {p.name: norm(p.read_text(encoding="utf-8", errors="replace")) for p in kaynak}
 baglam = "".join(f'\n\n<dosya adi="{p.name}">\n{p.read_text(encoding="utf-8", errors="replace")}\n</dosya>' for p in kaynak)
 ALINTI = re.compile(r'^> "(.+?)" \(([\w.\-]+\.md)\)', re.M)
@@ -44,7 +44,7 @@ def yaz(bolum):
     istem = (f"{istem0}\nYALNIZ şu bölümü yaz: {bolum}. Her madde `> \"birebir alıntı\" (dosya.md)` satırıyla başlar (dosya = <dosya adi>), altında tek satır Türkçe yorum: yorum yalnız alıntının çevirisi/özeti olsun; kaynakta olmayan hata senaryosu, sürüm, sayı, neden EKLEME. 6-10 madde. Alıntı bağlamda BİREBİR geçmeli, ≤150 karakter, tek satır.\n{baglam}")
     onb = ara / f"{alan}-{bolum[3]}.md"  # bölüm önbelleği: yeniden koşuda geçerli bölüm tekrar üretilmez
     if onb.is_file(): return onb.read_text(encoding="utf-8")
-    for tur in ("zor", "orta", "zor"):
+    for tur in ("orta", "zor", "orta"):
         y, k, log = ucretsiz_havuz.cagir(tur, istem, max_tokens=3000)
         iyi = suz(y) if y else []; (ara / "son-yanit.txt").write_text(y or "", encoding="utf-8")
         print(f"  {bolum[:30]} <- {k} · geçerli madde {len(iyi)}")
