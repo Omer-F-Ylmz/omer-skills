@@ -51,7 +51,7 @@ ISTEM_DUZELT = ('Şu öneri denendi ve kötüleştirdi. Neden kötüleştiğini 
 
 
 # ---- topla (0 jeton) ----
-KAYNAK = {"istek": "cc-kanca", "arac": "cc-kanca", "durak": "cc-kanca", "ara": "kopru-ajani", "is": "kopru-ajani", "denetim": "kopru-ajani",
+KAYNAK = {"istek": "cc-kanca", "arac": "cc-kanca", "durak": "cc-kanca", "ara": "kopru-ajani", "is": "kopru-ajani", "denetim": "kopru-ajani", "kapi": "kopru-ajani",
           "kurtar": "kopru-ajani", "maliyet": "kopru-ajani", "desktop": "desktop"}  # tur → olay kaynağı (kanca alt ajandaysa alt-ajan)
 def olay(tur, arac="", ozet="", hata=False, kaynak=""):
     ozet = " ".join(str(ozet).split())[:200]
@@ -114,6 +114,29 @@ def bekci(calisan_say, simdi=None):
         return "ok"
     _yaz_bayt(ALARM, f"{time.strftime('%d %H:%M')} " + " · ".join(sorun) + "\n")
     return "alarm"
+
+
+def bekci_canli(simdi=None):
+    """NİHAİ-KAPI-1: (canlı?, sebep). Canlı = beyin döngüsü ≤6 dk'da tur attı VE son olay ≤5 dk ('kapi' olayları sayılmaz); ölüyse görevi yeniden başlatır."""
+    simdi = simdi or time.time()
+    tur_t = _json(DURUM, {}).get("tur_t")
+    if tur_t is None or simdi - tur_t > 360:
+        _baslat()
+        return False, "bekçi ölü: döngü " + ("hiç tur atmadı" if tur_t is None else f"{(simdi - tur_t) / 60:.0f} dk önce son tur attı")
+    olaylar, _ = _olay_oku(0)
+    son = max((o["t"] for o in olaylar if o["tur"] != "kapi"), default=0)
+    if simdi - son > 300:
+        return False, f"son beyin olayı {(simdi - son) / 60:.0f} dk önce (>5 dk)"
+    return True, ""
+
+
+def bekci_yokla(simdi=None):
+    """NİHAİ-KAPI-1 CC SessionStart: beyin döngüsü ölüyse (tur_t >6 dk ya da yok) yeniden başlatır, oturuma uyarı satırı döner; canlıysa ''."""
+    tur_t = _json(DURUM, {}).get("tur_t")
+    if tur_t is not None and (simdi or time.time()) - tur_t <= 360:
+        return ""
+    _baslat()
+    return "UYARI (NİHAİ 31+32): beyin bekçisi ölüydü, yeniden başlatıldı; olayları elle yazma, birkaç dk sonra `beyin_dusun.py durum` bak.\n"
 
 
 def desktop_al():
@@ -219,8 +242,8 @@ def _ram():
 
 def _havuz(tur, istem, **kw):
     sys.path.insert(0, str(KOK / "tools"))
-    import ucretsiz_havuz
-    return ucretsiz_havuz.cagir(tur, istem, **kw)
+    import nihai_ozet, ucretsiz_havuz
+    return ucretsiz_havuz.cagir(tur, nihai_ozet.OZET + istem, **kw)  # NİHAİ-KAPI-1
 
 
 def _aile(kaynak):
@@ -682,7 +705,7 @@ if __name__ == "__main__":
     elif kmt == "derin":
         os.environ["BEYIN_DUSUN"] = "1"; print(derin())
     elif kmt == "ozet":  # CC SessionStart kancası: stdout oturum bağlamına girer
-        print(OZET.read_text(encoding="utf-8") if OZET.exists() else "")
+        print(bekci_yokla() + (OZET.read_text(encoding="utf-8") if OZET.exists() else ""))
     elif kmt == "kart":
         print(kart_metin() or "(kanıtlı içgörü yok)")
     elif kmt == "durum":

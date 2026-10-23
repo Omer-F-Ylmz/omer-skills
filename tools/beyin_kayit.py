@@ -39,6 +39,8 @@ def sonuc(ad):
 
 
 def yerel(istem):
+    if (Path(__file__).resolve().parents[1] / ".kos" / "yerel-model.kapali").exists():  # HAVUZ-GENIS-2: yerel KAPALI bayrağı
+        raise RuntimeError("yerel-kapali")
     govde = {"model": OLLAMA_MODEL, "messages": [{"role": "user", "content": istem}], "stream": False, "think": False,
              "options": {"num_ctx": 8192, "num_predict": 400},
              "keep_alive": 0}  # 22 Eki Ömer: llama-server (≈3.7 GB) yanıttan hemen sonra kapansın, RAM'de kalmasın

@@ -29,33 +29,45 @@ SAG = {"gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/chat/
        "ollama": ("https://ollama.com/v1/chat/completions", "OLLAMA_API_KEY", 0.5)}
 DUSUNME = {"gemini", "groq", "openrouter", "omniroute", "ollama"}  # reasoning_effort bilen uçlar; diğerleri bilinmeyen alanı 400/422 yapabilir
 E = namedtuple("E", "prov model aile kova rpm tpm rpd baglam turler")
-Z, H, Y, U = "ozet", "hakem", "yazim", "uzun"
+Z, H, Y, U, K = "ozet", "hakem", "yazim", "uzun", "kod"
 # Sınırlar muhafazakâr belge/ölçüm değerleri (envanter.tsv); gerçek 429 gelirse soğuma devreye girer. baglam = jeton.
 # kova: openrouter :free hesap başına ortak; diğerlerinde model başına.
 ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 900_000, (Z, H, U)),
        E("gemini", "gemini-3.5-flash-lite", "google", None, 10, 200_000, 200, 900_000, (Z, H, U)),
        E("gemini", "gemini-3.6-flash", "google", None, 5, 200_000, 100, 900_000, (H, Y, U)),
        E("gemini", "gemini-3.8-flash", "google", None, 5, 200_000, 100, 900_000, (H, Y, U)),
+       E("gemini", "gemini-3-flash-preview", "google", None, 5, 200_000, 100, 900_000, (Z, H, Y, U)),  # HAVUZ-GENIS-2 23 Eki: 200 (kota ayrı; 3.x-flash'lar günlük 429 iken)
        E("groq", "openai/gpt-oss-120b", "openai", None, 25, 7000, 800, 5500, (Z, H, Y)),
        E("groq", "openai/gpt-oss-20b", "openai", None, 25, 7000, 800, 5500, (Z, H, Y)),
        E("groq", "qwen/qwen3.8-27b", "alibaba", None, 25, 6000, 800, 4500, (Z, H, Y)),
        E("openrouter", "nvidia/nemotron-3-super-120b-a12b:free", "nvidia", "openrouter", 18, 10**6, 900, 200_000, (Z, H, Y, U)),
        E("openrouter", "google/gemma-4-31b-it:free", "google", "openrouter", 18, 10**6, 900, 100_000, (Z, H, Y)),
-       E("openrouter", "minimax/minimax-m3.1-flash:free", "minimax", "openrouter", 18, 10**6, 900, 100_000, (Z, H, Y)),
+       E("openrouter", "minimax/minimax-m3.1-flash:free", "minimax", "openrouter", 18, 10**6, 900, 100_000, ()),  # KAPALI: :free 22 Eki 2026'da kalktı (404)
        E("openrouter", "nvidia/nemotron-3-ultra-550b-a55b:free", "nvidia", "openrouter", 18, 10**6, 900, 100_000, (H, Y)),
        E("github", "openai/gpt-4.1-mini", "openai", None, 10, 7000, 120, 5500, ()),  # KAPALI: models.github.ai her yola 200 + gövde "OK" (20 Eki); düzelince türleri aç
        E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U)),
        # 20 Eki canlı: mistral 429 (hız sınırı, kendini toparlarsa açılır) · cloudflare 200 · ollama "Free usage limit" 429; sınırlar acilabilir.md'deki belge değerlerinin muhafazakârı; ilk 429'da soğuma devreye girer
        E("mistral", "mistral-small-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, U)),
-       E("mistral", "ministral-8b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y)),  # HAVUZ-3: mistral-small/medium 429 (1300), large 403 tier; ministral 200
-       E("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "meta", None, 60, 20_000, 150, 20_000, (Z, H, Y)),
-       E("nvidia", "openai/gpt-oss-20b", "openai", None, 30, 100_000, 1000, 100_000, (Z, H, Y)),  # HAVUZ-3: 200 (2 sn); llama-3.3 410, nemotron-nano 404, deepseek-v4.1-flash/gemma-4 zaman aşımı
-       E("nvidia", "nvidia/nemotron-3-ultra-550b-a55b", "nvidia", None, 30, 100_000, 1000, 100_000, (H, Y)),  # ORDU d8: 200 (1 sn); nemotron-3-super-120b/nano-3-30b/llama-3.1-nemotron-ultra-253b listede ama 404, 3.5-lightning/3.5-super-vl 200 boş içerik (düşünme jetonu)
-       E("nvidia", "nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia", None, 30, 100_000, 1000, 100_000, (H, Y)),  # ORDU d9: 200 dolu içerik (max_tokens 8000; ~300 düşünme jetonu); max_tokens ≤1500 ile boş kalabilir
-       E("nvidia", "google/gemma-4-31b-it", "google", None, 30, 100_000, 1000, 100_000, ()),  # KAPALI: llama-3.3 410, mistral-large/nemotron-70b 404, gemma/deepseek 60 sn zaman aşımı (20 Eki)
+       E("mistral", "ministral-8b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y)),
+       E("mistral", "ministral-14b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, K)),  # HAVUZ-GENIS-2 23 Eki canlı 200 (TR iyi); medium/small/magistral/vibe 429, labs 403
+       E("mistral", "ministral-3b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, Y)),
+       E("mistral", "codestral-latest", "mistral", None, 30, 100_000, 1000, 100_000, (K, Y)),  # HAVUZ-3: mistral-small/medium 429 (1300), large 403 tier; ministral 200
+       E("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "meta", "cloudflare", 60, 20_000, 150, 20_000, (Z, H, Y)),
+       E("nvidia", "openai/gpt-oss-20b", "openai", "nvidia", 40, 100_000, 1000, 100_000, ()),  # KAPALI 23 Eki: canlı 599 zaman aşımı; HAVUZ-3: 200 (2 sn); llama-3.3 410, nemotron-nano 404, deepseek-v4.1-flash/gemma-4 zaman aşımı
+       E("nvidia", "nvidia/nemotron-3-ultra-550b-a55b", "nvidia", "nvidia", 40, 100_000, 1000, 100_000, (Z, H, Y)),  # ORDU d8: 200 (1 sn); nemotron-3-super-120b/nano-3-30b/llama-3.1-nemotron-ultra-253b listede ama 404, 3.5-lightning/3.5-super-vl 200 boş içerik (düşünme jetonu)
+       E("nvidia", "nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia", "nvidia", 40, 100_000, 1000, 100_000, (Z, H, Y, K)),  # ORDU d9: 200 dolu içerik (max_tokens 8000; ~300 düşünme jetonu); max_tokens ≤1500 ile boş kalabilir
+       E("nvidia", "google/gemma-4-31b-it", "google", "nvidia", 40, 100_000, 1000, 100_000, ()),  # KAPALI: llama-3.3 410, mistral-large/nemotron-70b 404, gemma/deepseek 60 sn zaman aşımı (20 Eki)
+       E("nvidia", "meta/muse-glimmer-30b", "meta", "nvidia", 40, 100_000, 1000, 100_000, (Y,)),  # 20 sn gecikme: yalnız son çare
        E("sambanova", "gpt-oss-120b", "openai", None, 20, 20_000, 20, 60_000, (H,)),  # 23 Eki: 402 gitti, 429 "high demand" (geçici; soğuma atlatır); 20 Eki'de 402 PAYMENT_METHOD_REQUIRED idi
        E("ollama", "gpt-oss:120b", "openai", None, 6, 100_000, 100, 100_000, (Z, H, Y))]
 ad = lambda e: f"{e.prov}/{e.model}"  # noqa: E731
+# HAVUZ-GENIS-2: tür başına en iyi 3 halka (canlı envanter 23 Eki); sıralamada hata oranından sonra, yükten önce gelir. Zincirdeki halka soğuma/kota/pay sınırıyla düşerse
+# sıradaki (zincir dışı dahil) devralır; soğuma bitince halka kendiliğinden geri girer. Görsel için bkz. tools/gorsel_dogrula.py (envanter gorsel_kod).
+ZINCIR = {Z: ["groq/qwen/qwen3.8-27b", "mistral/ministral-14b-latest", "gemini/gemini-3.1-flash-lite"],
+          H: ["groq/openai/gpt-oss-120b", "nvidia/nvidia/nemotron-3-ultra-550b-a55b", "mistral/ministral-14b-latest"],
+          K: ["mistral/codestral-latest", "groq/openai/gpt-oss-120b", "nvidia/nvidia/nemotron-3.5-lightning-30b-a3b"],
+          Y: ["mistral/ministral-14b-latest", "gemini/gemini-3-flash-preview", "groq/qwen/qwen3.8-27b"],
+          U: ["gemini/gemini-3.1-flash-lite", "gemini/gemini-3.5-flash-lite", "mistral/mistral-small-latest"]}
 ERT, SONUC = DIZIN / "ertelenen.jsonl", DIZIN / "ertelenen-sonuc.jsonl"
 SERT = re.compile(r"free usage limit|per ?day|tokens per day|\btpd\b|daily|günlük", re.I)
 
@@ -157,12 +169,12 @@ def _sec(tur, tahmin, aile, haric, denenen, rezerv=None, saglayici=None):
                 continue
             if not _anahtar(SAG[e.prov][1]) or not _url(e.prov) or (e.prov == "omniroute" and not _omni_serbest()):
                 continue
-            uygun.append((_hata_oranu(d, e.aile), _say(d, "p:" + e.prov, bugun) / SAG[e.prov][2], _say(d, ad(e), bugun), d["son"].get(ad(e), 0), e))
+            uygun.append((_hata_oranu(d, e.aile), (ZINCIR.get(tur, []) + [ad(e)]).index(ad(e)), _say(d, "p:" + e.prov, bugun) / SAG[e.prov][2], _say(d, ad(e), bugun), d["son"].get(ad(e), 0), e))
         if not uygun:
             return None
-        son = d.get("sec", [])[-20:]  # son 20 seçimde yarıyı aşan sağlayıcı, alternatif varken atlanır (kapı: hiçbir sağlayıcı >%50)
+        son = d.get("sec", [])[-20:]  # son 20 seçimde yarıyı aşan sağlayıcı, alternatif varken atlanır (kapı: hiçbir sağlayıcı >%40)
         if len({u[-1].prov for u in uygun}) > 1:
-            uygun = [u for u in uygun if son.count(u[-1].prov) * 2 < len(son)] or uygun
+            uygun = [u for u in uygun if son.count(u[-1].prov) * 5 < len(son) * 2] or uygun
         e = min(uygun, key=lambda x: x[:-1])[-1]
         d["sec"] = son + [e.prov]
         d["dk"][e.kova or ad(e)].append([now, rezerv or tahmin]); d["son"][ad(e)] = now
@@ -193,6 +205,10 @@ def _dus(e, h):
         else:
             sure = 120 * min(n, 4)
         d["soguma"][ad(e)] = now + sure; _yaz(d)
+    try:
+        kota()  # durum değişti: kota-json'daki açılış zamanları güncel kalsın
+    except Exception:  # noqa: BLE001 - raporlama çağrıyı düşürmesin
+        pass
 
 
 def _basari(e):
@@ -397,10 +413,31 @@ def serve(port):
     ThreadingHTTPServer(("127.0.0.1", port), Is).serve_forever()
 
 
+KOTA = KOK / ".kos/havuz-kota.json"
+
+
+def kota():
+    """HAVUZ-GENIS-2: sağlayıcı başına günlük/dakikalık sınır, bugünkü kullanım, soğuma bitişi (açılış) → .kos/havuz-kota.json; ENT'deki muhafazakâr sınırlar + durum.json sayaçları."""
+    d = _durum(); now = time.time(); bugun = time.strftime("%Y-%m-%d", time.gmtime()); iso = lambda t: time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(t))  # noqa: E731
+    out = {"guncel": iso(now), "saglayici": {}}
+    for p in SAG:
+        halka = [e for e in ENT if e.prov == p and e.turler]
+        kovalar = {e.kova or ad(e): e for e in halka}
+        pc = d.get("soguma", {}).get("p:" + p, 0)
+        halkalar = {ad(e): iso(t) for e in halka if (t := d.get("soguma", {}).get(ad(e), 0)) > now}
+        out["saglayici"][p] = {"anahtar": bool(_anahtar(SAG[p][1])), "halka": len(halka), "rpd_toplam": sum(e.rpd for e in kovalar.values()), "rpm_toplam": sum(e.rpm for e in kovalar.values()),
+                               "kullanim_bugun": _say(d, "p:" + p, bugun), "soguma_saglayici_acilis": iso(pc) if pc > now else None, "soguma_halka_acilis": halkalar,
+                               "durum": "kapali" if not halka else "soguma" if pc > now or len(halkalar) == len(halka) else "acik"}
+    atomik_yaz.yaz_bayt(KOTA, json.dumps(out, ensure_ascii=False, indent=1).encode("utf-8"))
+    return out
+
+
 if __name__ == "__main__":
     c = sys.argv[1] if len(sys.argv) > 1 else "durum"
     if c == "envanter":
         envanter()
+    elif c == "kota":
+        print(json.dumps({p: v["durum"] for p, v in kota()["saglayici"].items()}))
     elif c == "tekrar":
         print(tekrar())
     elif c == "serve":

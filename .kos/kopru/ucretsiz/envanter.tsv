@@ -1,23 +1,23 @@
 saglayici	model	aile	anahtar	http	gecikme_sn	model_sayisi	rpm	tpm	rpd	turkce	not
-gemini	gemini-3.1-flash-lite	google	var	503	1.3	63	10	200000	200	-	[{   "error": {     "code": 503,     "message": "This model is currently experie
-gemini	gemini-3.5-flash-lite	google	var	429	0.3	63	10	200000	200	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
-gemini	gemini-3.6-flash	google	var	429	0.3	63	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
-gemini	gemini-3.8-flash	google	var	429	0.3	63	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
-groq	openai/gpt-oss-120b	openai	var	200	0.4	11	25	7000	800	iyi	Türkiye'nin başkenti Ankara'dır.
-groq	openai/gpt-oss-20b	openai	var	200	0.3	11	25	7000	800	zayıf	Ankara.
-groq	qwen/qwen3.8-27b	alibaba	var	200	0.3	11	25	6000	800	iyi	Türkiye'nin başkenti Ankara'dır.
+gemini	gemini-3.1-flash-lite	google	var	429	0.3	60	10	200000	200	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+gemini	gemini-3.5-flash-lite	google	var	429	0.3	60	10	200000	200	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+gemini	gemini-3.6-flash	google	var	429	0.4	60	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+gemini	gemini-3.8-flash	google	var	429	0.4	60	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+groq	openai/gpt-oss-120b	openai	var	200	0.5	11	25	7000	800	iyi	Türkiye'nin başkenti Ankara'dır.
+groq	openai/gpt-oss-20b	openai	var	200	0.2	11	25	7000	800	zayıf	Ankara.
+groq	qwen/qwen3.8-27b	alibaba	var	200	0.4	11	25	6000	800	iyi	Türkiye'nin başkenti Ankaradır.
 openrouter	nvidia/nemotron-3-super-120b-a12b:free	nvidia	var	429	0.0	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
-openrouter	google/gemma-4-31b-it:free	google	var	429	0.0	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
-openrouter	minimax/minimax-m3.1-flash:free	minimax	var	200	0.9	468	18	1000000	900	iyi	Türkiye'nin başkenti Ankara'dır.
-openrouter	nvidia/nemotron-3-ultra-550b-a55b:free	nvidia	var	429	0.0	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
+openrouter	google/gemma-4-31b-it:free	google	var	429	0.1	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
+openrouter	minimax/minimax-m3.1-flash:free	minimax	var	404	0.0	468	18	1000000	900	-	{"error":{"message":"The free launch period for MiniMax M3.1 Flash ended on Oct 
+openrouter	nvidia/nemotron-3-ultra-550b-a55b:free	nvidia	var	429	0.1	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
 github	openai/gpt-4.1-mini	openai	var	599	0.4	liste:JSONDecodeError	10	7000	120	-	JSONDecodeError
-omniroute	cc-ucuz-free	karma	var	429	0.4	1915	15	1000000	100	-	{"error":{"message":"All credentials for model nvidia/nemotron-3-ultra-550b-a55b
-mistral	mistral-small-latest	mistral	var	429	0.2	53	30	100000	1000	-	{"object":"error","message":"Rate limit exceeded","type":"rate_limited","param":
-cloudflare	@cf/meta/llama-3.3-70b-instruct-fp8-fast	meta	var	200	0.9	liste:HTTPError	60	20000	150	iyi	Türkiye'nin başkenti Ankara'dır.
-nvidia	google/gemma-4-31b-it	google	var	599	60.1	81	30	100000	1000	-	TimeoutError
-sambanova	gpt-oss-120b	openai	var	402	0.9	6	20	20000	20	-	{"error":{"balance_units":0,"billing_portal_url":"https://cloud.sambanova.ai/pla
+omniroute	cc-ucuz-free	karma	var	429	0.4	1913	15	1000000	100	-	{"error":{"message":"All credentials for model nvidia/nemotron-3-ultra-550b-a55b
+mistral	mistral-small-latest	mistral	var	429	0.3	53	30	100000	1000	-	{"object":"error","message":"Rate limit exceeded","type":"rate_limited","param":
+mistral	ministral-8b-latest	mistral	var	200	0.4	53	30	100000	1000	iyi	Türkiye'nin başkenti **Ankara**dır.
+cloudflare	@cf/meta/llama-3.3-70b-instruct-fp8-fast	meta	var	429	0.1	liste:HTTPError	60	20000	150	-	{"errors":[{"message":"AiError: AiError: you have used up your daily free alloca
+nvidia	openai/gpt-oss-20b	openai	var	599	60.2	85	30	100000	1000	-	TimeoutError
+nvidia	nvidia/nemotron-3-ultra-550b-a55b	nvidia	var	200	1.6	85	30	100000	1000	iyi	Türkiye'nin başkenti Ankara'dır.
+nvidia	nvidia/nemotron-3.5-lightning-30b-a3b	nvidia	var	0	4.8	85	30	100000	1000	-	boş yanıt
+nvidia	google/gemma-4-31b-it	google	var	599	60.2	85	30	100000	1000	-	TimeoutError
+sambanova	gpt-oss-120b	openai	var	402	1.7	6	20	20000	20	-	{"error":{"balance_units":0,"billing_portal_url":"https://fast-snova-ai-prod-1-u
 ollama	gpt-oss:120b	openai	var	429	0.4	23	6	100000	100	-	{"error":{"message":"You reached the Free usage limit. Pro is $20/month for $60 
-tr-kalite-havuz3	mistral/ministral-8b-latest	-	-	-	8.1	-	-	-	-	ozet 2/3 hakem 1/2	20 Eki
-tr-kalite-havuz3	cloudflare/llama-3.3-70b	-	-	-	10.0	-	-	-	-	ozet 1/3 hakem 2/2	20 Eki
-tr-kalite-havuz3	nvidia/openai/gpt-oss-20b	-	-	-	13.5	-	-	-	-	ozet 0/3 hakem 0/2 (tek çağrı sonra 200; hata nedeni ayrıştırılmadı)	20 Eki
-tr-kalite-havuz3	sambanova,ollama	-	-	-	-	-	-	-	-	ölçülemedi: sambanova 402 bakiye 0, ollama ücretsiz kullanım sınırı	20 Eki

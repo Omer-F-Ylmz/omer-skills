@@ -186,6 +186,8 @@ def yerel_aciklama(ks, n=4, model="gemma4:e4b"):  # Gemini kotası/anahtarı yok
     sec = [ks[int(i * len(ks) / n)] for i in range(n)]
     istek = {"model": model, "stream": False, "think": False, "options": {"num_ctx": 8192}, "keep_alive": "2m",
              "messages": [{"role": "user", "content": KARE_PROMPT, "images": [base64.b64encode(k.read_bytes()).decode() for k in sec]}]}
+    if (Path(__file__).resolve().parents[1] / ".kos" / "yerel-model.kapali").exists():  # HAVUZ-GENIS-2: yerel KAPALI bayrağı
+        return None
     try:
         req = urllib.request.Request("http://127.0.0.1:11434/api/chat", json.dumps(istek).encode(), {"Content-Type": "application/json"})
         return json.load(urllib.request.urlopen(req, timeout=300))["message"]["content"]
