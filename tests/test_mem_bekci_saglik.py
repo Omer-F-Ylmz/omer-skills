@@ -4,8 +4,8 @@ from mem_bekci import sebepler
 
 
 def test_aktif_oturumda_eski_gozlem():
-    assert sebepler(True, 45, None) == ["son gozlem 45 dk"]
-    assert sebepler(True, None, None) == ["son gozlem yok dk"]
+    assert sebepler(True, 45, None) == ["gozlem sayisi 30 dk sabit (son gozlem 45 dk)"]
+    assert sebepler(True, None, None) == ["gozlem sayisi 30 dk sabit (son gozlem yok dk)"]
 
 
 def test_oturum_yokken_eski_gozlem_sorun_degil():

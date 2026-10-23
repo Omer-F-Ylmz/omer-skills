@@ -29,7 +29,7 @@ def test_ayni_id_bir_kez_ve_alarmsiz(tmp_path):
     _yaz(j, [(9000, 0), (10, 800), (10, 800)])
     j.write_text(j.read_text(encoding="utf-8") * 2, encoding="utf-8")  # akış parçaları aynı id ile tekrarlar
     assert durma_orani(j) == (1, 3)
-    assert "≥%30" in durma_satiri([j])
+    assert "≥%30" not in durma_satiri([j])  # n<8: oran %33 olsa da alarm yok
 
 
 def test_en_yeni_transkript_ve_bos(tmp_path):

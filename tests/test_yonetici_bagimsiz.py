@@ -40,6 +40,7 @@ def test_job_uyelik_atanan_surec_job_icinde():
 @pytest.fixture
 def cikti(tmp_path, monkeypatch):
     monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "git_var", lambda ad: False)  # kısa test adları gerçek git log'daki sözcüklerle eşleşmesin
     return tmp_path
 
 
@@ -52,6 +53,10 @@ def _is(cikti, ad, *, basladi=f"10:00:00 pid 999999 sid {SID}", sonuc=None, yas=
         (cikti / f"{ad}.json").write_text(sonuc, encoding="utf-8")
 
 
+def _satir(*adlar):
+    return [(a, f"{a}.md") for a in adlar]  # kuyruk() satırı: (ad, görev dosyası)
+
+
 def test_olu_is_kurtarilir_sonuclu_yasli_kuyrukdisi_kurtarilmaz(cikti, capsys):
     _is(cikti, "olu", sonuc="")  # json boş: claude -p sonucu sonda yazar, öldürülünce boş kalır
     _is(cikti, "bitmis", sonuc=SONUC)
@@ -60,7 +65,7 @@ def test_olu_is_kurtarilir_sonuclu_yasli_kuyrukdisi_kurtarilmaz(cikti, capsys):
     _is(cikti, "iki-kez", sonuc="")
     (cikti / "iki-kez.kurtar").write_text("2")
     baslayan = {"olu", "bitmis", "eski", "kuyrukta-degil", "iki-kez"}
-    devam = ajan_sira.kurtar(["olu", "bitmis", "eski", "iki-kez"], baslayan)
+    devam = ajan_sira.kurtar(_satir("olu", "bitmis", "eski", "iki-kez"), baslayan)
     assert list(devam) == ["olu"]
     assert baslayan == {"bitmis", "eski", "kuyrukta-degil", "iki-kez"}  # yalnız kurtarılan yeniden sıraya girer
     assert (cikti / "olu.kurtar").read_text() == "1"
@@ -75,7 +80,7 @@ def test_kurtar_session_id_transkript_varsa_resume_yoksa_bastan(cikti, tmp_path,
     _is(cikti, "var", sonuc="")
     _is(cikti, "yok", sonuc="", basladi="10:00:00 pid 999999 sid 99999999-2222-4333-8444-555555555555")
     _is(cikti, "sidsiz", sonuc="", basladi="10:00:00 pid 999999")
-    devam = ajan_sira.kurtar(["var", "yok", "sidsiz"], {"var", "yok", "sidsiz"})
+    devam = ajan_sira.kurtar(_satir("var", "yok", "sidsiz"), {"var", "yok", "sidsiz"})
     assert devam == {"var": SID, "yok": None, "sidsiz": None}
 
 
@@ -83,7 +88,7 @@ def test_kurtar_tek_acilista_en_cok_3(cikti):
     adlar = [f"j{i}" for i in range(5)]
     for a in adlar:
         _is(cikti, a, sonuc="")
-    assert len(ajan_sira.kurtar(adlar, set(adlar))) == 3
+    assert len(ajan_sira.kurtar(_satir(*adlar), set(adlar))) == 3
 
 
 def test_canli_claude_is_kurtarilmaz(cikti, monkeypatch):

@@ -18,4 +18,4 @@ def test_yerel_model_yok():
 
 
 def test_groq_en_son():
-    assert ZINCIR[-1].startswith("groq/") and ZINCIR[0].startswith("openrouter/")
+    assert ZINCIR[-1].startswith("groq/") and ZINCIR[0].startswith("gemini/")
