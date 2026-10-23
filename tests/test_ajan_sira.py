@@ -398,3 +398,85 @@ def test_kurtar_atla_gunlugu_neden_yazar(tmp_path, monkeypatch):
     (tmp_path / "is-y.json").write_text('{"type": "result"}\n', encoding="utf-8")
     ajan_sira.kurtar([("is-x", "g.md"), ("is-y", "g.md")], {"is-x"})
     assert any(s.startswith("KURTAR-ATLA is-x") and "is-y" in s for s in satirlar)
+
+
+def _kapi_izole(tmp_path, monkeypatch):
+    import beyin_dusun
+    monkeypatch.setattr(beyin_dusun, "DURUM", tmp_path / "durum.json")
+    monkeypatch.setattr(beyin_dusun, "ALARM", tmp_path / "alarm.txt")
+    baslatildi = []
+    monkeypatch.setattr(beyin_dusun, "_baslat", lambda: baslatildi.append(1))
+    return beyin_dusun, baslatildi
+
+
+def test_nihai_kapi_satirsiz_gorev_baslamaz(tmp_path, monkeypatch):
+    b, _ = _kapi_izole(tmp_path, monkeypatch)
+    b.olay("arac", "Bash", "taze")
+    b.DURUM.write_text(json.dumps({"tur_t": __import__("time").time()}), encoding="utf-8")
+    sebep = ajan_sira.nihai_kapi("sahte-1", "görev metni, satır yok")
+    assert sebep and "NİHAİ 31+32" in sebep
+    assert "sahte-1" in b.ALARM.read_text(encoding="utf-8")
+    assert json.loads(b.OLAY.read_text(encoding="utf-8").splitlines()[-1])["tur"] == "kapi"
+
+
+def test_nihai_kapi_bekci_kapaliyken_baslamaz(tmp_path, monkeypatch):
+    b, baslatildi = _kapi_izole(tmp_path, monkeypatch)
+    b.olay("arac", "Bash", "taze")
+    b.DURUM.write_text(json.dumps({"tur_t": __import__("time").time() - 900}), encoding="utf-8")
+    sebep = ajan_sira.nihai_kapi("sahte-2", "NİHAİ 31+32 (kabul şartı): ...")
+    assert sebep and "bekçi ölü" in sebep
+    assert baslatildi == [1]  # ölü bekçi yeniden başlatılır
+
+
+def test_nihai_kapi_bayat_olay_baslamaz_ve_kapi_olayi_sayilmaz(tmp_path, monkeypatch):
+    import time
+    b, _ = _kapi_izole(tmp_path, monkeypatch)
+    b.DURUM.write_text(json.dumps({"tur_t": time.time()}), encoding="utf-8")
+    b.olay("kapi", "x", "kapı kendi olayı")  # tek olay 'kapi' → sayılmaz
+    assert "son beyin olayı" in ajan_sira.nihai_kapi("sahte-3", "NİHAİ 31+32 satırı var")
+
+
+def test_nihai_kapi_satirli_gorev_baslar(tmp_path, monkeypatch):
+    import time
+    b, _ = _kapi_izole(tmp_path, monkeypatch)
+    b.olay("arac", "Bash", "taze")
+    b.DURUM.write_text(json.dumps({"tur_t": time.time()}), encoding="utf-8")
+    assert ajan_sira.nihai_kapi("gercek-1", "NİHAİ 31+32 (kabul şartı): ...") is None
+    assert not b.ALARM.exists()
+
+
+def test_nihai_bitis_kismi(tmp_path, monkeypatch):
+    import time
+    b, _ = _kapi_izole(tmp_path, monkeypatch)
+    t0 = time.time() - 600
+    b.olay("arac", "Bash", "tek olay")  # 10 dk'da 1 olay, pattern-store yok
+    eksik = ajan_sira.nihai_bitis("is-x", t0, time.time())
+    assert len(eksik) == 2 and "KISMI-NİHAİ is-x" in b.ALARM.read_text(encoding="utf-8")
+
+
+def test_nihai_bitis_tam(tmp_path, monkeypatch):
+    import time
+    b, _ = _kapi_izole(tmp_path, monkeypatch)
+    t0 = time.time() - 60
+    b.olay("arac", "mcp__ruflo__agentdb_pattern-store", "ders")
+    assert ajan_sira.nihai_bitis("is-y", t0, time.time()) == []
+    assert not b.ALARM.exists()
+
+
+def test_bekci_yokla_oluyse_yeniden_baslatir(tmp_path, monkeypatch):
+    import time
+    b, baslatildi = _kapi_izole(tmp_path, monkeypatch)
+    assert b.bekci_yokla() and baslatildi == [1]  # durum dosyası yok → ölü sayılır, uyarı + yeniden başlatma
+    b.DURUM.write_text(json.dumps({"tur_t": time.time()}), encoding="utf-8")
+    assert b.bekci_yokla() == "" and baslatildi == [1]
+
+
+def test_nihai_ozet_sablonlarda():
+    import nihai_ozet
+    assert nihai_ozet.OZET.count("\n") <= 3 and "31+32" in nihai_ozet.OZET
+
+
+def test_gorev_yolu_mutlak_satir():
+    s = ajan_sira.gorev_yolu_satir(".kos/kopru/gorev-havuz-genis-2.md")
+    assert "[görev dosyası]" in s and os.path.isabs(s.split("] ", 1)[1].split(" (")[0])
+    assert s.split("] ", 1)[1].split(" (")[0].endswith("gorev-havuz-genis-2.md")

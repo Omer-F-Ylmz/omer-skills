@@ -265,7 +265,7 @@ def ajan_sira_canli(pid):
         return False
     ps = f"(Get-CimInstance Win32_Process -Filter 'ProcessId={int(pid)}').CommandLine"
     r = subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True, errors="replace", creationflags=0x08000000)
-    return "ajan_sira.py" in r.stdout
+    return "ajan_sira.py" in r.stdout or "yonetici_gorev.py" in r.stdout  # Desktop 18:55: yönetici Görev Zamanlayıcı'dan yonetici_gorev.py adıyla koşuyor; eski kontrol onu ölü sanıyordu
 
 
 def kilit_al():
@@ -498,6 +498,51 @@ def kosul_tamam(k):
     return f.exists() and alt in f.read_text(encoding="utf-8", errors="replace")
 
 
+NIHAI_SATIR = "NİHAİ 31+32"
+
+
+def gorev_yolu_satir(istem):
+    """Ajan görev dosyasını yanlış klasörde aramasın: istem yolunu mutlak yola çevirip isteme satır olarak ekler."""
+    return f"\n[görev dosyası] {(KOK / istem).resolve()} (mutlak yol; gorev/ değil, yazıldığı yer burası)"
+
+
+def nihai_kapi(ad, metin, simdi=None):
+    """NİHAİ-KAPI-1 başlama kapısı: görev metninde 'NİHAİ 31+32' satırı ve beyin bekçisi canlı (son olay ≤5 dk) değilse sebep döner (iş başlamaz), tamsa None.
+    Eksik satırı yönetici eklemez (görev yazanın işi); sebep ajan-sira loguna çağıranca, beyne 'kapi' olayı + Desktop için beyin-alarm.txt'ye yazılır."""
+    import beyin_dusun
+    sebep = None
+    if NIHAI_SATIR not in metin:
+        sebep = f"görevde '{NIHAI_SATIR}' satırı yok"
+    else:
+        canli, s = beyin_dusun.bekci_canli(simdi)
+        sebep = None if canli else s
+    if sebep:
+        beyin_dusun.olay("kapi", ad, f"BAŞLAMADI {ad}: {sebep}", True)
+        beyin_dusun._yaz_bayt(beyin_dusun.ALARM, f"{time.strftime('%d %H:%M')} NİHAİ-KAPI: {ad} başlamadı — {sebep}\n")
+    return sebep
+
+
+YONETICI_OLAY = ("ara", "kapi", "is", "denetim", "maliyet", "kurtar")  # yöneticinin kendi olayları iş oturumunun beyin yazımı sayılmaz
+
+
+def nihai_bitis(ad, t0, t1):
+    """NİHAİ-KAPI-1 4b bitiş kapısı: iş penceresinde (t0..t1) beyne ≥1 olay/2 dk ve ruflo pattern-store izi yoksa eksik listesi döner + 'KISMI-NİHAİ' beyin hata olayı + Desktop alarmı.
+    Not: olaylar iş adıyla etiketli değil; pencere içindeki tüm oturum olayları sayılır (eşzamanlı oturum varsa gevşek)."""
+    import beyin_dusun
+    olaylar, _ = beyin_dusun._olay_oku(0)
+    pen = [o for o in olaylar if t0 <= o["t"] <= t1 and o["tur"] not in YONETICI_OLAY]
+    dk, eksik = max((t1 - t0) / 60, 1), []
+    if len(pen) < dk / 2:
+        eksik.append(f"beyin olayı {len(pen)} < {dk / 2:.0f} (≥1/2 dk)")
+    if not any("pattern-store" in o["arac"] or "pattern-store" in o["ozet"] for o in pen):
+        eksik.append("ruflo pattern-store izi yok")
+    if eksik:
+        msg = f"KISMI-NİHAİ {ad}: " + "; ".join(eksik)
+        beyin_dusun.olay("kapi", ad, msg, True)
+        beyin_dusun._yaz_bayt(beyin_dusun.ALARM, f"{time.strftime('%d %H:%M')} {msg}\n")
+    return eksik
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     if not kilit_al():  # TEKİL-YÖNETİCİ: aynı anda iki yönetici kuyruğu işlemesin
@@ -510,7 +555,7 @@ def main():
         baslayan.add(f.stem)
     DEVAM.update(kurtar(kuyruk(), baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
-    ara_t = 0.0
+    ara_t, kapi_t = 0.0, {}
     while True:
         if time.time() - ara_t >= 120:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
             ara_t = time.time()
@@ -531,6 +576,11 @@ def main():
                 sonuc_temizle(ad)  # BÜTÇE-KAPI-1: JSON dışı satırlar ayrılır, ad.json geçerli kalır
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
                 ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce)
+                try:
+                    if eksik_n := nihai_bitis(ad, t0, time.time()):
+                        log("KISMI-NİHAİ", ad, "; ".join(eksik_n))
+                except Exception as e:
+                    log("nihai_bitis hata", repr(e)[:120])
                 if bas is not None and not ok and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
                     yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
@@ -578,6 +628,15 @@ def main():
                         log("cwd yok", ad, cwd)
                         uyari.add(ad)
                     continue
+                if time.time() - kapi_t.get(ad, 0) < 120:  # NİHAİ-KAPI-1: kapalı iş 2 dk'da bir yeniden denetlenir (beyne/alarma tekrar yazmaz)
+                    continue
+                if sebep := nihai_kapi(ad, (KOK / istem).read_text(encoding="utf-8")):
+                    kapi_t[ad] = time.time()
+                    if (("n", ad, sebep)) not in uyari:
+                        uyari.add(("n", ad, sebep))
+                        log("KAPI BAŞLAMADI", ad, sebep)
+                    continue
+                kapi_t.pop(ad, None)
                 tah = tahmin_mb((KOK / istem).read_text(encoding="utf-8"))
                 if not ram_izin(r, tah, ram_toplam_mb(), esik(), not (calisan or dis)):  # RAM-1: ağır iş RAM'i eşiğin üstüne taşıyacaksa bekler, hafif olan sıradan geçer
                     if ("r", ad) not in uyari:
@@ -600,6 +659,7 @@ def main():
                 metin += (f"\n\n[bütçe] Hedef ${butce:.2f}: az oku, az dene, ücretsiz araç önce. Hedefi aşman gerekse bile işi YARIM BIRAKMA — "
                           "bitir, doğrula, raporla. Hedefi aştıysan raporda nedenini tek satır yaz.")
                 metin += f"\n[ara kayıt] Uzun işte her parça sonunda commit ya da .kos/kopru/ara/{ad}.md ilerleme notu yaz; yönetici kesilirse iş buradan sürer."  # d4
+                metin += gorev_yolu_satir(istem)  # NİHAİ-DÜZELT-2 C: görev dosyası MUTLAK yol
                 kesik = DEVAM.pop(ad, None)  # d3: kurtarılan iş transkripti varsa aynı oturumdan sürer
                 sid = kesik or str(uuid.uuid4())
                 if kesik:
