@@ -43,12 +43,16 @@ def secili_dersler(sen, oneriler, k=3):
 
 
 def plan_istemi(sen, dersler):
-    baz = f"İş: {sen['is']}. Daha önce şu nedenle durdu: {sen['neden']}\nAynı hatayı yapmadan işi nasıl yürütürsün? En fazla 4 kısa maddelik plan yaz (toplam 80 kelime)."
+    # neden istemde YOK (OGRENME-2G): nedeni veren istem derssiz kolu da 2 puana çıkarıyordu (tavan etkisi, fark ~0); neden yalnız yargıçta
+    baz = f"İş: {sen['is']}. Bu iş daha önce yarıda kaldı.\nAynı hatayı yapmadan işi nasıl yürütürsün? En fazla 4 kısa maddelik plan yaz (toplam 80 kelime)."
     return (("Öğrenilmiş dersler:\n" + "\n".join("- " + d for d in dersler) + "\n\n") if dersler else "") + baz
 
 
 def puanla(sen, plan, sor, haric_aile):
-    istem = f"Durma nedeni: {sen['neden']}\nPlan:\n{plan[:1200]}\nPlan bu nedeni açıkça önlüyor mu? Yalnız bir rakam yaz: 0 (hayır) 1 (kısmen) 2 (evet)."
+    # sıkı ölçek (OGRENME-2G): "açıkça önlüyor mu" genel tavsiyeye ("doğrula, kontrol et") da 2 veriyordu → derssiz/dersli 20/20 aynı 2
+    istem = (f"Durma nedeni: {sen['neden']}\nPlan:\n{plan[:1200]}\nPlan bu nedene ÖZGÜ somut bir önlem içeriyor mu? "
+             "2 = nedenin kendisine (komut, araç, dosya, koşul) değinen somut adım; 1 = ilgili ama genel; 0 = genel iyi pratik (doğrula, test et, planla) ya da alakasız. "
+             "Genel tavsiye en çok 1 alır. Yalnız bir rakam yaz: 0, 1 ya da 2.")
     y, _ = sor("hakem", istem, 60, rotasyon=False, haric_aile=haric_aile)
     if not y:  # havuzda başka aile canlı değilse (yalnız mistral cevap veriyordu) 20/20 puansız kalıyordu → aynı aileden yargıç, sayılır
         y, _ = sor("hakem", istem, 60, rotasyon=False)
