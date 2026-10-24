@@ -541,6 +541,95 @@ def test_yenile_et_kilidi_birakir_ve_execv(tmp_path, monkeypatch):
     assert exe == sys.executable and argv[0] == sys.executable and not kilit_var
 
 
+def test_yenile_hazir_calisan_beklemez_yeniden_en_cok_5_dk():
+    """YONETICI-YENILE-2: uzun çalışan ajan yenilemeyi tutmaz (yeni yönetici devralır); bekleyen yeniden deneme en çok 5 dk tutar."""
+    assert ajan_sira.yenile_hazir([], 1000.0, 1000.0)
+    assert not ajan_sira.yenile_hazir([("is-r",)], 1000.0, 1000.0 + 299)
+    assert ajan_sira.yenile_hazir([("is-r",)], 1000.0, 1000.0 + 300)
+
+
+def test_devralinan_poll_pid_olunce_sonuca_gore_rc(tmp_path, monkeypatch):
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    canli = [True]
+    monkeypatch.setattr(ajan_sira, "claude_sureci", lambda pid, t: canli[0])
+    p = ajan_sira.Devralinan("is-d", 4242, 0.0)
+    assert p.poll() is None and p.pid == 4242
+    canli[0] = False
+    (tmp_path / "is-d.json").write_text('{"type": "result"}\n', encoding="utf-8")
+    assert p.poll() == 0 and p.returncode == 0
+    (tmp_path / "is-d.json").write_text("", encoding="utf-8")
+    assert ajan_sira.Devralinan("is-d", 4242, 0.0).poll() == 1
+
+
+class _Dur(Exception):
+    pass
+
+
+def _main_ortam(tmp_path, monkeypatch, canli):
+    """main()'i gerçek kuyruk/çıktı klasörüyle (tmp) sürer; uyku çağrısında _Dur fırlatır. canli[0]=False → devralınan ajan ölür."""
+    kuyruk = tmp_path / "ajan-sira.tsv"
+    kuyruk.write_text("is-d\tg.md\t\tefor=medium\n", encoding="utf-8")
+    (tmp_path / "g.md").write_text("x", encoding="utf-8")
+    (tmp_path / "is-d.basladi").write_text("12:00:00 pid 4242 sid abc", encoding="utf-8")
+    (tmp_path / "is-d.json").write_text("", encoding="utf-8")
+    satirlar = []
+
+    def log(*a):
+        satirlar.append(" ".join(map(str, a)))
+        if a and a[0] == "DEVRAL":
+            canli[0] = False  # devralma yapıldı → ajan şimdi ölsün; BİTTİ yeni yöneticide yazılmalı
+    for ad, deger in {"CIKTI": tmp_path, "KUYRUK": kuyruk, "KOK": tmp_path, "DUR": tmp_path / "dur"}.items():
+        monkeypatch.setattr(ajan_sira, ad, deger)
+    monkeypatch.setattr(ajan_sira, "log", log)
+    monkeypatch.setattr(ajan_sira, "kilit_al", lambda: True)
+    monkeypatch.setattr(ajan_sira, "claude_sureci", lambda pid, t: canli[0])
+    monkeypatch.setattr(ajan_sira, "pid_canli", lambda pid: canli[0])
+    monkeypatch.setattr(ajan_sira, "ram_bekle", lambda c: None)
+    monkeypatch.setattr(ajan_sira, "nihai_bitis", lambda *a: [])
+    monkeypatch.setattr(ajan_sira, "ram", lambda: 10)
+    monkeypatch.setattr(ajan_sira, "yenile_karar", lambda *a: (None, {}, []))
+    monkeypatch.setattr(ajan_sira.arka_istek, "isle", lambda log=None: None)
+    monkeypatch.setattr(ajan_sira.zorunlu_arac, "denetle", lambda ad: None)
+    monkeypatch.setattr(ajan_sira.subprocess, "Popen", lambda *a, **k: None)
+    kayit = []
+    monkeypatch.setattr(ajan_sira, "is_kaydi", lambda *a: kayit.append(a) or True)
+    monkeypatch.setitem(sys.modules, "yarim_bekci", type("Y", (), {"calistir": staticmethod(lambda K, KOK: (0, []))}))
+    import beyin_dusun
+    monkeypatch.setattr(beyin_dusun, "ara_olay", lambda *a: None)
+    monkeypatch.setattr(beyin_dusun, "bekci", lambda n: None)
+
+    def uyku(_):
+        raise _Dur
+    monkeypatch.setattr(ajan_sira.time, "sleep", uyku)
+    return satirlar, kayit
+
+
+def test_main_yonetici_yenilenince_calisan_ajan_devralinir_ve_bitti_yazilir(tmp_path, monkeypatch):
+    """YONETICI-YENILE-2: .basladi'sı canlı ajan yeni yöneticide calisan'a girer; ölünce BİTTİ + iş kaydı yeni yöneticide yazılır."""
+    canli = [True]
+    satirlar, kayit = _main_ortam(tmp_path, monkeypatch, canli)
+    with pytest.raises(_Dur):
+        ajan_sira.main()
+    assert any(s.startswith("DEVRAL is-d") for s in satirlar)
+    assert any(s.startswith("BİTTİ is-d") for s in satirlar) and [k[0] for k in kayit] == ["is-d"]
+
+
+def test_main_yenile_calisan_ajan_varken_hemen_yenilenir(tmp_path, monkeypatch):
+    canli = [True]
+    _main_ortam(tmp_path, monkeypatch, canli)
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: None)  # DEVRAL kancası kapalı: ajan yenileme anında canlı
+    monkeypatch.setattr(ajan_sira, "yenile_karar", lambda *a: ("yenile", {"x.py": 1.0}, []))
+    yenilendi = []
+
+    def yenile_et(degisen):
+        yenilendi.append(degisen)
+        raise _Dur
+    monkeypatch.setattr(ajan_sira, "yenile_et", yenile_et)
+    with pytest.raises(_Dur):
+        ajan_sira.main()
+    assert yenilendi and canli[0]
+
+
 def test_ram_kesti_isareti_bir_kez_tuketilir(tmp_path, monkeypatch):
     monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
     assert not ajan_sira.ram_kesti_al("is-a")

@@ -5,7 +5,7 @@ Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) me
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
   python arka.py .kos/kopru/ajan-sira.log .kos/kopru/ajan_sira.py"""
-import atexit, ctypes, json, os, re, subprocess, sys, tempfile, time, uuid
+import atexit, ctypes, io, json, os, re, subprocess, sys, tempfile, time, uuid
 from pathlib import Path
 
 import maliyet_defter  # maliyet.tsv: biten her iş + haftalık Haiku-zayıf türler (merdiven başlangıcı)
@@ -420,6 +420,44 @@ def yenile_karar(ilk, onceki, simdi=None):
     return ("alarm" if hatalar else "yenile"), degisen, hatalar
 
 
+YENILE_BEKLE_SN = 300  # YONETICI-YENILE-2: bekleyen yeniden denemeler yenilemeyi en çok bu kadar tutar
+
+
+def yenile_hazir(yeniden, yenile_t0, simdi):
+    """Çalışan ajanlar yenilemeyi tutmaz (yeni yönetici .basladi'dan devralır, devral); yalnız bellekteki yeniden denemeler tutar, en çok YENILE_BEKLE_SN."""
+    return not yeniden or simdi - yenile_t0 >= YENILE_BEKLE_SN
+
+
+class Devralinan:
+    """Eski yöneticinin başlattığı, hâlâ koşan ajan: Popen yerine pid ile izlenir (poll/pid/returncode). rc yalnız sonuç satırından çıkarılır."""
+
+    def __init__(self, ad, pid, basladi):
+        self.ad, self.pid, self.basladi, self.returncode = ad, int(pid), basladi, None
+
+    def poll(self):
+        if self.returncode is None and not claude_sureci(self.pid, self.basladi):
+            self.returncode = 0 if sonuc_var(self.ad) else 1
+        return self.returncode
+
+
+def devral(calisan, satirlar):
+    """YONETICI-YENILE-2: .basladi'sı canlı, sonucu olmayan, kuyrukta satırı olan ajanları calisan'a alır → BİTTİ/iş kaydı/denetim yeni yöneticide yazılır.
+    satirlar = kuyruk() satırları. Üst basamak yeniden denemesi yok (bas=None)."""
+    for ad, istem, kosul, efor, model, _, cwd in satirlar:
+        f = CIKTI / f"{ad}.basladi"
+        if ad in calisan or not f.exists() or sonuc_var(ad):
+            continue
+        p = f.read_text(encoding="utf-8", errors="replace").split()
+        if not (len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and claude_sureci(p[2], f.stat().st_mtime)):
+            continue
+        try:
+            butce = butce_bul((KOK / istem).read_text(encoding="utf-8"))
+        except OSError:
+            butce = None
+        calisan[ad] = (Devralinan(ad, p[2], f.stat().st_mtime), f.stat().st_mtime, io.StringIO(), efor, model, None, istem, kosul, cwd, butce)
+        log("DEVRAL", ad, "pid", p[2])
+
+
 def yenile_et(degisen):
     """Kendini yeniden başlatır. os.execv atexit çalıştırmaz → kilit elle bırakılır, kalp atışına çıkış izi yazılır."""
     log("YENİLE", ", ".join(sorted(Path(f).name for f in degisen)))
@@ -701,9 +739,10 @@ def main():
     for f in CIKTI.glob("*.basladi"):
         baslayan.add(f.stem)
     DEVAM.update(kurtar(kuyruk(), baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
+    devral(calisan, kuyruk())  # YONETICI-YENILE-2: yenilemeden önceki yöneticinin hâlâ koşan ajanları izlenmeye devam eder
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
     ara_t, kapi_t, yarim_t = 0.0, {}, 0.0
-    izle, son_degisen, yenile = izlenen_mtime(), {}, False  # YONETICI-YENILE-1: kod değişince çalışanlar bitince kendini yeniler
+    izle, son_degisen, yenile, yenile_t0 = izlenen_mtime(), {}, False, 0.0  # YONETICI-YENILE-1: kod değişince kendini yeniler; çalışanları yeni yönetici devralır (YENILE-2)
     while True:
         if time.time() - ara_t >= ARA_ARALIK:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
             ara_t = time.time()
@@ -775,9 +814,9 @@ def main():
             except Exception:
                 pass
         elif karar == "yenile":
-            yenile = True
-            log("YENİLE BEKLE", ", ".join(sorted(Path(f).name for f in son_degisen)), f"· çalışan {len(calisan)} · bekleyen deneme {len(yeniden)} · yeni iş başlamıyor")
-        if yenile and not calisan and not yeniden:
+            yenile, yenile_t0 = True, yenile_t0 if yenile else time.time()
+            log("YENİLE BEKLE", ", ".join(sorted(Path(f).name for f in son_degisen)), f"· çalışan {len(calisan)} (yeni yönetici devralır) · bekleyen deneme {len(yeniden)}")
+        if yenile and yenile_hazir(yeniden, yenile_t0, time.time()):
             try:
                 yenile_et(son_degisen)
             except OSError as e:  # execv başarısız: kilidi geri al, eski kodla sürdür
