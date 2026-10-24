@@ -1,0 +1,23 @@
+{
+ "tohum": 24101,
+ "isaretli_kayit": 2157,
+ "TR->EN": {
+  "n": 40,
+  "isabet": 0.225,
+  "sn": 0.0446,
+  "havuz": 1085,
+  "atlanan": 0
+ },
+ "EN->TR": {
+  "n": 40,
+  "isabet": 0.425,
+  "sn": 0.2412,
+  "havuz": 1072,
+  "atlanan": 0
+ },
+ "anahtar": {
+  "n": 77,
+  "isabet": 0.961,
+  "sn": 0.078
+ }
+}
