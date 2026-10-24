@@ -1,263 +1,263 @@
-ad	kaynak	durum	boyut	tarama	site
-ECC-Tools/ECC-website	-	bulunamadi	-	gh repo view basarisiz	api.ecc.tools
-rit3zh/expo-dy	-	bulunamadi	-	gh repo view basarisiz	before.click
-TestSprite/codercup.ai	-	bulunamadi	-	gh repo view basarisiz	codercup.ai
-apps/google-integrations	-	bulunamadi	-	gh repo view basarisiz	gemini.google.com
-_private/browser	-	bulunamadi	-	gh repo view basarisiz	ghcr.io
-cmc_internal/api	-	bulunamadi	-	gh repo view basarisiz	ghcr.io
-en/billing	-	bulunamadi	-	gh repo view basarisiz	ghcr.io
-enterprise/premium-support	-	bulunamadi	-	gh repo view basarisiz	github.co
-en/github	-	bulunamadi	-	gh repo view basarisiz	github.io
-en/pages	-	bulunamadi	-	gh repo view basarisiz	github.io
-apps/renovate	-	bulunamadi	-	gh repo view basarisiz	gpui.rs
-orgs/highlightjs	-	bulunamadi	-	gh repo view basarisiz	highlightjs.org
-apps/rams-design-review	-	bulunamadi	-	gh repo view basarisiz	rams.ai
-marketplace/rams-design-review	-	bulunamadi	-	gh repo view basarisiz	rams.ai
-sketch-the-art/sketch-the-art	-	bulunamadi	-	gh repo view basarisiz	skecher-ui.com
-orgs/socketio	-	bulunamadi	-	gh repo view basarisiz	socket.io
-identicons/zed.png	-	bulunamadi	-	gh repo view basarisiz	zed.dev
-ajaxorg/ace	github:ajaxorg/ace (site-repo)	indirildi	43MB	gitleaks=0;semgrep_ERROR=1	ace.c9.io
-ajaxorg/ace-builds	github:ajaxorg/ace-builds (site-repo)	indirildi	62MB	gitleaks=0;semgrep_ERROR=0	ace.c9.io
-FirefoxUX/photon	github:FirefoxUX/photon (site-repo)	indirildi	83MB	gitleaks=0;semgrep_ERROR=0	adele.uxpin.com
-appearhere/bloom	github:appearhere/bloom (site-repo)	indirildi	15MB	gitleaks=0;semgrep_ERROR=0	adele.uxpin.com
-auth0/styleguide	github:auth0/styleguide (site-repo)	indirildi	25MB	gitleaks=0;semgrep_ERROR=1	adele.uxpin.com
-msitarzewski/agency-agents	github:msitarzewski/agency-agents (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=2	agencyagents.app
-msitarzewski/agency-agents-app	github:msitarzewski/agency-agents-app (site-repo)	indirildi	16MB	gitleaks=1;semgrep_ERROR=0	agencyagents.app
-JulietaUla/Montserrat	github:JulietaUla/Montserrat	buyuk-ertelendi	1198MB	-	agents.build
-clauseggers/Playfair	github:clauseggers/Playfair	buyuk-ertelendi	1071MB	-	agents.build
-OpenHands/OpenHands	github:OpenHands/OpenHands	buyuk-ertelendi	527MB	-	agentskills.io
-agentskills/agentskills	github:agentskills/agentskills (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	agentskills.io
-autohandai/code-cli	github:autohandai/code-cli (site-repo)	indirildi	43MB	gitleaks=25;semgrep_ERROR=28	agentskills.io
-AgriciDaniel/claude-ads	github:AgriciDaniel/claude-ads (site-repo)	indirildi	5MB	gitleaks=7;semgrep_ERROR=2	agricidaniel.com
-AgriciDaniel/claude-blog	github:AgriciDaniel/claude-blog (site-repo)	indirildi	7MB	gitleaks=2;semgrep_ERROR=0	agricidaniel.com
-AgriciDaniel/claude-obsidian	github:AgriciDaniel/claude-obsidian (site-repo)	indirildi	37MB	gitleaks=0;semgrep_ERROR=0	agricidaniel.com
-AhmadIbrahiim/PResto	github:AhmadIbrahiim/PResto (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	ahmed-ibrahim.com
-AhmadIbrahiim/Website-downloader	github:AhmadIbrahiim/Website-downloader (site-repo)	indirildi	4MB	gitleaks=0;semgrep_ERROR=0	ahmed-ibrahim.com
-AhmadIbrahiim/hiccup	github:AhmadIbrahiim/hiccup (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	ahmed-ibrahim.com
-Xilinx/Vitis_Libraries	github:Xilinx/Vitis_Libraries	buyuk-ertelendi	1054MB	-	amd.com
-emilkowalski/sonner	github:emilkowalski/sonner (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	animations.dev
-emilkowalski/vaul	github:emilkowalski/vaul (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	animations.dev
-affaan-m/ECC	github:affaan-m/ECC (site-repo)	indirildi	57MB	gitleaks=18;semgrep_ERROR=38	api.ecc.tools
-affaan-m/agentshield	github:affaan-m/agentshield (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=9	api.ecc.tools
-Dokploy/dokploy	github:Dokploy/dokploy (site-repo)	indirildi	34MB	gitleaks=0;semgrep_ERROR=16	apps.cansincengiz.me
-astral-sh/ruff	github:astral-sh/ruff (site-repo)	indirildi	218MB	gitleaks=0;semgrep_ERROR=16	astral.sh
-advplyr/audiobookshelf	github:advplyr/audiobookshelf (site-repo)	indirildi	42MB	gitleaks=0;semgrep_ERROR=17	audiobookshelf.org
-mui/base-ui	github:mui/base-ui (site-repo)	indirildi	49MB	gitleaks=0;semgrep_ERROR=1	base-ui.21st.dev
-rit3zh/expo-dynamic-notifications	github:rit3zh/expo-dynamic-notifications (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	before.click
-adityatelange/hugo-PaperMod	github:adityatelange/hugo-PaperMod (site-repo)	indirildi	9MB	gitleaks=0;semgrep_ERROR=0	blog.llamafactory.net
-fla-org/flash-linear-attention	github:fla-org/flash-linear-attention (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=9	blog.llamafactory.net
-hiyouga/LlamaFactory	github:hiyouga/LlamaFactory (site-repo)	indirildi	13MB	gitleaks=2;semgrep_ERROR=13	blog.llamafactory.net
-lexmount/browser-cli-rs	github:lexmount/browser-cli-rs (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=16	browser.lexmount.com
-lexmount/moli	github:lexmount/moli (site-repo)	indirildi	124MB	gitleaks=0;semgrep_ERROR=41	browser.lexmount.com
-lexmount/webfetch-cli-rs	github:lexmount/webfetch-cli-rs (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	browser.lexmount.com
-bramstein/fontfaceobserver	github:bramstein/fontfaceobserver (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	buzzsumo.com
-taylorhakes/promise-polyfill	github:taylorhakes/promise-polyfill (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	buzzsumo.com
-newrelic/newrelic-browser-agent	github:newrelic/newrelic-browser-agent (site-repo)	indirildi	32MB	gitleaks=0;semgrep_ERROR=0	canirank.com
-DavidHDev/canvas-ui	github:DavidHDev/canvas-ui (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	canvasui.dev
-VoltAgent/awesome-agent-skills	github:VoltAgent/awesome-agent-skills (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	casky.ai
-mukul975/Anthropic-Cybersecurity-Skills	github:mukul975/Anthropic-Cybersecurity-Skills (site-repo)	indirildi	12MB	gitleaks=71;semgrep_ERROR=171	casky.ai
-caronc/apprise	github:caronc/apprise (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	changedetection.io
-dgtlmoon/changedetection.io	github:dgtlmoon/changedetection.io (site-repo)	indirildi	49MB	gitleaks=41;semgrep_ERROR=75	changedetection.io
-TestSprite/CoderCup	github:TestSprite/CoderCup (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=1	codercup.ai
-RedHat-UX/red-hat-design-system	github:RedHat-UX/red-hat-design-system	buyuk-ertelendi	1085MB	-	component.gallery
-ariakit/ariakit	github:ariakit/ariakit (site-repo)	indirildi	381MB	gitleaks=0;semgrep_ERROR=16	component.gallery
-elastic/eui	github:elastic/eui	buyuk-ertelendi	1395MB	-	component.gallery
-harshjdhv/componentry	github:harshjdhv/componentry (site-repo)	indirildi	61MB	gitleaks=0;semgrep_ERROR=1	componentry.dev
-vercel/components.build	github:vercel/components.build (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	components.build
-ComposioHQ/composio	github:ComposioHQ/composio (site-repo)	indirildi	462MB	gitleaks=83;semgrep_ERROR=10	composio.dev
-hummingbot/condor	github:hummingbot/condor (site-repo)	indirildi	18MB	gitleaks=6;semgrep_ERROR=2	condor.hummingbot.org
-hummingbot/condor-docs	github:hummingbot/condor-docs (site-repo)	indirildi	25MB	gitleaks=44;semgrep_ERROR=0	condor.hummingbot.org
-pacocoursey/next-themes	github:pacocoursey/next-themes (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	condor.hummingbot.org
-anomalyco/opencode	github:anomalyco/opencode	buyuk-ertelendi	580MB	-	context7.com
-better-auth/better-auth	github:better-auth/better-auth (site-repo)	indirildi	162MB	gitleaks=0;semgrep_ERROR=0	context7.com
-cloudflare/cloudflare-docs	github:cloudflare/cloudflare-docs	buyuk-ertelendi	1450MB	-	context7.com
-gustavo-fior/craft	github:gustavo-fior/craft (site-repo)	indirildi	7MB	gitleaks=0;semgrep_ERROR=0	craft.gustavofior.com
-nolly-studio/cult-ui	github:nolly-studio/cult-ui (site-repo)	indirildi	216MB	gitleaks=0;semgrep_ERROR=0	cult-ui.com
-anthropics/claude-code	github:anthropics/claude-code (site-repo)	indirildi	32MB	gitleaks=0;semgrep_ERROR=0	cultofclaude.com
-iannuttall/claude-agents	github:iannuttall/claude-agents (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	cultofclaude.com
-agent-infra/sandbox	github:agent-infra/sandbox (site-repo)	indirildi	41MB	gitleaks=8;semgrep_ERROR=12	deerflow.tech
-bytedance/deer-flow	github:bytedance/deer-flow (site-repo)	indirildi	89MB	gitleaks=33;semgrep_ERROR=40	deerflow.tech
-telegramdesktop/tdesktop	github:telegramdesktop/tdesktop (site-repo)	indirildi	303MB	gitleaks=5;semgrep_ERROR=7	desktop.telegram.org
-NVIDIA-NeMo/Gym	github:NVIDIA-NeMo/Gym (site-repo)	indirildi	148MB	gitleaks=51;semgrep_ERROR=67	developer.nvidia.com
-ai-dynamo/dynamo	github:ai-dynamo/dynamo	buyuk-ertelendi	822MB	-	developer.nvidia.com
-triton-inference-server/server	github:triton-inference-server/server (site-repo)	indirildi	39MB	gitleaks=1;semgrep_ERROR=3	developer.nvidia.com
-headroomlabs-ai/headroom	github:headroomlabs-ai/headroom (site-repo)	indirildi	93MB	gitleaks=0;semgrep_ERROR=0	docs.headroomlabs.ai
-barbagroup/CFDPython	github:barbagroup/CFDPython (site-repo)	indirildi	24MB	gitleaks=0;semgrep_ERROR=0	docs.nvidia.com
-nv-legate/legate	github:nv-legate/legate (site-repo)	indirildi	132MB	gitleaks=0;semgrep_ERROR=64	docs.nvidia.com
-usestrix/strix	github:usestrix/strix (site-repo)	indirildi	16MB	gitleaks=2;semgrep_ERROR=0	docs.strix.ai
-electron/electron	github:electron/electron (site-repo)	indirildi	221MB	gitleaks=0;semgrep_ERROR=0	electronjs.org
-electron/fiddle	github:electron/fiddle (site-repo)	indirildi	66MB	gitleaks=1;semgrep_ERROR=1	electronjs.org
-electron/forge	github:electron/forge (site-repo)	indirildi	82MB	gitleaks=0;semgrep_ERROR=4	electronjs.org
-exercism/exercism	github:exercism/exercism (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	exercism.org
-danielpetho/fancy	github:danielpetho/fancy (site-repo)	indirildi	2MB	gitleaks=1;semgrep_ERROR=1	fancycomponents.dev
-alisadiq-ai/favstash-ai-video-editing-skills	github:alisadiq-ai/favstash-ai-video-editing-skills (site-repo)	indirildi	3MB	gitleaks=0;semgrep_ERROR=4	favstash.app
-polius/FileSync	github:polius/FileSync (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=1	filesync.app
-firecrawl/firecrawl	github:firecrawl/firecrawl (site-repo)	indirildi	182MB	gitleaks=33;semgrep_ERROR=13	firecrawl.dev
-Jack000/fontjoy	github:Jack000/fontjoy (site-repo)	indirildi	29MB	gitleaks=0;semgrep_ERROR=0	fontjoy.com
-ripienaar/free-for-dev	github:ripienaar/free-for-dev (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=0	free-for.dev
-freeCodeCamp/freeCodeCamp.github.io	github:freeCodeCamp/freeCodeCamp.github.io (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	freecodecamp.github.io
-tashfeenahmed/freellmapi	github:tashfeenahmed/freellmapi (site-repo)	indirildi	23MB	gitleaks=50;semgrep_ERROR=3	freellmapi.co
-game-icons/icons	github:game-icons/icons (site-repo)	indirildi	4MB	gitleaks=0;semgrep_ERROR=0	game-icons.net
-google-gemini/gemini-cli	github:google-gemini/gemini-cli (site-repo)	indirildi	101MB	gitleaks=11;semgrep_ERROR=94	geminicli.com
-storytold/artcraft	github:storytold/artcraft	buyuk-ertelendi	1342MB	-	getartcraft.com
-twbs/bootstrap	github:twbs/bootstrap (site-repo)	indirildi	320MB	gitleaks=0;semgrep_ERROR=0	getbootstrap.com
-twbs/examples	github:twbs/examples (site-repo)	indirildi	10MB	gitleaks=0;semgrep_ERROR=0	getbootstrap.com
-twbs/icons	github:twbs/icons	indirilemedi	74MB		getbootstrap.com
-coderamp-labs/gitingest	github:coderamp-labs/gitingest (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=2	gitingest.com
-excalidraw/excalidraw	github:excalidraw/excalidraw (site-repo)	indirildi	106MB	gitleaks=5;semgrep_ERROR=5	gitingest.com
-fastapi/fastapi	github:fastapi/fastapi (site-repo)	indirildi	54MB	gitleaks=21;semgrep_ERROR=19	gitingest.com
-gkurt/tegaki	github:gkurt/tegaki (site-repo)	indirildi	48MB	gitleaks=0;semgrep_ERROR=1	gkurt.com
-elder-plinius/L1B3RT4S	github:elder-plinius/L1B3RT4S	indirilemedi	1MB		godmod3.ai
-Azure/azure-sdk-for-go	github:Azure/azure-sdk-for-go (site-repo)	indirildi	456MB	gitleaks=243;semgrep_ERROR=0	golang.org
-chzyer/readline	github:chzyer/readline (site-repo)	indirildi	3MB	gitleaks=0;semgrep_ERROR=0	golang.org
-elastic/go-elasticsearch	github:elastic/go-elasticsearch (site-repo)	indirildi	127MB	gitleaks=0;semgrep_ERROR=0	golang.org
-google/fonts	github:google/fonts	buyuk-ertelendi	3262MB	-	googlefonts.github.io
-googlefonts/googlefonts.github.io	github:googlefonts/googlefonts.github.io (site-repo)	indirildi	28MB	gitleaks=0;semgrep_ERROR=0	googlefonts.github.io
-aaif-goose/goose	github:aaif-goose/goose	buyuk-ertelendi	964MB	-	goose-docs.ai
-zed-industries/zed	github:zed-industries/zed	buyuk-ertelendi	536MB	-	gpui.rs
-Graphify-Labs/graphify	github:Graphify-Labs/graphify (site-repo)	indirildi	31MB	gitleaks=0;semgrep_ERROR=0	graphify.com
-lucasrosati/claude-code-memory-setup	github:lucasrosati/claude-code-memory-setup (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	graphify.com
-greensock/GSAP	github:greensock/GSAP (site-repo)	indirildi	14MB	gitleaks=0;semgrep_ERROR=0	gsap.com
-lucasmarkes/hairline	github:lucasmarkes/hairline (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=1	hairline.lucasmarkes.com
-herdrdev/herdr	github:herdrdev/herdr (site-repo)	indirildi	47MB	gitleaks=7;semgrep_ERROR=3	herdr.dev
-highlightjs/highlight.js	github:highlightjs/highlight.js (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=2	highlightjs.org
-highlightjs/highlightjs.org	github:highlightjs/highlightjs.org (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	highlightjs.org
-vectorize-io/hindsight	github:vectorize-io/hindsight	buyuk-ertelendi	803MB	-	hindsight.vectorize.io
-deepseek-ai/DeepInfer	github:deepseek-ai/DeepInfer (site-repo)	indirildi	2MB	gitleaks=1;semgrep_ERROR=0	hitlistai.com
-coogie/oscailte	github:coogie/oscailte (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=0	home-assistant.io
-xroche/httrack	github:xroche/httrack (site-repo)	indirildi	44MB	gitleaks=0;semgrep_ERROR=0	httrack.com
-hummingbot/gateway	github:hummingbot/gateway (site-repo)	indirildi	51MB	gitleaks=0;semgrep_ERROR=0	hummingbot.org
-hummingbot/hummingbot	github:hummingbot/hummingbot	buyuk-ertelendi	554MB	-	hummingbot.org
-badges/awesome-badges	github:badges/awesome-badges (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	img.shields.io
-badges/endpoint-badges-directory	github:badges/endpoint-badges-directory (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	img.shields.io
-badges/shields	github:badges/shields	buyuk-ertelendi	519MB	-	img.shields.io
-pbakaus/impeccable	github:pbakaus/impeccable	buyuk-ertelendi	756MB	-	impeccable.style
-InsForge/InsForge	github:InsForge/InsForge (site-repo)	indirildi	150MB	gitleaks=360;semgrep_ERROR=3	insforge.dev
-Javis603/Discord-AIBot	github:Javis603/Discord-AIBot (site-repo)	indirildi	85MB	gitleaks=0;semgrep_ERROR=0	javis-ai.com
-Javis603/token-monitor	github:Javis603/token-monitor (site-repo)	indirildi	72MB	gitleaks=5;semgrep_ERROR=1	javis-ai.com
-AppitStudio/awesome-jev	github:AppitStudio/awesome-jev (site-repo)	indirildi	14MB	gitleaks=0;semgrep_ERROR=0	jevlist.ai
-jquery/jquery	github:jquery/jquery (site-repo)	indirildi	35MB	gitleaks=0;semgrep_ERROR=2	jquery.com
-Dither/readable-javascript	github:Dither/readable-javascript (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	jsbeautifier.org
-HookyQR/VSCodeBeautify	github:HookyQR/VSCodeBeautify (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	jsbeautifier.org
-MakingOddEdit/CodeBeautify	github:MakingOddEdit/CodeBeautify (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	jsbeautifier.org
-karakeep-app/karakeep	github:karakeep-app/karakeep (site-repo)	indirildi	102MB	gitleaks=236;semgrep_ERROR=14	karakeep.app
-kokonut-labs/kokonutui	github:kokonut-labs/kokonutui (site-repo)	indirildi	111MB	gitleaks=0;semgrep_ERROR=0	kokonutui.com
-darkroomengineering/lenis	github:darkroomengineering/lenis (site-repo)	indirildi	10MB	gitleaks=0;semgrep_ERROR=0	lenis.dev
-locomotivemtl/locomotive-scroll	github:locomotivemtl/locomotive-scroll (site-repo)	indirildi	13MB	gitleaks=1;semgrep_ERROR=1	lenis.dev
-Jakubantalik/Libraries.dev	github:Jakubantalik/Libraries.dev (site-repo)	indirildi	112MB	gitleaks=0;semgrep_ERROR=3	libraries.dev
-LibreChat-AI/LibreChat	github:LibreChat-AI/LibreChat (site-repo)	indirildi	279MB	gitleaks=33;semgrep_ERROR=57	librechat.ai
-knadh/listmonk	github:knadh/listmonk (site-repo)	indirildi	52MB	gitleaks=27;semgrep_ERROR=8	listmonk.app
-pradyunsg/furo	github:pradyunsg/furo (site-repo)	indirildi	8MB	gitleaks=0;semgrep_ERROR=0	llamafactory.readthedocs.io
-GGUFloader/gguf-loader	github:GGUFloader/gguf-loader (site-repo)	indirildi	114MB	gitleaks=0;semgrep_ERROR=13	local-ai-zone.github.io
-PurpleDoubleD/locally-uncensored	github:PurpleDoubleD/locally-uncensored (site-repo)	indirildi	57MB	gitleaks=12;semgrep_ERROR=30	locallyuncensored.com
-necolas/normalize.css	github:necolas/normalize.css (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	locomotive.ca
-lucide-icons/lucide	github:lucide-icons/lucide (site-repo)	indirildi	26MB	gitleaks=1;semgrep_ERROR=5	lucide.dev
-overtake/TelegramSwift	github:overtake/TelegramSwift (site-repo)	indirildi	406MB	gitleaks=16;semgrep_ERROR=0	macos.telegram.org
-chatmcp/mcpso	github:chatmcp/mcpso (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	mcp.so
-mobile-next/Milliways	github:mobile-next/Milliways (site-repo)	indirildi	28MB	gitleaks=0;semgrep_ERROR=0	mobilenext.ai
-mobile-next/mobile-mcp	github:mobile-next/mobile-mcp (site-repo)	indirildi	3MB	gitleaks=1;semgrep_ERROR=0	mobilenext.ai
-mobile-next/mobilecli	github:mobile-next/mobilecli (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=13	mobilenext.ai
-motion-canvas/examples	github:motion-canvas/examples (site-repo)	indirildi	92MB	gitleaks=0;semgrep_ERROR=0	motion-canvas.io
-motion-canvas/motion-canvas	github:motion-canvas/motion-canvas (site-repo)	indirildi	10MB	gitleaks=1;semgrep_ERROR=2	motion-canvas.io
-motiondivision/motion	github:motiondivision/motion	buyuk-ertelendi	1627MB	-	motion.dev
-czlonkowski/n8n-mcp	github:czlonkowski/n8n-mcp	buyuk-ertelendi	1072MB	-	n8n-skills.com
-czlonkowski/n8n-skills	github:czlonkowski/n8n-skills (site-repo)	indirildi	5MB	gitleaks=2;semgrep_ERROR=0	n8n-skills.com
-nautechsystems/nautilus_trader	github:nautechsystems/nautilus_trader (site-repo)	indirildi	291MB	gitleaks=2;semgrep_ERROR=113	nautilustrader.io
-relumetech/powerups	github:relumetech/powerups (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	navbar.gallery
-Checkmk/checkmk	github:Checkmk/checkmk	buyuk-ertelendi	6726MB	-	networkchuck.com
-NousResearch/hermes-agent	github:NousResearch/hermes-agent	buyuk-ertelendi	1272MB	-	networkchuck.com
-megadose/holehe	github:megadose/holehe (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	networkchuck.com
-nodejs/node	github:nodejs/node	buyuk-ertelendi	1616MB	-	nodejs.org
-AbdelStark/jev-benchmarks	github:AbdelStark/jev-benchmarks (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	ollaya.dev
-bespokelabsai/nimble	github:bespokelabsai/nimble (site-repo)	indirildi	6MB	gitleaks=7;semgrep_ERROR=0	ollaya.dev
-ollaya-dev/ollaya	github:ollaya-dev/ollaya (site-repo)	indirildi	4MB	gitleaks=6;semgrep_ERROR=4	ollaya.dev
-ETroll/omarchy-airplay	github:ETroll/omarchy-airplay (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	omarchy.org
-earendil-works/pi	github:earendil-works/pi (site-repo)	indirildi	85MB	gitleaks=0;semgrep_ERROR=28	omarchy.org
-can1357/oh-my-pi	github:can1357/oh-my-pi	buyuk-ertelendi	704MB	-	omarchy.org
-BerriAI/litellm	github:BerriAI/litellm	buyuk-ertelendi	2555MB	-	omniroute.online
-decolua/9router	github:decolua/9router (site-repo)	indirildi	17MB	gitleaks=56;semgrep_ERROR=42	omniroute.online
-diegosouzapw/OmniCopilot	github:diegosouzapw/OmniCopilot (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	omniroute.online
-krillinai/OpenCreator	github:krillinai/OpenCreator (site-repo)	indirildi	390MB	gitleaks=4;semgrep_ERROR=38	open-creator.ai
-nexu-io/open-design	github:nexu-io/open-design	buyuk-ertelendi	3484MB	-	open-design.ai
-Open-LLM-VTuber/Open-LLM-VTuber	github:Open-LLM-VTuber/Open-LLM-VTuber (site-repo)	indirildi	45MB	gitleaks=0;semgrep_ERROR=8	open-llm-vtuber.github.io
-lfnovo/open-notebook	github:lfnovo/open-notebook (site-repo)	indirildi	14MB	gitleaks=6;semgrep_ERROR=32	open-notebook.ai
-OpenBMB/MiniCPM-V	github:OpenBMB/MiniCPM-V	buyuk-ertelendi	796MB	-	openbmb.github.io
-OpenClaudia/openclaudia-skills	github:OpenClaudia/openclaudia-skills (site-repo)	indirildi	3MB	gitleaks=7;semgrep_ERROR=0	openclaudia.com
-OpenCut-app/OpenCut	github:OpenCut-app/OpenCut (site-repo)	indirildi	27MB	gitleaks=0;semgrep_ERROR=1	opencut.app
-openjs-foundation/ai-working-group	github:openjs-foundation/ai-working-group (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	openjsf.org
-openjs-foundation/cross-project-council	github:openjs-foundation/cross-project-council (site-repo)	indirildi	11MB	gitleaks=0;semgrep_ERROR=0	openjsf.org
-openjs-foundation/package-metadata-interoperability-working-group	github:openjs-foundation/package-metadata-interoperability-working-group (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	openjsf.org
-alphaXiv/OpenResearch	github:alphaXiv/OpenResearch (site-repo)	indirildi	219MB	gitleaks=2;semgrep_ERROR=17	openresearch.sh
-every-app/open-seo	github:every-app/open-seo (site-repo)	indirildi	32MB	gitleaks=4;semgrep_ERROR=0	openseo.so
-oblien/openship	github:oblien/openship (site-repo)	indirildi	146MB	gitleaks=34;semgrep_ERROR=30	openship.io
-adobe-fonts/source-sans	github:adobe-fonts/source-sans (site-repo)	indirildi	277MB	gitleaks=0;semgrep_ERROR=0	opensource.adobe.com
-open-webui/open-webui	github:open-webui/open-webui (site-repo)	indirildi	494MB	gitleaks=1;semgrep_ERROR=41	openwebui.com
-penpot/penpot	github:penpot/penpot (site-repo)	indirildi	415MB	gitleaks=1;semgrep_ERROR=6	penpot.app
-photopea/photopea	github:photopea/photopea (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	photopea.com
-gitroomhq/postiz-app	github:gitroomhq/postiz-app (site-repo)	indirildi	61MB	gitleaks=23;semgrep_ERROR=5	postiz.com
-ChromeDevTools/chrome-devtools-mcp	github:ChromeDevTools/chrome-devtools-mcp (site-repo)	indirildi	26MB	gitleaks=2;semgrep_ERROR=2	pptr.dev
-npm/rfcs	github:npm/rfcs (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	pptr.dev
-puppeteer/puppeteer	github:puppeteer/puppeteer	buyuk-ertelendi	1558MB	-	pptr.dev
-Crosstalk-Solutions/project-nomad	github:Crosstalk-Solutions/project-nomad (site-repo)	indirildi	16MB	gitleaks=1;semgrep_ERROR=5	projectnomad.us
-python/cpython	github:python/cpython	buyuk-ertelendi	876MB	-	python.org
-python/pythondotorg	github:python/pythondotorg (site-repo)	indirildi	27MB	gitleaks=0;semgrep_ERROR=1	python.org
-pmndrs/leva	github:pmndrs/leva (site-repo)	indirildi	10MB	gitleaks=0;semgrep_ERROR=0	react-spring.dev
-pmndrs/react-spring	github:pmndrs/react-spring	buyuk-ertelendi	654MB	-	react-spring.dev
-pmndrs/react-three-fiber	github:pmndrs/react-three-fiber (site-repo)	indirildi	30MB	gitleaks=0;semgrep_ERROR=0	react-spring.dev
-DavidHDev/react-bits	github:DavidHDev/react-bits (site-repo)	indirildi	364MB	gitleaks=1;semgrep_ERROR=10	reactbits.dev
-juxtopposed/realtimecolors	github:juxtopposed/realtimecolors (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	realtimecolors.com
-modelcontextprotocol/registry	github:modelcontextprotocol/registry (site-repo)	indirildi	76MB	gitleaks=25;semgrep_ERROR=7	registry.modelcontextprotocol.io
-remotion-dev/remotion	github:remotion-dev/remotion	buyuk-ertelendi	4337MB	-	remotion.dev
-kalil0321/reverse-api-engineer	github:kalil0321/reverse-api-engineer (site-repo)	indirildi	22MB	gitleaks=1;semgrep_ERROR=0	reverseapi.dev
-ROCm/rocm-docs	github:ROCm/rocm-docs (site-repo)	indirildi	118MB	gitleaks=0;semgrep_ERROR=0	rocm.docs.amd.com
-ROCm/rocm-examples	github:ROCm/rocm-examples (site-repo)	indirildi	45MB	gitleaks=3;semgrep_ERROR=9	rocm.docs.amd.com
-amj1994/scrollhaus-free	github:amj1994/scrollhaus-free (site-repo)	indirildi	29MB	gitleaks=0;semgrep_ERROR=0	scrollhaus.ai
-CoDesign-Spa27/skecher-ui	github:CoDesign-Spa27/skecher-ui (site-repo)	indirildi	25MB	gitleaks=0;semgrep_ERROR=0	skecher-ui.com
-anthropics/skills	github:anthropics/skills (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=2	skillleaderboard.com
-wheresryan22/anatomy	github:wheresryan22/anatomy (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=1	skills.wheresryan.sh
-2389-research/claude-plugins	github:2389-research/claude-plugins (site-repo)	indirildi	13MB	gitleaks=0;semgrep_ERROR=2	skillsplayground.com
-89jobrien/steve	github:89jobrien/steve (site-repo)	indirildi	2MB	gitleaks=4;semgrep_ERROR=5	skillsplayground.com
-addyosmani/web-quality-skills	github:addyosmani/web-quality-skills (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	skillsplayground.com
-slack-samples/bolt-js-assistant-template	github:slack-samples/bolt-js-assistant-template (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	slack.dev
-socketio/socket.io	github:socketio/socket.io (site-repo)	indirildi	33MB	gitleaks=7;semgrep_ERROR=12	socket.io
-GoogleChromeLabs/squoosh	github:GoogleChromeLabs/squoosh (site-repo)	indirildi	175MB	gitleaks=0;semgrep_ERROR=5	squoosh.app
-stablyai/orca	github:stablyai/orca	buyuk-ertelendi	1553MB	-	stably.ai
-browserbase/stagehand	github:browserbase/stagehand (site-repo)	indirildi	199MB	gitleaks=15;semgrep_ERROR=27	stagehand.dev
-star-history/star-history	github:star-history/star-history (site-repo)	indirildi	159MB	gitleaks=3;semgrep_ERROR=2	star-history.com
-The-Swarm-Corporation/AutoHedge	github:The-Swarm-Corporation/AutoHedge (site-repo)	indirildi	8MB	gitleaks=2;semgrep_ERROR=0	swarms.xyz
-The-Swarm-Corporation/ClawSwarm	github:The-Swarm-Corporation/ClawSwarm (site-repo)	indirildi	0MB	gitleaks=2;semgrep_ERROR=1	swarms.xyz
-kyegomez/swarms	github:kyegomez/swarms (site-repo)	indirildi	185MB	gitleaks=4;semgrep_ERROR=10	swarms.xyz
-syncthing/syncthing	github:syncthing/syncthing (site-repo)	indirildi	124MB	gitleaks=12;semgrep_ERROR=14	syncthing.net
-taigaio/taiga-front	github:taigaio/taiga-front (site-repo)	indirildi	46MB	gitleaks=0;semgrep_ERROR=7	taiga.io
-Leonxlnx/taste-skill	github:Leonxlnx/taste-skill (site-repo)	indirildi	39MB	gitleaks=0;semgrep_ERROR=0	tasteskill.dev
-Leonxlnx/tastecode	github:Leonxlnx/tastecode	buyuk-ertelendi	524MB	-	tasteskill.dev
-TestSprite/testsprite-cli	github:TestSprite/testsprite-cli (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=14	testsprite.com
-jinlabneurogenomics/distributed_agent	github:jinlabneurogenomics/distributed_agent (site-repo)	indirildi	246MB	gitleaks=13;semgrep_ERROR=7	the-decoder.com
-Shubhamsaboo/awesome-llm-apps	github:Shubhamsaboo/awesome-llm-apps (site-repo)	indirildi	216MB	gitleaks=2;semgrep_ERROR=17	theunwindai.com
-threlte/threlte	github:threlte/threlte	buyuk-ertelendi	601MB	-	threlte.xyz
-tinyhumansai/medulla	github:tinyhumansai/medulla (site-repo)	indirildi	9MB	gitleaks=14;semgrep_ERROR=2	tinyhumans.ai
-tinyhumansai/opencompany	github:tinyhumansai/opencompany (site-repo)	indirildi	106MB	gitleaks=10;semgrep_ERROR=4	tinyhumans.ai
-tinyhumansai/openhuman	github:tinyhumansai/openhuman	indirilemedi	423MB		tinyhumans.ai
-tmux/tmux	github:tmux/tmux (site-repo)	indirildi	23MB	gitleaks=0;semgrep_ERROR=0	tmux.sh
-triggerdotdev/trigger.dev	github:triggerdotdev/trigger.dev (site-repo)	indirildi	197MB	gitleaks=112;semgrep_ERROR=15	trigger.dev
-pacifio/atlas	github:pacifio/atlas (site-repo)	indirildi	38MB	gitleaks=41;semgrep_ERROR=14	tryatlas.cc
-twentyhq/twenty	github:twentyhq/twenty	buyuk-ertelendi	2237MB	-	twenty.com
-ibelick/ui-skills	github:ibelick/ui-skills (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=0	ui-skills.com
-kuratlielia/arc-library	github:kuratlielia/arc-library (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	uiarc.dev
-uizze/uizze	github:uizze/uizze (site-repo)	indirildi	3MB	gitleaks=0;semgrep_ERROR=0	uizze.com
-Egonex-AI/Understand-Anything	github:Egonex-AI/Understand-Anything (site-repo)	indirildi	34MB	gitleaks=0;semgrep_ERROR=2	understand-anything.com
-Nutlope/hallmark	github:Nutlope/hallmark (site-repo)	indirildi	227MB	gitleaks=0;semgrep_ERROR=0	usehallmark.com
-raphaelsalaja/userinterface-wiki	github:raphaelsalaja/userinterface-wiki (site-repo)	indirildi	38MB	gitleaks=0;semgrep_ERROR=0	userinterface.wiki
-tengbao/vanta	github:tengbao/vanta (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=0	vantajs.com
-Ashutoshx7/VengeanceUI	github:Ashutoshx7/VengeanceUI (site-repo)	indirildi	79MB	gitleaks=1;semgrep_ERROR=0	vengenceui.com
-BloopAI/vibe-kanban	github:BloopAI/vibe-kanban (site-repo)	indirildi	101MB	gitleaks=2;semgrep_ERROR=27	vibekanban.com
-mdevel-uy/fluke	github:mdevel-uy/fluke (site-repo)	indirildi	116MB	gitleaks=1;semgrep_ERROR=15	vibekanban.com
-HKUDS/Vibe-Trading	github:HKUDS/Vibe-Trading (site-repo)	indirildi	88MB	gitleaks=20;semgrep_ERROR=47	vibetrading.wiki
-vicoa-ai/vicoa	github:vicoa-ai/vicoa (site-repo)	indirildi	49MB	gitleaks=0;semgrep_ERROR=28	vicoa.ai
-airbnb/visx	github:airbnb/visx (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	visx.21st.dev
-jamiepine/voicebox	github:jamiepine/voicebox (site-repo)	indirildi	100MB	gitleaks=0;semgrep_ERROR=8	voicebox.sh
-SouravBeraAkaSpeed/xiryn	github:SouravBeraAkaSpeed/xiryn (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=18	xiryn.com
-zapier/sdk	github:zapier/sdk (site-repo)	indirildi	0MB	gitleaks=1;semgrep_ERROR=0	zapier.com
-zapier/zapier-mcp	github:zapier/zapier-mcp (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	zapier.com
-furkankly/zoetrope	github:furkankly/zoetrope (site-repo)	indirildi	11MB	gitleaks=0;semgrep_ERROR=0	zoetrope.furkankly.dev
-ratatui/ratzilla	github:ratatui/ratzilla (site-repo)	indirildi	13MB	gitleaks=0;semgrep_ERROR=0	zoetrope.furkankly.dev
+ad	kaynak	durum	boyut	tarama	site	kurulum
+ECC-Tools/ECC-website	-	bulunamadi	-	gh repo view basarisiz	api.ecc.tools	kurulamaz: bulunamadi
+rit3zh/expo-dy	-	bulunamadi	-	gh repo view basarisiz	before.click	kurulamaz: bulunamadi
+TestSprite/codercup.ai	-	bulunamadi	-	gh repo view basarisiz	codercup.ai	kurulamaz: bulunamadi
+apps/google-integrations	-	bulunamadi	-	gh repo view basarisiz	gemini.google.com	kurulamaz: bulunamadi
+_private/browser	-	bulunamadi	-	gh repo view basarisiz	ghcr.io	kurulamaz: bulunamadi
+cmc_internal/api	-	bulunamadi	-	gh repo view basarisiz	ghcr.io	kurulamaz: bulunamadi
+en/billing	-	bulunamadi	-	gh repo view basarisiz	ghcr.io	kurulamaz: bulunamadi
+enterprise/premium-support	-	bulunamadi	-	gh repo view basarisiz	github.co	kurulamaz: bulunamadi
+en/github	-	bulunamadi	-	gh repo view basarisiz	github.io	kurulamaz: bulunamadi
+en/pages	-	bulunamadi	-	gh repo view basarisiz	github.io	kurulamaz: bulunamadi
+apps/renovate	-	bulunamadi	-	gh repo view basarisiz	gpui.rs	kurulamaz: bulunamadi
+orgs/highlightjs	-	bulunamadi	-	gh repo view basarisiz	highlightjs.org	kurulamaz: bulunamadi
+apps/rams-design-review	-	bulunamadi	-	gh repo view basarisiz	rams.ai	kurulamaz: bulunamadi
+marketplace/rams-design-review	-	bulunamadi	-	gh repo view basarisiz	rams.ai	kurulamaz: bulunamadi
+sketch-the-art/sketch-the-art	-	bulunamadi	-	gh repo view basarisiz	skecher-ui.com	kurulamaz: bulunamadi
+orgs/socketio	-	bulunamadi	-	gh repo view basarisiz	socket.io	kurulamaz: bulunamadi
+identicons/zed.png	-	bulunamadi	-	gh repo view basarisiz	zed.dev	kurulamaz: bulunamadi
+ajaxorg/ace	github:ajaxorg/ace (site-repo)	indirildi	43MB	gitleaks=0;semgrep_ERROR=1	ace.c9.io	uygun
+ajaxorg/ace-builds	github:ajaxorg/ace-builds (site-repo)	indirildi	62MB	gitleaks=0;semgrep_ERROR=0	ace.c9.io	uygun
+FirefoxUX/photon	github:FirefoxUX/photon (site-repo)	indirildi	83MB	gitleaks=0;semgrep_ERROR=0	adele.uxpin.com	uygun
+appearhere/bloom	github:appearhere/bloom (site-repo)	indirildi	15MB	gitleaks=0;semgrep_ERROR=0	adele.uxpin.com	uygun
+auth0/styleguide	github:auth0/styleguide (site-repo)	indirildi	25MB	gitleaks=0;semgrep_ERROR=1	adele.uxpin.com	uygun
+msitarzewski/agency-agents	github:msitarzewski/agency-agents (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=2	agencyagents.app	uygun
+msitarzewski/agency-agents-app	github:msitarzewski/agency-agents-app (site-repo)	indirildi	16MB	gitleaks=1;semgrep_ERROR=0	agencyagents.app	uygun
+JulietaUla/Montserrat	github:JulietaUla/Montserrat	buyuk-ertelendi	1198MB	-	agents.build	kurulamaz: buyuk-ertelendi
+clauseggers/Playfair	github:clauseggers/Playfair	buyuk-ertelendi	1071MB	-	agents.build	kurulamaz: buyuk-ertelendi
+OpenHands/OpenHands	github:OpenHands/OpenHands	buyuk-ertelendi	527MB	-	agentskills.io	kurulamaz: buyuk-ertelendi
+agentskills/agentskills	github:agentskills/agentskills (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	agentskills.io	uygun
+autohandai/code-cli	github:autohandai/code-cli (site-repo)	indirildi	43MB	gitleaks=25;semgrep_ERROR=28	agentskills.io	uygun
+AgriciDaniel/claude-ads	github:AgriciDaniel/claude-ads (site-repo)	indirildi	5MB	gitleaks=7;semgrep_ERROR=2	agricidaniel.com	uygun
+AgriciDaniel/claude-blog	github:AgriciDaniel/claude-blog (site-repo)	indirildi	7MB	gitleaks=2;semgrep_ERROR=0	agricidaniel.com	uygun
+AgriciDaniel/claude-obsidian	github:AgriciDaniel/claude-obsidian (site-repo)	indirildi	37MB	gitleaks=0;semgrep_ERROR=0	agricidaniel.com	uygun
+AhmadIbrahiim/PResto	github:AhmadIbrahiim/PResto (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	ahmed-ibrahim.com	uygun
+AhmadIbrahiim/Website-downloader	github:AhmadIbrahiim/Website-downloader (site-repo)	indirildi	4MB	gitleaks=0;semgrep_ERROR=0	ahmed-ibrahim.com	uygun
+AhmadIbrahiim/hiccup	github:AhmadIbrahiim/hiccup (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	ahmed-ibrahim.com	uygun
+Xilinx/Vitis_Libraries	github:Xilinx/Vitis_Libraries	buyuk-ertelendi	1054MB	-	amd.com	kurulamaz: buyuk-ertelendi
+emilkowalski/sonner	github:emilkowalski/sonner (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	animations.dev	uygun
+emilkowalski/vaul	github:emilkowalski/vaul (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	animations.dev	uygun
+affaan-m/ECC	github:affaan-m/ECC (site-repo)	indirildi	57MB	gitleaks=18;semgrep_ERROR=38	api.ecc.tools	uygun
+affaan-m/agentshield	github:affaan-m/agentshield (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=9	api.ecc.tools	uygun
+Dokploy/dokploy	github:Dokploy/dokploy (site-repo)	indirildi	34MB	gitleaks=0;semgrep_ERROR=16	apps.cansincengiz.me	uygun (CI kurali yanlis alarm)
+astral-sh/ruff	github:astral-sh/ruff (site-repo)	indirildi	218MB	gitleaks=0;semgrep_ERROR=16	astral.sh	uygun (CI kurali yanlis alarm)
+advplyr/audiobookshelf	github:advplyr/audiobookshelf (site-repo)	indirildi	42MB	gitleaks=0;semgrep_ERROR=17	audiobookshelf.org	uygun
+mui/base-ui	github:mui/base-ui (site-repo)	indirildi	49MB	gitleaks=0;semgrep_ERROR=1	base-ui.21st.dev	uygun
+rit3zh/expo-dynamic-notifications	github:rit3zh/expo-dynamic-notifications (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	before.click	uygun
+adityatelange/hugo-PaperMod	github:adityatelange/hugo-PaperMod (site-repo)	indirildi	9MB	gitleaks=0;semgrep_ERROR=0	blog.llamafactory.net	uygun
+fla-org/flash-linear-attention	github:fla-org/flash-linear-attention (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=9	blog.llamafactory.net	uygun
+hiyouga/LlamaFactory	github:hiyouga/LlamaFactory (site-repo)	indirildi	13MB	gitleaks=2;semgrep_ERROR=13	blog.llamafactory.net	uygun (CI kurali yanlis alarm)
+lexmount/browser-cli-rs	github:lexmount/browser-cli-rs (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=16	browser.lexmount.com	uygun
+lexmount/moli	github:lexmount/moli (site-repo)	indirildi	124MB	gitleaks=0;semgrep_ERROR=41	browser.lexmount.com	uygun
+lexmount/webfetch-cli-rs	github:lexmount/webfetch-cli-rs (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	browser.lexmount.com	uygun
+bramstein/fontfaceobserver	github:bramstein/fontfaceobserver (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	buzzsumo.com	uygun
+taylorhakes/promise-polyfill	github:taylorhakes/promise-polyfill (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	buzzsumo.com	uygun
+newrelic/newrelic-browser-agent	github:newrelic/newrelic-browser-agent (site-repo)	indirildi	32MB	gitleaks=0;semgrep_ERROR=0	canirank.com	uygun
+DavidHDev/canvas-ui	github:DavidHDev/canvas-ui (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	canvasui.dev	uygun
+VoltAgent/awesome-agent-skills	github:VoltAgent/awesome-agent-skills (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	casky.ai	uygun
+mukul975/Anthropic-Cybersecurity-Skills	github:mukul975/Anthropic-Cybersecurity-Skills (site-repo)	indirildi	12MB	gitleaks=71;semgrep_ERROR=171	casky.ai	uygun
+caronc/apprise	github:caronc/apprise (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	changedetection.io	uygun
+dgtlmoon/changedetection.io	github:dgtlmoon/changedetection.io (site-repo)	indirildi	49MB	gitleaks=41;semgrep_ERROR=75	changedetection.io	uygun
+TestSprite/CoderCup	github:TestSprite/CoderCup (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=1	codercup.ai	uygun
+RedHat-UX/red-hat-design-system	github:RedHat-UX/red-hat-design-system	buyuk-ertelendi	1085MB	-	component.gallery	kurulamaz: buyuk-ertelendi
+ariakit/ariakit	github:ariakit/ariakit (site-repo)	indirildi	381MB	gitleaks=0;semgrep_ERROR=16	component.gallery	uygun
+elastic/eui	github:elastic/eui	buyuk-ertelendi	1395MB	-	component.gallery	kurulamaz: buyuk-ertelendi
+harshjdhv/componentry	github:harshjdhv/componentry (site-repo)	indirildi	61MB	gitleaks=0;semgrep_ERROR=1	componentry.dev	uygun
+vercel/components.build	github:vercel/components.build (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	components.build	uygun
+ComposioHQ/composio	github:ComposioHQ/composio (site-repo)	indirildi	462MB	gitleaks=83;semgrep_ERROR=10	composio.dev	uygun (CI kurali yanlis alarm)
+hummingbot/condor	github:hummingbot/condor (site-repo)	indirildi	18MB	gitleaks=6;semgrep_ERROR=2	condor.hummingbot.org	uygun
+hummingbot/condor-docs	github:hummingbot/condor-docs (site-repo)	indirildi	25MB	gitleaks=44;semgrep_ERROR=0	condor.hummingbot.org	uygun
+pacocoursey/next-themes	github:pacocoursey/next-themes (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	condor.hummingbot.org	uygun
+anomalyco/opencode	github:anomalyco/opencode	buyuk-ertelendi	580MB	-	context7.com	kurulamaz: buyuk-ertelendi
+better-auth/better-auth	github:better-auth/better-auth (site-repo)	indirildi	162MB	gitleaks=0;semgrep_ERROR=0	context7.com	uygun
+cloudflare/cloudflare-docs	github:cloudflare/cloudflare-docs	buyuk-ertelendi	1450MB	-	context7.com	kurulamaz: buyuk-ertelendi
+gustavo-fior/craft	github:gustavo-fior/craft (site-repo)	indirildi	7MB	gitleaks=0;semgrep_ERROR=0	craft.gustavofior.com	uygun
+nolly-studio/cult-ui	github:nolly-studio/cult-ui (site-repo)	indirildi	216MB	gitleaks=0;semgrep_ERROR=0	cult-ui.com	uygun
+anthropics/claude-code	github:anthropics/claude-code (site-repo)	indirildi	32MB	gitleaks=0;semgrep_ERROR=0	cultofclaude.com	uygun
+iannuttall/claude-agents	github:iannuttall/claude-agents (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	cultofclaude.com	uygun
+agent-infra/sandbox	github:agent-infra/sandbox (site-repo)	indirildi	41MB	gitleaks=8;semgrep_ERROR=12	deerflow.tech	uygun
+bytedance/deer-flow	github:bytedance/deer-flow (site-repo)	indirildi	89MB	gitleaks=33;semgrep_ERROR=40	deerflow.tech	uygun
+telegramdesktop/tdesktop	github:telegramdesktop/tdesktop (site-repo)	indirildi	303MB	gitleaks=5;semgrep_ERROR=7	desktop.telegram.org	uygun (CI kurali yanlis alarm)
+NVIDIA-NeMo/Gym	github:NVIDIA-NeMo/Gym (site-repo)	indirildi	148MB	gitleaks=51;semgrep_ERROR=67	developer.nvidia.com	uygun (CI kurali yanlis alarm)
+ai-dynamo/dynamo	github:ai-dynamo/dynamo	buyuk-ertelendi	822MB	-	developer.nvidia.com	kurulamaz: buyuk-ertelendi
+triton-inference-server/server	github:triton-inference-server/server (site-repo)	indirildi	39MB	gitleaks=1;semgrep_ERROR=3	developer.nvidia.com	uygun
+headroomlabs-ai/headroom	github:headroomlabs-ai/headroom (site-repo)	indirildi	93MB	gitleaks=0;semgrep_ERROR=0	docs.headroomlabs.ai	uygun
+barbagroup/CFDPython	github:barbagroup/CFDPython (site-repo)	indirildi	24MB	gitleaks=0;semgrep_ERROR=0	docs.nvidia.com	uygun
+nv-legate/legate	github:nv-legate/legate (site-repo)	indirildi	132MB	gitleaks=0;semgrep_ERROR=64	docs.nvidia.com	uygun
+usestrix/strix	github:usestrix/strix (site-repo)	indirildi	16MB	gitleaks=2;semgrep_ERROR=0	docs.strix.ai	uygun
+electron/electron	github:electron/electron (site-repo)	indirildi	221MB	gitleaks=0;semgrep_ERROR=0	electronjs.org	uygun
+electron/fiddle	github:electron/fiddle (site-repo)	indirildi	66MB	gitleaks=1;semgrep_ERROR=1	electronjs.org	uygun
+electron/forge	github:electron/forge (site-repo)	indirildi	82MB	gitleaks=0;semgrep_ERROR=4	electronjs.org	uygun
+exercism/exercism	github:exercism/exercism (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	exercism.org	uygun
+danielpetho/fancy	github:danielpetho/fancy (site-repo)	indirildi	2MB	gitleaks=1;semgrep_ERROR=1	fancycomponents.dev	uygun
+alisadiq-ai/favstash-ai-video-editing-skills	github:alisadiq-ai/favstash-ai-video-editing-skills (site-repo)	indirildi	3MB	gitleaks=0;semgrep_ERROR=4	favstash.app	uygun
+polius/FileSync	github:polius/FileSync (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=1	filesync.app	uygun
+firecrawl/firecrawl	github:firecrawl/firecrawl (site-repo)	indirildi	182MB	gitleaks=33;semgrep_ERROR=13	firecrawl.dev	uygun
+Jack000/fontjoy	github:Jack000/fontjoy (site-repo)	indirildi	29MB	gitleaks=0;semgrep_ERROR=0	fontjoy.com	uygun
+ripienaar/free-for-dev	github:ripienaar/free-for-dev (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=0	free-for.dev	uygun
+freeCodeCamp/freeCodeCamp.github.io	github:freeCodeCamp/freeCodeCamp.github.io (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	freecodecamp.github.io	uygun
+tashfeenahmed/freellmapi	github:tashfeenahmed/freellmapi (site-repo)	indirildi	23MB	gitleaks=50;semgrep_ERROR=3	freellmapi.co	uygun
+game-icons/icons	github:game-icons/icons (site-repo)	indirildi	4MB	gitleaks=0;semgrep_ERROR=0	game-icons.net	uygun
+google-gemini/gemini-cli	github:google-gemini/gemini-cli (site-repo)	indirildi	101MB	gitleaks=11;semgrep_ERROR=94	geminicli.com	uygun
+storytold/artcraft	github:storytold/artcraft	buyuk-ertelendi	1342MB	-	getartcraft.com	kurulamaz: buyuk-ertelendi
+twbs/bootstrap	github:twbs/bootstrap (site-repo)	indirildi	320MB	gitleaks=0;semgrep_ERROR=0	getbootstrap.com	uygun
+twbs/examples	github:twbs/examples (site-repo)	indirildi	10MB	gitleaks=0;semgrep_ERROR=0	getbootstrap.com	uygun
+twbs/icons	github:twbs/icons	indirilemedi	74MB		getbootstrap.com	kurulamaz: indirilemedi
+coderamp-labs/gitingest	github:coderamp-labs/gitingest (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=2	gitingest.com	uygun
+excalidraw/excalidraw	github:excalidraw/excalidraw (site-repo)	indirildi	106MB	gitleaks=5;semgrep_ERROR=5	gitingest.com	uygun (CI kurali yanlis alarm)
+fastapi/fastapi	github:fastapi/fastapi (site-repo)	indirildi	54MB	gitleaks=21;semgrep_ERROR=19	gitingest.com	uygun
+gkurt/tegaki	github:gkurt/tegaki (site-repo)	indirildi	48MB	gitleaks=0;semgrep_ERROR=1	gkurt.com	uygun
+elder-plinius/L1B3RT4S	github:elder-plinius/L1B3RT4S	indirilemedi	1MB		godmod3.ai	kurulamaz: indirilemedi
+Azure/azure-sdk-for-go	github:Azure/azure-sdk-for-go (site-repo)	indirildi	456MB	gitleaks=243;semgrep_ERROR=0	golang.org	uygun
+chzyer/readline	github:chzyer/readline (site-repo)	indirildi	3MB	gitleaks=0;semgrep_ERROR=0	golang.org	uygun
+elastic/go-elasticsearch	github:elastic/go-elasticsearch (site-repo)	indirildi	127MB	gitleaks=0;semgrep_ERROR=0	golang.org	uygun
+google/fonts	github:google/fonts	buyuk-ertelendi	3262MB	-	googlefonts.github.io	kurulamaz: buyuk-ertelendi
+googlefonts/googlefonts.github.io	github:googlefonts/googlefonts.github.io (site-repo)	indirildi	28MB	gitleaks=0;semgrep_ERROR=0	googlefonts.github.io	uygun
+aaif-goose/goose	github:aaif-goose/goose	buyuk-ertelendi	964MB	-	goose-docs.ai	kurulamaz: buyuk-ertelendi
+zed-industries/zed	github:zed-industries/zed	buyuk-ertelendi	536MB	-	gpui.rs	kurulamaz: buyuk-ertelendi
+Graphify-Labs/graphify	github:Graphify-Labs/graphify (site-repo)	indirildi	31MB	gitleaks=0;semgrep_ERROR=0	graphify.com	uygun
+lucasrosati/claude-code-memory-setup	github:lucasrosati/claude-code-memory-setup (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	graphify.com	uygun
+greensock/GSAP	github:greensock/GSAP (site-repo)	indirildi	14MB	gitleaks=0;semgrep_ERROR=0	gsap.com	uygun
+lucasmarkes/hairline	github:lucasmarkes/hairline (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=1	hairline.lucasmarkes.com	uygun
+herdrdev/herdr	github:herdrdev/herdr (site-repo)	indirildi	47MB	gitleaks=7;semgrep_ERROR=3	herdr.dev	uygun
+highlightjs/highlight.js	github:highlightjs/highlight.js (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=2	highlightjs.org	uygun
+highlightjs/highlightjs.org	github:highlightjs/highlightjs.org (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	highlightjs.org	uygun
+vectorize-io/hindsight	github:vectorize-io/hindsight	buyuk-ertelendi	803MB	-	hindsight.vectorize.io	kurulamaz: buyuk-ertelendi
+deepseek-ai/DeepInfer	github:deepseek-ai/DeepInfer (site-repo)	indirildi	2MB	gitleaks=1;semgrep_ERROR=0	hitlistai.com	uygun
+coogie/oscailte	github:coogie/oscailte (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=0	home-assistant.io	uygun
+xroche/httrack	github:xroche/httrack (site-repo)	indirildi	44MB	gitleaks=0;semgrep_ERROR=0	httrack.com	uygun
+hummingbot/gateway	github:hummingbot/gateway (site-repo)	indirildi	51MB	gitleaks=0;semgrep_ERROR=0	hummingbot.org	uygun
+hummingbot/hummingbot	github:hummingbot/hummingbot	buyuk-ertelendi	554MB	-	hummingbot.org	kurulamaz: buyuk-ertelendi
+badges/awesome-badges	github:badges/awesome-badges (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	img.shields.io	uygun
+badges/endpoint-badges-directory	github:badges/endpoint-badges-directory (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	img.shields.io	uygun
+badges/shields	github:badges/shields	buyuk-ertelendi	519MB	-	img.shields.io	kurulamaz: buyuk-ertelendi
+pbakaus/impeccable	github:pbakaus/impeccable	buyuk-ertelendi	756MB	-	impeccable.style	kurulamaz: buyuk-ertelendi
+InsForge/InsForge	github:InsForge/InsForge (site-repo)	indirildi	150MB	gitleaks=360;semgrep_ERROR=3	insforge.dev	uygun
+Javis603/Discord-AIBot	github:Javis603/Discord-AIBot (site-repo)	indirildi	85MB	gitleaks=0;semgrep_ERROR=0	javis-ai.com	uygun
+Javis603/token-monitor	github:Javis603/token-monitor (site-repo)	indirildi	72MB	gitleaks=5;semgrep_ERROR=1	javis-ai.com	uygun
+AppitStudio/awesome-jev	github:AppitStudio/awesome-jev (site-repo)	indirildi	14MB	gitleaks=0;semgrep_ERROR=0	jevlist.ai	uygun
+jquery/jquery	github:jquery/jquery (site-repo)	indirildi	35MB	gitleaks=0;semgrep_ERROR=2	jquery.com	uygun
+Dither/readable-javascript	github:Dither/readable-javascript (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	jsbeautifier.org	uygun
+HookyQR/VSCodeBeautify	github:HookyQR/VSCodeBeautify (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	jsbeautifier.org	uygun
+MakingOddEdit/CodeBeautify	github:MakingOddEdit/CodeBeautify (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	jsbeautifier.org	uygun
+karakeep-app/karakeep	github:karakeep-app/karakeep (site-repo)	indirildi	102MB	gitleaks=236;semgrep_ERROR=14	karakeep.app	uygun
+kokonut-labs/kokonutui	github:kokonut-labs/kokonutui (site-repo)	indirildi	111MB	gitleaks=0;semgrep_ERROR=0	kokonutui.com	uygun
+darkroomengineering/lenis	github:darkroomengineering/lenis (site-repo)	indirildi	10MB	gitleaks=0;semgrep_ERROR=0	lenis.dev	uygun
+locomotivemtl/locomotive-scroll	github:locomotivemtl/locomotive-scroll (site-repo)	indirildi	13MB	gitleaks=1;semgrep_ERROR=1	lenis.dev	uygun
+Jakubantalik/Libraries.dev	github:Jakubantalik/Libraries.dev (site-repo)	indirildi	112MB	gitleaks=0;semgrep_ERROR=3	libraries.dev	uygun
+LibreChat-AI/LibreChat	github:LibreChat-AI/LibreChat (site-repo)	indirildi	279MB	gitleaks=33;semgrep_ERROR=57	librechat.ai	uygun
+knadh/listmonk	github:knadh/listmonk (site-repo)	indirildi	52MB	gitleaks=27;semgrep_ERROR=8	listmonk.app	elle-bak: dangerous-syscall-exec
+pradyunsg/furo	github:pradyunsg/furo (site-repo)	indirildi	8MB	gitleaks=0;semgrep_ERROR=0	llamafactory.readthedocs.io	uygun
+GGUFloader/gguf-loader	github:GGUFloader/gguf-loader (site-repo)	indirildi	114MB	gitleaks=0;semgrep_ERROR=13	local-ai-zone.github.io	uygun
+PurpleDoubleD/locally-uncensored	github:PurpleDoubleD/locally-uncensored (site-repo)	indirildi	57MB	gitleaks=12;semgrep_ERROR=30	locallyuncensored.com	uygun
+necolas/normalize.css	github:necolas/normalize.css (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	locomotive.ca	uygun
+lucide-icons/lucide	github:lucide-icons/lucide (site-repo)	indirildi	26MB	gitleaks=1;semgrep_ERROR=5	lucide.dev	uygun
+overtake/TelegramSwift	github:overtake/TelegramSwift (site-repo)	indirildi	406MB	gitleaks=16;semgrep_ERROR=0	macos.telegram.org	uygun
+chatmcp/mcpso	github:chatmcp/mcpso (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	mcp.so	uygun
+mobile-next/Milliways	github:mobile-next/Milliways (site-repo)	indirildi	28MB	gitleaks=0;semgrep_ERROR=0	mobilenext.ai	uygun
+mobile-next/mobile-mcp	github:mobile-next/mobile-mcp (site-repo)	indirildi	3MB	gitleaks=1;semgrep_ERROR=0	mobilenext.ai	uygun
+mobile-next/mobilecli	github:mobile-next/mobilecli (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=13	mobilenext.ai	elle-bak: dangerous-exec-command
+motion-canvas/examples	github:motion-canvas/examples (site-repo)	indirildi	92MB	gitleaks=0;semgrep_ERROR=0	motion-canvas.io	uygun
+motion-canvas/motion-canvas	github:motion-canvas/motion-canvas (site-repo)	indirildi	10MB	gitleaks=1;semgrep_ERROR=2	motion-canvas.io	uygun
+motiondivision/motion	github:motiondivision/motion	buyuk-ertelendi	1627MB	-	motion.dev	kurulamaz: buyuk-ertelendi
+czlonkowski/n8n-mcp	github:czlonkowski/n8n-mcp	buyuk-ertelendi	1072MB	-	n8n-skills.com	kurulamaz: buyuk-ertelendi
+czlonkowski/n8n-skills	github:czlonkowski/n8n-skills (site-repo)	indirildi	5MB	gitleaks=2;semgrep_ERROR=0	n8n-skills.com	uygun
+nautechsystems/nautilus_trader	github:nautechsystems/nautilus_trader (site-repo)	indirildi	291MB	gitleaks=2;semgrep_ERROR=113	nautilustrader.io	uygun
+relumetech/powerups	github:relumetech/powerups (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	navbar.gallery	uygun
+Checkmk/checkmk	github:Checkmk/checkmk	buyuk-ertelendi	6726MB	-	networkchuck.com	kurulamaz: buyuk-ertelendi
+NousResearch/hermes-agent	github:NousResearch/hermes-agent	buyuk-ertelendi	1272MB	-	networkchuck.com	kurulamaz: buyuk-ertelendi
+megadose/holehe	github:megadose/holehe (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	networkchuck.com	uygun
+nodejs/node	github:nodejs/node	buyuk-ertelendi	1616MB	-	nodejs.org	kurulamaz: buyuk-ertelendi
+AbdelStark/jev-benchmarks	github:AbdelStark/jev-benchmarks (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	ollaya.dev	uygun
+bespokelabsai/nimble	github:bespokelabsai/nimble (site-repo)	indirildi	6MB	gitleaks=7;semgrep_ERROR=0	ollaya.dev	uygun
+ollaya-dev/ollaya	github:ollaya-dev/ollaya (site-repo)	indirildi	4MB	gitleaks=6;semgrep_ERROR=4	ollaya.dev	uygun
+ETroll/omarchy-airplay	github:ETroll/omarchy-airplay (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	omarchy.org	uygun
+earendil-works/pi	github:earendil-works/pi (site-repo)	indirildi	85MB	gitleaks=0;semgrep_ERROR=28	omarchy.org	uygun
+can1357/oh-my-pi	github:can1357/oh-my-pi	buyuk-ertelendi	704MB	-	omarchy.org	kurulamaz: buyuk-ertelendi
+BerriAI/litellm	github:BerriAI/litellm	buyuk-ertelendi	2555MB	-	omniroute.online	kurulamaz: buyuk-ertelendi
+decolua/9router	github:decolua/9router (site-repo)	indirildi	17MB	gitleaks=56;semgrep_ERROR=42	omniroute.online	uygun
+diegosouzapw/OmniCopilot	github:diegosouzapw/OmniCopilot (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	omniroute.online	uygun
+krillinai/OpenCreator	github:krillinai/OpenCreator (site-repo)	indirildi	390MB	gitleaks=4;semgrep_ERROR=38	open-creator.ai	elle-bak: dangerous-exec-command
+nexu-io/open-design	github:nexu-io/open-design	buyuk-ertelendi	3484MB	-	open-design.ai	kurulamaz: buyuk-ertelendi
+Open-LLM-VTuber/Open-LLM-VTuber	github:Open-LLM-VTuber/Open-LLM-VTuber (site-repo)	indirildi	45MB	gitleaks=0;semgrep_ERROR=8	open-llm-vtuber.github.io	uygun
+lfnovo/open-notebook	github:lfnovo/open-notebook (site-repo)	indirildi	14MB	gitleaks=6;semgrep_ERROR=32	open-notebook.ai	uygun
+OpenBMB/MiniCPM-V	github:OpenBMB/MiniCPM-V	buyuk-ertelendi	796MB	-	openbmb.github.io	kurulamaz: buyuk-ertelendi
+OpenClaudia/openclaudia-skills	github:OpenClaudia/openclaudia-skills (site-repo)	indirildi	3MB	gitleaks=7;semgrep_ERROR=0	openclaudia.com	uygun
+OpenCut-app/OpenCut	github:OpenCut-app/OpenCut (site-repo)	indirildi	27MB	gitleaks=0;semgrep_ERROR=1	opencut.app	uygun
+openjs-foundation/ai-working-group	github:openjs-foundation/ai-working-group (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	openjsf.org	uygun
+openjs-foundation/cross-project-council	github:openjs-foundation/cross-project-council (site-repo)	indirildi	11MB	gitleaks=0;semgrep_ERROR=0	openjsf.org	uygun
+openjs-foundation/package-metadata-interoperability-working-group	github:openjs-foundation/package-metadata-interoperability-working-group (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	openjsf.org	uygun
+alphaXiv/OpenResearch	github:alphaXiv/OpenResearch (site-repo)	indirildi	219MB	gitleaks=2;semgrep_ERROR=17	openresearch.sh	uygun (CI kurali yanlis alarm)
+every-app/open-seo	github:every-app/open-seo (site-repo)	indirildi	32MB	gitleaks=4;semgrep_ERROR=0	openseo.so	uygun
+oblien/openship	github:oblien/openship (site-repo)	indirildi	146MB	gitleaks=34;semgrep_ERROR=30	openship.io	elle-bak: dangerous-exec-command
+adobe-fonts/source-sans	github:adobe-fonts/source-sans (site-repo)	indirildi	277MB	gitleaks=0;semgrep_ERROR=0	opensource.adobe.com	uygun
+open-webui/open-webui	github:open-webui/open-webui (site-repo)	indirildi	494MB	gitleaks=1;semgrep_ERROR=41	openwebui.com	elle-bak: unverified-jwt-decode
+penpot/penpot	github:penpot/penpot (site-repo)	indirildi	415MB	gitleaks=1;semgrep_ERROR=6	penpot.app	uygun
+photopea/photopea	github:photopea/photopea (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	photopea.com	uygun
+gitroomhq/postiz-app	github:gitroomhq/postiz-app (site-repo)	indirildi	61MB	gitleaks=23;semgrep_ERROR=5	postiz.com	uygun
+ChromeDevTools/chrome-devtools-mcp	github:ChromeDevTools/chrome-devtools-mcp (site-repo)	indirildi	26MB	gitleaks=2;semgrep_ERROR=2	pptr.dev	uygun
+npm/rfcs	github:npm/rfcs (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	pptr.dev	uygun
+puppeteer/puppeteer	github:puppeteer/puppeteer	buyuk-ertelendi	1558MB	-	pptr.dev	kurulamaz: buyuk-ertelendi
+Crosstalk-Solutions/project-nomad	github:Crosstalk-Solutions/project-nomad (site-repo)	indirildi	16MB	gitleaks=1;semgrep_ERROR=5	projectnomad.us	uygun
+python/cpython	github:python/cpython	buyuk-ertelendi	876MB	-	python.org	kurulamaz: buyuk-ertelendi
+python/pythondotorg	github:python/pythondotorg (site-repo)	indirildi	27MB	gitleaks=0;semgrep_ERROR=1	python.org	uygun
+pmndrs/leva	github:pmndrs/leva (site-repo)	indirildi	10MB	gitleaks=0;semgrep_ERROR=0	react-spring.dev	uygun
+pmndrs/react-spring	github:pmndrs/react-spring	buyuk-ertelendi	654MB	-	react-spring.dev	kurulamaz: buyuk-ertelendi
+pmndrs/react-three-fiber	github:pmndrs/react-three-fiber (site-repo)	indirildi	30MB	gitleaks=0;semgrep_ERROR=0	react-spring.dev	uygun
+DavidHDev/react-bits	github:DavidHDev/react-bits (site-repo)	indirildi	364MB	gitleaks=1;semgrep_ERROR=10	reactbits.dev	uygun
+juxtopposed/realtimecolors	github:juxtopposed/realtimecolors (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	realtimecolors.com	uygun
+modelcontextprotocol/registry	github:modelcontextprotocol/registry (site-repo)	indirildi	76MB	gitleaks=25;semgrep_ERROR=7	registry.modelcontextprotocol.io	uygun
+remotion-dev/remotion	github:remotion-dev/remotion	buyuk-ertelendi	4337MB	-	remotion.dev	kurulamaz: buyuk-ertelendi
+kalil0321/reverse-api-engineer	github:kalil0321/reverse-api-engineer (site-repo)	indirildi	22MB	gitleaks=1;semgrep_ERROR=0	reverseapi.dev	uygun
+ROCm/rocm-docs	github:ROCm/rocm-docs (site-repo)	indirildi	118MB	gitleaks=0;semgrep_ERROR=0	rocm.docs.amd.com	uygun
+ROCm/rocm-examples	github:ROCm/rocm-examples (site-repo)	indirildi	45MB	gitleaks=3;semgrep_ERROR=9	rocm.docs.amd.com	uygun
+amj1994/scrollhaus-free	github:amj1994/scrollhaus-free (site-repo)	indirildi	29MB	gitleaks=0;semgrep_ERROR=0	scrollhaus.ai	uygun
+CoDesign-Spa27/skecher-ui	github:CoDesign-Spa27/skecher-ui (site-repo)	indirildi	25MB	gitleaks=0;semgrep_ERROR=0	skecher-ui.com	uygun
+anthropics/skills	github:anthropics/skills (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=2	skillleaderboard.com	uygun
+wheresryan22/anatomy	github:wheresryan22/anatomy (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=1	skills.wheresryan.sh	uygun
+2389-research/claude-plugins	github:2389-research/claude-plugins (site-repo)	indirildi	13MB	gitleaks=0;semgrep_ERROR=2	skillsplayground.com	uygun
+89jobrien/steve	github:89jobrien/steve (site-repo)	indirildi	2MB	gitleaks=4;semgrep_ERROR=5	skillsplayground.com	uygun
+addyosmani/web-quality-skills	github:addyosmani/web-quality-skills (site-repo)	indirildi	0MB	gitleaks=0;semgrep_ERROR=0	skillsplayground.com	uygun
+slack-samples/bolt-js-assistant-template	github:slack-samples/bolt-js-assistant-template (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	slack.dev	uygun
+socketio/socket.io	github:socketio/socket.io (site-repo)	indirildi	33MB	gitleaks=7;semgrep_ERROR=12	socket.io	uygun
+GoogleChromeLabs/squoosh	github:GoogleChromeLabs/squoosh (site-repo)	indirildi	175MB	gitleaks=0;semgrep_ERROR=5	squoosh.app	uygun
+stablyai/orca	github:stablyai/orca	buyuk-ertelendi	1553MB	-	stably.ai	kurulamaz: buyuk-ertelendi
+browserbase/stagehand	github:browserbase/stagehand (site-repo)	indirildi	199MB	gitleaks=15;semgrep_ERROR=27	stagehand.dev	elle-bak: dangerous-exec-command
+star-history/star-history	github:star-history/star-history (site-repo)	indirildi	159MB	gitleaks=3;semgrep_ERROR=2	star-history.com	uygun
+The-Swarm-Corporation/AutoHedge	github:The-Swarm-Corporation/AutoHedge (site-repo)	indirildi	8MB	gitleaks=2;semgrep_ERROR=0	swarms.xyz	uygun
+The-Swarm-Corporation/ClawSwarm	github:The-Swarm-Corporation/ClawSwarm (site-repo)	indirildi	0MB	gitleaks=2;semgrep_ERROR=1	swarms.xyz	uygun
+kyegomez/swarms	github:kyegomez/swarms (site-repo)	indirildi	185MB	gitleaks=4;semgrep_ERROR=10	swarms.xyz	uygun (CI kurali yanlis alarm)
+syncthing/syncthing	github:syncthing/syncthing (site-repo)	indirildi	124MB	gitleaks=12;semgrep_ERROR=14	syncthing.net	elle-bak: dangerous-exec-command;dangerous-syscall-exec
+taigaio/taiga-front	github:taigaio/taiga-front (site-repo)	indirildi	46MB	gitleaks=0;semgrep_ERROR=7	taiga.io	uygun
+Leonxlnx/taste-skill	github:Leonxlnx/taste-skill (site-repo)	indirildi	39MB	gitleaks=0;semgrep_ERROR=0	tasteskill.dev	uygun
+Leonxlnx/tastecode	github:Leonxlnx/tastecode	buyuk-ertelendi	524MB	-	tasteskill.dev	kurulamaz: buyuk-ertelendi
+TestSprite/testsprite-cli	github:TestSprite/testsprite-cli (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=14	testsprite.com	uygun
+jinlabneurogenomics/distributed_agent	github:jinlabneurogenomics/distributed_agent (site-repo)	indirildi	246MB	gitleaks=13;semgrep_ERROR=7	the-decoder.com	uygun
+Shubhamsaboo/awesome-llm-apps	github:Shubhamsaboo/awesome-llm-apps (site-repo)	indirildi	216MB	gitleaks=2;semgrep_ERROR=17	theunwindai.com	uygun
+threlte/threlte	github:threlte/threlte	buyuk-ertelendi	601MB	-	threlte.xyz	kurulamaz: buyuk-ertelendi
+tinyhumansai/medulla	github:tinyhumansai/medulla (site-repo)	indirildi	9MB	gitleaks=14;semgrep_ERROR=2	tinyhumans.ai	uygun
+tinyhumansai/opencompany	github:tinyhumansai/opencompany (site-repo)	indirildi	106MB	gitleaks=10;semgrep_ERROR=4	tinyhumans.ai	uygun
+tinyhumansai/openhuman	github:tinyhumansai/openhuman	indirilemedi	423MB		tinyhumans.ai	kurulamaz: indirilemedi
+tmux/tmux	github:tmux/tmux (site-repo)	indirildi	23MB	gitleaks=0;semgrep_ERROR=0	tmux.sh	uygun
+triggerdotdev/trigger.dev	github:triggerdotdev/trigger.dev (site-repo)	indirildi	197MB	gitleaks=112;semgrep_ERROR=15	trigger.dev	uygun
+pacifio/atlas	github:pacifio/atlas (site-repo)	indirildi	38MB	gitleaks=41;semgrep_ERROR=14	tryatlas.cc	uygun
+twentyhq/twenty	github:twentyhq/twenty	buyuk-ertelendi	2237MB	-	twenty.com	kurulamaz: buyuk-ertelendi
+ibelick/ui-skills	github:ibelick/ui-skills (site-repo)	indirildi	2MB	gitleaks=0;semgrep_ERROR=0	ui-skills.com	uygun
+kuratlielia/arc-library	github:kuratlielia/arc-library (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	uiarc.dev	uygun
+uizze/uizze	github:uizze/uizze (site-repo)	indirildi	3MB	gitleaks=0;semgrep_ERROR=0	uizze.com	uygun
+Egonex-AI/Understand-Anything	github:Egonex-AI/Understand-Anything (site-repo)	indirildi	34MB	gitleaks=0;semgrep_ERROR=2	understand-anything.com	uygun
+Nutlope/hallmark	github:Nutlope/hallmark (site-repo)	indirildi	227MB	gitleaks=0;semgrep_ERROR=0	usehallmark.com	uygun
+raphaelsalaja/userinterface-wiki	github:raphaelsalaja/userinterface-wiki (site-repo)	indirildi	38MB	gitleaks=0;semgrep_ERROR=0	userinterface.wiki	uygun
+tengbao/vanta	github:tengbao/vanta (site-repo)	indirildi	5MB	gitleaks=0;semgrep_ERROR=0	vantajs.com	uygun
+Ashutoshx7/VengeanceUI	github:Ashutoshx7/VengeanceUI (site-repo)	indirildi	79MB	gitleaks=1;semgrep_ERROR=0	vengenceui.com	uygun
+BloopAI/vibe-kanban	github:BloopAI/vibe-kanban (site-repo)	indirildi	101MB	gitleaks=2;semgrep_ERROR=27	vibekanban.com	uygun
+mdevel-uy/fluke	github:mdevel-uy/fluke (site-repo)	indirildi	116MB	gitleaks=1;semgrep_ERROR=15	vibekanban.com	uygun
+HKUDS/Vibe-Trading	github:HKUDS/Vibe-Trading (site-repo)	indirildi	88MB	gitleaks=20;semgrep_ERROR=47	vibetrading.wiki	uygun
+vicoa-ai/vicoa	github:vicoa-ai/vicoa (site-repo)	indirildi	49MB	gitleaks=0;semgrep_ERROR=28	vicoa.ai	uygun
+airbnb/visx	github:airbnb/visx (site-repo)	indirildi	16MB	gitleaks=0;semgrep_ERROR=0	visx.21st.dev	uygun
+jamiepine/voicebox	github:jamiepine/voicebox (site-repo)	indirildi	100MB	gitleaks=0;semgrep_ERROR=8	voicebox.sh	uygun
+SouravBeraAkaSpeed/xiryn	github:SouravBeraAkaSpeed/xiryn (site-repo)	indirildi	12MB	gitleaks=0;semgrep_ERROR=18	xiryn.com	uygun
+zapier/sdk	github:zapier/sdk (site-repo)	indirildi	0MB	gitleaks=1;semgrep_ERROR=0	zapier.com	uygun
+zapier/zapier-mcp	github:zapier/zapier-mcp (site-repo)	indirildi	1MB	gitleaks=0;semgrep_ERROR=0	zapier.com	uygun
+furkankly/zoetrope	github:furkankly/zoetrope (site-repo)	indirildi	11MB	gitleaks=0;semgrep_ERROR=0	zoetrope.furkankly.dev	uygun
+ratatui/ratzilla	github:ratatui/ratzilla (site-repo)	indirildi	13MB	gitleaks=0;semgrep_ERROR=0	zoetrope.furkankly.dev	uygun
