@@ -1,0 +1,15 @@
+kutuphane	siteler	ne_icin	lisans	repo
+next.js	arxivisual.org,components.build,craftwork.design,hairline.lucasmarkes.com,highlightjs.org,kit.dev,kolekti.com,n8n-skills.com,paperanimator.com,shots.so,stably.ai,stagehand.dev,swarms.xyz,useplanes.com,visx.21st.dev	React framework	MIT	vercel/next.js
+lucide	components.build,designsystemlabs.co,dsc.gg,horizonx.so,img.shields.io,kit.dev,n8n-skills.com,shadcnblocks.com,shields.io,stably.ai,superdesign.dev,swarms.xyz,useplanes.com,visx.21st.dev	ikon	ISC	lucide-icons/lucide
+tailwind	adele.uxpin.com,craftwork.design,cultofclaude.com,designskills.dev,horizonx.so,kit.dev,scrollhaus.ai,shadcnblocks.com,useplanes.com,visx.21st.dev	utility CSS	MIT	tailwindlabs/tailwindcss
+gsap	adele.uxpin.com,arxivisual.org,cadence.rubenstom.com,designskills.dev,horizonx.so,scrollhaus.ai,shadcnblocks.com,stagehand.dev,superdesign.dev	timeline/scroll animasyon	GSAP Standard	greensock/GSAP
+shadcn	components.build,cultofclaude.com,designskills.dev,hairline.lucasmarkes.com,kit.dev,shadcnblocks.com,useplanes.com,visx.21st.dev	bileşen dağıtım modeli	MIT	shadcn-ui/ui
+svelte	components.build,designskills.dev,horizonx.so,kit.dev	UI framework	MIT	sveltejs/svelte
+lenis	cadence.rubenstom.com,designskills.dev,horizonx.so	smooth scroll	MIT	darkroomengineering/lenis
+astro	cultofclaude.com,delta.dev,shadcnblocks.com	site framework	MIT	withastro/astro
+framer-motion/motion	designskills.dev,horizonx.so,scrollhaus.ai	React/JS animasyon	MIT	motiondivision/motion
+radix	kit.dev,shadcnblocks.com,superdesign.dev	erişilebilir primitive	MIT	radix-ui/primitives
+webgl-shader	getrubric.app,stably.ai	GLSL shader	-	-
+lottie	macos.telegram.org	vektör animasyon oynatma	MIT	airbnb/lottie-web
+three.js	scrollhaus.ai	3D render	MIT	mrdoob/three.js
+react-spring	visx.21st.dev	spring fiziği	MIT	pmndrs/react-spring

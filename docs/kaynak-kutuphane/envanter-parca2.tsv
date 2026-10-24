@@ -1,0 +1,50 @@
+site	tur	ucretsiz	lisans	sart_atif	indirme	karar	yer
+ace.c9.io	kod editörü (Ace)	evet	BSD-3-Clause	telif notu korunur	GitHub+npm ace-builds	AL	<lib>/kod/ace.c9.io/ace
+adele.uxpin.com	UI şablon/tasarım sistemi	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+arxivisual.org	görselleştirme sitesi	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+cadence.rubenstom.com	animasyon ilham/şablon	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+catalog.ngc.nvidia.com	AI model/konteyner kataloğu	belirsiz/kısıtlı	NVIDIA koşulları	kurumsal katalog; UI kaynağı değil	-	ATLANDI	
+codebase.build	site (kod tabanı)	belirsiz/kısıtlı	belirsiz	sahip repo yok; bileşen kodu tespit edilmedi	-	ATLANDI	
+components.build	UI bileşen dizini	evet	Apache-2.0	lisans ve NOTICE korunur	GitHub	AL	<lib>/ui/components.build/components.build
+craftwork.design	UI şablon/tasarım	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+cultofclaude.com	topluluk dizini (Claude)	belirsiz/kısıtlı	bağlı repolar ayrı lisanslı	site kendi kodu yok; bağlantılı repolar ayrı satır	-	ATLANDI	
+delta.dev	site (astro)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+design.cash.app	tasarım sitesi	belirsiz/kısıtlı	belirsiz	robots alt sayfayı yasaklıyor; alt sayfa taranmadı	-	ATLANDI	
+designskills.dev	tasarım skill dizini	belirsiz/kısıtlı	belirsiz	sahip repo bulunamadı (sayfadaki repo ayrı satır)	-	ATLANDI	
+designsystemlabs.co	tasarım sistemi (Radix/Lucide)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+dsc.gg	site (Lucide)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+excalidraw.com	el çizimi çizim bileşeni	evet	MIT	telif notu korunur	GitHub+npm @excalidraw/excalidraw	AL	<lib>/el/excalidraw.com/excalidraw
+getbootstrap.com	CSS/UI framework	evet	MIT	telif notu korunur	GitHub+npm bootstrap	AL	<lib>/css-ui/getbootstrap.com/bootstrap
+getrubric.app	WebGL shader efekti	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+ghcr.io	altyapı (konteyner kayıt)	belirsiz/kısıtlı	GitHub hizmeti	UI kaynağı değil	-	ATLANDI	
+gpui.rs	GPU UI framework (Zed)	belirsiz/kısıtlı	Apache-2.0 (GPUI crate; depo geneli ayrı)	tam zed deposu büyük; crate ayrı alınacak	-	ATLANDI	
+hairline.lucasmarkes.com	UI bileşen/tasarım sistemi	evet	MIT		GitHub	AL	<lib>/ui/hairline.lucasmarkes.com/hairline
+highlightjs.org	kod vurgulama	evet	BSD-3-Clause	telif notu korunur	GitHub+npm highlight.js	AL	<lib>/kod/highlightjs.org/highlight.js
+horizonx.so	site (gsap/lenis)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+img.shields.io	rozet servisi	belirsiz/kısıtlı	Apache-2.0	UI kaynağı değil	-	ATLANDI	
+jquery.com	JS kütüphanesi	evet	MIT	telif notu korunur	GitHub+npm jquery	AL	<lib>/js/jquery.com/jquery
+kit.dev	UI kiti (shadcn/radix)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+kolekti.com	site (Next.js)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+libraries.dev	kütüphane dizini	evet	MIT		GitHub	AL	<lib>/kütüphane/libraries.dev/libraries.dev
+macos.telegram.org	ürün sitesi (Telegram)	belirsiz/kısıtlı	Telegram koşulları	ürün sitesi; kod alınmaz	-	ATLANDI	
+n8n-skills.com	otomasyon skill dizini	belirsiz/kısıtlı	MIT	UI değil (kapsam dışı)	-	ATLANDI	
+open-design.ai	tasarım aracı	evet	Apache-2.0	telif notu korunur	GitHub	AL	<lib>/tasarım/open-design.ai/open-design
+paperanimator.com	animasyon (site)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+polycasts.com	eğitim sitesi	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+pptr.dev	tarayıcı otomasyonu	belirsiz/kısıtlı	Apache-2.0	UI kaynağı değil (kapsam dışı)	-	ATLANDI	
+raw.githubusercontent.com	altyapı (dosya sunucusu)	belirsiz/kısıtlı	GitHub hizmeti	UI kaynağı değil	-	ATLANDI	
+readymag.com	site oluşturucu (SaaS)	belirsiz/kısıtlı	kapalı kaynak	SaaS; kod alınmaz	-	ATLANDI	
+scrollhaus.ai	scroll 3D şablon	belirsiz/kısıtlı	YOK (lisans dosyası yok)	lisanssız = tüm haklar saklı	-	ATLANDI	
+shadcnblocks.com	UI blok kütüphanesi	evet	MIT + Commons Clause	satış/ürün olarak yeniden dağıtım yasak	GitHub	AL-ŞARTLI	<lib>/ui/shadcnblocks.com/shadcn-ui-blocks
+shots.so	ekran görüntüsü aracı	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+shields.io	rozet servisi	belirsiz/kısıtlı	Apache-2.0	UI kaynağı değil	-	ATLANDI	
+socket.io	gerçek zamanlı ağ kütüphanesi	belirsiz/kısıtlı	MIT	UI kaynağı değil (kapsam dışı)	-	ATLANDI	
+stably.ai	QA platformu	belirsiz/kısıtlı	MIT	UI kaynağı değil (kapsam dışı)	-	ATLANDI	
+stagehand.dev	AI tarayıcı otomasyonu	belirsiz/kısıtlı	MIT	UI kaynağı değil (kapsam dışı)	-	ATLANDI	
+stitch.build	tasarım sitesi	belirsiz/kısıtlı	belirsiz	tarama zaman aşımı (2 deneme); sahip repo yok	-	ATLANDI	
+superdesign.dev	tasarım aracı (site)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+swarms.xyz	AI ajan çatısı	belirsiz/kısıtlı	Apache-2.0	UI kaynağı değil (kapsam dışı)	-	ATLANDI	
+tmux.sh	terminal aracı (site)	belirsiz/kısıtlı	belirsiz	tarama zaman aşımı (2 deneme); sahip repo yok	-	ATLANDI	
+usehallmark.com	AI kart üretici	belirsiz/kısıtlı	MIT	UI kaynağı değil (kapsam dışı)	-	ATLANDI	
+useplanes.com	site (tailwind/shadcn)	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+visx.21st.dev	React grafik/görselleştirme bileşenleri	evet	MIT	telif notu korunur	GitHub+npm @visx/*	AL	<lib>/react/visx.21st.dev/visx
