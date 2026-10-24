@@ -7,7 +7,7 @@ cult-ui.com	UI bileşen	evet	MIT		GitHub+shadcn registry	AL	<lib>/ui/cult-ui.com
 shadcn.io	UI bileşen dizini	belirsiz/kısıtlı	belirsiz (sahip repo yok)	lisans doğrulanamadı	-	ATLANDI	
 componentry.dev	UI bileşen/animasyon	evet	MIT		GitHub+registry	AL	<lib>/ui/componentry.dev/componentry
 canvasui.dev	UI bileşen (canvas)	evet	MIT+Commons Clause	satış/yeniden dağıtım yasak	GitHub	AL-ŞARTLI	<lib>/ui/canvasui.dev/canvas-ui
-originkit.dev	UI bileşen	belirsiz/kısıtlı	erişilemedi (zaman aşımı)	tarama başarısız	-	ATLANDI	
+originkit.dev	UI bileşen (704)	evet (site "Free" diyor)	sahip repo/lisans doğrulanamadı (vellum-ai/originkit MIT eşleşmesi kanıtsız)	-	site (Jina ile okundu)	ATLANDI: lisans kanıtı yok	
 uiarc.dev	UI bileşen	evet	MIT		GitHub	AL	<lib>/ui/uiarc.dev/arc-library
 vengenceui.com	UI bileşen	evet	MIT		GitHub	AL	<lib>/ui/vengenceui.com/vengenceui
 skecher-ui.com	UI bileşen	belirsiz/kısıtlı	LİSANS DOSYASI YOK	lisanssız = tüm haklar saklı	GitHub (alınmadı)	ATLANDI	
