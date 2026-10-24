@@ -1,6 +1,6 @@
 # YARIM-PLAN (24.10 12:42) — Ömer: bütün yarım kalanlar bitecek
 
-YARIM DEĞİL — SONRA (Ömer 24 Eki 16:04: "sonra ben diyince yapcaz, yarım kalmışlardan çıkart"): omer-site (D2 + hero), TELVE (rework/v2/yeni/kapanis + telve-yeni), logo-1b/3, NEFFEX (d2b/d2c/klon-2/klon-7), mod-mai-onizleme, REA Desktop uyarısı doğrulaması, 10 kararlık iş. Bu işler hiçbir yarim-* görevinde, yarim_bekci/yarim_tara taramasında ve 'YARIM H' satırlarında yarım sayılmaz; ajanlar bunlara dokunmaz.
+YARIM DEĞİL — SONRA (Ömer 24 Eki 16:04: "sonra ben diyince yapcaz, yarım kalmışlardan çıkart"): omer-site (D2 + hero), TELVE (rework/v2/yeni/kapanis + telve-yeni), logo-1b/3, NEFFEX (d2b/d2c/klon-2/klon-7), mod-mai-onizleme, REA Desktop uyarısı doğrulaması, 10 kararlık iş, BHS5 (site, intro, logo, bhs5-d1b/d2b/d3/site-2/logo-2; Ömer 16:19 "sonraya kalcak"). Bu işler hiçbir yarim-* görevinde, yarim_bekci/yarim_tara taramasında ve 'YARIM H' satırlarında yarım sayılmaz; ajanlar bunlara dokunmaz.
 
 ÖMER 16:04: A–H gruplarının hepsi + arac-ajan-ozellik-1 bitirilecek; dist zip'lerini claude.ai'ye Desktop yükler.
 
@@ -18,7 +18,7 @@ YARIM DEĞİL — SONRA (Ömer 24 Eki 16:04: "sonra ben diyince yapcaz, yarım k
 | yarim-d3 | Video kaynak çıkarma | kaynak-tam-1 / 3 / 4 ve kaynak-site-1 / 2 (videolardaki siteler, ekrandaki prompt/komut/ayar, adım adım tarif kartları, aksiyon.tsv) · video-aksiyon-1 · video-764-4 (Obsidian kasası artık C:/Users/pc/Desktop/Claude ile yapılanlar/Obsidian) · video-8uSAtG7Ohzg (görev dosyası + skill kurulumu) · video-13 … video-16 (görev dosyalarını oku, kalanı bitir) | KISMI: tam-1/3/4, 764-4, video-16, aksiyon-1 (kod) bitti; kalan -> gorev-yarim-d3-devam.md, rapor/yarim-d3.md |
 | yarim-d4 | Video kısa token | video-kisa-token-1f / 1k / 1o (yanlış pozitif kapının yeniden ölçümü, M5 paketi, zip_denetle, BİTTİ satırı) | SIRADA |
 | yarim-e1 | Paket ve zip teslimleri | token-rea d20 (kopya korpusta yeniden indeksleme + d19 kapısı; model seçimi için ücretsiz havuz) · atlas-2-d1d (K3 + claude.ai zip) · ters-1 (skill zip + departman bağı + SIRA kapanış satırı) · skill-yukle-1b · rea-agir-1 / 2 claude.ai-Desktop zip teslimi. claude.ai'ye YÜKLEME Desktop'un işi: zipleri dist/claude-ai/yukle-24eki/ altına koy, raporda liste ver. | SIRADA |
-| yarim-e2 | REA | rea-usta-1b (DUR) · rea-usta-1c (raporsuz: ne yaptığını git log + sonuçtan çıkar, kalanı bitir, rapor yaz) · rea-fix-2 / 3 / 5 · rea-agir-1 / 2 %98 örtüşme kapısı (HN + orta boy SPA, figma/notion/Electron) | SIRADA |
+| yarim-e2 | REA | rea-usta-1b (DUR) · rea-usta-1c (raporsuz: ne yaptığını git log + sonuçtan çıkar, kalanı bitir, rapor yaz) · rea-fix-2 / 3 / 5 · rea-agir-1 / 2 %98 örtüşme kapısı (HN + orta boy SPA, figma/notion/Electron) | KISMEN 24 Eki: 1b/fix-2/3/5/agir-1 zaten bitmiş; agir-2 kapı %100 (HN+neffex+vue); DEVAM gorev-yarim-e2-devam.md (Ghidra-REA çağrısı RAM'e takıldı, excalidraw 1 birim, MCP içi düşüş), rapor/yarim-e2.md |
 | yarim-e3 | Laya | laya-2 / laya-2c (ücretsiz öğretmen kurulu ↔ Opus uyumu 0.43 → ≥0.6; yerel Ollama yok) | SIRADA |
 | yarim-f1 | Site okulu | site-okulu-1 (görev dosyasının 4. maddesi). omer-site-d1b ayrıca kendi kuyruğunda sürüyor. | SIRADA |
 | yarim-g1 | Kaynak ve Instagram | 14 iş (gorev-yarim-g1.md) | SIRADA (YARIM-G-BIRLESTIR) |
