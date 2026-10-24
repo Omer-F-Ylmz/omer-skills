@@ -18,3 +18,12 @@ DESKTOP-YENIDEN-BASLAT: gerekli (ajan/skill değişiklikleri sonrası).
 D. makara-1: Omer-F-Ylmz/omer-makara ZATEN var (PRIVATE), 9 secret adı kayıtlı, makara-gece iş akışı 3 gecedir başarılı (10-22/23/24, 12-20 dk, schedule). Bu turda repo/push yapılmadı (gerek yok); "ÖMER-SORU" kaldırıldı.
 11 (devam). kaynak-tam-4 #8 openship (Apache-2.0, kurulum betiği yok): gitleaks kapısı TEMİZ DEĞİL (28 generic-api-key, hepsi dist/*.js paketlenmiş dosyalarda; sahte pozitif olası ama incelenmedi) → KURULMADI. Semgrep ERROR 0. Diğer 9 satır yapılmadı.
 10 (devam). autoharness 0.9.4 CLI PATH'te; omer-skills'te `guide/doctor` koşulmadı (üretici LLM maliyeti için tavan belirlenmedi): YAPILMADI.
+
+## Devam (oturum 2)
+- cc-kopru headroom.test.mjs: tek başına 22/22 geçti (önceki kırmızı tekrarlanmadı, flaky/RAM kaynaklı olabilir; kök neden kanıtlanmadı).
+- tests: önceki "F" = test_katalog_ek (ek.jsonl'de rea_oto var, yetenek.jsonl bayat) → tools/katalog_yenile.py koşuldu, 2/2 geçti.
+- tests iki yarıda koşuldu: 541 geçti + 400 geçti, 2 kırmızı (aşağıda). video: 70%'te 560 sn'de bitmedi (EKSİK).
+- KIRMIZI 1: test_ucretsiz_havuz::test_dakika_jeton_kovasi_yarim_max_tokens_sayar (3. iş None; son dokunan 5b34f85c USTA-BLENDER-4 model listesi; bu turla ilgisi yok, kök neden bakılmadı).
+- KIRMIZI 2: test_zorunlu_arac::test_kombin_sec_ve_dogrula (logo-marka kombininde 'vtracer' katalogda yok; ek.jsonl/yetenek.jsonl'de 0 kayıt; ilgisi yok, düzeltilmedi).
+- item 13: ecc-agentshield@1.6.0 npm global kurulu (doğrulandı).
+- 6-11: YAPILMADI (değişmedi).
