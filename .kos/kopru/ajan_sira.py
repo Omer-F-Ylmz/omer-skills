@@ -696,7 +696,7 @@ def main():
         baslayan.add(f.stem)
     DEVAM.update(kurtar(kuyruk(), baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
-    ara_t, kapi_t = 0.0, {}
+    ara_t, kapi_t, yarim_t = 0.0, {}, 0.0
     izle, son_degisen, yenile = izlenen_mtime(), {}, False  # YONETICI-YENILE-1: kod değişince çalışanlar bitince kendini yeniler
     while True:
         if time.time() - ara_t >= 120:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
@@ -752,6 +752,14 @@ def main():
             arka_istek.isle(log=log)
         except Exception as e:
             log("arka-istek hata", repr(e)[:120])
+        if time.time() - yarim_t >= 600:  # YARIM-BEKCI-1: 10 dk'da bir yarım iş taraması (H5/H6 otomatik düzelir, H1–H4 yalnız log + yarim.tsv)
+            yarim_t = time.time()
+            try:
+                import yarim_bekci
+                for s_ in yarim_bekci.calistir(K, KOK)[1]:
+                    log(s_)
+            except Exception as e:
+                log("yarim_bekci hata", repr(e)[:120])
         karar, son_degisen, hatalar = yenile_karar(izle, son_degisen)  # YONETICI-YENILE-1: derleme hatası varsa yenileme yok, ALARM
         if karar == "alarm":
             yenile = False
