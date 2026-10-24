@@ -30,6 +30,9 @@ def paketle(skill, cikti):
     gruplar = _gruplar(ajanlar, EN_COK_DOSYA - 2)  # SKILL.md + katalog.tsv
     icerik, bayt, parca, yeni = {}, {}, {}, [satirlar[0]]
     for (ad, model, tek, yol), grup in zip(ajanlar, gruplar):
+        if not Path(yol).exists():  # kaldırılmış plugin'in eski katalog satırı
+            print(f"ATLA (dosya yok): {ad}")
+            continue
         metin = Path(yol).read_bytes().decode("utf-8-sig").replace("\r\n", "\n").rstrip("\n")
         boy = len(metin.encode("utf-8"))
         if bayt.get(grup, 0) and bayt[grup] + boy > EN_BUYUK_BAYT:
