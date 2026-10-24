@@ -106,6 +106,29 @@ def test_agac_en_buyuk_kok_secilir():
     assert kok == 40 and alt == 3 and pidler[-1] == 40
 
 
+def _bas(s, kok, t):
+    return [x + (t,) if x[0] == kok or x[1] == kok else x + (0,) for x in s]
+
+
+def test_agac_en_yeni_baslayan_kok_secilir_buyuk_degil():  # RAM-BEKCI-3: eski ağaç ilerlemiş iş, yeni başlayan en az iş kaybettirir
+    s = _bas(_agac(10, 3, 900), 10, 100.0) + _bas(_agac(40, 3, 100), 40, 200.0)
+    kok, toplam, alt, pidler = ajan_ram_bekci.agac_sec(s, {10, 40})
+    assert kok == 40 and pidler[-1] == 40
+
+
+def test_agac_88de_hedef_yoksa_en_yeni_agac_kesilir_digeri_kalir():
+    s = _bas(_agac(10, 2, 300), 10, 100.0) + _bas(_agac(40, 2, 100), 40, 200.0)
+    olaylar = []
+    d, kok, ad = ajan_ram_bekci.agac_kontrol(88, {10: "eski", 40: "yeni"}, s, olaylar.extend, lambda *a: None, set())
+    assert (d, kok, ad) == ("kesildi", 40, "yeni") and 10 not in olaylar and 40 in olaylar
+
+
+def test_korumalilar_ve_yeniden_gecis_agac_disi_kalir():  # yeniden-gecis-2 (video_derin) ajan kökü değildir → seçilemez
+    s = _bas(_agac(10, 1, 100), 10, 100.0) + [(77, 1, "python.exe", 3000 * MB, r"python tools\video_derin.py --es 4", 300.0)]
+    kok, _, _, pidler = ajan_ram_bekci.agac_sec(s, {10})
+    assert kok == 10 and 77 not in pidler
+
+
 def test_agac_korumalilar_ve_altlari_dokunulmaz():
     s = _agac(10, 2, 50) + [
         (500, 10, "windowsapps-claude.exe", 800 * MB, r"C:\Program Files\WindowsApps\Claude_1.0\app\Claude.exe"),
@@ -124,11 +147,11 @@ def test_agac_pidleri_yapraktan_koke():
     assert ajan_ram_bekci.agac_pidleri(s, 10) == [12, 11, 10]
 
 
-def test_agac_esigi_92_altinda_durdurmaz_ustunde_durdurur():
+def test_agac_esigi_88_altinda_durdurmaz_ustunde_durdurur():  # RAM-BEKCI-3: 92 → 88 (15:02 olayı: 88→90, hedef yok)
     s = _agac(10, 2, 100)
     olaylar, kayit = [], []
-    assert ajan_ram_bekci.agac_kontrol(91, {10: "iş-a"}, s, olaylar.extend, lambda *a: None, set())[0] is None and olaylar == []
-    d, kok, ad = ajan_ram_bekci.agac_kontrol(92, {10: "iş-a"}, s, olaylar.extend, lambda *a: kayit.append(a), set())
+    assert ajan_ram_bekci.agac_kontrol(87, {10: "iş-a"}, s, olaylar.extend, lambda *a: None, set())[0] is None and olaylar == []
+    d, kok, ad = ajan_ram_bekci.agac_kontrol(88, {10: "iş-a"}, s, olaylar.extend, lambda *a: kayit.append(a), set())
     assert (d, kok, ad) == ("kesildi", 10, "iş-a") and olaylar == [10000 + 1, 10000, 10] and kayit
 
 

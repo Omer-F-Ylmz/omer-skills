@@ -327,6 +327,7 @@ def test_ram_tahmin_ve_izin():
     site = ajan_sira.tahmin_mb("site-3d landing three.js")
     render = ajan_sira.tahmin_mb("blender render sahnesi")
     assert hafif < site < render
+    assert 1000 <= hafif <= 1300  # RAM-BEKCI-3: ölçülen ajan ağacı medyanı 1106 MB (kök 755 + MCP'ler), eski tahmin 870 düşüktü
     assert not ajan_sira.ram_izin(84, 2000, 32000, 85, False)  # 84 + %6.25 > 85 → bekle
     assert ajan_sira.ram_izin(70, 2000, 32000, 85, False)
     assert ajan_sira.ram_izin(84, 9000, 32000, 85, True)  # hiçbir şey çalışmıyorsa kilitlenmesin

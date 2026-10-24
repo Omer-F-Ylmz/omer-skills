@@ -254,6 +254,14 @@ def ram_bekle(calisan):
         return
     try:
         sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
+        if r >= ajan_ram_bekci.DUR_ESIK:  # RAM-BEKCI-3: önce ≥600 MB tek kaçak süreç (cerrahi); yoksa aşağıda en yeni ağaç
+            durum, h = ajan_ram_bekci.kontrol(r, kok_pidler(calisan), ajan_ram_bekci.surecler_listele(), ajan_ram_bekci.oldur_agac, log)
+            if durum == "durdurdu":
+                beyin_dusun.olay("ram-bekci", "yonetici", f"RAM %{r} {durum} pid {h[0]} {h[2]} {h[3] // 2**20} MB", True)
+                time.sleep(3)
+                r = ram()
+                if r < ajan_ram_bekci.DUR_ESIK:
+                    return
         for _ in range(3):  # RAM düşmediyse sıradaki ağaç (her tur 30 sn beklemeden)
             surecler = ajan_ram_bekci.surecler_listele()
             kokler = kok_adlari(calisan)
@@ -269,7 +277,7 @@ def ram_bekle(calisan):
             r = ram()
             if r < ajan_ram_bekci.AGAC_ESIK:
                 return
-        if r < ajan_ram_bekci.ADAY_ESIK:
+        if r < ajan_ram_bekci.ADAY_ESIK or r >= ajan_ram_bekci.DUR_ESIK:  # ≥88 yukarıda işlendi; burada yalnız 87 aday günlüğü
             return
         durum, h = ajan_ram_bekci.kontrol(r, kok_pidler(calisan), ajan_ram_bekci.surecler_listele(), ajan_ram_bekci.oldur_agac, log)
         if durum in ("aday", "durdurdu"):
@@ -490,8 +498,9 @@ def ram_toplam_mb():
     return m.t // 2**20
 
 
-# RAM-1: ajan başına tahmini MB (docs/ram/olcum.md ölçümü): claude+bash ≈450, ajan başı stdio MCP'ler (http/paylaşımlı 0), render/blender ≈1500
-AJAN_MB, MCP_MB, RENDER_MB = 450, {"playwright": 330, "chrome-devtools": 300, "premiere-pro": 170, "ruflo": 90}, 1500
+# RAM-1: ajan başına tahmini MB; RAM-BEKCI-3 (24 Eki 15:20, 4 canlı ajan ağacı × 4 örnek): kök claude.exe medyan 755 (+conhost/bash ≈50),
+# ağaç toplamı medyan 1106 / en çok 1651 (ruflo 305'e çıkabilir); MCP başına: stalemap 82, chrome-devtools 83, ruflo 82, playwright ≈85, rea 32, premiere 64. render/blender ≈1500
+AJAN_MB, MCP_MB, RENDER_MB = 800, {"playwright": 85, "chrome-devtools": 83, "premiere-pro": 64, "ruflo": 82, "stalemap": 82, "rea": 32}, 1500
 
 
 def tahmin_mb(ham):

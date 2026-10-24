@@ -6,7 +6,8 @@ import os
 
 ADAY_ESIK, DUR_ESIK = 87, 88
 # RAM-BEKCI-2 (24 Eki 09:45, oyun açıkken claude -p ağacı 93 alt süreç/2.5 GB, RAM %98): tek alt süreç yetmedi → >= AGAC_ESIK'te ajan ağacının tamamı
-AGAC_ESIK, UYARI_RAM, UYARI_MB, UYARI_ALT = 92, 80, 1536, 60
+# RAM-BEKCI-3 (24 Eki 15:02, RAM %88→90, "hedef yok"): 92 → 88; ≥600 MB tek kaçak yoksa en yeni başlayan ağaç
+AGAC_ESIK, UYARI_RAM, UYARI_MB, UYARI_ALT = 88, 80, 1536, 60
 TEK_MIN_MB = 600
 # izin listesi: ad (küçük harf) ya da komut satırında geçen parça → asla hedef değil
 IZIN_AD = {"claude.exe", "chrome.exe", "headroom.exe", "system", "registry", "smss.exe", "csrss.exe", "wininit.exe", "services.exe",
@@ -56,13 +57,13 @@ def tarayici_kapat(surecler, kokler, oldur, log):
 
 
 def surecler_listele():
-    """[(pid, ppid, ad, ws_bayt, komut)] — psutil; erişilemeyen süreç atlanır."""
+    """[(pid, ppid, ad, ws_bayt, komut, başlangıç_zamanı)] — psutil; erişilemeyen süreç atlanır."""
     import psutil
     s = []
-    for p in psutil.process_iter(["pid", "ppid", "name", "memory_info", "cmdline"]):
+    for p in psutil.process_iter(["pid", "ppid", "name", "memory_info", "cmdline", "create_time"]):
         try:
             i = p.info
-            s.append((i["pid"], i["ppid"], (i["name"] or "").lower(), i["memory_info"].rss if i["memory_info"] else 0, " ".join(i["cmdline"] or [])))
+            s.append((i["pid"], i["ppid"], (i["name"] or "").lower(), i["memory_info"].rss if i["memory_info"] else 0, " ".join(i["cmdline"] or []), i["create_time"] or 0))
         except Exception:
             pass
     return s
@@ -144,7 +145,9 @@ def agac_sec(surecler, kokler):
     adaylar = [(agac_ozet(surecler, k), k) for k in kokler if k in var]
     if not adaylar:
         return None
-    (toplam, alt, pidler), kok = max(adaylar, key=lambda a: a[0][0])
+    # RAM-BEKCI-3: başlangıç zamanı biliniyorsa EN YENİ başlayan ağaç (en az ilerleme kaybı), yoksa toplamı en büyük
+    bas = {s[0]: s[5] for s in surecler if len(s) > 5}
+    (toplam, alt, pidler), kok = max(adaylar, key=(lambda a: bas[a[1]]) if all(a[1] in bas for a in adaylar) else (lambda a: a[0][0]))
     return kok, toplam, alt, pidler
 
 

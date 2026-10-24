@@ -79,3 +79,13 @@ def test_genel_python_gpu_venve_yonlenir(tmp_path, monkeypatch):
     with pytest.raises(SystemExit) as e:
         video_derin.main()
     assert e.value.code == 0 and cagri == [[str(gpu), "video_derin.py", "--en", "1"]]
+
+
+def test_isci_hedef_ram_yukselince_yarilanir_dusunce_geri_gelir():  # RAM-BEKCI-3: 4 → 2 (durdurmadan), RAM düşünce 4
+    assert video_derin.isci_hedef(85, 4) == 4
+    assert video_derin.isci_hedef(86, 4) == 2
+    assert video_derin.isci_hedef(87, 4) == 2
+    assert video_derin.isci_hedef(88, 4) == 0  # %89 tavanı: yeni video başlamaz, çalışanlar sürer
+    assert video_derin.isci_hedef(90, 1) == 0
+    assert video_derin.isci_hedef(86, 1) == 1  # tek işçi yarıya inmez
+    assert video_derin.isci_hedef(70, 4) == 4

@@ -324,21 +324,34 @@ def isle_post(url):
         shutil.rmtree(d, ignore_errors=True)
 
 
-RAM_ESIK = 85  # yüzde: üstündeyken yeni video başlamaz (sınır Ömer'in RAM kuralı)
+RAM_AZALT, RAM_DUR = 86, 88  # RAM-BEKCI-3: ≥86'da işçi yarıya (çalışanlar kesilmez, yeni video sayı altına inene dek beklemez), ≥88'de yeni video yok (tavan %89)
+AKTIF, AKTIF_KILIT = [0], threading.Lock()
 
 
-def ram_bekle():
-    while psutil.virtual_memory().percent >= RAM_ESIK:
+def isci_hedef(r, es):
+    return 0 if r >= RAM_DUR else max(1, es // 2) if r >= RAM_AZALT else es
+
+
+def ram_bekle(es):
+    """Eşzamanlı işçi sayısı RAM'e göre isci_hedef'i aşmayana dek bekler; slot alır (calis bırakır)."""
+    while True:
+        with AKTIF_KILIT:
+            if AKTIF[0] < isci_hedef(psutil.virtual_memory().percent, es):
+                AKTIF[0] += 1
+                return
         time.sleep(30)
 
 
-def calis(u):
-    ram_bekle()
+def calis(u, es=3):
+    ram_bekle(es)
     t = time.time()
     try:
         kod, durum = isle_post(u) if re.search(r"instagram\.com/p/", u) and shutil.which("gallery-dl") else isle(u)
     except Exception as e:  # tek video hatası toplu işi durdurmaz
         kod, durum = kod_of(u), f"hata: {str(e)[:120]}"
+    finally:
+        with AKTIF_KILIT:
+            AKTIF[0] -= 1
     satir = f"{kod}\t{durum}\t{time.time() - t:.0f}s"
     with KILIT:
         print(satir, flush=True)
@@ -369,7 +382,7 @@ def main():
     urls = [u for u in urls if not (CIKTI / f"{kod_of(u)}.json").exists() and kod_of(u) not in atla_kodlari()][:en]
     ozet, sayac = Counter(), 0
     with ThreadPoolExecutor(es) as ex:
-        for durum in ex.map(calis, urls):
+        for durum in ex.map(lambda u: calis(u, es), urls):
             ozet[durum.split(":")[0]] += 1
             sayac += 1
             if sayac % 50 == 0:  # her 50 işlemde özet
