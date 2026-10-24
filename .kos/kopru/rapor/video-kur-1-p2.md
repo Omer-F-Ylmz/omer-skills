@@ -33,3 +33,7 @@ Auto-mode sınıflandırıcı şu toplu komutu "Untrusted Code Integration" diye
 ## Kalan
 CLIProxyAPI, LuaLS, 9router postinstall (izinle); base için lisans kararı; zk/claude-mods kaynağı için video QIevCKcRbUs/U6xZX4YWFkU'dan doğru repo adı.
 Katalog: .kos/kopru/skill-mode/yetenek-ek-video.jsonl (4 satır).
+
+## 1b-a ek (24 Eki)
+- code-modernization yeniden tarandi: gitleaks temiz, semgrep yalniz sha1 cache anahtari (dusuk); skillspector --no-llm bitti ama analizorler degraded -> kesin 'temiz' denmez.
+- Izin bekleyen 3 komut degismedi (9router postinstall, LuaLS, CLIProxyAPI): sinif. reddi, atlatilmadi.
