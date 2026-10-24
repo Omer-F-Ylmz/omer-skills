@@ -155,9 +155,9 @@ def kanca(girdi, baslat=None):
 
 def _arka(oturum):
     import subprocess
-    subprocess.run([sys.executable, str(ARKA), str(ders.dizin() / "kanca.log"), str(Path(__file__).resolve()), "isle", oturum],
+    subprocess.run([sys.executable, str(ARKA), "--bagimsiz", str(ders.dizin() / "kanca.log"), str(Path(__file__).resolve()), "isle", oturum],
                    stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5,
-                   creationflags=0x08000000)  # CREATE_NO_WINDOW; arka.py kendisi ayrık süreç açıp hemen döner
+                   creationflags=0x08000000)  # CREATE_NO_WINDOW; --bagimsiz: oturum/Desktop job'u kapanınca isle ölmez (YARIM-C1 kurtar-fix-1)
 
 
 def karma(jev, arac, hata, son, test=None, odul=None):
