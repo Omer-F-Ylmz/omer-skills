@@ -164,7 +164,11 @@ def olc():
         for v in vakalar:
             for ad, on in (("derssiz", lambda g, t=None: ""), ("dersli", lambda g, t=None, tur=v["tur"]: asil(g, tur))):
                 dd.onek = on  # derssiz kol: cagir'ın kendi ders enjeksiyonu da kapalı
-                m, _, _ = ucretsiz_havuz.cagir("ozet", v["gorev"] + "\nKısa yanıtla: hangi adımları atarsın?", max_tokens=400, zaman=60)
+                for _ in range(4):  # paralel ajanlar havuz kotasını yiyor; yanıtsızsa soğumayı bekleyip yeniden dene
+                    m, _, _ = ucretsiz_havuz.cagir("ozet", v["gorev"] + "\nKısa yanıtla: hangi adımları atarsın?", max_tokens=400, zaman=60)
+                    if m is not None:
+                        break
+                    time.sleep(30)
                 say["bos"] += m is None  # havuz yanıtsız → 0'ı "uygulanmadı" sanma
                 say[ad] += bool(m and re.search(v["uygula"], m, re.I))
     finally:

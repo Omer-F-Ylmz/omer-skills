@@ -63,10 +63,10 @@ def test_yansit_obsidian_yazar():
     assert list(dd.OBSIDIAN.glob("ders-dongu-*.md"))
 
 
-def test_vaka_dosyasi_her_dersi_getirir():
+def test_vaka_dosyasi_her_dersi_getirir(monkeypatch):
     """Regresyon: tools/ders_test/vakalar.json her vakada beklenen ders id'si getir() ile gelir."""
     vakalar = json.loads((KOK / "tools/ders_test/vakalar.json").read_text(encoding="utf-8"))
-    dd.tohum()
+    monkeypatch.setattr(dd, "DOSYA", KOK / "tools/dersler.jsonl")  # vaka dersleri gerçek kaynakta
     kacan = [v["ad"] for v in vakalar if v["bekle"] not in dd.getir(v["tur"], v["gorev"])[1]]
     assert not kacan, kacan
 
