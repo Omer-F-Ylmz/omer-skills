@@ -74,6 +74,11 @@
   "settings": "profil-k7b-kazanan.json",
   "not": "TOKEN-7b-devam-2 kazananlar: kol 1 (b40k) + kol 2 (think10k) + kol 3 (cmnudge); rtk-onisle zaten canlı"
  },
+ "k7b-final": {
+  "ek": [],
+  "settings": "profil-k7b-final.json",
+  "not": "TOKEN-7b uygulama profili: kol 2 (think10k) + kol 3 (cmnudge); b40k yok (G06 isabeti)"
+ },
  "b2sonra": {
   "ek": [
    "--add-dir",
