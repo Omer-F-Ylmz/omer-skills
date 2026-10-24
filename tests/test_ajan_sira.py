@@ -568,3 +568,9 @@ def test_kok_adlari_calisan_ve_basladi(tmp_path, monkeypatch):
     (tmp_path / "dis-is.basladi").write_text("10:00:00 pid 777 sid x", encoding="utf-8")
     (tmp_path / "olu-is.basladi").write_text("10:00:00 pid 888 sid y", encoding="utf-8")
     assert ajan_sira.kok_adlari({"is-a": (P(),)}) == {4242: "is-a", 777: "dis-is"}
+
+
+def test_ara_aralik_100_sn_ve_dongu_kullanir():
+    """YARIM-B1 5: yoklama 30 sn adımlı; eşik 100 sn → ara olay aralığı ≤2 dk (önceden 2.0–2.6)."""
+    assert ajan_sira.ARA_ARALIK == 100
+    assert "time.time() - ara_t >= ARA_ARALIK" in Path(ajan_sira.__file__).read_text(encoding="utf-8")

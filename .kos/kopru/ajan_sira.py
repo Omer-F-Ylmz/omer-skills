@@ -668,6 +668,7 @@ def nihai_kapi(ad, metin, simdi=None):
     return sebep
 
 
+ARA_ARALIK = 100  # sn; döngü 30 sn adımlı, 120 eşiği 2.0–2.6 dk veriyordu
 YONETICI_OLAY = ("ara", "kapi", "is", "denetim", "maliyet", "kurtar")  # yöneticinin kendi olayları iş oturumunun beyin yazımı sayılmaz
 
 
@@ -704,7 +705,7 @@ def main():
     ara_t, kapi_t, yarim_t = 0.0, {}, 0.0
     izle, son_degisen, yenile = izlenen_mtime(), {}, False  # YONETICI-YENILE-1: kod değişince çalışanlar bitince kendini yeniler
     while True:
-        if time.time() - ara_t >= 120:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
+        if time.time() - ara_t >= ARA_ARALIK:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
             ara_t = time.time()
             try:
                 sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
