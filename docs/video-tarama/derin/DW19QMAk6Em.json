@@ -1,0 +1,365 @@
+{
+ "kod": "DW19QMAk6Em",
+ "url": "https://www.instagram.com/p/DW19QMAk6Em/",
+ "dil": null,
+ "meta": {
+  "aciklama": "You think better prompts = better words.\n\nWrong.\n\nBetter prompts = better structure.\n\nThese shortcuts aren’t hacks.\nThey’re control layers.\n\nThey force clarity, raise the bar, and remove ambiguity.\n\nThat’s why the same model\ncan feel average… or insane.\n\nDepends on how you use it.\n\nSave this. You’ll come back to it.\n\t\n\n▶️ Want to stay on top of AI news, useful tips, and the latest updates? Join our newsletter and get access to 3,000+ AI tools, 500+ prompts, and free AI courses.\n\nComment “shift” and I’ll send you the link.\n\nFollow @ai.theshift for more content 🎯\n\n#ChatGPTPrompts #PromptEngineering\n#AITools #ArtificialIntelligence",
+  "slayt": 6
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "The Shift"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "@ai.theshift"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "1. /ELl5 is used to explain as if to a 5-year-"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "old."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "2. /TLDR summarizes a very long text in a"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "few lines."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "3. /STEP-BY-STEP lays out reasoning step"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "by step."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "4. /cHEcKLiST turns a response into a"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "checklist."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "5. /EXEC SUMMARY gives a quick executive-"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "style summary."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "6. /AcT AS makes Claude speak in a specific"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "role."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "7. /BRlEFLY forces a very short answer."
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "8. /JARGON asks to use technical"
+  },
+  {
+   "k": "3870268848038191398_3870230081629820175.jpg",
+   "t": "vocabulary."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "17. /CoNTEXT STAcK keeps multiple layers"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "of context in memory."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "18. /BEGIN WITH / END WITH forceS starting"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "or ending with something."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "19. /ROLE: TASK: FORMAT: eXplicitly defines"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "the role, the task, and the expected format."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "20. /scHEMA generates a structured outline"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "or a data model."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "21. /REWRITE AS rephrases in a requested"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "style."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "22. /REFLECTIVE MoDE prompts Claude to"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "reflect on its own answer."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "23./SYSTEMATIC BIAS CHECK aSkS to"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "identify biases."
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "24. /DELIBERATE THINKING forceS sloWer,"
+  },
+  {
+   "k": "3870268848038191398_3870230081638179621.jpg",
+   "t": "more thoughtful reasoning."
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "25./NO AUToPILOT forbids superficial,"
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "autopilot responses."
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "26. /EVAL-SELF asks for a critical self-"
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "evaluation of the response."
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "27. /PARALLEL LENSES eXamines from"
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "several angles in parallel."
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "28. /FIRST PRINCIPLES rebuilds from"
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "fundamental basics."
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "29./CHAIN OF THOUGHT shoWS"
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "intermediate reasoning."
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "Try these out today, and let us know how it"
+  },
+  {
+   "k": "3870268848038191398_3870230081638182679.jpg",
+   "t": "goes."
+  },
+  {
+   "k": "3870268848038191398_3870230081713676430.jpg",
+   "t": "STOP USING CLAUDE LIKE EVERY"
+  },
+  {
+   "k": "3870268848038191398_3870230081713676430.jpg",
+   "t": "OTHERAI.HEREARE29PR0MPT"
+  },
+  {
+   "k": "3870268848038191398_3870230081713676430.jpg",
+   "t": "SHORTCUTSTHATSUPERCHARGE"
+  },
+  {
+   "k": "3870268848038191398_3870230081713676430.jpg",
+   "t": "CLAUDERESPONSES"
+  },
+  {
+   "k": "3870268848038191398_3870230081713676430.jpg",
+   "t": "SAVETHESE29SHORTCUTS"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "9. /AUDlENcE adapts the response to a"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "chosen audience."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "10. /ToNE changes the tone (formal, witty,"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "empathetic, etc.)."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "11./DEV MoDE simulates a raw, technical"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "developer style."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "12. /PM MoDE gives a project-management"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "perspective."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "13. /swoT produces a"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "strengths/weaknesses/opportunities/threat"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "s analysis."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "14. /FoRMAT AS enforces a specific format"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "(table, XML, JSON, etc.)."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "15. /coMPARE puts two or more things side"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "by side."
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "16./MULTI-PERSPECTIVEshoWSSeVeral"
+  },
+  {
+   "k": "3870268848038191398_3870230081780822169.jpg",
+   "t": "points of view."
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "SIGNUPTOFREEAINEWSLETTERANDGETEXCLUSIVE"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "ACCESSTO3OO0+AITOOLSAND5O0+PROMPTS"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "250,000Readers"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "HowtoTurnOneProductPhotoIntoaStudio-"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "Subscribe for free"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "QualityVideoAdin2Minutes"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "Most brands think greatvideo adsrequirestudios,"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "editors,andbigbudgets.Theydon't.Bycombining"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "GoogleNanoBananaPro andKlingAl,you can"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "Actionable Insights"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "Daily Al Tutorials"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "Howitworks"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "1.Startwithacleanproductshot:Usea"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "simpleimageonawhitebackground.Clarity"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "beats complexity."
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "2.Createanexplodedvisual:Generatea"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "secondimageshowingingredientsor"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "componentsfloatingincleanlayersusing"
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "NanoBananaPro."
+  },
+  {
+   "k": "3870268848038191398_3870230081780829487.jpg",
+   "t": "COMMENT\"SHIFT\"AND WE'LLSENDYOU THELINK"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [],
+ "kare_aciklama": null,
+ "kare_sayisi": 6,
+ "duzeltme": []
+}

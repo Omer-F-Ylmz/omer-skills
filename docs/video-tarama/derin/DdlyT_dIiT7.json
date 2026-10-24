@@ -1,0 +1,137 @@
+{
+ "kod": "DdlyT_dIiT7",
+ "url": "https://www.instagram.com/p/DdlyT_dIiT7/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Train your own LLM from scratch 🧠\n\nOn a free Google Colab in 1 day.\n\nThis repo builds a GPT-style transformer from the ground up, without using any high-level libraries.\nYou see exactly how attention, multi-head attention, the feed-forward block, embeddings, residuals, and layer norm fit together.\n\nAnd it doesn't stop at the model. It walks the whole path from raw data to generated text:\n\n➡️ Data download, preprocessing, training, and generation\n➡️ Training data from The Pile (825GB across 22 sources)\n➡️ Tokenized with tiktoken (r50k_base) and stored in HDF5\n➡️ Training loop with eval, LR decay, and crash-safe checkpoints\n➡️ An SFT and RLHF guide for what comes after pretraining\n\nThe same code scales by changing a few config values. Around 13M parameters is where the output starts producin",
+  "slayt": 1
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "TransforwerBlockx6y"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Ewbedelings"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "TrainLLMFromScratch"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Python3.8+"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "License"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "MIT"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Contributions"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Welcome"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Docs"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Avallable"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "IamLookingforaPhDpositioninAl.GitHub"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Iimplemented a transformermodel fromscratchusingPyTorch,basedonthepaperAttention isAll YouNeed.You"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "canusemyscriptsto trainyourownbillionormillionparameterLLMusingasingleGPU."
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "New:from-scratchpost-training suite(SFT.Reward Model·PPO·DPO.GRPO/RLVR).Therepo now goes"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "beyondpretraining all thewayto a modern aligned reasoning model-BaseSFT-Reward Model{PPo,"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "DPo) -GRPo -every algorithm hand-written in purePyTorch(no trl/peft/transformers）on thisrepo's"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "own Transformer,trained onreal public datasets(Alpaca,Dolly,AnthropicHH-RLHF,UltraFeedback,GSM8K)"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "andbuilt formulti-GPU(DDP+bf16).SeePOST TRAINING.md for the full guide."
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Below is theoutputofthetrained13millionparameterLLM:"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "In ***1978,The park was returned to the factory-plate that"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "the public share to the lower of the electronic fence that"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "follow from the Station's cities.The Canal of ancient Western"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "nations were confined to the city spot.The villages were directly"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "linked to cities in China that revolt that the Us budget and in"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Odambinais is uncertain and fortune established in rural areas."
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "TableofContents"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Training Data Info"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Prerequisitesand Training Time"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Code Structure"
+  },
+  {
+   "k": "3991817920863937787.jpg",
+   "t": "Usage"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [],
+ "kare_aciklama": null,
+ "kare_sayisi": 1,
+ "duzeltme": []
+}

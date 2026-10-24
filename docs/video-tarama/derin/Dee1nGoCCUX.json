@@ -1,0 +1,526 @@
+{
+ "kod": "Dee1nGoCCUX",
+ "url": "https://www.instagram.com/p/Dee1nGoCCUX/",
+ "dil": null,
+ "meta": {
+  "aciklama": "How to Automate Content Creation with Claude",
+  "slayt": 8
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "How"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "to Automate"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Content"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Creation"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Claude"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Topic"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Editing"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Clipping"
+  },
+  {
+   "k": "4007876502045074711_4007876141118422055.jpg",
+   "t": "Post"
+  },
+  {
+   "k": "4007876502045074711_4007876144188662748.jpg",
+   "t": "Step 1"
+  },
+  {
+   "k": "4007876502045074711_4007876144188662748.jpg",
+   "t": "Open Claude App"
+  },
+  {
+   "k": "4007876502045074711_4007876144188662748.jpg",
+   "t": "in your Desktop"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Step"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Build a Claude Project"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Make a new project. Name it."
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Create project"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Project name"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Instagram Content Engine"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Whatareyouworkingon?"
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Describe your project, goals, subject, etc.."
+  },
+  {
+   "k": "4007876502045074711_4007876146504127223.jpg",
+   "t": "Cancel"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Step3"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Research Trending Content"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "in Your Niche"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "*Claude"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Research trending content in my niche using these repositories."
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "QChat"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Newproject"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Use these GitHubrepositories:"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Projects"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "VideoWatch"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Artifacts"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "github.com/bradautomates/claude-video"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Customize"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Scrapling"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "github.com/D4Vinci/Scrapling"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Recent"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Real estatecontent ideas"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "*Your prompt:"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "WhatsApp Al agent"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "YouTube to expert agent"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Researchmyniche:[YOURNICHE]"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Marketingstrategy"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Find trending topics,strong hooks,audience pain points,"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "content gaps,and20original Reel ideas."
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Business automation"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Claude skills guide"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Growthplan"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Studypublicvideosand creators"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Find hooks,formats,and audiencequestions"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Rank20 original Reel ideas"
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Message Claude..."
+  },
+  {
+   "k": "4007876502045074711_4007876150228482841.jpg",
+   "t": "Claude 3.5Sonnet"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Step 4"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Build Your 30-Day"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Instagram Plan"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "米Claude"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Reels Scripting Skill"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "github.com/charlie947/social-media-skills"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "+New project"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "米Your prompt:"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "6Customize"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "UsemyStep3researchand theReelsScriptingSkill tocreate"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Include dailyReel topics,3-secondhooks,30-45secscripts,"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "captions,visual notes,and clearCTAs.Prioritiseoriginal idas,"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Trendingcontentresearch"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "audience pain points, and a balanced content mix."
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Reelideas"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Do not copy creators."
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Instagram growthplan"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "30-day content calendar"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Reel scripts+matching captions"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Hooks,visualsandCTAs"
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "MessageClaude..."
+  },
+  {
+   "k": "4007876502045074711_4007876153315469709.jpg",
+   "t": "Claude3.5Sonnet"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Step!"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Build Your Al Video"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Creation System"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Claude Code"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "ClaudeCodeVideoToolkit"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Chat"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "github.com/digltalsamba/claude-code-video-tocllcit"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "New project"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Your prompt:"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Build my Instagram Reel production system."
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Use the toolkit's workflow and use Video Watch, Scrapling,"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Remotion, and HyperFrames only where appropriate."
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "UsemyStep3research,Step4plan,approvedReelscript,"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Videocreation system"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "visual references, and attached portrait/image."
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "instagramreelproduction"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Createapolished9:16Reel inspiredbymyreferencevideo."
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Claude codetoollcit"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Videoautomationsetup"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Content creation pian"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Plan scenes, visuals & timing"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Createcaptions,voiceover&motion"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Preview,refineandrenderMP4"
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "MessageClaudeCode..."
+  },
+  {
+   "k": "4007876502045074711_4007876153776959799.jpg",
+   "t": "Claude3.5Scnnet"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Step6"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Connect Zernio"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "to Claude"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Zernio MCP"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "docs.zemio.com/mcp"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "ConnectZernioMCP toClaude."
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Use https://mcp.zernio.com/mcp, complete sign-in,"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "then verify connected social accounts."
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Socialmediaautomation"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Contentcalendar"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Zernio integration"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Schedule and publish posts"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Instagram strategy"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Manage social inbox"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Review post analytics"
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Message Claude.."
+  },
+  {
+   "k": "4007876502045074711_4007876159925874493.jpg",
+   "t": "Claude36Sonnet"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "the"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "you"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "want"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "Complete"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "guide"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "Comment"
+  },
+  {
+   "k": "4007876502045074711_4007876164170304792.jpg",
+   "t": "Creation\""
+  }
+ ],
+ "linkler": [
+  "docs.zemio.com/mcp",
+  "github.com/D4Vinci/Scrapling",
+  "github.com/bradautomates/claude-video",
+  "github.com/charlie947/social-media-skills",
+  "github.com/digltalsamba/claude-code-video-tocllcit",
+  "https://mcp.zernio.com/mcp"
+ ],
+ "komutlar": [
+  "Claude\nTopic",
+  "Claude 3.5Sonnet",
+  "Claude Code",
+  "Claude codetoollcit",
+  "Claude skills guide"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 8,
+ "duzeltme": []
+}

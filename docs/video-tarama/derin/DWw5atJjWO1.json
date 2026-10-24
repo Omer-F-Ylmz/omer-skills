@@ -1,0 +1,532 @@
+{
+ "kod": "DWw5atJjWO1",
+ "url": "https://www.instagram.com/p/DWw5atJjWO1/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Claude isn’t a tool anymore.\n\nIt’s your entire design team.\n\nDesigner.\nStrategist.\nCreative director.\n\nAll in one prompt.\t\n\n▶️ Want to stay on top of AI news, useful tips, and the latest updates? Join our newsletter and get access to 3,000+ AI tools, 500+ prompts, and free AI courses.\n\nComment “shift” and I’ll send you the link.\n\nFollow @ai.theshift for more content 🎯\n\n#ChatGPTPrompts #PromptEngineering\n#AITools #ArtificialIntelligence",
+  "slayt": 7
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "The Shift"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "SIGNUPTOFREEAINEWSLETTERANDGETEXCLUSIVE"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "ACCESSTO3OO0+AITOOLSAND5O0+PROMPTS"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "250,000Readers"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "HowtoTurnOneProductPhotoIntoaStudio-"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "Subscribe for free"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "QualityVideoAdin2Minutes"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "Most brands think greatvideo adsrequirestudios,"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "editors,andbigbudgets.Theydon't.Bycombining"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "GoogleNanoBananaPro andKlingAl,you can"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "Actionable Insights"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "Daily Al Tutorials"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "Howitworks"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "1.Startwithacleanproductshot:Usea"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "simpleimageonawhitebackground.Clarity"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "beats complexity."
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "2.Createanexplodedvisual:Generatea"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "secondimageshowingingredientsor"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "componentsfloatingincleanlayersusing"
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "NanoBananaPro."
+  },
+  {
+   "k": "3868844603747427253_3868768085616705376.jpg",
+   "t": "COMMENT\"SHIFT\"AND WE'LLSENDYOU THELINK"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "UI/UXSYSTEMSTHINKER"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "You are a Senior Product Designer who optimizes for user"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "behavior,"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "not screen aesthetics. Design a complete experience system"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "for [APP TYPE]."
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "Rules:"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "- Design friction intentionally, some should stay, some must go"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "- Assume real users, incomplete data, errors, and skill variance"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "- No wireframes without behavioral rationale"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "Deliver in this order:"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "1. Intent mapping: primary/conflicting user intents, where friction"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "stays vs. goes"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "2. Behavioral design: how hierarchy, disclosure, and motion guide"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "decisions before users consciously choose"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "stateswithbehavioralintent"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "4. Edge cases: empty states, incomplete data, error recovery"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "5. Skill-level adaptation: what changes for new vs. power users"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "6. Anti-patterns: 3-5 Ux decisions that look correct but, damage"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "user decision quality"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "Output must read like a behavioral design brief, not a Ux"
+  },
+  {
+   "k": "3868844603747427253_3868768085616731723.jpg",
+   "t": "checklist."
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "DESIGNOPS+FIGMASYSTEMSBUILDER"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "You are a Design Operations Specialist who builds Figma systems"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "that survive team growth and product pivots. Convert"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "[IDEA/DESIGN]"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "into a scalable Figma system."
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "- Treat Figma architecture as infrastructure, not craft"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "Optimizefor onboarding speed,decision speed,zero-rework"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "updates"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "- Assume 3-10 designers, multiple surfaces, ongoing dev handoff"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "1. System architecture: file structure logic,layer hierarchy, where"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "decisions are made once vs. where overrides are allowed"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "2. Component logic: composability rules, auto-layout philosophy,"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "variant structure, what must never be overridden locally"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "3. Naming system: conventions for layers, components, variables,"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "styles, plus the logic so new designers can extend it"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "4. Handoff infrastructure: what every spec must include, how"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "states and edge cases are documented in-file"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "5. Maintenance protocol: how breaking changes are versioned,"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "when to deprecate vs. extend"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "6. Onboarding standard: what new designers must know before,"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "touching the system, the 3 most common mistakes and how to"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "prevent them"
+  },
+  {
+   "k": "3868844603747427253_3868768085616753746.jpg",
+   "t": "Output must read like a systems spec, not a design handoff note."
+  },
+  {
+   "k": "3868844603747427253_3868768085708976409.jpg",
+   "t": "CLAUDE CAN REPLACE AN ENTIRE"
+  },
+  {
+   "k": "3868844603747427253_3868768085708976409.jpg",
+   "t": "DESIGNTEAM.NOTJUSTGENERATE"
+  },
+  {
+   "k": "3868844603747427253_3868768085708976409.jpg",
+   "t": "BUTTHINKLIKEONE"
+  },
+  {
+   "k": "3868844603747427253_3868768085708976409.jpg",
+   "t": "SWIPEFORMORE"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "GROWTHCREATIVEARCHITECT"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "You are a Growth Creative Strategist who builds creative systems"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "that compound over time. Build a full-stack creative ecosystem"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "for [PRODUCT/SERVICE]."
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "- Treat creative as a testable asset class, not campaign output"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "- Every asset must be testable in isolation and scalable without"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "redesign"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "- No one-off concepts, no generic hooks"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "1. Conversion belief map: what belief blocks each funnel action,"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "whatthecreativemustclose"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "2. Messaging architecture: awareness / consideration / conversion"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "/ retention layer copy logic"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "3. Creative system: 10+ hook angles mapped to psychological"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "triggers, modular asset anatomy, variation logic"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "4. Testing framework: what to isolate, how to read results, when"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "to kill vs. iterate"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "5.Anti-patterns: 3-5 creative decisions that reviewwell,but"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "underperform in market, with the psychological reason why"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "Output must read like a performance marketer wrote it,"
+  },
+  {
+   "k": "3868844603747427253_3868768085708996104.jpg",
+   "t": "not a brandteam."
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "BRANDIDENTITYSTRATEGIST"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "You are a Brand Strategist and Creative Director whobuilds"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "category-defining brands. Build a strategic brand identity"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "for [COMPANY]."
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "- Treat brand as a market positioning tool, not a visual exercise"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "-Every decisionmust answer:\"Whydoes this helpthe brand"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "win?\""
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "- No moodboards, no logo concepts without strategic rationale"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "1. Competitive landscape: where visual sameness exists,"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "whatwhitespaceis available"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "2.Brand narrative:thetension thisbrand creates in the"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "category, the belief competitors implicitly deny"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "3. Visual system rationale: color, type, imagery tied to market"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "context, not general aesthetics"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "4. Identity behavior: how the brand flexes across ads, product,"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "social, email"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "5. Decision filter: 3-5 questions any future creative must"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "answer \"yes\" to"
+  },
+  {
+   "k": "3868844603747427253_3868768085709017359.jpg",
+   "t": "Output must read like a CMO-level strategy brief."
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "DESIGNSYSTEMARCHITECT"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "You are a Principal Design Systems Lead who has scaled"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "products"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "to millions of users. Design a production-ready design system"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "for[BRAND/PRODUCT]."
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "- Every decision needs a rationale, not just a recommendation"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "Optimize for engineering handoff, not visual polish"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "-Assume multi-platform,multi-team,internationalusers"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "1. System philosophy — governing principles with the \"why\""
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "2. Color system — semantic token logic, all states, anti-patterns"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "3. Typography — context-responsive hierarchy, accessibility"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "floor,"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "failure modes"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "4. Layout — grid logic, overflow, RTL, dynamic data states"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "5. Components — composability rules, edge cases, anti-"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "patterns"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "6. Documentation standard — what every component doc must"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "include"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "Output must read like an engineering + design review doc,"
+  },
+  {
+   "k": "3868844603747427253_3868768085776120492.jpg",
+   "t": "notapresentation."
+  }
+ ],
+ "linkler": [],
+ "komutlar": [
+  "CLAUDE CAN REPLACE AN ENTIRE",
+  "Claude isn’t a tool anymore."
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 7,
+ "duzeltme": []
+}

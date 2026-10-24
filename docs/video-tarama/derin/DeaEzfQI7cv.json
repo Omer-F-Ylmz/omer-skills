@@ -1,0 +1,709 @@
+{
+ "kod": "DeaEzfQI7cv",
+ "url": "https://www.instagram.com/p/DeaEzfQI7cv/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Most people use Hermes completely on its own without realizing there’s an entire ecosystem of free tools that can make it significantly more capable\n\nAnd some of the most useful ones are just sitting on GitHub\n\nYou can give Hermes better access to platforms like X and Reddit, coordinate multiple specialized agents, reduce wasted context, build reusable skills, delegate work to other coding agents, improve workflows over time, and even use complete setups other people have already built\n\nThe mistake is thinking you need to build every part of your agent from scratch\n\nA lot of the infrastructure already exists, you just need to know what’s worth adding and what actually makes your setup better\n\nComment HERMES and I’ll send you the free guide showing you exactly how to set up Hermes the right",
+  "slayt": 9
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "4006535948935608111_4006535902405667912.jpg",
+   "t": "7FREEHERMESTOOLSARE"
+  },
+  {
+   "k": "4006535948935608111_4006535902405667912.jpg",
+   "t": "SITTINGONGITHUBAND"
+  },
+  {
+   "k": "4006535948935608111_4006535902405667912.jpg",
+   "t": "BARELYANYONEKNOWS"
+  },
+  {
+   "k": "4006535948935608111_4006535902405667912.jpg",
+   "t": "Here's the whole list."
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "HERMESALONE"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "WITHAGENTREACH"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Searchestheweb"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Reads where people talk"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Onlytheeasy-to-reachpages"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Pulled for\"Alnote-taking apps\""
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Webpages"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Easy"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "31articles"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "214 posts onyour topic"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Hard toreach"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Reddit"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "38threads,1.2kcomments"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Hardtoreach"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "YouTube"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "12video transcripts"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Linkedln"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "9postsfromyourniche"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "1. Agent Reach"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Gives Hermes access to parts of the"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "internet it normally struggles to"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "properly search"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "Your agent can pull information from places"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "like X, Reddit, YouTube, and Linkedln"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "instead of relying only on easier-to-access"
+  },
+  {
+   "k": "4006535948935608111_4006535902766230867.jpg",
+   "t": "sources"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Yourcontextwindow"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Illustrative"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Withoutllmtrim"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Toolschemas,resenteveryturn"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Yourtask"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Free"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Withllmtrim"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Schemas"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Roomformoretoolsandcontext"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Hermes"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Xllmtrim trimstherequest"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Model"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "3. llmtrim"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "Helps stop your Hermes setup from"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "wasting context on massive tool"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "It trims down the information being passed"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "to the model so you can connect tools"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "without unnecessarily filling the context"
+  },
+  {
+   "k": "4006535948935608111_4006535904046134162.jpg",
+   "t": "window"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "ATEAMTHATSPLITSTHEWORK"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "ONEAGENTDOESITALL"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Researcher"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "三Planner"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Hermes,onejobatatime"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "<>Coder"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Tester"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Research"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Planning"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Reviewer"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Coding"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Shared context"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Testing"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Projectgoals"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Decisionsmade"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Reviewing"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Codesofar"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Openbugs"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "2. Ruflo"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Turns one agent into a coordinated"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "team of specialized agents"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "Instead of Hermes handling research,"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "planning, coding, testing, and reviewing"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "itself, different agents can divide the work"
+  },
+  {
+   "k": "4006535948935608111_4006535904259055477.jpg",
+   "t": "and share context"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "ClaudeCode"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Keepstheprojectcontext"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "JobsentbyHermes"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Refactortheauthmodule"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "delegates"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Repoandfilelayout"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Done,resultsbacktoHermes"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "三Goalsandrequirements"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Decisions sofar"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "What'sdone,what'snext"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Codex"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "returns"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "WritetestsforthenewAPI"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "5. Agent Bridge"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Lets Hermes delegate specialized work"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "to other coding agents like Claude Code"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "or Codex"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "Hermes can keep the project context while"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "sending specific jobs to the tool that is"
+  },
+  {
+   "k": "4006535948935608111_4006535905618571807.jpg",
+   "t": "better suited to complete them"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "v2-a"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Testscore71"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Youchoose"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "YOURSKILL"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "v2-b"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Best"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "v2-bbeattheothers"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "onthesametests."
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Keep it?"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "github-code-review"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Testscore88"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Usev2-b"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Keepv1"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "v2-c"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Testscore64"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "6. Self-Evolution"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "A framework designed to help your"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "Hermes skills improve over time"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "It can generate new versions of a skill, test"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "them against each other, and let you"
+  },
+  {
+   "k": "4006535948935608111_4006535905900054737.jpg",
+   "t": "choose which version performs better"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "ONYOUROWN"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "STARTWITHWHAT'SBUILT"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "Weeksoftrialanderror"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "Up and running fast"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "Comment"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "for the free setup guide"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "You could spend weeks figuring out"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "everything Hermes can do yourself"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "Or start with what other people have"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "already built"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "I put together a free guide showing you"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "exactly how to set up Hermes the right way"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "CommentHERMESand I'llsend"
+  },
+  {
+   "k": "4006535948935608111_4006535905984076619.jpg",
+   "t": "it to you for free"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "skills/weekLy-report/SKILL.md"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Dotheweeklyreport"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Using theweekly-report skill"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "name:weekly-report"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "description:Friday client report"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Pulledthisweek'snumbers"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Comparedtolastweek"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "1.Pull this week's numbers"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Comparetolastweek"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Wrote5bullets"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "3.5 bullets,no fluff"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Sentto#client-updates"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "4.Send to #client-updates"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Explain itonce.Reuseiteveryweek."
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "4. Agent Skills"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Teach Hermes exactly how you want"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "recurring tasks completed"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "Instead of explaining your process every"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "time, you create reusable instructions your"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "agent can follow whenever that job comes"
+  },
+  {
+   "k": "4006535948935608111_4006535905996563392.jpg",
+   "t": "up again"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "READY-MADEFORHERMES"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Skills"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Personalities"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "三Workflowrecipes"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "github-code-"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Researchanalyst"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Use"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Morningbrief"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "review"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Blunteditor"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Inboxzero"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "weekly-report"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Patienttutor"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Contentpipeline"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "competitor-scan"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Start from what'salready built"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "7. Hermes Community Repo"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "A library of ready-made skills"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "personalities, and complete workflow"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "recipes built for Hermes"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "Instead of figuring out everything from"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "scratch, you can use existing setups to see"
+  },
+  {
+   "k": "4006535948935608111_4006535906948755032.jpg",
+   "t": "what other people are already building"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [],
+ "kare_aciklama": null,
+ "kare_sayisi": 9,
+ "duzeltme": []
+}

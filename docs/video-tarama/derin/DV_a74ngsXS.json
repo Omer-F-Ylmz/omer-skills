@@ -1,0 +1,171 @@
+{
+ "kod": "DV_a74ngsXS",
+ "url": "https://www.instagram.com/p/DV_a74ngsXS/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Yorumlara CLAUDE yaz ✅, 2 saatlik dev Claude eğitiminin linkini ve profesyonel prompt mühendisliği rehberini sana DM’den göndereyim.\n\nClaude’dan istediğin sonuçları alamıyorsan sorun muhtemelen yapay zekada değil, kurduğun prompt yapısında. Anthropic’in kendi standartlarına göre hazırladığım bu “Altın Prompt Yapısı” ile artık çok daha zeki, tutarlı ve profesyonel yanıtlar alabileceksin.\n\nGörsellerde adım adım paylaştığım; görev bağlamından örneklemeye, adım adım düşünme komutundan çıktı formatına kadar tüm teknikleri YouTube’daki yeni ve çok iddialı 2 saatlik videomda en ince detayına kadar anlattım.\n\nClaude’u bir asistan değil, bir uzman gibi kullanmayı öğrenmek istiyorsan bu eğitimi kaçırma.",
+  "slayt": 3
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "Kullanici"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[GoreyBaglami]AdAstraCareerssirketitarafindanolusturulmusJoeadindabir"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "yapayzekakariyerkocuolarakhareketedeceksiniz.Amacinizkullanicilarakariyer"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "tavsiyesivermektir.AdAstra sitesindekikullanicilarayanitvereceksiniz."
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Ton] Samimi bir musteri hizmetleri tonu korumalisiniz."
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Veri/Dokuman] istekullaniclyayanitverirkenbasvurmanizgerekenkariyerrehberi"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "dokumanr:<guide>{(DocuMENT}}</guide>"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Kurallar] isteetkilesimicinbazionemlikurallar:"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "·HerzamanAdAstraCareers'tanJoekarakterindekalin"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "·Alakasiz bir soru sorulursa:Uzgunum,benJoe vekariyer tavsiyesi veriyorum."
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "Birkariyersorunuzvarmi?"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Ornekler] Standart bir etkilesimde nasil yanitverilecegine dairornek:"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "<example>"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "Kullanici:Merhabanasil olustunuzveneyaplyorsunuz?"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "Joe:Merhaba!BenimadimjoeveAdAstraCareerstarafindankariyertavsiyesi"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "vermekicinolusturuldum.Bugunsizenasilyardimciolabilirim?"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "</example>"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Gecmis] Soruoncesi konusma gecmisi:<history>{HISTORY}</history>"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "Kullanicininsorusu:<question>{QUEsTioN}}</question>"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Anlikistek]Kullanicininsorusunanasil yanitverirsiniz?"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Adim Adim] Yanitvermeden once cevabinizi dusunun."
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "[Format]Yanitinizi<response></response>etiketleriicinekoyun."
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "Asistan (prefill)"
+  },
+  {
+   "k": "3854918270503273938_3854917787537548021.jpg",
+   "t": "<response>"
+  },
+  {
+   "k": "3854918270503273938_3854917788493813385.jpg",
+   "t": "bir promptun"
+  },
+  {
+   "k": "3854918270503273938_3854917788493813385.jpg",
+   "t": "yapisi"
+  },
+  {
+   "k": "3854918270503273938_3854917788493813385.jpg",
+   "t": "Claude icin"
+  },
+  {
+   "k": "3854918270503273938_3854917788493813385.jpg",
+   "t": "ANTHROPIC"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "1.Gorevbaglami"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "2.Tonbaglami"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "3.Baglamverileri,dokumanlarvegorseller"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "4.Detayligorevtanimivekurallar"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "5.Ornekler"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "6.Konusma gecmisi"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "7. Anlik gorev tanimi veya istek"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "8.Adimadimdusun/derinnefesal"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "9.Ciktiformati"
+  },
+  {
+   "k": "3854918270503273938_3854917791639565257.jpg",
+   "t": "10.Oncedendoldurulmusyanit（varsa)"
+  }
+ ],
+ "linkler": [],
+ "komutlar": [
+  "Claude icin"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 3,
+ "duzeltme": []
+}

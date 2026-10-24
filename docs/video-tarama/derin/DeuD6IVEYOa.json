@@ -1,0 +1,665 @@
+{
+ "kod": "DeuD6IVEYOa",
+ "url": "https://www.instagram.com/p/DeuD6IVEYOa/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Claude Code'a \"bana site yap\" demek yerine, gerçek projelerimde bu 6 prompt'u sırayla kullanıyorum:\n\n01 Planla → Kod yazmadan önce bilgi mimarisi dokümanı: kim ziyaret edecek, her sayfa hangi eyleme çıkacak.\n02 Sanat yönü → Sitenin tek bir metaforu, isimli renk token'ları, klişe yapay zeka görüntüsüne yasak.\n03 Animasyon → Süre, easing, tetik noktası; hepsi sayıyla. Sonuç her seferinde aynı çıkıyor.\n04 SEO → Canonical, Open Graph, hreflang, sitemap, JSON-LD tek seferde.\n05 Test → Kendi işini Playwright'la test ettir: erişilebilirlik, reduced-motion, 3 ekran genişliği.\n06 Dürüst not → Bitmeden önce yapılmayanları ve yer tutucuları listelet.\n\nEn çok fark yaratan kural: ilk iki adımda \"ben onaylamadan koda geçme\" demek.",
+  "slayt": 8
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "Berkay Abay"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "Kaydir"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "@berkayabay.ai"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "vurgu"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "docs/01-bilgi-mimarisi.md"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "metin"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "npm run verify"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "Rota tablosu"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "/en"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "axe·0ihlal"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "/tr"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "sinyal"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "3ekran"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "/en/products"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "/tr/urunler"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "Dogrulanacak"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "Kopyala"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "claude"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "Henuz kod yazma.Once docs/01-bilgi-mimarisi.md"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "olustur..."
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "ClaudeCode'lasite"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "yaparken"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "kopyala-yapistir yaptigim"
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "prompt."
+  },
+  {
+   "k": "4012161506846278554_4012117655095935726.jpg",
+   "t": "gercek projelerimden : sirayla kullan"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "PR0MPT05/06:TEST"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "Playwright"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "Kendi isini test ettir"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "reduced-motion"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "3 ekran"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "goruntusu"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "375"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "768"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "1440"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "Playwright ile scripts/ altina dogrulama script'leri yaz: axe ile"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "erisilebilirliktaramasl,reduced-motionacikkenanimasyonlarin"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "kapandigikontrolu,375/768/1440genislikteekran"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "goruntusu. Goruntulere kendin bak, sorunlari duzelt. Hepsini"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "npm run verify tekkomutunda topla."
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "\"Bitti\" demesi yetmez, kanitlamasl gerekir."
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "NEDEN"
+  },
+  {
+   "k": "4012161506846278554_4012117655112746518.jpg",
+   "t": "06/08"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "BerkayAbay"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Kaydet."
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Siraonemli."
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Planla"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "ilk mesaj"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Sanatyonu"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "/frontend-design"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Animasyon"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "/gsap-scrolltrigger"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "SEO"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "/seo"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Test"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Durustnot"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "son mesaj"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "Yorumlara"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "REHBER"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "yaz,sitemdekullandigim19animasyon"
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "prompt'ununtamaminigondereyim."
+  },
+  {
+   "k": "4012161506846278554_4012117655112748902.jpg",
+   "t": "@berkayabay.ai'yi takip et→"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "PROMPT02/06.SANAT YONU"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "Sitenin bir hikayesi olsun"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "zemin"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "#OEOCOB"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "#F4EDE4"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "clamp（2rem,5vw,4.5rem)"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "#E8774F"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "JOH"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "gradyar"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "ikincil"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "#9C948B"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "metafor: kamera"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "#7BD88F"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "ortacla"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "$ablongibi durmayanbirgorselyonkur.Sitenin tekbir"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "metaforu olsun(orn.kamera,alan derinligi).Paleti 5-6isimli"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "renktoken'olarakyaz,basliklar clamp() ileakiskan olsun."
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "Mor gradyan,emoji ikon,her seyin ortada durdugu duzen gibi"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "kliseyapayzeka desenlerindenkacin.Once"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "docs/02-sanat-yonu.md'yeyaz,benonaylamadankoda"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "gecme."
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "\"Yapay zeka yapmis\" goruntusunu daha ilk adimda"
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "engeller."
+  },
+  {
+   "k": "4012161506846278554_4012117655121106767.jpg",
+   "t": "03/08"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "PR0MPT04/06:SEO"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "Google'ahazirla"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "zeytinyagitoptanihracat"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "sitemap.ts"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "Markaniz"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "hreflang"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "TR·EN"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "markaniz.com>tr>urunler"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "NaturelSizmaZeytinyagiIToptanve"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "PrivateLabel"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "JSON-LD"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "Organization"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "Spesifikasyon,ambalajsecenekleriveteklifformu.TR·EN"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "301"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "eski→yeni"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "Her sayfaya dinamik title,description,canonical,Open Graph ve"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "hreflangekle.Tumsayfalaridilalternatifleriyleiceren"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "app/sitemap.ts ve robots uret.Organization JSON-LD"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "semasini tek bir bilesendekur.3o1haritasini next.config"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "redirects'e isle."
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "Guzel bir site Google'dagorunmuyorsa isyarim"
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "kalmistir."
+  },
+  {
+   "k": "4012161506846278554_4012117655121156184.jpg",
+   "t": "05/08"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "PROMPT01/06:PLANLA"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Kod yazmadan once planla"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Ana sayfa"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Hedefkitle"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Urunler"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Hikaye"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "iletisim"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "/en/r"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Teklif formu"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "/en/contact"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "/tr/iletisim"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Henuz kod yazma.Once docs/01-bilgi-mimarisi.md olustur:"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "hedefkitleve sitenincevaplamaslgereken teksoru,birincilve"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "ikincil donusum, rota tablosu (TR/EN), her sayfa icin Amag →"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Bolumler →Cikis eylemi,eski sitevarsa301haritasi.\"Devamini"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "oku\"ilebitensayfaolmasin.Dogrulamadiginherrakami"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "\"Dogrulanacak\" diye isaretle."
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "Tasarimdan once sitenin neyi satacaginetlesir.Yapay"
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "zeka darakam uyduramaz."
+  },
+  {
+   "k": "4012161506846278554_4012117655154710311.jpg",
+   "t": "02/08"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "PR0MPT06/06:TESLIM"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "Durustteslimnotu"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "ornek cikti"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "DURUST NOTLAR"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "iletisim formu su an sadece gorunuyor, e-posta"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "YAYIN"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "gondermiyor."
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "ONCESi"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "!Kapasiterakamlari musteriden dogrulanmadi."
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "Arapca (sagdan sola) surum henuz yok."
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "Bitirmedenonce\"Durust notlar\"basligiyla sunlari listele:"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "yapilmayanlar,halayer tutucu olanlar(form gercekten e-posta"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "gonderiyor mu?), dogrulanmamis bilgiler ve bilinen riskler."
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "Yayindan sonra cikacak surprizleri yayindan once"
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "yakalarsin."
+  },
+  {
+   "k": "4012161506846278554_4012117655246941002.jpg",
+   "t": "07/08"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "PROMPT 03/06:ANIMASYON"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "Premium giris animasyonu"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "Baslik"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "0.4s"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "0.85s"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "power3.out·top85%·once"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "claude)"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "React+GSAPScrollTriggerileblur-revealyaz:her"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "[data-revea1] ogesi opacity:0,y:26,blur（8px)'ten"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "0.85s power3.out ile netlessin,start:'top 85%'，"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "once:true.Kartizgaralari stagger:0.08.Hepsi"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "prefers-reduced-motion: no-preference icinde olsun."
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "Sadece transform,opacityvefilteranimasyonla."
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "Sayilarnetolunca sonucher seferindeayni ve akici"
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "cikar."
+  },
+  {
+   "k": "4012161506846278554_4012117655263718374.jpg",
+   "t": "04/08"
+  }
+ ],
+ "linkler": [
+  "berkayabay.ai",
+  "markaniz.com"
+ ],
+ "komutlar": [
+  "Claude Code'a \"bana site yap\" demek yerine, gerçek projelerimde bu 6 prompt'u sırayla kullanıyorum:",
+  "claude\nHenuz kod yazma.Once docs/01-bilgi-mimarisi.md",
+  "npm run verify",
+  "npm run verify tekkomutunda topla."
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 8,
+ "duzeltme": []
+}

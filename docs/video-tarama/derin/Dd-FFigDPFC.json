@@ -1,0 +1,482 @@
+{
+ "kod": "Dd-FFigDPFC",
+ "url": "https://www.instagram.com/p/Dd-FFigDPFC/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Comment CHINA and we’ll DM you the full setup guide + copy paste forecasting code.\n\n27,877 stars and 4,816 forks on GitHub. Accepted by AAAI 2026.\n\nKronos is the first open source foundation model built specifically for financial candlesticks. It quantizes raw OHLCV K line data into tokens, then uses a decoder only Transformer to forecast what comes next. Feed it 400 candles, get the next 120.\n\nThe part nobody’s talking about: you can finetune the whole thing on your own market data. Tokenizer and predictor, multi GPU scripts included.\nFree, MIT licensed, open weights on Hugging Face. Runs in a few lines of Python.\n\nOne honest note straight from the repo: the demo signals are raw predictions, not a finished trading strategy. Use it as a research tool.\n\nComment CHINA below. \n\nFollow @bestap",
+  "slayt": 8
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3998655890026459458_3998654801254639726.jpg",
+   "t": "VIRAL"
+  },
+  {
+   "k": "3998655890026459458_3998654801254639726.jpg",
+   "t": "THISCHINESEGUY"
+  },
+  {
+   "k": "3998655890026459458_3998654801254639726.jpg",
+   "t": "JUSTOPENSOURCED"
+  },
+  {
+   "k": "3998655890026459458_3998654801254639726.jpg",
+   "t": "AMODEL"
+  },
+  {
+   "k": "3998655890026459458_3998654801254639726.jpg",
+   "t": "THAT"
+  },
+  {
+   "k": "3998655890026459458_3998654801254639726.jpg",
+   "t": "PREDICTSTHEFUTURE"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "The first open-source"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "model built for"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "candlestickdata"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "BTC/USDT·1H"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "OHLCVK-line"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "OPEN"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "HIGH"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "LOW"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "CLOSE"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "VOL"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "61,240"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "62,910"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "60,880"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "62,470"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "3.1K"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "Trained on 45+ global exchanges"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "Reads OHLCV K-line sequences"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "Forecasts price, volume & amount"
+  },
+  {
+   "k": "3998655890026459458_3998654801397405498.jpg",
+   "t": "MIT licensed, fully open weights"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "27.9k Stars and counting"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "shiyu-coder/Kronos"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "A foundation model for the language of"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "financial markets — K-line forecasting."
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "27.9k"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "AAAI"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "MIT"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "45+"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "Stars"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "2026"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "License"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "Exchanges"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "Built by Yu Shi & team at Tsinghua"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "Accepted toAAAl2026"
+  },
+  {
+   "k": "3998655890026459458_3998654802143761268.jpg",
+   "t": "This is not a weekend GitHub toy."
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "Feed it4o0candles it"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "predicts the next 120"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "forecast.py"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "from model import Kronos,KronosTokenizer,KronosPredictor"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "# load straight from Hugging Face"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "tok"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "=KronosTokenizer.from_pretrained(\"NeoQuasar/Kronos-Tokeni"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "model =Kronos.from_pretrained(\"NeoQuasar/Kronos-small\")"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "pred = KronosPredictor(model,tok,max_context=512)"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "#last 400 candles→next 120"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "forecast = pred.predict(df=klines[-400:],pred_len=120)"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "Loads straight from Hugging Face"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "Runs in a few lines of Python"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "Outputs a full forecast DataFrame"
+  },
+  {
+   "k": "3998655890026459458_3998654802689174897.jpg",
+   "t": "Handlesitsown normalization"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "The part nobody's talking about"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Finetune it on your own"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "market data"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Tokenizer"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Predictor"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Your asset"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "quantizeOHLCV"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "autoregressive"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "anymarket"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Finetune tokenizer + predictor"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Multi-GPU training scripts included"
+  },
+  {
+   "k": "3998655890026459458_3998654803016286453.jpg",
+   "t": "Adapt it to any asset you actually trade"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "Raw signals are"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "not pure alpha"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "The repo says it loud, in it's own words."
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "→ Demo backtest is a starting point,"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "not a strategy"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": ">No transaction costs modeled"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": ">Noriskneutralization"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "→ A research tool - not a money printer"
+  },
+  {
+   "k": "3998655890026459458_3998654803452442289.jpg",
+   "t": "Useatyourownrisk"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "Bestapps|Artificial Intelligence|Al"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "Agents"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "778"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "202K"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "posts"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "followers"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "following"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "WEONLYSHOWTHE"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "BESTINSIGHTSINAI"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "FOLLOWUSTOSTART"
+  },
+  {
+   "k": "3998655890026459458_3998654803695705240.jpg",
+   "t": "WINNINGEVERYDAY"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "FREEASSET"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Leverage the financial market with"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "our setup guide + prompts"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "PromptsandCodetoUseIt"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Kronos:TheOpenSourceFoundation"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "case:single assetforecast"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "ModelforFinancialMarkets"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "AecodernlfounationmethtfrecastsfinanciacndlestcksKinesuibyYuShiand"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "teamacceptedbyAAA026FreeandMicensed"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "pandas aspd"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Bestapps AI"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "read_csv(\"./data/XSHG_5min_600977.csv\")"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Jun 1, 2026 4 rin reed"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "python"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "stamps']=pd.to_datetime(df['timestamps'])"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "001"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "120"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "f.loc[:lookback-1,‘timestamps']"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": ".1loc[lookback:lookback+pred_len-1,‘timestamps']"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "'volume"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "r.predict("
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "mestamp,"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "testamp,"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Repo Link: https://github.com/shiyu-coder/Kronos"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "TableofContents"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "bestapps.ai"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Sent a message · 1m"
+  },
+  {
+   "k": "3998655890026459458_3998654803771373332.jpg",
+   "t": "Comment“CHINA'"
+  }
+ ],
+ "linkler": [
+  "bestapps.ai",
+  "https://github.com/shiyu-coder/Kronos"
+ ],
+ "komutlar": [
+  "python\nstamps']=pd.to_datetime(df['timestamps'])"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 8,
+ "duzeltme": []
+}

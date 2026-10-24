@@ -1,0 +1,505 @@
+{
+ "kod": "DeeBy-iAmuz",
+ "url": "https://www.instagram.com/p/DeeBy-iAmuz/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Her ay bir uygulamaya daha abone oluyor musun? 💸\n\nGitHub’daki bu 10 proje; kodlamadan PDF işlemlerine, yapay zekâ araçlarından otomasyona kadar farklı ihtiyaçlar için alternatifler sunuyor:\n\n→ Coolify → OpenHands → Maxun → Open WebUI → Browser Use → Langflow → Supabase → Stirling PDF → Crawl4AI → Dify\n\nOrtak fikir: Kullandığın araçlar üzerinde daha fazla kontrol sahibi olmak.\n\nAma maliyet hesabını doğru yap: Kendi sunucunda çalıştırmak; sunucu, donanım, bakım veya yapay zekâ API ücretlerini ortadan kaldırmaz. Yerel çalışma ve gizlilik de seçtiğin kuruluma bağlıdır.\n\n📌 Listeyi kaydet. Yeni bir abonelik başlatmadan önce alternatiflerine bak.\n\nEn çok hangi uygulamanın aboneliğinden kurtulmak isterdin?\n\n#GitHub #YapayZekâ #Otomasyon #Teknoloji #HFNHQ",
+  "slayt": 12
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "Coolify"
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "Uygulamalarini kendi"
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "sunucunda yayimla."
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "HerokuveVercel'ekendi sunucunda"
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "barindirabilecegin bir alternatif."
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "Kodunu Git'e gonder; uygulaman"
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "otomatik olarak derlenip sunucunda calissin."
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "Sunucuvealtyapi maliyetleri devameder."
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "Kaynakgonderideki"
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "@hfnhg"
+  },
+  {
+   "k": "4007648619569245107_4007646060691928010.jpg",
+   "t": "yildizsayisi:58,8bin"
+  },
+  {
+   "k": "4007648619569245107_4007646060952145240.jpg",
+   "t": "BUGITHUBPROJELERI"
+  },
+  {
+   "k": "4007648619569245107_4007646060952145240.jpg",
+   "t": "ABONELIKLIUYGULAMA"
+  },
+  {
+   "k": "4007648619569245107_4007646060952145240.jpg",
+   "t": "DUNYASINISARSIYOR"
+  },
+  {
+   "k": "4007648619569245107_4007646060952145240.jpg",
+   "t": "10 PROJE"
+  },
+  {
+   "k": "4007648619569245107_4007646060952145240.jpg",
+   "t": "Koddan otomasyona, kendi sunucunda calisan alternatifler."
+  },
+  {
+   "k": "4007648619569245107_4007646060952145240.jpg",
+   "t": "Kaydir→"
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "OPENHANDS"
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "Bir yapay zeka ajanina"
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "</>"
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "kodlama gorevi ver."
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "Kod yazabilir, komut calistirabilir"
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "ve web'de gezinebilir."
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "Projelerinde gelistirme gorevlerini"
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "otomatiklestir; sonuclari kontrol et."
+  },
+  {
+   "k": "4007648619569245107_4007646061706984920.jpg",
+   "t": "Kaynak gonderideki yildiz sayisi: 81,2 bin"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "OPENWEBUI"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "YeniSohbet"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Model Secimi"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Ayarlar"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Birsey sor..."
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "ChatGPT benzeri bir arayuzu"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "kendi bilgisayarinda calistir."
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Ollama'yl veya OpenAl uyumlu"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "model hizmetlerini bagla."
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Yerel modelle cevrimdisi calisabilir;"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "verilerin cihazinda kalabilir."
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Bulut APl'si kullanirsan veriler ilgili hizmente gonderilir."
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "Kaynakgonderidekiyildizsayisi:"
+  },
+  {
+   "k": "4007648619569245107_4007646063762100150.jpg",
+   "t": "140 bin"
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "MAXUN"
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "{API}"
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "Kod yazmadan, birkac tiklamayla"
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "web verisi topla."
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "isarelle ve sec; veri toplama"
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "akisini olustur."
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "Web verilerini APl'lere ve"
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "elektronik tablolara donustur."
+  },
+  {
+   "k": "4007648619569245107_4007646064030723175.jpg",
+   "t": "Kaynakgonderideki yildizsayisl:16,7bin"
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "BROWSERUSE"
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "Browser Use"
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "Web sitelerinde senin adina islem"
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "yapan bir yapay zeka ajani kullan."
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "Form doldurma, alisveris, rezervasyon"
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "ve veri toplama akislari olustur."
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "Tekrarlayan tarayicl gorevlerini"
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "otomatiklestir."
+  },
+  {
+   "k": "4007648619569245107_4007646064433288922.jpg",
+   "t": "83,5 bin"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "LANGFLOW"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "LLM"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "Document"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "Agent"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "Data"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "RAG"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "Surukle-birak arayizuyle"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "yapay zeka is akislari olustur."
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "Ajanlari ve RAG akislarini"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "gorsel olarak birlestir."
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "Olusturdugun akislari API"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "uzerinden uygulamalarina bagla."
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "@hfnhq"
+  },
+  {
+   "k": "4007648619569245107_4007646065423223592.jpg",
+   "t": "194bin"
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "SUPABASE"
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "Postgres veritabanlyla"
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "uygulamanin temelini kur."
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "Kimlik dogrulama, depolama ve"
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "gercek zamanli APl ?zelliklerini kullan."
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "Firebase'e acik kaynakli"
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "bir alternatif."
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "Ucretsiz planin kullanim sinirlari vardir."
+  },
+  {
+   "k": "4007648619569245107_4007646066580869605.jpg",
+   "t": "102bin"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "STIRLINGPDF"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "PDF"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "Stirling PDF"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "OCR"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "PDF'leri kendi bilgisayarinda"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "birlestir, bol, imzala ve OcR uygula."
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "50'den fazla PDF aracinl"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "kendi sunucunda calistir."
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "Yerel kurulumda dosyalarini"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "ucuncu taraf sitelere yuklemeden isle.."
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "@hfnha"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "Kaynakgonderidekiyildizsayisl:"
+  },
+  {
+   "k": "4007648619569245107_4007646067520348112.jpg",
+   "t": "80 bin"
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "CRAWL"
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "Crawl4Al"
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "Web sayfalarini dil modellerine"
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "uygun temiz veriye donustur."
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "Yapay zeka modellerine"
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "aktarilabilecek ciktilar üret."
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "JavaScript agirlikli sayfalardan"
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "veri toplama akislari kur.."
+  },
+  {
+   "k": "4007648619569245107_4007646068023646905.jpg",
+   "t": "67,8 bin"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Dify"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Model"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Knowledge"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Tools"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Gorsel arayuzle yapay zeka"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "uygulamalari ve is akislari olustur."
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Ajanlarl, RAG akislarinl, modelleri"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "ve araclari tek yerde birlestir."
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "Bulutta veya kendi sunucunda"
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "prototipten kullanima gec.."
+  },
+  {
+   "k": "4007648619569245107_4007646069013364697.jpg",
+   "t": "143,8 bin"
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "proje."
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "Birinis"
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "seg"
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "Kesfetmeye basla."
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "Kodlama, otomasyon, veri ve PDF araclarl."
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "Sonraki isin icin kaydet."
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "ilk hangisini denersin?"
+  },
+  {
+   "k": "4007648619569245107_4007646071446148636.jpg",
+   "t": "Kendisunucundakullanim,altyapivemodelmaliyetlerini ortadankaldirmaz."
+  }
+ ],
+ "linkler": [],
+ "komutlar": [],
+ "kare_aciklama": null,
+ "kare_sayisi": 12,
+ "duzeltme": []
+}

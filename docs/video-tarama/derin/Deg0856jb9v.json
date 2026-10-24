@@ -1,0 +1,795 @@
+{
+ "kod": "Deg0856jb9v",
+ "url": "https://www.instagram.com/p/Deg0856jb9v/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Comment “SKILLS” and I’ll DM you every link with the install command. Save this for your next build.\n\nClaude Code can make animations in minutes, but the first result usually looks AI-made: stiff movement, default styling, weird timing.\n\nThese 7 free skills give Claude real motion and design rules:\n\n1. Three.js (ClaudeAI-X/Threejs-skills)\n2. GSAP (greensock/gsap-skills)\n3. Design DNA (zanwei/design-dna)\n4. Motion Design (LottieFiles/motion-design-skill)\n5. Genjutsu (AThevon/genjutsu)\n6. Animate (emilkowalski/skills)\n7. HyperFrames (heygen-com/hyperframes)\n\nAdd the skill before you prompt, name the style and timing, then fix one scene at a time.",
+  "slayt": 10
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "@BUILDWITHOMKAR"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "02-/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "threejs.org"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "anime"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "ORLDS"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "CGW"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "THISIS"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "TEARABLEUI"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "Creative"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "velopment"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "SKILL 01/07"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "Three.js"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "Made with Three.js, the web's 3D library"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "3D scenes, particles, lighting"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "GLTF models + camera controls"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "The kind of sites on threejs.org"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "$ npx skills add ClaudeAI-x/Threejs-skills"
+  },
+  {
+   "k": "4008436552132575087_4008435961233207795.jpg",
+   "t": "2/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "03/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "gsap.com"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "SAP"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "Tools Showcase CommunityLearn GSAP Docs"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "Demos"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "Login/CreateAccount"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "GetGSAP"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "GSAP allowsyou to effortlessly animate"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "anything JS can touch. Delivering silky-"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "smoothperformance and unmatched"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "support so you can focus on the"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "GSAP"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "SKILL 02/07"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "OfficialskillsfromtheGSAPteam"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "Timelines + ScrollTrigger"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "SplitText reveals, React support"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "Performance rules builtin"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "$ npx skills add greensock/gsap-skills"
+  },
+  {
+   "k": "4008436552132575087_4008435961317179248.jpg",
+   "t": "3/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "01·/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "hyperframes"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "2026"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "Paper, ink"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "2027"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "LOUD,"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "&yellow."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "BORDERED,"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "ALITTLE"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "Restraintwithon"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "CROOKED."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "strongcommitme"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "elly"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "ink,"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "aby"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "red8"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "AINY"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "paper."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "Every"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "genjutsu"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "aca"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "The art"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "of illusion."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "A creative-coding skil for Claude Code and"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "claude.aIt takes the interface you are aready"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "building and gives it a look and a way of moving."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "written in your framework with your animation"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "library. When the job is a whole webite it can"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "summon a team of agents to build it under one art"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "director."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "Your Claude Code"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "animations still look"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "AI-generated."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "These 7 free skills fix that. Save this for your next"
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "build."
+  },
+  {
+   "k": "4008436552132575087_4008435961669570445.jpg",
+   "t": "1/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "04-/10"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "github.com/zanwei/design-dna"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "BunisjoiningAnthropic&AnthropicisbettingonBun→"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Bun"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Build"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "DocsReference"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "GuidesBlog"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Discord"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Bun v1.3.14 is here!"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Bun is a fastJavaScript"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "bundlerl"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "BundLer"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Express"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Postgres"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "WebSockets"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Bundling10,000Reactcomponents"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Bunisafast,incrementallyadoptableall-in-oneJavaScript,"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Build time in milliseconds (Linux x64, Hetzner)"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "TypeScript&JSXtoolkit.Useindividual toolslikebun test orbun"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "install inNode.jsprojects,or adopt thecompletestackwitha"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "fastJavacriptruntme,bundler,testrunner,andpackage"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "269.1ms"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "manager built in.Bun aimsfor100%Node.js compatibility."
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "494.9m5"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Install Bunv1.3.14"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "571.9 ms"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "findows"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "View installscript"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "ps://bun.sh/install Ibash"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "SKILL 03/07"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Design DNA"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Copy a site's style, measured not guessed"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Pulls colour, type, spacing, effects"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Saves it as a reusable style JSON"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "Checks the rebuild against the original"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "$ npx skills add zanwei/design-dna"
+  },
+  {
+   "k": "4008436552132575087_4008435961946336505.jpg",
+   "t": "4/10"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "05/10"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "lottiefiles.com"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "SKILL 04/07"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "Motion Design"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "FromtheLottieFilesteam"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "Picks timing + easing before code"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "Disney's 12 principles, for Ul"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "Works with any animation stack"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "$ npx skills add LottieFiles/motion-design-skill"
+  },
+  {
+   "k": "4008436552132575087_4008435962265038085.jpg",
+   "t": "5/10"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "06/10"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "github.com/AThevon/genjutsu"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "SJ闭 GENJUTSU"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "lleasut"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "Acreative-codingskillforClaudeCodeand"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "claude.ai.It takes the interfaceyou are already"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "building and gives it alook and a way ofmoving,"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "writtenin yourframeworkwith your animation"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": ".83"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "library.When thejobisawholewebsite,itcan"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "summona teamofagentstobuild itunderone art"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "njutsu"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "Read the docs"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "SKILL 05/07"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "CreativecodingforClaudeCode"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "Pitches the motion idea, then builds it"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "GSAP, Framer Motion, Three.js, Canvas"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "SwiftUl + Jetpack Compose too"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "$ Claude Code plugin marketplace"
+  },
+  {
+   "k": "4008436552132575087_4008435963062113898.jpg",
+   "t": "6/10"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "07-/10"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "animations.dev"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "How do you craft animations"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "that feel right?"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "SKILL 06/07"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "Animate"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "By Emil Kowalski (animations.dev)"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "Asks: should this animate at all?"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "Transform + opacity, under 300ms"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "Reduced-motionbuiltin"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "$ npx skills add emilkowalski/skills"
+  },
+  {
+   "k": "4008436552132575087_4008435964060229889.jpg",
+   "t": "7/10"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "08/10"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "github.com/heygen-com/hyperframes"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "-2027"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "LOUD"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "Restraint,withone"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "strongcommitment."
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "Everyl"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "ink on fire."
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "a caps"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "SKILL 07/07"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "From HeyGen: write HTML, get an MP4"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "Renders GSAP, Lottie, Three.js, CSS"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "Same input, same frames, every time"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "Ready-madedesigntemplates"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "$ claude plugin install hyperframes@hyperframes"
+  },
+  {
+   "k": "4008436552132575087_4008435964462774574.jpg",
+   "t": "8/10"
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "10-/ 10"
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "WANT THE LINKS?"
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "Comment"
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "SRILLS"
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "I'll DM you all 7 with the install commands."
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "Follow@buildwithomkarformorebuilds"
+  },
+  {
+   "k": "4008436552132575087_4008435964731219703.jpg",
+   "t": "10/10"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "09./10"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "HOW TO USE THEM IN CLAUDE CODE"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "Skills don't fix"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "vague prompts."
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "Add the skill first"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "Install itbefore youprompt,so Claude reads the"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "rules."
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "Name the style + timing"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "\"Ease-out, 250ms, stagger 40ms\" beats \"make it"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "smooth\"."
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "Fix one scene at a time"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "Review,tweak,thenmoveon.Don'tregenerate"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "everything."
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "use the gsap skill.ease-out， 250ms, stagger 40ms"
+  },
+  {
+   "k": "4008436552132575087_4008435964840256638.jpg",
+   "t": "9/10"
+  }
+ ],
+ "linkler": [
+  "animations.dev",
+  "claude.ai",
+  "github.com/AThevon/genjutsu",
+  "github.com/heygen-com/hyperframes",
+  "github.com/zanwei/design-dna",
+  "gsap.com",
+  "lottiefiles.com",
+  "threejs.org"
+ ],
+ "komutlar": [
+  "$ Claude Code plugin marketplace",
+  "$ claude plugin install hyperframes@hyperframes",
+  "$ npx skills add ClaudeAI-x/Threejs-skills",
+  "$ npx skills add LottieFiles/motion-design-skill",
+  "$ npx skills add emilkowalski/skills",
+  "$ npx skills add greensock/gsap-skills",
+  "$ npx skills add zanwei/design-dna",
+  "Claude Code can make animations in minutes, but the first result usually looks AI-made: stiff movement, default styling, weird timing."
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 10,
+ "duzeltme": []
+}

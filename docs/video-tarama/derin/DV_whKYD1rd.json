@@ -1,0 +1,535 @@
+{
+ "kod": "DV_whKYD1rd",
+ "url": "https://www.instagram.com/p/DV_whKYD1rd/",
+ "dil": null,
+ "meta": {
+  "aciklama": "What’s interesting here isn’t just the prompts.\n\nIt’s that this collapses what used to take teams of analysts, hours of modeling, and expensive tools into something you can run in minutes.\n\nThe real edge isn’t access to data anymore.\nIt’s how well you can structure thinking, ask the right questions, and interpret outputs.\n\nUsed properly, this turns Claude from a chatbot into a junior analyst that never sleeps.\n\nSave this and come back when you’re analyzing your next stock.\n\n-\n\n▶️ Want to stay on top of AI news, useful tips, and the latest updates? Join our newsletter and get access to 3,000+ AI tools, 500+ prompts, and free AI courses.\n\nComment “shift” and I’ll send you the link.\n\nFollow @ai.theshift for more content 🎯\n\n#ChatGPTPrompts #PromptEngineering\n#AITools #ArtificialIntelligence",
+  "slayt": 15
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "Here are 13 insane Claude prompts that build"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "full DcF models, earnings breakdowns, and"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "sector risk reports from public filings in minutes"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "(savethis)"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "PROMPT1"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "The \"10-K Deep Dive\" Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "'Act as a senior equity research analyst."
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "Analyze this company's latest 10-K filing."
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "Extract the key revenue drivers, cost structure,"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "operating risks, and management strategy."
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "Summarize the insights an institutional"
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "investor would care about."
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "Turns a 2oo-page filing into actionable insights."
+  },
+  {
+   "k": "3855013191168776925_3854997999483566267.jpg",
+   "t": "@ai.theshift"
+  },
+  {
+   "k": "3855013191168776925_3854997999491943587.jpg",
+   "t": "PROMPT6"
+  },
+  {
+   "k": "3855013191168776925_3854997999491943587.jpg",
+   "t": "The\"competitor Comparison\" Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999491943587.jpg",
+   "t": "'Compare {company} with its top competitors"
+  },
+  {
+   "k": "3855013191168776925_3854997999491943587.jpg",
+   "t": "in terms of revenue growth, margins, market"
+  },
+  {
+   "k": "3855013191168776925_3854997999491943587.jpg",
+   "t": "share, and strategic positioning."
+  },
+  {
+   "k": "3855013191168776925_3854997999491943587.jpg",
+   "t": "Creates instant competitive analysis."
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "PROMPT2"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "The\"DCF Model Builder\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "\"Using publicly available financial data for"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "{company}, build a discounted cash flow (DcF)"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "model. Estimate revenue growth, operating"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "margins, free cash flow projections, and"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "intrinsic valuation assumptions. Explain every"
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "step."
+  },
+  {
+   "k": "3855013191168776925_3854997999492004719.jpg",
+   "t": "Instantvaluationframework."
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "PROMPT5"
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "The\"Segment Analysis\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "\"Break down the revenue segments of"
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "{company}. Analyze which segments are"
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "growing fastest, which drive profitability, and"
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "how each contributes to the company's long-"
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "term strategy."
+  },
+  {
+   "k": "3855013191168776925_3854997999642985828.jpg",
+   "t": "Perfect for understanding the real business."
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "PROMPT12"
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "The \"Industry Landscape Report\" Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "\"Explain the structure of the {industry}. Identify"
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "key players, growth drivers, regulatory"
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "pressures, and long-term trends shaping the"
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "market."
+  },
+  {
+   "k": "3855013191168776925_3854997999651351117.jpg",
+   "t": "Creates sector research instantly."
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "PROMPT7"
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "The\"Earnings Call Intelligence\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "Analyze the last three earnings call transcripts"
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "from {company}. ldentify recurring themes,"
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "management priorities, and signals of strategic"
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "change."
+  },
+  {
+   "k": "3855013191168776925_3854997999659720555.jpg",
+   "t": "Wall street spends hours doing this."
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "Goldman"
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "Sachs"
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "CLAUDE CAN NOW THINK AND"
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "DO TASKS LIKE A GOLDMAN"
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "SACHSANALYST."
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "HEREARE13INSANEPROMPTS"
+  },
+  {
+   "k": "3855013191168776925_3854997999659755777.jpg",
+   "t": "SWIPEFORMORE"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "PROMPT13"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "The\"Full Equity Research Report\" Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "\"Write a professional equity research report for"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "{company}. Include business overview,"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "financial analysis, valuation, risks, and a final"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "investmentrecommendation."
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "This produces a Wall street-style research"
+  },
+  {
+   "k": "3855013191168776925_3854997999659761381.jpg",
+   "t": "report."
+  },
+  {
+   "k": "3855013191168776925_3854997999710054334.jpg",
+   "t": "PROMPT8"
+  },
+  {
+   "k": "3855013191168776925_3854997999710054334.jpg",
+   "t": "The\"Valuation Comparison\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999710054334.jpg",
+   "t": "'Compare valuation metrics for {company}"
+  },
+  {
+   "k": "3855013191168776925_3854997999710054334.jpg",
+   "t": "and its peers including P/E, EV/EBITDA, revenue"
+  },
+  {
+   "k": "3855013191168776925_3854997999710054334.jpg",
+   "t": "multiples, and growth expectations."
+  },
+  {
+   "k": "3855013191168776925_3854997999710054334.jpg",
+   "t": "Great for relative valuation analysis."
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "PROMPT10"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "The\"Bull vs Bear Case\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "\"Present the strongest bull case and bear case"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "for investing in {company}. support both"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "perspectives with financial data and industry"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "context."
+  },
+  {
+   "k": "3855013191168776925_3854997999710069053.jpg",
+   "t": "This mirrors real analyst debates."
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "PROMPT3"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "The\"Earnings Breakdown\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "Analyze the last 5 earnings reports for"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "{company}. Identify trends in revenue growth,"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "margin expansion, and operating efficiency."
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "Highlight signals that analysts might interpret"
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "asbullishorbearish."
+  },
+  {
+   "k": "3855013191168776925_3854997999710069183.jpg",
+   "t": "Find patterns hidden in earnings history."
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "The Shift"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "SIGNUPTOFREEAINEWSLETTERANDGETEXCLUSIVE"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "ACCESSTO3OO0+AITOOLSAND5O0+PROMPTS"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "250,000Readers"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "HowtoTurnOneProductPhotoIntoaStudio-"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "Subscribe for free"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "QualityVideoAdin2Minutes"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "Most brands think greatvideo adsrequirestudios,"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "editors,andbigbudgets.Theydon't.Bycombining"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "GoogleNanoBananaPro andKlingAl,you can"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "Actionable Insights"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "Daily Al Tutorials"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "Howitworks"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "1.Startwithacleanproductshot:Usea"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "simpleimageonawhitebackground.Clarity"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "beats complexity."
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "2.Createanexplodedvisual:Generatea"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "secondimageshowingingredientsor"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "componentsfloatingincleanlayersusing"
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "NanoBananaPro."
+  },
+  {
+   "k": "3855013191168776925_3854997999710086422.jpg",
+   "t": "COMMENT\"SHIFT\"AND WE'LLSENDYOU THELINK"
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "PROMPT4"
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "The \"Investment Thesis Generator\" Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "\"Write a professional equity research"
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "investment thesis for {company}. Include"
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "growth drivers, competitive advantages,"
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "industry positioning, and major risks."
+  },
+  {
+   "k": "3855013191168776925_3854997999710087281.jpg",
+   "t": "This mirrors sell-side analyst reports."
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "PROMPT11"
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "The\"Financial Red Flags\" Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "Analyze the financial statements of"
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "{company} and identify warning signs such as"
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "declining margins, unsustainable growth"
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "assumptions, or rising debt risk."
+  },
+  {
+   "k": "3855013191168776925_3854997999718482234.jpg",
+   "t": "This finds hidden weaknesses."
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "PROMPT9"
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "The \"Sector Risk Map\"Prompt"
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "Analyze the major macroeconomic and"
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "industry risks affecting the {sector}. ldentify"
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "regulatory, technological, and competitive"
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "threats."
+  },
+  {
+   "k": "3855013191168776925_3854997999861053724.jpg",
+   "t": "Helps build sector-level perspective."
+  }
+ ],
+ "linkler": [],
+ "komutlar": [
+  "CLAUDE CAN NOW THINK AND"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 15,
+ "duzeltme": []
+}

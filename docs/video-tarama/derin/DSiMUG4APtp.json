@@ -1,0 +1,169 @@
+{
+ "kod": "DSiMUG4APtp",
+ "url": "https://www.instagram.com/p/DSiMUG4APtp/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Airlines don’t want you to do this.\nI didn’t use points.\nI didn’t use miles.\nNo weird memberships.\nI just used well written prompts.\n\nWith these 8 prompts you can:\nfind cheaper dates\ncompare ALL airlines\noptimize routes with smart layovers\ncut hidden fees\nnegotiate prices by email\nminimize risk if plans change\neven evaluate whether hidden ticketing is worth it\n\nIt’s not magic.\nIt’s using AI the way someone who knows how to travel cheap would.\n\nIf you travel at least once a year, this can save you hundreds of dollars.\n\nFollow @ai.theshift for more content 🎯\n\n#ChatGPTPrompts #PromptEngineering\n#AITools #ArtificialIntelligence",
+  "slayt": 9
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "3792647994529086313_3792647980511714195.jpg",
+   "t": "1.CheapestDatesScanner"
+  },
+  {
+   "k": "3792647994529086313_3792647980511714195.jpg",
+   "t": "\"Find the lowest-cost departure and return dates within"
+  },
+  {
+   "k": "3792647994529086313_3792647980511714195.jpg",
+   "t": "a (X-day) window around (target date). Highlight 2-3"
+  },
+  {
+   "k": "3792647994529086313_3792647980511714195.jpg",
+   "t": "bestcombos.\""
+  },
+  {
+   "k": "3792647994529086313_3792647980520066935.jpg",
+   "t": "8.Hidden City Ticketing"
+  },
+  {
+   "k": "3792647994529086313_3792647980520066935.jpg",
+   "t": "\"Explain if hidden-city ticketing could reduce my fare"
+  },
+  {
+   "k": "3792647994529086313_3792647980520066935.jpg",
+   "t": "from (Departure City) to (Destination). Include risks,"
+  },
+  {
+   "k": "3792647994529086313_3792647980520066935.jpg",
+   "t": "airlinerules,and when it'sworthit.\""
+  },
+  {
+   "k": "3792647994529086313_3792647980520082172.jpg",
+   "t": "7. Refund & Flexibility Check"
+  },
+  {
+   "k": "3792647994529086313_3792647980520082172.jpg",
+   "t": "\"Analyze refund, reschedule, and cancellation policies"
+  },
+  {
+   "k": "3792647994529086313_3792647980520082172.jpg",
+   "t": "for these flights. Highlight which options give the lowest"
+  },
+  {
+   "k": "3792647994529086313_3792647980520082172.jpg",
+   "t": "risk ifplans change.\""
+  },
+  {
+   "k": "3792647994529086313_3792647980520099774.jpg",
+   "t": "ChatGPT"
+  },
+  {
+   "k": "3792647994529086313_3792647980520099774.jpg",
+   "t": "AIRLINESHATETHIS"
+  },
+  {
+   "k": "3792647994529086313_3792647980520099774.jpg",
+   "t": "S879FLIGHT,IPAID299"
+  },
+  {
+   "k": "3792647994529086313_3792647980520099774.jpg",
+   "t": "NOPOINTS,NOMEMBERSHIPS."
+  },
+  {
+   "k": "3792647994529086313_3792647980520099774.jpg",
+   "t": "8PROMPTSTOTRAVELLIKEAPRO"
+  },
+  {
+   "k": "3792647994529086313_3792647980520099774.jpg",
+   "t": "SWIPEFORMORE"
+  },
+  {
+   "k": "3792647994529086313_3792647980587205503.jpg",
+   "t": "5.FeeBreakdown &Minimization"
+  },
+  {
+   "k": "3792647994529086313_3792647980587205503.jpg",
+   "t": "\"Break down all extra fees for this flight (bags, seats,"
+  },
+  {
+   "k": "3792647994529086313_3792647980587205503.jpg",
+   "t": "boarding). Suggest legal strategies to minimize or avoid"
+  },
+  {
+   "k": "3792647994529086313_3792647980587205503.jpg",
+   "t": "them.\""
+  },
+  {
+   "k": "3792647994529086313_3792647980738150585.jpg",
+   "t": "3.Multi-Leg Route Optimizer"
+  },
+  {
+   "k": "3792647994529086313_3792647980738150585.jpg",
+   "t": "\"Suggest multi-leg or layover routes from (Departure"
+  },
+  {
+   "k": "3792647994529086313_3792647980738150585.jpg",
+   "t": "City) to (Destination) that bring the price under"
+  },
+  {
+   "k": "3792647994529086313_3792647980738150585.jpg",
+   "t": "$(target). Keep layovers under (x hours).\""
+  },
+  {
+   "k": "3792647994529086313_3792647980738196250.jpg",
+   "t": "4.PromoCode&Deal Finder"
+  },
+  {
+   "k": "3792647994529086313_3792647980738196250.jpg",
+   "t": "\"Find valid promo codes,flash sales, or exclusive"
+  },
+  {
+   "k": "3792647994529086313_3792647980738196250.jpg",
+   "t": "discounts for flights on (preferred airlines). Use verified,"
+  },
+  {
+   "k": "3792647994529086313_3792647980738196250.jpg",
+   "t": "up-to-date sourcesonly.\""
+  },
+  {
+   "k": "3792647994529086313_3792647980746559646.jpg",
+   "t": "2.CheapestFlightsFinder"
+  },
+  {
+   "k": "3792647994529086313_3792647980746559646.jpg",
+   "t": "\"List all flights from (Departure City) to (Destination) in"
+  },
+  {
+   "k": "3792647994529086313_3792647980746559646.jpg",
+   "t": "thenext(xweeks).Include budgetairlinesand smaller"
+  },
+  {
+   "k": "3792647994529086313_3792647980746559646.jpg",
+   "t": "carriers.Sortbytotal cost.\""
+  },
+  {
+   "k": "3792647994529086313_3792647980771737577.jpg",
+   "t": "6. Price Negotiation Email Script"
+  },
+  {
+   "k": "3792647994529086313_3792647980771737577.jpg",
+   "t": "\"Write a polite, professional email asking for a price"
+  },
+  {
+   "k": "3792647994529086313_3792647980771737577.jpg",
+   "t": "match, discount, or upgrade. Include reasons I may"
+  },
+  {
+   "k": "3792647994529086313_3792647980771737577.jpg",
+   "t": "qualify (fare rules, loyalty, competitor pricing).\""
+  }
+ ],
+ "linkler": [],
+ "komutlar": [],
+ "kare_aciklama": null,
+ "kare_sayisi": 9,
+ "duzeltme": []
+}

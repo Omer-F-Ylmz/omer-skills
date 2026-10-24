@@ -1,0 +1,1006 @@
+{
+ "kod": "Dev7sYADeWw",
+ "url": "https://www.instagram.com/p/Dev7sYADeWw/",
+ "dil": null,
+ "meta": {
+  "aciklama": "Someone built a GPT for candlestick charts, and it's free.\n\nKronos turns every candle into tokens and forecasts the next one, the way an LLM predicts the next word.\n\nIt's trained on 12 billion+ candles from 45 exchanges, open source on GitHub.\nSomeone says they hooked it to TradingView with Claude Opus 5.5 and made thousands.\n \nThat's their claim, not a typical result, and trading can lose you money.\n\nComment CHART and I'll send you the guide.",
+  "slayt": 10
+ },
+ "transkript": [],
+ "ekran": [
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "Kronos"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "Claude"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "MSB INTEL"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "CHART-BLIND"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "DDAD"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "RUNSANAITRAINED ON"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "12BILLIONCANDLESAFTER"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "CLAUDESETSIT UP"
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "How to run Kronos chart forecasts with claude."
+  },
+  {
+   "k": "4012688327182247344_4012687618881738312.jpg",
+   "t": "SWIPEFORMORE"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "THE RECEIPTS"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "@MSBINTEL"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "TRAINED ON12B+CANDLES"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "FROM 45EXCHANGES"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "arXiv:2508.02739[q-fin.ST]"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Accepted atAAAl 2026"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Kronos:AFoundationModelfortheLanguageofFinancial"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Markets"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "corpus ofover 12billionK-linerecords from"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "45 global exchanges, enabling it to learn"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "shiyu-coder/Kronos"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "12B+"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "candles (K-line records) used in"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "training"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "About"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Kronos:AFoundationModelforthe"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "LanguageofFinancialMarkets"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "global exchanges in the data"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "MReadme"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "MITlicense"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Activity"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "licence.Free to download and use"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "42.0kstars"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "371watching"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "42.0k"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "7.0kforks"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "GitHub starson200ct2026"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Captures:arXiv2508.02739 abstract and github.com/shiyu-coder/Kronos,200ct2026."
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Not a trading app.A free, open research model."
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "Save this"
+  },
+  {
+   "k": "4012688327182247344_4012687699278128296.jpg",
+   "t": "SWIPE"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "HOWITREADS"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "ITREADSCANDLES"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "LIKE GPT READS WORDS"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "LLM"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "The"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "market"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "791"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "3157"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "374"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "next word?"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "nextcandle?"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "K-line Tokenization"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "TokenizerEncoder"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "THEREALPIPELINE"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "BSQ"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "Eachcandle(open,high,low,close,volume)issqueezed intotokens.A"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "Transformerthenpredictsthenexttokens,whichdecodebackinto"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "candles."
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "Figure1,lefthalf.arXiv2508.02739.Tokennumbers above areillustrative."
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "TokenizerDecoder"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "Reconstruction"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "米PROMPT01"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "Read github.com/shiyu-coder/Kronosand explain inplain Englishhowit"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "turnscandles into tokens and what it actually outputs.Then listwhat I need"
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "torun it onmy laptop."
+  },
+  {
+   "k": "4012688327182247344_4012687780521806379.jpg",
+   "t": "Same trick as ChatGPT.Different alphabet."
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "WHAT IT OUTPUTS"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "TFORECASTSARANGE"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "NOTTHEFUTURE."
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "shiyu-coder.github.io/Kronos-demo"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "BTCUSDTProbabilisticPrice&VolumeForecast(Next24Hours)"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Historical Price"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Mean Forecast"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "65000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Forecast Range (Min-Max)"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "The band =everypath it sampled"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "64000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "min tomax,next24hours"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "63000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Price (USDT)"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "62000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "61000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "00009"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "59000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "58000"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "BLUE"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "ORANGE LINE"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "ORANGEBAND"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Real BTC/USDT 1hprices"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Averageof all paths"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Spread.Wide =unsure"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "Official Kronos live demo(Kronos-mini),captured Oct2026.via github.com/shiyu-coder/Kronos"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "米PROMPT02"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "When we run Kronos,generate 30 forecast paths,not one.Plot the average"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "andthemin tomaxband liketheofficial demo,and tell me howwide theband"
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "is in%."
+  },
+  {
+   "k": "4012688327182247344_4012687812625037903.jpg",
+   "t": "A forecast is a range of maybes. Read the band, not the line."
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "MODELSTODOWNLOAD"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "FOUR SIZES.THREEARE"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "FREE ON HUGGING FACE"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "huggingface.co/NeoQuasar"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NeoQuasar/Kronos-small"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NeoQuasar/Kronos-Tokenizer-base"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "TimeSeriesForecasting24.7M-Updated Se..1.23M42"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "TimeSeriesForecastingi3.96MUpdated S2.47M104"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NeoQuasar/Kronos-Tokenizer-2k"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NeoQuasar/Kronos-mini"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "TimeSeriesForecasting3.96M-Updated Sep..387k12"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "TimeSeriesForecasting4.11MUpdated Sep..414k33"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NeoQuasar/Kronos-base"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NeoQuasar/WindFM-Tokenizer"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Time SeriesForecastingi0.1BUpdated Sep..709k291"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Time SeriesForecasting3.96MUpdatedSep.1.23k1"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Kronos-mini"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Kronos-small"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Kronos-base"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Kronos-large"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "4.1M"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "24.7M"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "102.3M"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "490.2M"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "context2048"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "context512"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Tokenizer-2k"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Tokenizer-base"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "OPEN"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "OPEN·STARTHERE"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "NOT RELEASED"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Capture:huggingface.co/NeoQuasar (official),20 Oct 2026.Sizes from the repo's Model Zoo."
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "米PROMPT03"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "MakeaPython3.10+venv,clone theKronosrepoand installrequirements.txt."
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Load NeoQuasar/Kronos-small with NeoQuasar/Kronos-Tokenizer-base and"
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "confirm itruns."
+  },
+  {
+   "k": "4012688327182247344_4012687899791031584.jpg",
+   "t": "Start with small. Go bigger only ifyourbacktestsays so."
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "RUN A FORECAST"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "CLAUDECODESETSIT UP"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "YOU GETAFORECAST"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "~/kronos-lab·claude"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "*WeLcome to Claude Code"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": ">Forecast the next 24hourly BTc/usDT candles with Kronos-small."
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "Bash(git clone github.com/shiyu-coder/Kronos)"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "Bash(pip install -r requirements.txt)"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "Write(forecast.py)"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "from model import Kronos, KronosTokenizer, KronosPredictor"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "tok =KronosTokenizer.from_pretrained(\"NeoQuasar/Kronos-Tokenizer-base\")"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "model = Kronos.from_pretrained(\"NeoQuasar/Kronos-smalL\")"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "pred = KronosPredictor（model,tok,max_context=512)"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "out=pred.predict（df=x_df,x_timestamp=x_ts,"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "y_timestamp=y_ts,pred_len=24,T=1.0,top_p=0.9)"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "Bash(python forecast.py --paths 30)"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "forecast.csv· band.png saved·no API keys used"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "Illustrative Claude Codesession.Code linesfollow the repo'sREADME."
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "米PROMPT04"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "Write forecast.py:pull the last 4oo hourly BTC/UsDT candles from apublic"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "exchangeAPi(nokeys),runKronos-small,forecastthe next24candles,"
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "save forecast.csv and a chart."
+  },
+  {
+   "k": "4012688327182247344_4012687986806056815.jpg",
+   "t": "No exchange account. Public candles in,forecast out."
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "THE TRADINGVIEW PART"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "THEYSAYTHEYWIREDIT"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "TOTRADINGVIEW+CLAUDE"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "BTCUSDT"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "Chartwindow"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "Kronosforecast(Pine overlay)"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "ILLUSTRATION"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "forecast starts"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "Illustration of aDlYsetup.There isnoofficial TradingView integration,and theperson'ssetup isnotpublic."
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "ANONYMOUS"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "NOOFFICIAL INTEGRATION"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "THEIR CLAIM"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "米PROMPT05"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "Turnforecast.csvintoaPineScriptv5indicator thatdrawstheforecast"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "averageand themintomaxbandfromthelastcandleforward.Hardcode the"
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "valuesandtellmehowtopaste itin."
+  },
+  {
+   "k": "4012688327182247344_4012688064375516849.jpg",
+   "t": "The chart is the screen.Kronos is the guess. You make the call."
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "BACKTEST FIRST"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "TESTITONTHEPAST"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "BEFOREYOUTRUSTIT"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "WALK-FORWARD:FORECAST USING ONLY THE PAST,THEN CHECK"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Step1"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "COMPARE"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Step2"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Step3"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Step4"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Pastcandlesit sees"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Its forecast"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": ":Whatreallyhappened"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "YOUR SCORECARD"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "\"SAMEASLASTHOUR\""
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Directionright"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Avgmissonclose"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "PaperP&Lafterfees"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Blank template.Fill it with your own results.We show no results because we have not run yours."
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "米PROMPT06"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "Writebacktest.py:walkforward through 6 months of hourly candles,"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "forecast using only past data,and score Kronos against a \"same as last"
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "hour\"baseline,after fees."
+  },
+  {
+   "k": "4012688327182247344_4012688141164869676.jpg",
+   "t": "If it can't beat the lazy guess,it doesn't touch real money."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "READ THIS TWICE"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "\"MADETHOUSANDS\""
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "IS A CLAIM, NOT A RECEIPT"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "They say it helped them make"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "thousands of dollars."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "UNVERIFIED"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "NO NAME"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "NO P&L SHOWN"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "NOT TYPICAL"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "It forecasts.Itdoesn'tknow."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Research,notaproduct"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Everyoutputisarangeofguesses.Markets"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Therepocallsitsownbacktestpipelinea"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "canmoveoutsidetheband."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "demo,notaproductiontradingsystem."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Fees,slippage,lag"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Fake\"Kronos\"bots"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Anedgeonachartcanvanishoncecosts and"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Onlytrust theofficial repoandNeoQuasar"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "delaysareadded."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "models.Never send keys or money toa"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "stranger'sbot."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Whatto do instead"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Paper trade theforecastsforweeks.Judge results afterfees.Only ever riskmoneyyou can afford to"
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "lose."
+  },
+  {
+   "k": "4012688327182247344_4012688174652193328.jpg",
+   "t": "Trading can lose you money.Not financial advice."
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "COMMENT"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "CHART"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "ANDI'LLDMYOUTHE"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "KRONOSSETUP GUIDE"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Every prompt"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Model links"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Copy-pasteClaudeCodepromptsfrom"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "The official repo and Hugging Face"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "install toforecast"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "models only"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Chart overlay"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Backtestfirst"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Howpeopledrawtheforecastontheir"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Thewalk-forwardtestandscorecard"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "ownchart"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "before anymoney"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "MSB"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Follow"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Claude builds you can copy"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "Not financialadvice.Kronosforecasts,itdoesnotknowthefuture.Profitclaimsin thispostareunverified.Trading"
+  },
+  {
+   "k": "4012688327182247344_4012688258009770126.jpg",
+   "t": "canloseyou money."
+  }
+ ],
+ "linkler": [
+  "github.com/shiyu-coder/Kronos",
+  "github.com/shiyu-coder/Kronos,200ct2026",
+  "github.com/shiyu-coder/Kronosand",
+  "huggingface.co/NeoQuasar",
+  "shiyu-coder.github.io/Kronos-demo"
+ ],
+ "komutlar": [
+  "Claude\nMSB INTEL",
+  "Claude builds you can copy"
+ ],
+ "kare_aciklama": null,
+ "kare_sayisi": 10,
+ "duzeltme": []
+}
