@@ -1,3 +1,10 @@
+---
+type: summary
+status: complete
+tags: [yarim-tara, yarim-kalan-isler, ajan-sira, devir]
+relatedTo: [ajan-sira, ajan-sira-log, devir]
+---
+
 # YARIM-TARA-1 — yarım kalan işler dökümü
 
 Kaynak: `.kos/kopru/gorev*/` (görev dosyaları), `ajan-sira.tsv`, `ajan-sira.log`, `devir/` (son 3 gün). Ayrıntı: `rapor/yarim-tara-1.tsv`. Kod değişikliği yok.
