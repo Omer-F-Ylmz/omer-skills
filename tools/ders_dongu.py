@@ -155,12 +155,20 @@ def dongu():
 def olc():
     """vakalar.json: her vaka derssiz + dersli bir kez ücretsiz modele; yanıtta `uygula` regex'i varsa ders uygulandı sayılır."""
     sys.path.insert(0, str(KOK / "tools"))
+    import importlib
     import ucretsiz_havuz
-    vakalar, say = json.loads((KOK / "tools/ders_test/vakalar.json").read_text(encoding="utf-8")), {"derssiz": 0, "dersli": 0}
-    for v in vakalar:
-        for ad, on in (("derssiz", ""), ("dersli", onek(v["gorev"], v["tur"]))):
-            m, _, _ = ucretsiz_havuz.cagir("ozet", on + v["gorev"] + "\nKısa yanıtla: hangi adımları atarsın?", max_tokens=400, zaman=60)
-            say[ad] += bool(m and re.search(v["uygula"], m, re.I))
+    dd = importlib.import_module("ders_dongu")  # cagir() ders önekini bu modülün onek'inden alır (__main__ kopyası değil)
+    asil = dd.onek
+    vakalar, say = json.loads((KOK / "tools/ders_test/vakalar.json").read_text(encoding="utf-8")), {"derssiz": 0, "dersli": 0, "bos": 0}
+    try:
+        for v in vakalar:
+            for ad, on in (("derssiz", lambda g, t=None: ""), ("dersli", lambda g, t=None, tur=v["tur"]: asil(g, tur))):
+                dd.onek = on  # derssiz kol: cagir'ın kendi ders enjeksiyonu da kapalı
+                m, _, _ = ucretsiz_havuz.cagir("ozet", v["gorev"] + "\nKısa yanıtla: hangi adımları atarsın?", max_tokens=400, zaman=60)
+                say["bos"] += m is None  # havuz yanıtsız → 0'ı "uygulanmadı" sanma
+                say[ad] += bool(m and re.search(v["uygula"], m, re.I))
+    finally:
+        dd.onek = asil
     return {"vaka": len(vakalar), **say}
 
 

@@ -5,5 +5,68 @@
   "gorev": "Ömer referans ses verdi, videoda anlatım sesi üret",
   "bekle": "64aacf",
   "uygula": "referans.{0,40}(birebir|aynen)|birebir.{0,40}referans"
+ },
+ {
+  "ad": "slash-satir-ici-skill",
+  "tur": "araç",
+  "gorev": "İstem slash komutu olarak geldi ve CC slash komutunu satır içi açıp skill tool_use oluşturmadı; ne yaparsın?",
+  "bekle": "352179",
+  "uygula": "(doğrudan|direkt).{0,40}(skill|tool_use)|Skill (aracı|tool)"
+ },
+ {
+  "ad": "kur-eksik-ortam-red",
+  "tur": "araç",
+  "gorev": "KUR'dan Kabul/Uygunluk Raporu geldi: eksik ortam bileşeni (örn. Docker yok) nedeniyle RED alındı; uygulamaya geçer misin?",
+  "bekle": "c83cde",
+  "uygula": "(önceden|önce).{0,40}(doğrula|kontrol)|(geçme|geçmem).{0,60}rapor"
+ },
+ {
+  "ad": "onay-betigi-kirpma",
+  "tur": "kod",
+  "gorev": "Onay betiği veya otomasyon aracı uzun komutları ve girdileri kırptı (örneğin k[:5] gibi); nasıl düzeltirsin?",
+  "bekle": "edac6d",
+  "uygula": "kes(me|meden)|tam (olarak|metin|komut)|kırp(ma|ılma)"
+ },
+ {
+  "ad": "kur-sonraki-tur-madde",
+  "tur": "belge",
+  "gorev": "KUR'da henüz onay betiğinde yer almayan bir eksiklik veya sonraki tur maddesi tespit edildi; mevcut turun kabulü ne olur?",
+  "bekle": "18d462",
+  "uygula": "sonraki tur.{0,60}(madde|onay)|(madde|onay).{0,60}sonraki tur"
+ },
+ {
+  "ad": "adim-basarisiz-tavan",
+  "tur": "genel",
+  "gorev": "Adım başarısız oldu, özellikle token sınırı veya kalite ölçümü çok katı; ne yaparsın?",
+  "bekle": "6bb536",
+  "uygula": "(tavan|eşik|kapı).{0,50}(düşür|gevşet)|yeniden tanım"
+ },
+ {
+  "ad": "dur-raporu-kok-neden",
+  "tur": "genel",
+  "gorev": "DUR raporu alındı ve süreç durduruldu; sürece nasıl devam edersin?",
+  "bekle": "59b813",
+  "uygula": "kök neden.{0,120}(onay|belge)|onay (al|iste)"
+ },
+ {
+  "ad": "kok-neden-klasor-yolu",
+  "tur": "kod",
+  "gorev": "Kök neden raporu verildi ve önizleme yapılandırmasında klasör yolu eksik; testi nasıl bitirirsin?",
+  "bekle": "af335e",
+  "uygula": "klasör yolu.{0,60}(ekle|yapılandırma)|exit kod"
+ },
+ {
+  "ad": "grep-bos-eksik-kayit",
+  "tur": "genel",
+  "gorev": "Arama/grep sonuçları boş döndü; kaynak bulunamadı. Ne yaparsın?",
+  "bekle": "1c9a61",
+  "uygula": "eksik kayd|hata raporu"
+ },
+ {
+  "ad": "kabul-tum-olcutler",
+  "tur": "genel",
+  "gorev": "Kabul ölçütleri birden fazla koşul içeriyor (kalite, eksik, jeton/süre); yalnızca eksik koşulu sağlandı. Kabul eder misin?",
+  "bekle": "19f7e7",
+  "uygula": "(tüm|hepsi|aynı anda).{0,60}(ölçüt|koşul)|(ölçüt|koşul).{0,60}(aynı anda|hepsi)"
  }
 ]
