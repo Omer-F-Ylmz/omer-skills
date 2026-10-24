@@ -144,6 +144,14 @@ def yansit():
     return yeni
 
 
+def dongu():
+    """Otomatik ders üretimi (Claude jetonu 0): hata satırlarını topla → ≤10 aday ücretsiz havuzla ders → Obsidian. → yeni ders sayısı."""
+    _yaz(ADAY, oku(ADAY) + topla())
+    yeni = onayla(10)
+    yansit()
+    return len(yeni)
+
+
 def olc():
     """vakalar.json: her vaka derssiz + dersli bir kez ücretsiz modele; yanıtta `uygula` regex'i varsa ders uygulandı sayılır."""
     sys.path.insert(0, str(KOK / "tools"))
@@ -165,6 +173,8 @@ if __name__ == "__main__":
         print(f"{len(a)} yeni aday")
     elif kmt == "onayla":
         print(onayla(int(arg or 10)))
+    elif kmt == "dongu":
+        print(dongu(), "yeni ders")
     elif kmt == "yansit":
         print(yansit(), "dosya")
     elif kmt == "tohum":

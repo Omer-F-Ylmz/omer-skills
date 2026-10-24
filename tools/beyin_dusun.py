@@ -635,8 +635,19 @@ def _derin_kaynak():
     return "\n".join(parca)[:9000]
 
 
+def ders_isle():
+    """DERS-DONGU-1: RED/DUR satırlarından ücretsiz havuzla ders üret (tools/ders_dongu.py). → yeni ders sayısı."""
+    sys.path.insert(0, str(KOK / "tools"))
+    import ders_dongu
+    return ders_dongu.dongu()
+
+
 def derin():
     """Derin tur: iki model ailesi; uyuşan → deneniyor, uyuşmayan taslak. Sonra kanıtla, elenen düzelt, Obsidian/kart yaz."""
+    try:
+        ders_isle()
+    except Exception as e:  # ders havuzu kilitli/çökük olsa da derin tur sürer
+        olay("hata", "ders_dongu", f"ders döngüsü düştü: {e}", True, "beyin-dusun")
     istem = ISTEM_DERIN + _derin_kaynak()
     y1, k1 = _sor("hakem", istem, 1500, 120, rotasyon=False)
     if not y1:

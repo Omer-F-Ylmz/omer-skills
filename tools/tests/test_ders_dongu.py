@@ -69,3 +69,13 @@ def test_vaka_dosyasi_her_dersi_getirir():
     dd.tohum()
     kacan = [v["ad"] for v in vakalar if v["bekle"] not in dd.getir(v["tur"], v["gorev"])[1]]
     assert not kacan, kacan
+
+
+def test_dongu_topla_aday_onayla_yansit(monkeypatch):
+    sira = []
+    monkeypatch.setattr(dd, "topla", lambda: [{"kanit": "a.md:1", "satir": "DUR " * 12}])
+    monkeypatch.setattr(dd, "onayla", lambda n: sira.append(("onayla", n)) or [{"id": "z1"}])
+    monkeypatch.setattr(dd, "yansit", lambda: sira.append(("yansit",)) or 1)
+    assert dd.dongu() == 1
+    assert sira == [("onayla", 10), ("yansit",)]
+    assert dd.oku(dd.ADAY)[0]["kanit"] == "a.md:1"

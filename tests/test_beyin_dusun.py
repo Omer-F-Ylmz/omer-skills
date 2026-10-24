@@ -23,6 +23,8 @@ class Taban(unittest.TestCase):
         self.cagrilar = []
         self.yanit = "[]"
         b._havuz = self._sahte
+        self.eski["ders_isle"] = getattr(b, "ders_isle", None)
+        b.ders_isle = lambda: 0  # derin() gerçek ders dosyalarına yazmasın
 
     def _sahte(self, tur, istem, **kw):
         self.cagrilar.append((tur, kw))
@@ -219,6 +221,21 @@ class Derin(Taban):
         self.assertEqual(d["Hafif işte ucuz model seç"], "deneniyor")
         self.assertEqual(d["Paralel koş zamandan kazan"], "taslak")
         self.assertTrue(any(b.ICGORU.glob("*.md")))
+
+    def test_derin_ders_dongusunu_calistirir(self):
+        sayac = []
+        b.ders_isle = lambda: sayac.append(1) or 2
+        b._havuz = lambda tur, istem, **kw: ("[]", "p/m", [])
+        self.assertEqual(b.derin(), "ok")
+        self.assertEqual(sayac, [1])
+
+    def test_ders_dongusu_hatasi_derini_durdurmaz(self):
+        def patla():
+            raise OSError("durum.json kilitli")
+        b.ders_isle = patla
+        b._havuz = lambda tur, istem, **kw: ("[]", "p/m", [])
+        self.assertEqual(b.derin(), "ok")
+        self.assertTrue(any(o["tur"] == "hata" and "ders" in o["ozet"] for o in b._olay_oku(0)[0]))
 
 
 class Canli(Taban):
