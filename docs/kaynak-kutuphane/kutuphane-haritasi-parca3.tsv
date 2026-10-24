@@ -1,0 +1,14 @@
+kutuphane	siteler	ne_icin	lisans	repo
+next.js	app.spline.design,draftly.space,getlayers.ai,jiro.build,kombai.com,namethatui.com,prompt-motion.com,scrolltide.co,skills.wheresryan.sh,top3d.ai,uizze.com	React framework	MIT	vercel/next.js
+lucide	draftly.space,jiro.build,kombai.com,namethatui.com,prompt-motion.com,top3d.ai,uizze.com,whatships.com	ikon	ISC	lucide-icons/lucide
+gsap	coloniazacamil.com,draftly.space,jiro.build,namethatui.com,prompt-motion.com,scrolltide.co	timeline/scroll animasyon	GSAP Standard	greensock/GSAP
+tailwind	draftly.space,getlayers.ai,jiro.build,namethatui.com,scrolltide.co	utility CSS	MIT	tailwindlabs/tailwindcss
+lenis	coloniazacamil.com,getlayers.ai,jiro.build,scrolltide.co	smooth scroll	MIT	darkroomengineering/lenis
+framer-motion/motion	draftly.space,jiro.build,namethatui.com,whatships.com	React/JS animasyon	MIT	motiondivision/motion
+three.js	coloniazacamil.com,shotblock.vercel.app	3D render	MIT	mrdoob/three.js
+webgl-shader	coloniazacamil.com,shotblock.vercel.app	GLSL shader	-	-
+react-spring	getlayers.ai,namethatui.com	spring fiziği	MIT	pmndrs/react-spring
+nuxt/vue	coloniazacamil.com	Vue framework	MIT	nuxt/nuxt
+shadcn	namethatui.com	bileşen dağıtım modeli	MIT	shadcn-ui/ui
+astro	whatships.com			
+svelte	getlayers.ai	UI framework	MIT	sveltejs/svelte

@@ -1,7 +1,8 @@
 """KAYNAK-KUTUPHANE-1: tara-parca1.json + secili tablo -> site md, envanter.tsv, kutuphane-haritasi.tsv, icerik tsv; AL repolarini klonlar."""
-import json, os, re, subprocess, datetime, collections
+import json, os, re, subprocess, datetime, collections, sys
 R = 'docs/kaynak-kutuphane'; LIB = r'C:/Users/pc/Desktop/Claude ile yapılanlar/kaynak-kutuphane'
-out = json.load(open(f'{R}/tara-parca1.json', encoding='utf8')); BUGUN = datetime.date.today().isoformat()
+P = sys.argv[1] if len(sys.argv) > 1 else '1'; S = '' if P == '1' else f'-parca{P}'  # parça 3: python tools/kk1_yaz.py 3
+out = json.load(open(f'{R}/tara-parca{P}.json', encoding='utf8')); BUGUN = datetime.date.today().isoformat()
 # host: (tur, own_repo, lisans, sart, karar, indirme)
 T = {
 'reactbits.dev': ('UI bileşen/animasyon', 'DavidHDev/react-bits', 'MIT+Commons Clause', 'satış/yeniden dağıtım yasak; site/üründe kullanım serbest', 'AL-ŞARTLI', 'GitHub+shadcn registry'),
@@ -53,6 +54,25 @@ T = {
 'clbthemes.com': ('şablon (WP tema)', '', 'ücretli temalar', 'ücretli', 'ATLANDI', '-'),
 'collectivekit.co': ('şablon', '', 'belirsiz', 'sahip repo yok', 'ATLANDI', '-'),
 'temlis.com': ('şablon dizini', '', 'şablon başına değişir', 'toplu doğrulanamadı', 'ATLANDI', '-'),
+'coloniazacamil.com': ('UI sitesi (ilham)', '', 'sahip repo yok', 'site kodu bulunamadı; fflate üçüncü taraf bağımlılık', 'ATLANDI', '-'),
+'namethatui.com': ('UI galerisi', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
+'prompt-motion.com': ('prompt/şablon galerisi', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
+'self.to': ('site/şablon', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
+'uizze.com': ('UI tasarım becerileri', 'uizze/uizze', 'MIT', 'telif notu korunur', 'AL', 'GitHub'),
+'wallhang.com': ('3D/duvar kağıdı sitesi', '', 'belirsiz', 'tarama başarısız (SSL sertifika doğrulaması)', 'ATLANDI', '-'),
+'whatships.com': ('gemi/görsel sitesi', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
+'app.spline.design': ('3D editör (SaaS)', '', 'kapalı kaynak', 'giriş gerekir', 'ATLANDI', '-'),
+'aptransit.co': ('UI sitesi (ilham)', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
+'draftly.space': ('doküman/çizim aracı', '', 'lisans doğrulanamadı (repo adı .git içeriyor)', 'elle doğrulanacak', 'ATLANDI', '-'),
+'kombai.com': ('UI üretici (SaaS)', '', 'kapalı kaynak', 'kaynak kod yok', 'ATLANDI', '-'),
+'posemy.art': ('poz/3D referans', '', 'sahip repo yok', 'giriş/kota; kaynak yok', 'ATLANDI', '-'),
+'reallusion.com': ('3D karakter (SaaS)', '', 'kapalı kaynak', 'ürün lisansı ücretli', 'ATLANDI', '-'),
+'shotblock.vercel.app': ('WebGL demo', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
+'skills.wheresryan.sh': ('agent skill (izometrik çizim)', 'wheresryan22/anatomy', 'MIT', 'telif notu korunur', 'AL', 'GitHub'),
+'top3d.ai': ('3D üretim (SaaS)', '', 'kapalı kaynak', 'kaynak kod yok', 'ATLANDI', '-'),
+'getlayers.ai': ('web şablon/prompt kütüphanesi', 'textura-agency/next16-claude-starter', 'Unlicense (kamu malı)', 'sahip eşleşmesi (textura-agency) elle doğrulanacak', 'AL-ŞARTLI', 'GitHub'),
+'jiro.build': ('site oluşturucu (SaaS)', '', 'kapalı kaynak', 'kaynak kod yok', 'ATLANDI', '-'),
+'scrolltide.co': ('scroll animasyon sitesi', '', 'sahip repo yok', 'kaynak kod yok', 'ATLANDI', '-'),
 }
 os.makedirs(f'{R}/site', exist_ok=True)
 env = dict(os.environ); env['GIT_TERMINAL_PROMPT'] = '0'
@@ -61,6 +81,7 @@ def sz(p):
     return sum(os.path.getsize(os.path.join(d, f)) for d, _, fs in os.walk(p) for f in fs) // 1024
 env_rows, lib_rows, alinan, atlanan = [], collections.defaultdict(lambda: [set(), '', '']), [], []
 for h, (tur, repo, lis, sart, karar, ind) in T.items():
+    if h not in out: continue
     o = out.get(h, {}); libs = o.get('libs', {}); ri = info.get(repo.lower(), {})
     ytl = f"{ri.get('yildiz','')}★ son {ri.get('son','')}" if ri else ''
     yol = ''
@@ -98,7 +119,7 @@ relatedTo: [kaynak-kutuphane-1]
     with open(f'{R}/site/{h}-icerik.tsv', 'w', encoding='utf8', newline='\n') as tsv:
         tsv.write('url\tkaynak\n')
         for u in sm: tsv.write(f'{u}\tsitemap(ilk 8; toplam {o.get("sitemap_url",0)})\n')
-with open(f'{R}/envanter.tsv', 'w', encoding='utf8', newline='\n') as f:
+with open(f'{R}/envanter{S}.tsv', 'w', encoding='utf8', newline='\n') as f:
     f.write('site\ttur\tucretsiz\tlisans\tsart_atif\tindirme\tkarar\tyer\n')
     for r in env_rows: f.write('\t'.join(r) + '\n')
 LNOT = {'three.js': ('3D render', 'MIT', 'mrdoob/three.js'), 'gsap': ('timeline/scroll animasyon', 'GSAP Standard', 'greensock/GSAP'), 'lenis': ('smooth scroll', 'MIT', 'darkroomengineering/lenis'),
@@ -108,9 +129,9 @@ LNOT = {'three.js': ('3D render', 'MIT', 'mrdoob/three.js'), 'gsap': ('timeline/
  'next.js': ('React framework', 'MIT', 'vercel/next.js'), 'ogl': ('mini WebGL', 'Unlicense', 'oframe/ogl'), 'matter-js': ('2D fizik', 'MIT', 'liabru/matter-js'), 'lucide': ('ikon', 'ISC', 'lucide-icons/lucide'),
  'webgl-shader': ('GLSL shader', '-', '-'), 'svelte': ('UI framework', 'MIT', 'sveltejs/svelte'), 'nuxt/vue': ('Vue framework', 'MIT', 'nuxt/nuxt'), 'tsl/webgpu': ('WebGPU/TSL', 'MIT', 'mrdoob/three.js'),
  'codemirror/monaco': ('kod editörü', 'MIT', 'microsoft/monaco-editor')}
-with open(f'{R}/kutuphane-haritasi.tsv', 'w', encoding='utf8', newline='\n') as f:
+with open(f'{R}/kutuphane-haritasi{S}.tsv', 'w', encoding='utf8', newline='\n') as f:
     f.write('kutuphane\tsiteler\tne_icin\tlisans\trepo\n')
     for l, (s, _, _) in sorted(lib_rows.items(), key=lambda x: -len(x[1][0])):
         n = LNOT.get(l, ('', '', '')); f.write(f"{l}\t{','.join(sorted(s))}\t{n[0]}\t{n[1]}\t{n[2]}\n")
-json.dump({'alinan': alinan, 'atlanan': atlanan}, open(f'{R}/_ozet-parca1.json', 'w', encoding='utf8'), ensure_ascii=False)
+json.dump({'alinan': alinan, 'atlanan': atlanan}, open(f'{R}/_ozet-parca{P}.json', 'w', encoding='utf8'), ensure_ascii=False)
 print(len(T), 'site;', len(alinan), 'klon;', len(atlanan), 'atlandi;', len(lib_rows), 'kutuphane;', sum(a[3] for a in alinan) // 1024, 'MB')

@@ -1,0 +1,534 @@
+{
+ "coloniazacamil.com": {
+  "host": "coloniazacamil.com",
+  "durum": "ok",
+  "libs": {
+   "three.js": 40,
+   "gsap": 98,
+   "lenis": 187,
+   "nuxt/vue": 1896,
+   "webgl-shader": 192
+  },
+  "github": [
+   "101arrowz/fflate"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://coloniazacamil.com/",
+  "baslik": "Colonia Zacamil",
+  "aciklama": "Colonia Zacamil",
+  "repo_bilgi": [
+   {
+    "repo": "101arrowz/fflate",
+    "lisans": "mit",
+    "yildiz": 3065,
+    "son": "2026-05-16",
+    "ozet": "High performance (de)compression in an 8kB package"
+   }
+  ]
+ },
+ "namethatui.com": {
+  "host": "namethatui.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 9,
+   "framer-motion/motion": 4,
+   "react-spring": 3,
+   "tailwind": 4,
+   "shadcn": 39,
+   "next.js": 163,
+   "lucide": 196
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 131,
+  "sitemap_ornek": [
+   "https://namethatui.com",
+   "https://namethatui.com/swift-vs-electron",
+   "https://namethatui.com/appkit-vs-swiftui",
+   "https://namethatui.com/translate",
+   "https://namethatui.com/methodology",
+   "https://namethatui.com/sponsor",
+   "https://namethatui.com/vs",
+   "https://namethatui.com/vs/popover-vs-tooltip"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://namethatui.com/",
+  "baslik": "NameThatUI — What Is This UI Element Called?",
+  "aciklama": "Can&#x27;t name that UI element? Describe it badly — “the pale pill behind the menu bar icon”, “the dots you grab to drag” — and get its real name, API symbol, and a precise prompt for your coding age",
+  "repo_bilgi": []
+ },
+ "prompt-motion.com": {
+  "host": "prompt-motion.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "next.js": 107,
+   "lucide": 16
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 256,
+  "sitemap_ornek": [
+   "https://prompt-motion.com",
+   "https://prompt-motion.com/templates",
+   "https://prompt-motion.com/customize",
+   "https://prompt-motion.com/templates/realtime",
+   "https://prompt-motion.com/templates/showreel",
+   "https://prompt-motion.com/blog",
+   "https://prompt-motion.com/blog/ai-explainer-video-prompts",
+   "https://prompt-motion.com/blog/ai-launch-video-prompts"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://prompt-motion.com/",
+  "baslik": "Prompt Motion",
+  "aciklama": "A collection of motion videos made with Claude Opus 5.5, with the prompts and skills behind them.",
+  "repo_bilgi": []
+ },
+ "self.to": {
+  "host": "self.to",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://self.to/",
+  "baslik": "Mark Craemer Photography",
+  "aciklama": "Photography by Mark Craemer",
+  "repo_bilgi": []
+ },
+ "uizze.com": {
+  "host": "uizze.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 154,
+   "lucide": 14
+  },
+  "github": [
+   "uizze/uizze"
+  ],
+  "npm": [],
+  "sitemap_url": 25,
+  "sitemap_ornek": [
+   "https://uizze.com/claude-code-ui-design",
+   "https://uizze.com/codex-ui-design",
+   "https://uizze.com/cursor-ui-design",
+   "https://uizze.com/coding-agent-ui-checklist",
+   "https://uizze.com/refero-alternative",
+   "https://uizze.com/ui-design-mcp",
+   "https://uizze.com/guides/ui-design-skills",
+   "https://uizze.com/guides/design-md-for-coding-agents"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://uizze.com/",
+  "baslik": "Uizze — Full AI Design Pack for Coding Agents",
+  "aciklama": "UIZZE gives Codex, Claude Code, Cursor, and other AI coding agents 800,000+ real web and iOS screens to search before they design and build UI.",
+  "repo_bilgi": [
+   {
+    "repo": "uizze/uizze",
+    "lisans": "mit",
+    "yildiz": 66,
+    "son": "2026-10-21",
+    "ozet": "Build better UI with coding agents. Free design skills, a PR finish gate, and MCP references from 80"
+   }
+  ]
+ },
+ "wallhang.com": {
+  "host": "wallhang.com",
+  "durum": "hata: URLError <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate ",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "whatships.com": {
+  "host": "whatships.com",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 2,
+   "shadcn": 1,
+   "astro": 18,
+   "lucide": 490
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 2654,
+  "sitemap_ornek": [
+   "https://whatships.com/",
+   "https://whatships.com/about/",
+   "https://whatships.com/contact/",
+   "https://whatships.com/privacy/",
+   "https://whatships.com/terms/",
+   "https://whatships.com/developers/",
+   "https://whatships.com/tools/",
+   "https://whatships.com/studios/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://whatships.com/",
+  "baslik": "Startup &amp; Product Launch Videos from X — What Ships",
+  "aciklama": "What Ships is a curated directory of 2,000+ startup launch videos from X. Browse product launch videos, demos, and walkthroughs linked to the original post.",
+  "repo_bilgi": []
+ },
+ "app.spline.design": {
+  "host": "app.spline.design",
+  "durum": "ok",
+  "libs": {
+   "next.js": 25
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": false,
+  "final": "https://app.spline.design/",
+  "baslik": "Spline",
+  "aciklama": "Spline is a collaborative design platform for creating production-ready interactive experiences in multiple dimensions.",
+  "repo_bilgi": []
+ },
+ "aptransit.co": {
+  "host": "aptransit.co",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1634,
+  "sitemap_ornek": [
+   "https://aptransit.co/",
+   "https://aptransit.co/about-us",
+   "https://aptransit.co/contact-us",
+   "https://aptransit.co/download",
+   "https://aptransit.co/art",
+   "https://aptransit.co/roadmap",
+   "https://aptransit.co/weather",
+   "https://aptransit.co/privacy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://aptransit.co/",
+  "baslik": "NYC Subway Live Map 3D · AP Transit",
+  "aciklama": "The MTA Live Subway Map, a real-time digital map, helps New York City riders navigate the ever-changing transportation network.",
+  "repo_bilgi": []
+ },
+ "draftly.space": {
+  "host": "draftly.space",
+  "durum": "ok",
+  "libs": {
+   "gsap": 18,
+   "framer-motion/motion": 10,
+   "tailwind": 10,
+   "next.js": 35,
+   "lucide": 46
+  },
+  "github": [
+   "draftly-space/draftly-client.git"
+  ],
+  "npm": [],
+  "sitemap_url": 2235,
+  "sitemap_ornek": [
+   "https://www.draftly.space/",
+   "https://www.draftly.space/hi/",
+   "https://www.draftly.space/es/",
+   "https://www.draftly.space/pt/",
+   "https://www.draftly.space/fr/",
+   "https://www.draftly.space/de/",
+   "https://www.draftly.space/ja/",
+   "https://www.draftly.space/zh/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.draftly.space/",
+  "baslik": "Draftly 3D Website Builder | No-Code Immersive Website Creation",
+  "aciklama": "Create stunning 3D immersive websites in minutes with AI, no coding required. Simply enter a prompt and launch your site instantly. Plans from $25/mo.",
+  "repo_bilgi": [
+   {
+    "repo": "draftly-space/draftly-client.git",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "kombai.com": {
+  "host": "kombai.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 116,
+   "lucide": 60
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 367,
+  "sitemap_ornek": [
+   "https://kombai.com/",
+   "https://kombai.com/pricing/",
+   "https://kombai.com/benchmark/",
+   "https://kombai.com/install/",
+   "https://kombai.com/get-started/",
+   "https://kombai.com/download/",
+   "https://kombai.com/support/",
+   "https://kombai.com/changelog/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://kombai.com/",
+  "baslik": "Kombai - Your AI design engineer",
+  "aciklama": "Kombai is your AI design engineer for designing standout websites and product UIs, then shipping production-ready frontend in the same loop.",
+  "repo_bilgi": []
+ },
+ "posemy.art": {
+  "host": "posemy.art",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 19661,
+  "sitemap_ornek": [
+   "https://posemy.art/create-dynamic-poses-reference/",
+   "https://posemy.art/poses-reference-for-drawing/",
+   "https://posemy.art/poses-for-drawing-reference-PoseMyArt/",
+   "https://posemy.art/how-to-use-posemyart/",
+   "https://posemy.art/model-poser-for-drawing-characters/",
+   "https://posemy.art/about/",
+   "https://posemy.art/contact/",
+   "https://posemy.art/download/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://posemy.art/",
+  "baslik": "PoseMy.Art | Free tool to create reference poses with 3D models.",
+  "aciklama": "Create figure drawing reference with this free character posing tool. Pose 3D models with premade animations to create dynamic pose reference for your art.",
+  "repo_bilgi": []
+ },
+ "reallusion.com": {
+  "host": "reallusion.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "kenwheeler/slick"
+  ],
+  "npm": [],
+  "sitemap_url": 6946,
+  "sitemap_ornek": [
+   "http://www.reallusion.com/crazytalk-animator/upgrade.html",
+   "http://www.reallusion.com/crazytalk-animator/tutorial.html",
+   "http://www.reallusion.com/crazytalk-animator/top.html",
+   "http://www.reallusion.com/crazytalk-animator/talking-head.html",
+   "http://www.reallusion.com/crazytalk-animator/prop-animation.html",
+   "http://www.reallusion.com/crazytalk-animator/feature-topnav.html",
+   "http://www.reallusion.com/crazytalk-animator/download.html",
+   "http://www.reallusion.com/crazytalk-animator/default.html"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.reallusion.com/",
+  "baslik": "Reallusion - 3D Character Production & 2D Cartoon Animation",
+  "aciklama": "Reallusion is a platform for 3D character creation and animation across Media Entertainment, Metaverse, Digital Twinning, ArchViz and AI Simulation.",
+  "repo_bilgi": [
+   {
+    "repo": "kenwheeler/slick",
+    "lisans": "mit",
+    "yildiz": 28525,
+    "son": "2026-09-14",
+    "ozet": "the last carousel you'll ever need"
+   }
+  ]
+ },
+ "shotblock.vercel.app": {
+  "host": "shotblock.vercel.app",
+  "durum": "ok",
+  "libs": {
+   "three.js": 36,
+   "webgl-shader": 117
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://shotblock.vercel.app/",
+  "baslik": "Shotblock — 3D storyboard & shot planning for filmmakers",
+  "aciklama": "Stage scenes in 3D, plan camera coverage, and export annotated storyboards with AI-ready prompts. Free, runs in your browser.",
+  "repo_bilgi": []
+ },
+ "skills.wheresryan.sh": {
+  "host": "skills.wheresryan.sh",
+  "durum": "ok",
+  "libs": {
+   "next.js": 21
+  },
+  "github": [
+   "wheresryan22/anatomy"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://skills.wheresryan.sh/anatomy",
+  "baslik": "Anatomy · A skill for Claude Code",
+  "aciklama": "A Claude skill that draws an idea as the real machine that does it: a live isometric figure you can turn, press and read.",
+  "repo_bilgi": [
+   {
+    "repo": "wheresryan22/anatomy",
+    "lisans": "mit",
+    "yildiz": 20059,
+    "son": "2026-10-18",
+    "ozet": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and"
+   }
+  ]
+ },
+ "top3d.ai": {
+  "host": "top3d.ai",
+  "durum": "ok",
+  "libs": {
+   "next.js": 798,
+   "lucide": 189
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 313,
+  "sitemap_ornek": [
+   "https://www.top3d.ai/advertise",
+   "https://www.top3d.ai",
+   "https://www.top3d.ai/zh",
+   "https://www.top3d.ai/ja",
+   "https://www.top3d.ai/ko",
+   "https://www.top3d.ai/leaderboard",
+   "https://www.top3d.ai/zh/leaderboard",
+   "https://www.top3d.ai/ja/leaderboard"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.top3d.ai/",
+  "baslik": "Top 3D AI - Compare &amp; Rate the Best AI 3D Generators",
+  "aciklama": "Top3D.ai ranks 23+ AI 3D generators using blind community voting and ELO ratings from 230,000+ battles. Unbiased, non-sponsored reviews. Vote in the arena.",
+  "repo_bilgi": []
+ },
+ "getlayers.ai": {
+  "host": "getlayers.ai",
+  "durum": "ok",
+  "libs": {
+   "lenis": 5,
+   "framer-motion/motion": 1,
+   "react-spring": 5,
+   "tailwind": 3,
+   "next.js": 2126,
+   "svelte": 5
+  },
+  "github": [
+   "textura-agency/ai-design-vault",
+   "textura-agency/next16-claude-starter"
+  ],
+  "npm": [],
+  "sitemap_url": 787,
+  "sitemap_ornek": [
+   "https://www.getlayers.ai/",
+   "https://www.getlayers.ai/templates",
+   "https://www.getlayers.ai/3d-scenes",
+   "https://www.getlayers.ai/sections",
+   "https://www.getlayers.ai/backgrounds",
+   "https://www.getlayers.ai/gradients",
+   "https://www.getlayers.ai/tools",
+   "https://www.getlayers.ai/tools/text-animations"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.getlayers.ai/",
+  "baslik": "GetLayers AI — Cinematic AI sites, made easy",
+  "aciklama": "Your AI builds generic — we make it cinematic. A library of web templates, 3D WebGL scenes, animated backgrounds and gradients, each copyable as one prompt.",
+  "repo_bilgi": [
+   {
+    "repo": "textura-agency/ai-design-vault",
+    "lisans": "unlicense",
+    "yildiz": 20,
+    "son": "2026-08-18",
+    "ozet": ""
+   },
+   {
+    "repo": "textura-agency/next16-claude-starter",
+    "lisans": "unlicense",
+    "yildiz": 139,
+    "son": "2026-10-14",
+    "ozet": "AI-first Next.js 16 starter for animation-heavy sites, wired with an Obsidian vault & Claude Code ho"
+   }
+  ]
+ },
+ "jiro.build": {
+  "host": "jiro.build",
+  "durum": "ok",
+  "libs": {
+   "gsap": 17,
+   "lenis": 3,
+   "framer-motion/motion": 1045,
+   "tailwind": 25,
+   "next.js": 271,
+   "lucide": 702
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1420,
+  "sitemap_ornek": [
+   "https://jiro.build",
+   "https://jiro.build/components",
+   "https://jiro.build/components/featured",
+   "https://jiro.build/components/newest",
+   "https://jiro.build/components/best-of-the-week",
+   "https://jiro.build/templates",
+   "https://jiro.build/templates/featured",
+   "https://jiro.build/templates/newest"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://jiro.build/",
+  "baslik": "Jiro — The Design Prompt Library to Vibe Code Better Websites",
+  "aciklama": "You know how your website should look &amp; feel, but can&#x27;t describe it to AI? Jiro fixes that. Browse real design → Copy prompt → Paste into vibe coding tool → Ship fast.",
+  "repo_bilgi": []
+ },
+ "scrolltide.co": {
+  "host": "scrolltide.co",
+  "durum": "ok",
+  "libs": {
+   "gsap": 13,
+   "lenis": 8,
+   "framer-motion/motion": 1,
+   "tailwind": 12,
+   "next.js": 145
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 49,
+  "sitemap_ornek": [
+   "https://www.scrolltide.co/",
+   "https://www.scrolltide.co/templates",
+   "https://www.scrolltide.co/components",
+   "https://www.scrolltide.co/sections",
+   "https://www.scrolltide.co/ui",
+   "https://www.scrolltide.co/shaders",
+   "https://www.scrolltide.co/free",
+   "https://www.scrolltide.co/academy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.scrolltide.co/",
+  "baslik": "Scrolltide — Cinematic website prompts &amp; templates",
+  "aciklama": "A curated library of scroll-driven website templates and AI prompts. Copy a prompt, paste it into your AI, and launch a site that actually moves.",
+  "repo_bilgi": []
+ }
+}
