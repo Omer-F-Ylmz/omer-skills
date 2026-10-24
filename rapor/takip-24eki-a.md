@@ -1,1 +1,6 @@
 - #1 CLAUDE-P-ASILMA: DEVAM→ÖMER (kök neden=410 eklenti toplam yük, 190sn; rapor/claude-p-asilma-1.md)
+- #2 CODE-MODE-REA-3: BİTTİ (M1–M5 yerel=upstream kaynak, sürüm tablosu; rapor/code-mode-rea-3.md; upstream npm güncelliği bakılmadı)
+- #3 VIDEO-REPO-3: DEVAM (tur sınırı; yt-dlp/video_derin/OCR başlanmadı)
+- #4 OMER-SITE-D1C: DEVAM (tur sınırı; gorsel_hakem 3x, hero100 mühür, vite pid kapatma başlanmadı)
+- ÖMER: enabledPlugins (410 etkin) kapatma listesi onayı / köprü profiline pluginKapat (rapor/claude-p-asilma-1.md)
+- ÖMER: hero metinleri onayı (D1C bitince)
