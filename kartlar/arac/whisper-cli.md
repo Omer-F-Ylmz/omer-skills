@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: onarim
+status: muaf
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videoda anılmıyor (kaynak: envanter/yapılandırma)
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** ffmpeg, hareket-altyazi-3d-paket, hyperframes-paket, mcp-video-analyzer, remotion-video-paket, video-tarama, video-uygula, yt-dlp
-- **Yaygın hata:** PATH/yapılandırmada bulunamadı: PATH'te ve kurulu yerlerde yok
-- **Doğrulanmış örnek:** `whisper-cli --version`  → KALDI (PATH'te ve kurulu yerlerde yok)
+- **Yaygın hata:** PATH/yapılandırmada bulunamadı: PATH'te ve kurulu yerlerde yok; ÖMER: whisper.cpp ikilisi kurulu değil (yalnız cc-kopru izin adı); çalışan ASR yolu tools/asr_hat.py (groq→gemini→faster-whisper)
+- **Doğrulanmış örnek:** `whisper-cli --version`  → MUAF (PATH'te ve kurulu yerlerde yok; ÖMER: whisper.cpp ikilisi kurulu değil (yalnız cc-kopru izin adı); çalışan ASR yolu tools/asr_hat.py (groq→gemini→faster-whisper))

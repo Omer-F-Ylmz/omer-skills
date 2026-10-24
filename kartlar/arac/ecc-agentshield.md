@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: onarim
+status: dogrulandi
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videoda anılmıyor (kaynak: envanter/yapılandırma)
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** departman-guvenlik, gitleaks, security-reviewer, semgrep, skillspector, strix
-- **Yaygın hata:** PATH/yapılandırmada bulunamadı: PATH'te ve kurulu yerlerde yok
-- **Doğrulanmış örnek:** `ecc-agentshield --version`  → KALDI (PATH'te ve kurulu yerlerde yok)
+- **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
+- **Doğrulanmış örnek:** `agentshield --version`  → GECTI (1.6.0)

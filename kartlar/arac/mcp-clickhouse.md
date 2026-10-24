@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `mcp-clickhouse --version`  → GECTI (2026-10-24 13:30:43,539 - mcp-clickhouse - INFO - ClickHouse tools registered)
+- **Doğrulanmış örnek:** `mcp-clickhouse --version`  → GECTI (2026-10-24 15:32:10,799 - mcp-clickhouse - INFO - ClickHouse tools registered)

@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: onarim
+status: dogrulandi
 tags: [arac, skill, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videolarda 1 kez anıldı; ilk kodlar: DdmQWJzqP8H
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** Google Drive, claude-mem, context-mode, context-mode-paket, departman-belge, headroom, jev, markitdown
-- **Yaygın hata:** PATH/yapılandırmada bulunamadı: skill dizini yok
-- **Doğrulanmış örnek:** `headroom-compress`  → KALDI (skill dizini yok)
+- **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
+- **Doğrulanmış örnek:** `SKILL.md ~/.claude/skills/headroom-compress`  → GECTI (skill dizini var)

@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: onarim
+status: dogrulandi
 tags: [arac, mcp, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videolarda 26 kez anıldı; ilk kodlar: Dauv6MOyDR8, Db1J34usxwh, Dcl0nk9ibZE, DcqJTFDAOrU
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** context-mode, context-mode-paket, headroom, headroom-compress, jev, rtk, strategic-compact
-- **Yaygın hata:** PATH/yapılandırmada bulunamadı: yapılandırmada ve kurulu yerde yok
-- **Doğrulanmış örnek:** `claude-mem`  → KALDI (yapılandırmada ve kurulu yerde yok)
+- **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
+- **Doğrulanmış örnek:** `node (stdio) tools/list`  → GECTI (19 araç döndü)

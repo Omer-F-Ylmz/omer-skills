@@ -119,7 +119,81 @@ def varlik(ad):
     return ""
 
 
+# kurulum adı -> PATH'teki komut adı (paket adından türetilemeyenler)
+ALIAS = {"netlify-cli": "netlify", "open-code-review": "ocr", "testsprite-cli": "testsprite",
+         "ecc-agentshield": "agentshield", "puppeteer-mcp-server": "mcp-server-puppeteer",
+         "ui-to-vue-converter": "ui-to-vue", "headroom-ai": "headroom", "jev-cli": "jev", "video-cli": "video",
+         "graphifyy": "graphify", "mimic-client": "mimic", "strix-agent": "strix", "whisper-cli": "whisper",
+         "@googleworkspace/cli": "gws", "@larksuite/cli": "lark-cli", "@gltf-transform/cli": "gltf-transform",
+         "@playwright/cli": "playwright-cli", "@caveman-ai/cli": "caveman"}
+# kalıcı koşturulamayanlar: ad -> gerekçe (kapı hesabı dışı)
+MUAF = {"skill-ui": "npm'den kaldırılmış (2023-04-28), global kurulum dizini boş; kaynak depo bilinmiyor, yeniden kurulamaz",
+        "open-design": "`od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir",
+        "whisper-cli": "whisper.cpp ikilisi kurulu değil (yalnız cc-kopru izin adı); çalışan ASR yolu tools/asr_hat.py (groq→gemini→faster-whisper)"}
+BAYRAK = ("--version", "-V", "version", "--help", "-h", "help")
+
+
+def eklenti_mcp(ad):
+    """eklenti önbelleğindeki .mcp.json / plugin.json'dan (komut, args); ${CLAUDE_PLUGIN_ROOT} açılır"""
+    for kok in (HOME / ".claude/plugins/cache").glob(f"*/{ad}/*"):
+        for dosya in (kok / ".mcp.json", kok / ".claude-plugin/plugin.json"):
+            if not dosya.exists():
+                continue
+            d = json.loads(dosya.read_text(encoding="utf-8"))
+            for v in (d.get("mcpServers") or d).values():
+                if isinstance(v, dict) and v.get("command"):
+                    return v["command"], [str(a).replace("${CLAUDE_PLUGIN_ROOT}", str(kok)) for a in v.get("args", [])]
+    return None
+
+
+def mcp_tools(komut, args):
+    """MCP stdio'yu gerçekten başlatır: initialize + tools/list; araç sayısı ya da hata metni"""
+    istek = "\n".join(json.dumps(m) for m in (
+        {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2024-11-05", "capabilities": {},
+                                                                       "clientInfo": {"name": "ustalik", "version": "1"}}},
+        {"jsonrpc": "2.0", "method": "notifications/initialized"},
+        {"jsonrpc": "2.0", "id": 2, "method": "tools/list"})) + "\n"
+    try:
+        p = subprocess.run([shutil.which(komut) or komut] + args, input=istek.encode(), capture_output=True, timeout=45,
+                           env=dict(os.environ), creationflags=0x08000000)
+    except Exception as e:
+        return None, str(e)[:80]
+    for satir in p.stdout.decode("utf-8", "replace").splitlines():
+        if '"id":2' in satir.replace(" ", "") and '"tools"' in satir:
+            return len(json.loads(satir)["result"]["tools"]), ""
+    return None, (p.stderr.decode("utf-8", "replace").strip()[:80] or "tools/list yanıtı yok")
+
+
 def deneme(ad, tur, mcp):
+    if tur == "skill" and (HOME / ".claude/skills" / ad).is_dir():
+        return "GECTI", f"SKILL.md ~/.claude/skills/{ad}", "skill dizini var"
+    if tur == "mcp":
+        c = eklenti_mcp(ad) or eklenti_mcp(ad.split("-mcp")[0])
+        if c:
+            n, hata = mcp_tools(*c)
+            if n:
+                return "GECTI", f"{c[0]} (stdio) tools/list", f"{n} araç döndü"
+            return "VAR", f"{c[0]} (stdio) tools/list", hata
+    if tur == "cli":
+        b = ALIAS.get(ad) or ALIAS.get(cli_bin(ad))
+        yol = b and shutil.which(b)
+        if not yol:
+            ilk = _deneme_ilk(ad, tur, mcp)
+            if ilk[0] != "VAR":
+                return ilk
+            yol = next((shutil.which(x) for x in (ALIAS.get(ad), cli_bin(ad), ad.split("/")[-1]) if x and shutil.which(x)), None)
+            b = b or cli_bin(ad)
+        if yol:
+            on = [] if yol.lower().endswith((".exe", ".cmd", ".bat")) else ["sh"]
+            for bayrak in BAYRAK:
+                rc, cikti = calistir(on + [yol, bayrak], sure=45 if bayrak in BAYRAK[:1] else 12)
+                if rc == 0:
+                    return "GECTI", f"{b} {bayrak}", (cikti.splitlines() or [""])[0][:100]
+            return "VAR", f"{b} --version", f"yürütülebilir {yol}, yanıt yok (rc={rc})".replace(str(HOME), "~")
+    return _deneme_ilk(ad, tur, mcp)
+
+
+def _deneme_ilk(ad, tur, mcp):
     """(durum, komut, not); durum GECTI = koştu, VAR = kurulu yer bulundu ama sürüm yanıtı yok/komut PATH dışı, KALDI"""
     if tur == "skill":
         v = varlik(ad)
@@ -175,7 +249,10 @@ def video_notlari(ad, arac):
 
 def kart(ad, tur, satir, mcp, arac, tur_set):
     durum, komut, nota = deneme(ad, tur, mcp)
-    ok = durum != "KALDI"
+    if ad in MUAF and durum != "GECTI":
+        nota = f"{nota}; ÖMER: {MUAF[ad]}"
+        durum = "MUAF"
+    ok = durum not in ("KALDI", "MUAF")
     ref, kodlar, ipuc = video_notlari(ad, arac)
     zor = [t for t, v in tur_set.items() if ad in v.get("mcp", []) + v.get("cli", []) + v.get("skill", [])]
     ortak = sorted({o for t in zor for k in ("skill", "mcp", "cli") for o in tur_set[t].get(k, []) if o != ad})[:8]
@@ -183,7 +260,7 @@ def kart(ad, tur, satir, mcp, arac, tur_set):
     cek = ad in [a for a, _ in CEKIRDEK]
     govde = f"""---
 type: arac-karti
-status: {'dogrulandi' if durum == 'GECTI' else ('kurulu-kosmadi' if ok else 'onarim')}
+status: {'dogrulandi' if durum == 'GECTI' else ('muaf' if durum == 'MUAF' else ('kurulu-kosmadi' if ok else 'onarim'))}
 tags: [arac, {tur}, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -206,7 +283,7 @@ def kartlar(parca):
     env = {(x["ad"], x["tur"]): x for x in satirlar()}
     mcp = mcp_ayar()
     KART.mkdir(parents=True, exist_ok=True); KASA.mkdir(parents=True, exist_ok=True)
-    gecen, var, kalan = 0, 0, []
+    gecen, var, muaf, kalan = 0, 0, 0, []
     rows = [l.split("\t") for l in SIRA.read_text(encoding="utf-8").splitlines()[1:]]
     with open(SONUC, "w", encoding="utf-8", newline="\n") as sf:
         for p, ad, tur in rows:
@@ -217,11 +294,14 @@ def kartlar(parca):
             for d in (KART, KASA):
                 (d / dosya).write_bytes(govde.encode("utf-8"))
             sf.write(f"{parca}\t{ad}\t{tur}\t{durum}\t{komut}\t{nota}\n")
+            muaf += durum == "MUAF"
             gecen += durum == "GECTI"
             var += durum == "VAR"
             if durum == "KALDI":
                 kalan.append(ad)
-    print(f"parça {parca}: kart {gecen + var + len(kalan)}, koştu-geçti {gecen}, kurulu-koşmadı {var}, kalan {len(kalan)}: {kalan}")
+    kapi = gecen + var + len(kalan)  # muaf kartlar kapı hesabından çıkar
+    print(f"parça {parca}: kart {kapi + muaf}, koştu-geçti {gecen}, kurulu-koşmadı {var}, muaf {muaf}, kalan {len(kalan)}: {kalan}; "
+          f"kapı %{100 * gecen / max(kapi, 1):.1f}")
 
 
 def tur_ekle():

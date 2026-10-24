@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: kurulu-kosmadi
+status: dogrulandi
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** awesome-rehber, cc-kopru, departman-guvenlik, ecc-agentshield, gh, gitleaks, security-reviewer, semgrep
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `skillspector --version`  → VAR (yürütülebilir ~\.local\bin\skillspector.EXE, yanıt yok (rc=2))
+- **Doğrulanmış örnek:** `skillspector --version`  → GECTI (WARNING [skillspector.graph] Skipping analyzer semantic_developer_intent: required API key is missin)

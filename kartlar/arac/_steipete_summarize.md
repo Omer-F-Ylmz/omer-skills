@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: kurulu-kosmadi
+status: dogrulandi
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `summarize --version`  → VAR (yürütülebilir ~\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\summarize.CMD, yanıt yok (rc=98))
+- **Doğrulanmış örnek:** `summarize --version`  → GECTI (0.25.1)

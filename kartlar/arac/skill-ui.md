@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: kurulu-kosmadi
+status: muaf
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videolarda 5 kez anıldı; ilk kodlar: DZDRFA6s2_w, DbyJNRdPyCj, Dd_dybEMDog, DdmQWJzqP8H
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
-- **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `skill-ui --version`  → VAR (yürütülebilir ~\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\skill-ui.CMD, yanıt yok (rc=1))
+- **Yaygın hata:** PATH/yapılandırmada bulunamadı: yürütülebilir ~\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\skill-ui.CMD, yanıt yok (rc=1); ÖMER: npm'den kaldırılmış (2023-04-28), global kurulum dizini boş; kaynak depo bilinmiyor, yeniden kurulamaz
+- **Doğrulanmış örnek:** `skill-ui --version`  → MUAF (yürütülebilir ~\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\skill-ui.CMD, yanıt yok (rc=1); ÖMER: npm'den kaldırılmış (2023-04-28), global kurulum dizini boş; kaynak depo bilinmiyor, yeniden kurulamaz)

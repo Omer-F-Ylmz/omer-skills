@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: kurulu-kosmadi
+status: dogrulandi
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `npx -y @larksuite/cli`  → VAR (PATH dışı, kurulu yer ~\AppData\Roaming\npm\node_modules\@googleworkspace\cli)
+- **Doğrulanmış örnek:** `lark-cli --version`  → GECTI (lark-cli version 1.0.97)

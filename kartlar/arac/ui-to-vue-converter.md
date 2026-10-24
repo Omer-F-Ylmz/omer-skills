@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: onarim
+status: dogrulandi
 tags: [arac, cli, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videoda anılmıyor (kaynak: envanter/yapılandırma)
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
-- **Yaygın hata:** PATH/yapılandırmada bulunamadı: PATH'te ve kurulu yerlerde yok
-- **Doğrulanmış örnek:** `ui-to-vue-converter --version`  → KALDI (PATH'te ve kurulu yerlerde yok)
+- **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
+- **Doğrulanmış örnek:** `ui-to-vue --version`  → GECTI ()

@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `SKILL.md ~\.claude\skills\graphify`  → GECTI (skill dizini var)
+- **Doğrulanmış örnek:** `SKILL.md ~/.claude/skills/graphify`  → GECTI (skill dizini var)

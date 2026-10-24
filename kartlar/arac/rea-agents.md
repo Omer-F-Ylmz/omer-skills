@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `rea-agents --help`  → GECTI (rea@6.7.0 — Reverse engineer anything from your terminal or agent.)
+- **Doğrulanmış örnek:** `rea-agents --version`  → GECTI (6.7.0)

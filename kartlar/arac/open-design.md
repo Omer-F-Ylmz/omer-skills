@@ -1,6 +1,6 @@
 ---
 type: arac-karti
-status: dogrulandi
+status: muaf
 tags: [arac, mcp, ustalik-1]
 relatedTo: [kurulum, tur-setleri]
 ---
@@ -11,5 +11,5 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videolarda 8 kez anıldı; ilk kodlar: DX2ubACJYRN, DYcaq-GIpCV, DYsslgKMmJQ, DcSIIcAs8-4
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** brandkit, claude-design, design-dna, gorsel-uret, gorsel_hakem, illustrasyon-logo-paket, nano-banana-2, vtracer
-- **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `od mcp --daemon-url`  → GECTI (yürütülebilir bulundu)
+- **Yaygın hata:** PATH/yapılandırmada bulunamadı: [WinError 2] Sistem belirtilen dosyayı bulamıyor; ÖMER: `od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir
+- **Doğrulanmış örnek:** `od (stdio) tools/list`  → MUAF ([WinError 2] Sistem belirtilen dosyayı bulamıyor; ÖMER: `od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir)

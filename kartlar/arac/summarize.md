@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** Google Drive, departman-belge, headroom-compress, markitdown
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `summarize -h`  → GECTI (Kullanım: summarize [options] [input])
+- **Doğrulanmış örnek:** `summarize --version`  → GECTI (0.25.1)
