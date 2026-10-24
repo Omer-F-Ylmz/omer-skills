@@ -30,6 +30,31 @@ KORUMA_AD = _oyunlar() | {"epicgameslauncher.exe", "epicwebhelper.exe", "hoyopla
 KORUMA_KOMUT = ("windowsapps", "headroom", "hoyoplay", "hoyoverse", "epic games", "epicgames", "kuro")
 
 
+# TARAYICI-KAPI-1: ajan alt süreçleri varsayılan tarayıcıyı (Opera) açmasın (node `open`, vite/next --open, react-scripts vb.)
+TARAYICI_ENV = {"BROWSER": "none", "CI": "1", "OPEN_BROWSER": "false"}
+TARAYICI_AD = {"opera.exe", "msedge.exe"}
+
+
+def tarayici_kapat(surecler, kokler, oldur, log):
+    """kokler (ajan claude.exe pid'leri) ağacında kalan opera/msedge süreçlerini oldur(pidler) ile kapatır, günlüğe yazar; kapatılan pidler.
+    Ajan ağacı dışındakine (kullanıcının kendi tarayıcısı) dokunulmaz."""
+    cocuk = {}
+    for s in surecler:
+        cocuk.setdefault(s[1], []).append(s)
+    pidler, kuyruk, gorulen = [], list(kokler), set(kokler)
+    while kuyruk:
+        for s in cocuk.get(kuyruk.pop(), []):
+            if s[0] not in gorulen:
+                gorulen.add(s[0])
+                kuyruk.append(s[0])
+                if s[2].lower() in TARAYICI_AD:
+                    pidler.append(s[0])
+    if pidler:
+        oldur(pidler)
+        log("TARAYICI-KAPI", f"{len(pidler)} tarayıcı süreci kapatıldı", f"pid {pidler[:8]}")
+    return pidler
+
+
 def surecler_listele():
     """[(pid, ppid, ad, ws_bayt, komut)] — psutil; erişilemeyen süreç atlanır."""
     import psutil
