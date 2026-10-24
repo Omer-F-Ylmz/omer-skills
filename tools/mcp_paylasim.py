@@ -22,6 +22,11 @@ PAYLASIM = ["airtable", "apify", "arxiv", "brave-search", "clickhouse", "code-re
             "mcp-memory", "mcp-sequential-thinking", "mcp-time", "n8n-mcp", "netlify", "stitch"]
 
 
+# RAM-BEKCI-3c: ikinci havuz (47801), çalışan 47800 proxy'sine dokunmadan; ruflo (env'deki sabit mutlak DB yolları → tek süreç güvenli), premiere-pro (durumsuz köprü).
+# Hariç: stalemap (proje dizinine bağlı), rea/playwright (açık hedef/tarayıcı durumu).
+PORT2, PAYLASIM2 = 47801, ["ruflo", "premiere-pro"]
+
+
 def url(ad, port=PORT):
     return f"http://127.0.0.1:{port}/servers/{ad}/mcp"
 
@@ -117,7 +122,7 @@ if __name__ == "__main__":
     kip, kaynak = sys.argv[1], json.load(open(sys.argv[2], encoding="utf-8"))
     sunucular = kaynak.get("mcpServers", kaynak)
     if kip == "yapilandir":
-        cfg = proxy_config(sunucular)
+        cfg = proxy_config(sunucular, sys.argv[4:] or PAYLASIM)  # RAM-BEKCI-3c: ek adlarla ikinci havuz (PAYLASIM2)
         json.dump(cfg, open(sys.argv[3], "w", encoding="utf-8"), indent=1)
         print(f"{len(cfg['mcpServers'])} sunucu → {sys.argv[3]}")
     elif kip == "karsilastir":

@@ -1,0 +1,8 @@
+# RAM-BEKCI-3c (24 Eki)
+1. Yeni kod kanıtı: yönetici (pythonw pid 5024, 18:16:23) ve video_derin (pid 54584/73248, 18:00:21), ac48f012'nin (15:26) ardından başladı → ajan_ram_bekci'yi yeni kodla yüklü; yeniden başlatma gerekmedi, hiçbir süreç öldürülmedi. Not: çalışma ağacındaki ajan_ram_bekci.py'de Ömer'in 18:38 değişikliği var (ADAY/DUR/AGAC 94/95/95); yönetici onu henüz yüklemedi.
+2. tahmin_MB: son 20 gerçek ağaç 1552–2410 MB, medyan 1840; stdio MCP sayısıyla eğim ≈19 MB (gürültü) → AJAN_MB 800→1560, tahmin ≈1841 (±%15 içinde). Test: test_ram_tahmin_ve_izin 1564–2116 (kırmızı 1081 görüldü → yeşil).
+3. Ağaç küçültme: ikinci paylaşımlı havuz 127.0.0.1:47801 (ruflo + premiere-pro; tools/mcp_paylasim.py PAYLASIM2). mcp_profil.tanimlar() havuz ayaktaysa bu ikisini http yapar, değilse stdio (güvenli düşüş). stdio↔http tools/list eşit (ruflo 15=15, premiere 5=5), tools/call pattern-search http üzerinden çalıştı. Ajan başına kazanç ≈ 2 node + cmd/conhost ≈ 120–180 MB (ölçüm DEĞİL, 18:23 ajanındaki süreç boyutlarından kestirim). stalemap/rea/playwright durumlu → paylaşılmadı.
+4. ajan-sira.tavan DOKUNULMADI.
+5. SessionEnd/bash: PATH düzeltmesi zaten commitliydi (bash_yolu_ekle + raw_decode, d1637277); eksik kalan sonuc_kisa.py şimdi raw_decode kullanıyor (hook metni "Extra data" vermez). Test eklendi.
+Testler: 68 geçti (ajan_sira, mcp_havuz2 3, mcp_paylasim). tests/test_ajan_ram_bekci.py 3 kırmızı: Ömer'in 18:38 eşik değişikliğinden (87/88→94/95), bu işten değil; dokunulmadı.
+Yapılmadı: 47801 bekçisi oturum açılışında başlamıyor (47800 gibi Startup vbs yok → makine açılınca stdio'ya düşer); ajan sonrası gerçek ağaç MB ölçümü; `claude -p` ile uçtan uca (iki denemede zaman aşımı, bilinen -p askısı).

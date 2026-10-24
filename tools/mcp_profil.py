@@ -52,6 +52,9 @@ def tanimlar():
         for ad, v in d.get("mcpServers", d).items():
             if isinstance(v, dict):
                 t.setdefault(ad, v)
+    import mcp_paylasim as mp  # RAM-BEKCI-3c: ikinci havuz (47801) ayaktaysa ruflo/premiere-pro ajan başına süreç yerine http; kapalıysa stdio
+    if mp.ayakta(mp.PORT2):
+        t.update({a: {"type": "http", "url": mp.url(a, mp.PORT2)} for a in mp.PAYLASIM2 if a in t})
     return t
 
 

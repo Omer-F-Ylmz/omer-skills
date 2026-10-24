@@ -545,7 +545,8 @@ def ram_toplam_mb():
 
 # RAM-1: ajan başına tahmini MB; RAM-BEKCI-3 (24 Eki 15:20, 4 canlı ajan ağacı × 4 örnek): kök claude.exe medyan 755 (+conhost/bash ≈50),
 # ağaç toplamı medyan 1106 / en çok 1651 (ruflo 305'e çıkabilir); MCP başına: stalemap 82, chrome-devtools 83, ruflo 82, playwright ≈85, rea 32, premiere 64. render/blender ≈1500
-AJAN_MB, MCP_MB, RENDER_MB = 800, {"playwright": 85, "chrome-devtools": 83, "premiere-pro": 64, "ruflo": 82, "stalemap": 82, "rea": 32}, 1500
+# RAM-BEKCI-3c (24 Eki 18:30, son 20 "ağaç büyük" satırı): gerçek ağaç 1552–2410, medyan 1840 MB; stdio MCP sayısı (5-6) ile eğim ≈19 MB (gürültü) → taban 800→1560, MCP toplamı ≈281 ile tahmin ≈1841
+AJAN_MB, MCP_MB, RENDER_MB = 1560, {"playwright": 85, "chrome-devtools": 83, "premiere-pro": 64, "ruflo": 82, "stalemap": 82, "rea": 32}, 1500
 
 
 def tahmin_mb(ham):
