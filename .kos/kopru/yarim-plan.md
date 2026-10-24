@@ -21,8 +21,8 @@ YARIM DEĞİL — SONRA (Ömer 24 Eki 16:04: "sonra ben diyince yapcaz, yarım k
 | yarim-e2 | REA | rea-usta-1b (DUR) · rea-usta-1c (raporsuz: ne yaptığını git log + sonuçtan çıkar, kalanı bitir, rapor yaz) · rea-fix-2 / 3 / 5 · rea-agir-1 / 2 %98 örtüşme kapısı (HN + orta boy SPA, figma/notion/Electron) | KISMEN 24 Eki: 1b/fix-2/3/5/agir-1 zaten bitmiş; agir-2 kapı %100 (HN+neffex+vue); DEVAM gorev-yarim-e2-devam.md (Ghidra-REA çağrısı RAM'e takıldı, excalidraw 1 birim, MCP içi düşüş), rapor/yarim-e2.md |
 | yarim-e3 | Laya | laya-2 / laya-2c (ücretsiz öğretmen kurulu ↔ Opus uyumu 0.43 → ≥0.6; yerel Ollama yok) | DEVAM: ρ kapısı geçmedi, ÖMER kararı (rapor/yarim-e3.md, .kos/kopru/gorev-yarim-e3-devam.md) |
 | yarim-f1 | Site okulu | site-okulu-1 (görev dosyasının 4. maddesi). omer-site-d1b ayrıca kendi kuyruğunda sürüyor. | ZATEN BİTMİŞ (3c2d91d6; rapor/yarim-f1.md) |
-| yarim-g1 | Kaynak ve Instagram | 14 iş (gorev-yarim-g1.md) | SIRADA (YARIM-G-BIRLESTIR) |
-| yarim-g2 | Beyin, öğrenme ve kanca | 35 iş (gorev-yarim-g2.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g1 | Kaynak ve Instagram | 14 iş (gorev-yarim-g1.md) | 13 BİTTİ/ZATEN BİTMİŞ · kaynak-site-3 DEVAM (gorev-yarim-g1-devam.md) · ÖMER onayları rapor/yarim-g1.md |
+| yarim-g2 | Beyin, öğrenme ve kanca | 35 iş (gorev-yarim-g2.md) | KISMEN: 12 zaten bitmiş, 1 düzeltme, 22 devir (gorev-yarim-g2-devam.md; rapor/yarim-g2.md) |
 | yarim-g3 | Araç kurulum ve kapı | 29 iş (gorev-yarim-g3.md) | SIRADA (YARIM-G-BIRLESTIR) |
 | yarim-g4 | REA, Laya, CUDA, RAM | 22 iş (gorev-yarim-g4.md) | SIRADA (YARIM-G-BIRLESTIR) |
 | yarim-g5 | Blender, usta, site, tasarım | 32 iş (gorev-yarim-g5.md) | SIRADA (YARIM-G-BIRLESTIR) |
