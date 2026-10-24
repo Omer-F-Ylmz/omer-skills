@@ -25,6 +25,9 @@ import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTu
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
 MODELLER = ("opus", "sonnet", "haiku", "ucretsiz")
+KONSOL = K / "ajan-sira.konsol"  # KONSOL-GECIS-1: bayrak varsa claude -p alt süreci Console API anahtarıyla (ANTHROPIC_API_KEY_AJAN) koşar; yoksa abonelik
+KONSOL_GUN_TAVAN, KONSOL_UYARI = 12.0, (150, 180, 195)  # günlük $ tavan (yeni iş başlatılmaz, koşan kesilmez) · toplam $ uyarı eşikleri
+KONSOL_ISLER = set()  # Console ile başlatılan işler (is_kaydi defter kaynağı)
 MERDIVEN = [("ucretsiz", "high"), ("haiku", "medium"), ("haiku", "high"), ("sonnet", "medium"), ("sonnet", "high")]  # UCRETSIZ-MOTOR-1: 0 = ücretsiz (yalnız kolay iş/motor=ucretsiz), tsv'de model yok → 1 (haiku medium); başarısız → bir üst (en fazla 1 kez)
 SLASH_DOSYA = K / "ajan-sira.slash"  # SLASH-ÖĞREN d1: dosya varsa köprü oturumlarında Skill aracı açık (onay/slash_ac.py)
 DERS_DOSYA = K / "ajan-sira.ders"  # RUFLO-2 d3: ders önsözü açma bayrağı (dosya varsa ya da `--ders`); varsayılan kapalı
@@ -630,6 +633,14 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
         kayit = Path(tempfile.gettempdir()) / f"cc_um_{os.getpid()}_{abs(hash(argv[i]))}.json"
         kayit.write_text(json.dumps(ayar), encoding="utf-8")
         argv[i] = str(kayit)
+    if model != "ucretsiz" and KONSOL.exists():  # KONSOL-GECIS-1: abonelik OAuth yerine Console anahtarı; anahtar yalnız alt süreç ortamında (ucretsiz kolu ANTHROPIC_* hep temizler)
+        k = env.pop("ANTHROPIC_API_KEY_AJAN", None)
+        if k:
+            env = {a: d for a, d in env.items() if not a.startswith("CLAUDE_CODE_OAUTH")}
+            env["ANTHROPIC_API_KEY"] = k
+            env["MAX_THINKING_TOKENS"] = "10000"  # TOKEN-7b think10k: yalnız kuyruk ajanı; KABUL/kalite düşerse buradan çıkar
+        else:
+            log("KONSOL ANAHTAR YOK", "ANTHROPIC_API_KEY_AJAN ortamda yok → abonelik")
     env.setdefault("MCP_TIMEOUT", "240000")  # RUFLO-BAG-1: yük altında ruflo soğuk başlangıcı ~165 sn; CC varsayılanı 30 sn → MCP 'failed', araçlar hiç gelmiyordu
     env.update(ajan_ram_bekci.TARAYICI_ENV)  # TARAYICI-KAPI-1: BROWSER=none, CI=1, OPEN_BROWSER=false → ajan alt süreçleri Opera açmaz
     bash_yolu_ekle(env)
@@ -662,6 +673,34 @@ def taze_env():
     return env
 
 
+def konsol_izle(uyari):
+    """KONSOL-GECIS-1: bayrak açıkken günlük Console harcaması ≥ tavan → True (yeni iş başlamaz; KONSOL-TAVAN günde bir kez); toplam 150/180/195 eşiklerinde KONSOL-UYARI bir kez."""
+    if not KONSOL.exists():
+        return False
+    rows, gun = maliyet_defter.oku(), time.strftime("%Y-%m-%d")
+    toplam = maliyet_defter.konsol_harcama(rows)
+    for e in KONSOL_UYARI:
+        if toplam >= e and ("ku", e) not in uyari:
+            uyari.add(("ku", e))
+            log("KONSOL-UYARI", f"toplam ${toplam:.2f} ≥ ${e}")
+    bugun = maliyet_defter.konsol_harcama(rows, gun)
+    if bugun >= KONSOL_GUN_TAVAN:
+        if ("kt", gun) not in uyari:
+            uyari.add(("kt", gun))
+            log("KONSOL-TAVAN", f"bugün ${bugun:.2f} ≥ ${KONSOL_GUN_TAVAN:g} → yeni iş başlatılmaz")
+        return True
+    return False
+
+
+def konsol_politika(model, efor, metin):
+    """KONSOL-GECIS-1: bayrak açıkken tsv'de açık model/efor: kuyruk ajanında opus yok (→ sonnet); high yalnız 'zor' (mimari/güvenlik/inatçı) görevde, yoksa medium."""
+    if not KONSOL.exists() or model == "ucretsiz":
+        return model, efor
+    if efor == "high" and not ucretsiz_motor.ZOR.search(metin):
+        efor = "medium"
+    return ("sonnet" if model == "opus" else model), efor
+
+
 BUTCE_VARSAYILAN = 0.50  # BÜTÇE-KAPI-1: görev dosyasında "BÜTÇE ... ≤$X" satırı yoksa (22 Eki: HEDEF, kesme değil)
 EMNIYET_KAT = 8  # yalnız kaçak döngü emniyeti
 BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): merdiven bunları yeniden denemez
@@ -670,7 +709,11 @@ BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): 
 def butce_bul(metin):
     """BÜTÇE-KAPI-1: görev metnindeki ilk 'BÜTÇE ... ≤$X' (ondalık virgül ya da nokta) → USD; yoksa varsayılan."""
     m = re.search(r"BÜTÇE[^\n≤]*≤\s*\$\s*(\d+(?:[.,]\d+)?)", metin)
-    return float(m.group(1).replace(",", ".")) if m else BUTCE_VARSAYILAN
+    if m:
+        return float(m.group(1).replace(",", "."))
+    if KONSOL.exists():  # KONSOL-GECIS-1: iş başı hedef $0.30 kolay / $0.80 zor
+        return 0.80 if ucretsiz_motor.ZOR.search(metin) else 0.30
+    return BUTCE_VARSAYILAN
 
 
 def sonuc_temizle(ad):
@@ -724,7 +767,12 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
         u2 = j.get("usage") or {}
         with (K / "ucretsiz-jeton.tsv").open("a", encoding="utf-8") as f:
             f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{u2.get('input_tokens', 0)}\t{u2.get('output_tokens', 0)}\t{int(ok)}\n")
-    maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok)
+    girdi = u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0) + u.get("cache_read_input_tokens", 0)
+    if ad in KONSOL_ISLER and model != "ucretsiz":  # KONSOL-GECIS-1: Console harcaması + cache isabeti (okunan / toplam girdi) deftere
+        KONSOL_ISLER.discard(ad)
+        maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok, kaynak="konsol", cache=u.get("cache_read_input_tokens", 0) / girdi if girdi else 0)
+    else:
+        maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok)
     if butce is not None:  # BÜTÇE-KAPI-1: %100 durdurma claude'un --max-budget-usd'si; burada yalnız kayıt ve son %80 uyarısı
         durum = j.get("subtype") or f"rc{rc}"
         maliyet_defter.yaz_butce(ad, butce, usd, durum)
@@ -919,7 +967,8 @@ def main():
             continue
         uyari.discard("bos")
         r = ram()
-        if not DUR.exists() and not oyun_modu() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
+        konsol_tavan = konsol_izle(uyari)  # KONSOL-GECIS-1: günlük tavan dolunca yeni iş yok, koşanlar sürer
+        if not DUR.exists() and not konsol_tavan and not oyun_modu() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if not ram_yeniden_hazir(ad, r):  # RAM-BEKCI-2: RAM ile kesilen iş RAM < %85'e inene dek bekler
                     continue
@@ -953,6 +1002,8 @@ def main():
                 if model is None:
                     bas = basamak_sec(ad, bas, (KOK / istem).read_text(encoding="utf-8"))
                     model, efor = MERDIVEN[bas]
+                else:
+                    model, efor = konsol_politika(model, efor, (KOK / istem).read_text(encoding="utf-8"))
                 metin = (KOK / istem).read_text(encoding="utf-8")
                 butce = butce_bul(metin)  # BÜTÇE-KAPI-1: ham görev metninden (ön ekler karışmadan)
                 log("BÜTÇE", ad, f"${butce:.2f}")
@@ -988,6 +1039,8 @@ def main():
                         mcp = None
                         log("MCP profil hatası", ad, repr(e)[:80])
                 argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad), butce)
+                if KONSOL.exists() and "ANTHROPIC_API_KEY" in env and model != "ucretsiz":
+                    KONSOL_ISLER.add(ad)
                 argv += ["--resume" if kesik else "--session-id", sid]
                 p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
                                      env=env, creationflags=0x08000000)

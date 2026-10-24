@@ -1,0 +1,9 @@
+# KONSOL-GECIS-1 raporu
+- Kod hazır, bayrak AÇILMADI (`.kos/kopru/ajan-sira.konsol` yok; Desktop açar). Bayrak açıkken claude -p alt süreci `ANTHROPIC_API_KEY=ANTHROPIC_API_KEY_AJAN` ile koşar, OAuth düşer, değer hiçbir yere yazılmaz (canlı kuru koşu: yalnız boolean). ucretsiz kolu anahtar taşımaz (test + kuru koşu).
+- Defter: maliyet.tsv konsol satırında +kaynak +cache sütunu (eski 6 sütun okunur); günlük tavan $12 → yeni iş yok, koşan kesilmez, `KONSOL-TAVAN`; toplam $150/$180/$195 → `KONSOL-UYARI` (bir kez).
+- Politika (bayrakla): opus→sonnet, high→medium (ZOR görevde high kalır), iş hedefi $0.30/$0.80 (açık BÜTÇE satırı kazanır), think10k yalnız kuyruk ajanı env'inde.
+- TOKEN-7b: global settings.json'a yalnız CONTEXT_MODE_BASH_NUDGE_MIN_COMMAND_BYTES=200 yazıldı (--kuru sonra uygula; yedek settings.json.bak-t7b-20261024-200938; yeni CC oturumunda geçerli). Betik MAX_THINKING_TOKENS'i süzer.
+- Madde 11: yarim-h1-24eki ücretsiz motorda $0.947875 = 188760×$5/M + 163×$25/M (Opus liste fiyatı, costBasis "unknown", model "ucretsiz-ozet2") → sahte eşleme; ücretsiz kolda ANTHROPIC_* temizlenir, BASE_URL OmniRoute → Anthropic faturası oluşamaz. Console Usage panelini okuyamadım (API yok); Desktop gözle doğrulasın.
+- Yapılmadı: aşınca istemi güçlendirme (claude -p tek istem, orta koşuda enjekte edilemez); ilk-10-iş karşılaştırması (bayrak açılınca defterden: kaynak=konsol, usd, success, cache); madde 6/9 zaten var (ordu-on, beyin_dusun.is_olayi).
+- Test: tests/test_ajan_sira.py 85 geçti + 10 yeni konsol testi (kırmızı görüldü); onay/test_token_7b_uygula.py betiğin 18:50 refaktöründen beri eski API'yi bekliyor (benden önce bayat, dokunulmadı). semgrep: yeni bulgu yok (ajan_sira.py:527 os.execv eski); gitleaks: sızıntı yok.
+- Not: ajan_sira.py'deki ücretsiz-motor-2 hunk'ları (BOŞ-KOŞU, hatirlat) aynı commit'e girdi.

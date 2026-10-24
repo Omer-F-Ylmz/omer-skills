@@ -715,3 +715,102 @@ def test_bash_yolu_ekle(tmp_path, monkeypatch):
     e = ajan_sira.bash_yolu_ekle({"PATH": r"C:\Windows\system32"})
     assert e["PATH"] == rf"C:\Windows\system32;{tmp_path}"
     assert ajan_sira.bash_yolu_ekle(dict(e))["PATH"] == e["PATH"]
+
+
+def _konsol_hazir(tmp_path, monkeypatch, bayrak=True):
+    """KONSOL-GECIS-1: sahte anahtar + izole bayrak/defter; gerçek anahtar/kayıt defteri hiç okunmaz."""
+    monkeypatch.setattr(ajan_sira, "KONSOL", tmp_path / "ajan-sira.konsol")
+    monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")
+    monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")
+    monkeypatch.setattr(ajan_sira, "taze_env", lambda: {"ANTHROPIC_API_KEY_AJAN": "sahte-anahtar", "CLAUDE_CODE_OAUTH_TOKEN": "sahte-oauth", "PATH": "x"})
+    if bayrak:
+        (tmp_path / "ajan-sira.konsol").write_text("1")
+
+
+def test_konsol_bayrak_anahtari_aktarir(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    _, env = ajan_sira.baslat_argv("medium", "haiku")
+    assert env["ANTHROPIC_API_KEY"] == "sahte-anahtar" and "ANTHROPIC_API_KEY_AJAN" not in env and "CLAUDE_CODE_OAUTH_TOKEN" not in env
+    assert env["MAX_THINKING_TOKENS"] == "10000"  # think10k yalnız kuyruk ajanında
+
+
+def test_konsol_bayraksiz_eski_davranis(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch, bayrak=False)
+    _, env = ajan_sira.baslat_argv("medium", "haiku")
+    assert "ANTHROPIC_API_KEY" not in env and "MAX_THINKING_TOKENS" not in env and env["CLAUDE_CODE_OAUTH_TOKEN"] == "sahte-oauth"
+
+
+def test_konsol_ucretsiz_motor_anahtar_tasimaz(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    monkeypatch.setattr(ajan_sira.ucretsiz_motor, "anahtar", lambda e: "omni")
+    _, env = ajan_sira.baslat_argv("high", "ucretsiz")
+    assert "sahte-anahtar" not in env.values() and "ANTHROPIC_API_KEY" not in env and "MAX_THINKING_TOKENS" not in env
+
+
+def test_konsol_anahtar_yoksa_abonelik(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    monkeypatch.setattr(ajan_sira, "taze_env", lambda: {"PATH": "x"})
+    _, env = ajan_sira.baslat_argv("", "haiku")
+    assert "ANTHROPIC_API_KEY" not in env
+
+
+def test_defter_konsol_sutunu(tmp_path):
+    import time
+    y = tmp_path / "m.tsv"
+    md = ajan_sira.maliyet_defter
+    md.yaz("a-1", "haiku-medium", 0.5, True, yol=y)  # eski 6 sütun
+    md.yaz("b-1", "haiku-medium", 2.0, True, yol=y, kaynak="konsol", cache=0.9)
+    md.yaz("c-1", "sonnet-medium", 3.0, False, yol=y, kaynak="konsol", cache=0.5)
+    rows = md.oku(y)
+    assert [r["kaynak"] for r in rows] == ["abonelik", "konsol", "konsol"] and rows[1]["cache"] == 0.9
+    assert md.konsol_harcama(rows, time.strftime("%Y-%m-%d")) == 5.0 and md.konsol_harcama(rows, "1999-01-01") == 0 and md.konsol_harcama(rows) == 5.0
+    assert y.read_text(encoding="utf-8").splitlines()[1].count("\t") == 5  # konsol dışı satır 6 sütun kalır
+
+
+def test_konsol_izle_tavan_ve_uyari(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    uyari = set()
+    assert ajan_sira.konsol_izle(uyari) is False
+    ajan_sira.maliyet_defter.yaz("x-1", "haiku-medium", 12.5, True, kaynak="konsol", cache=0.8)
+    logs = []
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: logs.append(" ".join(map(str, a))))
+    assert ajan_sira.konsol_izle(uyari) is True and ajan_sira.konsol_izle(uyari) is True
+    assert sum("KONSOL-TAVAN" in x for x in logs) == 1  # bir kez yazılır
+    ajan_sira.maliyet_defter.yaz("x-2", "haiku-medium", 160, True, kaynak="konsol", cache=0.8)
+    ajan_sira.konsol_izle(uyari)
+    assert any("KONSOL-UYARI" in x and "150" in x for x in logs) and not any("180" in x for x in logs)
+
+
+def test_konsol_izle_bayraksiz_kapali(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch, bayrak=False)
+    ajan_sira.maliyet_defter.yaz("x-1", "haiku-medium", 99, True, kaynak="konsol", cache=0.8)
+    assert ajan_sira.konsol_izle(set()) is False
+
+
+def test_konsol_politika(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    assert ajan_sira.konsol_politika("opus", "high", "sıradan iş") == ("sonnet", "medium")
+    assert ajan_sira.konsol_politika("sonnet", "high", "mimari karar ver") == ("sonnet", "high")  # zor etiketi → high kalır
+    assert ajan_sira.konsol_politika("haiku", "", "iş") == ("haiku", "")
+    assert ajan_sira.konsol_politika("ucretsiz", "high", "iş") == ("ucretsiz", "high")
+    (tmp_path / "ajan-sira.konsol").unlink()
+    assert ajan_sira.konsol_politika("opus", "high", "iş") == ("opus", "high")
+
+
+def test_konsol_butce_hedefi(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    assert ajan_sira.butce_bul("sıradan iş") == 0.30 and ajan_sira.butce_bul("mimari karar") == 0.80
+    assert ajan_sira.butce_bul("BÜTÇE ≤$2") == 2.0  # açık bütçe satırı kazanır
+    (tmp_path / "ajan-sira.konsol").unlink()
+    assert ajan_sira.butce_bul("sıradan iş") == ajan_sira.BUTCE_VARSAYILAN
+
+
+def test_is_kaydi_konsol_kaynak(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    (tmp_path / "k.json").write_text('{"subtype":"success","total_cost_usd":0.4,"usage":{"input_tokens":100,"cache_creation_input_tokens":100,"cache_read_input_tokens":800,"output_tokens":5}}\n', encoding="utf-8")
+    ajan_sira.KONSOL_ISLER.add("k")
+    assert ajan_sira.is_kaydi("k", 0, 1, "medium", "haiku") is True
+    r = ajan_sira.maliyet_defter.oku()[-1]
+    assert r["kaynak"] == "konsol" and r["cache"] == 0.8 and r["usd"] == 0.4

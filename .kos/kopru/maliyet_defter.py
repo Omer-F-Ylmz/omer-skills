@@ -16,12 +16,14 @@ def tur(ad):
     return m.group(0).lower() if m else ad
 
 
-def yaz(ad, model, usd, ok, yol=None):
+def yaz(ad, model, usd, ok, yol=None, kaynak=None, cache=None):
+    """KONSOL-GECIS-1: kaynak (konsol) verilirse 7. sütun kaynak, 8. sütun cache isabeti (okunan/toplam girdi) eklenir; yoksa eski 6 sütun."""
     yol = yol or DEFTER
     if not yol.exists():
         yol.write_text(BASLIK, encoding="utf-8")
+    ek = f"\t{kaynak}\t{cache or 0:.2f}" if kaynak else ""
     with yol.open("a", encoding="utf-8") as f:
-        f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{model}\t{usd:.2f}\t{tur(ad)}\t{int(ok)}\n")
+        f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{model}\t{usd:.2f}\t{tur(ad)}\t{int(ok)}{ek}\n")
 
 
 def yaz_butce(ad, butce, usd, durum, yol=None):
@@ -49,9 +51,15 @@ def oku(yol=None):
     rows = []
     for s in yol.read_text(encoding="utf-8").splitlines()[1:]:
         p = s.split("\t")
-        if len(p) == 6:
-            rows.append({"zaman": p[0], "ad": p[1], "model": p[2], "usd": float(p[3]), "tur": p[4], "ok": p[5] == "1"})
+        if len(p) in (6, 8):
+            rows.append({"zaman": p[0], "ad": p[1], "model": p[2], "usd": float(p[3]), "tur": p[4], "ok": p[5] == "1",
+                         "kaynak": p[6] if len(p) == 8 else "abonelik", "cache": float(p[7]) if len(p) == 8 else None})
     return rows
+
+
+def konsol_harcama(rows, gun=None):
+    """KONSOL-GECIS-1: Console (API) harcaması; gun = 'YYYY-MM-DD' → o gün, yoksa toplam."""
+    return sum(r["usd"] for r in rows if r["kaynak"] == "konsol" and (gun is None or r["zaman"].startswith(gun)))
 
 
 def gunluk(rows, gun):
