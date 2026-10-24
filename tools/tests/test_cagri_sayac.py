@@ -27,6 +27,7 @@ def _sayac(kok, ad="A.txt"):
 def _kos(kok, monkeypatch, capsys, olay):
     monkeypatch.setenv("CLAUDE_PROJECT_DIR", str(kok))
     monkeypatch.delenv("CAGRI_SAYAC_DIZIN", raising=False)
+    monkeypatch.delenv("AJAN_SIRA_KUYRUK", raising=False)  # kuyruk ajaninda kosulursa DUR mesaji bastirilirdi
     monkeypatch.setattr(sys, "stdin", io.StringIO(json.dumps(olay)))
     cs.main()
     out = capsys.readouterr().out
