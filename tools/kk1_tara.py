@@ -1,11 +1,18 @@
 """KAYNAK-KUTUPHANE-1 parca 1: site basina HTTP tarama (robots/sitemap saygili), kutuphane + GitHub tespiti.
 Cikti: docs/kaynak-kutuphane/site/<host>.json (ham) ; ozet yazimi kk1_yaz.py'de."""
 import re, json, sys, time, subprocess, urllib.request, urllib.parse, urllib.robotparser, concurrent.futures as cf
-SITELER = """reactbits.dev 21st.dev fancycomponents.dev kokonutui.com cult-ui.com shadcn.io componentry.dev canvasui.dev originkit.dev uiarc.dev
-vengenceui.com skecher-ui.com balsa-ui.com threeui.com threlte.xyz vantajs.com base-ui.21st.dev motion.dev gsap.com lenis.dev
-react-spring.dev rive.app lottielab.com madewithgsap.com ripplix.com gradients.sh unicorn.studio springs.studio animos.app component.gallery
-remotion.dev motion-canvas.io lucide.dev game-icons.net 3dicons.co fontshare.com googlefonts.github.io lordicon.com thiings.co unblast.com
-fontjoy.com sketchfab.com spline.design textures.com zoetrope.furkankly.dev webild.io clbthemes.com collectivekit.co temlis.com""".split()
+SITELER = """deck.gallery godly.design 60fps.design anime-scene-gallery.vercel.app appshots.design are.na before.click brandlogo.co collectui.com
+craft.gustavofior.com crl-2026.webflow.io cta.gallery curated.design dark.design designspiration.com details.so dribbble.com filatov.design
+footer.design getdesign.ai haoqi.design httpster.net inspora.design kage.design labs.google.com maria.studio minimal.gallery mobbin.com
+navbar.gallery nicelydone.club opengameart.org opensource.adobe.com pbase.com pricingpages.design recent.design refero.design referral.design
+screensdesign.com sitereel.ai styles.refero.design webzooo.com arxiv.org 60fps.com academy.openai.com acquisition.com aihero.dev
+aisuccesslabjuliangoldie.com akademi.defneincekara.com animations.dev anthropic.skilljar.com aogultegin.com briefbox.me brilliant.org bytebytego.com
+codecademy.com colab.research.google.com condor.hummingbot.org coursera.org creatoreconomy.so deeplearning.ai deerflow.tech docs.hazelengine.com
+docs.nvidia.com docs.polyhaven.com edx.org entagi.com exercism.org freecodecamp.org futuredesigner.io geeksforgeeks.org github.io hellomonday.com
+how.to howtotalktowhitekidsaboutracism.com illoca.unseen.co insiderforce.io khanacademy.org learn.microsoft.com learn3d.ai liamjohnston.ai lms.so
+meticsmedia.com mindtools.com networkchuck.com notebooklm.google.com nxtlvl.ai onmars3d.com oup.com output.to podcast.adobe.com presentation.design
+protocols.io prowritingaid.com python.org rasulov.net raycfu.com renontlab.lib.co seandollwet.com skillsbuild.org slack.dev sololearn.com sound.org
+theincubator.xyz theunwindai.com turbo.ai uicollective.co w3schools.com websiteprompts.ai wordtune.com yapaytu.com zed.dev""".split()
 UA = 'Mozilla/5.0 (omer-skills kaynak-kutuphane-1; contact omery3899@gmail.com)'
 LIBS = {'three.js': r'THREE\.REVISION|WebGLRenderer|from"three"|"three"', 'gsap': r'gsap|ScrollTrigger', 'lenis': r'lenis',
  'framer-motion/motion': r'framer-motion|motion/react|"motion"', 'react-spring': r'react-spring', 'lottie': r'lottie', 'rive': r'rive\.app|rive-canvas|@rive-app',
@@ -66,5 +73,5 @@ if __name__ == '__main__':
     repos = sorted({r for o in out.values() for r in o['github']})
     with cf.ThreadPoolExecutor(6) as ex: info = {i['repo']: i for i in ex.map(gh, repos)}
     for o in out.values(): o['repo_bilgi'] = [info[r] for r in o['github']]
-    json.dump(out, open('docs/kaynak-kutuphane/tara-parca1.json', 'w', encoding='utf8'), ensure_ascii=False, indent=1)
+    json.dump(out, open('docs/kaynak-kutuphane/tara-parca4.json', 'w', encoding='utf8'), ensure_ascii=False, indent=1)
     print(len(out), 'site;', sum(o['durum'] != 'ok' for o in out.values()), 'hata;', len(repos), 'repo')

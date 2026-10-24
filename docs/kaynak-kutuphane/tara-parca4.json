@@ -1,0 +1,3420 @@
+{
+ "deck.gallery": {
+  "host": "deck.gallery",
+  "durum": "ok",
+  "libs": {
+   "three.js": 1,
+   "gsap": 42,
+   "astro": 4
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 10520,
+  "sitemap_ornek": [
+   "https://www.deck.gallery/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/slide/1-the-art-of-deck-making-cover/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/slide/2-simplicity-clarity-complexity-ambiguity/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/slide/3-good-decks-sell-ideas/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/slide/4-what-makes-a-great-deck/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/slide/5-core-deck-commandments/",
+   "https://www.deck.gallery/72andsunny-the-art-making-2020/slide/6-open-with-a-strong-hook/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.deck.gallery/",
+  "baslik": "Deck.gallery - Beautifully designed decks, curated",
+  "aciklama": "Explore curated, beautifully designed presentation decks, slides, keynotes, and guidelines, all chosen for their exceptional design quality.",
+  "repo_bilgi": []
+ },
+ "godly.design": {
+  "host": "godly.design",
+  "durum": "ok",
+  "libs": {
+   "gsap": 4,
+   "lenis": 6,
+   "framer-motion/motion": 106,
+   "lottie": 2,
+   "tailwind": 2,
+   "astro": 6,
+   "svelte": 2
+  },
+  "github": [
+   "mengto/skills",
+   "rit3zh/expo-mo",
+   "rit3zh/expo-motion-tabs"
+  ],
+  "npm": [],
+  "sitemap_url": 1053,
+  "sitemap_ornek": [
+   "https://godly.design",
+   "https://godly.design/posts",
+   "https://godly.design/websites",
+   "https://godly.design/templates",
+   "https://godly.design/apps",
+   "https://godly.design/trending",
+   "https://godly.design/hero",
+   "https://godly.design/cta"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://godly.design/",
+  "baslik": "Godly — Design Inspiration",
+  "aciklama": "Godly is a curated gallery of the best and most interesting web, app, ui, and visual design work published on the internet.",
+  "repo_bilgi": [
+   {
+    "repo": "mengto/skills",
+    "lisans": "mit",
+    "yildiz": 6988,
+    "son": "2026-10-18",
+    "ozet": "Agent skills for designers and builders using Codex, Claude, Cursor, and other AI coding agents"
+   },
+   {
+    "repo": "rit3zh/expo-mo",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "rit3zh/expo-motion-tabs",
+    "lisans": "YOK",
+    "yildiz": 302,
+    "son": "2026-05-17",
+    "ozet": "⚡️ Smooth motion tabs for Expo Router"
+   }
+  ]
+ },
+ "60fps.design": {
+  "host": "60fps.design",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3150,
+  "sitemap_ornek": [
+   "https://60fps.design/",
+   "https://60fps.design/apps",
+   "https://60fps.design/apps/category/apple-design-awards",
+   "https://60fps.design/shots/watch",
+   "https://60fps.design/storyboards",
+   "https://60fps.design/why",
+   "https://60fps.design/pro",
+   "https://60fps.design/mcp"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://60fps.design/",
+  "baslik": "60fps - UI/UX animation inspiration for mobile &amp; web apps",
+  "aciklama": "60fps is a curated collection of UI/UX animation and interaction design details from the world’s best iOS, and web apps.",
+  "repo_bilgi": []
+ },
+ "anime-scene-gallery.vercel.app": {
+  "host": "anime-scene-gallery.vercel.app",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://anime-scene-gallery.vercel.app/",
+  "baslik": "Anime Scene Gallery",
+  "aciklama": "An interactive gallery of iconic anime scenes. Hover over titles to preview animated scenes from Demon Slayer, A Silent Voice, Dandadan, Spirited Away, and more.",
+  "repo_bilgi": []
+ },
+ "appshots.design": {
+  "host": "appshots.design",
+  "durum": "ok",
+  "libs": {
+   "nuxt/vue": 157
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 603,
+  "sitemap_ornek": [
+   "https://appshots.design/apps/performance-management-platform-built-for-business-app-shot-15five/",
+   "https://appshots.design/apps/store-your-passwords-safely-app-shot-1password/",
+   "https://appshots.design/apps/learn-skills-and-share-photos-app-shot-500px/",
+   "https://appshots.design/apps/daily-gratitude-mood-tracker-app-shot-5_minute_journal/",
+   "https://appshots.design/apps/lol-pics-gi-fs-search-engine-app-shot-9gag/",
+   "https://appshots.design/apps/know-and-track-your-symptoms-app-shot-ada/",
+   "https://appshots.design/apps/shop-shoes-sneakers-clothes-app-shot-adidas/",
+   "https://appshots.design/apps/shop-deals-make-payments-app-shot-affirm/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://appshots.design/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "are.na": {
+  "host": "are.na",
+  "durum": "ok",
+  "libs": {
+   "radix": 3,
+   "next.js": 41
+  },
+  "github": [
+   "aredotna/sander",
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 58,
+  "sitemap_ornek": [
+   "https://www.are.na/developers/explore",
+   "https://www.are.na/developers/explore/authentication",
+   "https://www.are.na/developers/explore/authentication/post-token",
+   "https://www.are.na/developers/explore/block",
+   "https://www.are.na/developers/explore/block/comments",
+   "https://www.are.na/developers/explore/block/connections",
+   "https://www.are.na/developers/explore/block/post-batch",
+   "https://www.are.na/developers/explore/block/post-block"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.are.na/",
+  "baslik": "Are.na",
+  "aciklama": "Are.na is a platform for connecting ideas and building knowledge.",
+  "repo_bilgi": [
+   {
+    "repo": "aredotna/sander",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "before.click": {
+  "host": "before.click",
+  "durum": "ok",
+  "libs": {
+   "next.js": 98
+  },
+  "github": [
+   "rit3zh/expo-dy",
+   "rit3zh/expo-dynamic-notifications"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://before.click/",
+  "baslik": "App Store Screenshot Design Inspiration | before.click",
+  "aciklama": "Curated gallery of the best App Store screenshot designs. Real examples from top iOS apps to help you design screenshots that convert downloads.",
+  "repo_bilgi": [
+   {
+    "repo": "rit3zh/expo-dy",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "rit3zh/expo-dynamic-notifications",
+    "lisans": "mit",
+    "yildiz": 286,
+    "son": "2026-09-18",
+    "ozet": "💧 Dynamic Island–style in-app notifications for React Native."
+   }
+  ]
+ },
+ "brandlogo.co": {
+  "host": "brandlogo.co",
+  "durum": "ok",
+  "libs": {
+   "lenis": 1,
+   "tailwind": 7,
+   "astro": 787
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 936,
+  "sitemap_ornek": [
+   "https://brandlogo.co/",
+   "https://brandlogo.co/about/",
+   "https://brandlogo.co/advertise/",
+   "https://brandlogo.co/agencies/",
+   "https://brandlogo.co/agencies/acid/",
+   "https://brandlogo.co/agencies/baked/",
+   "https://brandlogo.co/agencies/bankerwessel/",
+   "https://brandlogo.co/agencies/cristobal-riesco/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://brandlogo.co/",
+  "baslik": "Brand logo design inspiration - Brandlogo",
+  "aciklama": "A curated collection of exceptional logos designed to inspire your next brand identity.",
+  "repo_bilgi": []
+ },
+ "collectui.com": {
+  "host": "collectui.com",
+  "durum": "ok",
+  "libs": {
+   "svelte": 137
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://collectui.com/",
+  "baslik": "CollectUI - Daily Design Inspiration",
+  "aciklama": "Discover amazing UI designs, portfolios, and inspiration curated by design magicians",
+  "repo_bilgi": []
+ },
+ "craft.gustavofior.com": {
+  "host": "craft.gustavofior.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 112
+  },
+  "github": [
+   "gustavo-fior/craft"
+  ],
+  "npm": [],
+  "sitemap_url": 14,
+  "sitemap_ornek": [
+   "https://craft.gustavofior.com",
+   "https://craft.gustavofior.com/goats",
+   "https://craft.gustavofior.com/resources",
+   "https://craft.gustavofior.com/image-outlines",
+   "https://craft.gustavofior.com/noise",
+   "https://craft.gustavofior.com/html-background",
+   "https://craft.gustavofior.com/nested-border-radius",
+   "https://craft.gustavofior.com/scroll-fades"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://craft.gustavofior.com/",
+  "baslik": "Craft",
+  "aciklama": "A collection of design engineering concepts.",
+  "repo_bilgi": [
+   {
+    "repo": "gustavo-fior/craft",
+    "lisans": "YOK",
+    "yildiz": 351,
+    "son": "2026-10-15",
+    "ozet": "A small collection of design engineering concepts."
+   }
+  ]
+ },
+ "crl-2026.webflow.io": {
+  "host": "crl-2026.webflow.io",
+  "durum": "ok",
+  "libs": {
+   "three.js": 9,
+   "gsap": 86,
+   "lenis": 48,
+   "matter-js": 2,
+   "webgl-shader": 122
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://crl-2026.webflow.io/",
+  "baslik": "Creative Reference Library | CRL",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "cta.gallery": {
+  "host": "cta.gallery",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 565,
+  "sitemap_ornek": [
+   "https://www.cta.gallery/",
+   "https://www.cta.gallery/templates",
+   "https://www.cta.gallery/cta-tips",
+   "https://www.cta.gallery/about",
+   "https://www.cta.gallery/subscribe",
+   "https://www.cta.gallery/submit",
+   "https://www.cta.gallery/categories",
+   "https://www.cta.gallery/cta"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.cta.gallery/",
+  "baslik": "CTA.gallery | The Best Call-to-Action Inspiration for Designers",
+  "aciklama": "Explore CTA.gallery for the web",
+  "repo_bilgi": []
+ },
+ "curated.design": {
+  "host": "curated.design",
+  "durum": "ok",
+  "libs": {
+   "astro": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 6594,
+  "sitemap_ornek": [
+   "https://curated.design/inspiration/",
+   "https://curated.design/inspiration/agency/",
+   "https://curated.design/inspiration/web-apps/",
+   "https://curated.design/inspiration/portfolio/",
+   "https://curated.design/inspiration/artificial-intelligence/",
+   "https://curated.design/inspiration/shops/",
+   "https://curated.design/inspiration/marketing/",
+   "https://curated.design/inspiration/assets/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://curated.design/",
+  "baslik": "Web design inspiration from real, live websites — Curated",
+  "aciklama": "Live websites and landing pages, reviewed one at a time. Filter by style or industry, then click straight through to the real site.",
+  "repo_bilgi": []
+ },
+ "dark.design": {
+  "host": "dark.design",
+  "durum": "ok",
+  "libs": {
+   "gsap": 8,
+   "framer-motion/motion": 1,
+   "next.js": 85,
+   "lucide": 16
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3,
+  "sitemap_ornek": [
+   "https://dark.design",
+   "https://dark.design/templates",
+   "https://dark.design/sponsor"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.dark.design/",
+  "baslik": "Dark Themed Web Design Inspiration",
+  "aciklama": "The best hand-picked dark themed websites on the internet. From designers for designers. Curated with love.",
+  "repo_bilgi": []
+ },
+ "designspiration.com": {
+  "host": "designspiration.com",
+  "durum": "hata: TimeoutError The read operation timed out",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "details.so": {
+  "host": "details.so",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "astro": 19,
+   "svelte": 1,
+   "lucide": 146
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 4263,
+  "sitemap_ornek": [
+   "https://www.details.so/inspo/healthapp-1c7b19",
+   "https://www.details.so/inspo/intentapp-7404a9",
+   "https://www.details.so/inspo/trysundrop-69e384",
+   "https://www.details.so/inspo/hone-ed1861",
+   "https://www.details.so/inspo/healthapp-52a5c5",
+   "https://www.details.so/inspo/intentapp-2bb66f",
+   "https://www.details.so/inspo/trysundrop-8409a6",
+   "https://www.details.so/inspo/hone-1dc74a"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.details.so/inspo",
+  "baslik": "Best Web Design Inspiration | Details.so",
+  "aciklama": "Curated web design inspiration from real websites: hero sections, footers, preloaders, page transitions and animations — updated weekly.",
+  "repo_bilgi": []
+ },
+ "dribbble.com": {
+  "host": "dribbble.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 17286,
+  "sitemap_ornek": [
+   "https://dribbble.com/hire/3d-designers",
+   "https://dribbble.com/hire/aem-developers",
+   "https://dribbble.com/hire/ai-agent-developers",
+   "https://dribbble.com/hire/ai-designers",
+   "https://dribbble.com/hire/ai-developers",
+   "https://dribbble.com/hire/android-developers",
+   "https://dribbble.com/hire/angular-developers",
+   "https://dribbble.com/hire/angularjs-developers"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://dribbble.com/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "filatov.design": {
+  "host": "filatov.design",
+  "durum": "ok",
+  "libs": {
+   "lottie": 3
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 406,
+  "sitemap_ornek": [
+   "https://filatov.design/",
+   "https://filatov.design/prompts",
+   "https://filatov.design/bookmarks",
+   "https://filatov.design/sign-in",
+   "https://filatov.design/otp",
+   "https://filatov.design/upgrade",
+   "https://filatov.design/faq",
+   "https://filatov.design/support"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://filatov.design/",
+  "baslik": "Curated AI Styles &amp; Reusable Prompt Systems",
+  "aciklama": "A curated platform of AI styles and reusable visual systems for leading image generation models. Inside, you’ll find tested prompts, editable templates, prompt variables, Style DNA, creative notes, an",
+  "repo_bilgi": []
+ },
+ "footer.design": {
+  "host": "footer.design",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 899,
+  "sitemap_ornek": [
+   "https://www.footer.design",
+   "https://www.footer.design/submit",
+   "https://www.footer.design/info",
+   "https://www.footer.design/browse",
+   "https://www.footer.design/new-cms-child-page",
+   "https://www.footer.design/styles/3d",
+   "https://www.footer.design/styles/animated",
+   "https://www.footer.design/styles/bento-box"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.footer.design/",
+  "baslik": "Footer — The only footer gallery on earth.",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "getdesign.ai": {
+  "host": "getdesign.ai",
+  "durum": "ok",
+  "libs": {
+   "svelte": 1
+  },
+  "github": [
+   "supabase/supabase-js"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://getdesign.ai/",
+  "baslik": "getdesign.ai — The Best Design Inspiration for AI",
+  "aciklama": "Give AI-built websites a real design with DESIGN.md. Design references from real sites, written as files your coding agent can follow.",
+  "repo_bilgi": [
+   {
+    "repo": "supabase/supabase-js",
+    "lisans": "mit",
+    "yildiz": 4598,
+    "son": "2026-10-23",
+    "ozet": "An isomorphic Javascript client for Supabase. Query your Supabase database, subscribe to realtime ev"
+   }
+  ]
+ },
+ "haoqi.design": {
+  "host": "haoqi.design",
+  "durum": "ok",
+  "libs": {
+   "next.js": 78
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://haoqi.design/",
+  "baslik": "HAOQI©2026",
+  "aciklama": "Digital Product Designer &amp; Builder © 2026",
+  "repo_bilgi": []
+ },
+ "httpster.net": {
+  "host": "httpster.net",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://httpster.net/",
+  "baslik": "Website Design Inspiration | Httpster",
+  "aciklama": "Website design inspiration. Get inspired by our gallery of creative design ideas and great examples of beautiful award-winning sites.",
+  "repo_bilgi": []
+ },
+ "inspora.design": {
+  "host": "inspora.design",
+  "durum": "ok",
+  "libs": {
+   "next.js": 78
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.inspora.design/",
+  "baslik": "Inspora",
+  "aciklama": "A curated archive of recent visual design and creative work.",
+  "repo_bilgi": []
+ },
+ "kage.design": {
+  "host": "kage.design",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 6,
+   "svelte": 832,
+   "webgl-shader": 2,
+   "lucide": 322
+  },
+  "github": [
+   "sortablejs/sortable.git"
+  ],
+  "npm": [],
+  "sitemap_url": 3145,
+  "sitemap_ornek": [
+   "https://kage.design/",
+   "https://kage.design/most-copied",
+   "https://kage.design/most-viewed",
+   "https://kage.design/blog",
+   "https://kage.design/changelog",
+   "https://kage.design/terms",
+   "https://kage.design/privacy",
+   "https://kage.design/design"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://kage.design/",
+  "baslik": "Design inspiration, ready to build\n     · Kage",
+  "aciklama": "Browse beautiful interfaces from real products and turn any design into a prompt for Claude Code, Codex or Cursor.",
+  "repo_bilgi": [
+   {
+    "repo": "sortablejs/sortable.git",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "labs.google.com": {
+  "host": "labs.google.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 54,
+  "sitemap_ornek": [
+   "https://labs.google/",
+   "https://labs.google/aifuturesfund",
+   "https://labs.google/aifuturesfund/africaailab",
+   "https://labs.google/aifuturesfund/startupsupportprogram",
+   "https://labs.google/disco",
+   "https://labs.google/projectgenie",
+   "https://labs.google/flow/privacy",
+   "https://labs.google/dreambeans"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://labs.google/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "maria.studio": {
+  "host": "maria.studio",
+  "durum": "ok",
+  "libs": {
+   "three.js": 41,
+   "webgl-shader": 87
+  },
+  "github": [
+   "jackocnr/intl-tel-input.git"
+  ],
+  "npm": [],
+  "sitemap_url": 3,
+  "sitemap_ornek": [
+   "https://www.maria.studio/",
+   "https://www.maria.studio/info/",
+   "https://www.maria.studio/book/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://maria.studio/",
+  "baslik": "MARIA STUDIO – Paris Photo & Film Studio",
+  "aciklama": "Discover this 2152 ft² photo studio just outside Paris, designed for photo shoots and video productions, available for rent.",
+  "repo_bilgi": [
+   {
+    "repo": "jackocnr/intl-tel-input.git",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "minimal.gallery": {
+  "host": "minimal.gallery",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3021,
+  "sitemap_ornek": [
+   "https://minimal.gallery/weekend-home/",
+   "https://minimal.gallery/alphatek/",
+   "https://minimal.gallery/le-bon-site/",
+   "https://minimal.gallery/einheit/",
+   "https://minimal.gallery/humane-by-design/",
+   "https://minimal.gallery/chromecki-jesche-chromecki/",
+   "https://minimal.gallery/max-khomenko/",
+   "https://minimal.gallery/minamidesignco/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://minimal.gallery/",
+  "baslik": "Minimal Gallery – Hand-picked web design inspiration, premium templates, tools and more",
+  "aciklama": "Get inspiration from the best modern website designs, submitted by talented designers worldwide. Discover new sites daily, plus premium Framer & Webflow templates and useful tools for creatives",
+  "repo_bilgi": []
+ },
+ "mobbin.com": {
+  "host": "mobbin.com",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 1,
+   "tailwind": 1,
+   "next.js": 4455
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3256,
+  "sitemap_ornek": [
+   "https://mobbin.com/login",
+   "https://mobbin.com/pricing",
+   "https://mobbin.com/signup",
+   "https://mobbin.com/community/mobile/featured",
+   "https://mobbin.com/community/web/featured",
+   "https://mobbin.com/community/mobile/recent",
+   "https://mobbin.com/community/web/recent",
+   "https://mobbin.com/explore/mobile"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://mobbin.com/",
+  "baslik": "Mobbin — UI &amp; UX design inspiration for mobile &amp; web apps",
+  "aciklama": "Save hours of UI &amp; UX research with our library of 621,500+ fully searchable mobile &amp; web app screenshots.",
+  "repo_bilgi": []
+ },
+ "navbar.gallery": {
+  "host": "navbar.gallery",
+  "durum": "ok",
+  "libs": {
+   "gsap": 4,
+   "lottie": 3
+  },
+  "github": [
+   "relumetech/powerups"
+  ],
+  "npm": [],
+  "sitemap_url": 642,
+  "sitemap_ornek": [
+   "https://www.navbar.gallery",
+   "https://www.navbar.gallery/blog",
+   "https://www.navbar.gallery/browse",
+   "https://www.navbar.gallery/mobile-navigation",
+   "https://www.navbar.gallery/sponsor",
+   "https://www.navbar.gallery/framer-navbars",
+   "https://www.navbar.gallery/webflow-navbars",
+   "https://www.navbar.gallery/navbar/1x"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.navbar.gallery/",
+  "baslik": "Navbar Gallery – Navigation Design Inspiration",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "relumetech/powerups",
+    "lisans": "mit",
+    "yildiz": 3,
+    "son": "2023-05-03",
+    "ozet": "Scripts to powerup Relume Library Webflow components"
+   }
+  ]
+ },
+ "nicelydone.club": {
+  "host": "nicelydone.club",
+  "durum": "ok",
+  "libs": {
+   "nuxt/vue": 190
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1980,
+  "sitemap_ornek": [
+   "https://nicelydone.club/",
+   "https://nicelydone.club/about",
+   "https://nicelydone.club/affiliate",
+   "https://nicelydone.club/blog",
+   "https://nicelydone.club/changelog",
+   "https://nicelydone.club/contact",
+   "https://nicelydone.club/education",
+   "https://nicelydone.club/examples"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://nicelydone.club/",
+  "baslik": "Nicelydone — Web apps design inspiration (UX &amp; UI)",
+  "aciklama": "Search 215,601 real UI screenshots from 500+ SaaS apps. Find pricing pages, onboarding flows, settings screens, and more, searchable like Google and draggable into Figma.",
+  "repo_bilgi": []
+ },
+ "opengameart.org": {
+  "host": "opengameart.org",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "angular/angular.js",
+   "cure53/dompurify",
+   "jquery-form/form",
+   "jquery/jquery",
+   "jquery/jquery-migrate",
+   "jquery/jquery-ui"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://opengameart.org/",
+  "baslik": "OpenGameArt.org |",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "angular/angular.js",
+    "lisans": "mit",
+    "yildiz": 58472,
+    "son": "2024-04-12",
+    "ozet": "AngularJS - HTML enhanced for web apps!"
+   },
+   {
+    "repo": "cure53/dompurify",
+    "lisans": "apache-2.0",
+    "yildiz": 17480,
+    "son": "2026-10-24",
+    "ozet": "DOMPurify - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG. DOMPurify "
+   },
+   {
+    "repo": "jquery-form/form",
+    "lisans": "lgpl-2.1",
+    "yildiz": 5144,
+    "son": "2024-01-10",
+    "ozet": "jQuery Form Plugin"
+   },
+   {
+    "repo": "jquery/jquery",
+    "lisans": "mit",
+    "yildiz": 59911,
+    "son": "2026-10-16",
+    "ozet": "jQuery JavaScript Library"
+   },
+   {
+    "repo": "jquery/jquery-migrate",
+    "lisans": "other",
+    "yildiz": 2092,
+    "son": "2026-10-18",
+    "ozet": "A development tool to help migrate away from APIs and features that have been or will be removed fro"
+   },
+   {
+    "repo": "jquery/jquery-ui",
+    "lisans": "other",
+    "yildiz": 11335,
+    "son": "2026-09-13",
+    "ozet": "The official jQuery user interface library."
+   }
+  ]
+ },
+ "opensource.adobe.com": {
+  "host": "opensource.adobe.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "adobe-fonts/source-sans-pro"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://opensource.adobe.com/",
+  "baslik": "Let’s build something great together",
+  "aciklama": "At Adobe, we rely on so many open source software projects to build our own products, it would be hard to count them all. We ...",
+  "repo_bilgi": [
+   {
+    "repo": "adobe-fonts/source-sans-pro",
+    "lisans": "ofl-1.1",
+    "yildiz": 3773,
+    "son": "2025-10-28",
+    "ozet": "Sans serif font family for user interface environments"
+   }
+  ]
+ },
+ "pbase.com": {
+  "host": "pbase.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://pbase.com/",
+  "baslik": "PBase.com",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "pricingpages.design": {
+  "host": "pricingpages.design",
+  "durum": "ok",
+  "libs": {
+   "gsap": 12
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 139,
+  "sitemap_ornek": [
+   "https://pricingpages.design",
+   "https://pricingpages.design/about",
+   "https://pricingpages.design/submit",
+   "https://pricingpages.design/legal",
+   "https://pricingpages.design/review",
+   "https://pricingpages.design/sites/ada",
+   "https://pricingpages.design/sites/adaline",
+   "https://pricingpages.design/sites/adwize"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://pricingpages.design/",
+  "baslik": "Pricing Pages — A Curated Gallery of Pricing Page Designs",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "recent.design": {
+  "host": "recent.design",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 18
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1229,
+  "sitemap_ornek": [
+   "https://recent.design/i/6xh77zq-doodle-app-icon-maker",
+   "https://recent.design/i/r4nkk3e-ai-simulation-dot-visuals",
+   "https://recent.design/i/sov8eea-art-input-shape-studies",
+   "https://recent.design/i/pd1kyjp-liquid-button-hover-effect",
+   "https://recent.design/i/fw9lnh3-x-com",
+   "https://recent.design/i/h5wdwir-apple-hardware-dimension-drawings",
+   "https://recent.design/i/sf6nnvx-macos-lookaway-orb-interaction",
+   "https://recent.design/i/l9294qq-earth-timeline"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://recent.design/",
+  "baslik": "Recent — Design Inspiration",
+  "aciklama": "The best design inspiration on the Internet.",
+  "repo_bilgi": []
+ },
+ "refero.design": {
+  "host": "refero.design",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "mobxjs/mobx",
+   "referodesign/refero_skill",
+   "syntax-tree/hast-util-to-jsx-runtime"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://refero.design/",
+  "baslik": "Refero — UI/UX Design Inspiration for Your Next Project",
+  "aciklama": "The largest collection of UI/UX references and design inspiration for web and iOS. Explore tens of thousands of screenshots with advanced search capabilities",
+  "repo_bilgi": [
+   {
+    "repo": "mobxjs/mobx",
+    "lisans": "mit",
+    "yildiz": 28214,
+    "son": "2026-10-24",
+    "ozet": "Simple, scalable state management."
+   },
+   {
+    "repo": "referodesign/refero_skill",
+    "lisans": "mit",
+    "yildiz": 326,
+    "son": "2026-10-15",
+    "ozet": "Research-first design skill for AI agents. 150K+ real app screens and flows via Refero MCP."
+   },
+   {
+    "repo": "syntax-tree/hast-util-to-jsx-runtime",
+    "lisans": "mit",
+    "yildiz": 90,
+    "son": "2025-03-05",
+    "ozet": "hast utility to transform to preact, react, solid, svelte, vue, etc"
+   }
+  ]
+ },
+ "referral.design": {
+  "host": "referral.design",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://referral.design/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "screensdesign.com": {
+  "host": "screensdesign.com",
+  "durum": "ok",
+  "libs": {
+   "lucide": 271
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 895,
+  "sitemap_ornek": [
+   "https://screensdesign.com/",
+   "https://screensdesign.com/library",
+   "https://screensdesign.com/articles/",
+   "https://screensdesign.com/categories/",
+   "https://screensdesign.com/developers/",
+   "https://screensdesign.com/removed",
+   "https://screensdesign.com/guides/",
+   "https://screensdesign.com/mcp/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://screensdesign.com/",
+  "baslik": "ScreensDesign: App Design Library &amp; AI Screen Generator",
+  "aciklama": "Research real iOS app screens, onboarding flows, paywalls, and revenue-backed patterns, then generate app screens from proven mobile design examples.",
+  "repo_bilgi": []
+ },
+ "sitereel.ai": {
+  "host": "sitereel.ai",
+  "durum": "ok",
+  "libs": {
+   "radix": 2,
+   "next.js": 1,
+   "webgl-shader": 2,
+   "lucide": 24
+  },
+  "github": [
+   "blitz-js/superjson",
+   "mdbassit/coloris",
+   "melloware/coloris-npm",
+   "trpc/trpc"
+  ],
+  "npm": [],
+  "sitemap_url": 26,
+  "sitemap_ornek": [
+   "https://sitereel.ai/",
+   "https://sitereel.ai/template/aeris",
+   "https://sitereel.ai/template/aerofold",
+   "https://sitereel.ai/template/atelier-vale",
+   "https://sitereel.ai/template/aurel-one",
+   "https://sitereel.ai/template/cherrybeam",
+   "https://sitereel.ai/template/civora",
+   "https://sitereel.ai/template/fieldwork"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://sitereel.ai/",
+  "baslik": "AI Website Prompts for Beautiful Websites | sitereel",
+  "aciklama": "Discover website design inspiration with interactive previews and copyable AI prompts. Explore portfolio, product, luxury, and landing page designs.",
+  "repo_bilgi": [
+   {
+    "repo": "blitz-js/superjson",
+    "lisans": "mit",
+    "yildiz": 5287,
+    "son": "2026-06-18",
+    "ozet": "Safely serialize JavaScript expressions to a superset of JSON, which includes Dates, BigInts, and mo"
+   },
+   {
+    "repo": "mdbassit/coloris",
+    "lisans": "mit",
+    "yildiz": 620,
+    "son": "2025-09-12",
+    "ozet": "A lightweight and elegant JavaScript color picker. Written in vanilla ES6, no dependencies. Accessib"
+   },
+   {
+    "repo": "melloware/coloris-npm",
+    "lisans": "mit",
+    "yildiz": 48,
+    "son": "2026-10-01",
+    "ozet": "A lightweight and elegant JavaScript color picker."
+   },
+   {
+    "repo": "trpc/trpc",
+    "lisans": "mit",
+    "yildiz": 40720,
+    "son": "2026-10-22",
+    "ozet": "🧙‍♀️  Move Fast and Break Nothing. End-to-end typesafe APIs made easy. "
+   }
+  ]
+ },
+ "styles.refero.design": {
+  "host": "styles.refero.design",
+  "durum": "ok",
+  "libs": {
+   "next.js": 137,
+   "lucide": 26
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1394,
+  "sitemap_ornek": [
+   "https://styles.refero.design",
+   "https://styles.refero.design/ai-agents/design-resources",
+   "https://styles.refero.design/ai-agents/design-md-examples",
+   "https://styles.refero.design/ai-agents/design-prompts",
+   "https://styles.refero.design/ai-agents/website-design-styles",
+   "https://styles.refero.design/ai-agents/ui-design-examples",
+   "https://styles.refero.design/ai-agents/landing-page-design-prompts",
+   "https://styles.refero.design/ai-agents/dashboard-design-prompts"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://styles.refero.design/",
+  "baslik": "Website Styles &amp; DESIGN.md Library | Refero Styles",
+  "aciklama": "Explore real website styles and their AI-readable DESIGN.md files. Compare screenshots, colors, typography, and spacing to find a direction for your project.",
+  "repo_bilgi": []
+ },
+ "webzooo.com": {
+  "host": "webzooo.com",
+  "durum": "ok",
+  "libs": {
+   "lucide": 21
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 162,
+  "sitemap_ornek": [
+   "https://webzooo.com/",
+   "https://webzooo.com/faq",
+   "https://webzooo.com/advertise",
+   "https://webzooo.com/contact",
+   "https://webzooo.com/figma-plugin",
+   "https://webzooo.com/mcp",
+   "https://webzooo.com/pricing",
+   "https://webzooo.com/privacy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://webzooo.com/",
+  "baslik": "Webzooo — Website Design Inspiration by Color",
+  "aciklama": "Curated website inspiration by color, palette and hex code. Discover real websites organized by color — a semantic gallery for designers on Webzooo.",
+  "repo_bilgi": []
+ },
+ "arxiv.org": {
+  "host": "arxiv.org",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://arxiv.org/",
+  "baslik": "arXiv.org e-Print archive",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "60fps.com": {
+  "host": "60fps.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://60fps.com/",
+  "baslik": "60fps",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "academy.openai.com": {
+  "host": "academy.openai.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 91
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 348,
+  "sitemap_ornek": [
+   "https://academy.openai.com/public/events",
+   "https://academy.openai.com/public/events/chatgpt-legislative-101-w0gxcevffg",
+   "https://academy.openai.com/public/events/impact-math-measuring-the-roi-of-llms-jsfdla38wq",
+   "https://academy.openai.com/public/events/performance-reviews-using-chatgpt-to-write-better-evaluations-v5uf3v0jr2",
+   "https://academy.openai.com/public/events/chatgpt-101-for-government-professionals-gezpqb1ev4",
+   "https://academy.openai.com/public/clubs/k-12-administrators-and-district-leaders-gcxd3/events/chatgpt-for-teachers-leading-district-wide-adoption-xxfhix3z96",
+   "https://academy.openai.com/public/events/chatgpt-101-for-government-professionals-9m9z6y8n3a",
+   "https://academy.openai.com/public/events/ai-skills-jam-for-k-12-educators-virtual-office-hours-y56f09c6rm"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://academy.openai.com/",
+  "baslik": "OpenAI Academy",
+  "aciklama": "Unlock the new opportunities of the AI era by equipping yourself with the knowledge and skills to harness artificial intelligence effectively.",
+  "repo_bilgi": []
+ },
+ "acquisition.com": {
+  "host": "acquisition.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 284
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 614,
+  "sitemap_ornek": [
+   "https://www.acquisition.com/",
+   "https://www.acquisition.com/books",
+   "https://www.acquisition.com/media",
+   "https://www.acquisition.com/podcast-request",
+   "https://www.acquisition.com/speaking-request",
+   "https://www.acquisition.com/careers",
+   "https://www.acquisition.com/roadmap",
+   "https://www.acquisition.com/firm"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.acquisition.com/",
+  "baslik": "Acquisition.com Home",
+  "aciklama": "Acquisition.com | We partner with $1M-$10M EBITDA Founders to help them grow great companies | Making Real World Business Education Available For Everyone",
+  "repo_bilgi": []
+ },
+ "aihero.dev": {
+  "host": "aihero.dev",
+  "durum": "ok",
+  "libs": {
+   "shadcn": 10,
+   "next.js": 947
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 204,
+  "sitemap_ornek": [
+   "https://www.aihero.dev/",
+   "https://www.aihero.dev/newsletter",
+   "https://www.aihero.dev/skills",
+   "https://www.aihero.dev/skills/subscribe",
+   "https://www.aihero.dev/workshops/ai-coding-crash-course",
+   "https://www.aihero.dev/workshops/ai-sdk-v6-crash-course",
+   "https://www.aihero.dev/workshops/ai-sdk-v6-crash-course/generating-objects-via-output~dkm2k",
+   "https://www.aihero.dev/skills-catalog"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.aihero.dev/",
+  "baslik": "Become a Real AI Hero",
+  "aciklama": "AI Engineering for Curious Professional Developers",
+  "repo_bilgi": []
+ },
+ "aisuccesslabjuliangoldie.com": {
+  "host": "aisuccesslabjuliangoldie.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 845,
+  "sitemap_ornek": [
+   "https://aisuccesslabjuliangoldie.com/",
+   "https://aisuccesslabjuliangoldie.com/blog/",
+   "https://aisuccesslabjuliangoldie.com/blog/jev-waiting-list/",
+   "https://aisuccesslabjuliangoldie.com/blog/hermes-gpt-6/",
+   "https://aisuccesslabjuliangoldie.com/blog/hermes-dashboard-command/",
+   "https://aisuccesslabjuliangoldie.com/blog/orca-ade-tutorial/",
+   "https://aisuccesslabjuliangoldie.com/blog/9router-alternative/",
+   "https://aisuccesslabjuliangoldie.com/blog/deepseek-harness-vs-claude-code/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://aisuccesslabjuliangoldie.com/",
+  "baslik": "AI Success Lab - FREE Community That Makes You Money With AI",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "akademi.defneincekara.com": {
+  "host": "akademi.defneincekara.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 30
+  },
+  "github": [
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 2,
+  "sitemap_ornek": [
+   "https://akademi.defneincekara.com/",
+   "https://akademi.defneincekara.com/courses/kurumsal-yapay-zeka-programi"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://akademi.defneincekara.com/",
+  "baslik": "Defne İncekara Akademi: Yapay Zeka Eğitimleri",
+  "aciklama": "Kurumlar ve bireyler için online Yapay Zeka eğitim platformu. Şirket kodunla sınırsız katılım, video modüller, ilerleme takibi ve bitirme sertifikası.",
+  "repo_bilgi": [
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "animations.dev": {
+  "host": "animations.dev",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 12,
+   "lottie": 50,
+   "shadcn": 6,
+   "next.js": 741
+  },
+  "github": [
+   "emilkowalski/sonner",
+   "emilkowalski/vaul"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://animations.dev/",
+  "baslik": "animations.dev",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "emilkowalski/sonner",
+    "lisans": "mit",
+    "yildiz": 13078,
+    "son": "2026-08-10",
+    "ozet": "An opinionated toast component for React."
+   },
+   {
+    "repo": "emilkowalski/vaul",
+    "lisans": "mit",
+    "yildiz": 8651,
+    "son": "2025-10-03",
+    "ozet": "A drawer component for React."
+   }
+  ]
+ },
+ "anthropic.skilljar.com": {
+  "host": "anthropic.skilljar.com",
+  "durum": "ok",
+  "libs": {
+   "nuxt/vue": 28
+  },
+  "github": [
+   "apostrophecms/sanitize-html",
+   "jonschlinkert/is-plain-object",
+   "modernizr/modernizr",
+   "thekashey/focus-lock",
+   "uuidjs/uuid",
+   "webpack-contrib/style-loader"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://anthropic.skilljar.com/",
+  "baslik": "Anthropic Courses",
+  "aciklama": "Browse all Anthropic courses",
+  "repo_bilgi": [
+   {
+    "repo": "apostrophecms/sanitize-html",
+    "lisans": "mit",
+    "yildiz": 4109,
+    "son": "2026-02-26",
+    "ozet": "Clean up user-submitted HTML, preserving whitelisted elements and whitelisted attributes on a per-el"
+   },
+   {
+    "repo": "jonschlinkert/is-plain-object",
+    "lisans": "mit",
+    "yildiz": 157,
+    "son": "2026-08-21",
+    "ozet": "Returns true if the given value is an object created by the Object constructor."
+   },
+   {
+    "repo": "modernizr/modernizr",
+    "lisans": "mit",
+    "yildiz": 25681,
+    "son": "2026-10-21",
+    "ozet": "Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser."
+   },
+   {
+    "repo": "thekashey/focus-lock",
+    "lisans": "mit",
+    "yildiz": 187,
+    "son": "2025-01-04",
+    "ozet": "Gotcha! A11y util for scoping a focus."
+   },
+   {
+    "repo": "uuidjs/uuid",
+    "lisans": "mit",
+    "yildiz": 15342,
+    "son": "2026-10-23",
+    "ozet": "Generate RFC-compliant UUIDs in JavaScript"
+   },
+   {
+    "repo": "webpack-contrib/style-loader",
+    "lisans": "mit",
+    "yildiz": 1667,
+    "son": "2026-08-27",
+    "ozet": "Style Loader"
+   }
+  ]
+ },
+ "aogultegin.com": {
+  "host": "aogultegin.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://aogultegin.com/",
+  "baslik": "Home | aogultegin | Bonny English",
+  "aciklama": "Bonny English - İlkokul İngilizce Dersi Etkinlikleri",
+  "repo_bilgi": []
+ },
+ "briefbox.me": {
+  "host": "briefbox.me",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 78,
+  "sitemap_ornek": [
+   "https://www.briefbox.me/",
+   "https://www.briefbox.me/briefs",
+   "https://www.briefbox.me/showcase",
+   "https://www.briefbox.me/mentoring",
+   "https://www.briefbox.me/good-finds",
+   "https://www.briefbox.me/live-sessions",
+   "https://www.briefbox.me/the-course",
+   "https://www.briefbox.me/FAQ&#39;s"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.briefbox.me/",
+  "baslik": "Briefbox",
+  "aciklama": "Practice briefs, design challenges &amp; a global community of 15k creatives",
+  "repo_bilgi": []
+ },
+ "brilliant.org": {
+  "host": "brilliant.org",
+  "durum": "ok",
+  "libs": {
+   "next.js": 368
+  },
+  "github": [
+   "date-fns/date-fns"
+  ],
+  "npm": [],
+  "sitemap_url": 83,
+  "sitemap_ornek": [
+   "https://brilliant.org/",
+   "https://brilliant.org/about/",
+   "https://brilliant.org/terms-of-use/",
+   "https://brilliant.org/privacy/",
+   "https://brilliant.org/cs/",
+   "https://brilliant.org/math/",
+   "https://brilliant.org/faq/",
+   "https://brilliant.org/tech/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://brilliant.org/",
+  "baslik": "Brilliant | Your Personal Tutor for Math and Coding",
+  "aciklama": "Visual, interactive tutoring in math and coding, from 5th grade through college. Master concepts in algebra, calculus, Python, computer science, and more.",
+  "repo_bilgi": [
+   {
+    "repo": "date-fns/date-fns",
+    "lisans": "YOK",
+    "yildiz": 36650,
+    "son": "2026-10-24",
+    "ozet": "⏳ Modern JavaScript date utility library ⌛️"
+   }
+  ]
+ },
+ "bytebytego.com": {
+  "host": "bytebytego.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 626
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 828,
+  "sitemap_ornek": [
+   "https://bytebytego.com",
+   "https://bytebytego.com/courses",
+   "https://bytebytego.com/exercises",
+   "https://bytebytego.com/pricing",
+   "https://bytebytego.com/faqs",
+   "https://bytebytego.com/our-team",
+   "https://bytebytego.com/newsletter",
+   "https://bytebytego.com/intro"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://bytebytego.com/",
+  "baslik": "ByteByteGo | Technical Interview Prep",
+  "aciklama": "Everything you need to take your system design skill to the next level",
+  "repo_bilgi": []
+ },
+ "codecademy.com": {
+  "host": "codecademy.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 73
+  },
+  "github": [
+   "apollographql/invariant-packages",
+   "markedjs/marked.",
+   "styled-components/polished",
+   "thekashey/focus-lock",
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 774,
+  "sitemap_ornek": [
+   "https://www.codecademy.com/article/how-to-build-ai-agents-with-gemini-3",
+   "https://www.codecademy.com/article/install-python3",
+   "https://www.codecademy.com/article/build-ai-agents-with-n8n",
+   "https://www.codecademy.com/article/communicating-security-topics",
+   "https://www.codecademy.com/article/what-is-dspy",
+   "https://www.codecademy.com/article/exception-and-error-handling-in-python",
+   "https://www.codecademy.com/article/make-the-most-of-your-codecademy-membership",
+   "https://www.codecademy.com/article/what-is-cloud-computing-architecture"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.codecademy.com/",
+  "baslik": "Learn to Code - for Free | Codecademy",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "apollographql/invariant-packages",
+    "lisans": "mit",
+    "yildiz": 94,
+    "son": "2024-01-26",
+    "ozet": "Packages for working with invariant(condition, message) assertions"
+   },
+   {
+    "repo": "markedjs/marked.",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "styled-components/polished",
+    "lisans": "mit",
+    "yildiz": 7664,
+    "son": "2026-03-26",
+    "ozet": "A lightweight toolset for writing styles in JavaScript ✨"
+   },
+   {
+    "repo": "thekashey/focus-lock",
+    "lisans": "mit",
+    "yildiz": 187,
+    "son": "2025-01-04",
+    "ozet": "Gotcha! A11y util for scoping a focus."
+   },
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "colab.research.google.com": {
+  "host": "colab.research.google.com",
+  "durum": "ok",
+  "libs": {
+   "rive": 2
+  },
+  "github": [
+   "google/safevalues",
+   "googlecolab/colab-mcp",
+   "markedjs/marked.",
+   "settings/connections"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://colab.research.google.com/",
+  "baslik": "Google Colab",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "google/safevalues",
+    "lisans": "apache-2.0",
+    "yildiz": 149,
+    "son": "2026-10-12",
+    "ozet": ""
+   },
+   {
+    "repo": "googlecolab/colab-mcp",
+    "lisans": "apache-2.0",
+    "yildiz": 1342,
+    "son": "2026-06-23",
+    "ozet": "An MCP server for interacting with Google Colab"
+   },
+   {
+    "repo": "markedjs/marked.",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "settings/connections",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "condor.hummingbot.org": {
+  "host": "condor.hummingbot.org",
+  "durum": "ok",
+  "libs": {
+   "next.js": 1
+  },
+  "github": [
+   "hummingbot/condor",
+   "hummingbot/condor-docs",
+   "pacocoursey/next-themes"
+  ],
+  "npm": [],
+  "sitemap_url": 266,
+  "sitemap_ornek": [
+   "https://condor.hummingbot.org/api-reference",
+   "https://condor.hummingbot.org/api-reference/accounts/add-account",
+   "https://condor.hummingbot.org/api-reference/accounts/add-credential",
+   "https://condor.hummingbot.org/api-reference/accounts/add-gateway-wallet",
+   "https://condor.hummingbot.org/api-reference/accounts/delete-account",
+   "https://condor.hummingbot.org/api-reference/accounts/delete-credential",
+   "https://condor.hummingbot.org/api-reference/accounts/list-account-credentials",
+   "https://condor.hummingbot.org/api-reference/accounts/list-accounts"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://condor.hummingbot.org/introduction",
+  "baslik": "Introduction - Condor",
+  "aciklama": "An open source harness for deploying and managing fleets of AI trading agents",
+  "repo_bilgi": [
+   {
+    "repo": "hummingbot/condor",
+    "lisans": "mit",
+    "yildiz": 239,
+    "son": "2026-10-23",
+    "ozet": "An open source harness for creating and managing AI trading agents"
+   },
+   {
+    "repo": "hummingbot/condor-docs",
+    "lisans": "mit",
+    "yildiz": 1,
+    "son": "2026-10-21",
+    "ozet": ""
+   },
+   {
+    "repo": "pacocoursey/next-themes",
+    "lisans": "mit",
+    "yildiz": 6344,
+    "son": "2026-02-25",
+    "ozet": "Perfect Next.js dark mode in 2 lines of code. Support System preference and any other theme with no "
+   }
+  ]
+ },
+ "coursera.org": {
+  "host": "coursera.org",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "thekashey/focus-lock",
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 8404,
+  "sitemap_ornek": [
+   "https://www.coursera.org/about",
+   "https://www.coursera.org/about/affiliates",
+   "https://www.coursera.org/about/brand-guide",
+   "https://www.coursera.org/about/contact",
+   "https://www.coursera.org/about/how-coursera-works",
+   "https://www.coursera.org/articles",
+   "https://www.coursera.org/articles/30-60-90-day-plan",
+   "https://www.coursera.org/articles/30-days-gen-ai"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.coursera.org/",
+  "baslik": "Coursera | Online Courses, Certificates, &amp; Degrees",
+  "aciklama": "Learn job-ready skills with online courses, Professional Certificates, Specializations, and degrees from Google, Meta, Anthropic, DeepLearning.AI, Stanford, and more. Start learning today.",
+  "repo_bilgi": [
+   {
+    "repo": "thekashey/focus-lock",
+    "lisans": "mit",
+    "yildiz": 187,
+    "son": "2025-01-04",
+    "ozet": "Gotcha! A11y util for scoping a focus."
+   },
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "creatoreconomy.so": {
+  "host": "creatoreconomy.so",
+  "durum": "ok",
+  "libs": {
+   "lucide": 4
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 386,
+  "sitemap_ornek": [
+   "https://creatoreconomy.so/archive",
+   "https://creatoreconomy.so/about",
+   "https://creatoreconomy.so/podcast",
+   "https://creatoreconomy.so/p/use-my-video-short-skill-to-create-compelling-shorts",
+   "https://creatoreconomy.so/p/we-built-an-ai-cfo-to-help-you-grow-net-worth-anthony-pompliano",
+   "https://creatoreconomy.so/p/is-software-dead-or-just-not-for-humans-anymore",
+   "https://creatoreconomy.so/p/agentic-engineering-workflow-ras-mic",
+   "https://creatoreconomy.so/p/ai-evaluations-crash-course-with"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://creatoreconomy.so/",
+  "baslik": "Behind the Craft | Peter Yang | Substack",
+  "aciklama": "Practical AI tutorials and interviews for busy people. Click to read Behind the Craft, by Peter Yang, a Substack publication with hundreds of thousands of subscribers.",
+  "repo_bilgi": []
+ },
+ "deeplearning.ai": {
+  "host": "deeplearning.ai",
+  "durum": "ok",
+  "libs": {
+   "next.js": 204
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3417,
+  "sitemap_ornek": [
+   "https://www.deeplearning.ai/",
+   "https://www.deeplearning.ai/courses",
+   "https://www.deeplearning.ai/about",
+   "https://www.deeplearning.ai/contact",
+   "https://www.deeplearning.ai/community",
+   "https://www.deeplearning.ai/resources",
+   "https://www.deeplearning.ai/resources/ai-engineering-skills",
+   "https://www.deeplearning.ai/careers"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.deeplearning.ai/",
+  "baslik": "DeepLearning.AI: Start or Advance Your Career in AI",
+  "aciklama": "DeepLearning.AI | Andrew Ng | Join over 7 million people learning how to use and build AI through our online courses. Earn certifications, level up your skills, and stay ahead of the industry.",
+  "repo_bilgi": []
+ },
+ "deerflow.tech": {
+  "host": "deerflow.tech",
+  "durum": "ok",
+  "libs": {
+   "next.js": 202,
+   "lucide": 4
+  },
+  "github": [
+   "agent-infra/sandbox",
+   "bytedance/deer-flow"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://deerflow.tech/",
+  "baslik": "DeerFlow",
+  "aciklama": "A LangChain-based framework for building super agents.",
+  "repo_bilgi": [
+   {
+    "repo": "agent-infra/sandbox",
+    "lisans": "apache-2.0",
+    "yildiz": 6226,
+    "son": "2026-09-14",
+    "ozet": "All-in-One Sandbox for AI Agents that combines Browser, Shell, File, MCP and VSCode Server in a sing"
+   },
+   {
+    "repo": "bytedance/deer-flow",
+    "lisans": "mit",
+    "yildiz": 84378,
+    "son": "2026-10-24",
+    "ozet": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of"
+   }
+  ]
+ },
+ "docs.hazelengine.com": {
+  "host": "docs.hazelengine.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "rust-lang/mdbook"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://docs.hazelengine.com/",
+  "baslik": "Hazel Documentation",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "rust-lang/mdbook",
+    "lisans": "mpl-2.0",
+    "yildiz": 22243,
+    "son": "2026-10-24",
+    "ozet": "Create book from markdown files. Like Gitbook but implemented in Rust"
+   }
+  ]
+ },
+ "docs.nvidia.com": {
+  "host": "docs.nvidia.com",
+  "durum": "ok",
+  "libs": {
+   "three.js": 1,
+   "framer-motion/motion": 4
+  },
+  "github": [
+   "barbagroup/cfdpython",
+   "getsentry/raven-js",
+   "nv-legate/legate.core"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://docs.nvidia.com/",
+  "baslik": "NVIDIA Documentation Hub - NVIDIA Docs",
+  "aciklama": "Get started by exploring the latest technical information and product documentation",
+  "repo_bilgi": [
+   {
+    "repo": "barbagroup/cfdpython",
+    "lisans": "other",
+    "yildiz": 4189,
+    "son": "2024-03-19",
+    "ozet": "A sequence of Jupyter notebooks featuring the \"12 Steps to Navier-Stokes\" http://lorenabarba.com/  "
+   },
+   {
+    "repo": "getsentry/raven-js",
+    "lisans": "other",
+    "yildiz": 8767,
+    "son": "2026-10-24",
+    "ozet": "Official Sentry SDKs for JavaScript"
+   },
+   {
+    "repo": "nv-legate/legate.core",
+    "lisans": "apache-2.0",
+    "yildiz": 243,
+    "son": "2026-09-18",
+    "ozet": "End of life; no longer maintained. Final public release: v26.06.01."
+   }
+  ]
+ },
+ "docs.polyhaven.com": {
+  "host": "docs.polyhaven.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "crypto-browserify/crypto-browserify",
+   "indutny/elliptic",
+   "js-cookie/js-cookie"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://docs.polyhaven.com/en/home",
+  "baslik": "Poly Haven Wiki | Poly Haven Wiki",
+  "aciklama": "Welcome!",
+  "repo_bilgi": [
+   {
+    "repo": "crypto-browserify/crypto-browserify",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "indutny/elliptic",
+    "lisans": "YOK",
+    "yildiz": 1768,
+    "son": "2024-11-13",
+    "ozet": "Fast Elliptic Curve Cryptography in plain javascript"
+   },
+   {
+    "repo": "js-cookie/js-cookie",
+    "lisans": "mit",
+    "yildiz": 22569,
+    "son": "2026-10-23",
+    "ozet": "A simple, lightweight JavaScript API for handling cookies, client-side."
+   }
+  ]
+ },
+ "edx.org": {
+  "host": "edx.org",
+  "durum": "ok",
+  "libs": {
+   "next.js": 223
+  },
+  "github": [
+   "newrelic/newrelic-browser-agent"
+  ],
+  "npm": [],
+  "sitemap_url": 4566,
+  "sitemap_ornek": [
+   "https://www.edx.org/aprende/math",
+   "https://www.edx.org/es/aprende/math",
+   "https://www.edx.org/executive-education-promo",
+   "https://www.edx.org/es/executive-education-promo",
+   "https://www.edx.org/aprende/biotechnology",
+   "https://www.edx.org/es/aprende/biotechnology",
+   "https://www.edx.org/courses-and-programs-promo",
+   "https://www.edx.org/es/courses-and-programs-promo"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.edx.org/",
+  "baslik": "edX | Online Courses, Certificates &amp; Degrees from Leading Institutions",
+  "aciklama": "Find the online learning path for you, delivered by world-class institutions like Harvard, Google, Amazon, and more.",
+  "repo_bilgi": [
+   {
+    "repo": "newrelic/newrelic-browser-agent",
+    "lisans": "apache-2.0",
+    "yildiz": 134,
+    "son": "2026-10-23",
+    "ozet": "New Relic Browser Agent"
+   }
+  ]
+ },
+ "entagi.com": {
+  "host": "entagi.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://entagi.com/",
+  "baslik": "الصفحة الإفتراضية",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "exercism.org": {
+  "host": "exercism.org",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "exercism/exercism"
+  ],
+  "npm": [],
+  "sitemap_url": 4226,
+  "sitemap_ornek": [
+   "https://exercism.org/",
+   "https://exercism.org/tracks",
+   "https://exercism.org/docs",
+   "https://exercism.org/about",
+   "https://exercism.org/about/team",
+   "https://exercism.org/about/hiring",
+   "https://exercism.org/about/supporters/organisations",
+   "https://exercism.org/about/supporters/individuals"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://exercism.org/",
+  "baslik": "Exercism",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "exercism/exercism",
+    "lisans": "YOK",
+    "yildiz": 7597,
+    "son": "2026-09-22",
+    "ozet": "Crowd-sourced code mentorship. Practice having thoughtful conversations about code."
+   }
+  ]
+ },
+ "freecodecamp.org": {
+  "host": "freecodecamp.org",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2,
+   "radix": 1,
+   "codemirror/monaco": 673
+  },
+  "github": [
+   "chriskempson/tomorrow-theme",
+   "date-fns/date-fns",
+   "freecodecamp/back-end-development-and-apis",
+   "freecodecamp/freecodecamp",
+   "freecodecamp/rdb-alpha",
+   "gatsbyjs/gatsby"
+  ],
+  "npm": [],
+  "sitemap_url": 4426,
+  "sitemap_ornek": [
+   "https://www.freecodecamp.org/news/",
+   "https://www.freecodecamp.org/news/2025-supporter-wallpaper/",
+   "https://www.freecodecamp.org/news/2025-top-contributor-wallpaper/",
+   "https://www.freecodecamp.org/news/freecodecamp-supporter-happy-2023-wallpaper/",
+   "https://www.freecodecamp.org/news/podcast-guest-checklist/",
+   "https://www.freecodecamp.org/news/super-secret-supporter-wallpaper/",
+   "https://www.freecodecamp.org/news/thank-you-for-being-a-supporter/",
+   "https://www.freecodecamp.org/news/thank-you-for-donating/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.freecodecamp.org/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "chriskempson/tomorrow-theme",
+    "lisans": "other",
+    "yildiz": 13981,
+    "son": "2022-07-09",
+    "ozet": "Tomorrow Theme"
+   },
+   {
+    "repo": "date-fns/date-fns",
+    "lisans": "YOK",
+    "yildiz": 36650,
+    "son": "2026-10-24",
+    "ozet": "⏳ Modern JavaScript date utility library ⌛️"
+   },
+   {
+    "repo": "freecodecamp/back-end-development-and-apis",
+    "lisans": "YOK",
+    "yildiz": 45,
+    "son": "2026-10-09",
+    "ozet": ""
+   },
+   {
+    "repo": "freecodecamp/freecodecamp",
+    "lisans": "bsd-3-clause",
+    "yildiz": 457838,
+    "son": "2026-10-24",
+    "ozet": "freeCodeCamp.org's open-source codebase and curriculum. Learn math, programming, and computer scienc"
+   },
+   {
+    "repo": "freecodecamp/rdb-alpha",
+    "lisans": "YOK",
+    "yildiz": 176,
+    "son": "2025-07-31",
+    "ozet": ""
+   },
+   {
+    "repo": "gatsbyjs/gatsby",
+    "lisans": "mit",
+    "yildiz": 55931,
+    "son": "2026-10-20",
+    "ozet": "React-based framework with performance, scalability, and security built in."
+   }
+  ]
+ },
+ "futuredesigner.io": {
+  "host": "futuredesigner.io",
+  "durum": "ok",
+  "libs": {
+   "astro": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3,
+  "sitemap_ornek": [
+   "https://futuredesigner.io/",
+   "https://futuredesigner.io/privacy/",
+   "https://futuredesigner.io/terms/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://futuredesigner.io/",
+  "baslik": "The Future Designer: Become the designer AI can’t replace",
+  "aciklama": "Full-length lessons on designing, building and shipping real products with AI, from blank canvas to launch. Lifetime access, premium templates and a private community.",
+  "repo_bilgi": []
+ },
+ "geeksforgeeks.org": {
+  "host": "geeksforgeeks.org",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "next.js": 21
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1993,
+  "sitemap_ornek": [
+   "https://www.geeksforgeeks.org/ethical-hacking/5-phases-hacking/",
+   "https://www.geeksforgeeks.org/blogs/cartooning-an-image-using-opencv-python/",
+   "https://www.geeksforgeeks.org/dsa/traveling-salesman-problem-using-branch-and-bound-2/",
+   "https://www.geeksforgeeks.org/dsa/a-matrix-probability-question/",
+   "https://www.geeksforgeeks.org/dsa/find-a-permutation-that-causes-worst-case-of-merge-sort/",
+   "https://www.geeksforgeeks.org/dsa/find-maximum-length-snake-sequence/",
+   "https://www.geeksforgeeks.org/dsa/pair-with-given-product-set-1-find-if-any-pair-exists/",
+   "https://www.geeksforgeeks.org/linux-unix/linux-virtualization-using-chroot-jail/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.geeksforgeeks.org/",
+  "baslik": "GeeksforGeeks | Your All-in-One Learning Portal",
+  "aciklama": "Your All-in-One Learning Portal. It contains well written, well thought and well explained computer science and programming articles, quizzes and practice/competitive programming/company interview Que",
+  "repo_bilgi": []
+ },
+ "github.io": {
+  "host": "github.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "en/github",
+   "en/pages"
+  ],
+  "npm": [],
+  "sitemap_url": 3,
+  "sitemap_ornek": [
+   "https://pages.github.com/",
+   "https://pages.github.com/themes/",
+   "https://pages.github.com/versions/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://pages.github.com/",
+  "baslik": "GitHub Pages | Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and you",
+  "aciklama": "Websites for you and your projects, hosted directly from your GitHub repository. Just edit, push, and your changes are live.",
+  "repo_bilgi": [
+   {
+    "repo": "en/github",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "en/pages",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "hellomonday.com": {
+  "host": "hellomonday.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 1
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://hellomonday.com/",
+  "baslik": "Hello Monday",
+  "aciklama": "Hello Monday is a creative studio in New York, Copenhagen, and Aarhus that handcrafts digital (and magical) products, brands, and experiences.",
+  "repo_bilgi": []
+ },
+ "how.to": {
+  "host": "how.to",
+  "durum": "ok",
+  "libs": {
+   "radix": 1,
+   "lucide": 8
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 148,
+  "sitemap_ornek": [
+   "https://how.to/",
+   "https://how.to/guides",
+   "https://how.to/about",
+   "https://how.to/privacy-policy",
+   "https://how.to/terms-of-service",
+   "https://how.to/category/technical-issues",
+   "https://how.to/category/online-accounts",
+   "https://how.to/category/apps-games"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://how.to/",
+  "baslik": "How.to — Turn any problem into steps you can finish",
+  "aciklama": "How.to is an AI action coach. Describe your problem in plain words and get a short, checkable plan — one step at a time, with what to do when something goes wrong.",
+  "repo_bilgi": []
+ },
+ "howtotalktowhitekidsaboutracism.com": {
+  "host": "howtotalktowhitekidsaboutracism.com",
+  "durum": "ok",
+  "libs": {
+   "three.js": 88,
+   "gsap": 153,
+   "webgl-shader": 103
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://howtotalktowhitekidsaboutracism.com/",
+  "baslik": "HTWKR - How to Talk to White Kids about Racism",
+  "aciklama": "A beginners guide to help white families learn how to make an active choice to acknowledge biases and help create equity for all people, on an individual and institutional level.",
+  "repo_bilgi": []
+ },
+ "illoca.unseen.co": {
+  "host": "illoca.unseen.co",
+  "durum": "ok",
+  "libs": {
+   "lenis": 3,
+   "nuxt/vue": 519
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": false,
+  "final": "https://illoca.unseen.co/",
+  "baslik": "illoca – Architectural design at the speed of thought",
+  "aciklama": "illoca is an AI-native design engine built for professional architects. Explore, refine, and move from first ideas to editable 2D and 3D designs with more speed and control.",
+  "repo_bilgi": []
+ },
+ "insiderforce.io": {
+  "host": "insiderforce.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "cferdinandi/gumshoe",
+   "gilmoreorless/css-background-parser",
+   "imakewebthings/waypoints",
+   "js-cookie/js-cookie",
+   "prinzhorn/skrollr"
+  ],
+  "npm": [],
+  "sitemap_url": 6,
+  "sitemap_ornek": [
+   "https://insiderforce.io/about-us/",
+   "https://insiderforce.io/advertise-with-us/",
+   "https://insiderforce.io/contact-us/",
+   "https://insiderforce.io/privacy-policy/",
+   "https://insiderforce.io/terms-of-service/",
+   "https://insiderforce.io/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://insiderforce.io/",
+  "baslik": "Quick Wins Business System - Insider Force",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "cferdinandi/gumshoe",
+    "lisans": "mit",
+    "yildiz": 756,
+    "son": "2022-12-22",
+    "ozet": "A simple vanilla JS scrollspy script."
+   },
+   {
+    "repo": "gilmoreorless/css-background-parser",
+    "lisans": "mit",
+    "yildiz": 12,
+    "son": "2015-11-17",
+    "ozet": "Parse CSS background properties to get a list of individual background objects."
+   },
+   {
+    "repo": "imakewebthings/waypoints",
+    "lisans": "YOK",
+    "yildiz": 10296,
+    "son": "2022-11-18",
+    "ozet": "Waypoints is a library that makes it easy to execute a function whenever you scroll to an element."
+   },
+   {
+    "repo": "js-cookie/js-cookie",
+    "lisans": "mit",
+    "yildiz": 22569,
+    "son": "2026-10-23",
+    "ozet": "A simple, lightweight JavaScript API for handling cookies, client-side."
+   },
+   {
+    "repo": "prinzhorn/skrollr",
+    "lisans": "mit",
+    "yildiz": 18396,
+    "son": "2018-01-23",
+    "ozet": "Stand-alone parallax scrolling library for mobile (Android + iOS) and desktop. No jQuery. Just plain"
+   }
+  ]
+ },
+ "khanacademy.org": {
+  "host": "khanacademy.org",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.khanacademy.org/",
+  "baslik": "Client Challenge",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "learn.microsoft.com": {
+  "host": "learn.microsoft.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "dotnet/docs",
+   "login/oauth",
+   "microsoftdocs/azure-compliance-pr",
+   "microsoftdocs/officedocs-skypeforbusiness-pr",
+   "microsoftdocs/officedocs-teams-phoneref-pr",
+   "octokit/octokit.js"
+  ],
+  "npm": [],
+  "sitemap_url": 50410,
+  "sitemap_ornek": [
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms187184(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms127002(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/cc284904(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms137479(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/gg426304(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms186602(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms129368(v=sql.110)",
+   "https://learn.microsoft.com/en-us/previous-versions/sql/sql-server-2012/ms129774(v=sql.110)"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://learn.microsoft.com/en-us/",
+  "baslik": "Microsoft Learn: Build with answers in reach",
+  "aciklama": "Find official documentation, practical know-how, and expert guidance for builders working and troubleshooting in Microsoft products.",
+  "repo_bilgi": [
+   {
+    "repo": "dotnet/docs",
+    "lisans": "cc-by-4.0",
+    "yildiz": 4772,
+    "son": "2026-10-24",
+    "ozet": "This repository contains .NET Documentation."
+   },
+   {
+    "repo": "login/oauth",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "microsoftdocs/azure-compliance-pr",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "microsoftdocs/officedocs-skypeforbusiness-pr",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "microsoftdocs/officedocs-teams-phoneref-pr",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "octokit/octokit.js",
+    "lisans": "mit",
+    "yildiz": 7863,
+    "son": "2026-10-22",
+    "ozet": "The all-batteries-included GitHub SDK for Browsers, Node.js, and Deno."
+   }
+  ]
+ },
+ "learn3d.ai": {
+  "host": "learn3d.ai",
+  "durum": "ok",
+  "libs": {
+   "gsap": 1,
+   "lenis": 1,
+   "next.js": 132
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 63,
+  "sitemap_ornek": [
+   "https://www.learn3d.ai/en",
+   "https://www.learn3d.ai/en/ai-x-3d",
+   "https://www.learn3d.ai/en/ai-x-3d/faq",
+   "https://www.learn3d.ai/en/ai-x-3d-environments",
+   "https://www.learn3d.ai/en/ai-x-3d-environments/faq",
+   "https://www.learn3d.ai/en/legal/privacy",
+   "https://www.learn3d.ai/en/legal/imprint",
+   "https://www.learn3d.ai/de"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.learn3d.ai/en",
+  "baslik": "Learn3D AI: AI-Assisted 3D Courses for Games",
+  "aciklama": "Learn practical AI-assisted 3D workflows for games. Build game-ready characters and complete 3D environments in Unreal Engine 5 through structured online courses.",
+  "repo_bilgi": []
+ },
+ "liamjohnston.ai": {
+  "host": "liamjohnston.ai",
+  "durum": "ok",
+  "libs": {
+   "gsap": 53
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://liamjohnston.ai/",
+  "baslik": "Liam Johnston AI — What’s actually worth your time.",
+  "aciklama": "Every Tuesday: the AI launches worth knowing, honest verdicts, and one useful skill to set up. Free, from Liam Johnston.",
+  "repo_bilgi": []
+ },
+ "lms.so": {
+  "host": "lms.so",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "chartist-js/ct",
+   "sweetalert2/sweetalert2"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://lms.so/",
+  "baslik": "LMS",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "chartist-js/ct",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "sweetalert2/sweetalert2",
+    "lisans": "mit",
+    "yildiz": 18093,
+    "son": "2026-10-14",
+    "ozet": "✨ A beautiful, responsive, highly customizable and accessible (WAI-ARIA) replacement for JavaScript'"
+   }
+  ]
+ },
+ "meticsmedia.com": {
+  "host": "meticsmedia.com",
+  "durum": "ok",
+  "libs": {
+   "lottie": 51
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 206,
+  "sitemap_ornek": [
+   "https://www.youtube.com/videomasthead/",
+   "https://www.youtube.com/intl/ar/kids/",
+   "https://www.youtube.com/intl/ALL_ae/kids/",
+   "https://www.youtube.com/intl/ALL_bh/kids/",
+   "https://www.youtube.com/intl/ar_dz/kids/",
+   "https://www.youtube.com/intl/ALL_eg/kids/",
+   "https://www.youtube.com/intl/ALL_iq/kids/",
+   "https://www.youtube.com/intl/ALL_jo/kids/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.youtube.com/meticsmedia",
+  "baslik": "Metics Media - YouTube",
+  "aciklama": "Welcome to Metics Media – your go-to source for in-depth tutorials on the best website builders and online platforms. Whether you&#39;re creating your first webs...",
+  "repo_bilgi": []
+ },
+ "mindtools.com": {
+  "host": "mindtools.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 92
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 876,
+  "sitemap_ornek": [
+   "https://www.mindtools.com/signup",
+   "https://www.mindtools.com/signup/free",
+   "https://www.mindtools.com/signup/mt-monthly",
+   "https://www.mindtools.com/signup/mt-annual",
+   "https://www.mindtools.com/signup/mt-multi-year",
+   "https://www.mindtools.com/about-us/policies/privacy",
+   "https://www.mindtools.com/about-us/policies/tandc",
+   "https://www.mindtools.com/most-popular"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.mindtools.com/",
+  "baslik": "Leadership &amp; Management Learning Solutions For Leaders &amp; Managers - Mindtools Membership",
+  "aciklama": "Essential skills for an excellent career",
+  "repo_bilgi": []
+ },
+ "networkchuck.com": {
+  "host": "networkchuck.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 45
+  },
+  "github": [
+   "checkmk/checkmk",
+   "megadose/holehe",
+   "nousresearch/hermes-agent",
+   "ollama/ollama",
+   "sherlock-project/sherlock",
+   "thenetworkchuck/checkmk-guide"
+  ],
+  "npm": [],
+  "sitemap_url": 5,
+  "sitemap_ornek": [
+   "https://networkchuck.com/",
+   "https://networkchuck.com/about/",
+   "https://networkchuck.com/contact-us/",
+   "https://networkchuck.com/terms-and-conditions/",
+   "https://networkchuck.com/privacy-policy/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://networkchuck.com/",
+  "baslik": "Network Chuck - Hack Your IT Career",
+  "aciklama": "Whether you want to become a network engineer, a hacker, cloud engineer or just want to know how to get started in IT, you’ve come to the right place.",
+  "repo_bilgi": [
+   {
+    "repo": "checkmk/checkmk",
+    "lisans": "gpl-2.0",
+    "yildiz": 2609,
+    "son": "2026-10-24",
+    "ozet": "Checkmk - Best-in-class infrastructure & application monitoring"
+   },
+   {
+    "repo": "megadose/holehe",
+    "lisans": "gpl-3.0",
+    "yildiz": 15353,
+    "son": "2024-09-10",
+    "ozet": "holehe allows you to check if the mail is used on different sites like twitter, instagram and will r"
+   },
+   {
+    "repo": "nousresearch/hermes-agent",
+    "lisans": "mit",
+    "yildiz": 256740,
+    "son": "2026-10-24",
+    "ozet": "The agent that grows with you"
+   },
+   {
+    "repo": "ollama/ollama",
+    "lisans": "mit",
+    "yildiz": 184639,
+    "son": "2026-10-24",
+    "ozet": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models."
+   },
+   {
+    "repo": "sherlock-project/sherlock",
+    "lisans": "mit",
+    "yildiz": 94837,
+    "son": "2026-10-24",
+    "ozet": "Hunt down social media accounts by username across social networks"
+   },
+   {
+    "repo": "thenetworkchuck/checkmk-guide",
+    "lisans": "mit",
+    "yildiz": 15,
+    "son": "2026-10-12",
+    "ozet": "Follow-along guide for the NetworkChuck Checkmk video: monitor everything in your homelab"
+   }
+  ]
+ },
+ "notebooklm.google.com": {
+  "host": "notebooklm.google.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 254,
+   "codemirror/monaco": 3
+  },
+  "github": [
+   "dmoscrop/fold-case"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://notebook.google.com/",
+  "baslik": "Gemini Notebook",
+  "aciklama": "Use the power of AI for quick summarization and note taking, Gemini Notebook is your powerful virtual research assistant rooted in information you can trust.",
+  "repo_bilgi": [
+   {
+    "repo": "dmoscrop/fold-case",
+    "lisans": "mit",
+    "yildiz": 3,
+    "son": "2014-12-12",
+    "ozet": "A letter case folder with full Unicode support, i.e. based on the official Unicode case folding mapp"
+   }
+  ]
+ },
+ "nxtlvl.ai": {
+  "host": "nxtlvl.ai",
+  "durum": "ok",
+  "libs": {
+   "next.js": 283
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.nxtlvl.ai/",
+  "baslik": "NXTLVL",
+  "aciklama": "Welcome to the Problem Solving Club",
+  "repo_bilgi": []
+ },
+ "onmars3d.com": {
+  "host": "onmars3d.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 19,
+  "sitemap_ornek": [
+   "https://www.onmars3d.com/opt-in-55b234c6-5d51-4e7c-9991-d5df1028a733",
+   "https://www.onmars3d.com/value-1",
+   "https://www.onmars3d.com/value-2",
+   "https://www.onmars3d.com/value-3",
+   "https://www.onmars3d.com/thank-you",
+   "https://www.onmars3d.com/thank-you-6507846f-82c2-41fc-a8e3-e18594c3cda1",
+   "https://www.onmars3d.com/gameartcourse_launch",
+   "https://www.onmars3d.com/opt-in"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.onmars3d.com/",
+  "baslik": "OM3D 3D Art and Topology Course",
+  "aciklama": "Master 3D Art, Modeling, and Topology: Learn Concepts, Not Just Clicks",
+  "repo_bilgi": []
+ },
+ "oup.com": {
+  "host": "oup.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 5,
+   "framer-motion/motion": 1,
+   "lottie": 33
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 123,
+  "sitemap_ornek": [
+   "https://corp.oup.com/press-office/",
+   "https://corp.oup.com/news/exploring-people-planet-and-possibilities-in-karachi/",
+   "https://corp.oup.com/news/oxford-forum-steps-to-a-sustainable-future/",
+   "https://corp.oup.com/news/vice-chancellor-sees-oup-mission-in-action-in-south-africa/",
+   "https://corp.oup.com/news/reporting-on-the-digital-divide-at-downing-street/",
+   "https://corp.oup.com/news/royal-recognition-for-reading-support/",
+   "https://corp.oup.com/news/oup-donates-english-language-teaching-resources-to-the-ukrainian-welcome-centre/",
+   "https://corp.oup.com/news/world-wolunteers-week-2023/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://corp.oup.com/",
+  "baslik": "Homepage - Oxford University Press",
+  "aciklama": "Oxford University Press moves knowledge and learning forward. Discover our products, services, and latest thinking in education and research.",
+  "repo_bilgi": []
+ },
+ "output.to": {
+  "host": "output.to",
+  "durum": "hata: URLError <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate ",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "podcast.adobe.com": {
+  "host": "podcast.adobe.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "newrelic/newrelic-browser-agent"
+  ],
+  "npm": [],
+  "sitemap_url": 236,
+  "sitemap_ornek": [
+   "https://podcast.adobe.com/bn",
+   "https://podcast.adobe.com/de",
+   "https://podcast.adobe.com/en",
+   "https://podcast.adobe.com/es",
+   "https://podcast.adobe.com/fr",
+   "https://podcast.adobe.com/hi",
+   "https://podcast.adobe.com/id",
+   "https://podcast.adobe.com/it"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://podcast.adobe.com/",
+  "baslik": "Adobe Podcast | AI audio recording and editing, all on the web",
+  "aciklama": "Next generation audio from Adobe is here. Record, transcribe, edit, share. Crisp and clear, every time.",
+  "repo_bilgi": [
+   {
+    "repo": "newrelic/newrelic-browser-agent",
+    "lisans": "apache-2.0",
+    "yildiz": 134,
+    "son": "2026-10-23",
+    "ozet": "New Relic Browser Agent"
+   }
+  ]
+ },
+ "presentation.design": {
+  "host": "presentation.design",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 47,
+  "sitemap_ornek": [
+   "https://presentation.design/",
+   "https://presentation.design/posts",
+   "https://presentation.design/google-slides",
+   "https://presentation.design/figma",
+   "https://presentation.design/interviews",
+   "https://presentation.design/design-resources",
+   "https://presentation.design/tools",
+   "https://presentation.design/posts/12-creative-ways-to-use-shapes-in-powerpoint"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://presentation.design/",
+  "baslik": "Presentation.Design",
+  "aciklama": "Resources and tips around creating and designing slide decks, general presentation guidance, and tool workflows and pro-tips.",
+  "repo_bilgi": []
+ },
+ "protocols.io": {
+  "host": "protocols.io",
+  "durum": "ok",
+  "libs": {
+   "lottie": 5
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1213,
+  "sitemap_ornek": [
+   "https://www.protocols.io",
+   "https://www.protocols.io/welcome",
+   "https://www.protocols.io/become-a-contributor",
+   "https://www.protocols.io/university-of-california-case-study",
+   "https://www.protocols.io/girihlet-case-study",
+   "https://www.protocols.io/contact-us",
+   "https://www.protocols.io/contact-sales",
+   "https://www.protocols.io/orcid"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.protocols.io:443/",
+  "baslik": "Bring structure to your research - protocols.io",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "prowritingaid.com": {
+  "host": "prowritingaid.com",
+  "durum": "ok",
+  "libs": {
+   "lottie": 10
+  },
+  "github": [
+   "add2cal/add-to-calendar-button",
+   "add2cal/timezones-ical-library",
+   "nevware21/ts-async",
+   "nevware21/ts-utils"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://prowritingaid.com/",
+  "baslik": "ProWritingAid | The Complete Toolkit for Storytellers",
+  "aciklama": "Plan, write, edit, and publish with the complete toolkit for storytellers. Build your craft, strengthen your writing habit, and finish your story.",
+  "repo_bilgi": [
+   {
+    "repo": "add2cal/add-to-calendar-button",
+    "lisans": "other",
+    "yildiz": 1488,
+    "son": "2026-10-19",
+    "ozet": "Reliably create beautiful Add to Calendar Buttons, where people can add events to their calendars. W"
+   },
+   {
+    "repo": "add2cal/timezones-ical-library",
+    "lisans": "apache-2.0",
+    "yildiz": 20,
+    "son": "2026-09-09",
+    "ozet": "Easy direct access to the most recent official time zone information for iCalendar files via JavaScr"
+   },
+   {
+    "repo": "nevware21/ts-async",
+    "lisans": "mit",
+    "yildiz": 4,
+    "son": "2026-10-23",
+    "ozet": "Promise support utilites and helpers for TypeScript"
+   },
+   {
+    "repo": "nevware21/ts-utils",
+    "lisans": "mit",
+    "yildiz": 12,
+    "son": "2026-10-20",
+    "ozet": "Comprehensive TypeScript/JavaScript utility library with cross-environment support (Node.js, browser"
+   }
+  ]
+ },
+ "python.org": {
+  "host": "python.org",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "python/cpython",
+   "python/pythondotorg"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.python.org/",
+  "baslik": "Welcome to Python.org",
+  "aciklama": "The official home of the Python Programming Language",
+  "repo_bilgi": [
+   {
+    "repo": "python/cpython",
+    "lisans": "other",
+    "yildiz": 77755,
+    "son": "2026-10-24",
+    "ozet": "The Python programming language"
+   },
+   {
+    "repo": "python/pythondotorg",
+    "lisans": "apache-2.0",
+    "yildiz": 1667,
+    "son": "2026-10-24",
+    "ozet": "Source code for python.org"
+   }
+  ]
+ },
+ "rasulov.net": {
+  "host": "rasulov.net",
+  "durum": "ok",
+  "libs": {
+   "next.js": 152,
+   "lucide": 155
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 46,
+  "sitemap_ornek": [
+   "https://rasulov.net",
+   "https://rasulov.net/yapay-zeka-sertifikasi",
+   "https://rasulov.net/sertifika-dogrula",
+   "https://rasulov.net/basvuru-kayit-formu",
+   "https://rasulov.net/kayit-odemesi",
+   "https://rasulov.net/tavsiye-programi",
+   "https://rasulov.net/akademi-hakkinda",
+   "https://rasulov.net/afgan-rasulov-kimdir"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://rasulov.net/",
+  "baslik": "Rasulov Akademi — Online &amp; Birebir Eğitimler · Kurucu Afgan Rasulov",
+  "aciklama": "Rasulov Akademi: kurucu Afgan Rasulov (35M+ YouTube) önderliğinde online videolu, interaktif birebir ve grup eğitimleri. Sistematik müfredat, sertifika ve danışmanlık.",
+  "repo_bilgi": []
+ },
+ "raycfu.com": {
+  "host": "raycfu.com",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 2,
+   "next.js": 88,
+   "lucide": 229
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 108,
+  "sitemap_ornek": [
+   "https://www.raycfu.com",
+   "https://www.raycfu.com/guides",
+   "https://www.raycfu.com/guides/claude-skills-i-use",
+   "https://www.raycfu.com/guides/clipping-page-hermes-4k-month",
+   "https://www.raycfu.com/guides/four-agent-dev-team",
+   "https://www.raycfu.com/guides/claude-fable-trading-bot",
+   "https://www.raycfu.com/guides/loop-engineering-for-trades",
+   "https://www.raycfu.com/guides/claude-phd-research-system"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.raycfu.com/",
+  "baslik": "Ray Fu | OpenClaw &amp; AI Automation Guides",
+  "aciklama": "Learn OpenClaw, AI agents, and practical AI automations with free guides from Ray Fu, an ex-Meta senior engineer.",
+  "repo_bilgi": []
+ },
+ "renontlab.lib.co": {
+  "host": "renontlab.lib.co",
+  "durum": "hata: URLError <urlopen error [SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecogn",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "seandollwet.com": {
+  "host": "seandollwet.com",
+  "durum": "ok",
+  "libs": {
+   "lottie": 2
+  },
+  "github": [
+   "gijsroge/tilt.js"
+  ],
+  "npm": [],
+  "sitemap_url": 17,
+  "sitemap_ornek": [
+   "https://seandollwet.com/blog-old/",
+   "https://seandollwet.com/best-ghost-writing-companies-when-outsourcing-content/",
+   "https://seandollwet.com/essential-tools-you-need-for-self-publishing/",
+   "https://seandollwet.com/",
+   "https://seandollwet.com/privacy-policy/",
+   "https://seandollwet.com/books/",
+   "https://seandollwet.com/resources/",
+   "https://seandollwet.com/mentorship/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://seandollwet.com/",
+  "baslik": "Home - Sean Dollwet",
+  "aciklama": "Sean has built multiple six- and seven-figure businesses, including those in Amazon KDP, affiliate marketing, YouTube, and the info product space.",
+  "repo_bilgi": [
+   {
+    "repo": "gijsroge/tilt.js",
+    "lisans": "mit",
+    "yildiz": 3854,
+    "son": "2026-10-17",
+    "ozet": "A tiny 60+fps parallax tilt hover effect for jQuery. "
+   }
+  ]
+ },
+ "skillsbuild.org": {
+  "host": "skillsbuild.org",
+  "durum": "ok",
+  "libs": {
+   "next.js": 267,
+   "svelte": 1
+  },
+  "github": [
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 847,
+  "sitemap_ornek": [
+   "https://skillsbuild.org",
+   "https://skillsbuild.org/about",
+   "https://skillsbuild.org/adult-learners",
+   "https://skillsbuild.org/ai-level-up",
+   "https://skillsbuild.org/ai-level-up-explorer",
+   "https://skillsbuild.org/ai-level-up-practitioner",
+   "https://skillsbuild.org/ai-level-up-trailblazer",
+   "https://skillsbuild.org/career-navigator"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://skillsbuild.org/",
+  "baslik": "Unlock your future | IBM SkillBuild",
+  "aciklama": "Build in-demand skills in AI, cybersecurity, data, and more. Whether you’re starting your career or pivoting to something new, IBM SkillsBuild offers 100% free learning from a global leader in technol",
+  "repo_bilgi": [
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "slack.dev": {
+  "host": "slack.dev",
+  "durum": "ok",
+  "libs": {
+   "lottie": 25
+  },
+  "github": [
+   "highlightjs/highlight.js",
+   "slack-samples/bolt-js-assistant-template"
+  ],
+  "npm": [],
+  "sitemap_url": 74,
+  "sitemap_ornek": [
+   "https://slack.dev/blog/",
+   "https://slack.dev/slack-cli-slack-api-your-interface-for-the-future/",
+   "https://slack.dev/slack-developer-sandboxes/",
+   "https://slack.dev/how-i-actually-use-slack-search-and-you-should-too/",
+   "https://slack.dev/wrapping-up-2024-best-practices-for-ai-enabled-slack-apps/",
+   "https://slack.dev/bringing-app-home-for-the-holidays/",
+   "https://slack.dev/manifesting-your-app/",
+   "https://slack.dev/dear-slackbot/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://slack.dev/",
+  "baslik": "Developer Hub | Slack Developers",
+  "aciklama": "Build context-aware AI apps and agents with Slack, the work operating system. Get tools, documentation, community, and learning resources for developers.",
+  "repo_bilgi": [
+   {
+    "repo": "highlightjs/highlight.js",
+    "lisans": "bsd-3-clause",
+    "yildiz": 25008,
+    "son": "2026-09-06",
+    "ozet": "JavaScript syntax highlighter with language auto-detection and zero dependencies."
+   },
+   {
+    "repo": "slack-samples/bolt-js-assistant-template",
+    "lisans": "mit",
+    "yildiz": 31,
+    "son": "2026-10-24",
+    "ozet": "A template for building Agents & Assistants with Bolt for JavaScript"
+   }
+  ]
+ },
+ "sololearn.com": {
+  "host": "sololearn.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 8
+  },
+  "github": [
+   "google/safevalues"
+  ],
+  "npm": [],
+  "sitemap_url": 51,
+  "sitemap_ornek": [
+   "https://www.sololearn.com/en/",
+   "https://www.sololearn.com/en/learn",
+   "https://www.sololearn.com/en/codes",
+   "https://www.sololearn.com/en/Discuss",
+   "https://www.sololearn.com/en/pricing",
+   "https://www.sololearn.com/en/faq",
+   "https://www.sololearn.com/en/contact",
+   "https://www.sololearn.com/en/career"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.sololearn.com/en/",
+  "baslik": "Learn to Code for Free: Python, JavaScript &amp; More | Sololearn",
+  "aciklama": "Learn to code with free interactive courses in Python, JavaScript, HTML, SQL and more. Short lessons, real practice, and a community of 36M+ learners — on web, iOS and Android.",
+  "repo_bilgi": [
+   {
+    "repo": "google/safevalues",
+    "lisans": "apache-2.0",
+    "yildiz": 149,
+    "son": "2026-10-12",
+    "ozet": ""
+   }
+  ]
+ },
+ "sound.org": {
+  "host": "sound.org",
+  "durum": "ok",
+  "libs": {
+   "gsap": 3
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 14454,
+  "sitemap_ornek": [
+   "https://www.waves.com/studioverse/creator/dave99",
+   "https://www.waves.com/studioverse/chain/4c821857-da15-4fab-b14d-f33bdf2f8af2",
+   "https://www.waves.com/studioverse/creator/easilyorderlorazepamonline",
+   "https://www.waves.com/studioverse/creator/backline",
+   "https://www.waves.com/llm/products.json",
+   "https://www.waves.com/mixers-racks/emotion-lv1-software",
+   "https://www.waves.com/mixers-racks/mymon-personal-monitor-mixing-app",
+   "https://www.waves.com/studioverse/creator/xdp"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.waves.com/courses",
+  "baslik": "Learn Mixing and Music Production &#x2013; Waves Audio Courses",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "theincubator.xyz": {
+  "host": "theincubator.xyz",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "next.js": 49
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.theincubator.xyz/",
+  "baslik": "The Incubator - Your AI Transformation Partner",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "theunwindai.com": {
+  "host": "theunwindai.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "shubhamsaboo/awesome-llm-apps"
+  ],
+  "npm": [],
+  "sitemap_url": 801,
+  "sitemap_ornek": [
+   "https://www.theunwindai.com/",
+   "https://www.theunwindai.com/subscribe",
+   "https://www.theunwindai.com/authors",
+   "https://www.theunwindai.com/authors/shubham-saboo",
+   "https://www.theunwindai.com/authors/gargi-gupta",
+   "https://www.theunwindai.com/p/ai-dapting-to-the-new-age",
+   "https://www.theunwindai.com/p/chatgpt-breaking-the-limits-of-ai",
+   "https://www.theunwindai.com/p/keep-up-with-the-ai-times"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.theunwindai.com/",
+  "baslik": "unwind ai",
+  "aciklama": "Open-source Ecosystem for High-Leverage AI Builders",
+  "repo_bilgi": [
+   {
+    "repo": "shubhamsaboo/awesome-llm-apps",
+    "lisans": "apache-2.0",
+    "yildiz": 142930,
+    "son": "2026-10-22",
+    "ozet": "100+ AI Agents, Agent Skills and RAG Apps - Free and Open Source."
+   }
+  ]
+ },
+ "turbo.ai": {
+  "host": "turbo.ai",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "next.js": 74,
+   "lucide": 26
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 173,
+  "sitemap_ornek": [
+   "https://www.turbo.ai",
+   "https://www.turbo.ai/turbolearn-ai",
+   "https://www.turbo.ai/ai-note-taker",
+   "https://www.turbo.ai/for-students",
+   "https://www.turbo.ai/terms-of-service",
+   "https://www.turbo.ai/privacy-policy",
+   "https://www.turbo.ai/support",
+   "https://www.turbo.ai/brainrot"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.turbo.ai/",
+  "baslik": "Turbo AI - Fastest Way to Learn",
+  "aciklama": "Join 10 million students using Turbo AI to make beautiful lessons, notes, flashcards, quizzes, and more. Free to start.",
+  "repo_bilgi": []
+ },
+ "uicollective.co": {
+  "host": "uicollective.co",
+  "durum": "ok",
+  "libs": {
+   "radix": 5,
+   "lucide": 156
+  },
+  "github": [
+   "zenoamaro/react-quill"
+  ],
+  "npm": [],
+  "sitemap_url": 230,
+  "sitemap_ornek": [
+   "https://uicollective.co/",
+   "https://uicollective.co/premium-courses",
+   "https://uicollective.co/academy-perks",
+   "https://uicollective.co/question",
+   "https://uicollective.co/ask-question",
+   "https://uicollective.co/introductions",
+   "https://uicollective.co/savings",
+   "https://uicollective.co/designer-tools-and-resources"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://uicollective.co/",
+  "baslik": "UI Collective | UI/UX Design Courses & Community",
+  "aciklama": "Hands-on design courses, bite-size AI design tutorials, and a community of working designers. Learn design systems, AI workflows, and career skills.",
+  "repo_bilgi": [
+   {
+    "repo": "zenoamaro/react-quill",
+    "lisans": "mit",
+    "yildiz": 7002,
+    "son": "2025-02-22",
+    "ozet": "A Quill component for React."
+   }
+  ]
+ },
+ "w3schools.com": {
+  "host": "w3schools.com",
+  "durum": "ok",
+  "libs": {
+   "lucide": 2
+  },
+  "github": [
+   "chrisveness/e121cffb51481bd1c142",
+   "facebook/regenerator",
+   "js-cookie/js-cookie"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.w3schools.com:443/",
+  "baslik": "W3Schools Online Web Tutorials",
+  "aciklama": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+  "repo_bilgi": [
+   {
+    "repo": "chrisveness/e121cffb51481bd1c142",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "facebook/regenerator",
+    "lisans": "mit",
+    "yildiz": 3822,
+    "son": "2024-02-29",
+    "ozet": "Source transformer enabling ECMAScript 6 generator functions in JavaScript-of-today."
+   },
+   {
+    "repo": "js-cookie/js-cookie",
+    "lisans": "mit",
+    "yildiz": 22569,
+    "son": "2026-10-23",
+    "ozet": "A simple, lightweight JavaScript API for handling cookies, client-side."
+   }
+  ]
+ },
+ "websiteprompts.ai": {
+  "host": "websiteprompts.ai",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 221,
+  "sitemap_ornek": [
+   "https://websiteprompts.ai/",
+   "https://websiteprompts.ai/prompts",
+   "https://websiteprompts.ai/blog",
+   "https://websiteprompts.ai/about",
+   "https://websiteprompts.ai/prompts/category/beauty",
+   "https://websiteprompts.ai/prompts/category/entertainment",
+   "https://websiteprompts.ai/prompts/category/light",
+   "https://websiteprompts.ai/prompts/category/minimal"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://websiteprompts.ai/",
+  "baslik": "Free AI Website Prompts for Lovable, Bolt &amp; More — Websiteprompts.ai",
+  "aciklama": "Free AI website prompts ready to paste into Lovable, Bolt, Claude, and more Built by a professional web designer.",
+  "repo_bilgi": []
+ },
+ "wordtune.com": {
+  "host": "wordtune.com",
+  "durum": "ok",
+  "libs": {
+   "lenis": 1,
+   "lottie": 5
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 347,
+  "sitemap_ornek": [
+   "https://wordtune.io",
+   "https://wordtune.io/ai-writing-assistant",
+   "https://wordtune.io/lp-old/aigenerative",
+   "https://wordtune.io/lp-old/aigenerative-v1",
+   "https://wordtune.io/lp-old/aigenerative-v2",
+   "https://wordtune.io/lp-old/aiwriting",
+   "https://wordtune.io/lp-old/trs/ar",
+   "https://wordtune.io/blog"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://wordtune.com/",
+  "baslik": "Wordtune — Express yourself with confidence",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "yapaytu.com": {
+  "host": "yapaytu.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 149,
+  "sitemap_ornek": [
+   "https://yapaytu.com/",
+   "https://yapaytu.com/yazilar/",
+   "https://yapaytu.com/instagram/",
+   "https://yapaytu.com/kelime/",
+   "https://yapaytu.com/hakkinda/",
+   "https://yapaytu.com/iletisim/",
+   "https://yapaytu.com/yayin-ilkeleri/",
+   "https://yapaytu.com/reklam/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://yapaytu.com/",
+  "baslik": "Yapay TU: Yapay zekânın Türkçesi",
+  "aciklama": "Yapay zekâ araçlarını Türkçe, sade ve denenmiş haliyle anlatan site. ChatGPT, Claude, Gemini rehberleri, prompt örnekleri ve ücretsiz araçlar.",
+  "repo_bilgi": []
+ },
+ "zed.dev": {
+  "host": "zed.dev",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 4,
+   "next.js": 946,
+   "lucide": 136
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1404,
+  "sitemap_ornek": [
+   "https://zed.dev/agentic-engineering",
+   "https://zed.dev",
+   "https://zed.dev/about",
+   "https://zed.dev/brand",
+   "https://zed.dev/jobs",
+   "https://zed.dev/team",
+   "https://zed.dev/values",
+   "https://zed.dev/code-of-conduct"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://zed.dev/",
+  "baslik": "Zed — Your last next editor",
+  "aciklama": "Zed is a high-performance, multiplayer code editor from the creators of Atom and Tree-sitter.",
+  "repo_bilgi": []
+ }
+}

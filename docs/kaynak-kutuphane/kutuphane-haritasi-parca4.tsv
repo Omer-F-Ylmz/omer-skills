@@ -1,0 +1,18 @@
+kutuphane	siteler	ne_icin	lisans	repo
+next.js	academy.openai.com,acquisition.com,aihero.dev,akademi.defneincekara.com,animations.dev,are.na,before.click,brilliant.org,bytebytego.com,codecademy.com,craft.gustavofior.com,dark.design,deeplearning.ai,deerflow.tech,edx.org,geeksforgeeks.org,haoqi.design,inspora.design,learn3d.ai,mobbin.com,nxtlvl.ai,rasulov.net,raycfu.com,skillsbuild.org,styles.refero.design,theincubator.xyz,turbo.ai,zed.dev	React framework	MIT	vercel/next.js
+gsap	crl-2026.webflow.io,dark.design,deck.gallery,details.so,geeksforgeeks.org,godly.design,howtotalktowhitekidsaboutracism.com,liamjohnston.ai,mindtools.com,navbar.gallery,networkchuck.com,oup.com,pricingpages.design,sololearn.com,sound.org,theincubator.xyz,turbo.ai	timeline/scroll animasyon	GSAP Standard	greensock/GSAP
+lucide	creatoreconomy.so,dark.design,deerflow.tech,details.so,how.to,kage.design,rasulov.net,raycfu.com,screensdesign.com,sitereel.ai,styles.refero.design,turbo.ai,uicollective.co,w3schools.com,webzooo.com,zed.dev	ikon	ISC	lucide-icons/lucide
+lottie	animations.dev,filatov.design,godly.design,meticsmedia.com,navbar.gallery,oup.com,protocols.io,prowritingaid.com,seandollwet.com,slack.dev,wordtune.com	vektör animasyon oynatma	MIT	airbnb/lottie-web
+tailwind	aisuccesslabjuliangoldie.com,brandlogo.co,freecodecamp.org,godly.design,kage.design,minimal.gallery,notebooklm.google.com,zed.dev	utility CSS	MIT	tailwindlabs/tailwindcss
+astro	brandlogo.co,curated.design,deck.gallery,details.so,futuredesigner.io,godly.design			
+framer-motion/motion	animations.dev,docs.nvidia.com,godly.design,raycfu.com,recent.design	React/JS animasyon	MIT	motiondivision/motion
+webgl-shader	crl-2026.webflow.io,howtotalktowhitekidsaboutracism.com,kage.design,maria.studio,sitereel.ai	GLSL shader	-	-
+nuxt/vue	anthropic.skilljar.com,appshots.design,illoca.unseen.co,nicelydone.club	Vue framework	MIT	nuxt/nuxt
+lenis	crl-2026.webflow.io,godly.design,illoca.unseen.co	smooth scroll	MIT	darkroomengineering/lenis
+svelte	collectui.com,godly.design,kage.design	UI framework	MIT	sveltejs/svelte
+radix	are.na,sitereel.ai,uicollective.co	erişilebilir primitive	MIT	radix-ui/primitives
+three.js	crl-2026.webflow.io,howtotalktowhitekidsaboutracism.com,maria.studio	3D render	MIT	mrdoob/three.js
+shadcn	aihero.dev,animations.dev	bileşen dağıtım modeli	MIT	shadcn-ui/ui
+codemirror/monaco	freecodecamp.org,notebooklm.google.com	kod editörü	MIT	microsoft/monaco-editor
+matter-js	crl-2026.webflow.io	2D fizik	MIT	liabru/matter-js
+rive	colab.research.google.com	etkileşimli animasyon	MIT	rive-app/rive-wasm

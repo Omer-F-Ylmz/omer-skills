@@ -1,0 +1,1870 @@
+{
+ "ace.c9.io": {
+  "host": "ace.c9.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "ajaxorg/ace",
+   "ajaxorg/ace-builds",
+   "ajaxorg/ace.git",
+   "ajaxorg/cloud9",
+   "cadorn/ace-extjs",
+   "convergencelabs/ace-collab-ext"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://ace.c9.io/",
+  "baslik": "Ace - The High Performance Code Editor for the Web",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "ajaxorg/ace",
+    "lisans": "other",
+    "yildiz": 27130,
+    "son": "2026-10-21",
+    "ozet": "Ace (Ajax.org Cloud9 Editor)"
+   },
+   {
+    "repo": "ajaxorg/ace-builds",
+    "lisans": "other",
+    "yildiz": 3093,
+    "son": "2026-10-21",
+    "ozet": "Packaged version of Ace code editor"
+   },
+   {
+    "repo": "ajaxorg/ace.git",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "ajaxorg/cloud9",
+    "lisans": "YOK",
+    "yildiz": 24,
+    "son": "2016-06-07",
+    "ozet": "Replaced by Cloud9 V3! https:/github.com/c9/core"
+   },
+   {
+    "repo": "cadorn/ace-extjs",
+    "lisans": "YOK",
+    "yildiz": 122,
+    "son": "2011-10-14",
+    "ozet": "ACE Editor for ExtJS"
+   },
+   {
+    "repo": "convergencelabs/ace-collab-ext",
+    "lisans": "mit",
+    "yildiz": 109,
+    "son": "2023-04-17",
+    "ozet": "Enhances the Ace Editor with real time collaboration user experience."
+   }
+  ]
+ },
+ "adele.uxpin.com": {
+  "host": "adele.uxpin.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "tailwind": 6
+  },
+  "github": [
+   "alexpate/awesome-design-systems",
+   "alfa-laboratory/arui-feather",
+   "alphagov/govuk-design-system",
+   "altinn/designsystem",
+   "ant-design/ant-design",
+   "appearhere/bloom"
+  ],
+  "npm": [
+   "@buildit/gravity-particles",
+   "@buildit/gravity-ui-web",
+   "@engie-group/fluid-design-system",
+   "@ffdc/uxg-angular-theme",
+   "@istreamplanet/pebble",
+   "@primer/css"
+  ],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://adele.uxpin.com/",
+  "baslik": "Adele – Design Systems and Pattern Libraries Repository",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "alexpate/awesome-design-systems",
+    "lisans": "unlicense",
+    "yildiz": 26198,
+    "son": "2026-10-06",
+    "ozet": "💅🏻 ⚒ A collection of awesome design systems"
+   },
+   {
+    "repo": "alfa-laboratory/arui-feather",
+    "lisans": "other",
+    "yildiz": 552,
+    "son": "2022-04-12",
+    "ozet": ""
+   },
+   {
+    "repo": "alphagov/govuk-design-system",
+    "lisans": "mit",
+    "yildiz": 682,
+    "son": "2026-10-23",
+    "ozet": "One place for service teams to find styles, components and patterns for designing government service"
+   },
+   {
+    "repo": "altinn/designsystem",
+    "lisans": "mit",
+    "yildiz": 42,
+    "son": "2025-10-13",
+    "ozet": "Altinn designsystem (deprecated)"
+   },
+   {
+    "repo": "ant-design/ant-design",
+    "lisans": "mit",
+    "yildiz": 99885,
+    "son": "2026-10-24",
+    "ozet": "An enterprise-class UI design language and React UI library"
+   },
+   {
+    "repo": "appearhere/bloom",
+    "lisans": "mit",
+    "yildiz": 53,
+    "son": "2025-03-04",
+    "ozet": "[ ] Pattern library 🐙"
+   }
+  ]
+ },
+ "arxivisual.org": {
+  "host": "arxivisual.org",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "framer-motion/motion": 1,
+   "next.js": 53
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 2,
+  "sitemap_ornek": [
+   "https://arxivisual.org",
+   "https://arxivisual.org/explore"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.arxivisual.org/",
+  "baslik": "arXivisual — arXiv Papers, Visualized",
+  "aciklama": "arXivisual transforms any arXiv research paper into an interactive scrollytelling experience with AI-generated Manim animations. Paste an arXiv URL and watch complex papers come to life.",
+  "repo_bilgi": []
+ },
+ "cadence.rubenstom.com": {
+  "host": "cadence.rubenstom.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 34,
+   "lenis": 3,
+   "framer-motion/motion": 1,
+   "lottie": 1
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://cadence.rubenstom.com/",
+  "baslik": "Cadence",
+  "aciklama": "Cadence — a collection of vibecoded motion: scroll, text, loading, hover and page transitions.",
+  "repo_bilgi": []
+ },
+ "catalog.ngc.nvidia.com": {
+  "host": "catalog.ngc.nvidia.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3296,
+  "sitemap_ornek": [
+   "https://catalog.ngc.nvidia.com/",
+   "https://catalog.ngc.nvidia.com/search",
+   "https://catalog.ngc.nvidia.com/containers",
+   "https://catalog.ngc.nvidia.com/collections",
+   "https://catalog.ngc.nvidia.com/helm-charts",
+   "https://catalog.ngc.nvidia.com/models",
+   "https://catalog.ngc.nvidia.com/resources",
+   "https://catalog.ngc.nvidia.com/orgs/0615409268808334/-/collections/test_collection_20251203_012146_gla_production/-"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://catalog.ngc.nvidia.com/",
+  "baslik": "GPU-optimized AI, Machine Learning, &amp; HPC Software | NVIDIA NGC",
+  "aciklama": "Explore GPU-optimized AI, machine learning, and HPC software, containers, models, and resources on the NVIDIA NGC Catalog.",
+  "repo_bilgi": []
+ },
+ "codebase.build": {
+  "host": "codebase.build",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://codebase.build/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "components.build": {
+  "host": "components.build",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 1,
+   "shadcn": 12,
+   "next.js": 454,
+   "svelte": 3,
+   "lucide": 35
+  },
+  "github": [
+   "vercel/components.build"
+  ],
+  "npm": [],
+  "sitemap_url": 320,
+  "sitemap_ornek": [
+   "https://www.components.build/",
+   "https://www.components.build/accessibility",
+   "https://www.components.build/as-child",
+   "https://www.components.build/composition",
+   "https://www.components.build/data-attributes",
+   "https://www.components.build/definitions",
+   "https://www.components.build/design-tokens",
+   "https://www.components.build/docs"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.components.build/",
+  "baslik": "Components.build",
+  "aciklama": "An open standard for building modern, composable and accessible UI components.",
+  "repo_bilgi": [
+   {
+    "repo": "vercel/components.build",
+    "lisans": "other",
+    "yildiz": 800,
+    "son": "2026-08-20",
+    "ozet": "An open-source standard for building modern, composable and accessible UI components."
+   }
+  ]
+ },
+ "craftwork.design": {
+  "host": "craftwork.design",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 17,
+   "shadcn": 1,
+   "next.js": 135
+  },
+  "github": [],
+  "npm": [
+   "@craftwork-design/wizard"
+  ],
+  "sitemap_url": 3963,
+  "sitemap_ornek": [
+   "https://craftwork.design",
+   "https://craftwork.design/1000-free-design-resources",
+   "https://craftwork.design/about",
+   "https://craftwork.design/assets",
+   "https://craftwork.design/authors",
+   "https://craftwork.design/become-an-author",
+   "https://craftwork.design/blog",
+   "https://craftwork.design/browse-tags"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://craftwork.design/",
+  "baslik": "Craftwork: UI Kits, Templates and Fonts Made by Real Designers",
+  "aciklama": "Figma UI kits, Framer templates, fonts, React components, icons, 3D and mockups made by real designers. Use them in Figma, in code or through your AI agent.",
+  "repo_bilgi": []
+ },
+ "cultofclaude.com": {
+  "host": "cultofclaude.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 4,
+   "shadcn": 3,
+   "astro": 7
+  },
+  "github": [
+   "affaan-m/everything-claude-code",
+   "anthropics/claude-code",
+   "iannuttall/claude-agents",
+   "lst97/claude-code-sub-agents",
+   "sangrokjung/claude-forge",
+   "wshobson/agents"
+  ],
+  "npm": [],
+  "sitemap_url": 33040,
+  "sitemap_ornek": [
+   "https://cultofclaude.com/skills/internal-comms/",
+   "https://cultofclaude.com/skills/algorithmic-art/",
+   "https://cultofclaude.com/skills/brand-guidelines/",
+   "https://cultofclaude.com/skills/canvas-design/",
+   "https://cultofclaude.com/skills/frontend-design/",
+   "https://cultofclaude.com/skills/slack-gif-creator/",
+   "https://cultofclaude.com/skills/theme-factory/",
+   "https://cultofclaude.com/skills/claude-api/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://cultofclaude.com/",
+  "baslik": "Claude Skills Marketplace: Browse 36,603 Skills &amp; 20,168 Agents | Cult of Claude",
+  "aciklama": "The Claude skills marketplace: 36,603 Claude Code skills and 20,168 subagents indexed from public GitHub, each with its source file, the tools it uses, a quality score and a copy-paste install command",
+  "repo_bilgi": [
+   {
+    "repo": "affaan-m/everything-claude-code",
+    "lisans": "mit",
+    "yildiz": 287861,
+    "son": "2026-10-20",
+    "ozet": "The agent harness performance optimization system. Skills, instincts, memory, security, and research"
+   },
+   {
+    "repo": "anthropics/claude-code",
+    "lisans": "YOK",
+    "yildiz": 153263,
+    "son": "2026-10-24",
+    "ozet": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and he"
+   },
+   {
+    "repo": "iannuttall/claude-agents",
+    "lisans": "mit",
+    "yildiz": 2040,
+    "son": "2025-07-25",
+    "ozet": "Custom subagents to use with Claude Code."
+   },
+   {
+    "repo": "lst97/claude-code-sub-agents",
+    "lisans": "mit",
+    "yildiz": 1701,
+    "son": "2025-08-15",
+    "ozet": "Collection of specialized AI subagents for Claude Code for personal use (full-stack development)."
+   },
+   {
+    "repo": "sangrokjung/claude-forge",
+    "lisans": "mit",
+    "yildiz": 863,
+    "son": "2026-09-03",
+    "ozet": "oh-my-zsh for Claude Code — 16 agents, 35 commands, 32 skills, 21 safety hooks in one install. v4.0 "
+   },
+   {
+    "repo": "wshobson/agents",
+    "lisans": "mit",
+    "yildiz": 41629,
+    "son": "2026-10-24",
+    "ozet": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, G"
+   }
+  ]
+ },
+ "delta.dev": {
+  "host": "delta.dev",
+  "durum": "ok",
+  "libs": {
+   "astro": 81
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 50,
+  "sitemap_ornek": [
+   "https://delta.dev",
+   "https://delta.dev/blog",
+   "https://delta.dev/blog/beyond-pass-rate",
+   "https://delta.dev/blog/escaping-the-tyranny-of-worktrees",
+   "https://delta.dev/blog/future-of-version-control",
+   "https://delta.dev/blog/planning-together-in-delta",
+   "https://delta.dev/blog/please-stop-sending-me-google-docs",
+   "https://delta.dev/blog/tagged/agents"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://delta.dev/",
+  "baslik": "Delta — A Multiplayer Environment for Coding with Agents",
+  "aciklama": "Build and review software with teammates and agents in shared threads, with every conversation and code change kept in context.",
+  "repo_bilgi": []
+ },
+ "design.cash.app": {
+  "host": "design.cash.app",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": false,
+  "final": "https://design.cash.app/",
+  "baslik": "Cash App Brand Guidelines",
+  "aciklama": "At its core, Cash App is a brand that thrives on the tension between structuring order and explosive freedom.",
+  "repo_bilgi": []
+ },
+ "designskills.dev": {
+  "host": "designskills.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 94,
+   "lenis": 20,
+   "framer-motion/motion": 18,
+   "tailwind": 41,
+   "shadcn": 29,
+   "svelte": 5
+  },
+  "github": [
+   "anthropics/skills",
+   "bergside/awesome-design-skills",
+   "designrique/ai-graphic-design-skill",
+   "elayadesign/ai-design-skills",
+   "elayadesign/redesign-skill",
+   "jiji262/claude-design-skill"
+  ],
+  "npm": [
+   "ux-ui-agent-skills"
+  ],
+  "sitemap_url": 234,
+  "sitemap_ornek": [
+   "https://designskills.dev/",
+   "https://designskills.dev/how-to-install",
+   "https://designskills.dev/sources",
+   "https://designskills.dev/what-is-a-design-skill",
+   "https://designskills.dev/skills/roku",
+   "https://designskills.dev/skills/bold",
+   "https://designskills.dev/skills/algorithmic-art",
+   "https://designskills.dev/skills/quiz-and-assessment-design"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://designskills.dev/",
+  "baslik": "Design Skills for AI Coding Agents",
+  "aciklama": "Every design skill for Claude Code, Codex and Cursor in one list. Search it, copy one command, done. Free and open source, credited to the people who wrote them.",
+  "repo_bilgi": [
+   {
+    "repo": "anthropics/skills",
+    "lisans": "YOK",
+    "yildiz": 183461,
+    "son": "2026-10-09",
+    "ozet": "Public repository for Agent Skills"
+   },
+   {
+    "repo": "bergside/awesome-design-skills",
+    "lisans": "mit",
+    "yildiz": 3329,
+    "son": "2026-06-28",
+    "ozet": "List of 67 awesome DESIGN.md and SKILL.md design skill files for agentic tools like Claude Design, G"
+   },
+   {
+    "repo": "designrique/ai-graphic-design-skill",
+    "lisans": "mit",
+    "yildiz": 27,
+    "son": "2026-04-01",
+    "ozet": "Claude Code skill for creating logos, brand identities, and visual assets using AI — tool selection,"
+   },
+   {
+    "repo": "elayadesign/ai-design-skills",
+    "lisans": "mit",
+    "yildiz": 2846,
+    "son": "2026-07-29",
+    "ozet": ""
+   },
+   {
+    "repo": "elayadesign/redesign-skill",
+    "lisans": "mit",
+    "yildiz": 270,
+    "son": "2026-07-20",
+    "ozet": ""
+   },
+   {
+    "repo": "jiji262/claude-design-skill",
+    "lisans": "mit",
+    "yildiz": 211,
+    "son": "2026-07-15",
+    "ozet": "A portable Claude Skill that turns Claude into an expert designer for HTML artifacts — decks, landin"
+   }
+  ]
+ },
+ "designsystemlabs.co": {
+  "host": "designsystemlabs.co",
+  "durum": "ok",
+  "libs": {
+   "radix": 1,
+   "lucide": 27
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 9,
+  "sitemap_ornek": [
+   "https://designsystemlabs.co/",
+   "https://designsystemlabs.co/design-systems",
+   "https://designsystemlabs.co/coded-components",
+   "https://designsystemlabs.co/documentation",
+   "https://designsystemlabs.co/ai-support",
+   "https://designsystemlabs.co/plans",
+   "https://designsystemlabs.co/consultation",
+   "https://designsystemlabs.co/privacy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://designsystemlabs.co/",
+  "baslik": "Design System Labs | Official Site | Design System Agency",
+  "aciklama": "Custom design systems, AI-ready component libraries, and systematic design infrastructure - built for teams that move fast.",
+  "repo_bilgi": []
+ },
+ "dsc.gg": {
+  "host": "dsc.gg",
+  "durum": "ok",
+  "libs": {
+   "lucide": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://dsc.gg/",
+  "baslik": "dsc.gg - Shorten your Discord links",
+  "aciklama": "Stand out from the crowd with custom short links for Discord that boost clicks and engagement.",
+  "repo_bilgi": []
+ },
+ "excalidraw.com": {
+  "host": "excalidraw.com",
+  "durum": "ok",
+  "libs": {
+   "radix": 1
+  },
+  "github": [
+   "nodeca/pako",
+   "pmndrs/jotai"
+  ],
+  "npm": [],
+  "sitemap_url": 1,
+  "sitemap_ornek": [
+   "https://excalidraw.com/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://excalidraw.com/",
+  "baslik": "Excalidraw Whiteboard",
+  "aciklama": "Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
+  "repo_bilgi": [
+   {
+    "repo": "nodeca/pako",
+    "lisans": "mit",
+    "yildiz": 6126,
+    "son": "2026-10-24",
+    "ozet": "high speed zlib port to javascript, works in browser & node.js"
+   },
+   {
+    "repo": "pmndrs/jotai",
+    "lisans": "mit",
+    "yildiz": 21297,
+    "son": "2026-10-23",
+    "ozet": "👻 Primitive and flexible state management for React"
+   }
+  ]
+ },
+ "getbootstrap.com": {
+  "host": "getbootstrap.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "twbs/bootstrap",
+   "twbs/examples",
+   "twbs/icons"
+  ],
+  "npm": [],
+  "sitemap_url": 221,
+  "sitemap_ornek": [
+   "https://getbootstrap.com/",
+   "https://getbootstrap.com/components/",
+   "https://getbootstrap.com/content/",
+   "https://getbootstrap.com/customize/",
+   "https://getbootstrap.com/docs/6.0/components/",
+   "https://getbootstrap.com/docs/6.0/components/accordion/",
+   "https://getbootstrap.com/docs/6.0/components/alert/",
+   "https://getbootstrap.com/docs/6.0/components/alerts/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://getbootstrap.com/",
+  "baslik": "Bootstrap · The most popular HTML, CSS, and JS library in the world.",
+  "aciklama": "Powerful, extensible, and feature-packed frontend toolkit. Build and customize with Sass, utilize prebuilt grid system and components, and bring projects to life with powerful JavaScript plugins.",
+  "repo_bilgi": [
+   {
+    "repo": "twbs/bootstrap",
+    "lisans": "mit",
+    "yildiz": 175009,
+    "son": "2026-10-24",
+    "ozet": "The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first project"
+   },
+   {
+    "repo": "twbs/examples",
+    "lisans": "mit",
+    "yildiz": 718,
+    "son": "2026-10-21",
+    "ozet": "Functional examples of using Bootstrap in common JS frameworks like Webpack, Parcel, Vite, and more!"
+   },
+   {
+    "repo": "twbs/icons",
+    "lisans": "mit",
+    "yildiz": 8160,
+    "son": "2026-10-12",
+    "ozet": "Official open source SVG icon library for Bootstrap."
+   }
+  ]
+ },
+ "getrubric.app": {
+  "host": "getrubric.app",
+  "durum": "ok",
+  "libs": {
+   "webgl-shader": 14
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.getrubric.app/",
+  "baslik": "RUBRIC - The Command Centre for AI Agents",
+  "aciklama": "A visual layer to centralise what you and your agents are doing. Flows, skills, sprints, docs - all in one dashboard.",
+  "repo_bilgi": []
+ },
+ "ghcr.io": {
+  "host": "ghcr.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "_private/browser",
+   "apps/desktop",
+   "cmc_internal/api",
+   "en/billing",
+   "enterprise/premium-support",
+   "enterprise/startups"
+  ],
+  "npm": [],
+  "sitemap_url": 375,
+  "sitemap_ornek": [
+   "https://github.com",
+   "https://github.com/about",
+   "https://github.com/about/diversity",
+   "https://github.com/about/diversity/report",
+   "https://github.com/about/leadership",
+   "https://github.com/about/press",
+   "https://github.com/customer-stories",
+   "https://github.com/customer-stories/3m"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://github.com/features/actions",
+  "baslik": "GitHub Actions · CI/CD and automations · Agentic Workflows · Workflows · GitHub",
+  "aciklama": "Easily build, package, release, update, and deploy your project in any language—on GitHub or any external system—without having to run code yourself.",
+  "repo_bilgi": [
+   {
+    "repo": "_private/browser",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "apps/desktop",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "cmc_internal/api",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "en/billing",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "enterprise/premium-support",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "enterprise/startups",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "gpui.rs": {
+  "host": "gpui.rs",
+  "durum": "ok",
+  "libs": {
+   "astro": 1
+  },
+  "github": [
+   "apps/renovate",
+   "zed-industries/zed"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://gpui.rs/",
+  "baslik": "GPUI",
+  "aciklama": "A fast, hybrid immediate and retained mode, GPU-accelerated UI framework for Rust from the creators of Zed and Delta.",
+  "repo_bilgi": [
+   {
+    "repo": "apps/renovate",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "zed-industries/zed",
+    "lisans": "other",
+    "yildiz": 92140,
+    "son": "2026-10-24",
+    "ozet": "Code at the speed of thought – Zed is a high-performance, multiplayer code editor from the creators "
+   }
+  ]
+ },
+ "hairline.lucasmarkes.com": {
+  "host": "hairline.lucasmarkes.com",
+  "durum": "ok",
+  "libs": {
+   "shadcn": 2,
+   "next.js": 38
+  },
+  "github": [
+   "lucasmarkes/hairline"
+  ],
+  "npm": [
+   "@lucasmarkes/hairline"
+  ],
+  "sitemap_url": 5,
+  "sitemap_ornek": [
+   "https://hairline.lucasmarkes.com",
+   "https://hairline.lucasmarkes.com/figures",
+   "https://hairline.lucasmarkes.com/docs",
+   "https://hairline.lucasmarkes.com/skills",
+   "https://hairline.lucasmarkes.com/inspo"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://hairline.lucasmarkes.com/",
+  "baslik": "hairline",
+  "aciklama": "Thirty-three isometric line figures that answer the pointer. SVG, no dependencies, for React and for everything else.",
+  "repo_bilgi": [
+   {
+    "repo": "lucasmarkes/hairline",
+    "lisans": "mit",
+    "yildiz": 2834,
+    "son": "2026-10-14",
+    "ozet": "Isometric line figures that answer the pointer. For React and for anything with a DOM."
+   }
+  ]
+ },
+ "highlightjs.org": {
+  "host": "highlightjs.org",
+  "durum": "ok",
+  "libs": {
+   "next.js": 39
+  },
+  "github": [
+   "highlightjs/highlight.js",
+   "highlightjs/highlightjs.org"
+  ],
+  "npm": [
+   "highlight.js"
+  ],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://highlightjs.org/",
+  "baslik": "highlight.js",
+  "aciklama": "The Internet&#x27;s favorite JavaScript syntax highlighter supporting Node.js and the web.",
+  "repo_bilgi": [
+   {
+    "repo": "highlightjs/highlight.js",
+    "lisans": "bsd-3-clause",
+    "yildiz": 25008,
+    "son": "2026-09-06",
+    "ozet": "JavaScript syntax highlighter with language auto-detection and zero dependencies."
+   },
+   {
+    "repo": "highlightjs/highlightjs.org",
+    "lisans": "YOK",
+    "yildiz": 35,
+    "son": "2026-08-16",
+    "ozet": "The source code for the official highlightjs.org website, powered by Next.js"
+   }
+  ]
+ },
+ "horizonx.so": {
+  "host": "horizonx.so",
+  "durum": "ok",
+  "libs": {
+   "gsap": 103,
+   "lenis": 19,
+   "framer-motion/motion": 66,
+   "tailwind": 15,
+   "svelte": 1227,
+   "lucide": 6
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://horizonx.so/",
+  "baslik": "HorizonX | UI Kits, Textures, Shaders &amp; Mockups for Vibe Coders",
+  "aciklama": "Animated shader backgrounds, textures, mockups, Figma UI kits and interactive React components, ready to use in Claude Code, Cursor, Codex and Lovable.",
+  "repo_bilgi": []
+ },
+ "img.shields.io": {
+  "host": "img.shields.io",
+  "durum": "ok",
+  "libs": {
+   "lucide": 3
+  },
+  "github": [
+   "badges/awesome-badges",
+   "badges/endpoint-badges-directory",
+   "badges/shields"
+  ],
+  "npm": [
+   "badge-maker"
+  ],
+  "sitemap_url": 643,
+  "sitemap_ornek": [
+   "https://shields.io/blog",
+   "https://shields.io/blog/archive",
+   "https://shields.io/blog/CVE-2025-54313",
+   "https://shields.io/blog/GHSA-rxvx-x284-4445",
+   "https://shields.io/blog/mit-apache-license",
+   "https://shields.io/blog/new-frontend",
+   "https://shields.io/blog/page/2",
+   "https://shields.io/blog/simple-icons-10"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://shields.io/",
+  "baslik": "Shields.io",
+  "aciklama": "Concise, consistent, and legible badges",
+  "repo_bilgi": [
+   {
+    "repo": "badges/awesome-badges",
+    "lisans": "cc0-1.0",
+    "yildiz": 1036,
+    "son": "2026-10-14",
+    "ozet": "A curated collection of awesome things related to status badges"
+   },
+   {
+    "repo": "badges/endpoint-badges-directory",
+    "lisans": "apache-2.0",
+    "yildiz": 7,
+    "son": "2026-06-14",
+    "ozet": "A collection of APIs compatible with Shields.io's endpoint badge"
+   },
+   {
+    "repo": "badges/shields",
+    "lisans": "apache-2.0",
+    "yildiz": 27313,
+    "son": "2026-10-24",
+    "ozet": "Concise, consistent, and legible badges in SVG and raster format"
+   }
+  ]
+ },
+ "jquery.com": {
+  "host": "jquery.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "jquery/jquery",
+   "jquery/typesense-minibar"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://jquery.com/",
+  "baslik": "jQuery",
+  "aciklama": "jQuery: The Write Less, Do More, JavaScript Library",
+  "repo_bilgi": [
+   {
+    "repo": "jquery/jquery",
+    "lisans": "mit",
+    "yildiz": 59911,
+    "son": "2026-10-16",
+    "ozet": "jQuery JavaScript Library"
+   },
+   {
+    "repo": "jquery/typesense-minibar",
+    "lisans": "mit",
+    "yildiz": 74,
+    "son": "2024-08-24",
+    "ozet": "Fast 2kB autocomplete search bar. Alternative to Algolia DocSearch, InstantSearch, and autocomplete-"
+   }
+  ]
+ },
+ "kit.dev": {
+  "host": "kit.dev",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 36,
+   "radix": 3,
+   "shadcn": 648,
+   "next.js": 62,
+   "svelte": 68,
+   "lucide": 225
+  },
+  "github": [
+   "shadcnio/issues"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://kit.dev/",
+  "baslik": "shadcn/ui Blocks, Components &amp; Templates for AI Agents | shadcn.io",
+  "aciklama": "6,181 blocks, 14 templates and 174 components for React, Vue, Svelte and Solid. Ask your agent, and it installs them in your theme.",
+  "repo_bilgi": [
+   {
+    "repo": "shadcnio/issues",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "kolekti.com": {
+  "host": "kolekti.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 59
+  },
+  "github": [
+   "styled-components/styled-components",
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 423,
+  "sitemap_ornek": [
+   "https://www.kolekti.com/resources/blog/designing-pages-confluence-cloud-easier-dc",
+   "https://www.kolekti.com/resources/blog/why-you-need-meet-the-team-page-confluence",
+   "https://www.kolekti.com/resources/blog/adding-symbols-and-emojis-in-confluence",
+   "https://www.kolekti.com/resources/blog/unarchive-trello-cards-and-lists",
+   "https://www.kolekti.com/authors/daniel-domene-martinez",
+   "https://www.kolekti.com/resources/blog/get-more-value-forms-for-confluence",
+   "https://www.kolekti.com/resources/blog/how-to-plan-a-form-confluence",
+   "https://www.kolekti.com/resources/blog/what-is-single-source-of-truth"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.kolekti.com/",
+  "baslik": "Kolekti  |  Inspire brilliant work in Confluence",
+  "aciklama": "Turn pages from bland to brilliant with Mosaic for Confluence",
+  "repo_bilgi": [
+   {
+    "repo": "styled-components/styled-components",
+    "lisans": "mit",
+    "yildiz": 41061,
+    "son": "2026-10-19",
+    "ozet": "Fast, expressive styling for React. Server components, client components, streaming SSR, React Nativ"
+   },
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "libraries.dev": {
+  "host": "libraries.dev",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 1
+  },
+  "github": [
+   "jakubantalik/libraries.dev"
+  ],
+  "npm": [],
+  "sitemap_url": 17,
+  "sitemap_ornek": [
+   "https://libraries.dev/",
+   "https://libraries.dev/beam",
+   "https://libraries.dev/orbs",
+   "https://libraries.dev/gooey",
+   "https://libraries.dev/voice",
+   "https://libraries.dev/bots",
+   "https://libraries.dev/metal",
+   "https://libraries.dev/image"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://libraries.dev/",
+  "baslik": "Libraries.dev: High-crafted UI libraries for AI agents",
+  "aciklama": "Seven open-source React effects for AI interfaces: animated borders, thinking indicators, voice visualizers, bot avatars, liquid metal and image loaders. Install from npm.",
+  "repo_bilgi": [
+   {
+    "repo": "jakubantalik/libraries.dev",
+    "lisans": "mit",
+    "yildiz": 4469,
+    "son": "2026-10-21",
+    "ozet": "Libraries and models for next-gen UI"
+   }
+  ]
+ },
+ "macos.telegram.org": {
+  "host": "macos.telegram.org",
+  "durum": "ok",
+  "libs": {
+   "lottie": 55
+  },
+  "github": [
+   "overtake/telegramswift"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://macos.telegram.org/",
+  "baslik": "Telegram for macOS",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "overtake/telegramswift",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "n8n-skills.com": {
+  "host": "n8n-skills.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 94,
+   "lucide": 211
+  },
+  "github": [
+   "czlonkowski/n8n-mcp",
+   "czlonkowski/n8n-skills",
+   "czlonkowski/n8n-skills.git"
+  ],
+  "npm": [],
+  "sitemap_url": 2,
+  "sitemap_ornek": [
+   "https://www.n8n-skills.com/",
+   "https://www.n8n-skills.com/privacy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.n8n-skills.com/",
+  "baslik": "n8n Skills - Agent Skills and n8n-mcp Plugin",
+  "aciklama": "14 complementary agent skills, an always-on router, and a portable Agent Plugin that connects supported clients to hosted n8n-mcp over OAuth.",
+  "repo_bilgi": [
+   {
+    "repo": "czlonkowski/n8n-mcp",
+    "lisans": "mit",
+    "yildiz": 23126,
+    "son": "2026-10-24",
+    "ozet": "A MCP for Claude Desktop / Claude Code / Windsurf / Cursor to build n8n workflows for you "
+   },
+   {
+    "repo": "czlonkowski/n8n-skills",
+    "lisans": "mit",
+    "yildiz": 6517,
+    "son": "2026-10-24",
+    "ozet": "n8n skillset for Claude Code to build flawless n8n workflows"
+   },
+   {
+    "repo": "czlonkowski/n8n-skills.git",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "open-design.ai": {
+  "host": "open-design.ai",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "nexu-io/open-design",
+   "repos/nexu-io"
+  ],
+  "npm": [],
+  "sitemap_url": 462,
+  "sitemap_ornek": [
+   "https://open-design.ai/agents/",
+   "https://open-design.ai/agents/aider-design/",
+   "https://open-design.ai/agents/antigravity-design/",
+   "https://open-design.ai/agents/claude-code-design/",
+   "https://open-design.ai/agents/codex-design/",
+   "https://open-design.ai/agents/copilot-design/",
+   "https://open-design.ai/agents/cursor-design/",
+   "https://open-design.ai/agents/deepseek-design/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://open-design.ai/",
+  "baslik": "OpenDesign — Best Open Source Claude Design Alternative",
+  "aciklama": "Open-source vibe design workspace &amp; Claude Design alternative — build prototypes, landing pages, dashboards, slides &amp; HTML video with your own coding agent.",
+  "repo_bilgi": [
+   {
+    "repo": "nexu-io/open-design",
+    "lisans": "apache-2.0",
+    "yildiz": 103732,
+    "son": "2026-10-24",
+    "ozet": "The 1st Collaborative AI Design Agent Workspace. Local-first and open source. Create motion, prototy"
+   },
+   {
+    "repo": "repos/nexu-io",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "paperanimator.com": {
+  "host": "paperanimator.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 511
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 8,
+  "sitemap_ornek": [
+   "https://paperanimator.com",
+   "https://paperanimator.com/pricing",
+   "https://paperanimator.com/motion-lab",
+   "https://paperanimator.com/text-match-cut",
+   "https://paperanimator.com/terms-of-service",
+   "https://paperanimator.com/privacy-policy",
+   "https://paperanimator.com/cookie-policy",
+   "https://paperanimator.com/refund-policy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://paperanimator.com/",
+  "baslik": "PaperAnimator.com | Paper Animations &amp; Animated Text",
+  "aciklama": "Turn photos into paper animations, create animated text and make text match cuts in your browser. Try PaperAnimator free.",
+  "repo_bilgi": []
+ },
+ "polycasts.com": {
+  "host": "polycasts.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://polycasts.com/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "pptr.dev": {
+  "host": "pptr.dev",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "chromedevtools/chrome-devtools-mcp",
+   "npm/rfcs",
+   "puppeteer/puppeteer"
+  ],
+  "npm": [],
+  "sitemap_url": 1485,
+  "sitemap_ornek": [
+   "https://pptr.dev/search",
+   "https://pptr.dev/next",
+   "https://pptr.dev/next/api",
+   "https://pptr.dev/next/api/puppeteer.accessibility",
+   "https://pptr.dev/next/api/puppeteer.accessibility.snapshot",
+   "https://pptr.dev/next/api/puppeteer.actionoptions",
+   "https://pptr.dev/next/api/puppeteer.actionresult",
+   "https://pptr.dev/next/api/puppeteer.adapterstate"
+  ],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://pptr.dev/",
+  "baslik": "Puppeteer",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "chromedevtools/chrome-devtools-mcp",
+    "lisans": "apache-2.0",
+    "yildiz": 54082,
+    "son": "2026-10-23",
+    "ozet": "Chrome DevTools for coding agents"
+   },
+   {
+    "repo": "npm/rfcs",
+    "lisans": "other",
+    "yildiz": 780,
+    "son": "2026-09-15",
+    "ozet": "Public change requests/proposals & ideation"
+   },
+   {
+    "repo": "puppeteer/puppeteer",
+    "lisans": "apache-2.0",
+    "yildiz": 95739,
+    "son": "2026-10-23",
+    "ozet": "JavaScript API for Chrome and Firefox"
+   }
+  ]
+ },
+ "raw.githubusercontent.com": {
+  "host": "raw.githubusercontent.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "_private/browser",
+   "apps/desktop",
+   "cmc_internal/api",
+   "enterprise/premium-support",
+   "enterprise/startups",
+   "get-started/accessibility"
+  ],
+  "npm": [],
+  "sitemap_url": 375,
+  "sitemap_ornek": [
+   "https://github.com",
+   "https://github.com/about",
+   "https://github.com/about/diversity",
+   "https://github.com/about/diversity/report",
+   "https://github.com/about/leadership",
+   "https://github.com/about/press",
+   "https://github.com/customer-stories",
+   "https://github.com/customer-stories/3m"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://github.com/",
+  "baslik": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub · GitHub",
+  "aciklama": "Join the world&#39;s most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity.",
+  "repo_bilgi": [
+   {
+    "repo": "_private/browser",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "apps/desktop",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "cmc_internal/api",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "enterprise/premium-support",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "enterprise/startups",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "get-started/accessibility",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "readymag.com": {
+  "host": "readymag.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1666,
+  "sitemap_ornek": [
+   "https://readymag.com",
+   "https://readymag.com/affiliate",
+   "https://readymag.com/examples",
+   "https://readymag.com/templates",
+   "https://readymag.com/about",
+   "https://readymag.com/features",
+   "https://readymag.com/learn",
+   "https://readymag.com/npo"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://readymag.com/",
+  "baslik": "Readymag – the design tool for outstanding websites",
+  "aciklama": "Make the web more like you",
+  "repo_bilgi": []
+ },
+ "scrollhaus.ai": {
+  "host": "scrollhaus.ai",
+  "durum": "ok",
+  "libs": {
+   "three.js": 3,
+   "gsap": 12,
+   "framer-motion/motion": 2,
+   "tailwind": 12
+  },
+  "github": [
+   "amj1994/scrollhaus-free",
+   "amj1994/scrollhaus-vault",
+   "cristianolivera1/openhero"
+  ],
+  "npm": [],
+  "sitemap_url": 494,
+  "sitemap_ornek": [
+   "https://scrollhaus.ai/",
+   "https://scrollhaus.ai/prompts/",
+   "https://scrollhaus.ai/creative/",
+   "https://scrollhaus.ai/components/",
+   "https://scrollhaus.ai/templates/3d/",
+   "https://scrollhaus.ai/templates/",
+   "https://scrollhaus.ai/backgrounds/",
+   "https://scrollhaus.ai/effects/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://scrollhaus.ai/",
+  "baslik": "Scrollhaus AI — Animated Website Templates &amp; Source Code",
+  "aciklama": "Preview free animated website templates and editable source for Lovable, Bolt and Claude Code. Monthly premium access is $29.99; other plans available.",
+  "repo_bilgi": [
+   {
+    "repo": "amj1994/scrollhaus-free",
+    "lisans": "YOK",
+    "yildiz": 2,
+    "son": "2026-10-16",
+    "ozet": "Free scroll-animated website templates for Lovable, Bolt, Claude and Codex. Live previews at scrollh"
+   },
+   {
+    "repo": "amj1994/scrollhaus-vault",
+    "lisans": "YOK",
+    "yildiz": 0,
+    "son": "2026-09-12",
+    "ozet": "Paid Scrollhaus site sources and specs — served via authenticated Edge Function, never browsed direc"
+   },
+   {
+    "repo": "cristianolivera1/openhero",
+    "lisans": "mit",
+    "yildiz": 403,
+    "son": "2026-08-03",
+    "ozet": "The free, open collection of cinematic video hero sections Browse, preview, copy & download producti"
+   }
+  ]
+ },
+ "shadcnblocks.com": {
+  "host": "shadcnblocks.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 6,
+   "tailwind": 47,
+   "radix": 3,
+   "shadcn": 647,
+   "astro": 26,
+   "lucide": 286
+  },
+  "github": [
+   "shadcnblocks/shadcn-ui-blocks"
+  ],
+  "npm": [],
+  "sitemap_url": 5500,
+  "sitemap_ornek": [
+   "https://www.shadcnblocks.com",
+   "https://www.shadcnblocks.com/blocks",
+   "https://www.shadcnblocks.com/blocks/free",
+   "https://www.shadcnblocks.com/components",
+   "https://www.shadcnblocks.com/pages",
+   "https://www.shadcnblocks.com/explorer",
+   "https://www.shadcnblocks.com/explorer/blocks",
+   "https://www.shadcnblocks.com/explorer/components"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.shadcnblocks.com/",
+  "baslik": "Shadcnblocks shadcn/ui blocks &amp; components",
+  "aciklama": "Discover hundreds of extra shadcn/ui blocks and Shadcn UI components. Shadcnblocks is a premium component library built with Shadcn UI, React &#38; Tailwind.",
+  "repo_bilgi": [
+   {
+    "repo": "shadcnblocks/shadcn-ui-blocks",
+    "lisans": "other",
+    "yildiz": 410,
+    "son": "2025-10-09",
+    "ozet": "Hundreds of extra shadcn ui blocks & components."
+   }
+  ]
+ },
+ "shields.io": {
+  "host": "shields.io",
+  "durum": "ok",
+  "libs": {
+   "lucide": 3
+  },
+  "github": [
+   "badges/awesome-badges",
+   "badges/endpoint-badges-directory",
+   "badges/shields"
+  ],
+  "npm": [
+   "badge-maker"
+  ],
+  "sitemap_url": 643,
+  "sitemap_ornek": [
+   "https://shields.io/blog",
+   "https://shields.io/blog/archive",
+   "https://shields.io/blog/CVE-2025-54313",
+   "https://shields.io/blog/GHSA-rxvx-x284-4445",
+   "https://shields.io/blog/mit-apache-license",
+   "https://shields.io/blog/new-frontend",
+   "https://shields.io/blog/page/2",
+   "https://shields.io/blog/simple-icons-10"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://shields.io/",
+  "baslik": "Shields.io",
+  "aciklama": "Concise, consistent, and legible badges",
+  "repo_bilgi": [
+   {
+    "repo": "badges/awesome-badges",
+    "lisans": "cc0-1.0",
+    "yildiz": 1036,
+    "son": "2026-10-14",
+    "ozet": "A curated collection of awesome things related to status badges"
+   },
+   {
+    "repo": "badges/endpoint-badges-directory",
+    "lisans": "apache-2.0",
+    "yildiz": 7,
+    "son": "2026-06-14",
+    "ozet": "A collection of APIs compatible with Shields.io's endpoint badge"
+   },
+   {
+    "repo": "badges/shields",
+    "lisans": "apache-2.0",
+    "yildiz": 27313,
+    "son": "2026-10-24",
+    "ozet": "Concise, consistent, and legible badges in SVG and raster format"
+   }
+  ]
+ },
+ "shots.so": {
+  "host": "shots.so",
+  "durum": "ok",
+  "libs": {
+   "next.js": 41
+  },
+  "github": [
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://shots.so/",
+  "baslik": "Shots - Create Amazing Mockups",
+  "aciklama": "Create Amazing Mockups",
+  "repo_bilgi": [
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "socket.io": {
+  "host": "socket.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "socketio/socket.io",
+   "socketio/socket.io-website"
+  ],
+  "npm": [],
+  "sitemap_url": 222,
+  "sitemap_ornek": [
+   "https://socket.io/blog",
+   "https://socket.io/blog/admin-ui-first-release/",
+   "https://socket.io/blog/archive",
+   "https://socket.io/blog/bun-engine/",
+   "https://socket.io/blog/chat-platform/",
+   "https://socket.io/blog/engine-io-4-release/",
+   "https://socket.io/blog/introducing-socket-io-1-0/",
+   "https://socket.io/blog/monorepo/"
+  ],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://socket.io/",
+  "baslik": "Socket.IO",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "socketio/socket.io",
+    "lisans": "mit",
+    "yildiz": 63224,
+    "son": "2026-09-29",
+    "ozet": "Bidirectional and low-latency communication for every platform"
+   },
+   {
+    "repo": "socketio/socket.io-website",
+    "lisans": "YOK",
+    "yildiz": 342,
+    "son": "2026-10-20",
+    "ozet": "Socket.IO website and blog"
+   }
+  ]
+ },
+ "stably.ai": {
+  "host": "stably.ai",
+  "durum": "ok",
+  "libs": {
+   "next.js": 219,
+   "webgl-shader": 2,
+   "lucide": 88
+  },
+  "github": [
+   "stablyai/orca"
+  ],
+  "npm": [],
+  "sitemap_url": 48,
+  "sitemap_ornek": [
+   "https://www.stably.ai/",
+   "https://www.stably.ai/pricing",
+   "https://www.stably.ai/features",
+   "https://www.stably.ai/blog",
+   "https://www.stably.ai/use-cases",
+   "https://www.stably.ai/playwright",
+   "https://www.stably.ai/features/plain-english-tests",
+   "https://www.stably.ai/features/playwright-code-generation"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.stably.ai/",
+  "baslik": "Stably",
+  "aciklama": "Use AI to automate and accelerate your web app testing. Stably dramatically reduces QA time and improves accuracy for teams of all sizes.",
+  "repo_bilgi": [
+   {
+    "repo": "stablyai/orca",
+    "lisans": "mit",
+    "yildiz": 104708,
+    "son": "2026-10-24",
+    "ozet": "Orca is the place for working with a fleet of agents (e.g. Grok Bot, Claude Code). Run any coding ag"
+   }
+  ]
+ },
+ "stagehand.dev": {
+  "host": "stagehand.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "next.js": 80
+  },
+  "github": [
+   "browserbase/integrations",
+   "browserbase/stagehand"
+  ],
+  "npm": [],
+  "sitemap_url": 21,
+  "sitemap_ornek": [
+   "https://stagehand.dev",
+   "https://stagehand.dev/evals",
+   "https://stagehand.dev/blog",
+   "https://stagehand.dev/blog/changelog-stagehand-4-1",
+   "https://stagehand.dev/blog/changelog-stagehand-4-2",
+   "https://stagehand.dev/blog/changelog-stagehand-4-3",
+   "https://stagehand.dev/blog/codex-stagehand-vs-playwright",
+   "https://stagehand.dev/blog/html-vs-markdown-vs-accessibility-tree-llm"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.stagehand.dev/",
+  "baslik": "The SDK for browser agents | Stagehand",
+  "aciklama": "Stagehand is the SDK for browser agents. Playwright-style API, self-healing selectors, and TypeScript, Python, and Go, running as an extension inside the browser so remote browsers are as fast as loca",
+  "repo_bilgi": [
+   {
+    "repo": "browserbase/integrations",
+    "lisans": "mit",
+    "yildiz": 18,
+    "son": "2026-10-22",
+    "ozet": "Browserbase's Integrations"
+   },
+   {
+    "repo": "browserbase/stagehand",
+    "lisans": "mit",
+    "yildiz": 25799,
+    "son": "2026-10-23",
+    "ozet": "The SDK to extract data and interact with any site on the web. Get started with Claude Code, Codex, "
+   }
+  ]
+ },
+ "stitch.build": {
+  "host": "stitch.build",
+  "durum": "hata: URLError <urlopen error timed out>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "superdesign.dev": {
+  "host": "superdesign.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "radix": 2,
+   "lucide": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1419,
+  "sitemap_ornek": [
+   "https://superdesign.dev/",
+   "https://superdesign.dev/library",
+   "https://superdesign.dev/design-systems",
+   "https://superdesign.dev/ai-wireframe-generator",
+   "https://superdesign.dev/screenshot-to-code",
+   "https://superdesign.dev/prompt-to-design",
+   "https://superdesign.dev/ai-web-design-generator",
+   "https://superdesign.dev/ai-ui-generator"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://superdesign.dev/",
+  "baslik": "Superdesign - AI Product Design Agent | UI from a Prompt",
+  "aciklama": "Superdesign is an AI product design agent that turns natural-language prompts into UI mockups, components and full designs on an infinite canvas. Free to start.",
+  "repo_bilgi": []
+ },
+ "swarms.xyz": {
+  "host": "swarms.xyz",
+  "durum": "ok",
+  "libs": {
+   "next.js": 229,
+   "lucide": 332
+  },
+  "github": [
+   "date-fns/date-fns",
+   "kyegomez/swarms",
+   "the-swarm-corporation/autohedge",
+   "the-swarm-corporation/clawswarm"
+  ],
+  "npm": [],
+  "sitemap_url": 292,
+  "sitemap_ornek": [
+   "https://www.swarms.ai",
+   "https://www.swarms.ai/academy",
+   "https://www.swarms.ai/academy/swarms-api",
+   "https://www.swarms.ai/academy/swarms-api/foundations",
+   "https://www.swarms.ai/academy/swarms-api/agent-capabilities",
+   "https://www.swarms.ai/academy/swarms-api/multi-agent-orchestration",
+   "https://www.swarms.ai/academy/swarms-api/production",
+   "https://www.swarms.ai/products"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.swarms.xyz/",
+  "baslik": "Swarms AI — Multi-Agent Framework &amp; Agent Marketplace",
+  "aciklama": "Swarms is the enterprise-grade multi-agent framework for building, deploying, and scaling AI agents in Python and Rust — with a hosted agent API and a marketplace to buy and sell agents, prompts, tool",
+  "repo_bilgi": [
+   {
+    "repo": "date-fns/date-fns",
+    "lisans": "YOK",
+    "yildiz": 36650,
+    "son": "2026-10-24",
+    "ozet": "⏳ Modern JavaScript date utility library ⌛️"
+   },
+   {
+    "repo": "kyegomez/swarms",
+    "lisans": "apache-2.0",
+    "yildiz": 7291,
+    "son": "2026-10-23",
+    "ozet": "The Enterprise-Grade Multi-Agent Orchestration Framework. Website: https://swarms.ai"
+   },
+   {
+    "repo": "the-swarm-corporation/autohedge",
+    "lisans": "mit",
+    "yildiz": 6500,
+    "son": "2026-05-11",
+    "ozet": "Build your autonomous hedge fund in minutes. AutoHedge harnesses the power of swarm intelligence and"
+   },
+   {
+    "repo": "the-swarm-corporation/clawswarm",
+    "lisans": "apache-2.0",
+    "yildiz": 183,
+    "son": "2026-09-14",
+    "ozet": "A smaller, lighter-weight version of OpenClaw, natively multi-agent, compiles to Rust, and built on "
+   }
+  ]
+ },
+ "tmux.sh": {
+  "host": "tmux.sh",
+  "durum": "hata: URLError <urlopen error timed out>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "usehallmark.com": {
+  "host": "usehallmark.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "nutlope/hallmark",
+   "repos/nutlope"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.usehallmark.com/",
+  "baslik": "Hallmark, design taste for coding agents",
+  "aciklama": "Hallmark is a design skill for Claude Code, Codex, Cursor and OpenCode. It deals one of forty-eight themes, builds with real photographs and checks its own work.",
+  "repo_bilgi": [
+   {
+    "repo": "nutlope/hallmark",
+    "lisans": "mit",
+    "yildiz": 31814,
+    "son": "2026-10-22",
+    "ozet": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex."
+   },
+   {
+    "repo": "repos/nutlope",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "useplanes.com": {
+  "host": "useplanes.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 19,
+   "shadcn": 23,
+   "next.js": 168,
+   "lucide": 40
+  },
+  "github": [],
+  "npm": [
+   "@useplanes/cli"
+  ],
+  "sitemap_url": 203,
+  "sitemap_ornek": [
+   "https://useplanes.com",
+   "https://useplanes.com/components",
+   "https://useplanes.com/components/introduction",
+   "https://useplanes.com/components/installation",
+   "https://useplanes.com/components/mcp",
+   "https://useplanes.com/components/ai",
+   "https://useplanes.com/components/media",
+   "https://useplanes.com/components/carousels"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://useplanes.com/",
+  "baslik": "Planes — Animated React components for shadcn/ui and Next.js",
+  "aciklama": "Animated React components, a React animation library built with Motion (formerly Framer Motion) and Tailwind CSS v4, installed as source via the shadcn CLI.",
+  "repo_bilgi": []
+ },
+ "visx.21st.dev": {
+  "host": "visx.21st.dev",
+  "durum": "ok",
+  "libs": {
+   "react-spring": 4,
+   "tailwind": 33,
+   "shadcn": 2,
+   "next.js": 108,
+   "lucide": 8
+  },
+  "github": [
+   "airbnb/visx"
+  ],
+  "npm": [],
+  "sitemap_url": 9446,
+  "sitemap_ornek": [
+   "https://21st.dev",
+   "https://21st.dev/community/components",
+   "https://21st.dev/community/components/popular",
+   "https://21st.dev/community/components/newest",
+   "https://21st.dev/community/components/week",
+   "https://21st.dev/community/components/featured",
+   "https://21st.dev/community/themes",
+   "https://21st.dev/community/libraries"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://visx.21st.dev/",
+  "baslik": "visx | 21st",
+  "aciklama": "A collection of reusable, low-level visualization components that combine d3&#x27;s computational power with React&#x27;s approach to building user interfaces.",
+  "repo_bilgi": [
+   {
+    "repo": "airbnb/visx",
+    "lisans": "mit",
+    "yildiz": 21085,
+    "son": "2026-06-22",
+    "ozet": "🐯 visx | visualization components"
+   }
+  ]
+ }
+}
