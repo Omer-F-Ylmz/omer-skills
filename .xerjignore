@@ -1,0 +1,9 @@
+araclar/xerj/veri/
+araclar/xerj/bin/
+araclar/xerj/indir/
+araclar/xerj/*.log
+araclar/guard/src/
+bin/
+obj/
+graphify-out/
+node_modules/
