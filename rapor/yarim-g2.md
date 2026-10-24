@@ -28,3 +28,7 @@ Kanıt kaynağı: `.kos/kopru/ara/yarim-g2-scan.txt` (git log --grep, rapor/, aj
 
 Atlanan: Ömer BEKLEMEDE işleri (TELVE, logo, NEFFEX, Mai, REA Desktop uyarısı, 10 karar) bu listede yoktu; görülmedi.
 Sapma: 35 işin tamamı bitirilmedi; 18 işte bitmişlik kanıtı (6'sı devam oturumunda), 1 işte kod düzeltmesi, 16 iş devir dosyasında (ogrenme-2b havuz soğuması; ogren-0b, 5, 7–14 çok saatlik kategori oturumları; kalite-1/2/3-d14/3-hiz ve makara-1/plan ÖMER kararı bekliyor).
+
+## Devam-2 (24 Eki 18:15)
+- ogrenme-2b: sinav.py 20 koşuldu (havuz soğuması bitmişti; `-I` değil `-S`'siz `python -I` gerekir: psutil). 37 ölçülen senaryo, dersli-derssiz ortalama fark +0,03, 2 iyileşen / 2 kötüleşen / 33 eşit. Ders enjeksiyonu ölçülebilir fark yaratmıyor -> yama-oneri.md önerileri UYGULANMADI (sınav doğrulamadı). Kalan: (3) kaynak/tarif kartı bağlantı noktası, (4) claude.ai ders özeti zip'i. Ham: .kos/kopru/sinav.ara.jsonl
+- Diğer kalan işler (ogren-0b, 5, 7-14, kalite-*, makara-*) bu oturumda yapılmadı: çok saatlik kategori oturumları / ÖMER kararı bekliyor.
