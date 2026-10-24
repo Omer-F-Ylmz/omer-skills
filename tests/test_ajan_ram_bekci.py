@@ -31,8 +31,50 @@ def test_kok_ve_agac_disi_asla_hedef_degil():
 
 
 def test_torun_da_alt_surectir():
-    agac = [(10, 1, "claude.exe", 1, ""), (11, 10, "bash.exe", 1, ""), (12, 11, "rg.exe", 50 * MB, "rg x")]
+    agac = [(10, 1, "claude.exe", 1, ""), (11, 10, "bash.exe", 1, ""), (12, 11, "rg.exe", 700 * MB, "rg x")]
     assert ajan_ram_bekci.hedef_sec(agac, {10})[0] == 12
+
+
+# RAM-BEKCI-TEST-1: TEK_MIN_MB sınırı, koruma, boş aday, sıralama
+def _kok_ve(*alt):
+    return [(10, 1, "claude.exe", 1, "claude -p")] + [(100 + i, 10, a[0], a[1], a[2]) for i, a in enumerate(alt)]
+
+
+def test_sinir_599_secilmez_600_secilir():
+    assert ajan_ram_bekci.hedef_sec(_kok_ve(("node.exe", 599 * MB, "node x")), {10}) is None
+    assert ajan_ram_bekci.hedef_sec(_kok_ve(("node.exe", 600 * MB, "node x")), {10})[0] == 100
+    assert ajan_ram_bekci.hedef_sec(_kok_ve(("node.exe", 600 * MB - 1, "node x")), {10}) is None
+
+
+def test_korunanlar_hicbir_boyutta_secilmez():
+    korunan = [
+        ("claude.exe", "claude -p"),
+        ("claude.exe", r"C:\Program Files\WindowsApps\Claude_1.0\app\Claude.exe"),
+        ("zenlesszonezero.exe", "zzz"),
+        ("epicgameslauncher.exe", "epic"),
+        ("epicwebhelper.exe", "epicwebhelper --type=gpu"),
+        ("headroom.exe", "headroom proxy"),
+    ]
+    for ad, komut in korunan:
+        for mb in (700, 5000):
+            assert ajan_ram_bekci.hedef_sec(_kok_ve((ad, mb * MB, komut)), {10}) is None, (ad, mb)
+
+
+def test_bekcinin_kendisi_secilmez():
+    import os
+    s = [(10, 1, "claude.exe", 1, ""), (os.getpid(), 10, "python.exe", 2000 * MB, "python ajan_ram_bekci.py")]
+    assert ajan_ram_bekci.hedef_sec(s, {10}) is None
+
+
+def test_aday_yoksa_none_istisna_yok():
+    assert ajan_ram_bekci.hedef_sec([], {10}) is None
+    assert ajan_ram_bekci.hedef_sec(_kok_ve(), {10}) is None
+    assert ajan_ram_bekci.hedef_sec(_kok_ve(("node.exe", 10 * MB, "n")), set()) is None
+
+
+def test_birden_cok_aday_en_buyuk_secilir():
+    s = _kok_ve(("node.exe", 700 * MB, "a"), ("python.exe", 1800 * MB, "b"), ("rg.exe", 900 * MB, "c"))
+    assert ajan_ram_bekci.hedef_sec(s, {10})[0] == 101
 
 
 def test_esikler():

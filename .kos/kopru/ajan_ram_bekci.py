@@ -7,6 +7,7 @@ import os
 ADAY_ESIK, DUR_ESIK = 87, 88
 # RAM-BEKCI-2 (24 Eki 09:45, oyun açıkken claude -p ağacı 93 alt süreç/2.5 GB, RAM %98): tek alt süreç yetmedi → >= AGAC_ESIK'te ajan ağacının tamamı
 AGAC_ESIK, UYARI_RAM, UYARI_MB, UYARI_ALT = 92, 80, 1536, 60
+TEK_MIN_MB = 600
 # izin listesi: ad (küçük harf) ya da komut satırında geçen parça → asla hedef değil
 IZIN_AD = {"claude.exe", "chrome.exe", "headroom.exe", "system", "registry", "smss.exe", "csrss.exe", "wininit.exe", "services.exe",
            "lsass.exe", "svchost.exe", "winlogon.exe", "dwm.exe", "explorer.exe", "msmpeng.exe", "conhost.exe", "cmd.exe", "bash.exe"}
@@ -58,7 +59,9 @@ def hedef_sec(surecler, kokler):
                 gorulen.add(s[0])
                 altlar.append(s)
                 kuyruk.append(s[0])
-    aday = [s for s in altlar if not izinli(s[2], s[4]) and s[0] != os.getpid()]
+    # 24 Eki 11:20 (Desktop): 87/88 tek-süreç yolu ajanların 30-300 MB MCP sunucularını tek tek öldürüp araçlarını bozuyordu,
+    # RAM düşmüyordu (oyun). Yalnız TEK_MIN_MB üstü kaçak süreç hedef; küçükler için ağaç yolu (>=%92) var.
+    aday = [s for s in altlar if not izinli(s[2], s[4]) and not korumali(s[2], s[4]) and s[0] != os.getpid() and s[3] >= TEK_MIN_MB * 2**20]
     return max(aday, key=lambda s: s[3]) if aday else None
 
 
