@@ -13,6 +13,7 @@ class M(ctypes.Structure):
 try:  # YARIM-BEKCI-1: yarım işler çıktının en üstünde
     import yarim_bekci
     print("\n".join(yarim_bekci.ozet_satirlar(K)))
+    print(yarim_bekci.tam_ozet(K, K.parent.parent))
 except Exception as e:
     print(f"YARIM: okunamadı ({e!r:.60})")
 m = M()

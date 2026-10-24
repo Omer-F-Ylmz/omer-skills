@@ -213,6 +213,39 @@ def tara(k, kok, simdi=None):
     return out
 
 
+def tam_tara(k, kok, simdi=None):
+    """--tam: PENCERE_GUN'e bakmadan tüm görev dosyaları (_tam_tara.py mantığı). BİTTİ rc 0 / rapor yok, G/H/plan kapsamında ve muafta da değilse 'YOK:<durum>'."""
+    k = Path(k)
+    log = "".join(_oku(p) for p in k.glob("*.log"))
+    bitti = set(re.findall(r"BİTTİ (\S+) rc 0", log))
+    basladi = set(re.findall(r"BAŞLAT (\S+) ", log))
+    rapor = {p.stem for p in (k / "rapor").glob("*.md")}
+    sirada = {p[0] for _, p in _kuyruk(k)}
+    muaf = _muaf(k)
+    kapsam = "".join(_oku(p) for p in list(k.glob("gorev-yarim-*.md")) + [k / "yarim-plan.md"] if p.exists())
+    sonra = re.compile(r"telve|neffex|omer-site|logo|mod-mai|mai-|rea-uyari|10-karar", re.I)
+    kapsanmis = lambda a: re.search(r"(?<![\w-])" + re.escape(a) + r"(?![\w])", kapsam)
+    out = []
+    for ad, f in sorted(_gorev_dosyalari(k).items()):
+        taban = re.sub(r"(-(devam|a\d?|b\d?|c|d\d+\w?|p\d+))+$", "", ad)
+        if ad in bitti or ad in rapor or any(b.startswith(ad + "-") for b in bitti):
+            continue
+        if sonra.search(ad) or ad.startswith("yarim-") or ad == "_sablon" or ad in sirada or kapsanmis(ad) or kapsanmis(taban):
+            continue
+        if any(fnmatch.fnmatch(ad.lower(), m) for m in muaf):
+            continue
+        out.append({"ad": ad, "tur": "YOK:" + ("BAŞLADI-BİTMEDİ" if ad in basladi else "KUYRUĞA-GİRMEMİŞ"), "zaman": f.stat().st_mtime})
+    return out
+
+
+def tam_ozet(k, kok):
+    r = tam_tara(k, kok)
+    sayi = {}
+    for s in r:
+        sayi[s["tur"]] = sayi.get(s["tur"], 0) + 1
+    return f"YARIM-TAM: {len(r)} açık" + (f" ({', '.join(f'{t}:{n}' for t, n in sorted(sayi.items()))})" if r else "")
+
+
 def _goreli(kok, h):
     try:
         return h.resolve().relative_to(kok.resolve()).as_posix()
@@ -339,7 +372,10 @@ KOK = K.parent.parent
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
-    if "--ozet" in sys.argv:
+    if "--tam" in sys.argv:
+        print(tam_ozet(K, KOK))
+        print("\n".join(f"  {s['tur']} {_zaman(s['zaman'])} {s['ad']}" for s in tam_tara(K, KOK)))
+    elif "--ozet" in sys.argv:
         print("\n".join(ozet_satirlar(K)))
     elif "--devir" in sys.argv:
         print(devir_blogu(K))

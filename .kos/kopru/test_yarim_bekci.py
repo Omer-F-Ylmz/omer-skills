@@ -223,3 +223,15 @@ def test_ozet_ve_devir_blogu(ort):
     Y.calistir(k, kok)
     assert Y.ozet_satirlar(k)[0] == "YARIM: 1 açık (H1:1)"
     assert "yetim" in Y.devir_blogu(k)
+
+
+def test_tam_kip_eski_isi_gorur_pencere_disinda(ort):
+    k, kok = ort
+    eski = time.time() - 30 * 86400
+    for ad in ("eski-yok", "eski-bitti", "eski-planda", "telve-x"):
+        os.utime(gorev(k, ad, alt=None), (eski, eski))
+    (k / "ajan-sira.log").write_text("10:00 BAŞLAT eski-yok x\n10:05 BİTTİ eski-bitti rc 0 1 dk\n", encoding="utf-8")
+    (k / "gorev-yarim-g1.md").write_text("kapsam: eski-planda", encoding="utf-8")
+    assert not {s["ad"] for s in Y.tara(k, kok)} & {"eski-yok", "eski-bitti", "eski-planda"}  # pencere (3 gün) değişmedi: eski iş bekçide görünmez
+    assert {(s["ad"], s["tur"]) for s in Y.tam_tara(k, kok)} == {("eski-yok", "YOK:BAŞLADI-BİTMEDİ")}
+    assert Y.tam_ozet(k, kok) == "YARIM-TAM: 1 açık (YOK:BAŞLADI-BİTMEDİ:1)"
