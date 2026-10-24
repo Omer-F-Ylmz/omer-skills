@@ -650,6 +650,15 @@ def test_ram_yeniden_yalniz_ram_85_altinda_baslar():
     assert ajan_sira.ram_yeniden_hazir("is-a", 99)  # -b olmayan işleri bu kapı etkilemez
 
 
+def test_baslamadan_dustu_bos_json_rc1():
+    """RC1-TESHIS-1: rc≠0 + boş json + RAM kesmedi + kısa süre → 'BAŞLAMADAN DÜŞTÜ' (merdiven yükselmez); RAM kesmesi, dolu json, uzun iş değil."""
+    assert ajan_sira.baslamadan_dustu(1, True, False, 1)
+    assert not ajan_sira.baslamadan_dustu(1, True, True, 1)  # RAM bekçisi kesti → ayrı yol
+    assert not ajan_sira.baslamadan_dustu(1, False, False, 1)  # sonuç var
+    assert not ajan_sira.baslamadan_dustu(0, True, False, 1)
+    assert not ajan_sira.baslamadan_dustu(1, True, False, 30)  # uzun koştu → başlamadan düşmedi
+
+
 def test_kok_adlari_calisan_ve_basladi(tmp_path, monkeypatch):
     class P:
         pid = 4242

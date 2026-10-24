@@ -242,6 +242,11 @@ def ram_yeniden_hazir(ad, r):
     return not ad.endswith("-b") or r < RAM_YENIDEN
 
 
+def baslamadan_dustu(rc, json_bos, ram_kesti, dk):
+    """RC1-TESHIS-1: rc≠0, boş sonuç, RAM bekçisi kesmedi, <3 dk → iş başlamadan düştü (basamak yükselmez; stderr ad.stray.txt'te)."""
+    return bool(rc) and json_bos and not ram_kesti and dk < 3
+
+
 def ram_bekle(calisan):
     """RAM-BEKCI-1/2: RAM >= %87'de ajan alt süreçlerinin en büyüğü bulunur, >= %88'de durdurulur; RAM >= %92'de en büyük ajan ağacının tamamı
     (kök dahil; oyun/Desktop/Headroom/sistem hariç) durdurulur ve iş 'RAM ile kesildi' işaretlenir; ağaç >1.5 GB ya da >60 alt süreçse uyarı.
@@ -800,7 +805,11 @@ def main():
                         log("KISMI-NİHAİ", ad, "; ".join(eksik_n))
                 except Exception as e:
                     log("nihai_bitis hata", repr(e)[:120])
-                if bas is not None and not ok and not ram_kesti and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
+                dustu = baslamadan_dustu(p.returncode, not (CIKTI / f"{ad}.json").stat().st_size, ram_kesti, (time.time() - t0) / 60)
+                if dustu:
+                    stray = CIKTI / f"{ad}.stray.txt"
+                    log("BAŞLAMADAN DÜŞTÜ", ad, "rc", p.returncode, (stray.read_text(encoding="utf-8", errors="replace").strip()[-200:] if stray.exists() else "stderr boş"))
+                if bas is not None and not ok and not ram_kesti and not dustu and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
                     yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
                     log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
