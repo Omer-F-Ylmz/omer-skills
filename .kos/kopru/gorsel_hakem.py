@@ -298,7 +298,9 @@ def main():
             durum = "AYRIŞTI" if any(max(x[k] for x in v) - min(x[k] for x in v) >= FARK for k in LOGO) else "UZLAŞTI"
         else:
             durum = "AYRIŞTI" if any(len({x[k] for x in v}) > 1 for k in ("sivi_mi", "plastik_gorunen")) else "UZLAŞTI"
-            nv = [n for n in (x["norm"] if "norm" in x else norm100(ENT[x["model"]], x["puan"]) if x["model"] in ENT else None for x in v) if n is not None]  # eski önbellek kaydında norm yok → yeniden hesaplanır; kalibrasyonsuz aile atlanır
+            for x in v:  # önbellekteki norm eski formülden olabilir: her koşuda güncel ankrajla yeniden hesapla
+                x["norm"] = norm100(ENT[x["model"]], x["puan"]) if x["model"] in ENT and "puan" in x else None
+            nv = [x["norm"] for x in v if x["norm"] is not None]  # kalibrasyonsuz/ters aile atlanır
             durum += f" NORM={sum(nv) / len(nv):.0f}/{len(nv)}aile" if len(nv) >= 2 else " NORM=YOK(<2 aile)"
             if len(nv) >= 2 and max(nv) - min(nv) >= 30:  # normalize sonrası da 30+ puan fark → aileler gerçekten ayrışıyor
                 durum = "AYRIŞTI" + durum[len(durum.split()[0]):]
