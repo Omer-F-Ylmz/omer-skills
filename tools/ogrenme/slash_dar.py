@@ -12,7 +12,7 @@ KUMELER = {  # küme → envanter adları (slash-katalog.md'deki 15 kart)
     "cekirdek": ["graphify", "plan-kur", "yetenek-getir", "superpowers:systematic-debugging", "superpowers:test-driven-development",
                  "superpowers:brainstorming", "feature-dev:feature-dev", "frontend-craft:frontend-craft", "impeccable:impeccable",
                  "phoenix-security-review:security-reviewer", "code-review:code-review", "claude-api:mcp-builder", "claude-api:claude-api",
-                 "skill-creator:skill-creator", "watch:watch"],
+                 "skill-creator:skill-creator", "watch:watch", "reverse-engineer-anything"],  # REA-USTA-1c: nihai 32(c) çok yönlüler hep açık
 }
 
 
