@@ -486,7 +486,7 @@ def kocluk_oku():
         except ValueError:
             continue
         if isinstance(x, dict) and x.get("tur") == "kocluk":
-            kocluk_ekle(str(x.get("hedef", "")) + " " + str(x.get("ders", "")), str(x.get("ozet", "")) or str(x.get("ders", "")), "desktop/kocluk")
+            kocluk_ekle(str(x.get("hedef", "")) + " " + str(x.get("ders", "")), str(x.get("ozet", "")) or str(x.get("ders", "")) or str(x.get("not", "")), "desktop/kocluk")
             n += 1
     _yaz_bayt(DURUM, json.dumps({**_json(DURUM, {}), "koc_ofset": len(satir)}))
     return n

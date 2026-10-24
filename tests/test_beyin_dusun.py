@@ -443,6 +443,12 @@ class Koc(Canli):
         blok = b.satirlar("test koş kırmızı kanıtla işi")
         self.assertTrue(blok.splitlines()[0].startswith("- KOÇLUK"))
 
+    def test_kocluk_desktop_not_alani(self):
+        # Desktop koçluk satırları ozet/ders yerine "not" yazıyor (BEYİN-FİX-2)
+        b.DESKTOP.write_text(json.dumps({"t": "2026-10-23T12:33+03", "tur": "kocluk", "hedef": "test koş", "not": "Önce kırmızı testi gör"}) + "\n", encoding="utf-8")
+        self.assertEqual(b.kocluk_oku(), 1)
+        self.assertIn("Önce kırmızı testi gör", b.oneri_oku()[-1]["metin"])
+
     def test_celiskili_ders_reddedilir(self):
         b._kurallar = lambda: ["K2h önce ücretsiz havuz kullan; Claude yalnız karar ve birleştirme"]
         self.yanit = "ÇELİŞİR"
