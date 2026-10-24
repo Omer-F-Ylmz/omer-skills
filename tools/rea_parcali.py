@@ -41,22 +41,31 @@ def isci(args, tepe):
     return p.returncode, durdu
 
 
-def modul_coz(af, tepe, sinir_kb="40"):
-    """Tek modülü analiz eder; tavanı aşarsa üst düzey deyimlerden ≤sinir_kb'lık parçalara bölüp parça parça dener. Başarı: bool."""
+def modul_coz(af, tepe, sinirlar=("40", "5"), atlanan=None):
+    """Tek modülü analiz eder; tavanı aşarsa üst düzey deyimlerden sinirlar[0] KB'lık parçalara bölüp parça parça dener,
+    başarısız parçayı sonraki (daha küçük) sınırla yeniden böler. Bölünemeyen tek deyim (dev fonksiyon) atlanan listesine yazılır. Başarı: bool."""
     acc = af.replace(".json", ".acc.json")
     kod, _ = isci(["script", af, acc], tepe)
     if kod == 0 and os.path.exists(acc):
         return True
-    p = subprocess.run([NODE, TAVAN, ISCI, DIST, "bol", af, af.replace(".json", ""), sinir_kb], capture_output=True, creationflags=NOWIN)
+    if atlanan is None:
+        atlanan = []
+    if not sinirlar:
+        atlanan.append(af)
+        return False
+    p = subprocess.run([NODE, TAVAN, ISCI, DIST, "bol", af, af.replace(".json", ""), sinirlar[0]], capture_output=True, creationflags=NOWIN)
     try:
         n = int(p.stdout.decode().strip().splitlines()[-1])
     except Exception:
+        atlanan.append(af)
+        return False
+    if n <= 1:  # daha fazla bölünemiyor
+        atlanan.append(af)
         return False
     tam = True
     for j in range(n):
         pf = af.replace(".json", f".p{j:04d}.json")
-        kod, _ = isci(["script", pf, pf.replace(".json", ".acc.json")], tepe)
-        tam = tam and kod == 0 and os.path.exists(pf.replace(".json", ".acc.json"))
+        tam = modul_coz(pf, tepe, sinirlar[1:], atlanan) and tam
     return tam
 
 
@@ -111,12 +120,12 @@ def main():
         open(js, "w", encoding="utf-8").write(oge["source"]["artifact"]["text"])
         subprocess.run([sys.executable, os.path.join(HERE, "wakaru_kurtar.py"), js, wk], capture_output=True, creationflags=NOWIN)
         moduller = [os.path.join(k, x) for k, _, xs in os.walk(wk) for x in xs if x.endswith((".js", ".jsx", ".mjs"))]
-        gec = 0
+        gec = 0; atl = []
         for j, mf in enumerate(moduller):
             alt = json.loads(json.dumps(oge)); alt["source"]["artifact"]["text"] = open(mf, encoding="utf-8", errors="replace").read()
             af = os.path.join(d, "ogeler", f"{i:04d}.m{j:04d}.json"); json.dump(alt, open(af, "w", encoding="utf-8"))
-            gec += modul_coz(af, tepe)
-        b["wakaru_modul"] = len(moduller); b["wakaru_analiz_edilen"] = gec
+            gec += modul_coz(af, tepe, atlanan=atl)
+        b["wakaru_modul"] = len(moduller); b["wakaru_analiz_edilen"] = gec; b["atlanan_birim"] = [os.path.basename(x) for x in atl]
         if moduller and gec == len(moduller):
             basarisiz.remove(b); ok.append({**b, "yol": "wakaru"})
     ok_f = [os.path.join(d, "ogeler", x) for x in sorted(os.listdir(os.path.join(d, "ogeler"))) if x.endswith(".acc.json")]
