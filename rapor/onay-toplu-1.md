@@ -15,4 +15,6 @@ relatedTo: [dist/claude-ai/yukle-24eki/EK-LISTE.md]
 13. agentshield.ps1 PATH'te var; ecc-agentshield ayrıca doğrulanmadı.
 Suit: jev 85/85 · mcp/jev 40/40 · dotnet 22/22 · tools/tests 379/379 · cc-kopru kırmızı: headroom.test.mjs:91 (bu turun değişikliğiyle ilişkisi doğrulanmadı) · video ve tests 600 sn'de bitmedi (EKSİK).
 DESKTOP-YENIDEN-BASLAT: gerekli (ajan/skill değişiklikleri sonrası).
-ÖMER-SORU: makara-1 için GitHub Omer-F-Ylmz/omer-makara reposu açılsın mı (push sende)? Yerel hazırlık bu turda yapılmadı.
+D. makara-1: Omer-F-Ylmz/omer-makara ZATEN var (PRIVATE), 9 secret adı kayıtlı, makara-gece iş akışı 3 gecedir başarılı (10-22/23/24, 12-20 dk, schedule). Bu turda repo/push yapılmadı (gerek yok); "ÖMER-SORU" kaldırıldı.
+11 (devam). kaynak-tam-4 #8 openship (Apache-2.0, kurulum betiği yok): gitleaks kapısı TEMİZ DEĞİL (28 generic-api-key, hepsi dist/*.js paketlenmiş dosyalarda; sahte pozitif olası ama incelenmedi) → KURULMADI. Semgrep ERROR 0. Diğer 9 satır yapılmadı.
+10 (devam). autoharness 0.9.4 CLI PATH'te; omer-skills'te `guide/doctor` koşulmadı (üretici LLM maliyeti için tavan belirlenmedi): YAPILMADI.
