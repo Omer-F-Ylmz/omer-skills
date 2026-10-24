@@ -7,7 +7,7 @@ import re
 import sys
 from pathlib import Path
 
-TEMEL = ["ruflo"]
+TEMEL = ["ruflo", "rea", "playwright", "headroom", "context7", "brave-search", "stalemap"]  # AJAN-TAM-YETKI-1: her zaman açık çok yönlüler (K2l); rea/playwright KEEP ile daraltılı
 TUR = [  # (desen, MCP'ler); türler birleşir
     (r"(?i)site-3d|\b(site|landing|three(\.js)?|webgl|3d|frontend)\b", ["rea", "playwright", "chrome-devtools", "context7", "21st"]),
     (r"(?i)\b(render\w*|blender)\b", ["blender"]),

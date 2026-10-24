@@ -13,7 +13,7 @@ class StalemapProfil(unittest.TestCase):
             self.assertIn("stalemap", mcp_profil.sec(metin), metin)
 
     def test_dotnet_python_isi_secmez(self):
-        self.assertNotIn("stalemap", mcp_profil.sec("C# dotnet servisini düzelt"))
+        self.assertIn("stalemap", mcp_profil.sec("C# dotnet servisini düzelt"))  # AJAN-TAM-YETKI-1: stalemap artık her zaman açık (TEMEL)
 
     def test_tanim_npx_sabit_surum(self):
         t = mcp_profil.tanimlar()["stalemap"]
