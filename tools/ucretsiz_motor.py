@@ -5,7 +5,7 @@ import os
 import re
 
 URL = "http://127.0.0.1:20128"
-MODEL = "ucretsiz-groq"  # 24 Eki ölçüm: araç çağrısı tamam (gpt-oss-120b); ayrıntı rapor/ucretsiz-motor-1.md
+MODEL = "ucretsiz-ozet2"  # 24 Eki canlı ölçüm: Write+Read+Bash görevi KABUL (nemotron-3-ultra :free); ucretsiz-groq aynı görevde 429 verdi
 SIZINTI = re.compile(r"^(ANTHROPIC_|CLAUDE_CODE_OAUTH|CLAUDE_CODE_USE_|CLAUDE_CODE_SKIP_|AWS_BEARER|OMNIROUTE_KEY$)")
 ZOR = re.compile(r"mimari|güvenlik (düzelt|açığ)|inatçı|kalite kapısı", re.I)
 KOLAY = re.compile(r"paketle|paketleme|rapor|kanıt|doğrula|katalog|kart|muaf|zip|belge|log tara", re.I)
