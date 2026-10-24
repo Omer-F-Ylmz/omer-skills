@@ -1,0 +1,11 @@
+# YARIM-G1 raporu (24 Eki)
+- derin-yeni-1-a: BİTTİ — rapor 113 satır ok (29f7a3fe); 5 link raporda eksikti (DeXCak3vAos, DejupT4PgUy, QHf1hBflWGY, GnFFcLnmWuQ, nT1KPAQL9_g) → derin JSON'larından eklendi (118 giriş).
+- derin-yeni-1-a2: ZATEN BİTMİŞ — aynı rapor (109 video + APKLab), 12 Ömer notu cevaplı.
+- ig-18-kur: ZATEN BİTMİŞ (595bdbad, ba5ff6d3) · ÖMER: igkur18'de `python onay/ig_18_kur_uygula.py --kuru` sonra `uygula`; dist/ig-18/kendi/departman-frontend.zip claude.ai'ye Replace.
+- ig-40: ZATEN BİTMİŞ (188ae2fa; dist/ig-40/ucuncu-taraf 13 zip TEMİZ) · ÖMER: onay/ig_40_kur_uygula.py --kuru → uygula.
+- ig-40-kur: ZATEN BİTMİŞ (p2 + p3 raporları) · ÖMER: p3 kol/igkur-p3 (adc8a202) main'e birleşmemiş; birleştir, onay/ig_40_kur_p3_uygula.py --kuru → uygula, dist/ig-40-p3 2 zip claude.ai'ye.
+- kaynak-site-2 / -a / -a2: ZATEN BİTMİŞ (72dac52e: 819 site, 217 kart, 245 repo); kapanmayan kapılar kaynak-site-3'e devredilmişti → orada.
+- kaynak-site-3: DEVAM (gorev-yarim-g1-devam.md) — sınıflama %11,5 belirsiz (31 hata + 63 diğer; hata'ların çoğu ölü site/boş metin), kart doğrulama sürüyor (aşağıda), REA 29/30 yapıldı, semgrep 10/101.
+- kaynak-tam-3 / -a / -a2: ZATEN BİTMİŞ (78f5c16a, ae13ffe9, 2f9e8b2e); U+FFFD bozuk kare yok (640 dosya).
+- kaynak-tam-4 / -a2: ZATEN BİTMİŞ (c2989dc5 llm 5 video, 7cd6786b + ab8a63fb kurulum kuyruğu taslağı) · ÖMER: .kos/kopru/ara/kaynak-tam-4-kur.md ilk 10 satır kurulum onayı.
+- Atlanan: BEKLEMEDE listesi işleri bu grupta yoktu.

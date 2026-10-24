@@ -3,6 +3,7 @@ site: https://swarms.xyz
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=8 kanitsiz=3 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # swarms.xyz
 
@@ -23,9 +24,9 @@ kart-modeli: mistral/ministral-8b-latest
   - **Paket yöneticileri**: `pip install swarms` / `cargo add swarms-rs`.
 
 - **Teknoloji**
-  - **Bağımlılıklar**: `three.js` (animasyon/3D destekli).
-  - **Çerçeve**: Next.js (arka plan scriptleri `_next` ile işaretleniyor).
-  - **Özel**: Multi-agent iletişim protokolleri, performanslı runtime, simülasyon ortamları.
+  - **Bağımlılıklar**: `three.js` (animasyon/3D destekli). ⚠[kanitsiz]
+  - **Çerçeve**: Next.js (arka plan scriptleri `_next` ile işaretleniyor). ⚠[kanitsiz]
+  - **Özel**: Multi-agent iletişim protokolleri, performanslı runtime, simülasyon ortamları. ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **Skill**: AI agent mimarisi, performans optimizasyonu, otomasyon sistemleri.

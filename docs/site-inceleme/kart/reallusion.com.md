@@ -3,12 +3,13 @@ site: https://reallusion.com
 tur: 3D/model
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=10 kanitsiz=3 hakem=openrouter/nvidia/nemotron-3-ultra-550b-a55b:free)
 ---
 # reallusion.com
 
 
 - **Ne sunuyor**
-  - 3D karakter animasyonu (iClone, Character Creator)
+  - 3D karakter animasyonu (iClone, Character Creator) ⚠[kanitsiz]
   - AI tabanlı **mocap** (Video Mocap, Headshot)
   - 2D çizgi animasyon (Cartoon Animator)
   - Profesyonel içerikler (3D motion, karakter setleri)
@@ -21,11 +22,11 @@ kart-modeli: mistral/ministral-8b-latest
 - **İndirilebilir kaynak/kod**
   - **Standalone indirme** (iClone, Character Creator, Cartoon Animator)
   - **AI Video Mocap** (ücretsiz indirme)
-  - **Kod/Script**: *Yok* (sadece web tabanlı araçlar)
+  - **Kod/Script**: *Yok* (sadece web tabanlı araçlar) ⚠[kanitsiz]
 
 - **Teknoloji**
   - **AI tabanlı mocap** (facial/body tracking)
-  - **3D/2D animasyon motorları** (standalone, yüksek performans)
+  - **3D/2D animasyon motorları** (standalone, yüksek performans) ⚠[kanitsiz]
   - **Cloud AI** (ActorCore, AI Studio)
 
 - **Bizde kullanım**

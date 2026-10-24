@@ -3,6 +3,7 @@ site: https://posemy.art
 tur: 3D/model
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # posemy.art
 
@@ -13,10 +14,10 @@ kart-modeli: mistral/ministral-8b-latest
   - IK (Inverse Kinematics) ve FK (Forward Kinematics) ile kolay pose oluşturma.
 
 - **Ücretsiz kısım**:
-  - Temel pose referansları ve sahne indirme imkanı (kısıtlı kullanım).
+  - Temel pose referansları ve sahne indirme imkanı (kısıtlı kullanım). ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**:
-  - **Yok** (sadece indirme linki var, kaynak kod yok).
+  - **Yok** (sadece indirme linki var, kaynak kod yok). ⚠[kanitsiz]
 
 - **Teknoloji**:
   - Web tabanlı 3D pose editörü (JavaScript tabanlı, bağımsız kütüphane yok).

@@ -3,6 +3,7 @@ site: https://lottielab.com
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=8 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # lottielab.com
 
@@ -19,10 +20,10 @@ kart-modeli: mistral/ministral-8b-latest
   - Temel animasyon oluşturma/deneme imkanı
 
 - **İndirilebilir kaynak/kod**
-  - **Yok** (sadece web tabanlı kullanım)
+  - **Yok** (sadece web tabanlı kullanım) ⚠[kanitsiz]
 
 - **Teknoloji**
-  - **React**, **Next.js** entegrasyonu
+  - **React**, **Next.js** entegrasyonu ⚠[kanitsiz]
   - Tasarım araçları: Figma, After Effects uyumlu
 
 - **Bizde kullanım**

@@ -3,6 +3,7 @@ site: https://motion.dev
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=0 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # motion.dev
 

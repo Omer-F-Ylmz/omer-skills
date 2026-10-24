@@ -3,6 +3,7 @@ site: https://n8n-skills.com
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=10 kanitsiz=0 hakem=gemini/gemini-3.1-flash-lite)
 ---
 # n8n-skills.com
 

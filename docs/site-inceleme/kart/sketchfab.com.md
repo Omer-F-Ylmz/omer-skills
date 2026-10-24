@@ -3,6 +3,7 @@ site: https://sketchfab.com
 tur: 3D/model
 kaynak: ad-baglam
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=7 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # sketchfab.com
 
@@ -18,10 +19,10 @@ kart-modeli: mistral/ministral-8b-latest
 
 - **İndirilebilir varlık/kaynak kod**
   - 3D modeller (FBX, OBJ, GLTF gibi formatlar) indirilebilir.
-  - Kaynak kod **yok** (sadece hazır modeller mevcut).
+  - Kaynak kod **yok** (sadece hazır modeller mevcut). ⚠[kanitsiz]
 
 - **Teknoloji**
-  - WebGL tabanlı 3D görselleştirme motoru.
+  - WebGL tabanlı 3D görselleştirme motoru. ⚠[kanitsiz]
   - WebXR (VR/AR) entegrasyonu.
 
 - **Bizde kullanım**

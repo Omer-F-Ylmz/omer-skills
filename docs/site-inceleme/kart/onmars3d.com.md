@@ -3,6 +3,7 @@ site: https://onmars3d.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=0 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # onmars3d.com
 
@@ -17,8 +18,8 @@ kart-modeli: mistral/ministral-8b-latest
   **Yok** (tüm içerik abonelikli).
 
 - **Teknoloji**
-  - **Frontend**: Three.js (3D motoru)
-  - **Diğer**: Google Analytics, RudderStack, Sentry, Wistia (video), Senja (form) gibi servisler.
+  - **Frontend**: Three.js (3D motoru) ⚠[kanitsiz]
+  - **Diğer**: Google Analytics, RudderStack, Sentry, Wistia (video), Senja (form) gibi servisler. ⚠[kanitsiz]
 
 - **Bizde kullanım**
   **3D sanatçı/oyun sanatçıları** için **modelleme, UV, tekstür ve oyun sanatı akışları** öğrenmek; **stüdyo standartları** uygulamak.

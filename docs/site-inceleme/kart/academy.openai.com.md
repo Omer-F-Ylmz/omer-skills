@@ -3,6 +3,7 @@ site: https://academy.openai.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=1 kanitsiz=5 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # academy.openai.com
 
@@ -12,16 +13,16 @@ kart-modeli: mistral/ministral-8b-latest
   **Hedef kitle**: İşçiler (prompting), geliştiriciler (Codex/API), eğitimciler, liderler, kamu görevlileri.
 
 - **Ücretsiz kısım**
-  - **Kurslar**: Örnekler (*"Build the AI skills"*, *"Lead AI Adoption"*) ücretsiz erişim sunar.
+  - **Kurslar**: Örnekler (*"Build the AI skills"*, *"Lead AI Adoption"*) ücretsiz erişim sunar. ⚠[kanitsiz]
   - **Canlı etkinlikler**: Kayıt ücretsiz, ancak **tarihli** (örn. *ChatGPT Legislative 101*).
-  - **Kaynaklar**: OpenAI belgeleri, AI uygulamaları rehberleri.
+  - **Kaynaklar**: OpenAI belgeleri, AI uygulamaları rehberleri. ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
-  - **Yok** (sadece **API belgeleri** ve **kurs materyalleri** erişilebilir).
+  - **Yok** (sadece **API belgeleri** ve **kurs materyalleri** erişilebilir). ⚠[kanitsiz]
 
 - **Teknoloji**
-  - **Arka plan**: OpenAI API, Codex (geliştiriciler için), **Next.js** (site yapısı).
-  - **Ek araçlar**: Intercom widget (destek), Cloudflare Insights (izleme).
+  - **Arka plan**: OpenAI API, Codex (geliştiriciler için), **Next.js** (site yapısı). ⚠[kanitsiz]
+  - **Ek araçlar**: Intercom widget (destek), Cloudflare Insights (izleme). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **Skill**: AI eğitimi, **prompting**, **AI entegrasyonu** (Codex/API).

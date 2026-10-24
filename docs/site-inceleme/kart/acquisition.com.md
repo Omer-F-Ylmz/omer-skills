@@ -3,6 +3,7 @@ site: https://acquisition.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=3 kanitsiz=3 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # acquisition.com
 
@@ -16,11 +17,11 @@ kart-modeli: mistral/ministral-8b-latest
   - Workshop öncesi "fit" değerlendirmesi (ücretsiz)
 
 - **İndirilebilir kaynak/kod**
-  - Scaling Roadmap (PDF/Excel)
-  - *Kod/tech*: **Yok** (lib: `[]`, github: `[]`)
+  - Scaling Roadmap (PDF/Excel) ⚠[kanitsiz]
+  - *Kod/tech*: **Yok** (lib: `[]`, github: `[]`) ⚠[kanitsiz]
 
 - **Teknoloji**
-  - Frontend: **Yok** (lib: `[]`, JS: `gtag`, `hubspot`, `tiktok` analytics)
+  - Frontend: **Yok** (lib: `[]`, JS: `gtag`, `hubspot`, `tiktok` analytics) ⚠[kanitsiz]
   - Backend: **Yok** (kanıt yok)
 
 - **Bizde kullanım**

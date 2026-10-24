@@ -3,13 +3,14 @@ site: https://pptr.dev
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=6 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # pptr.dev
 
 
 - **Ne sunuyor**
   Chrome/Firefox'u DevTools Protokolü veya WebDriver BiDi üzerinden kontrol eden **JavaScript kütüphanesi** (headless modda çalışır).
-  - Otomatik tarama, test, render, animasyon kontrolü sağlar.
+  - Otomatik tarama, test, render, animasyon kontrolü sağlar. ⚠[kanitsiz]
   - **Puppeteer API** ve **@puppeteer/browsers** ile entegre Chrome/Firefox sürümleri indirilir.
 
 - **Ücretsiz kısım**
@@ -23,7 +24,7 @@ kart-modeli: mistral/ministral-8b-latest
 - **Teknoloji**
   - **DevTools Protokolü** (Chrome/Firefox) + **WebDriver BiDi** destekli.
   - **Headless** çalışma modu (UI'siz).
-  - **Node.js** için yazılmış, **JavaScript/TypeScript** ile kullanılır.
+  - **Node.js** için yazılmış, **JavaScript/TypeScript** ile kullanılır. ⚠[kanitsiz]
 
 - **Bizde kullanım (hangi skill/is için)**
   - **Frontend Test Otomasyonu**: UI testleri (Cypress/Puppeteer entegrasyonu).

@@ -3,6 +3,7 @@ site: https://ace.c9.io
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=9 kanitsiz=2 hakem=groq/openai/gpt-oss-20b)
 ---
 # ace.c9.io
 
@@ -14,8 +15,8 @@ kart-modeli: mistral/ministral-8b-latest
   - **Sublime/Vim** seviyesinde özellikler (sentezleme, arama, düzenleme).
 
 - **Ücretsiz kısım**
-  - Tamamen **açık kaynak** (MIT lisansı).
-  - **Geliştirme ve entegrasyon** ücretsiz.
+  - Tamamen **açık kaynak** (MIT lisansı). ⚠[kanitsiz]
+  - **Geliştirme ve entegrasyon** ücretsiz. ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
   - GitHub: [ace](https://github.com/ajaxorg/ace) (ana repo).

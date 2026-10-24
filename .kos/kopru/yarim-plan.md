@@ -24,7 +24,7 @@ YARIM DEĞİL — SONRA (Ömer 24 Eki 16:04: "sonra ben diyince yapcaz, yarım k
 | yarim-g1 | Kaynak ve Instagram | 14 iş (gorev-yarim-g1.md) | 13 BİTTİ/ZATEN BİTMİŞ · kaynak-site-3 DEVAM (gorev-yarim-g1-devam.md) · ÖMER onayları rapor/yarim-g1.md |
 | yarim-g2 | Beyin, öğrenme ve kanca | 35 iş (gorev-yarim-g2.md) | KISMEN: 12 zaten bitmiş, 1 düzeltme, 22 devir (gorev-yarim-g2-devam.md; rapor/yarim-g2.md) |
 | yarim-g3 | Araç kurulum ve kapı | 29 iş (gorev-yarim-g3.md) | SIRADA (YARIM-G-BIRLESTIR) |
-| yarim-g4 | REA, Laya, CUDA, RAM | 22 iş (gorev-yarim-g4.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g4 | REA, Laya, CUDA, RAM | 22 iş (gorev-yarim-g4.md) | BİTTİ 18 zaten bitmiş + 4 DEVAM/DUR/ÖMER (rapor/yarim-g4.md, gorev-yarim-g4-devam.md) |
 | yarim-g5 | Blender, usta, site, tasarım | 32 iş (gorev-yarim-g5.md) | SIRADA (YARIM-G-BIRLESTIR) |
 | yarim-g6 | Token ve video | 28 iş (gorev-yarim-g6.md) | SIRADA (YARIM-G-BIRLESTIR) |
 | yarim-g7 | Devir belgeleri ve kalan | 10 iş (gorev-yarim-g7.md) | SIRADA (YARIM-G-BIRLESTIR) |

@@ -3,6 +3,7 @@ site: https://kolekti.com
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=2 hakem=gemini/gemini-3.1-flash-lite)
 ---
 # kolekti.com
 
@@ -19,8 +20,8 @@ kart-modeli: mistral/ministral-8b-latest
 
 - **Teknoloji**
   - **Kütüphane**: React + Next.js (Next.js scriptleri tespit edildi).
-  - **Animasyon**: GSAP, Three.js, Lenis gibi kütüphaneler **kullanılmıyor** (kanıt: `lib` objesi boş).
-  - **Diğer**: Webflow, Framer, Vue gibi teknolojiler desteklenmiyor.
+  - **Animasyon**: GSAP, Three.js, Lenis gibi kütüphaneler **kullanılmıyor** (kanıt: `lib` objesi boş). ⚠[kanitsiz]
+  - **Diğer**: Webflow, Framer, Vue gibi teknolojiler desteklenmiyor. ⚠[kanitsiz]
 
 - **Bizde kullanım (hangi skill/is için)**
   - **Frontend**: React/Next.js geliştiricileri (Mosaic’ı Confluence entegrasyonu için kullanabilir).

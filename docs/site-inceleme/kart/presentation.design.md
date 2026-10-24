@@ -3,6 +3,7 @@ site: https://presentation.design
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=4 hakem=openrouter/nvidia/nemotron-3-ultra-550b-a55b:free)
 ---
 # presentation.design
 
@@ -12,16 +13,16 @@ kart-modeli: mistral/ministral-8b-latest
   **Framer** tabanlı interaktif araçlar, ücretsiz şablonlar (örn. film pitch deki), eğitim videoları ve kurslar (Domestika, SuperHi).
 
 - **Ücretsiz kısım**
-  - Araçlar: Framer tabanlı interaktif sunum araçları (script'ler: `events.framer.com`, `framerusercontent.com`).
+  - Araçlar: Framer tabanlı interaktif sunum araçları (script'ler: `events.framer.com`, `framerusercontent.com`). ⚠[kanitsiz]
   - Şablonlar: Film pitch deki ücretsiz şablonlar.
   - Makaleler: Sunum tasarımı ipuçları, veri görselleştirme rehberleri.
 
 - **İndirilebilir varlık/kaynak kod**
-  - **Yok** (Framer tabanlı araçlar cloud-based, kod paylaşımı yok).
-  - Şablonlar: PDF/Figma formatında indirilebilir (kanıt eksik, varsayım).
+  - **Yok** (Framer tabanlı araçlar cloud-based, kod paylaşımı yok). ⚠[kanitsiz]
+  - Şablonlar: PDF/Figma formatında indirilebilir (kanıt eksik, varsayım). ⚠[kanitsiz]
 
 - **Teknoloji**
-  - **Framer** (interaktif sunum araçları, şablonlar).
+  - **Framer** (interaktif sunum araçları, şablonlar). ⚠[kanitsiz]
   - **Figma** (şablonlar için destekleyici araç).
   - **Google Slides** (genel rehberler için).
 

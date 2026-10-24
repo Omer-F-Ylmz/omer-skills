@@ -3,24 +3,25 @@ site: https://rasulov.net
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=2 kanitsiz=5 hakem=omniroute/cc-ucuz-free)
 ---
 # rasulov.net
 
 
 - **Ne sunuyor**
-  - Yapay zeka yönetimi, dijital pazarlama ve **YouTube büyüme** eğitimleri
+  - Yapay zeka yönetimi, dijital pazarlama ve **YouTube büyüme** eğitimleri ⚠[kanitsiz]
   - **Claude Code** ile kod bilmeden AI kullanımı yöntemleri
   - ABD menşeli, uluslararası sertifikalı eğitimler (RASULOV AKADEMİ)
 
 - **Ücretsiz kısım**
-  - Örnek videolar, referanslar, başvuru sayfası (hizmetler ücretli)
+  - Örnek videolar, referanslar, başvuru sayfası (hizmetler ücretli) ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
-  - **Yok** (sadece eğitim içeriği, kodlama araçları yok)
+  - **Yok** (sadece eğitim içeriği, kodlama araçları yok) ⚠[kanitsiz]
 
 - **Teknoloji**
-  - **Frontend**: Next.js (/_next/ scriptleri)
-  - **Analitik**: Facebook Signals (connect.facebook.net)
+  - **Frontend**: Next.js (/_next/ scriptleri) ⚠[kanitsiz]
+  - **Analitik**: Facebook Signals (connect.facebook.net) ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **Skill**: Dijital pazarlama, YouTube stratejisi, AI yönetimi

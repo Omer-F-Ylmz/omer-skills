@@ -3,6 +3,7 @@ site: https://60fps.design
 tur: ilham galerisi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=1 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # 60fps.design
 
@@ -17,8 +18,8 @@ kart-modeli: mistral/ministral-8b-latest
   **Yok**. Örnekler görsel/etkileşimsel olarak sunulur; kod indirilemez (Framer.js kullanılıyor).
 
 - **Teknoloji**
-  - **Ana platform**: Framer (interaktif demo).
-  - **Kütüphaneler**: GSAP (animasyon), Three.js (3D).
+  - **Ana platform**: Framer (interaktif demo). ⚠[kanitsiz]
+  - **Kütüphaneler**: GSAP (animasyon), Three.js (3D). ⚠[kanitsiz]
   - **İçerik**: 2110+ UI detayı, 93 site örnekleri, 83 motion snippet.
 
 - **Bizde kullanım**

@@ -3,6 +3,7 @@ site: https://cultofclaude.com
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=5 kanitsiz=2 hakem=gemini/gemini-3.6-flash)
 ---
 # cultofclaude.com
 
@@ -19,12 +20,12 @@ kart-modeli: mistral/ministral-8b-latest
 
 - **İndirilebilir kaynak/kod**
   - **SKILL.md** dosyaları (prosedürler) ve **agent tanımları** (Markdown).
-  - **Kullanım komutları** (örn: `claude skill install <repo>`).
+  - **Kullanım komutları** (örn: `claude skill install <repo>`). ⚠[kanitsiz]
 
 - **Teknoloji**
   - **Kütüphane/komponent**: Claude Code uzantıları (skill/agent).
   - **Arka plan**: GitHub crawler (SKILL.md/agent dosyaları taraması).
-  - **Kullanılan tech**: Astro (site), Cloudflare (CDN).
+  - **Kullanılan tech**: Astro (site), Cloudflare (CDN). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **Skill/agent geliştiricileri** için **marketplace** (kalite filtreli).

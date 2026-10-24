@@ -3,17 +3,18 @@ site: https://balsa-ui.com
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=5 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # balsa-ui.com
 
 
 - **Ne sunuyor**
   - Tasarım sistemleri oluşturma ve UI kütüphanesi entegrasyonu (agentler için kaynak kod paylaşımı).
-  - Vue.js destekli animasyon/komponent kütüphanesi (GSAP, Three.js, FramerMotion gibi alternatifler yok).
+  - Vue.js destekli animasyon/komponent kütüphanesi (GSAP, Three.js, FramerMotion gibi alternatifler yok). ⚠[kanitsiz]
   - Proje yönetimi araçları (workspace, deployments, analytics) ve kaynak kod yönetimi.
 
 - **Ücretsiz kısım**
-  - Temel kütüphane ve dokümantasyon ücretsiz (lisans/özel özellikler için ayrıntılı bilgi yok).
+  - Temel kütüphane ve dokümantasyon ücretsiz (lisans/özel özellikler için ayrıntılı bilgi yok). ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
   - GitHub: [balsa-ui](https://github.com/pedrobalsa/balsa-ui) (MIT lisansı varsa doğrulanmalı).

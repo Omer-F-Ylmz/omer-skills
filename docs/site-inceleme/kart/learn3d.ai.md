@@ -3,6 +3,7 @@ site: https://learn3d.ai
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=3 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # learn3d.ai
 
@@ -13,10 +14,10 @@ kart-modeli: mistral/ministral-8b-latest
   - **Kurs 02**: AI destekli 3D oyun ortamı (7 ana ders + araç referansı, 5 günlük örnek süre).
 
 - **Ücretsiz kısım**
-  - **Yok** (tüm içerik ücretli, indirme/özel kaynak yok).
+  - **Yok** (tüm içerik ücretli, indirme/özel kaynak yok). ⚠[kanitsiz]
 
 - **Indirilebilir varlık/kaynak kod**
-  - **Yok** (sadece eğitim materyali).
+  - **Yok** (sadece eğitim materyali). ⚠[kanitsiz]
 
 - **Teknoloji**
   - **Blender** (karakter/ortam modelleme), **Unreal Engine 5** (export), **AI araçları** (genel iş akışı).

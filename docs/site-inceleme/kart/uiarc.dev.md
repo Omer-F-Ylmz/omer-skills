@@ -3,12 +3,13 @@ site: https://uiarc.dev
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=5 hakem=groq/openai/gpt-oss-120b)
 ---
 # uiarc.dev
 
 
 - **Ne sunuyor**
-  - 183 animasyonlu **React UI bileşeni** + 110 blok
+  - 183 animasyonlu **React UI bileşeni** + 110 blok ⚠[kanitsiz]
   - AI agentleri için hazır **interaktif bileşenler**
   - **Shadcn CLI** veya **MCP server** ile kolay entegrasyon
 
@@ -19,12 +20,12 @@ kart-modeli: mistral/ministral-8b-latest
 
 - **İndirilebilir kaynak**
   - GitHub: [Arc Library](https://github.com/kuratlielia/arc-library)
-  - **Kod temizliği**: Next.js tabanlı (uygulama içi kaynaklar)
+  - **Kod temizliği**: Next.js tabanlı (uygulama içi kaynaklar) ⚠[kanitsiz]
 
 - **Teknoloji**
-  - **React** (Next.js desteği yok)
-  - **GSAP/Lenis/Three.js** destek **yok**
-  - **Tailwind/CSS** ile stilleme
+  - **React** (Next.js desteği yok) ⚠[kanitsiz]
+  - **GSAP/Lenis/Three.js** destek **yok** ⚠[kanitsiz]
+  - **Tailwind/CSS** ile stilleme ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **AI entegrasyonları** için **interaktif UI** geliştirme

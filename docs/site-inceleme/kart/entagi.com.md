@@ -3,14 +3,15 @@ site: https://entagi.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=0 kanitsiz=4 hakem=gemini/gemini-3.6-flash)
 ---
 # entagi.com
 
 
-- **Ne sunuyor**: Hostinger'de WordPress kurulumu ve site transferi için adım-adım Türkçe rehber.
-- **Ücretsiz kısım**: Adım-adım yazılı talimatlar (sesli/kanıtlı video yok).
-- **İndirilebilir kaynak**: Yok (kod/veri indirme opsiyonu bulunmuyor).
-- **Teknoloji**: PHP/MySQL (WordPress), Hostinger hosting.
+- **Ne sunuyor**: Hostinger'de WordPress kurulumu ve site transferi için adım-adım Türkçe rehber. ⚠[kanitsiz]
+- **Ücretsiz kısım**: Adım-adım yazılı talimatlar (sesli/kanıtlı video yok). ⚠[kanitsiz]
+- **İndirilebilir kaynak**: Yok (kod/veri indirme opsiyonu bulunmuyor). ⚠[kanitsiz]
+- **Teknoloji**: PHP/MySQL (WordPress), Hostinger hosting. ⚠[kanitsiz]
 - **Bizde kullanım**: Web tasarımcılar/uygulayıcılar için hosting ve CMS kurulumu.
 
 

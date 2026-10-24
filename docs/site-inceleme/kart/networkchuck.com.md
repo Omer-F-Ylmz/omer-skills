@@ -3,6 +3,7 @@ site: https://networkchuck.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=5 kanitsiz=1 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # networkchuck.com
 
@@ -14,7 +15,7 @@ kart-modeli: mistral/ministral-8b-latest
 
 - **Ücretsiz kısım**
   - **YouTube videoları** (OSINT, hacking, homelab, AI).
-  - **Blog içeriği** (öğrenme yolculuğu, teknik ipuçları).
+  - **Blog içeriği** (öğrenme yolculuğu, teknik ipuçları). ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
   - **Yok** (kanıtta `dl: []`).

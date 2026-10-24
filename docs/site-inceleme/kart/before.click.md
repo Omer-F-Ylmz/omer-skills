@@ -3,6 +3,7 @@ site: https://before.click
 tur: ilham galerisi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=2 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # before.click
 
@@ -19,8 +20,8 @@ kart-modeli: mistral/ministral-8b-latest
   - **Özel "skills" paketi** (`npx skills add alexszczczurek/before-skills`) → ASO yetenekleri ekleme.
 
 - **Teknoloji**
-  - **Next.js** (site yapısı: `_next` dosyaları)
-  - **Frontend**: React (GSAP, Tailwind, Framer gibi teknolojiler **yok**).
+  - **Next.js** (site yapısı: `_next` dosyaları) ⚠[kanitsiz]
+  - **Frontend**: React (GSAP, Tailwind, Framer gibi teknolojiler **yok**). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **Skill/ASO uzmanları** için **iOS/Mac uygulama tasarım referansları** (öncelikle App Store Optimizasyonu).
