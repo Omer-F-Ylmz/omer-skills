@@ -20,7 +20,7 @@ Auto-mode sınıflandırıcı şu toplu komutu "Untrusted Code Integration" diye
 ## Güvenlik kapısı
 - gitleaks: 9router repo 56 / npm tarball 51 / CLIProxyAPI 17 bulgu; hepsi dokümanda curl-auth örneği ya da sağlayıcı OAuth/istemci sabiti (generic-api-key, gcp-api-key, derlenmiş bundle'da 1 private-key dizgesi). Bizim sır yok. Değerler yazılmadı.
 - semgrep p/security-audit: 9router 32 detect-child-process (CLI/tünel/güncelleyici, beklenen), CLIProxyAPI 83 WARNING (unsafe, math/rand), ERROR yok. İki resmî eklenti: gitleaks temiz, semgrep yalnız sha1 uyarısı.
-- skillspector: eklentilerde 300 sn'de bitmedi (API anahtarı yok, anlamsal analizörler atlanıyor) → TAM TARANMADI (EKSİK); arka görev 10 dk sınırında kendiliğinden durur (ada göre öldürme kancası engelledi). Kaynak Anthropic resmî pazaryeri olduğundan kuruldu.
+- skillspector (`--no-llm`, API anahtarı yok): lua-lsp 12/100 LOW (README'deki sudo kurulum satırı). code-modernization 240 sn'de bitmedi (rc=124) → TAM TARANMADI (EKSİK). İlk toplu koşu anahtar yokluğuyla hemen hata vermişti; "asılı" saptamam yanlıştı. Kaynak Anthropic resmî pazaryeri olduğundan kuruldu.
 - strix, ecc-agentshield: çalıştırılmadı (strix canlı hedef + LLM ister; agentshield kurulu değil). 
 - Typosquat: nvidia/SkillSpector 21k★ Apache-2.0; 9router npm yazarı = repo sahibi decolua.
 
