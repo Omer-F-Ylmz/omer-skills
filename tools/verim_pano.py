@@ -11,6 +11,7 @@ DB = Path.home() / ".claude" / "usage.db"
 HAVUZ = KOK / ".kos/kopru/ucretsiz/durum.json"
 RAM = KOK / ".kos/kopru/ram-buyume.json"
 KALITE = KOK / ".kos/kopru/verim/kalite.jsonl"
+SIRA = KOK / ".kos/kopru/ajan-sira"
 MERDIVEN = ["ucretsiz", "haiku", "sonnet", "opus"]
 PENCERE, RED_ESIK = 5, 0.4  # son 5 kayıttan ≥%40 RED → bir basamak yukarı
 # $/M jeton: (girdi, çıktı); önbellek okuma 0.1x, yazma 1.25x girdi
@@ -69,6 +70,26 @@ def kayit():
         return []
 
 
+def eksik_tur():
+    """(devam turu $, devam turu adedi, son 7 gün en sık eksik araçlar). Devam turu = ajan-sira/*-a.json, *-a2.json."""
+    sinir = datetime.datetime.now().timestamp() - 7 * 86400
+    dolar = adet = 0
+    sik = collections.Counter()
+    for p in SIRA.glob("*.json"):
+        if p.stat().st_mtime < sinir:
+            continue
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if p.name.endswith(".denetim.json"):
+            if "eksik" in d.get("durum", ""):
+                sik.update(d.get("eksik", []))
+        elif p.stem.endswith(("-a", "-a2")) and ".zorunlu" not in p.name:
+            dolar += d.get("total_cost_usd", 0) or 0; adet += 1
+    return round(dolar, 2), adet, sik.most_common(5)
+
+
 def merdiven():
     """Adım türü → basamak. Başlangıç ücretsiz; pencere RED oranı eşiği aşarsa bir yukarı (her aşım +1)."""
     tur = collections.defaultdict(list)
@@ -102,6 +123,8 @@ def pano(gun):
     k = kayit()
     ok = sum(1 for x in k if x["sonuc"] == "ok")
     print(f"KALİTE kapısı: {ok}/{len(k)} ok" if k else "KALİTE kapısı: kayıt yok (kalite ... ile besle)")
+    d, a, sik = eksik_tur()
+    print(f"EKSİK-TUR (7 gün): {a} devam turu ${d:.2f} | en sık eksik: {', '.join(f'{k}×{v}' for k, v in sik) or 'yok'} → kombinler.json önerisi: bunları ilk tura al")
     print("limit %: claude-usage CLI yalnız $/jeton verir, haftalık limit yüzdesi sunmaz → $ vekil")
     print("merdiven:", merdiven() or "kayıt yok")
 
