@@ -8,7 +8,15 @@ NODE = r"C:/Users/pc/AppData/Local/Microsoft/WinGet/Packages/OpenJS.NodeJS.LTS_M
 REA = NODE.replace("node.exe", "node_modules/rea-agents/scripts/rea.mjs")
 CHROME = r"C:/Program Files/Google/Chrome/Application/chrome.exe"
 NOWIN = 0x08000000
-PORT = 9333
+
+
+def bos_port():
+    import socket
+    with socket.socket() as k:  # önceki koşudan artık Chrome 9333'te kalıp başka sayfayı sunmasın
+        k.bind(("127.0.0.1", 0)); return k.getsockname()[1]
+
+
+PORT = bos_port()
 
 
 def ram():

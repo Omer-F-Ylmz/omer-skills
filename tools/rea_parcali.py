@@ -41,13 +41,37 @@ def isci(args, tepe):
     return p.returncode, durdu
 
 
+def modul_coz(af, tepe, sinir_kb="40"):
+    """Tek modülü analiz eder; tavanı aşarsa üst düzey deyimlerden ≤sinir_kb'lık parçalara bölüp parça parça dener. Başarı: bool."""
+    acc = af.replace(".json", ".acc.json")
+    kod, _ = isci(["script", af, acc], tepe)
+    if kod == 0 and os.path.exists(acc):
+        return True
+    p = subprocess.run([NODE, TAVAN, ISCI, DIST, "bol", af, af.replace(".json", ""), sinir_kb], capture_output=True, creationflags=NOWIN)
+    try:
+        n = int(p.stdout.decode().strip().splitlines()[-1])
+    except Exception:
+        return False
+    tam = True
+    for j in range(n):
+        pf = af.replace(".json", f".p{j:04d}.json")
+        kod, _ = isci(["script", pf, pf.replace(".json", ".acc.json")], tepe)
+        tam = tam and kod == 0 and os.path.exists(pf.replace(".json", ".acc.json"))
+    return tam
+
+
 def yakala(url, dizin, bekle):
     cikti = os.path.join(dizin, "yakala.json")
     env = {**os.environ, "BEKLE": str(bekle), "ZAMAN_ASIMI": "240"}
     arg = json.dumps({"cdp_endpoint": "{CDP}", "target_id": "{TARGET}", "observation_ms": 3000, "include_script_sources": True})
-    subprocess.run([sys.executable, os.path.join(HERE, "rea_mcp_cagri.py"), url, "inspect_web_page", arg, cikti, TAVAN],
-                   env=env, capture_output=True, creationflags=NOWIN)
-    m = json.load(open(cikti.replace(".json", ".cevap.json"), encoding="utf-8"))
+    cevap = cikti.replace(".json", ".cevap.json")
+    for _ in range(4):  # sistem RAM başka işlerce >=%88'e çıkınca bekçi yakalamayı öldürür; RAM düşünce yeniden dene
+        kapi_bekle(600)
+        subprocess.run([sys.executable, os.path.join(HERE, "rea_mcp_cagri.py"), url, "inspect_web_page", arg, cikti, TAVAN],
+                       env=env, capture_output=True, creationflags=NOWIN)
+        if os.path.exists(cevap):
+            break
+    m = json.load(open(cevap, encoding="utf-8"))
     if m["result"].get("isError"):
         raise SystemExit("yakalama hatası: " + m["result"]["content"][0]["text"][:300])
     return m["result"]["structuredContent"]["normalized_result"], json.load(open(cikti, encoding="utf-8"))
@@ -91,8 +115,7 @@ def main():
         for j, mf in enumerate(moduller):
             alt = json.loads(json.dumps(oge)); alt["source"]["artifact"]["text"] = open(mf, encoding="utf-8", errors="replace").read()
             af = os.path.join(d, "ogeler", f"{i:04d}.m{j:04d}.json"); json.dump(alt, open(af, "w", encoding="utf-8"))
-            kod, _ = isci(["script", af, af.replace(".json", ".acc.json")], tepe)
-            gec += kod == 0 and os.path.exists(af.replace(".json", ".acc.json"))
+            gec += modul_coz(af, tepe)
         b["wakaru_modul"] = len(moduller); b["wakaru_analiz_edilen"] = gec
         if moduller and gec == len(moduller):
             basarisiz.remove(b); ok.append({**b, "yol": "wakaru"})

@@ -31,6 +31,31 @@ if (mod === "script") {
   const kaynak = inspection.scripts.items.filter(isIncludedScript);
   const sonuc = buildWebBundleAnalysis(inspection, kaynak, { status: "not_requested", requested: 0, processed: 0, items: [] }, m);
   writeFileSync(cikti, JSON.stringify(sonuc));
+} else if (mod === "bol") {
+  // tek modül hâlâ tavanı aşıyorsa: üst düzey deyimleri ≤ acclar[0] KB'lık parçalara böler (<cikti>.pNNNN.json); çıktı: parça sayısı
+  const { parseJavaScriptSource } = await al("javascript/javascriptSourceParser.js");
+  const oge = JSON.parse(readFileSync(girdi, "utf8"));
+  const metin = oge.source.artifact.text;
+  const sinir = Number(acclar[0] ?? 40) * 1024;
+  const gövde = parseJavaScriptSource(metin).program.body;
+  let parcalar = [], bas = 0, son = 0;
+  for (const s of gövde) {
+    if (s.end - bas > sinir && son > bas) { parcalar.push(metin.slice(bas, son)); bas = son; }
+    son = s.end;
+  }
+  parcalar.push(metin.slice(bas, son));
+  parcalar.forEach((p, j) => {
+    const alt = JSON.parse(JSON.stringify({ ...oge, source: { ...oge.source, artifact: { ...oge.source.artifact, text: "" } } }));
+    alt.source.artifact.text = p;
+    writeFileSync(`${cikti}.p${String(j).padStart(4, "0")}.json`, JSON.stringify(alt));
+  });
+  console.log(parcalar.length);
+} else if (mod === "normal") {
+  // kalite kapısı referansı: aynı yakalamayı REA'nın tek süreçli analyzeCapturedWebBundle'ı ile çözer (girdi: yakala.cevap.json ya da {normalized_result})
+  const { analyzeCapturedWebBundle } = await al("webBundleAnalyzer.js");
+  const j = JSON.parse(readFileSync(girdi, "utf8"));
+  const n = j.result ? j.result.structuredContent.normalized_result : j.normalized_result;
+  writeFileSync(cikti, JSON.stringify(analyzeCapturedWebBundle(n)));
 } else {
-  throw new Error("mod: script | birlestir");
+  throw new Error("mod: script | birlestir | normal");
 }
