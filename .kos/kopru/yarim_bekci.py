@@ -71,7 +71,8 @@ def _gorev_dosyalari(k):
         r[f.stem] = f
     for f in k.glob("gorev-*.md"):
         r.setdefault(f.stem[len("gorev-"):], f)
-    return r
+    # şablon/kural dosyası iş değil: BÜYÜK HARFLİ ad (DEVAM-KURALI) ya da _ ile başlayan (_sablon)
+    return {a: f for a, f in r.items() if not (a.startswith("_") or a.isupper())}
 
 
 def _muaf(k):

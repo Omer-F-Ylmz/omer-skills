@@ -204,6 +204,26 @@ def test_muaf(ort):
     assert set(tur(tara(k, kok), "H1")) == {"baska"}
 
 
+def test_muaf_h4_icin_de_gecerli(ort):
+    k, kok = ort
+    gorev(k, "video-x")
+    kuyruk(k, "video-x\t.kos/kopru/gorev/video-x.md\t.kos/kopru/yok.txt::a")
+    eski = k / "devir" / "desktop-devir-eski.md"
+    eski.write_text("# Devir\n## Bekleyenler\n- video-x işi sürecek\n", encoding="utf-8")
+    (k / "devir" / "desktop-devir-yeni.md").write_text("# Devir\n## Durum\n- hiçbir şey\n", encoding="utf-8")
+    os.utime(eski, (time.time() - 100, time.time() - 100))
+    (k / "yarim-muaf.tsv").write_text("video-x\tBEKLEMEDE\tÖmer\n", encoding="utf-8")
+    assert not tur(tara(k, kok), "H4")
+
+
+def test_h1_sablon_kural_dosyasi_is_degil(ort):
+    k, kok = ort
+    gorev(k, "DEVAM-KURALI")
+    gorev(k, "_sablon")
+    gorev(k, "gercek")
+    assert set(tur(tara(k, kok), "H1")) == {"gercek"}
+
+
 def test_tsv_ilk_gorulme_korunur_ve_yeni_satir_bir_kez(ort):
     k, kok = ort
     gorev(k, "yetim")
