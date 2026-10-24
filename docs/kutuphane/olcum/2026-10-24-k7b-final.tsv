@@ -1,0 +1,4 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata	jev	jev_guven
+G01	1	2	152877	5516	1027	158395	1	189.8	1.2447	1	8	5446	0		
+G05	1	2	152794	5516	513	158312	1	243.4	1.2337	0	10	5446	0		
+G06	1	175	155662	644705	1728	800542	5	226.7	1.4095	1	10	5446	3	Bash,WebFetch	

@@ -1,0 +1,5 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata	jev	jev_guven
+G01	1	2	158410	0	1042	158412	1	236.1	1.2881	1	10	5446	0		
+G02	1	2	152776	5516	3265	158294	1	247.0	1.2886	1	10	5446	0		
+G03	1	4	169316	163923	12124	333243	5	316.2	1.6298	1	10	5446	0	Skill:departman-frontend,Skill:frontend-craft:frontend-craft	
+G04	1	11229	163888	822047	2064	997164	7	312.3	1.5617	1	10	5375	0	Glob,Bash,Read,Grep	

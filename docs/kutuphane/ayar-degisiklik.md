@@ -41,3 +41,8 @@ Değişen: `permissions.deny` 7 → 148 (+141 `Agent(<plugin>:<ajan>)`; mevcut 7
 Gürültü kontrolü (aynı görev tekrarı): G01 rubrik canlı 10,10,8,8,10,8 · ajan 8,8,8,8,10,10,8; G10 canlı 10,10,8 · ajan 8,10,8; G06 isabeti iki kolda da çoğunlukla 0 (Bash ile npm/curl). LLM yargıç (jev-1.13, G01 4+4 yanıt, 1–10): ajan ort. 8.17 · canlı 8.27 (fark 0.10, tekil sapma ~0.15) → kalite eşit, düşüş yok.
 
 Geri alma: `python tools/olcum/ayar_uygula.py --geri` (yedek `~/.claude/settings.json.bak-k4-20261010-174306`; bu yedek nameonly75'li hâli tutar).
+
+## TOKEN-7b (24 Eki), think10k + cmnudge ÖNERİ (uygulanmadı)
+
+Önerilen env: `MAX_THINKING_TOKENS=10000`, `CONTEXT_MODE_BASH_NUDGE_MIN_COMMAND_BYTES=200` (profil-k7b-final.json). Kanıt: cmnudge kalite 9.92 / isabet 0.92 (taban 9.79 / 0.88), maliyet eşit; think10k 3 görevlik elemede 60/60; birleşik tam set G06–G12 ölçülmedi (docs/token/token-7b-sonuc.md).
+Uygula: `python C:\Projeler\omer-skills\.kos\kopru\onay\token_7b_uygula.py` (`--kuru` önce; `--geri` yedekten döner).
