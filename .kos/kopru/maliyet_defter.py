@@ -60,6 +60,23 @@ def gunluk(rows, gun):
     return sum(r["usd"] for r in bugun), sorted(bugun, key=lambda r: -r["usd"])[:3]
 
 
+def ucretsiz_oran(rows, simdi=None):
+    """UCRETSIZ-MOTOR-1: son 7 günde ücretsiz motorda tür → (başarılı, toplam)."""
+    simdi = time.time() if simdi is None else simdi
+    sinir = time.strftime("%Y-%m-%d %H:%M", time.localtime(simdi - 7 * 86400))
+    oran = {}
+    for r in rows:
+        if r["model"].startswith("ucretsiz") and r["zaman"] >= sinir:
+            ok, n = oran.get(r["tur"], (0, 0))
+            oran[r["tur"]] = (ok + r["ok"], n + 1)
+    return oran
+
+
+def ucretsiz_zayif(rows, simdi=None):
+    """Ücretsiz başarı oranı <%80 olan türler → ajan_sira bu türleri doğrudan haiku'dan başlatır (haftalık pencere)."""
+    return {t for t, (ok, n) in ucretsiz_oran(rows, simdi).items() if ok / n < 0.8}
+
+
 def haiku_zayif(rows, simdi=None):
     """Son 7 günde Haiku'da başarısız kalan iş türleri (küme)."""
     simdi = time.time() if simdi is None else simdi

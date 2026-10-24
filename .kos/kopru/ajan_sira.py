@@ -18,13 +18,14 @@ ESIK, TAVAN, ARA, SURE = 82, 3, 90, 10800
 TAVAN_DOSYA = K / "ajan-sira.tavan"  # Desktop 20 Eki 12:15 (Ömer: haftalık %7, token düşsün): tavan dosyadan, varsayılan 3  # Desktop 14 Eki 19:45: 88'de başlatılan işle RAM %89'a çıktı (sınır %90, yeni iş ≥%85 yok)
 sys.path.insert(0, str(KOK / "tools"))
 import zorunlu_arac  # ZORUNLU-ARAÇ-1: ön uçuş bloğu + son denetim
+import ucretsiz_motor  # UCRETSIZ-MOTOR-1: OmniRoute ücretsiz model kolu (env/kimlik temizliği, kolay iş sınıflayıcı)
 import arka_istek  # ARKA-KALICI-1: ajan yerine yönetici başlatır
 import ajan_ram_bekci  # RAM-BEKCI-1: çalışan ajanların alt süreçleri için RAM bekçisi
 import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTut deny); CC_PROFIL_ZORLA=tam geri alır
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
-MODELLER = ("opus", "sonnet", "haiku")
-MERDIVEN = [("haiku", "medium"), ("haiku", "high"), ("sonnet", "medium"), ("sonnet", "high")]  # tsv'de model yok → 0. basamak; başarısız → bir üst (en fazla 1 kez)
+MODELLER = ("opus", "sonnet", "haiku", "ucretsiz")
+MERDIVEN = [("ucretsiz", "high"), ("haiku", "medium"), ("haiku", "high"), ("sonnet", "medium"), ("sonnet", "high")]  # UCRETSIZ-MOTOR-1: 0 = ücretsiz (yalnız kolay iş/motor=ucretsiz), tsv'de model yok → 1 (haiku medium); başarısız → bir üst (en fazla 1 kez)
 SLASH_DOSYA = K / "ajan-sira.slash"  # SLASH-ÖĞREN d1: dosya varsa köprü oturumlarında Skill aracı açık (onay/slash_ac.py)
 DERS_DOSYA = K / "ajan-sira.ders"  # RUFLO-2 d3: ders önsözü açma bayrağı (dosya varsa ya da `--ders`); varsayılan kapalı
 
@@ -523,24 +524,29 @@ def kuyruk():
         p = satir.split("\t")
         if len(p) >= 2 and not satir.startswith("#"):
             ek = dict(x.strip().split("=", 1) for x in p[3:] if "=" in x)
-            efor, model = ek.get("efor", ""), ek.get("model")  # model yok → MERDIVEN (haiku medium'dan)
-            if efor not in ("", "medium", "high") or (model is not None and model not in MODELLER):
-                raise ValueError(f"geçersiz efor/model: {satir!r}")
-            s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model, None, ek.get("cwd")))
+            efor, model, motor = ek.get("efor", ""), ek.get("model"), ek.get("motor")  # model yok → MERDIVEN (haiku medium'dan)
+            if efor not in ("", "medium", "high") or (model is not None and model not in MODELLER) or motor not in (None, "ucretsiz"):
+                raise ValueError(f"geçersiz efor/model/motor: {satir!r}")
+            s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model, 0 if motor else None, ek.get("cwd")))  # motor=ucretsiz → merdiven 0. basamaktan
     return s
 
 
-def basamak_sec(ad, bas):
-    """Merdiven başlangıcı: yeniden deneme (bas verili) aynen; yoksa son 7 günde Haiku'da başarısız tür → sonnet medium (2), diğer → haiku medium (0)."""
-    if bas is not None:
-        return bas
-    return 2 if maliyet_defter.tur(ad) in maliyet_defter.haiku_zayif(maliyet_defter.oku()) else 0
+def basamak_sec(ad, bas, metin=""):
+    """Merdiven başlangıcı: yeniden deneme (bas verili) aynen; yoksa Haiku-zayıf tür → sonnet medium (3); kolay iş ve türde ücretsiz başarı ≥%80 → ücretsiz (0); diğer → haiku medium (1).
+    Anahtar (OMNIROUTE_KEY) yoksa ücretsiz basamak atlanır."""
+    if bas is None:
+        rows = maliyet_defter.oku()
+        t = maliyet_defter.tur(ad)
+        if t in maliyet_defter.haiku_zayif(rows):
+            return 3
+        bas = 0 if ucretsiz_motor.kolay(ad, metin) and t not in maliyet_defter.ucretsiz_zayif(rows) else 1
+    return 1 if bas == 0 and not ucretsiz_motor.hazir() else bas
 
 
 def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
-    argv = [model if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
+    argv = [(ucretsiz_motor.MODEL if model == "ucretsiz" else model) if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
     if mcp:
         argv[argv.index("--mcp-config") + 1] = str(mcp)
     if ajanlar and "--settings" in argv:  # ENGEL-TARAMA-1: ZORUNLU ARAÇLAR'daki ajanlar Agent(ad) deny'dan çıkar (görev başına ayrı ayar dosyası)
@@ -571,6 +577,14 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
     if butce is not None:  # 22 Eki (Ömer): bütçe HEDEFTİR, işi kesmez. Sert sınır yalnız kaçak döngüye karşı emniyet: hedefin 8 katı (≥ $3)
         argv = [*argv, "--max-budget-usd", f"{max(3.0, butce * EMNIYET_KAT):g}"]
     env = taze_env()
+    if model == "ucretsiz":  # UCRETSIZ-MOTOR-1: kimlik temizliği + OmniRoute; profil --settings env'i de aynı uca bağlanır (anahtar dosyaya yazılmaz)
+        env = ucretsiz_motor.env_kur(env)
+        i = argv.index("--settings") + 1
+        ayar = json.loads(Path(argv[i]).read_text(encoding="utf-8"))
+        ayar["env"] = {**ayar.get("env", {}), **ucretsiz_motor.ayar_env()}
+        kayit = Path(tempfile.gettempdir()) / f"cc_um_{os.getpid()}_{abs(hash(argv[i]))}.json"
+        kayit.write_text(json.dumps(ayar), encoding="utf-8")
+        argv[i] = str(kayit)
     env.setdefault("MCP_TIMEOUT", "240000")  # RUFLO-BAG-1: yük altında ruflo soğuk başlangıcı ~165 sn; CC varsayılanı 30 sn → MCP 'failed', araçlar hiç gelmiyordu
     env.update(ajan_ram_bekci.TARAYICI_ENV)  # TARAYICI-KAPI-1: BROWSER=none, CI=1, OPEN_BROWSER=false → ajan alt süreçleri Opera açmaz
     env["AJAN_SIRA_KUYRUK"] = "1"  # SAYAC-FIX-1: cagri_sayac.py bu ajanda devir/DUR uyarısı basmaz
@@ -631,7 +645,7 @@ def sonuc_temizle(ad):
         log("JSON TEMİZLE", ad, f"{len(stray)} satır taşındı")
 
 
-def is_kaydi(ad, rc, dk, efor, model, butce=None):
+def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False):
     """TOKEN-3 K17: biten işin claude -p JSON'u → is-kaydi.tsv tek satır (ağırlıklı = g + 1.25·cw + 0.1·cr + 5·ç; kalite = sonuçtaki ilk 'kalite' satırı).
     Dönüş: kabul (rc 0 ve subtype success); aynı anda maliyet.tsv'ye yazılır."""
     j = {}
@@ -653,6 +667,9 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None):
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
     ok = rc == 0 and j.get("subtype") == "success"
     usd = j.get("total_cost_usd", 0)
+    if model == "ucretsiz":  # UCRETSIZ-MOTOR-1: Claude'a harcama yok (claude'un tahmini fiyatı yazılmaz); kabul satırı raporda yoksa başarısız → üst basamak
+        usd = 0
+        ok = ok and (not kabul or "kabul" in (j.get("result") or "").lower())
     maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok)
     if butce is not None:  # BÜTÇE-KAPI-1: %100 durdurma claude'un --max-budget-usd'si; burada yalnız kayıt ve son %80 uyarısı
         durum = j.get("subtype") or f"rc{rc}"
@@ -772,7 +789,7 @@ def main():
                 (CIKTI / f"{ad}.mcp.json").unlink(missing_ok=True)  # MCP-AÇ-1: profil dosyası env taşıyabilir
                 sonuc_temizle(ad)  # BÜTÇE-KAPI-1: JSON dışı satırlar ayrılır, ad.json geçerli kalır
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
-                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce)
+                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce, bool(re.search(r"(?m)^\s*KABUL", (KOK / istem).read_text(encoding="utf-8"))))
                 ram_kesti = ram_kesti_al(ad)  # RAM-BEKCI-2: bekçi kesti → basamak yükselmez, araç denetimi/devam turu yok; RAM < %85'te -b
                 if ram_kesti and (yb := ram_yeniden(ad, istem, kosul, ef, mdl, bas, cwd)) and yb[0] not in tekrar:
                     yeniden.append(yb)
@@ -876,7 +893,7 @@ def main():
                         log("RAM BEKLE", ad, f"tahmin {tah} MB · RAM %{r} · eşik %{esik()}")
                     continue
                 if model is None:
-                    bas = basamak_sec(ad, bas)
+                    bas = basamak_sec(ad, bas, (KOK / istem).read_text(encoding="utf-8"))
                     model, efor = MERDIVEN[bas]
                 metin = (KOK / istem).read_text(encoding="utf-8")
                 butce = butce_bul(metin)  # BÜTÇE-KAPI-1: ham görev metninden (ön ekler karışmadan)

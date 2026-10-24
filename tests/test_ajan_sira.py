@@ -143,10 +143,10 @@ def test_basamak_sec_merdiven(tmp_path, monkeypatch):
     """MERDIVEN: model yok → haiku medium (0); son 7 günde Haiku'da başarısız tür → sonnet medium (2); yeniden deneme basamağı aynen."""
     monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")
     ajan_sira.maliyet_defter.yaz("token-1-d1", "haiku-medium", 0.5, False)
-    assert ajan_sira.basamak_sec("atlas-1-d1", None) == 0
-    assert ajan_sira.basamak_sec("token-2-d3", None) == 2
+    assert ajan_sira.basamak_sec("atlas-1-d1", None) == 1  # UCRETSIZ-MOTOR-1: 0. basamak ücretsiz; kolay işaretsiz iş haiku medium (1)
+    assert ajan_sira.basamak_sec("token-2-d3", None) == 3
     assert ajan_sira.basamak_sec("token-2-d3-r", 1) == 1
-    assert ajan_sira.MERDIVEN[2] == ("sonnet", "medium")
+    assert ajan_sira.MERDIVEN[3] == ("sonnet", "medium")
 
 
 def test_kontrol_ozet_zaman_asimi(monkeypatch):
