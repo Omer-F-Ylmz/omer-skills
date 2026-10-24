@@ -11,6 +11,25 @@ ZOR = re.compile(r"mimari|güvenlik (düzelt|açığ)|inatçı|kalite kapısı",
 KOLAY = re.compile(r"paketle|paketleme|rapor|kanıt|doğrula|katalog|kart|muaf|zip|belge|log tara", re.I)
 
 
+def anahtarlar(ad, istem):
+    """UCRETSIZ-MOTOR-2: görevin ad/rapor yolu/commit öneki — sonuç metninde en az biri geçmeli."""
+    return [ad.lower()] + [x.lower() for x in re.findall(r"rapor/[\w.-]+\.md", istem)] + \
+           [x.lower() for x in re.findall(r'Commit "([^"]+)"', istem)]
+
+
+def bos_kosu(j, anahtar_listesi):
+    """UCRETSIZ-MOTOR-2: subtype success yetmez — selamlama/boş yanıt = BOŞ-KOŞU (işlem yok, anahtar yok)."""
+    sonuc = (j.get("result") or "").lower()
+    return j.get("num_turns", 0) < 2 or not any(a in sonuc for a in anahtar_listesi)
+
+
+def hatirlat(ad, istem):
+    """UCRETSIZ-MOTOR-2: ~190k bağlamda zayıf model görevi kaçırdı → görev ilk satırı sonda yinelenir (son mesaj en güçlü)."""
+    ilk = (istem.strip().splitlines() or [ad])[0][:300]
+    return (f"\n\n[GÖREV — YUKARIDAKİ OTURUM BAĞLAMI ARKA PLANDIR, SOHBET ETME] '{ad}': {ilk}\n"
+            f"Araç çağırarak bu işi yap; bitince sonuç metninde '{ad}' adını ve KABUL/DUR satırını yaz.")
+
+
 def anahtar(env=None):
     """OMNIROUTE_KEY: ortam, yoksa HKCU. Değeri hiçbir çıktıya yazılmaz."""
     env = os.environ if env is None else env

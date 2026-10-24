@@ -692,7 +692,7 @@ def sonuc_temizle(ad):
         log("JSON TEMİZLE", ad, f"{len(stray)} satır taşındı")
 
 
-def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False):
+def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
     """TOKEN-3 K17: biten işin claude -p JSON'u → is-kaydi.tsv tek satır (ağırlıklı = g + 1.25·cw + 0.1·cr + 5·ç; kalite = sonuçtaki ilk 'kalite' satırı).
     Dönüş: kabul (rc 0 ve subtype success); aynı anda maliyet.tsv'ye yazılır."""
     j = {}
@@ -714,6 +714,16 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False):
     if model == "ucretsiz":  # UCRETSIZ-MOTOR-1: Claude'a harcama yok (claude'un tahmini fiyatı yazılmaz); kabul satırı raporda yoksa başarısız → üst basamak
         usd = 0
         ok = ok and (not kabul or "kabul" in (j.get("result") or "").lower())
+        try:  # UCRETSIZ-MOTOR-2: BOŞ-KOŞU (selamlama/anahtarsız) başarı sayılmaz → merdivende üst basamak; jeton Claude $'ı değil
+            istem_metin = (KOK / istem_yolu).read_text(encoding="utf-8") if istem_yolu else ""
+        except OSError:
+            istem_metin = ""
+        if ok and ucretsiz_motor.bos_kosu(j, ucretsiz_motor.anahtarlar(ad, istem_metin)):
+            ok = False
+            log("BOŞ-KOŞU", ad, "ücretsiz motor görevi yapmadı → üst basamak")
+        u2 = j.get("usage") or {}
+        with (K / "ucretsiz-jeton.tsv").open("a", encoding="utf-8") as f:
+            f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{u2.get('input_tokens', 0)}\t{u2.get('output_tokens', 0)}\t{int(ok)}\n")
     maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok)
     if butce is not None:  # BÜTÇE-KAPI-1: %100 durdurma claude'un --max-budget-usd'si; burada yalnız kayıt ve son %80 uyarısı
         durum = j.get("subtype") or f"rc{rc}"
@@ -833,7 +843,7 @@ def main():
                 (CIKTI / f"{ad}.mcp.json").unlink(missing_ok=True)  # MCP-AÇ-1: profil dosyası env taşıyabilir
                 sonuc_temizle(ad)  # BÜTÇE-KAPI-1: JSON dışı satırlar ayrılır, ad.json geçerli kalır
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
-                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce, bool(re.search(r"(?m)^\s*KABUL", (KOK / istem).read_text(encoding="utf-8"))))
+                ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce, bool(re.search(r"(?m)^\s*KABUL", (KOK / istem).read_text(encoding="utf-8"))), istem)
                 ram_kesti = ram_kesti_al(ad)  # RAM-BEKCI-2: bekçi kesti → basamak yükselmez, araç denetimi/devam turu yok; RAM < %85'te -b
                 if ram_kesti and (yb := ram_yeniden(ad, istem, kosul, ef, mdl, bas, cwd)) and yb[0] not in tekrar:
                     yeniden.append(yb)
@@ -957,6 +967,8 @@ def main():
                           "bitir, doğrula, raporla. Hedefi aştıysan raporda nedenini tek satır yaz.")
                 metin += f"\n[ara kayıt] Uzun işte her parça sonunda commit ya da .kos/kopru/ara/{ad}.md ilerleme notu yaz; yönetici kesilirse iş buradan sürer."  # d4
                 metin += gorev_yolu_satir(istem)  # NİHAİ-DÜZELT-2 C: görev dosyası MUTLAK yol
+                if model == "ucretsiz":
+                    metin += ucretsiz_motor.hatirlat(ad, (KOK / istem).read_text(encoding="utf-8"))  # UCRETSIZ-MOTOR-2
                 try:
                     sys.path.insert(0, str(KOK / "tools")); import mcp_profil; metin += mcp_profil.codemode()  # CODE-MODE-AB-1: CC_CODEMODE=1
                 except Exception:

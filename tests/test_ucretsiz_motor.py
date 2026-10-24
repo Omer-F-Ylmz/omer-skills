@@ -35,6 +35,34 @@ def _izole(tmp_path, monkeypatch):
     monkeypatch.setattr(ajan_sira, "taze_env", lambda: dict(os.environ))  # HKCU'daki gerçek anahtar testi ezmesin
 
 
+ISTEM = 'Rapor rapor/ucretsiz-motor-2.md ≤12 satır. Commit "UCRETSIZ-MOTOR-2:". Push YOK.'
+
+
+def test_bos_kosu_selamlama():
+    # gerçek kanıt: zip-yukle-24eki.json — success ama selamlama, 3 tur
+    j = {"result": "Session started in `C:\\Projeler\\omer-skills`. What would you like to work on?", "num_turns": 3}
+    assert um.bos_kosu(j, um.anahtarlar("zip-yukle-24eki", "KABUL: zip")) is True
+
+
+def test_bos_kosu_gercek_is():
+    j = {"result": "ucretsiz-motor-2 bitti. KABUL: 3/3, rapor/ucretsiz-motor-2.md yazıldı", "num_turns": 9}
+    assert um.bos_kosu(j, um.anahtarlar("ucretsiz-motor-2", ISTEM)) is False
+
+
+def test_bos_kosu_tek_tur_araçsız():
+    assert um.bos_kosu({"result": "ucretsiz-motor-2 tamam", "num_turns": 1}, um.anahtarlar("ucretsiz-motor-2", ISTEM)) is True
+
+
+def test_anahtarlar_rapor_ve_commit():
+    a = um.anahtarlar("x", ISTEM)
+    assert "rapor/ucretsiz-motor-2.md" in a and "ucretsiz-motor-2:" in a
+
+
+def test_hatirlat_gorevi_sona_koyar():
+    s = um.hatirlat("zip-yukle-24eki", "ZIP görevi\nikinci satır")
+    assert "zip-yukle-24eki" in s and "ZIP görevi" in s and "ikinci" not in s
+
+
 def test_kolay_siniflayici():
     assert um.kolay("paket-1", "Zip denetimi ve paketleme\ndetay") is True
     assert um.kolay("kanit-2", "Kanıt doğrulama raporu") is True
