@@ -26,8 +26,8 @@ def calis(cmd, zaman=600, **kw):
 def beyin(metin):
     """2 dk kurali: ilerleme olayi, $0."""
     with open(KOK / ".kos" / "kopru" / "beyin-olay.jsonl", "a", encoding="utf8") as f:
-        f.write(json.dumps({"t": time.strftime("%Y-%m-%dT%H:%M:%S"), "kaynak": "kurulum2b", "olay": metin},
-                           ensure_ascii=False) + "\n")
+        f.write(json.dumps({"t": round(time.time(), 1), "tur": "ilerleme", "arac": "", "ozet": metin, "hata": False, "kaynak": "kurulum2b"},
+                           ensure_ascii=False) + "\n")  # beyin-olay.jsonl ortak biçimi (arka_bekci/beyin_dusun ile aynı anahtarlar)
 
 
 def not_yaz(ad, satirlar):

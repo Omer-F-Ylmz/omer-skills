@@ -22,12 +22,28 @@ OLAYLAR = ("UserPromptSubmit", "PostToolUse", "PostToolUseFailure", "Stop")
 
 
 def _gorev_kur():
-    """ASLA durmaz: her 2 dk sonsuz (yeniden başlatma/oturum açılışından sonra ilk dilimde sürer; AtLogOn tetiği yönetici ister, gerekmez), uykudan dönünce kaçan tur hemen (StartWhenAvailable), pilde de koşar, takılırsa 10 dk sonra öldürülür."""
-    arg = f'--headless "{sys.executable}" "{BETIK}" tur'
-    ps = (f"$a = New-ScheduledTaskAction -Execute 'C:\\Windows\\System32\\conhost.exe' -Argument '{arg}'; "
-          "$t = New-ScheduledTaskTrigger -Once -At (Get-Date).Date -RepetitionInterval (New-TimeSpan -Minutes 2); "
-          "$s = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Minutes 10); "
-          f"Register-ScheduledTask -TaskName '{AD}' -Action $a -Trigger $t -Settings $s -Force | Out-Null; Start-ScheduledTask -TaskName '{AD}'")
+    """ASLA durmaz: 3 tetik — her 2 dk sonsuz; oturum açılışı (+ 5 dk canlılık tekrarı); uykudan dönüş (Power-Troubleshooter 1). Pilde de koşar, takılırsa 10 dk sonra öldürülür, çift tetik IgnoreNew ile tek koşar.
+    Principal InteractiveToken kalır: S4U/"oturum kapalıyken de" yönetici ya da parola ister (non-admin Register → Erişim engellendi, 24.10 denendi)."""
+    sid = subprocess.run(["powershell", "-NoProfile", "-Command", "[Security.Principal.WindowsIdentity]::GetCurrent().User.Value"], capture_output=True, text=True).stdout.strip()
+    sorgu = ("&lt;QueryList&gt;&lt;Query Id=\"0\" Path=\"System\"&gt;&lt;Select Path=\"System\"&gt;"
+             "*[System[Provider[@Name='Microsoft-Windows-Power-Troubleshooter'] and EventID=1]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;")
+    xml = f'''<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.3" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <Principals><Principal id="Author"><UserId>{sid}</UserId><LogonType>InteractiveToken</LogonType></Principal></Principals>
+  <Settings><DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries><StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <StartWhenAvailable>true</StartWhenAvailable><MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy><ExecutionTimeLimit>PT10M</ExecutionTimeLimit></Settings>
+  <Triggers>
+    <TimeTrigger><StartBoundary>{time.strftime("%Y-%m-%d")}T00:00:00</StartBoundary><Repetition><Interval>PT2M</Interval></Repetition></TimeTrigger>
+    <LogonTrigger><UserId>{sid}</UserId><Repetition><Interval>PT5M</Interval></Repetition></LogonTrigger>
+    <EventTrigger><Subscription>{sorgu}</Subscription></EventTrigger>
+  </Triggers>
+  <Actions Context="Author"><Exec><Command>C:\\Windows\\System32\\conhost.exe</Command>
+    <Arguments>--headless "{sys.executable}" "{BETIK}" tur</Arguments></Exec></Actions>
+</Task>'''
+    dosya = Path(os.environ.get("TEMP", ".")) / "omer-beyin-dusun.xml"
+    dosya.write_bytes(xml.encode("utf-16"))
+    ps = (f"Register-ScheduledTask -TaskName '{AD}' -Xml (Get-Content -Raw -Encoding Unicode '{dosya}') -Force -ErrorAction Stop | Out-Null; "
+          f"Start-ScheduledTask -TaskName '{AD}'")
     return subprocess.run(["powershell", "-NoProfile", "-Command", ps], capture_output=True, text=True)
 
 
