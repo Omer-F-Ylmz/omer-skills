@@ -118,7 +118,8 @@ def test_kayit_dalga_ciktisi(ortam, dizin, capsys):
 
 
 @pytest.mark.parametrize("es,cift,risk,beklenen", [(("graphify", "skill", 0.9), 0.1, 0, "ÇİFT"), (None, 0.7, 0, "ÇİFT"),
-                                                   (("lenis", "ele", 0.9), 0.1, 0, "ÖNCEDEN-GÖRÜLDÜ"), (None, 0.1, 2, "BEKLE"),
+                                                   (("lenis", "ele", 0.9), 0.1, 0, "KUR-sonra"),
+                                                   (("lenis", "kayit", 0.9), 0.1, 0, "ÖNCEDEN-GÖRÜLDÜ"), (None, 0.1, 2, "BEKLE"),
                                                    (None, None, None, "BEKLE"), (None, 0.1, 1, "UYGULA")])
 def test_isaret(es, cift, risk, beklenen):
     assert tr.isaret(es, cift, risk) == beklenen

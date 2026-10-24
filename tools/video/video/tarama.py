@@ -460,6 +460,8 @@ def isaret(es, cift, risk):
     """Eleme yok: yalnız işaret. es=(ad, kaynak, skor)|None; cift=Jev çift p; risk=izin riski 0-3."""
     if (es and es[1] in DIS) or (cift is not None and cift >= 0.5):
         return "ÇİFT"
+    if es and es[1] == "ele":
+        return "KUR-sonra"  # eski ELE ret değildir: varsayılan KUR, yeniden değerlendirilir
     if es:
         return "ÖNCEDEN-GÖRÜLDÜ"
     if cift is None or risk is None or risk >= 2:

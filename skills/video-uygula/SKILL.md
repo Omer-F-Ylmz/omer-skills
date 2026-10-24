@@ -36,7 +36,7 @@ Kurulum yalnız Ömer'in ONAY'ından sonra `video onay` ile (yapılandırılmı�
 - KUR → aşağıdaki katmanlar. DENE → docs/denemeler/<ad>.md (hipotez · metrik · bütçe · geri alma · başarı eşiği; 14b'de koşulur). ÖĞREN → bilgi/<slug>.md kartı. ZATEN VAR · ALTERNATİF · RED → yalnız kayıt.
 - İpucu/iş akışı KUR: model/araç adı geçen (Fable, Opus, Sonnet, RTK, graphify…) kodla olgu; ad geçmiyorsa Jev {davranış kuralı, olgu}; olgu kural dosyasına girmez → ÖĞREN. Çift kart → kaynak mevcut karta eklenir.
 - Yeni kural/olgu en yakın kural ya da kartla çelişirse ÇELİŞKİ: eklenmez, Ömer karar verir. Sponsor anındaki aday `sponsor` etiketli, seçimde sona.
-- Eski işaretler: ÇİFT/ÖNCEDEN-GÖRÜLDÜ → ZATEN VAR; UYGULA/BEKLE → değerlendirmeye girer. Tam rapor docs/kurulumlar/<tarih>-uygula.md; sohbete ≤25 satır.
+- Eski işaretler: ÇİFT/ÖNCEDEN-GÖRÜLDÜ → ZATEN VAR; UYGULA/BEKLE/KUR-sonra → değerlendirmeye girer (KUR-sonra = eski ELE; ret sayılmaz, varsayılan KUR). Tam rapor docs/kurulumlar/<tarih>-uygula.md; sohbete ≤25 satır.
 
 ## Katmanlar (`video katman`, deterministik)
 
@@ -104,5 +104,12 @@ Jev: tarama önbellekten 0; bizde aday başına 2; katman aday başına ≤5 (+s
 - Ömer panelin Ömer sütununa AL / RED / ERTELE yazar → `video panel uygula <panel.md>` (`video karar` ile; boş satır dokunulmaz).
 - `video parti kapat <pid>`: rapor-denetle → gitleaks (sızıntıda DUR, commit yok) → commit + `kuyruk --isle` + push.
 - Alt ajan yok; çağrı ve $ tavanı parti başında sabit, yalnız `--cagri-ek/--usd-ek` ile açıkça yükselir.
+
+## Aksiyon katmanı (video-aksiyon-1)
+Tek giriş: `python tools/video_aksiyon.py <url> [--uygula]` (YouTube/Shorts, IG reel + karusel, TikTok, X). Claude jetonu 0.
+- Akış: yt-dlp (+gallery-dl karusel, yorumlar) → ffmpeg sahne kareleri → faster-whisper → RapidOCR → Gemini/yerel gemma görsel anlam → repo/komut/link çıkarma → `gh api` lisans → ücretsiz havuz 4 başlıklı plan.
+- Çıktı: `.kos/kopru/video/aksiyon/<id>.md` (zaman çizelgesi + KUR · UYGULA · ÖĞREN · DAHA İYİSİ + kuyruk önerisi). `--uygula` yoksa yalnız plan; varsa KUR/UYGULA satırları `.kos/kopru/gorev/video-aksiyon-kuyruk.md` sonuna eklenir (silme yok).
+- Plan havuz taslağıdır (çıkış 3): Claude yalnız KUR satırlarını doğrular; ekranda araç/repo yoksa (saf animasyon) UYGULA genel kalır — uydurma maddeyi ele.
+- Desktop: aynı komut cc-kopru ile koşar; claude.ai sandbox'ında koşmaz.
 
 ARKA-KALICI-1 : uzun toplu iş = arka-istek — ajan arka.py/toplu_gozetmen'i kendisi başlatmaz (ajan bitince job'la ölür); `.kos/kopru/arka-istek/<ad>.json` yazar: {"komut":["tools/x.py",...],"gunluk":"...","cwd":"..."}; ajan_sira (yönetici) başlatıp pid'i dosyaya yazar.
