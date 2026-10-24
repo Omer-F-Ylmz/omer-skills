@@ -29,7 +29,8 @@ KEEP = {  # MCP-AÇ-2: yalnız bu araçlar açık kalır; listede olmayan MCP'le
 }
 DOGRUDAN = ["figma", "canva", "claude-design"]  # OAuth'u CC tutar (kapıdan 401); katalog: tools/mcp_kapi.py katalog
 ARACLAR = Path(__file__).resolve().parents[1] / ".kos" / "kopru" / "mcp-araclar.json"  # tools/mcp_ac2_olc.py araclar ile yenilenir
-KAYNAK = [Path.home() / ".claude.json", *sorted((Path.home() / ".claude/plugins/cache/ecc/ecc").glob("*/.mcp.json"))]
+KAYNAK = [Path.home() / ".claude.json", *sorted((Path.home() / ".claude/plugins/cache/ecc/ecc").glob("*/.mcp.json")),
+          *sorted((Path.home() / ".claude/plugins/cache/thedotmack/claude-mem").glob("*/.mcp.json"))]  # claude-mem eklenti MCP'si (mcp-search)
 
 
 CODEMODE = ("[codemode K2p] 2+ ardışık araç ya da büyük çıktı (git log/diff/show, web arama+fetch, tarayıcı gezintisi) gerektiğinde araçları tek tek "

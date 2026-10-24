@@ -6,6 +6,7 @@ görsel iş türünde gorsel_hakem çağrısı yoksa kanit_eksik → <ad>.deneti
 import json
 import math
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -140,6 +141,11 @@ def yaratici(metin, tur):
     return y.get(tur) or y.get("diğer", "")
 
 
+def erisim_yok(o):
+    """AJAN-TAM-YETKI-1: düz adlı cli PATH'te yoksa True (npm paketi/skill/mcp denetlenmez)."""
+    return o["tur"] == "cli" and bool(re.fullmatch(r"[\w.-]+", o["ad"])) and not shutil.which(o["ad"])
+
+
 def _kayit(o, dolgu=False):
     k = {"ad": o["ad"], "tur": o["tur"], "cagri": o["cagri"], "ne": (o["is"] or o["metin"])[:90]}
     if dolgu:  # BM25/MCP dolgusu: önerilir, zorunlu sayılmaz (ilgisiz araç dayatma hatası, 23 Eki)
@@ -222,6 +228,9 @@ def araclar(metin):
         for o in sec:
             if o["ad"].split(":")[-1] in GUV_IC:
                 o.pop("dolgu", None)
+    for o in sec:  # erişilemeyen araç zorunlu sayılmaz (denetime girmez), blok'ta "ERİŞİM YOK" satırı
+        if erisim_yok(o):
+            o["dolgu"] = o["yok"] = True
     return sec
 
 
@@ -270,8 +279,10 @@ def blok(ad, metin):
                                                          "onucus": [a for a, v in (("beyin", ders), ("ruflo", hata)) if v]}, ensure_ascii=False), encoding="utf-8")
     s = ["ZORUNLU ARAÇLAR (bitişte oturum dökümünden sayılır; ≥%d kullanılmazsa görev arac_eksik işaretlenir ve yeniden kuyruğa girer):" % min(3, math.ceil(len([o for o in ar if not o.get("dolgu")]) / 2))]
     s += [f"- {o['ad']} ({o['tur']}) · {o['ne']} · çağrı: {o['cagri'][:60]}" for o in ar if not o.get("dolgu")]
-    if any(o.get("dolgu") for o in ar):
-        s.append("İSTEĞE BAĞLI (zorunlu değil, işe uyarsa kullan): " + ", ".join(o["ad"] for o in ar if o.get("dolgu")))
+    if any(o.get("dolgu") and not o.get("yok") for o in ar):
+        s.append("İSTEĞE BAĞLI (zorunlu değil, işe uyarsa kullan): " + ", ".join(o["ad"] for o in ar if o.get("dolgu") and not o.get("yok")))
+    if any(o.get("yok") for o in ar):
+        s.append("ERİŞİM YOK (bu makinede kurulu değil, zorunlu sayılmaz): " + ", ".join(o["ad"] for o in ar if o.get("yok")))
     s.append("PLAN TABLOSU: her araç için ilk turda tek satır `araç | kullanılacak adım / kullanılmama gerekçesi`; gerekçesiz atlama = arac_eksik.")
     if gorsel_gerek(metin):
         s.append("- gorsel_hakem (görsel iş: `python .kos/kopru/gorsel_hakem.py` çağrısı olmadan kanit_eksik)")
