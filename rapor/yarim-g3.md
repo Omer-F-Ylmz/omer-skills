@@ -27,7 +27,7 @@ Yöntem: 3 salt-okuma alt ajan, 29 işi görev dosyası + ajan-sira sonucu + git
 | skill-yukle-1 | ÖMER | 5dfdc0d0; 302 aile zip dist/claude-ai/yukle-23eki; ÖMER: YUKLE.md sırasıyla Desktop'ta yükle |
 | skill-yukle-1-a | ÖMER (+küçük) | zip_denetle son turda yeniden koşulmadı; ecc-agentshield kurulu değil |
 | stalemap-kur-2-a | ZATEN BİTMİŞ (küçük açık) | 89848a97, test_mcp_profil_stalemap 3 yeşil; `claude -p` açılış yükü ayrı işte (903831f6) |
-| ucretsiz-havuz | DEVAM | 17bef40d; test_ucretsiz_havuz 15 yeşil / 1 KIRMIZI (`test_dakika_jeton_kovasi_yarim_max_tokens_sayar`); kapı geçmedi |
+| ucretsiz-havuz | BİTTİ (test) | 17bef40d; kırmızı test kök neden: AJAN-AKIS-1 çekirdek öneki istemi şişiriyordu, kova hesabı bozuluyordu → testte önek kapatıldı (kod değişmedi); test_ucretsiz_havuz 16 yeşil |
 | ucretsiz-havuz-2 | DEVAM | b1713d7b; en büyük sağlayıcı payı %57,5 (hedef ≤%50); 263158b4 sonrası ≤%40 ama yeniden ölçülmedi: `kapi_tekrar.py --simdi --tavan=150` (arka.py ile; dış çağrı tavanı gerekebilir) |
 | wt-arsiv-1 | ZATEN BİTMİŞ | 7 worktree arşivlendi, test_wt_arsiv 4 yeşil |
 | zorunlu-arac-2 | ZATEN BİTMİŞ | 6280c324, test_zorunlu_arac 39 yeşil |

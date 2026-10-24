@@ -109,6 +109,9 @@ def test_anahtarsiz_yeni_saglayici_atlanir(monkeypatch):
 def test_dakika_jeton_kovasi_yarim_max_tokens_sayar(monkeypatch):
     """Groq qwen tpm 6000: istem 1000 + max_tokens 2000 → rezerv 2000; 3 iş sığar (tam sayılsa 2), dördüncüsü bekler, 60 sn sonra yine sığar."""
     c = sahte(monkeypatch, lambda e: "ok")
+    import ajan_cekirdek, ders_dongu  # AJAN-AKIS-1 çekirdek öneki istemi şişirir; kova hesabını yalıtmak için kapat
+    monkeypatch.setattr(ajan_cekirdek, "onek", lambda zor=False: "")
+    monkeypatch.setattr(ders_dongu, "onek", lambda ham: "")
     r = [H.cagir("ozet", "x" * 2400, max_tokens=2000, aile="alibaba")[0] for _ in range(4)]
     assert r == ["ok", "ok", "ok", None]
     gercek = time.time
