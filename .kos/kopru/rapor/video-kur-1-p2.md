@@ -34,6 +34,13 @@ Auto-mode sınıflandırıcı şu toplu komutu "Untrusted Code Integration" diye
 CLIProxyAPI, LuaLS, 9router postinstall (izinle); base için lisans kararı; zk/claude-mods kaynağı için video QIevCKcRbUs/U6xZX4YWFkU'dan doğru repo adı.
 Katalog: .kos/kopru/skill-mode/yetenek-ek-video.jsonl (4 satır).
 
+## 1b-a2 ek (24 Eki): bekleyen 3 kurulum kapandi
+- LuaLS 3.19.1: `winget install --id LuaLS.lua-language-server -e` (hash dogrulandi), `lua-language-server.exe --version` = 3.19.1. PATH yeni kabukta gorunur.
+- 9router: postinstall CALISTIRILMADI, gerekmedi; `9router --version` = 0.5.109 (cli.js kendini onarir).
+- CLIProxyAPI v8.0.41: gh release indirildi, sha256 checksums.txt ile ESLESTI, `cli-proxy-api.exe -h` surum 8.0.41 basti. Yer: C:/Users/pc/tools-cliproxy/bin; yapilandirilmadi, hesap girisi yapilmadi.
+- Katalog: yetenek-ek-video.jsonl 6 satir.
+- Kalan: base lisans karari; zk/claude-mods kaynagi; freeflow (masaustu, sonraki parca); strix/agentshield calismadi.
+
 ## 1b-a ek (24 Eki)
 - code-modernization yeniden tarandi: gitleaks temiz, semgrep yalniz sha1 cache anahtari (dusuk); skillspector --no-llm bitti ama analizorler degraded -> kesin 'temiz' denmez.
 - Izin bekleyen 3 komut degismedi (9router postinstall, LuaLS, CLIProxyAPI): sinif. reddi, atlatilmadi.
