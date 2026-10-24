@@ -22,7 +22,7 @@ def kaynaklar():
 
 def zip_yaz(d, dist):
     zp = dist / f"{d.name}.zip"
-    dosyalar = sorted(p for p in d.rglob("*") if p.is_file())
+    dosyalar = sorted(p for p in d.rglob("*") if p.is_file() and "__pycache__" not in p.parts)
     with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:
         for p in dosyalar:
             z.write(p, f"{d.name}/{p.relative_to(d).as_posix()}")

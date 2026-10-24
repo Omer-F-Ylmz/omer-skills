@@ -69,7 +69,7 @@ def main(argv=None, ev=Path.home() / ".claude", dist=KOK / "dist" / "envanter-4"
     shutil.rmtree(gecici, ignore_errors=True)
     shutil.copytree(KOK / "skills" / AD, gecici)
     ekle(gecici)
-    zp, dosyalar = dist / f"{AD}.zip", sorted(p for p in gecici.rglob("*") if p.is_file())
+    zp, dosyalar = dist / f"{AD}.zip", sorted(p for p in gecici.rglob("*") if p.is_file() and "__pycache__" not in p.parts)
     with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:
         for p in dosyalar:
             z.write(p, f"{AD}/{p.relative_to(gecici).as_posix()}")

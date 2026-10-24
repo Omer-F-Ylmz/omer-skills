@@ -1,3 +1,4 @@
+import pytest
 import json
 import subprocess
 import sys
@@ -54,3 +55,11 @@ def test_bos_ayarda_olay_listesi_geri_silinir(tmp_path):
     assert json.loads((ev / "settings.json").read_text(encoding="utf-8"))["hooks"]["UserPromptSubmit"] == [{"hooks": [k.giris(ev)]}]
     assert k.main(["--geri"], ev, tmp_path / "dist") == 0
     assert json.loads((ev / "settings.json").read_text(encoding="utf-8")) == {}
+
+
+@pytest.mark.xfail(strict=True, reason="YARIM-A3: kanca canlıda kurulu değil; ÖMER: python onay/katalog_kanca_uygula.py uygula (kurulunca bu işaret kaldırılır)")
+def test_kanca_canlida_kurulu():
+    """KÖK NEDEN katalog_kanca çıktı vermiyor: betik sağlam (tools/tests), ama ~/.claude settings.json UserPromptSubmit girişi ve canlı betik yok."""
+    ev = Path.home() / ".claude"
+    assert (ev / "skills" / "yetenek-getir" / "katalog_kanca.py").exists()
+    assert "katalog_kanca.py" in (ev / "settings.json").read_text(encoding="utf-8")
