@@ -539,3 +539,32 @@ def test_yenile_et_kilidi_birakir_ve_execv(tmp_path, monkeypatch):
     ajan_sira.yenile_et({"x/ajan_sira.py": 1.0})
     exe, argv, kilit_var = gor[0]
     assert exe == sys.executable and argv[0] == sys.executable and not kilit_var
+
+
+def test_ram_kesti_isareti_bir_kez_tuketilir(tmp_path, monkeypatch):
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    assert not ajan_sira.ram_kesti_al("is-a")
+    ajan_sira.ram_kesti_isaretle("is-a", 95)
+    assert (tmp_path / "is-a.ramkesti").exists()
+    assert ajan_sira.ram_kesti_al("is-a") and not ajan_sira.ram_kesti_al("is-a")
+
+
+def test_ram_yeniden_b_adi_ve_tek_sefer():
+    y = ajan_sira.ram_yeniden("is-a", "gorev/x.md", "kosul", "medium", "haiku", 1, None)
+    assert y[0] == "is-a-b" and y[1] == "gorev/x.md" and y[3:] == ("medium", "haiku", 1, None)
+    assert ajan_sira.ram_yeniden("is-a-b", "gorev/x.md", "kosul", "medium", "haiku", 1, None) is None  # RAM ile ikinci kesilen tekrar sıraya girmez
+
+
+def test_ram_yeniden_yalniz_ram_85_altinda_baslar():
+    assert not ajan_sira.ram_yeniden_hazir("is-a-b", 85) and ajan_sira.ram_yeniden_hazir("is-a-b", 84)
+    assert ajan_sira.ram_yeniden_hazir("is-a", 99)  # -b olmayan işleri bu kapı etkilemez
+
+
+def test_kok_adlari_calisan_ve_basladi(tmp_path, monkeypatch):
+    class P:
+        pid = 4242
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "claude_sureci", lambda pid, t: pid == "777")
+    (tmp_path / "dis-is.basladi").write_text("10:00:00 pid 777 sid x", encoding="utf-8")
+    (tmp_path / "olu-is.basladi").write_text("10:00:00 pid 888 sid y", encoding="utf-8")
+    assert ajan_sira.kok_adlari({"is-a": (P(),)}) == {4242: "is-a", 777: "dis-is"}

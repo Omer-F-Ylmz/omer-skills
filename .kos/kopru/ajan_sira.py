@@ -131,7 +131,10 @@ ESIK_DOSYA = K / "ajan-sira.esik" # Desktop 20 Eki 13:02 (Ömer: RAM %88-90'a ka
 
 
 def oyun_modu():
-    """tools/oyun_modu.py bayrağı taze (<60 sn) ise yeni iş başlatılmaz; çalışanlara dokunulmaz."""
+    """Ömer 24 Eki 09:25: oyun açıkken de arka işler DURMAZ — her zaman False. Oyunu koruyan tek sınır RAM eşiği (esik(), ≤%89).
+    Bayrak dosyası (tools/oyun_modu.py) yalnız kayıt için kalır; yeniden durdurma gerekirse .kos/kopru/oyun-modu.durdur dosyası oluştur."""
+    if not (K / "oyun-modu.durdur").exists():
+        return False
     f = K / "oyun-modu.bayrak"
     return f.exists() and time.time() - f.stat().st_mtime < 60
 
@@ -202,18 +205,76 @@ def kok_pidler(calisan):
     return pidler
 
 
+def kok_adlari(calisan):
+    """RAM-BEKCI-2: kok_pidler ile aynı kökler, iş adıyla: {pid: ad}."""
+    adlar = {v[0].pid: ad for ad, v in calisan.items()}
+    for f in CIKTI.glob("*.basladi"):
+        p = f.read_text(encoding="utf-8", errors="replace").split()
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and claude_sureci(p[2], f.stat().st_mtime):
+            adlar.setdefault(int(p[2]), f.stem)
+    return adlar
+
+
+RAM_YENIDEN = 85  # RAM-BEKCI-2: RAM ile kesilen iş (-b) yalnız RAM bunun altına inince yeniden başlar
+
+
+def ram_kesti_isaretle(ad, r):
+    (CIKTI / f"{ad}.ramkesti").write_text(f"{time.strftime('%H:%M:%S')} RAM %{r}", encoding="utf-8")
+
+
+def ram_kesti_al(ad):
+    """İş RAM bekçisince kesildiyse işareti tüketir (bir kez) ve True döner."""
+    f = CIKTI / f"{ad}.ramkesti"
+    var = f.exists()
+    f.unlink(missing_ok=True)
+    return var
+
+
+def ram_yeniden(ad, istem, kosul, ef, mdl, bas, cwd):
+    """RAM ile kesilen işin '-b' yeniden satırı; zaten -b ise (ikinci kesilme) None. Efor/model asıl işinki, basamak yükselmez."""
+    if ad.endswith("-b"):
+        return None
+    return (ad + "-b", istem, kosul, ef, mdl, bas or 0, cwd)
+
+
+def ram_yeniden_hazir(ad, r):
+    return not ad.endswith("-b") or r < RAM_YENIDEN
+
+
 def ram_bekle(calisan):
-    """RAM-BEKCI-1: RAM >= %87 ise ajan alt süreç ağacının en büyüğünü bulur, >= %88'de durdurur; beyne olay yazar. Bekçi hatası döngüyü düşürmez."""
+    """RAM-BEKCI-1/2: RAM >= %87'de ajan alt süreçlerinin en büyüğü bulunur, >= %88'de durdurulur; RAM >= %92'de en büyük ajan ağacının tamamı
+    (kök dahil; oyun/Desktop/Headroom/sistem hariç) durdurulur ve iş 'RAM ile kesildi' işaretlenir; ağaç >1.5 GB ya da >60 alt süreçse uyarı.
+    Bekçi hatası döngüyü düşürmez."""
     r = ram()
-    if r < ajan_ram_bekci.ADAY_ESIK:
+    if r < ajan_ram_bekci.UYARI_RAM:
         return
     try:
+        sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
+        for _ in range(3):  # RAM düşmediyse sıradaki ağaç (her tur 30 sn beklemeden)
+            surecler = ajan_ram_bekci.surecler_listele()
+            kokler = kok_adlari(calisan)
+            durum, kok, ad = ajan_ram_bekci.agac_kontrol(r, kokler, surecler, ajan_ram_bekci.oldur_pidler, log, UYARI_KOK)
+            if durum == "uyari":
+                beyin_dusun.olay("ram-bekci", ad, f"RAM %{r} ajan ağacı büyük (kök {kok})", False)
+            if durum != "kesildi":
+                break
+            ram_kesti_isaretle(ad, r)
+            log("RAM İLE KESİLDİ", ad, f"RAM %{r}", f"RAM < %{RAM_YENIDEN}'te -b ile yeniden")
+            beyin_dusun.olay("ram-bekci", ad, f"RAM %{r} ajan ağacı durduruldu (kök {kok}); RAM < %{RAM_YENIDEN}'te {ad}-b", True)
+            time.sleep(3)
+            r = ram()
+            if r < ajan_ram_bekci.AGAC_ESIK:
+                return
+        if r < ajan_ram_bekci.ADAY_ESIK:
+            return
         durum, h = ajan_ram_bekci.kontrol(r, kok_pidler(calisan), ajan_ram_bekci.surecler_listele(), ajan_ram_bekci.oldur_agac, log)
         if durum in ("aday", "durdurdu"):
-            sys.path.insert(0, str(KOK / "tools")); import beyin_dusun
             beyin_dusun.olay("ram-bekci", "yonetici", f"RAM %{r} {durum} pid {h[0]} {h[2]} {h[3] // 2**20} MB", durum == "durdurdu")
     except Exception as e:
         log("ram-bekci hata", repr(e)[:120])
+
+
+UYARI_KOK = set()  # RAM-BEKCI-2: uyarı verilmiş (kök pid, tür) çiftleri
 
 
 KURTAR_TAVAN, KURTAR_TOPLAM, KURTAR_YAS = 2, 3, 6 * 3600  # YÖNETİCİ-BAĞIMSIZ-1 d3: iş başına en çok 2 deneme, açılış başına en çok 3 iş; KURTAR-FİX-1: >6 saatlik iş kurtarılmaz (alarm + Desktop'a soru)
@@ -658,16 +719,21 @@ def main():
                 sonuc_temizle(ad)  # BÜTÇE-KAPI-1: JSON dışı satırlar ayrılır, ad.json geçerli kalır
                 log("BİTTİ", ad, "rc", p.returncode, f"{(time.time() - t0) / 60:.0f} dk")
                 ok = is_kaydi(ad, p.returncode, (time.time() - t0) / 60, ef, mdl, butce)
+                ram_kesti = ram_kesti_al(ad)  # RAM-BEKCI-2: bekçi kesti → basamak yükselmez, araç denetimi/devam turu yok; RAM < %85'te -b
+                if ram_kesti and (yb := ram_yeniden(ad, istem, kosul, ef, mdl, bas, cwd)) and yb[0] not in tekrar:
+                    yeniden.append(yb)
+                    tekrar.add(yb[0])
+                    log("YENİDEN", ad, f"RAM ile kesildi → {yb[0]} (RAM < %{RAM_YENIDEN}'te)")
                 try:
                     if eksik_n := nihai_bitis(ad, t0, time.time()):
                         log("KISMI-NİHAİ", ad, "; ".join(eksik_n))
                 except Exception as e:
                     log("nihai_bitis hata", repr(e)[:120])
-                if bas is not None and not ok and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
+                if bas is not None and not ok and not ram_kesti and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
                     yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
                     log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
-                den = zorunlu_arac.denetle(ad)  # ZORUNLU-ARAÇ-1: döküm sayımı; arac_eksik → aynı görev bir kez eksik araç ekiyle yeniden
+                den = None if ram_kesti else zorunlu_arac.denetle(ad)  # ZORUNLU-ARAÇ-1: döküm sayımı; arac_eksik → aynı görev bir kez eksik araç ekiyle yeniden
                 if den and den["durum"] != "ok":
                     log("DENETİM", ad, den["durum"], "eksik:", ", ".join(den["eksik"]))
                     try:
@@ -718,6 +784,8 @@ def main():
         r = ram()
         if not DUR.exists() and not oyun_modu() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
+                if not ram_yeniden_hazir(ad, r):  # RAM-BEKCI-2: RAM ile kesilen iş RAM < %85'e inene dek bekler
+                    continue
                 if ("k", ad) not in uyari:  # ZORUNLU-ARAÇ-1 d4: koşul görev dosyasının kendinde geçiyorsa erken başlar
                     uyari.add(("k", ad))
                     if u := zorunlu_arac.kosul_uyari(kosul, istem):
