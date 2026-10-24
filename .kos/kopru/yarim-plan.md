@@ -1,6 +1,6 @@
 # YARIM-PLAN (24.10 12:42) — Ömer: bütün yarım kalanlar bitecek
 
-BEKLEMEDE (Ömer söyleyene kadar): TELVE rework/v2/yeni/kapanis, logo-1b/3, NEFFEX d2b/d2c/klon-2/klon-7, mod-mai-onizleme, REA Desktop uyarısı doğrulaması, Ömer'in 10 kararlık işi.
+BEKLEMEDE (Ömer söyleyene kadar): omer-site (D1c sonrası D2 ve hero metinleri; Ömer 14:04 "kendi sitemizi sonra düşünürüz"), TELVE rework/v2/yeni/kapanis, logo-1b/3, NEFFEX d2b/d2c/klon-2/klon-7, mod-mai-onizleme, REA Desktop uyarısı doğrulaması, Ömer'in 10 kararlık işi.
 
 | grup | konu | işler | durum |
 |---|---|---|---|
@@ -19,6 +19,14 @@ BEKLEMEDE (Ömer söyleyene kadar): TELVE rework/v2/yeni/kapanis, logo-1b/3, NEF
 | yarim-e2 | REA | rea-usta-1b (DUR) · rea-usta-1c (raporsuz: ne yaptığını git log + sonuçtan çıkar, kalanı bitir, rapor yaz) · rea-fix-2 / 3 / 5 · rea-agir-1 / 2 %98 örtüşme kapısı (HN + orta boy SPA, figma/notion/Electron) | SIRADA |
 | yarim-e3 | Laya | laya-2 / laya-2c (ücretsiz öğretmen kurulu ↔ Opus uyumu 0.43 → ≥0.6; yerel Ollama yok) | SIRADA |
 | yarim-f1 | Site okulu | site-okulu-1 (görev dosyasının 4. maddesi). omer-site-d1b ayrıca kendi kuyruğunda sürüyor. | SIRADA |
+| yarim-g1 | Kaynak ve Instagram | 14 iş (gorev-yarim-g1.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g2 | Beyin, öğrenme ve kanca | 35 iş (gorev-yarim-g2.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g3 | Araç kurulum ve kapı | 29 iş (gorev-yarim-g3.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g4 | REA, Laya, CUDA, RAM | 22 iş (gorev-yarim-g4.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g5 | Blender, usta, site, tasarım | 32 iş (gorev-yarim-g5.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g6 | Token ve video | 28 iş (gorev-yarim-g6.md) | SIRADA (YARIM-G-BIRLESTIR) |
+| yarim-g7 | Devir belgeleri ve kalan | 10 iş (gorev-yarim-g7.md) | SIRADA (YARIM-G-BIRLESTIR) |
 
 Ayrı kuyrukta: omer-site-d1b (devam), yarim-bekci-1, yarim-tara-1, video-repo-2, yeniden-gecis-2, ustalik-1, skill-mode-2, code-mode-rea-2, stalemap-kur-1.
 - takip-24eki-a: #1 ÖMER(onay) #2 BİTTİ #3-#4 DEVAM → .kos/kopru/gorev-takip-24eki-a-devam.md
+- takip-24eki-a2: #3 repo bulundu zycck/claude-mods, kurulum güvenlik taraması bekliyor; #4 iptal (Ömer 14:04), vite yok
