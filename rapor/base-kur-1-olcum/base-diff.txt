@@ -1,0 +1,18 @@
+top-level key diffs: []
+hook entries before/after: 21 27
+REMOVED: 0
+ADDED PostToolUse base hook post-tool-use
+ADDED PreToolUse base hook pre-tool-use
+ADDED SessionEnd base hook session-end
+ADDED SessionStart base hook session-start
+ADDED Stop base hook stop
+ADDED UserPromptSubmit base hook user-prompt-submit
+PostToolUse order kept
+PreToolUse order kept
+SessionEnd order kept
+SessionStart order kept
+Stop order kept
+SubagentStart order kept
+SubagentStop order kept
+UserPromptSubmit order kept
+PostToolUseFailure order kept

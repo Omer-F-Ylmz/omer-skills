@@ -1,0 +1,6 @@
+{"is": "bul", "kol": "acik", "wall_s": 8.7, "api_ms": 3906, "turns": 2, "usd": 0.00164504, "in": 1405, "cache_w": 5701, "cache_r": 16834, "out": 392, "dogru": true, "base_olay": 6, "hata": false}
+{"is": "bul", "kol": "kapali", "wall_s": 7.1, "api_ms": 3621, "turns": 2, "usd": 0.00140874, "in": 1310, "cache_w": 4821, "cache_r": 15954, "out": 308, "dogru": true, "base_olay": 1, "hata": false}
+{"is": "duzelt", "kol": "acik", "wall_s": 19.2, "api_ms": 8129, "turns": 4, "usd": 0.00212474, "in": 3049, "cache_w": 6016, "cache_r": 28164, "out": 670, "dogru": false, "base_olay": 12, "hata": false}
+{"is": "duzelt", "kol": "kapali", "wall_s": 15.2, "api_ms": 6397, "turns": 6, "usd": 0.00195382, "in": 3568, "cache_w": 4913, "cache_r": 26392, "out": 701, "dogru": false, "base_olay": 11, "hata": false}
+{"is": "devir", "kol": "acik", "wall_s": 27.0, "api_ms": 21783, "turns": 10, "usd": 0.01249683, "in": 529, "cache_w": 47863, "cache_r": 166033, "out": 2422, "dogru": true, "base_olay": 29, "hata": false}
+{"is": "devir", "kol": "kapali", "wall_s": 21.7, "api_ms": 11353, "turns": 7, "usd": 0.00434139, "in": 525, "cache_w": 12137, "cache_r": 111399, "out": 1495, "dogru": true, "base_olay": 2, "hata": false}
