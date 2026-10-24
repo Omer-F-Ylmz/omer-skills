@@ -27,3 +27,12 @@ D. makara-1: Omer-F-Ylmz/omer-makara ZATEN var (PRIVATE), 9 secret adı kayıtl�
 - KIRMIZI 2: test_zorunlu_arac::test_kombin_sec_ve_dogrula (logo-marka kombininde 'vtracer' katalogda yok; ek.jsonl/yetenek.jsonl'de 0 kayıt; ilgisi yok, düzeltilmedi).
 - item 13: ecc-agentshield@1.6.0 npm global kurulu (doğrulandı).
 - 6-11: YAPILMADI (değişmedi).
+
+## Devam (oturum 3, ONAY-TOPLU-1-DEVAM)
+- A 1-5: önceki turlarda yapılmıştı (git log + rapor); yeniden denetlenmedi.
+- EK katalog_kanca_uygula: --kuru uyumlu → uygulandı (yetenek-getir + UserPromptSubmit +1, zip 14 → dist/katalog-kanca; geri: --geri). İlgili test: tests/test_zorunlu_arac + test_katalog_ek 41 geçti.
+- Kırmızı test_kombin_sec_ve_dogrula: vtracer pip'te kurulu → docs/katalog/ek.jsonl'e kayıt + katalog_yenile; artık geçiyor. test_ucretsiz_havuz: d0c943b6 ile zaten yalıtıldı.
+- 11 openship: npm pack 0.9.5 → gitleaks 28 bulgu hepsi sahte pozitif (redacted Match: RecipientEncryptedKeys/p12.generateKey/sshPrivateKey tanımlayıcıları, route_auth_*.lua dosya-özet haritası; entropi 3.6-5.6, paketlenmiş dist). KURULDU: npm i -g openship@0.9.5 (Apache-2.0), `openship --version` 0.9.5. npm "ssh2, protobufjs" install betiklerini çalıştırmadı (allow-scripts yok). C:/Temp/openship-chk (666 dosya) silinemedi (oturum onay ekranı yok): elle sil.
+- 12: OLLAMA_KEEP_ALIVE önceki turda yazıldı; test_mem_bekci_saglik 3/3 geçti (saf fonksiyon testi, kırmızı yeniden üretilmedi).
+- 10 autoharness: `guide --dry-run` (yazmadan) koşuldu → .kos/kopru/ara/autoharness-guide.json: benchmark `pytest -q` (tam suit ~14 dk), üretici codex_cli (ücretsiz havuz değil), editable yüzey boş. Gerçek guide/doctor YAPILMADI: doctor benchmark kararlılığı tam suiti tekrar koşar (RAM/süre) ve üretici LLM tavanı belirlenmedi.
+- 6 jev-2 hook süzgeci, 7 beyin-2/3 düzeltme + beyin-4 KABUL, 8 kalite-1 ölçümü (motor=ucretsiz), 9 mcp-ac-2 A/B: YAPILMADI (her biri ayrı çok-turlu iş; bu turda bütçe/tur kapsamı dışı kaldı). Sıra: 9 (≤6 claude -p) → 7 → 6 → 8.

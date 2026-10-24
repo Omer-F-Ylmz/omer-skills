@@ -4588,6 +4588,7 @@ motion-prompt-gallery backrooms-vhs-run-rendered-in-blender-chrisfirst	motion-pr
 raf Prompt-Motion	motion-prompt	github.com/Prompt-Motion/Prompt-Motion.github.io (LİSANS YOK)	Motion graphic ornekleri ve promptlar; videos + promptlar + skill; lisans yok, kopya kullanilmaz	video ffmpeg license animasyon	skills/omer-kutuphaneler/raf/Prompt-Motion	kurulu
 raf awesome-opus-5.5-video	motion-prompt	github.com/zhuyansen/awesome-opus-5.5-video (LİSANS YOK)	Motion graphic ornekleri ve promptlar; cases.json vaka listesi; lisans yok, kopya kullanilmaz	ffmpeg license	skills/omer-kutuphaneler/raf/awesome-opus-5.5-video	kurulu
 rea_oto	arac	tools/rea_oto.py	REA agir SPA (excalidraw, react.dev, figma, notion) OOM/RAM: analyze_web_bundle normal dener, OOM (exit 134)…	website	Bash: python tools/rea_oto.py <url> <dizin> [--bekle 20]	kurulu
+vtracer	arac	pip vtracer	Raster gorselden SVG vektor izleme (logo/marka vektorlestirme)	image visual screenshot monitor observability log logging	"Bash: python -c ""import vtracer"""	kurulu
 tempus	kutuphane	omer-kutuphaneler	requestAnimationFrame döngüsü yöneticisi (öncelik, özel kare hızı); scroll/animasyon ağırlıklı landing için	animation	Skill omer-kutuphaneler (pinli kurulum satırı)	lisans MIT
 lenis	kutuphane	omer-kutuphaneler	smooth-scroll; WebGL ile senkron; scroll ağırlıklı landing/portfolyo için	web	Skill omer-kutuphaneler (pinli kurulum satırı)	lisans MIT
 swup	kutuphane	omer-kutuphaneler	çok sayfalı sitede AJAX sayfa geçiş animasyonu; klasik MPA vitrin siteleri için	website web animation	Skill omer-kutuphaneler (pinli kurulum satırı)	lisans MIT
@@ -4606,6 +4607,10 @@ ajan_getir_zip	arac	omer-skills tools/	İKİ TARAF: /ajan-getir claude.ai paketi
 ajan_katalog	arac	omer-skills tools/	KALİTE-1 (4b): gizli ajan kataloğu → skills/ajan-getir/katalog.tsv (ad · model · tek satır · yol).	agent subagent mod modding 3d	python tools/ajan_katalog.py	repo
 ajan_uret	arac	omer-skills tools/	matris.json -> ajanlar/kalite3/<departman>/<ad>.md + gorevler.json + katalog-ek.tsv.	agent	python tools/ajan_uret.py	repo
 akis_damit	arac	omer-skills tools/	AJAN-AKIS-1 2. beyin döngüsü: biten Opus kuyruk işinin transkriptinden iş-akışı kalıbı damıtır. iz(jsonl) →…	agent	python tools/akis_damit.py	repo
+arac_ajan_envanter	arac	omer-skills tools/	ARAC-AJAN-OZELLIK-1: docs/envanter/envanter.tsv + elle yazılmış çekirdek tablodan arac-ajan-ozellik.tsv…	search find agent subagent font typography text table xlsx	python tools/arac_ajan_envanter.py	repo
+arac_ara	arac	omer-skills tools/	BEYIN-ARAC-KART-1: tek arama kapısı — kart → ilgili bölüm → (istenirse) tam metin; seçici; ölçüm. python…	search	python tools/arac_ara.py	repo
+arac_ara_kur	arac	omer-skills tools/	BEYIN-ARAC-KART-1: arac-ara MCP'sini CC (~/.claude.json) ve Claude Desktop yapılandırmasına ekleyen onay…	search find config configuration	python tools/arac_ara_kur.py	repo
+arac_ara_mcp	arac	omer-skills tools/	BEYIN-ARAC-KART-1: arac_ara MCP sunucusu (stdio, satır-ayraçlı JSON-RPC, bağımlılıksız). CC · Desktop ·…	search find dependency	python tools/arac_ara_mcp.py	repo
 arac_bul_2	arac	omer-skills tools/	ARAC-BUL-2 adım 1-2: arac-indir-2.tsv 'bulunamadi' adlarını video bağlamıyla ücretsiz havuza sınıflat, aday…	search find download ffmpeg	python tools/arac_bul_2.py	repo
 arac_bul_2b	arac	omer-skills tools/	ARAC-BUL-2 adım 1b: arac-bul-2.tsv 'bilinmiyor' satırlarını ikinci geçişte çöz (OCR düzeltmeli gh arama +…	search	python tools/arac_bul_2b.py	repo
 arac_bul_2c	arac	omer-skills tools/	ARAC-BUL-2 adım 1c: 221 'bulunamadı' adının hepsini arac-bul-2.tsv'de tek satıra oturt (yedekteki 192 + 2.…	search	python tools/arac_bul_2c.py	repo
@@ -4613,11 +4618,13 @@ arac_bul_2d	arac	omer-skills tools/	ARAC-BUL-2 adım 2: arac-bul-2.tsv'deki 'bul
 arac_buyuk_2	arac	omer-skills tools/	ARAC-BUL-2 adım 3: arac-indir-2.tsv 'buyuk-ertelendi' repoları sırayla clone --depth 1 (arka plan, tek tek).…	search find download secret	python tools/arac_buyuk_2.py	repo
 arac_denetim	arac	omer-skills tools/	ARAÇ-DENETİM-1: son GUN gün köprü işleri için araç kullanım tablosu.	search find audit table xlsx	python tools/arac_denetim.py	repo
 arac_indir_1	arac	omer-skills tools/	ARAC-INDIR-1: _arac.tsv kurulu-olmayanlari tekillestir, gh ile cozumle, clone --depth 1, gitleaks+semgrep…	search find	python tools/arac_indir_1.py	repo
+arac_kart	arac	omer-skills tools/	BEYIN-ARAC-KART-1: kurulu araç kartları (≤150 jeton) + kasa dışı bölüm indeksi (SQLite FTS5) + canlı…	search find token tokens	python tools/arac_kart.py	repo
 arka_bekci	arac	omer-skills tools/	ARKA-BEKCI-1: arka.py ile başlayan işleri izler; sessiz ölümü ve askıyı yakalar (Claude yok, $0). python…	monitor observability audio	python tools/arka_bekci.py	repo
 asr_hat	arac	omer-skills tools/	ASR hattı: ücretsiz API'ler sırayla, yerel large-v3-turbo yalnız kota/ağ hatasında yedek.	secret	python tools/asr_hat.py	repo
 atlas	arac	omer-skills tools/	ATLAS-1: araç kullanım atlası — katalogun (docs/katalog/yetenek.jsonl) veri kaynağı genişlemesi, ikinci…	search	python tools/atlas.py	repo
 atomik_yaz	arac	omer-skills tools/	Atomik yazım: tmp → os.replace. Windows'ta hedef dosya başka süreçte açıkken (okuyucu) os.replace WinError 5…	font typography text vulnerability	python tools/atomik_yaz.py	repo
 atomik_yaz_test	arac	omer-skills tools/	BEYIN-FIX-1 kırmızı testi: hedef dosyayı başka süreç okurken yazım WinError 5 ile düşmemeli. Çalıştır:…	font typography	python tools/atomik_yaz_test.py	repo
+autoharness_winfix	arac	omer-skills tools/	autoharness hooks.json'u cmd + Git Bash ikisinde de çalışan biçime getirir (python3 -c ile…	kanca	python tools/autoharness_winfix.py	repo
 awesome_katalog	arac	omer-skills tools/	AWESOME-1: sindresorhus/awesome (CC0) → docs/kaynak/awesome/katalog.tsv + bizim alanların alt liste…		python tools/awesome_katalog.py	repo
 awesome_rehber_zip	arac	omer-skills tools/	İKİ TARAF: /awesome-rehber claude.ai paketi. docs/kaynak/awesome/*.tsv zip içine references/ olarak gömülür…	package	python tools/awesome_rehber_zip.py	repo
 beyin	arac	omer-skills tools/	"BEYIN-1 arama: `beyin ara ""<soru>"" --k 5` → birebir parça + kaynak yolu:satır (özet yok, model yok)."	search find summary summarize mod modding 3d	python tools/beyin.py	repo
@@ -4665,6 +4672,10 @@ h2_sinif	arac	omer-skills tools/	TOKEN-6cR-H2: 6c-R recap testi (ttl_sim kırıl
 h2a_kayit	arac	omer-skills tools/	TOKEN-H2a: Headroom /transformations/feed yoklayıcı — istek başına mesaj sha8 dizisi, gövde yazmaz. Proxy…	message messages maliyet jeton	python tools/h2a_kayit.py	repo
 havuz_envanter	arac	omer-skills tools/	HAVUZ-GENİŞ-1: canlı envanter. Her sağlayıcının /models listesi + her model için 1 metin ve 1 GÖRSEL deneme…	mod modding 3d mesh image visual	python tools/havuz_envanter.py	repo
 headroom_yama	arac	omer-skills tools/	TOKEN-6f: Headroom 0.39.0 yaması — sıcak önbellekte frozen_message_count 0'a düşmesin. Kök (docs/token-6f.md…	mesaj maliyet jeton	python tools/headroom_yama.py	repo
+hermes_desktop_ekle	arac	omer-skills tools/	Claude Desktop yapılandırmasına hermes MCP girdisini ekler (yedek alır, diğer girdilere dokunmaz).	config configuration	python tools/hermes_desktop_ekle.py	repo
+hermes_mcp_dene	arac	omer-skills tools/	Hermes mcp-serve stdio sınaması: initialize + tools/list + bir araç çağrısı (araclar/hermes venv'iyle koş).	search	python tools/hermes_mcp_dene.py	repo
+hermes_motor	arac	omer-skills tools/	HERMES-KUR-1 PARÇA 5c: ajan_sira motor=hermes. `claude -p` yerine koşar: istemi stdin'den alır, `hermes chat…	agent subagent secret	python tools/hermes_motor.py	repo
+hermes_ogrenme	arac	omer-skills tools/	HERMES-KUR-1 PARÇA 6: Hermes'in kendi ürettiği skill'ler (bundled olmayanlar) → gitleaks kapısı →…	beceri	python tools/hermes_ogrenme.py	repo
 kalite3_hiz	arac	omer-skills tools/	KALİTE-3-HIZ: iki aşamalı ajan ölçümü + otomatik onarım. Karar d13 ile AYNI (skill/.kalite3/ajan_jev.karar:…	agent subagent	python tools/kalite3_hiz.py	repo
 kalite3_zip	arac	omer-skills tools/	KALİTE-3 İKİ TARAF: kabul edilen skill'lerin claude.ai zip'i — CC onay betiğinin yazacağıyla aynı içerik…	beceri	python tools/kalite3_zip.py	repo
 kapi_tekrar	arac	omer-skills tools/	UCRETSIZ-HAVUZ-2: kapıyı ertesi gün kotalar sıfırlanınca (03:05 yerel) yeniden ölçer: python…		python tools/kapi_tekrar.py	repo
@@ -4682,6 +4693,7 @@ kilavuz_tekil	arac	omer-skills tools/	ENVANTER-4 m1: katalog kayıtlarını göv
 kk1_tara	arac	omer-skills tools/	KAYNAK-KUTUPHANE-1 parca 1: site basina HTTP tarama (robots/sitemap saygili), kutuphane + GitHub tespiti.…	library website	python tools/kk1_tara.py	repo
 kk1_urller	arac	omer-skills tools/	KAYNAK-KUTUPHANE-1: kartlar + derin json linklerinden tekil site listesi.	library website	python tools/kk1_urller.py	repo
 kk1_yaz	arac	omer-skills tools/	KAYNAK-KUTUPHANE-1: tara-parca1.json + secili tablo -> site md, envanter.tsv, kutuphane-haritasi.tsv, icerik…	library table xlsx spreadsheet website web map	python tools/kk1_yaz.py	repo
+kk1_yaz_p2	arac	omer-skills tools/	KAYNAK-KUTUPHANE-1 parca 2: tara-parca2.json + secili tablo -> site md, envanter-parca2.tsv,…	library table xlsx spreadsheet website	python tools/kk1_yaz_p2.py	repo
 kombin_rehber_zip	arac	omer-skills tools/	İKİ TARAF: kombin-rehber claude.ai paketi. tools/kombinler.json → references/kombinler.md (claude.ai'de…	package	python tools/kombin_rehber_zip.py	repo
 kombin_sec	arac	omer-skills tools/	ZORUNLU-ARAÇ-3 katman 3: kombin seçimi + doğrulama (yerel, jetonsuz).	search find validation validate verify token tokens	python tools/kombin_sec.py	repo
 kontur_profil	arac	omer-skills tools/	Kulpsuz gövde maskesini gorunum ön kamerasının çerçevesine (bbox merkezi, ortho 2r·1.05, BOY²) yerleştirir.		python tools/kontur_profil.py	repo
@@ -4720,11 +4732,14 @@ rea_mcp_cagri	arac	omer-skills tools/	REA-AGIR-1: REA MCP'yi ayrı node sürecin
 rea_ozet	arac	omer-skills tools/	REA sonucunu (tool-results/mcp-rea-*.txt) kisa teknik ozete indirger; hedef ->…	summary summarize	python tools/rea_ozet.py	repo
 rea_parcali	arac	omer-skills tools/	REA-AGIR-1 parçalı mod: ağır SPA'da analyze_web_bundle yerine yakala -> diske böl -> betik başına taze…	modding website	python tools/rea_parcali.py	repo
 rea_parcali_kapi	arac	omer-skills tools/	REA-AGIR-2 kalite kapısı: aynı yakalamayı normal (tek süreç) ve parçalı modda çözer, örtüşmeyi ölçer.…	mod	python tools/rea_parcali_kapi.py	repo
+rover_olc	arac	omer-skills tools/	Kaynakların ROVER referansına (ve eski altına) karşı WER'i; groq + ekran adı düzeltici etkisi.		python tools/rover_olc.py	repo
+rover_ref	arac	omer-skills tools/	ROVER/çoğunluk referansı: groq (pivot) + gemini + yerel large-v3 kelime hizalı oylama.		python tools/rover_ref.py	repo
 rtk_onisle	arac	omer-skills tools/	PreToolUse(Bash|PowerShell) ön-işleyici (TOKEN-7a 2b): rtk hook claude'un yeniden yazmadığı aileleri `rtk…	kanca maliyet jeton	python tools/rtk_onisle.py	repo
 site_derin	arac	omer-skills tools/	KAYNAK-SITE-2 adim 3: oncelikli turlerde Playwright ile teknik cikarim (kutuphane/ag/baglantilar) + havuz…	website web library	python tools/site_derin.py	repo
 site_kart	arac	omer-skills tools/	KAYNAK-SİTE-1 adım 3-4: kapalı siteler için arşiv denemesi, açık siteler için kaynak kartı, site-tam.tsv'yi…	website web vulnerability	python tools/site_kart.py	repo
 site_kart_dogrula	arac	omer-skills tools/	KAYNAK-SITE-3 adim 2: 228 kartin her maddesini sayfa kanitiyla eslestir. Kart modelinden FARKLI aile hakem…	website web validation validate	python tools/site_kart_dogrula.py	repo
 site_kit	arac	omer-skills tools/	Scroll-anlatı site kiti (TELVE'den): Astro + GSAP/Lenis + bölüm şablonu + sahne yükleyici + poster AVIF +…	website	python tools/site_kit.py	repo
+site_park_sinifla	arac	omer-skills tools/	YARIM-D3 1a: 'diger' kalan siteleri icerikteki park/satilik/erisim-engeli/arsiv izinden 'kapali/park' turune…	website	python tools/site_park_sinifla.py	repo
 site_prob	arac	omer-skills tools/	KAYNAK-SİTE-1 adım 2: site-tam.tsv'deki her siteyi HTTP ile yokla (pencere açmaz): durum, başlık, açıklama,…	website web vulnerability	python tools/site_prob.py	repo
 site_repo_indir	arac	omer-skills tools/	KAYNAK-SITE-2 adim 1: site-repo.tsv repo adaylarini arac_indir_1 hattindan indir (clone --depth 1,…	website web download search	python tools/site_repo_indir.py	repo
 site_semgrep3	arac	omer-skills tools/	KAYNAK-SITE-3 adim 4: kurulum-ek-site.tsv'de semgrep_ERROR>0 repolari tek tek tara (--max-memory 1500),…	website web install setup hata bellek	python tools/site_semgrep3.py	repo
