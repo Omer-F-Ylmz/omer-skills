@@ -225,6 +225,8 @@ def coz(tur, istem, dosyalar, secenek=(), gorsel=None):
 
 
 def main(argv):
+    for akis in (sys.stdout, sys.stderr):  # cp1254 konsolda "→" UnicodeEncodeError vermesin
+        akis.reconfigure(encoding="utf-8")
     tur, secenek, gorsel = "ozet", (), None
     while argv and argv[0].startswith("--"):
         bayrak, deger, *argv = argv
