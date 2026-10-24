@@ -1,5 +1,5 @@
 import json
-import shutil
+import re
 import sys
 from pathlib import Path
 
@@ -11,7 +11,8 @@ import token_4_uygula as t4  # noqa: E402
 
 def test_uygula_geri_ve_cc_profil_tools(tmp_path):
     profil = tmp_path / "cc-arka.json"
-    shutil.copy2(t4.KOK / "profiller" / "cc-arka.json", profil)
+    # canlı profil uygulanmış olabilir; ön-uygulama durumunu bayt düzeyinde kur
+    profil.write_bytes(re.sub(rb'"araclar": \[[^\]]*\],\s*', b"", (t4.KOK / "profiller" / "cc-arka.json").read_bytes()))
     once = profil.read_bytes()
     assert t4.main(["uygula"], profil) == 0
     assert json.loads(profil.read_bytes())["ajan"]["araclar"] == t4.ARACLAR
