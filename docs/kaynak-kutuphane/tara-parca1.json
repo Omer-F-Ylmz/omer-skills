@@ -1,0 +1,1787 @@
+{
+ "reactbits.dev": {
+  "host": "reactbits.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "tailwind": 10,
+   "shadcn": 22,
+   "svelte": 6,
+   "lucide": 19
+  },
+  "github": [
+   "davidhdev/react-bits",
+   "repos/davidhdev"
+  ],
+  "npm": [],
+  "sitemap_url": 237,
+  "sitemap_ornek": [
+   "https://reactbits.dev/",
+   "https://reactbits.dev/get-started/index",
+   "https://reactbits.dev/c/text-animations",
+   "https://reactbits.dev/c/animations",
+   "https://reactbits.dev/c/components",
+   "https://reactbits.dev/c/backgrounds",
+   "https://reactbits.dev/c/micro",
+   "https://reactbits.dev/text-animations/tech-text"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://reactbits.dev/",
+  "baslik": "React Bits — Free Animated React Components",
+  "aciklama": "Free, open source React components for animated text, backgrounds, interactive cards and micro interactions. Explore live demos and copy the source.",
+  "repo_bilgi": [
+   {
+    "repo": "davidhdev/react-bits",
+    "lisans": "other",
+    "yildiz": 50123,
+    "son": "2026-10-19",
+    "ozet": "The largest open-source library of animated, interactive, and customizable React & Next.js component"
+   },
+   {
+    "repo": "repos/davidhdev",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "21st.dev": {
+  "host": "21st.dev",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 22,
+   "shadcn": 29,
+   "next.js": 67,
+   "lucide": 158
+  },
+  "github": [
+   "bilawalsidhu/gods-eye-view",
+   "pmndrs/jotai",
+   "vercel/next.js"
+  ],
+  "npm": [],
+  "sitemap_url": 9446,
+  "sitemap_ornek": [
+   "https://21st.dev",
+   "https://21st.dev/community/components",
+   "https://21st.dev/community/components/popular",
+   "https://21st.dev/community/components/newest",
+   "https://21st.dev/community/components/week",
+   "https://21st.dev/community/components/featured",
+   "https://21st.dev/community/themes",
+   "https://21st.dev/community/libraries"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://21st.dev/",
+  "baslik": "React Components, Templates &amp; Themes — 12,000+ Crafted UI | 21st",
+  "aciklama": "12,000+ hand-crafted React and Tailwind CSS components, templates, and shadcn themes by real design engineers. Preview live, install with one command — for you and your AI agent.",
+  "repo_bilgi": [
+   {
+    "repo": "bilawalsidhu/gods-eye-view",
+    "lisans": "other",
+    "yildiz": 59448,
+    "son": "2026-10-24",
+    "ozet": "A spy satellite simulator in your browser, except the data is real. Live open source spatial intelli"
+   },
+   {
+    "repo": "pmndrs/jotai",
+    "lisans": "mit",
+    "yildiz": 21297,
+    "son": "2026-10-23",
+    "ozet": "👻 Primitive and flexible state management for React"
+   },
+   {
+    "repo": "vercel/next.js",
+    "lisans": "mit",
+    "yildiz": 143218,
+    "son": "2026-10-24",
+    "ozet": "The React Framework"
+   }
+  ]
+ },
+ "fancycomponents.dev": {
+  "host": "fancycomponents.dev",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2,
+   "next.js": 54
+  },
+  "github": [
+   "danielpetho/fancy"
+  ],
+  "npm": [],
+  "sitemap_url": 45,
+  "sitemap_ornek": [
+   "https://fancycomponents.dev",
+   "https://fancycomponents.dev/components",
+   "https://fancycomponents.dev/docs/changelog",
+   "https://fancycomponents.dev/docs/installation",
+   "https://fancycomponents.dev/docs/introduction",
+   "https://fancycomponents.dev/docs/components/background/animated-gradient-svg",
+   "https://fancycomponents.dev/docs/components/background/pixel-trail",
+   "https://fancycomponents.dev/docs/components/blocks/circling-elements"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.fancycomponents.dev/",
+  "baslik": "Fancy Components",
+  "aciklama": "Ready to use, fancy React components to make the web fun again. Free &amp; Open Source.",
+  "repo_bilgi": [
+   {
+    "repo": "danielpetho/fancy",
+    "lisans": "mit",
+    "yildiz": 3264,
+    "son": "2026-03-14",
+    "ozet": ""
+   }
+  ]
+ },
+ "kokonutui.com": {
+  "host": "kokonutui.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 32,
+   "shadcn": 59,
+   "next.js": 160,
+   "lucide": 182
+  },
+  "github": [
+   "kokonut-labs/kokonutui"
+  ],
+  "npm": [],
+  "sitemap_url": 118,
+  "sitemap_ornek": [
+   "https://kokonutui.com",
+   "https://kokonutui.com/docs/agents",
+   "https://kokonutui.com/docs/changelog",
+   "https://kokonutui.com/docs",
+   "https://kokonutui.com/docs/pro",
+   "https://kokonutui.com/docs/templates",
+   "https://kokonutui.com/docs/ai/ai-agent-lanes",
+   "https://kokonutui.com/docs/ai/ai-autocomplete"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://kokonutui.com/",
+  "baslik": "Kokonut UI - Free Open Source UI Components for React and Tailwind CSS",
+  "aciklama": "Open-source React components built with Tailwind CSS, Motion and shadcn/ui. Install any of them with one command or one prompt.",
+  "repo_bilgi": [
+   {
+    "repo": "kokonut-labs/kokonutui",
+    "lisans": "mit",
+    "yildiz": 2197,
+    "son": "2026-10-24",
+    "ozet": "Open-source collection of stunning Components built with Tailwind CSS, shadcn/ui and Motion to use o"
+   }
+  ]
+ },
+ "cult-ui.com": {
+  "host": "cult-ui.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2,
+   "radix": 1,
+   "shadcn": 36,
+   "next.js": 1457,
+   "lucide": 19
+  },
+  "github": [
+   "nolly-studio/cult-ui"
+  ],
+  "npm": [],
+  "sitemap_url": 145,
+  "sitemap_ornek": [
+   "https://www.cult-ui.com",
+   "https://www.cult-ui.com/themes",
+   "https://www.cult-ui.com/docs/changelog",
+   "https://www.cult-ui.com/docs",
+   "https://www.cult-ui.com/docs/llms",
+   "https://www.cult-ui.com/docs/mcp-server",
+   "https://www.cult-ui.com/docs/theming",
+   "https://www.cult-ui.com/docs/components/agent-suggest-card-stack"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.cult-ui.com/",
+  "baslik": "Cult UI – Shadcn UI Components, Blocks &amp; Templates",
+  "aciklama": "Open-source Shadcn UI components, animated blocks, and full templates you can copy-paste into any TypeScript/Next.js project.",
+  "repo_bilgi": [
+   {
+    "repo": "nolly-studio/cult-ui",
+    "lisans": "mit",
+    "yildiz": 6698,
+    "son": "2026-10-14",
+    "ozet": "Animated components for design engineers. 150+ free shadcn/ui components, built with Tailwind CSS an"
+   }
+  ]
+ },
+ "shadcn.io": {
+  "host": "shadcn.io",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 39,
+   "radix": 3,
+   "shadcn": 983,
+   "next.js": 46,
+   "svelte": 74,
+   "lucide": 199
+  },
+  "github": [
+   "shadcnio/issues"
+  ],
+  "npm": [],
+  "sitemap_url": 3100,
+  "sitemap_ornek": [
+   "https://www.shadcn.io",
+   "https://www.shadcn.io/privacy",
+   "https://www.shadcn.io/terms",
+   "https://www.shadcn.io/license",
+   "https://www.shadcn.io/pricing",
+   "https://www.shadcn.io/colors",
+   "https://www.shadcn.io/easings",
+   "https://www.shadcn.io/theme-generator"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.shadcn.io/",
+  "baslik": "shadcn/ui Blocks, Components &amp; Templates for AI Agents | shadcn.io",
+  "aciklama": "6,231 blocks, 14 templates and 175 components for React, Vue, Svelte and Solid. Ask your agent, and it installs them in your theme.",
+  "repo_bilgi": [
+   {
+    "repo": "shadcnio/issues",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "componentry.dev": {
+  "host": "componentry.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "tailwind": 16,
+   "shadcn": 16,
+   "next.js": 71,
+   "lucide": 18
+  },
+  "github": [
+   "harshjdhv/componentry"
+  ],
+  "npm": [],
+  "sitemap_url": 62,
+  "sitemap_ornek": [
+   "https://componentry.dev",
+   "https://componentry.dev/docs",
+   "https://componentry.dev/docs/mcp",
+   "https://componentry.dev/docs/components/lens-clock",
+   "https://componentry.dev/docs/components/grain-gradient",
+   "https://componentry.dev/docs/components/annotated-text",
+   "https://componentry.dev/docs/components/case-study-flip-stack",
+   "https://componentry.dev/docs/components/dithered-logo"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://componentry.dev/",
+  "baslik": "Componentry — Beautiful Animated UI Components for React",
+  "aciklama": "Beautiful, animated React UI components with styling and motion already handled. Built with Tailwind CSS, TypeScript, and Framer Motion.",
+  "repo_bilgi": [
+   {
+    "repo": "harshjdhv/componentry",
+    "lisans": "mit",
+    "yildiz": 617,
+    "son": "2026-10-12",
+    "ozet": "Animated, production-ready UI components. Built the way real products need them."
+   }
+  ]
+ },
+ "canvasui.dev": {
+  "host": "canvasui.dev",
+  "durum": "ok",
+  "libs": {
+   "shadcn": 16,
+   "next.js": 252,
+   "svelte": 20,
+   "lucide": 91
+  },
+  "github": [
+   "davidhdev/canvas-ui"
+  ],
+  "npm": [],
+  "sitemap_url": 44,
+  "sitemap_ornek": [
+   "https://canvasui.dev",
+   "https://canvasui.dev/components",
+   "https://canvasui.dev/playground",
+   "https://canvasui.dev/celebrate",
+   "https://canvasui.dev/docs",
+   "https://canvasui.dev/docs/installation",
+   "https://canvasui.dev/docs/rendering",
+   "https://canvasui.dev/docs/mcp"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://canvasui.dev/",
+  "baslik": "Canvas UI: Creative Canvas, WebGL and WebGPU Component Library",
+  "aciklama": "An open source component library of creative html-in-canvas effects for React, Solid, Preact, Vue, Svelte, and vanilla JS. Every effect ships as WebGL and WebGPU (via vgpu) builds, running over live H",
+  "repo_bilgi": [
+   {
+    "repo": "davidhdev/canvas-ui",
+    "lisans": "other",
+    "yildiz": 5074,
+    "son": "2026-10-03",
+    "ozet": "A library of creative canvas components. Real HTML with WebGL effects running over it. React, Vue, S"
+   }
+  ]
+ },
+ "originkit.dev": {
+  "host": "originkit.dev",
+  "durum": "hata: TimeoutError The read operation timed out",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "uiarc.dev": {
+  "host": "uiarc.dev",
+  "durum": "ok",
+  "libs": {
+   "shadcn": 34,
+   "next.js": 203,
+   "lucide": 76
+  },
+  "github": [
+   "kuratlielia/arc-library"
+  ],
+  "npm": [],
+  "sitemap_url": 319,
+  "sitemap_ornek": [
+   "https://uiarc.dev",
+   "https://uiarc.dev/pricing",
+   "https://uiarc.dev/pro",
+   "https://uiarc.dev/templates",
+   "https://uiarc.dev/templates/arc-crm",
+   "https://uiarc.dev/docs/introduction",
+   "https://uiarc.dev/docs/installation",
+   "https://uiarc.dev/docs/theming"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://uiarc.dev/",
+  "baslik": "Arc UI: the React UI library your AI agents can build with",
+  "aciklama": "Animated React components and blocks for shadcn and Next.js. Add them with the shadcn CLI, or let your AI agent build with them through the MCP server.",
+  "repo_bilgi": [
+   {
+    "repo": "kuratlielia/arc-library",
+    "lisans": "mit",
+    "yildiz": 965,
+    "son": "2026-10-23",
+    "ozet": "Arc Library: free, open source React components with calm motion. Copy the code or install with the "
+   }
+  ]
+ },
+ "vengenceui.com": {
+  "host": "vengenceui.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2,
+   "shadcn": 2,
+   "next.js": 322,
+   "lucide": 107
+  },
+  "github": [
+   "ashutoshx7/vengenceui"
+  ],
+  "npm": [],
+  "sitemap_url": 94,
+  "sitemap_ornek": [
+   "https://www.vengenceui.com/",
+   "https://www.vengenceui.com/components",
+   "https://www.vengenceui.com/templates",
+   "https://www.vengenceui.com/docs/install-nextjs",
+   "https://www.vengenceui.com/docs/install-tailwind",
+   "https://www.vengenceui.com/docs/add-utilities",
+   "https://www.vengenceui.com/docs/cli",
+   "https://www.vengenceui.com/about"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.vengenceui.com/",
+  "baslik": "Vengeance UI - Animated React Components",
+  "aciklama": "Animated React components and next-generation UI interactions for modern landing pages.",
+  "repo_bilgi": [
+   {
+    "repo": "ashutoshx7/vengenceui",
+    "lisans": "mit",
+    "yildiz": 1236,
+    "son": "2026-10-21",
+    "ozet": "VengeanceUI helps you to build  your landing page by providing you animated beautiful components out"
+   }
+  ]
+ },
+ "skecher-ui.com": {
+  "host": "skecher-ui.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 2,
+   "shadcn": 16,
+   "next.js": 34,
+   "lucide": 6
+  },
+  "github": [
+   "codesign-spa27/skecher-ui",
+   "sketch-the-art/sketch-the-art"
+  ],
+  "npm": [],
+  "sitemap_url": 61,
+  "sitemap_ornek": [
+   "https://skecher-ui.com/",
+   "https://skecher-ui.com/docs",
+   "https://skecher-ui.com/docs/project-showcase",
+   "https://skecher-ui.com/llms.txt",
+   "https://skecher-ui.com/llms-full.txt",
+   "https://skecher-ui.com/docs/streaming-text",
+   "https://skecher-ui.com/docs/text-morphing",
+   "https://skecher-ui.com/docs/liquid-glass-social"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://skecher-ui.com/",
+  "baslik": "Skecher UI - Motion Components for React",
+  "aciklama": "Copy polished React motion components with live previews, source code, dependencies, and shadcn registry commands.",
+  "repo_bilgi": [
+   {
+    "repo": "codesign-spa27/skecher-ui",
+    "lisans": "YOK",
+    "yildiz": 38,
+    "son": "2026-10-19",
+    "ozet": "motion component library on top of shadcn cli."
+   },
+   {
+    "repo": "sketch-the-art/sketch-the-art",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "balsa-ui.com": {
+  "host": "balsa-ui.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 172,
+   "shadcn": 140,
+   "nuxt/vue": 1,
+   "lucide": 140
+  },
+  "github": [
+   "anthropics/skills"
+  ],
+  "npm": [],
+  "sitemap_url": 456,
+  "sitemap_ornek": [
+   "https://balsa-ui.com/",
+   "https://balsa-ui.com/docs",
+   "https://balsa-ui.com/docs/installation",
+   "https://balsa-ui.com/docs/cli",
+   "https://balsa-ui.com/docs/react",
+   "https://balsa-ui.com/docs/open-code",
+   "https://balsa-ui.com/docs/palette",
+   "https://balsa-ui.com/docs/themes"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://balsa-ui.com/",
+  "baslik": "; without it the\n         result falls back to the bare domain. This is a client-rendered SPA with\n         no prerender",
+  "aciklama": "Balsa UI is an agent-native, open-code component system for Vue and React.",
+  "repo_bilgi": [
+   {
+    "repo": "anthropics/skills",
+    "lisans": "YOK",
+    "yildiz": 183409,
+    "son": "2026-10-09",
+    "ozet": "Public repository for Agent Skills"
+   }
+  ]
+ },
+ "threeui.com": {
+  "host": "threeui.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 53,
+   "lenis": 32,
+   "framer-motion/motion": 15,
+   "tailwind": 32,
+   "svelte": 1,
+   "webgl-shader": 2
+  },
+  "github": [
+   "supabase/supabase-js"
+  ],
+  "npm": [],
+  "sitemap_url": 2407,
+  "sitemap_ornek": [
+   "https://threeui.com/3d-assets",
+   "https://threeui.com/3d-assets/apple-devices",
+   "https://threeui.com/3d-assets/apple-devices/iphone-duo",
+   "https://threeui.com/3d-assets/apple-devices/iphone-launch-film",
+   "https://threeui.com/3d-assets/apple-devices/macbook-air-m2",
+   "https://threeui.com/3d-assets/apple-devices/studio-display",
+   "https://threeui.com/3d-assets/ashen-books",
+   "https://threeui.com/3d-assets/aural-headphones"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://threeui.com/",
+  "baslik": "Three.js Components, Templates &amp; Interactive Shaders | ThreeUI",
+  "aciklama": "Browse copy-ready Three.js components, complete website templates, WebGL backgrounds, hero sections, UI effects, and source-backed variants.",
+  "repo_bilgi": [
+   {
+    "repo": "supabase/supabase-js",
+    "lisans": "mit",
+    "yildiz": 4598,
+    "son": "2026-10-23",
+    "ozet": "An isomorphic Javascript client for Supabase. Query your Supabase database, subscribe to realtime ev"
+   }
+  ]
+ },
+ "threlte.xyz": {
+  "host": "threlte.xyz",
+  "durum": "ok",
+  "libs": {
+   "astro": 35,
+   "svelte": 36
+  },
+  "github": [
+   "threlte/threlte"
+  ],
+  "npm": [],
+  "sitemap_url": 231,
+  "sitemap_ornek": [
+   "https://threlte.xyz/",
+   "https://threlte.xyz/blog/",
+   "https://threlte.xyz/blog/building-infinite-turtles/",
+   "https://threlte.xyz/blog/threlte-8/",
+   "https://threlte.xyz/docs/examples/animation/animation-transitions/",
+   "https://threlte.xyz/docs/examples/animation/complex-sprite-scene/",
+   "https://threlte.xyz/docs/examples/examples/",
+   "https://threlte.xyz/docs/examples/games/arcade-machine/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://threlte.xyz/",
+  "baslik": "Threlte — Rapidly build 3D apps for the web with Svelte",
+  "aciklama": "Threlte is an open-source 3D framework for Svelte. Build interactive 3D apps for the web with declarative, reactive components powered by Three.js.",
+  "repo_bilgi": [
+   {
+    "repo": "threlte/threlte",
+    "lisans": "mit",
+    "yildiz": 3356,
+    "son": "2026-10-21",
+    "ozet": "3D framework for Svelte"
+   }
+  ]
+ },
+ "vantajs.com": {
+  "host": "vantajs.com",
+  "durum": "ok",
+  "libs": {
+   "three.js": 82,
+   "webgl-shader": 122
+  },
+  "github": [
+   "processing/p5.js",
+   "processing/processing",
+   "tengbao/vanta",
+   "tonejs/tone.js"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.vantajs.com/",
+  "baslik": "Vanta.js - Animated 3D Backgrounds For Your Website",
+  "aciklama": "3D & WebGL Background Animations For Your Website",
+  "repo_bilgi": [
+   {
+    "repo": "processing/p5.js",
+    "lisans": "lgpl-2.1",
+    "yildiz": 24167,
+    "son": "2026-10-24",
+    "ozet": "p5.js is a client-side JS platform that empowers artists, designers, students, and anyone to learn t"
+   },
+   {
+    "repo": "processing/processing",
+    "lisans": "other",
+    "yildiz": 6478,
+    "son": "2026-07-15",
+    "ozet": "⚠️ Processing moved to processing/processing4 ⚠️"
+   },
+   {
+    "repo": "tengbao/vanta",
+    "lisans": "mit",
+    "yildiz": 7271,
+    "son": "2024-03-03",
+    "ozet": "Animated 3D backgrounds for your website"
+   },
+   {
+    "repo": "tonejs/tone.js",
+    "lisans": "mit",
+    "yildiz": 14787,
+    "son": "2026-10-22",
+    "ozet": "A Web Audio framework for making interactive music in the browser."
+   }
+  ]
+ },
+ "base-ui.21st.dev": {
+  "host": "base-ui.21st.dev",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 4,
+   "shadcn": 2,
+   "next.js": 108
+  },
+  "github": [
+   "mui/base-ui"
+  ],
+  "npm": [],
+  "sitemap_url": 9446,
+  "sitemap_ornek": [
+   "https://21st.dev",
+   "https://21st.dev/community/components",
+   "https://21st.dev/community/components/popular",
+   "https://21st.dev/community/components/newest",
+   "https://21st.dev/community/components/week",
+   "https://21st.dev/community/components/featured",
+   "https://21st.dev/community/themes",
+   "https://21st.dev/community/libraries"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://base-ui.21st.dev/",
+  "baslik": "Base UI&#x27;s UI components | 21st",
+  "aciklama": "Browse Base UI&#x27;s open-source UI components on 21st.dev.",
+  "repo_bilgi": [
+   {
+    "repo": "mui/base-ui",
+    "lisans": "mit",
+    "yildiz": 11221,
+    "son": "2026-10-24",
+    "ozet": "Unstyled UI components for building accessible web apps and design systems. From the creators of Rad"
+   }
+  ]
+ },
+ "motion.dev": {
+  "host": "motion.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 4,
+   "lenis": 12,
+   "framer-motion/motion": 8,
+   "shadcn": 2,
+   "svelte": 12,
+   "lucide": 144
+  },
+  "github": [
+   "motiondivision/motion"
+  ],
+  "npm": [],
+  "sitemap_url": 806,
+  "sitemap_ornek": [
+   "https://motion.dev/",
+   "https://motion.dev/ai-kit",
+   "https://motion.dev/magazine",
+   "https://motion.dev/examples",
+   "https://motion.dev/changelog",
+   "https://motion.dev/docs",
+   "https://motion.dev/troubleshooting",
+   "https://motion.dev/plus"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://motion.dev/",
+  "baslik": "Motion (prev Framer Motion): JavaScript &amp; React animation library",
+  "aciklama": "Motion (prev Framer Motion) is a fast, production-grade animation library for React, JavaScript and Vue. Build smooth UI animations at a tiny footprint.",
+  "repo_bilgi": [
+   {
+    "repo": "motiondivision/motion",
+    "lisans": "mit",
+    "yildiz": 34487,
+    "son": "2026-10-23",
+    "ozet": "A modern animation library for React and JavaScript"
+   }
+  ]
+ },
+ "gsap.com": {
+  "host": "gsap.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 109
+  },
+  "github": [
+   "greensock/greensock-js"
+  ],
+  "npm": [],
+  "sitemap_url": 471,
+  "sitemap_ornek": [
+   "https://gsap.com/styleguide/",
+   "https://gsap.com/scroll/",
+   "https://gsap.com/svg/",
+   "https://gsap.com/text/",
+   "https://gsap.com/ui/",
+   "https://gsap.com/pricing/",
+   "https://gsap.com/core/",
+   "https://gsap.com/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://gsap.com/",
+  "baslik": "Homepage | GSAP",
+  "aciklama": "Supported by Webflow. Animate Anything - A wildly robust JavaScript animation library built for professionals.",
+  "repo_bilgi": [
+   {
+    "repo": "greensock/greensock-js",
+    "lisans": "YOK",
+    "yildiz": 29683,
+    "son": "2026-04-13",
+    "ozet": "GSAP (GreenSock Animation Platform), a JavaScript animation library for the modern web"
+   }
+  ]
+ },
+ "lenis.dev": {
+  "host": "lenis.dev",
+  "durum": "ok",
+  "libs": {
+   "lenis": 187,
+   "next.js": 382
+  },
+  "github": [
+   "darkroomengineering/lenis",
+   "locomotivemtl/locomotive-scroll"
+  ],
+  "npm": [],
+  "sitemap_url": 225,
+  "sitemap_ornek": [
+   "https://lenis.dev",
+   "https://lenis.dev/showcase",
+   "https://lenis.dev/templates",
+   "https://lenis.dev/showcase/spin-a-tale",
+   "https://lenis.dev/showcase/the-design-society",
+   "https://lenis.dev/showcase/cloudfairy",
+   "https://lenis.dev/showcase/santalarch",
+   "https://lenis.dev/showcase/op-xy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://lenis.dev/",
+  "baslik": "Lenis – Smooth Scroll",
+  "aciklama": "Lenis is a lightweight, performant smooth scroll library for the web. Add butter-smooth scrolling to any    \n  site with Javascript, React, or Vue. Open-source, accessible, and used by top agencies wo",
+  "repo_bilgi": [
+   {
+    "repo": "darkroomengineering/lenis",
+    "lisans": "mit",
+    "yildiz": 16843,
+    "son": "2026-10-23",
+    "ozet": "Smooth scroll as it should be"
+   },
+   {
+    "repo": "locomotivemtl/locomotive-scroll",
+    "lisans": "mit",
+    "yildiz": 8883,
+    "son": "2026-06-30",
+    "ozet": "🛤 Detection of elements in viewport & smooth scrolling with parallax."
+   }
+  ]
+ },
+ "react-spring.dev": {
+  "host": "react-spring.dev",
+  "durum": "ok",
+  "libs": {
+   "react-spring": 21,
+   "r3f": 2,
+   "tailwind": 1,
+   "radix": 6
+  },
+  "github": [
+   "pmndrs/leva",
+   "pmndrs/react-spring",
+   "pmndrs/react-three-fiber",
+   "pmndrs/use-gesture",
+   "pmndrs/zustand"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.react-spring.dev/",
+  "baslik": "react-spring",
+  "aciklama": "With naturally fluid animations you will elevate your UI &amp; interactions. Bringing your apps to life has never been simpler.",
+  "repo_bilgi": [
+   {
+    "repo": "pmndrs/leva",
+    "lisans": "mit",
+    "yildiz": 6262,
+    "son": "2025-11-09",
+    "ozet": "🌋 React-first components GUI"
+   },
+   {
+    "repo": "pmndrs/react-spring",
+    "lisans": "mit",
+    "yildiz": 29178,
+    "son": "2026-10-23",
+    "ozet": "✌️ A spring physics based React animation library"
+   },
+   {
+    "repo": "pmndrs/react-three-fiber",
+    "lisans": "mit",
+    "yildiz": 33195,
+    "son": "2026-10-21",
+    "ozet": "🇨🇭 A React renderer for Three.js"
+   },
+   {
+    "repo": "pmndrs/use-gesture",
+    "lisans": "mit",
+    "yildiz": 9624,
+    "son": "2024-07-15",
+    "ozet": "👇Bread n butter utility for component-tied mouse/touch gestures in React and Vanilla Javascript."
+   },
+   {
+    "repo": "pmndrs/zustand",
+    "lisans": "mit",
+    "yildiz": 58865,
+    "son": "2026-10-22",
+    "ozet": "🐻 Bear necessities for state management in React"
+   }
+  ]
+ },
+ "rive.app": {
+  "host": "rive.app",
+  "durum": "ok",
+  "libs": {
+   "lottie": 9,
+   "rive": 119
+  },
+  "github": [
+   "neurowave/rive-city"
+  ],
+  "npm": [],
+  "sitemap_url": 216,
+  "sitemap_ornek": [
+   "https://rive.app/",
+   "https://rive.app/pricing",
+   "https://rive.app/downloads",
+   "https://rive.app/runtimes",
+   "https://rive.app/editor",
+   "https://rive.app/rive-vs-html",
+   "https://rive.app/agents",
+   "https://rive.app/figma-to-rive"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://rive.app/",
+  "baslik": "Rive: interactive animation engine for games, apps, and UI",
+  "aciklama": "Behind Duolingo and Spotify Wrapped. Build games, UI, and interactive animation in the Rive Editor or with your coding agent and the Rive CLI.",
+  "repo_bilgi": [
+   {
+    "repo": "neurowave/rive-city",
+    "lisans": "other",
+    "yildiz": 2,
+    "son": "2026-10-20",
+    "ozet": "A drivable procedural city built entirely with the Rive CLI: GPU canvas 3D, live Rive artboards as c"
+   }
+  ]
+ },
+ "lottielab.com": {
+  "host": "lottielab.com",
+  "durum": "ok",
+  "libs": {
+   "three.js": 22,
+   "gsap": 1,
+   "lottie": 136,
+   "next.js": 38
+  },
+  "github": [
+   "mobxjs/mobx"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.lottielab.com/",
+  "baslik": "Lottielab | Create &amp; edit Lottie animations",
+  "aciklama": "Create and ship animations to your products faster. Bring your websites and apps to life with the simplest editor for Lottie animations.",
+  "repo_bilgi": [
+   {
+    "repo": "mobxjs/mobx",
+    "lisans": "mit",
+    "yildiz": 28214,
+    "son": "2026-10-24",
+    "ozet": "Simple, scalable state management."
+   }
+  ]
+ },
+ "madewithgsap.com": {
+  "host": "madewithgsap.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 364,
+   "lenis": 16,
+   "matter-js": 1
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://madewithgsap.com/",
+  "baslik": "Made With Gsap",
+  "aciklama": "A collection of 50 premium JavaScript effects made with GSAP. Showcasing scroll, drag, mouse move, infinite animations and more.",
+  "repo_bilgi": []
+ },
+ "ripplix.com": {
+  "host": "ripplix.com",
+  "durum": "ok",
+  "libs": {
+   "gsap": 5,
+   "lottie": 1,
+   "tailwind": 4,
+   "lucide": 95
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 6798,
+  "sitemap_ornek": [
+   "https://www.ripplix.com",
+   "https://www.ripplix.com/library/splash-onboarding-emphasis-productivity-tools-mobile-app",
+   "https://www.ripplix.com/library/tabs-emphasis-productivity-tools-mobile-app",
+   "https://www.ripplix.com/library/popover-tabs-emphasis-productivity-tools-mobile-app",
+   "https://www.ripplix.com/library/wheel-type-picker-pop-up-emphasis-productivity-tools-mobile-app",
+   "https://www.ripplix.com/library/opening-loop-duolingo-abc-education-mobile-app",
+   "https://www.ripplix.com/library/carousel-duolingo-abc-education-mobile-app",
+   "https://www.ripplix.com/library/select-pop-up-duolingo-abc-education-mobile-app"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.ripplix.com/",
+  "baslik": "7,000+ UI Animation &amp; Micro-interaction Library",
+  "aciklama": "The curated library of UI Animation. Stop shipping static interfaces. Access premium UI Animation examples for Mobile, Web, AR / VR and Smartwatches that makes product feel alive.",
+  "repo_bilgi": []
+ },
+ "gradients.sh": {
+  "host": "gradients.sh",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 6,
+   "shadcn": 35,
+   "svelte": 5,
+   "lucide": 3
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 52,
+  "sitemap_ornek": [
+   "https://gradients.sh/",
+   "https://gradients.sh/create",
+   "https://gradients.sh/pricing",
+   "https://gradients.sh/faq",
+   "https://gradients.sh/license",
+   "https://gradients.sh/privacy",
+   "https://gradients.sh/refunds",
+   "https://gradients.sh/about"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://gradients.sh/",
+  "baslik": "gradients.sh: animated gradient backgrounds for React",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "unicorn.studio": {
+  "host": "unicorn.studio",
+  "durum": "ok",
+  "libs": {
+   "nuxt/vue": 3,
+   "webgl-shader": 82
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 17,
+  "sitemap_ornek": [
+   "https://www.unicorn.studio/",
+   "https://www.unicorn.studio/docs/",
+   "https://www.unicorn.studio/docs/getting-started/",
+   "https://www.unicorn.studio/docs/embed/",
+   "https://www.unicorn.studio/docs/example-projects/",
+   "https://www.unicorn.studio/llm-example-projects.json",
+   "https://www.unicorn.studio/llm-example-projects.txt",
+   "https://www.unicorn.studio/docs/performance/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.unicorn.studio/",
+  "baslik": "Unicorn Studio — Craft Interactive Graphics that Ship",
+  "aciklama": "Design production-ready web components with shaders, media, 3D, and interactive motion in a visual canvas.",
+  "repo_bilgi": []
+ },
+ "springs.studio": {
+  "host": "springs.studio",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 10,
+   "tailwind": 11
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 1,
+  "sitemap_ornek": [
+   "https://www.springs.studio/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.springs.studio/",
+  "baslik": "Springs · Easings and semantic tokens your agent can read",
+  "aciklama": "The motion token generator built for handing off: every set is readable by an agent as plain text or JSON. Cubic-bezier and spring easings previewed on real UI rather than on a dot, each with its own ",
+  "repo_bilgi": []
+ },
+ "animos.app": {
+  "host": "animos.app",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "svelte": 1,
+   "lucide": 18
+  },
+  "github": [
+   "supabase/supabase-js"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://animos.app/",
+  "baslik": "animos — Motion templates for design showcases",
+  "aciklama": "animos — ready-made animation templates for showcasing your designs. Drop in images or videos, tweak, and export MP4/WebM in your browser.",
+  "repo_bilgi": [
+   {
+    "repo": "supabase/supabase-js",
+    "lisans": "mit",
+    "yildiz": 4598,
+    "son": "2026-10-23",
+    "ozet": "An isomorphic Javascript client for Supabase. Query your Supabase database, subscribe to realtime ev"
+   }
+  ]
+ },
+ "component.gallery": {
+  "host": "component.gallery",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 4,
+   "astro": 20
+  },
+  "github": [
+   "ariakit/ariakit",
+   "elastic/eui",
+   "heroui-inc/heroui",
+   "inbn/screenshot-urls",
+   "redhat-ux/red-hat-design-system",
+   "shoelace-style/webawesome"
+  ],
+  "npm": [],
+  "sitemap_url": 66,
+  "sitemap_ornek": [
+   "https://component.gallery/",
+   "https://component.gallery/about/",
+   "https://component.gallery/changelog/",
+   "https://component.gallery/components/",
+   "https://component.gallery/components/accordion/",
+   "https://component.gallery/components/alert/",
+   "https://component.gallery/components/avatar/",
+   "https://component.gallery/components/badge/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://component.gallery/",
+  "baslik": "The Component Gallery",
+  "aciklama": "An up-to-date repository of interface components based on examples from the world of design systems, designed to be a reference for anyone building user interfaces.",
+  "repo_bilgi": [
+   {
+    "repo": "ariakit/ariakit",
+    "lisans": "YOK",
+    "yildiz": 8628,
+    "son": "2026-10-24",
+    "ozet": "Toolkit with accessible components, styles, and examples for your next web app"
+   },
+   {
+    "repo": "elastic/eui",
+    "lisans": "other",
+    "yildiz": 6375,
+    "son": "2026-10-24",
+    "ozet": "Elastic UI Framework 🙌"
+   },
+   {
+    "repo": "heroui-inc/heroui",
+    "lisans": "apache-2.0",
+    "yildiz": 31008,
+    "son": "2026-10-23",
+    "ozet": "🚀 Beautiful, fast and modern React UI library. (Previously NextUI)"
+   },
+   {
+    "repo": "inbn/screenshot-urls",
+    "lisans": "YOK",
+    "yildiz": 34,
+    "son": "2026-03-30",
+    "ozet": "A node script to take screenshots of webpages using puppeteer."
+   },
+   {
+    "repo": "redhat-ux/red-hat-design-system",
+    "lisans": "mit",
+    "yildiz": 153,
+    "son": "2026-10-23",
+    "ozet": "Red Hat's Design System"
+   },
+   {
+    "repo": "shoelace-style/webawesome",
+    "lisans": "mit",
+    "yildiz": 1379,
+    "son": "2026-10-23",
+    "ozet": "Build better with Web Awesome, the open source library of web components from Font Awesome. Upgrade "
+   }
+  ]
+ },
+ "remotion.dev": {
+  "host": "remotion.dev",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "remotion-dev/remotion"
+  ],
+  "npm": [
+   "remotion"
+  ],
+  "sitemap_url": 1425,
+  "sitemap_ornek": [
+   "https://www.remotion.dev/about/",
+   "https://www.remotion.dev/ai",
+   "https://www.remotion.dev/ai-embed",
+   "https://www.remotion.dev/automate",
+   "https://www.remotion.dev/blog",
+   "https://www.remotion.dev/blog/1-1",
+   "https://www.remotion.dev/blog/1-2",
+   "https://www.remotion.dev/blog/1-3"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.remotion.dev/",
+  "baslik": "Remotion | Make videos programmatically",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "remotion-dev/remotion",
+    "lisans": "other",
+    "yildiz": 66914,
+    "son": "2026-10-24",
+    "ozet": "🎥      Make videos programmatically with React"
+   }
+  ]
+ },
+ "motion-canvas.io": {
+  "host": "motion-canvas.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "motion-canvas/examples",
+   "motion-canvas/motion-canvas",
+   "repos/motion-canvas"
+  ],
+  "npm": [],
+  "sitemap_url": 291,
+  "sitemap_ornek": [
+   "https://motioncanvas.io/blog",
+   "https://motioncanvas.io/blog/archive",
+   "https://motioncanvas.io/blog/page/2",
+   "https://motioncanvas.io/blog/page/3",
+   "https://motioncanvas.io/blog/public-release",
+   "https://motioncanvas.io/blog/version-2.1.0",
+   "https://motioncanvas.io/blog/version-2.2.0",
+   "https://motioncanvas.io/blog/version-2.3.0"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://motion-canvas.io/",
+  "baslik": "Motion Canvas - A TypeScript library for creating animated videos using the Canvas API.",
+  "aciklama": "A TypeScript library for creating animated videos using the Canvas API.",
+  "repo_bilgi": [
+   {
+    "repo": "motion-canvas/examples",
+    "lisans": "mit",
+    "yildiz": 1170,
+    "son": "2024-03-21",
+    "ozet": "A set of examples for Motion Canvas"
+   },
+   {
+    "repo": "motion-canvas/motion-canvas",
+    "lisans": "mit",
+    "yildiz": 19453,
+    "son": "2026-07-02",
+    "ozet": "Visualize Your Ideas With Code"
+   },
+   {
+    "repo": "repos/motion-canvas",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "lucide.dev": {
+  "host": "lucide.dev",
+  "durum": "ok",
+  "libs": {
+   "nuxt/vue": 484,
+   "svelte": 31,
+   "lucide": 351
+  },
+  "github": [
+   "lucide-icons/lucide"
+  ],
+  "npm": [],
+  "sitemap_url": 2410,
+  "sitemap_ornek": [
+   "https://lucide.dev/brand-logo-statement",
+   "https://lucide.dev/code-of-conduct",
+   "https://lucide.dev/community",
+   "https://lucide.dev/contribute/icons/affinity-designer-guide",
+   "https://lucide.dev/contribute/icons/code-conventions",
+   "https://lucide.dev/contribute/icons/design-principles",
+   "https://lucide.dev/contribute/icons/figma-guide",
+   "https://lucide.dev/contribute/icons/illustrator-guide"
+  ],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://lucide.dev/",
+  "baslik": "Lucide",
+  "aciklama": "Beautiful & consistent icon toolkit made by the community.",
+  "repo_bilgi": [
+   {
+    "repo": "lucide-icons/lucide",
+    "lisans": "other",
+    "yildiz": 25254,
+    "son": "2026-10-23",
+    "ozet": "Beautiful & consistent icon toolkit made by the community. Open-source project and a fork of Feather"
+   }
+  ]
+ },
+ "game-icons.net": {
+  "host": "game-icons.net",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "algolia/algoliasearch-client-javascript",
+   "algolia/algoliasearch-client-js",
+   "algolia/autocomplete.js",
+   "game-icons/icons"
+  ],
+  "npm": [],
+  "sitemap_url": 141,
+  "sitemap_ornek": [
+   "https://game-icons.net/",
+   "https://game-icons.net/about.html",
+   "https://game-icons.net/faq.html",
+   "https://game-icons.net/studio.html",
+   "https://game-icons.net/tags/abstract.html",
+   "https://game-icons.net/tags/action.html",
+   "https://game-icons.net/tags/anatomy.html",
+   "https://game-icons.net/tags/egypt.html"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://game-icons.net/",
+  "baslik": "4180 free SVG and PNG icons for your games or apps | Game-icons.net",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "algolia/algoliasearch-client-javascript",
+    "lisans": "mit",
+    "yildiz": 1384,
+    "son": "2026-10-23",
+    "ozet": "⚡️ A fully-featured and blazing-fast JavaScript API client to interact with Algolia."
+   },
+   {
+    "repo": "algolia/algoliasearch-client-js",
+    "lisans": "mit",
+    "yildiz": 1384,
+    "son": "2026-10-23",
+    "ozet": "⚡️ A fully-featured and blazing-fast JavaScript API client to interact with Algolia."
+   },
+   {
+    "repo": "algolia/autocomplete.js",
+    "lisans": "mit",
+    "yildiz": 5264,
+    "son": "2026-10-22",
+    "ozet": "🔮 Fast and full-featured autocomplete library"
+   },
+   {
+    "repo": "game-icons/icons",
+    "lisans": "other",
+    "yildiz": 1364,
+    "son": "2026-04-23",
+    "ozet": "All SVG icons available on https://game-icons.net"
+   }
+  ]
+ },
+ "3dicons.co": {
+  "host": "3dicons.co",
+  "durum": "ok",
+  "libs": {
+   "next.js": 63,
+   "lucide": 10
+  },
+  "github": [
+   "paulirish/lite-youtube-embed"
+  ],
+  "npm": [],
+  "sitemap_url": 223,
+  "sitemap_ornek": [
+   "https://3dicons.co",
+   "https://3dicons.co/collection/37475c-halloween",
+   "https://3dicons.co/collection/6817bb-social",
+   "https://3dicons.co/collection/b003d3-christmas",
+   "https://3dicons.co/collection/b68cf8-v1",
+   "https://3dicons.co/about",
+   "https://3dicons.co/credits",
+   "https://3dicons.co/pro"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://3dicons.co/",
+  "baslik": "3dicons - Open Source &amp; Free Premium 3D Icon Library",
+  "aciklama": "1440+ beautifully crafted open-source 3D icons that you can use completely free and without attribution for personal or commercial project",
+  "repo_bilgi": [
+   {
+    "repo": "paulirish/lite-youtube-embed",
+    "lisans": "other",
+    "yildiz": 6351,
+    "son": "2025-11-10",
+    "ozet": "A faster youtube embed."
+   }
+  ]
+ },
+ "fontshare.com": {
+  "host": "fontshare.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://fontshare.com/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "googlefonts.github.io": {
+  "host": "googlefonts.github.io",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "bryanbraun/anchorjs",
+   "google/fonts",
+   "googlefonts/googlefonts.github.io"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://googlefonts.github.io/",
+  "baslik": "Google Fonts | Google Fonts documentation",
+  "aciklama": "Google Fonts documentation",
+  "repo_bilgi": [
+   {
+    "repo": "bryanbraun/anchorjs",
+    "lisans": "mit",
+    "yildiz": 892,
+    "son": "2025-03-13",
+    "ozet": "Add deep anchor links to your docs."
+   },
+   {
+    "repo": "google/fonts",
+    "lisans": "YOK",
+    "yildiz": 20674,
+    "son": "2026-10-24",
+    "ozet": "Font files available from Google Fonts, and a public issue tracker for all things Google Fonts"
+   },
+   {
+    "repo": "googlefonts/googlefonts.github.io",
+    "lisans": "apache-2.0",
+    "yildiz": 95,
+    "son": "2026-08-06",
+    "ozet": "Google Fonts documentation"
+   }
+  ]
+ },
+ "lordicon.com": {
+  "host": "lordicon.com",
+  "durum": "ok",
+  "libs": {
+   "lottie": 34
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 111,
+  "sitemap_ornek": [
+   "https://lordicon.com/",
+   "https://lordicon.com/changelog",
+   "https://lordicon.com/icons",
+   "https://lordicon.com/contact",
+   "https://lordicon.com/tips",
+   "https://lordicon.com/docs/account/cancel-pro",
+   "https://lordicon.com/api-license",
+   "https://lordicon.com/privacy-policy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://lordicon.com/",
+  "baslik": "48,100+ animated icons - Lordicon",
+  "aciklama": "Lordicon is an animated icon library with the 48,100+ premium and free animated icons, perfect for enhancing web, mobile, or content design projects.",
+  "repo_bilgi": []
+ },
+ "thiings.co": {
+  "host": "thiings.co",
+  "durum": "ok",
+  "libs": {
+   "next.js": 43
+  },
+  "github": [
+   "blitz-js/superjson",
+   "trpc/trpc"
+  ],
+  "npm": [],
+  "sitemap_url": 6307,
+  "sitemap_ornek": [
+   "https://www.thiings.co/things",
+   "https://www.thiings.co/subscribers",
+   "https://www.thiings.co/pricing",
+   "https://www.thiings.co/about",
+   "https://www.thiings.co/contact",
+   "https://www.thiings.co/privacy",
+   "https://www.thiings.co/terms",
+   "https://www.thiings.co/cookies"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.thiings.co/things",
+  "baslik": "10,000+ Free AI-Generated 3D Icons | Thiings",
+  "aciklama": "Browse the Thiings collection: 10,000+ free 3D icons generated with AI. Download individual icons free for personal use, or get a lifetime commercial license for the whole collection.",
+  "repo_bilgi": [
+   {
+    "repo": "blitz-js/superjson",
+    "lisans": "mit",
+    "yildiz": 5287,
+    "son": "2026-06-18",
+    "ozet": "Safely serialize JavaScript expressions to a superset of JSON, which includes Dates, BigInts, and mo"
+   },
+   {
+    "repo": "trpc/trpc",
+    "lisans": "mit",
+    "yildiz": 40719,
+    "son": "2026-10-22",
+    "ozet": "🧙‍♀️  Move Fast and Break Nothing. End-to-end typesafe APIs made easy. "
+   }
+  ]
+ },
+ "unblast.com": {
+  "host": "unblast.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 2001,
+  "sitemap_ornek": [
+   "https://unblast.com/",
+   "https://unblast.com/7-free-cd-jewel-case-mockup-psd/",
+   "https://unblast.com/free-simple-invoice-template/",
+   "https://unblast.com/matsury-signature-script-font/",
+   "https://unblast.com/free-paper-bag-mockup-psd/",
+   "https://unblast.com/brilliant-signature-font/",
+   "https://unblast.com/planet-kosmos-free-font/",
+   "https://unblast.com/traffic-grunge-font/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://unblast.com/",
+  "baslik": "Unblast — Free Mockups, Fonts, Icons, &amp; Templates for Creatives",
+  "aciklama": "Download free mockups that can be easily edited and customized. Find new fonts, icons, templates and all sort of graphics and useful tools for everyday design needs.",
+  "repo_bilgi": []
+ },
+ "fontjoy.com": {
+  "host": "fontjoy.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "jack000/fontjoy"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://fontjoy.com/",
+  "baslik": "Fontjoy - Generate font pairings in one click",
+  "aciklama": "Fontjoy helps designers choose the best font combinations. Mix and match different fonts for the perfect pairing.",
+  "repo_bilgi": [
+   {
+    "repo": "jack000/fontjoy",
+    "lisans": "mit",
+    "yildiz": 1438,
+    "son": "2017-05-25",
+    "ozet": "font vectors used for fontjoy.com"
+   }
+  ]
+ },
+ "sketchfab.com": {
+  "host": "sketchfab.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://sketchfab.com/",
+  "baslik": "Sketchfab - The best 3D viewer on the web",
+  "aciklama": "With a community of over one million creators, we are the world’s largest platform to publish, share, and discover 3D content on web, mobile, AR, and VR.",
+  "repo_bilgi": []
+ },
+ "spline.design": {
+  "host": "spline.design",
+  "durum": "ok",
+  "libs": {
+   "spline": 9,
+   "radix": 1,
+   "next.js": 121
+  },
+  "github": [
+   "paulirish/lite-youtube-embed",
+   "zloirock/core-js"
+  ],
+  "npm": [
+   "@splinetool/runtime"
+  ],
+  "sitemap_url": 78,
+  "sitemap_ornek": [
+   "https://spline.design/",
+   "https://spline.design/3d-design",
+   "https://spline.design/affiliate",
+   "https://spline.design/ai-generate",
+   "https://spline.design/ai-style-transfer",
+   "https://spline.design/android",
+   "https://spline.design/contra",
+   "https://spline.design/customers"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://spline.design/",
+  "baslik": "Spline - 3D Design tool in the browser with real-time collaboration",
+  "aciklama": "Spline is a free 3D design software with real-time collaboration to create web interactive experiences in the browser. Easy 3d modeling, animation, textures, and more.",
+  "repo_bilgi": [
+   {
+    "repo": "paulirish/lite-youtube-embed",
+    "lisans": "other",
+    "yildiz": 6351,
+    "son": "2025-11-10",
+    "ozet": "A faster youtube embed."
+   },
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "textures.com": {
+  "host": "textures.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.textures.com/",
+  "baslik": "Textures for 3D, graphic design and Photoshop!",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "zoetrope.furkankly.dev": {
+  "host": "zoetrope.furkankly.dev",
+  "durum": "ok",
+  "libs": {
+   "astro": 10
+  },
+  "github": [
+   "furkankly/zoetrope",
+   "ratatui/ratzilla"
+  ],
+  "npm": [],
+  "sitemap_url": 5,
+  "sitemap_ornek": [
+   "https://zoetrope.furkankly.dev/",
+   "https://zoetrope.furkankly.dev/app/",
+   "https://zoetrope.furkankly.dev/guides/design/",
+   "https://zoetrope.furkankly.dev/guides/install/",
+   "https://zoetrope.furkankly.dev/guides/usage/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://zoetrope.furkankly.dev/",
+  "baslik": "zoetrope — watch your Claude Code and Codex agents work",
+  "aciklama": "A terminal UI that visualizes Claude Code and Codex agent sessions as a live flow graph — replay a finished transcript or follow a running one. Zero network IO; nothing leaves your machine.",
+  "repo_bilgi": [
+   {
+    "repo": "furkankly/zoetrope",
+    "lisans": "mit",
+    "yildiz": 1094,
+    "son": "2026-10-14",
+    "ozet": "Watch a Claude Code or Codex session as a live flow graph, in your terminal or your browser."
+   },
+   {
+    "repo": "ratatui/ratzilla",
+    "lisans": "apache-2.0",
+    "yildiz": 1473,
+    "son": "2026-10-23",
+    "ozet": "Build terminal-themed web applications with Rust and WebAssembly. Powered by Ratatui."
+   }
+  ]
+ },
+ "webild.io": {
+  "host": "webild.io",
+  "durum": "ok",
+  "libs": {
+   "next.js": 226
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 8,
+  "sitemap_ornek": [
+   "https://www.webild.io",
+   "https://www.webild.io/pricing",
+   "https://www.webild.io/faq",
+   "https://www.webild.io/templates",
+   "https://www.webild.io/privacy",
+   "https://www.webild.io/terms",
+   "https://www.webild.io/refund",
+   "https://www.webild.io/cookies"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.webild.io/",
+  "baslik": "Webild - Build Beautiful Websites With AI",
+  "aciklama": "Build beautiful websites with AI in minutes. Trusted by 150k+ users. No code needed. Domains, hosting, analytics, and forms included.",
+  "repo_bilgi": []
+ },
+ "clbthemes.com": {
+  "host": "clbthemes.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 6,
+  "sitemap_ornek": [
+   "https://clbthemes.com/",
+   "https://clbthemes.com/newsletter/",
+   "https://clbthemes.com/get-a-quote/",
+   "https://clbthemes.com/email-confirmation/",
+   "https://clbthemes.com/contact/",
+   "https://clbthemes.com/wordpress-customization/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": false,
+  "final": "https://clbthemes.com/",
+  "baslik": "Beautiful WordPress themes, Powered by Colabrio.",
+  "aciklama": "Build a perfect website with premium, top-notch WordPress templates. Discover amazing designs with a wide range of features and extensive customization possibilities.",
+  "repo_bilgi": []
+ },
+ "collectivekit.co": {
+  "host": "collectivekit.co",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 21,
+  "sitemap_ornek": [
+   "https://collectivekit.co/",
+   "https://collectivekit.co/components",
+   "https://collectivekit.co/Pricing",
+   "https://collectivekit.co/Changelog",
+   "https://collectivekit.co/Contact",
+   "https://collectivekit.co/custom-design-systems",
+   "https://collectivekit.co/Terms",
+   "https://collectivekit.co/Privacy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://collectivekit.co/",
+  "baslik": "Collective Kit | Figma UI Kit &amp; Design System",
+  "aciklama": "The Collective Kit is a premium design system and Figma UI kit, built by experts for the world’s fastest-growing design community. With flexible components and smart patterns, it helps designers build",
+  "repo_bilgi": []
+ },
+ "temlis.com": {
+  "host": "temlis.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 256,
+   "lucide": 2
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 3152,
+  "sitemap_ornek": [
+   "https://temlis.com/",
+   "https://temlis.com/templates",
+   "https://temlis.com/components",
+   "https://temlis.com/templates/advisia",
+   "https://temlis.com/templates/advisora",
+   "https://temlis.com/templates/aeline",
+   "https://temlis.com/templates/altuz",
+   "https://temlis.com/templates/ambiente"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://temlis.com/",
+  "baslik": "Website &amp; Landing Page Templates for AI · Temlis",
+  "aciklama": "Landing pages that convert, websites and portfolios in code and Figma. Edit them with Claude, Cursor, Lovable or any AI tool.",
+  "repo_bilgi": []
+ }
+}

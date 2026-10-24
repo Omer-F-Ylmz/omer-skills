@@ -1,0 +1,50 @@
+site	tur	ucretsiz	lisans	sart_atif	indirme	karar	yer
+reactbits.dev	UI bileşen/animasyon	evet	MIT+Commons Clause	satış/yeniden dağıtım yasak; site/üründe kullanım serbest	GitHub+shadcn registry	AL-ŞARTLI	<lib>/ui/reactbits.dev/react-bits
+21st.dev	UI bileşen (topluluk)	evet	MIT (platform); bileşen lisansı yazara bağlı	her bileşende yazar lisansı ayrı bakılır	registry/MCP	AL-ŞARTLI	
+fancycomponents.dev	UI bileşen/animasyon	evet	MIT		GitHub+shadcn registry	AL	<lib>/ui/fancycomponents.dev/fancy
+kokonutui.com	UI bileşen	evet	MIT		GitHub+shadcn registry	AL	<lib>/ui/kokonutui.com/kokonutui
+cult-ui.com	UI bileşen	evet	MIT		GitHub+shadcn registry	AL	<lib>/ui/cult-ui.com/cult-ui
+shadcn.io	UI bileşen dizini	belirsiz/kısıtlı	belirsiz (sahip repo yok)	lisans doğrulanamadı	-	ATLANDI	
+componentry.dev	UI bileşen/animasyon	evet	MIT		GitHub+registry	AL	<lib>/ui/componentry.dev/componentry
+canvasui.dev	UI bileşen (canvas)	evet	MIT+Commons Clause	satış/yeniden dağıtım yasak	GitHub	AL-ŞARTLI	<lib>/ui/canvasui.dev/canvas-ui
+originkit.dev	UI bileşen	belirsiz/kısıtlı	erişilemedi (zaman aşımı)	tarama başarısız	-	ATLANDI	
+uiarc.dev	UI bileşen	evet	MIT		GitHub	AL	<lib>/ui/uiarc.dev/arc-library
+vengenceui.com	UI bileşen	evet	MIT		GitHub	AL	<lib>/ui/vengenceui.com/vengenceui
+skecher-ui.com	UI bileşen	belirsiz/kısıtlı	LİSANS DOSYASI YOK	lisanssız = tüm haklar saklı	GitHub (alınmadı)	ATLANDI	
+balsa-ui.com	UI bileşen	belirsiz/kısıtlı	belirsiz	sahip repo bulunamadı	-	ATLANDI	
+threeui.com	3D/UI bileşen	belirsiz/kısıtlı	belirsiz	sahip repo bulunamadı	-	ATLANDI	
+threlte.xyz	3D kütüphane (Svelte+three)	evet	MIT		npm @threlte/core	AL	
+vantajs.com	WebGL arka plan efekti	evet	MIT		GitHub+npm vanta	AL	<lib>/webgl/vantajs.com/vanta
+base-ui.21st.dev	UI bileşen (Base UI)	evet	MIT		npm @base-ui-components/react	AL	
+motion.dev	animasyon kütüphanesi	evet	MIT		npm motion	AL	
+gsap.com	animasyon kütüphanesi	evet	GSAP Standard License (ücretsiz, ticari dahil)	GSAP ile GSAP rakibi görsel animasyon aracı yapılamaz	npm gsap	AL-ŞARTLI	
+lenis.dev	smooth scroll kütüphanesi	evet	MIT		GitHub+npm lenis	AL	<lib>/smooth/lenis.dev/lenis
+react-spring.dev	animasyon kütüphanesi	evet	MIT		npm @react-spring/web	AL	
+rive.app	animasyon çalışma zamanı	evet	MIT (runtime); .riv dosyaları yazara bağlı	topluluk .riv lisansı tek tek	npm @rive-app/canvas	AL-ŞARTLI	
+lottielab.com	animasyon editörü (SaaS)	belirsiz/kısıtlı	ücretli editör/ücretsiz katman sınırlı	repo yok	-	ATLANDI	
+madewithgsap.com	ilham galerisi	belirsiz/kısıtlı	galeri; içerik sahiplerine ait	kod indirme yok	-	ATLANDI	
+ripplix.com	animasyon ilham galerisi	belirsiz/kısıtlı	galeri; içerik sahiplerine ait	kod indirme yok	-	ATLANDI	
+gradients.sh	gradyan CSS	belirsiz/kısıtlı	belirsiz	lisans metni bulunamadı	-	ATLANDI	
+unicorn.studio	WebGL efekt editörü (SaaS)	belirsiz/kısıtlı	ücretsiz katman+ücretli	kapalı kaynak	-	ATLANDI	
+springs.studio	spring animasyon aracı	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+animos.app	şablon	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+component.gallery	UI bileşen referans dizini	belirsiz/kısıtlı	içerik referans; kod yok	kod indirme yok	-	ATLANDI	
+remotion.dev	video/animasyon kütüphanesi	evet	Remotion License (özel)	bireysel/≤3 kişilik şirket ücretsiz; büyük şirkete lisans gerekir	npm remotion	AL-ŞARTLI	
+motion-canvas.io	animasyon kütüphanesi	evet	MIT		npm @motion-canvas/core	AL	
+lucide.dev	ikon seti	evet	ISC (+MIT Feather)	telif notu korunur	GitHub SVG+npm lucide-static	AL	<lib>/ikon/lucide.dev/lucide
+game-icons.net	ikon seti (oyun)	evet	CC BY 3.0 (bazıları CC0)	atıf zorunlu (yazar adı)	GitHub SVG	AL-ŞARTLI	<lib>/ikon/game-icons.net/icons
+3dicons.co	3D ikon	belirsiz/kısıtlı	site: açık kaynak ikonlar; sürüm başına lisans doğrulanmadı	lisans sayfası okunmadı	Figma/ZIP	ATLANDI	
+fontshare.com	font	belirsiz/kısıtlı	ITF Free Font License (ticari serbest)	indirme site üzerinden; otomatik alınmadı	site indirme	ATLANDI	
+googlefonts.github.io	font dizini	evet	Apache-2.0 (site); fontlar OFL	fontlar tek tek OFL	@fontsource npm	AL	
+lordicon.com	animasyonlu ikon	belirsiz/kısıtlı	ücretsiz katman atıf+kısıtlı	ücretli kısmı alınmaz	-	ATLANDI	
+thiings.co	3D ikon	belirsiz/kısıtlı	belirsiz	lisans metni bulunamadı	-	ATLANDI	
+unblast.com	ücretsiz grafik/şablon	belirsiz/kısıtlı	varlık başına değişir	toplu doğrulanamadı	-	ATLANDI	
+fontjoy.com	font eşleştirme aracı	evet	MIT (2017, bakımsız)		GitHub	AL	<lib>/font/fontjoy.com/fontjoy
+sketchfab.com	3D model	belirsiz/kısıtlı	model başına CC; indirme giriş ister	giriş duvarı: alınmaz	-	ATLANDI	
+spline.design	3D editör (SaaS)	belirsiz/kısıtlı	kapalı kaynak; dışa aktarım hesapla	giriş gerekir	-	ATLANDI	
+textures.com	doku	belirsiz/kısıtlı	ücretsiz kota+kısıtlı lisans	giriş+kota	-	ATLANDI	
+zoetrope.furkankly.dev	animasyon kütüphanesi	evet	MIT		GitHub	AL	<lib>/animasyon/zoetrope.furkankly.dev/zoetrope
+webild.io	şablon	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+clbthemes.com	şablon (WP tema)	belirsiz/kısıtlı	ücretli temalar	ücretli	-	ATLANDI	
+collectivekit.co	şablon	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
+temlis.com	şablon dizini	belirsiz/kısıtlı	şablon başına değişir	toplu doğrulanamadı	-	ATLANDI	

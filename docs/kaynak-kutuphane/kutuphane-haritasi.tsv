@@ -1,0 +1,19 @@
+kutuphane	siteler	ne_icin	lisans	repo
+lucide	21st.dev,3dicons.co,animos.app,balsa-ui.com,canvasui.dev,componentry.dev,cult-ui.com,gradients.sh,kokonutui.com,lucide.dev,motion.dev,reactbits.dev,ripplix.com,shadcn.io,skecher-ui.com,temlis.com,uiarc.dev,vengenceui.com	ikon	ISC	lucide-icons/lucide
+next.js	21st.dev,3dicons.co,base-ui.21st.dev,canvasui.dev,componentry.dev,cult-ui.com,fancycomponents.dev,kokonutui.com,lenis.dev,lottielab.com,shadcn.io,skecher-ui.com,spline.design,temlis.com,thiings.co,uiarc.dev,vengenceui.com,webild.io	React framework	MIT	vercel/next.js
+tailwind	21st.dev,balsa-ui.com,base-ui.21st.dev,component.gallery,componentry.dev,cult-ui.com,fancycomponents.dev,gradients.sh,kokonutui.com,reactbits.dev,ripplix.com,shadcn.io,skecher-ui.com,springs.studio,threeui.com,vengenceui.com	utility CSS	MIT	tailwindlabs/tailwindcss
+shadcn	21st.dev,balsa-ui.com,base-ui.21st.dev,canvasui.dev,componentry.dev,cult-ui.com,gradients.sh,kokonutui.com,motion.dev,reactbits.dev,shadcn.io,skecher-ui.com,uiarc.dev,vengenceui.com	bileşen dağıtım modeli	MIT	shadcn-ui/ui
+gsap	animos.app,componentry.dev,gsap.com,madewithgsap.com,motion.dev,reactbits.dev,ripplix.com,threeui.com	timeline/scroll animasyon	GSAP Standard	greensock/GSAP
+svelte	canvasui.dev,gradients.sh,lucide.dev,motion.dev,reactbits.dev,shadcn.io,threlte.xyz	UI framework	MIT	sveltejs/svelte
+lenis	lenis.dev,madewithgsap.com,motion.dev,threeui.com	smooth scroll	MIT	darkroomengineering/lenis
+framer-motion/motion	motion.dev,springs.studio,threeui.com	React/JS animasyon	MIT	motiondivision/motion
+webgl-shader	threeui.com,unicorn.studio,vantajs.com	GLSL shader	-	-
+astro	component.gallery,threlte.xyz,zoetrope.furkankly.dev			
+lottie	lordicon.com,lottielab.com,rive.app	vektör animasyon oynatma	MIT	airbnb/lottie-web
+radix	react-spring.dev,shadcn.io	erişilebilir primitive	MIT	radix-ui/primitives
+three.js	lottielab.com,vantajs.com	3D render	MIT	mrdoob/three.js
+nuxt/vue	lucide.dev,unicorn.studio	Vue framework	MIT	nuxt/nuxt
+react-spring	react-spring.dev	spring fiziği	MIT	pmndrs/react-spring
+r3f	react-spring.dev	React three.js	MIT	pmndrs/react-three-fiber
+rive	rive.app	etkileşimli animasyon	MIT	rive-app/rive-wasm
+spline	spline.design	3D sahne gömme	ticari runtime	splinetool/runtime
