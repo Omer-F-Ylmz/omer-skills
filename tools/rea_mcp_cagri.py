@@ -46,7 +46,8 @@ def main():
     hedef = [t for t in sayfalar if t["type"] == "page"][0]
     cdp = f"http://127.0.0.1:{PORT}"
     args = {} if arg == "-" else json.loads(arg.replace("{CDP}", cdp).replace("{TARGET}", hedef["id"]))
-    env = {**os.environ, "REA_MCP_INPUT_SCHEMA_PROFILE": "compact", "REA_MCP_OUTPUT_SCHEMA_PROFILE": "off"}
+    env = {**os.environ, "REA_MCP_INPUT_SCHEMA_PROFILE": "compact", "REA_MCP_OUTPUT_SCHEMA_PROFILE": "off",
+           "REA_MCP_MAX_RESPONSE_BYTES": "400000000"}  # yanıt diske gider; stdio bütçesi ağır sayfada (figma) yakalamayı düşürmesin
     env.pop("NODE_OPTIONS", None)
     hd = os.path.dirname(os.path.abspath(cikti))
     p = subprocess.Popen([NODE, *bayrak, REA, "mcp"], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
