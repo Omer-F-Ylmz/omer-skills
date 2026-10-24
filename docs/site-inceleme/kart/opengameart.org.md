@@ -3,21 +3,22 @@ site: https://opengameart.org
 tur: ilham galerisi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=0 kanitsiz=4 hakem=groq/openai/gpt-oss-20b)
 ---
 # opengameart.org
 
 
 - **Ne sunuyor**
-  Oyun geliştiricilerine **ücretsiz** oyun sanatları, ses efektleri, grafikler, 3D modeller, müzik ve arka planlar sunar. Kullanıcıların katkılarıyla beslenen bir **ilham galerisi**dir.
+  Oyun geliştiricilerine **ücretsiz** oyun sanatları, ses efektleri, grafikler, 3D modeller, müzik ve arka planlar sunar. Kullanıcıların katkılarıyla beslenen bir **ilham galerisi**dir. ⚠[kanitsiz]
 
 - **Ücretsiz kısım**
-  Tüm içerik **lisanslı** (CC BY 3.0) ve **indirilebilir**; kaynak kodlar da dahil değildir.
+  Tüm içerik **lisanslı** (CC BY 3.0) ve **indirilebilir**; kaynak kodlar da dahil değildir. ⚠[kanitsiz]
 
 - **Indirilebilir varlık/kaynak kod**
-  **Yok** (sadece medya dosyaları).
+  **Yok** (sadece medya dosyaları). ⚠[kanitsiz]
 
 - **Teknoloji**
-  **Web tabanlı** (HTML/JS tabanlı site yapısı), **özel script** kullanımı yok.
+  **Web tabanlı** (HTML/JS tabanlı site yapısı), **özel script** kullanımı yok. ⚠[kanitsiz]
 
 - **Bizde kullanım**
   **Oyun tasarımcılar** (grafik, ses, müzik), **2D/3D modelleme**, **sound design** için ilham kaynağı.

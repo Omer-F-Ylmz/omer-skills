@@ -3,6 +3,7 @@ site: https://components.build
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=3 kanitsiz=1 hakem=groq/openai/gpt-oss-120b)
 ---
 # components.build
 
@@ -11,7 +12,7 @@ kart-modeli: mistral/ministral-8b-latest
   UI bileşenleri için **açık standart** ve **rehberlik** sağlayan, modern, **kompozabl** ve **erişilebilir** bileşen geliştirme kılavuzu.
 
 - **Ücretsiz kısım**
-  Tamamen **açık kaynaklı** (MIT lisansı), **dökümantasyon** ve **öneriler** ücretsiz.
+  Tamamen **açık kaynaklı** (MIT lisansı), **dökümantasyon** ve **öneriler** ücretsiz. ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
   GitHub'da **belge ve örnekler** (React odaklı, ancak teknoloji bağımsız).

@@ -3,6 +3,7 @@ site: https://wallhang.com
 tur: ikon/font/gorsel
 kaynak: ad-baglam
 kart-modeli: gemini/gemini-3.1-flash-lite
+dogrulama: kanit-yok (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # wallhang.com
 

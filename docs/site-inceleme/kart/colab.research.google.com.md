@@ -3,6 +3,7 @@ site: https://colab.research.google.com
 tur: egitim/nasil yapilir
 kaynak: ad-baglam
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: kanit-yok (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # colab.research.google.com
 

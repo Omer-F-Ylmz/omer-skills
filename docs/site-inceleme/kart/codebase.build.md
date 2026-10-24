@@ -3,21 +3,22 @@ site: https://codebase.build
 tur: component/animasyon kutuphanesi
 kaynak: ad-baglam
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=0 kanitsiz=4 hakem=groq/openai/gpt-oss-20b)
 ---
 # codebase.build
 
 
 - **Ne sunuyor**
-  React/JS animasyon kutuphanesi ve araçları; performanslı animasyonlar için debug ve hazırlık (ship) aracı.
+  React/JS animasyon kutuphanesi ve araçları; performanslı animasyonlar için debug ve hazırlık (ship) aracı. ⚠[kanitsiz]
 
 - **Ücretsiz kısım**
-  Kısıtlı demo/özet içerik (engelli/oluşum sorunu nedeniyle tam detay alınamadı).
+  Kısıtlı demo/özet içerik (engelli/oluşum sorunu nedeniyle tam detay alınamadı). ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
-  *Yok* (kanıt: içerik erişilemedi).
+  *Yok* (kanıt: içerik erişilemedi). ⚠[kanitsiz]
 
 - **Teknoloji**
-  JavaScript, React (component/animasyon odaklı).
+  JavaScript, React (component/animasyon odaklı). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   *Yapılmadı* (kanıt eksikliği nedeniyle; **neden**: site içeriği erişilemedi).

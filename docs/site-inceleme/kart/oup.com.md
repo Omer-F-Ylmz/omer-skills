@@ -3,6 +3,7 @@ site: https://oup.com
 tur: egitim/nasil yapilir
 kaynak: ad-baglam
 kart-modeli: gemini/gemini-3.5-flash-lite
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # oup.com
 

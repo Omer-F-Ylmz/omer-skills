@@ -3,6 +3,7 @@ site: https://60fps.com
 tur: egitim/nasil yapilir
 kaynak: ad-baglam
 kart-modeli: gemini/gemini-3.1-flash-lite
+dogrulama: kanit-yok (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # 60fps.com
 

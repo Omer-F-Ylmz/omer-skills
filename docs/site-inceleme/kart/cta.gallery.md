@@ -3,6 +3,7 @@ site: https://cta.gallery
 tur: ilham galerisi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=2 kanitsiz=2 hakem=openrouter/nvidia/nemotron-3-ultra-550b-a55b:free)
 ---
 # cta.gallery
 
@@ -14,10 +15,10 @@ kart-modeli: mistral/ministral-8b-latest
   Örnek tasarımlar **görüntülenebilir**, bazıları **indirilebilir** (Framer/Webflow şablonları). Özel CTA'lar sponsorlukla sunulur.
 
 - **İndirilebilir kaynak/kod**
-  **Framer şablonları** (Webflow dışı) indirilebilir. GitHub depoları yok.
+  **Framer şablonları** (Webflow dışı) indirilebilir. GitHub depoları yok. ⚠[kanitsiz]
 
 - **Teknoloji**
-  **Framer** tabanlı interaktif tasarımlar. GSAP, Lenis gibi performans optimizasyonları kullanılır.
+  **Framer** tabanlı interaktif tasarımlar. GSAP, Lenis gibi performans optimizasyonları kullanılır. ⚠[kanitsiz]
 
 - **Bizde kullanım**
   **Web tasarımcılar** için CTA tasarım **ilham kaynağı**. **Framer/Webflow** kullanıcıları için şablonlar.

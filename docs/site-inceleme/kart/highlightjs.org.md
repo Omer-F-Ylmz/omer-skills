@@ -3,6 +3,7 @@ site: https://highlightjs.org
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=0 hakem=groq/openai/gpt-oss-120b)
 ---
 # highlightjs.org
 

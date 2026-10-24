@@ -3,6 +3,7 @@ site: https://codecademy.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=3 kanitsiz=1 hakem=groq/openai/gpt-oss-120b)
 ---
 # codecademy.com
 
@@ -14,7 +15,7 @@ kart-modeli: mistral/ministral-8b-latest
   Temel kurslar, proje tabanlı öğrenme, AI araçlarıyla kodlama, sertifika hazırlığı (kısıtlı içerik).
 
 - **İndirilebilir kaynak/kod**:
-  Yok (sadece platformda çalışılır).
+  Yok (sadece platformda çalışılır). ⚠[kanitsiz]
 
 - **Teknoloji**:
   **React**, **Next.js** (lib kanıtı). AI entegrasyonu, veri analizi, cloud, cybersecurity.

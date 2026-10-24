@@ -3,6 +3,7 @@ site: https://styles.refero.design
 tur: ilham galerisi
 kaynak: icerik+teknik
 kart-modeli: gemini/gemini-3.5-flash-lite
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # styles.refero.design
 

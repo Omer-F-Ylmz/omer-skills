@@ -3,6 +3,7 @@ site: https://aisuccesslabjuliangoldie.com
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=2 kanitsiz=2 hakem=groq/openai/gpt-oss-20b)
 ---
 # aisuccesslabjuliangoldie.com
 
@@ -14,10 +15,10 @@ kart-modeli: mistral/ministral-8b-latest
   Topluluğa ücretsiz katılım, herhangi bir kredi kartı gerektirmeyen anında erişim, sonsuz ücretsiz kullanım.
 
 - **İndirilebilir kaynak/kod**
-  *Yok* (kanıtta belirtmeyen varlık yok).
+  *Yok* (kanıtta belirtmeyen varlık yok). ⚠[kanitsiz]
 
 - **Teknoloji**
-  *Yok* (React, Next.js, Vue, GSAP, Framer, Webflow, Tailwind gibi teknolojiler kullanılamadı).
+  *Yok* (React, Next.js, Vue, GSAP, Framer, Webflow, Tailwind gibi teknolojiler kullanılamadı). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   AI otomasyonu, ChatGPT prompt geliştirme, N8N akışlarıyla iş süreçlerini otomatikleştirmek için.

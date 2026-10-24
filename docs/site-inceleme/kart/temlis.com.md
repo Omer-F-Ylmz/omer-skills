@@ -3,6 +3,7 @@ site: https://temlis.com
 tur: sablon
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # temlis.com
 

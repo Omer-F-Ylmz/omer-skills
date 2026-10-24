@@ -3,6 +3,7 @@ site: https://rive.app
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: gemini/gemini-3.5-flash-lite
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # rive.app
 

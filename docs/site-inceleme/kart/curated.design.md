@@ -3,6 +3,7 @@ site: https://curated.design
 tur: ilham galerisi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=1 kanitsiz=3 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # curated.design
 
@@ -11,13 +12,13 @@ kart-modeli: mistral/ministral-8b-latest
   Canlı web sitelerinden seçilmiş tasarım örnekleri ve bölümleri (MCP) sunar. Kullanıcıya ilham kaynağı olarak tasarım örnekleri sağlar.
 
 - **Ücretsiz kısım**
-  Örnekler ücretsiz olarak görüntülenebilir, ancak bazı işlevler (ör. indirme) ücretli abonelik gerektirir.
+  Örnekler ücretsiz olarak görüntülenebilir, ancak bazı işlevler (ör. indirme) ücretli abonelik gerektirir. ⚠[kanitsiz]
 
 - **İndirilebilir kaynak/kod**
-  **Yok** (kanıt: `github: []`, `dl: []`).
+  **Yok** (kanıt: `github: []`, `dl: []`). ⚠[kanitsiz]
 
 - **Teknoloji**
-  Frontend: **Astro** (site yapısı), **GSAP** (animasyon), **Framer** (önerilen partner), **Tailwind CSS** (varsayılan stil).
+  Frontend: **Astro** (site yapısı), **GSAP** (animasyon), **Framer** (önerilen partner), **Tailwind CSS** (varsayılan stil). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   - **Web tasarımcılar** için ilham kaynağı.

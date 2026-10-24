@@ -3,6 +3,7 @@ site: https://adele.uxpin.com
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=2 kanitsiz=2 hakem=groq/openai/gpt-oss-120b)
 ---
 # adele.uxpin.com
 
@@ -14,10 +15,10 @@ kart-modeli: mistral/ministral-8b-latest
   Örnek tasarım sistemleri, kod örnekleri (GitHub), bazı UI kitleri (indirilebilir).
 
 - **İndirilebilir kaynak/kod**
-  [GitHub](https://github.com/uxpin/adele) (React), [UI kitleri](https://github.com/Shopify/polaris-react) (Sketch/PSD).
+  [GitHub](https://github.com/uxpin/adele) (React), [UI kitleri](https://github.com/Shopify/polaris-react) (Sketch/PSD). ⚠[kanitsiz]
 
 - **Teknoloji**
-  React, TypeScript, styled-components, Web Components, CSS-in-JS, WCAG 2.1 uyumlu.
+  React, TypeScript, styled-components, Web Components, CSS-in-JS, WCAG 2.1 uyumlu. ⚠[kanitsiz]
 
 - **Bizde kullanım**
   UI/UX tasarımcılar, frontend geliştiriciler (React), tasarım sistemleri oluşturma.

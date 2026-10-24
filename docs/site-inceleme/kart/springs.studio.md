@@ -3,6 +3,7 @@ site: https://springs.studio
 tur: component/animasyon kutuphanesi
 kaynak: icerik+teknik
 kart-modeli: gemini/gemini-3.1-flash-lite
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # springs.studio
 

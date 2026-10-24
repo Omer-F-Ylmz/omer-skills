@@ -3,6 +3,7 @@ site: https://sound.org
 tur: egitim/nasil yapilir
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=4 kanitsiz=0 hakem=nvidia/nvidia/nemotron-3-ultra-550b-a55b)
 ---
 # sound.org
 

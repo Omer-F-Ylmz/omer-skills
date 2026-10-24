@@ -3,6 +3,7 @@ site: https://fontjoy.com
 tur: ikon/font/gorsel
 kaynak: icerik+teknik
 kart-modeli: gemini/gemini-3.1-flash-lite
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # fontjoy.com
 

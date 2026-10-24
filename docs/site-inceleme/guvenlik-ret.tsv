@@ -1,0 +1,17 @@
+repo	zararli_bulgu	kural
+Dokploy/dokploy	2	gha-curl-pipe-shell
+astral-sh/ruff	1	gha-curl-pipe-shell
+hiyouga/LlamaFactory	1	gha-curl-pipe-shell
+ComposioHQ/composio	2	gha-curl-pipe-shell
+telegramdesktop/tdesktop	2	gha-curl-pipe-shell
+NVIDIA-NeMo/Gym	4	gha-curl-pipe-shell
+excalidraw/excalidraw	1	gha-curl-pipe-shell
+knadh/listmonk	1	dangerous-syscall-exec
+mobile-next/mobilecli	12	dangerous-exec-command
+krillinai/OpenCreator	23	dangerous-exec-command
+alphaXiv/OpenResearch	2	gha-curl-pipe-shell
+oblien/openship	1	dangerous-exec-command
+open-webui/open-webui	3	unverified-jwt-decode
+browserbase/stagehand	1	dangerous-exec-command
+kyegomez/swarms	3	gha-curl-pipe-shell
+syncthing/syncthing	9	dangerous-exec-command;dangerous-syscall-exec

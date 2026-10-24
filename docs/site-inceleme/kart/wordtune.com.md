@@ -3,6 +3,7 @@ site: https://wordtune.com
 tur: egitim/nasil yapilir
 kaynak: ad-baglam
 kart-modeli: gemini/gemini-3.1-flash-lite
+dogrulama: hakem-yok- (kanitli=0 kanitsiz=0 hakem=-)
 ---
 # wordtune.com
 

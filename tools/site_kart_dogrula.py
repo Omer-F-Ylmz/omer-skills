@@ -88,6 +88,9 @@ async def bir(br, sem, ex, f, sat):
     satirlar = txt.split("\n")
     bk = next((i for i, l in enumerate(satirlar) if "Bizde kullan" in l), len(satirlar))  # bolum alti cikarim: dogrulama disi
     idx = [i for i, l in enumerate(satirlar[:bk]) if re.match(r"\s*- ", l) and len(re.sub(r"[-*\s:]|\*\*", "", l)) > 20 and not re.match(r"^\s*- \*\*[^*]+\*\*:?\s*$", l)]
+    # baslik-only madde ("- **Ne sunuyor**") icerigi sonraki satirdadir; onu madde say
+    idx += [i + 1 for i, l in enumerate(satirlar[:bk - 1]) if re.match(r"^\s*- \*\*[^*]+\*\*:?\s*$", l) and len(satirlar[i + 1].strip()) > 20]
+    idx.sort()
     sonuc, hk = (None, "")
     if len(ev) > 150 and idx:
         sonuc, hk = await asyncio.get_running_loop().run_in_executor(ex, hakem, ev, [satirlar[i].strip("- ").strip() for i in idx], aile)
