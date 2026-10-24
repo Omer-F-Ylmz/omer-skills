@@ -14,6 +14,10 @@ def hakem(monkeypatch, tmp_path):
     m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)
     m.ONBELLEK = tmp_path / "hakem-onbellek.json"  # sahte yanıtlar gerçek önbelleğe yazılıp sonraki koşuda çağrıyı atlatmasın
+    m.KOTA = tmp_path / "hakem-kota.json"  # sahte hatalar gerçek kota kaydına sızıp gerçek koşuda aileleri susturmasın
+    m.KALIB = tmp_path / "hakem-kalib.json"
+    monkeypatch.setattr(m, "kalib", lambda e: {"lo": 0, "hi": 10})  # ölçek ağdan değil sabit: norm = ham puan × 10
+    monkeypatch.setattr(m, "yerel_istek", lambda *a: (_ for _ in ()).throw(OSError("test: yerel Ollama yok")))
     return m
 
 
@@ -82,7 +86,7 @@ def test_hic_aile_toplanamazsa_haiku_tek_oy_verir(hakem, monkeypatch):
     monkeypatch.setattr(hakem, "haiku_gorsel", lambda icerik: GECERLI)
     s = hakem.sor("aday.png", "soru")
     assert s["haiku"]["durum"] == "gecerli" and s["haiku"]["model"].startswith("haiku/")
-    assert sum(v["durum"] == "gecerli" for v in s.values()) == 1  # 6 deneme (google×2, nvidia×2, alibaba×2) bitti; minimax/mistral denenmedi
+    assert sum(v["durum"] == "gecerli" for v in s.values()) == 1  # bütün ücretsiz halkalar + yerel düştü, yalnız Haiku oy verdi
 
 
 def test_sayi_disi_puan_reddedilir(hakem):
@@ -111,3 +115,60 @@ def test_istek_basi_zaman_asimi_60_sn(hakem, monkeypatch):
     aileye_gore_yanit(hakem, monkeypatch, {"google": GECERLI, "meta": GECERLI, "nvidia": GECERLI}, zamanlar)
     hakem.sor("aday.png", "soru")
     assert zamanlar and set(zamanlar) == {60}
+
+
+def test_kota_yenen_model_atlanir_ve_kayda_yazilir(hakem, monkeypatch):
+    cagri = []
+
+    def sahte(e, icerik, max_tokens, zaman):
+        cagri.append(hakem.h.ad(e))
+        if e.prov == "gemini" and e.model == "gemini-3.5-flash-lite":
+            raise hakem.h.Hata(429, "Quota exceeded PerDay")
+        return GECERLI
+
+    monkeypatch.setattr(hakem, "veri_url", lambda p: f"data:image/jpeg;base64,{p}")
+    monkeypatch.setattr(hakem.h, "_istek", sahte)
+    s = hakem.sor("a.png", "soru")
+    assert s["google"]["model"] == "gemini/gemini-3.6-flash"  # ilk aday 429 → ikinci aday aynı aileyi doldurdu
+    kay = hakem.kota_oku()["gemini/gemini-3.5-flash-lite"]
+    assert kay["kod"] == 429 and kay["until"] - __import__("time").time() > 3600  # günlük kota ≈ 4 sa
+    cagri.clear()
+    hakem.ONBELLEK.unlink(missing_ok=True)
+    hakem.sor("b.png", "soru")
+    assert "gemini/gemini-3.5-flash-lite" not in cagri  # kayıt süresi dolana dek tekrar denenmez
+
+
+def test_oy_satirinda_aile_model_olcek_norm_var(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {})
+    s = hakem.sor("aday.png", "soru")
+    assert s["google"]["model"].startswith("gemini/") and s["google"]["olcek"] == [0, 10] and s["google"]["norm"] == 70
+
+
+def test_son_care_yerel_haikudan_once_gelir(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {a: hakem.h.Hata(503, "geçici") for a in hakem.ADAY})
+    monkeypatch.setattr(hakem, "yerel_istek", lambda *a: GECERLI)
+    s = hakem.sor("aday.png", "soru")
+    assert s["yerel"]["durum"] == "gecerli" and "haiku" in s  # tek oy < ASGARI → Haiku da denenir
+    assert s["haiku"]["durum"] == "kararsiz"  # test Haiku'yu kapatır
+
+
+def test_ram_tavani_asilirsa_yerel_model_yuklenmez(hakem, monkeypatch):
+    monkeypatch.undo()  # fixture'ın yerel_istek taklidini kaldır; gerçek kapıyı dene
+    spec = importlib.util.spec_from_file_location("gorsel_hakem", YOL)
+    m = importlib.util.module_from_spec(spec)
+    monkeypatch.setattr(sys, "argv", ["gorsel_hakem.py"])
+    spec.loader.exec_module(m)
+    monkeypatch.setattr(m, "ram_yuzde", lambda: 95)
+    with pytest.raises(m.h.Hata) as x:
+        m.yerel_istek(m.ADAY["yerel"][0], [], 100, 10)
+    assert x.value.kod == 503
+
+
+def test_tek_oylu_sonuc_onbellege_yazilmaz(hakem, monkeypatch):
+    aileye_gore_yanit(hakem, monkeypatch, {a: TimeoutError() for a in hakem.ADAY if a != "alibaba"})
+    s = hakem.sor("aday.png", "soru")
+    assert gecerli(s) == 1 and not hakem.ONBELLEK.exists()
+
+
+def gecerli(s):
+    return sum(v["durum"] == "gecerli" for v in s.values())
