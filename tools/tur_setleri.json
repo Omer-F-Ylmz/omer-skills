@@ -35,7 +35,8 @@
     "kod-backend": "(?i)\\b(backend|api|dotnet|refactor\\w*)\\b",
     "guvenlik": "(?i)\\b(güvenlik|guvenlik|security|pentest|ctf|zafiyet\\w*|semgrep|gitleaks)\\b",
     "belge": "(?i)\\b(belge\\w*|pdf|docx|pptx|sunum|rapor\\w*)\\b",
-    "mod": "(?i)\\b(mod|minecraft|oyun)\\b"
+    "mod": "(?i)\\b(mod|minecraft|oyun)\\b",
+    "fikir-karar": "(?i)\\b(fikir\\w*|karar\\w*|idea|decision|öneri\\w*|strateji\\w*|plan\\w*)\\b"
   },
   "turler": {
     "site-3d": {
@@ -213,6 +214,19 @@
         "headroom",
         "jev"
       ]
+    },
+    "fikir-karar": {
+      "skill": [
+        "idea-refine",
+        "brainstorming",
+        "interview-me",
+        "doubt-driven-development",
+        "gstack-plan-ceo-review",
+        "gstack-office-hours",
+        "design-critique"
+      ],
+      "mcp": [],
+      "cli": []
     }
   },
   "pasif": [
