@@ -1,0 +1,23 @@
+## reel-factory skill
+Mikhailmaga/reels-factory-skill	mit	★0	2026-09-13
+tangziyi001/muse-aurelius		★0	2026-10-12
+## hook-arsenal
+therealdreg/cgaty	mit	★72	2023-08-11
+JamesSingleton/hooks-arsenal	mit	★7	2024-10-10
+## dopamine-ladder skill
+## email voice claude skill
+## ASD-STE100 skill
+dandye/ste-writing-style	mit	★8	2026-08-06
+kouui/ste-claude-plugin	mit	★0	2026-10-11
+## booking skills agent hotel flight
+## SkillOpt skill optimization traces
+## claude token monitor codex cursor
+## rea-agents mcp
+## open-code-review alibaba
+## OOTTO claude
+## aurelio personal finance net worth
+## anti-ui-slop skill
+## uizze
+uizze/uizze	mit	★50	2026-10-12
+samuelbushi/uizze-mcp	mit	★0	2026-08-17
+## boss loop claude agents

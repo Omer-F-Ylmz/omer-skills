@@ -1,0 +1,187 @@
+sira	ad	repo	lisans	karar	kanal	gerekce
+221	Drive	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+222	Netlify	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+223	GitHub Pages	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+224	Render	-	-	DEVİR	-	devir/blender-*.tsv; blender departman ajanı
+225	GitLab Pages	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+226	Pomelli	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+227	Fable 5	-	-	DEVİR	-	devir/fable-*.tsv; fable departman ajanı
+228	Satoshi	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+229	General Sans	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+230	Spotify	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+231	Web page to MP4	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+232	Claude Platform Docs	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+233	Claude Code	anthropics/claude-code	yok	KURULU	-	çalışan ana araç (Claude Code)
+234	Taste Skill	Leonxlnx/taste-skill	MIT	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+235	Impeccable	pbakaus/impeccable	Apache-2.0	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+236	security-audit	cloudflare/security-audit-skill	MIT	KURULU	-	skill:security-audit kurulu
+237	Claude Video	bradautomates/claude-video	MIT	KURULU	-	plugin claude-video kurulu
+238	OpenCode	anomalyco/opencode	MIT	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+239	Planes	makeplane/plane	AGPL-3.0	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+240	animate	cth9191/animate	MIT	DEVİR	-	devir/blender-*.tsv; blender departman ajanı
+241	CodeBurn	getagentseal/codeburn	MIT	KURULU	-	npm codeburn kurulu
+242	diagram-design	cathrynlavery/diagram-design	MIT	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+243	Remotion Agent Skills	remotion-dev/skills	yok	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+244	Open Design	nexu-io/open-design	Apache-2.0	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+245	n8n MCP server	vredrick/n8n-mcp	MIT	KURULU	-	mcp n8n-mcp + skill kurulu
+246	Vercel Web Design Guidelines	vercel-labs/agent-skills	yok	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+247	Graphify	Graphify-Labs/graphify	Apache-2.0	KURULU	-	graphify skill + uv aracı kurulu
+248	Playwright	microsoft/playwright	Apache-2.0	KURULU	-	mcp playwright kurulu
+249	Laya	NandhaKishorM/laya	Apache-2.0	REF	-	araştırma karar modeli; iş akışımızda tüketicisi yok
+250	hyperframes	heygen-com/hyperframes	Apache-2.0	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+251	claude-remotion-skill	haidrrry/claude-remotion-skill	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+252	motion	motiondivision/motion	MIT	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+253	Codex	-	-	REF	-	genel ürün (Codex); codex eklentisi envanterde
+254	GSAP	greensock/GSAP	yok	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+255	Obsidian	kepano/obsidian-skills	MIT	KURULU	-	obsidian-cli plugin açık
+256	remotion	remotion-dev/remotion	NOASSERTION	DEVİR	-	devir/blender-*.tsv; blender departman ajanı
+257	Skills CLI	vercel-labs/skills	MIT	REF	-	kurulum yolu; bizde onay betiği + marketplace (d4 ile aynı)
+258	Lenis	darkroomengineering/lenis	MIT	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+259	npm	-	-	REF	-	paket yöneticisi (npm) kurulu, aday değil
+260	frontend-design	-	-	DEVİR	-	devir/router-*.tsv; router departman ajanı
+261	Cursor	-	-	REF	-	genel ürün (Cursor IDE)
+262	MCP	-	-	REF	-	protokol adı (MCP)
+263	flow-nexus	ruvnet/flow-nexus	yok	REF	-	lisanssız, bulut hesabı ister, son push 2025-09; Ruflo eşi RUFLO-1'de
+264	Claude Code Setup	anthropics/claude-plugins-official	Apache-2.0	KURULU	-	d4 onayında KUR (claude-code-setup); çift kurulmaz
+265	Skills	-	-	REF	-	genel terim (skills)
+266	Postgres	-	-	REF	-	örnek MCP (Postgres); DB iş akışımız yok
+267	Claude	-	-	REF	-	genel ürün (Claude)
+268	ElevenLabs MCP	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+269	reel-factory	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+270	hook-arsenal	-	-	UYARLA	claudeai:kendi	repo yok (ücretli set); reel-taste'te eksik → p3/skill/reel-plan 'Hook' adımı
+271	concept-graphics	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+272	go-viral	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+273	scroll-stopper	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+274	story-audit	-	-	UYARLA	claudeai:kendi	repo yok (ücretli set); reel-taste'te eksik → p3/skill/reel-plan 'Tutma denetimi' adımı
+275	dopamine-ladder	-	-	UYARLA	claudeai:kendi	repo yok (ücretli set); reel-taste'te eksik → p3/skill/reel-plan 'Tutma merdiveni' adımı
+276	viral-emotion	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+277	camera-moves	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+278	frame-direction	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+279	reel-transitions	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+280	one-object-film	-	-	KURULU	-	reel-taste + motion-studio kurulu (konsept, cihaz rafı, kamera/geçiş, taste audit) karşılıyor
+281	hook-mining	-	-	UYARLA	claudeai:kendi	repo yok (ücretli set); reel-taste'te eksik → p3/skill/reel-plan 'Hook madenciliği' adımı
+282	Coder	coder/coder	AGPL-3.0	REF	-	self-host ajan çalışma alanı sunucusu; bizde worktree + arka.py
+283	Anti UI Slop	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+284	UIZZE	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+285	Emil Design Engineering	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+286	skills.sh	vercel-labs/skills	MIT	REF	-	skill dizini; 257 ile aynı
+287	Trail of Bits Security Skills	trailofbits/skills	CC-BY-SA-4.0	KUR	CC+claudeai:ucuncu-taraf	44 plugin'den yalnız differential-review KUR (SkillSpector SAFE, H+C 0); İNCELE: supply-chain-risk-auditor (H+C 6: SC4/PE3/E2/AR2), static-analysis (13: P6/TM1/TM2), insecure-defaults (2) — güvenlik aracı içeriği, elle bakılmadan kurulmaz
+288	Email Voice	-	-	REF	-	ücretli skill, repo yok; e-posta iş akışımız yok
+289	replica-build	Jakeschincariol/replica-skill	MIT	KURULU	-	d4 onayında KUR; çift kurulmaz
+290	replica-test	Jakeschincariol/replica-skill	MIT	KURULU	-	d4 onayında KUR; çift kurulmaz
+291	replica-entrepreneur	Jakeschincariol/replica-skill	MIT	KURULU	-	d4 onayında KUR; çift kurulmaz
+292	Claude Ads	AgriciDaniel/claude-ads	MIT	KURULU	-	plugin claude-ads açık
+293	STE Skill	danyuchn/asd-ste100-skill	MIT	UYARLA	claudeai:kendi	kontrollü dil mekanizması (tek anlam, kısa cümle, etken çatı) → kapanış raporu yazım kuralına tek satır; raporlar Türkçe olduğundan skill kurulmaz
+294	Booking Skills	-	-	REF	-	repo bulunamadı (gh search 0); seyahat rezervasyonu kapsam dışı
+295	LLM Apps	Shubhamsaboo/awesome-llm-apps	Apache-2.0	UYARLA	claudeai:kendi	awesome liste → docs/kaynak/awesome kaynak satırı (awesome-rehber taraması)
+296	SkillOpt	microsoft/SkillOpt	MIT	UYARLA	claudeai:kendi	iz-güdümlü skill metni düzenleme + doğrulama kapısı → tools/ogrenme/ders.py + skill-creator eval döngüsü; kendisi pip + LLM anahtarı ister
+297	Claude Subagents	VoltAgent/awesome-claude-code-subagents	MIT	REF	-	çift: bizde 150+ ajan (agency/ecc/departman)
+298	Claude Skills	-	-	REF	-	genel terim (Claude Skills)
+299	Devin for Terminal	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+300	Cursor Agent	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+301	Kiro	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+302	Claude Token Monitor	Maciek-roboblog/Claude-Code-Usage-Monitor	MIT	KURULU	-	d4 onayında KUR; çift kurulmaz
+303	CLI-Anything	HKUDS/CLI-Anything	Apache-2.0	KURULU	-	plugin cli-anything açık
+304	pip	-	-	REF	-	paket yöneticisi (pip) kurulu
+305	Open Code Review	alibaba/open-code-review	Apache-2.0	KURULU	-	npm -g @alibaba-group/open-code-review 1.12.13 kurulu; sağlayıcı anahtarı yapılandırması Ömer'de (hesap listesi)
+306	npx skills add	vercel-labs/skills	MIT	REF	-	257 ile aynı komut
+307	Fincept Terminal	Fincept-Corporation/FinceptTerminal	NOASSERTION	REF	-	finans terminali, kapsam dışı; lisans belirsiz
+308	Token Monitor	Javis603/token-monitor	MIT	REF	-	çift: codeburn (kurulu) + Claude-Code-Usage-Monitor (d4)
+309	Archon	coleam00/Archon	MIT	REF	-	d4 ile aynı: YAML iş akışı harness, bizde köprü/gsd
+310	rea-agents	morluto/rea	MIT	REF	-	d4 ile aynı: tersine mühendislik kapsam dışı, replica-skill karşılıyor
+311	npx	-	-	REF	-	npx (Node ile kurulu)
+312	Grok Build	-	-	REF	-	genel ürün (Grok Build)
+313	GitHub	-	-	KURULU	-	gh CLI + github MCP kurulu
+314	Design.MD library	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+315	HeyGen	-	-	REF	-	ücretli avatar video servisi
+316	Higgsfield	-	-	REF	-	ücretli görsel/video bağlayıcısı (hesap)
+317	canvas-design	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+318	Kimi	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+319	ChatGPT	-	-	REF	-	genel ürün (ChatGPT)
+320	Agentic Slides	-	-	REF	-	Kimi özelliği; slayt üretimi bizde pptx skill
+321	Supabase	supabase/mcp	Apache-2.0	KURULU	-	plugin yerel-kurulum7/supabase
+322	HubSpot	-	-	REF	-	CRM servisi (hesap)
+323	AutoHedge	The-Swarm-Corporation/AutoHedge	MIT	REF	-	otomatik alım-satım; kapsam dışı ve mali risk
+324	Vibe-Trading	HKUDS/Vibe-Trading	MIT	REF	-	çok ajanlı alım-satım; kapsam dışı ve mali risk
+325	Vibe Kanban	BloopAI/vibe-kanban	Apache-2.0	REF	-	bizde köprü/SIRA + worktree; ayrı UI sunucusu tarayıcı açar
+326	Kdenlive	-	-	REF	-	CLI-Anything hub örneği (Kdenlive); gerekirse kurulu cli-anything ile
+327	Gitleaks	gitleaks/gitleaks	MIT	KURULU	-	gitleaks kurulu (tarama hattında)
+328	Semgrep	semgrep/semgrep	LGPL-2.1	KURULU	-	semgrep kurulu (tarama hattında)
+329	Qwen	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+330	Canva	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+331	claude-plugins-official	anthropics/claude-plugins-official	Apache-2.0	KURULU	-	resmi marketplace ekli
+332	Vercel	-	-	REF	-	Vercel MCP örneği (hesap); deploy hattımız yok
+333	Convex	-	-	REF	-	veritabanı seçeneği; kullanmıyoruz
+334	Supabase MCP testi	-	-	REF	-	örnek prompt (Supabase)
+335	Boss Loop	-	-	UYARLA	claudeai:kendi	işçi alt ajanlar + çıta örneğiyle reddeden katı denetçi döngüsü → departman-surec-plan kalite kapısı (p3/uyarla.md)
+336	Boss Loop ile işçi ajanlar ve katı denetçi boss kullanarak uygulama/site üretmek	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+337	Clay	-	-	REF	-	ücretli lead bağlayıcısı (hesap)
+338	Email Voice skill'ini güncelletme	-	-	REF	-	Email Voice örnek prompt (288)
+339	Kişi listesini Beehive'e aktarma	-	-	REF	-	Zapier/Beehive örnek prompt (hesap)
+340	Skill kurulumu	Jakeschincariol/replica-skill	MIT	KURULU	-	d4 onayında KUR
+341	recent.design	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+342	Planner	-	-	UYARLA	claudeai:kendi	haftalık reel planı → p3/skill/reel-plan 'Plan' adımı
+343	Replies	-	-	REF	-	IG yorum/DM yanıtı; IG hesabı bağlantısı ister
+344	Perplexity	perplexityai/modelcontextprotocol	MIT	REF	-	çift: brave-search + agent-reach kurulu; Perplexity anahtarı ister
+345	Firecrawl	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+346	PostHog	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+347	Composio	ComposioHQ/composio	MIT	REF	-	tek bağlayıcı hesap ister; bizde ayrı MCP'ler + agent-reach
+348	YouTube	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+349	Facebook	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+350	Meta	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+351	Notion	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+352	Google Drive	-	-	DEVİR	-	devir/animasyon-*.tsv; animasyon departman ajanı
+353	Google Sheets	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+354	WhatsApp	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+355	Trello	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+356	Takvim	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+357	Uygulama özelliğini tersine mühendislikle çözme	morluto/rea	MIT	REF	-	REA örnek prompt (310)
+358	CLI-Hub	HKUDS/CLI-Anything	Apache-2.0	KURULU	-	CLI-Hub = cli-anything (kurulu)
+359	OBS Studio	-	-	REF	-	CLI-Anything hub örneği (OBS); gerekirse kurulu cli-anything ile
+360	GIMP	-	-	REF	-	CLI-Anything hub örneği (GIMP); gerekirse kurulu cli-anything ile
+361	LibreOffice	-	-	REF	-	CLI-Anything hub örneği (LibreOffice); gerekirse kurulu cli-anything ile
+362	Zoom	-	-	REF	-	CLI-Anything hub örneği (Zoom); gerekirse kurulu cli-anything ile
+363	Krita	-	-	REF	-	CLI-Anything hub örneği (Krita); gerekirse kurulu cli-anything ile
+364	Inkscape	-	-	REF	-	CLI-Anything hub örneği (Inkscape); gerekirse kurulu cli-anything ile
+365	FreeCAD	-	-	REF	-	CLI-Anything hub örneği (FreeCAD); gerekirse kurulu cli-anything ile
+366	Zotero	-	-	REF	-	CLI-Anything hub örneği (Zotero); gerekirse kurulu cli-anything ile
+367	uv	-	-	REF	-	paket yöneticisi (uv) kurulu
+368	shadcn CLI	shadcn-ui/ui	MIT	REF	-	proje başına npx shadcn; global kurulum gerekmez
+369	Hopper	-	-	REF	-	ticari disassembler (Hopper)
+370	Sıfırdan prompt ile tasarım örneği	-	-	DEVİR	-	devir/tasarim-*.tsv; tasarim departman ajanı
+371	OOTTO	-	-	REF	-	marka adı, araç değil
+372	Blender	-	-	DEVİR	-	devir/blender-*.tsv; blender departman ajanı
+373	Yeniden kullanılabilir AI karakter ve UGC reklam	-	-	REF	-	görsel modelde karakter tutarlılığı prompt tekniği; görsel üretim aracımız yok
+374	Gamma	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+375	PowerPoint	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+376	Google Slides	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+377	Yahoo Finance	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+378	IMF	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+379	World Bank	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+380	Google Scholar	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+381	Arxiv	-	-	REF	-	sunum aracı / veri kaynağı adı, kurulacak şey değil
+382	Slack	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+383	Gmail	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+384	Apify	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+385	Google Calendar	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+386	Make	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+387	Claude Cowork	-	-	REF	-	Claude uygulama modu (Cowork)
+388	Aurelio	-	-	REF	-	kişisel finans uygulaması, kapsam dışı
+389	Rasulov Akademi	-	-	REF	-	eğitim reklamı, araç değil
+390	Skill'siz baseline testi	-	-	UYARLA	claudeai:kendi	skill yazım kuralı: önce skill'siz baseline, SKILL.md ≤500 satır → p3/uyarla.md (zip_denetle kontrolü)
+391	500 satır sınırı	-	-	UYARLA	claudeai:kendi	skill yazım kuralı: önce skill'siz baseline, SKILL.md ≤500 satır → p3/uyarla.md (zip_denetle kontrolü)
+392	Üç test yöntemi	-	-	UYARLA	claudeai:kendi	skill yazım kuralı: önce skill'siz baseline, SKILL.md ≤500 satır → p3/uyarla.md (zip_denetle kontrolü)
+393	Kod tabanı taraması	-	-	REF	-	örnek prompt; graphify karşılıyor
+394	Reklam metni, seslendirme ve müzik üretimi	-	-	REF	-	örnek prompt; ses tarafı ElevenLabs (animasyon devri)
+395	Audacity	-	-	REF	-	CLI-Anything hub örneği (Audacity); gerekirse kurulu cli-anything ile
+396	Godot	-	-	REF	-	CLI-Anything hub örneği (Godot); gerekirse kurulu cli-anything ile
+397	n8n	-	-	KURULU	-	n8n-mcp kurulu
+398	Zamanlanmış görev ve entegrasyon kullanan örnek kullanıcı istemi	-	-	REF	-	Cowork zamanlanmış görev örneği; bizde /schedule
+399	GPT-6 Luna Decisions API örneği	-	-	DEVİR	-	devir/router-*.tsv; router departman ajanı
+400	Zapier	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+401	Higgsfield ile tek cümleden görsel üretme	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+402	Clay ile pazarlama kişileri bulma	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+403	Instagram	-	-	REF	-	kaynak platform; video-tarama kurulu
+404	Perplexity ile sektör araştırması örneği	-	-	REF	-	hesap isteyen servis/bağlayıcı ya da örneği; Ömer isterse claude.ai Connectors
+405	/compact	-	-	KURULU	-	yerleşik komut (/compact)
+406	Connectors	-	-	REF	-	claude.ai yerleşik bağlayıcı dizini

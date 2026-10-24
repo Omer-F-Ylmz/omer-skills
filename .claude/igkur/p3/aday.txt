@@ -1,0 +1,186 @@
+221|Drive|teknik||||yok|animasyon|Görev akışında erişimi doğrulanan dosya servisi (Google Drive olduğu v
+222|Netlify|teknik||||yok|tasarim|Statik/Jamstack site derleme, yayın ve yönetim platformu.
+223|GitHub Pages|teknik||||yok|tasarim|GitHub depolarından statik site yayınlama.
+224|Render|teknik||||yok|blender|Web servisi, API ve uygulama barındırma.
+225|GitLab Pages|teknik||||yok|tasarim|GitLab depolarından statik site yayınlama.
+226|Pomelli|teknik||||yok|tasarim|Web sitesini okuyup markaya uygun gönderi üretir
+227|Fable 5|teknik||||yok|fable|Ekranlarda seçili görünen Claude modeli
+228|Satoshi|teknik||||yok|tasarim|Fontshare'de görünen font ailesi
+229|General Sans|teknik||||yok|tasarim|Fontshare'de görünen font ailesi
+230|Spotify|teknik||||yok|tasarim|HeyGen örneğinde promoya dönüştürülen site (spotify.com).
+231|Web page to MP4|teknik||||yok|animasyon|Claude'un her sahneyi web sayfası olarak yazdığı, bunun sonra hareketl
+232|Claude Platform Docs|teknik||||yok|tasarim|Rehberin gösterildiği Anthropic dokümantasyon sitesi
+233|Claude Code|CLI|anthropics/claude-code|yok|★150295|plugin-acik:agent-sdk-dev||Ana yapay zekâ kodlama aracı
+234|Taste Skill|skill|Leonxlnx/taste-skill|MIT|★94879|plugin-acik:taste-skill@t|tasarim|Ajanın jenerik frontend estetiğine düşmeden güçlü görsel yön belirleme
+235|Impeccable|skill|pbakaus/impeccable|Apache-2.0|★80026|plugin-acik:impeccable@im|tasarim|23 komutlu ön yüz tasarım skill'i
+236|security-audit|skill|cloudflare/security-audit-skill|MIT|★28465|skill:security-audit||Cloudflare'in kodlama ajanını çok aşamalı güvenlik denetçisine çeviren
+237|Claude Video|plugin|bradautomates/claude-video|MIT|★18395|plugin:claude-video/watch||Claude Code'a video izletir; FFmpeg ile kareleri çıkarır
+238|OpenCode|CLI|anomalyco/opencode|MIT|★212807|npm:open-code-review,plug|tasarim|Open Design ve Career-Ops'ta desteklenen kodlama ajanı
+239|Planes|plugin|makeplane/plane|AGPL-3.0|★60700|skill:plan-eng-review,ski|animasyon|TypeScript, Tailwind ve Motion ile yazılmış, MCP ve llms.txt destekli 
+240|animate|skill|cth9191/animate|MIT|★530|skill:animate,skill:anima|blender|Render öncesi storyboard'lanan kısa Canvas animasyonları skill'i.
+241|CodeBurn|CLI|getagentseal/codeburn|MIT|★11403|npm:codeburn||Token harcamasını izler ve optimize önerir
+242|diagram-design|skill|cathrynlavery/diagram-design|MIT|★51265|skill:diagram-design-pake|tasarim|Tek promptla 44 diyagram türü üretir; bir web sitesinin markasına uyar
+243|Remotion Agent Skills|skill|remotion-dev/skills|yok|★5047|plugin-acik:accessibility|animasyon|Remotion'da çalışan ajanlar için resmi rehber skill paketi.
+244|Open Design|CLI|nexu-io/open-design|Apache-2.0|★100647|plugin-acik:open-design@o|tasarim|Claude Design'ın açık kaynak yerel alternatifi
+245|n8n MCP server|MCP|vredrick/n8n-mcp|MIT|★34|mcp:n8n-mcp,skill:n8n-mcp||Prompttan n8n iş akışı oluşturur
+246|Vercel Web Design Guidelines|skill|vercel-labs/agent-skills|yok|★32262|plugin-acik:agent-skills@|tasarim|UI kodunu Vercel Web Interface Guidelines'a göre denetler; erişilebili
+247|Graphify|CLI|Graphify-Labs/graphify|Apache-2.0|★125668|skill:graphify,uv:graphif||Obsidian ile saf RAG arası bilgi grafiği
+248|Playwright|MCP,teknik|microsoft/playwright|Apache-2.0|★97520|mcp:playwright,plugin:cla||Browser Harness için karşılaştırma
+249|Laya|CLI|NandhaKishorM/laya|Apache-2.0|★32449|skill:test-playable-web-g||Otoregresif olmayan System 1 karar motoru; tek ileri geçişte 100+ dild
+250|hyperframes|teknik|heygen-com/hyperframes|Apache-2.0|★61288|plugin-acik:core-skills@h|animasyon|HTML, CSS ve zamanlı animasyonu MP4 videoya çeviren video aracı.
+251|claude-remotion-skill|skill|haidrrry/claude-remotion-skill||yok||animasyon|Altyazı, B-roll ve ses için Remotion video iş akışı skill'i.
+252|motion|teknik|motiondivision/motion|MIT|★34007|skill:cinematic-gsap-leni|animasyon|JavaScript, React ve Vue için animasyon kütüphanesi.
+253|Codex|CLI||||||Magpie ile model değiştirilebilen kodlama ajanı
+254|GSAP|teknik|greensock/GSAP|yok|★29094|plugin-acik:gsap-skills@g|animasyon|Web ve kodla video animasyonu için JavaScript zaman çizelgeleri kütüph
+255|Obsidian|CLI,teknik|kepano/obsidian-skills|MIT|★49425|plugin-acik:obsidian-cli@||Graphify karşılaştırması
+256|remotion|teknik|remotion-dev/remotion|NOASSERTION|★63422|skill:remotion-best-pract|blender|React bileşenleriyle video oluşturup render eden araç.
+257|Skills CLI|CLI||||||npx skills add komutuyla agent skill'lerini kuran komut satırı aracı.
+258|Lenis|teknik|darkroomengineering/lenis|MIT|★16448|skill:cinematic-gsap-leni|animasyon|Akıcı, yumuşak kaydırma (smooth scroll) kütüphanesi
+259|npm|CLI||||||Claude Code ve Ruflo kurulum paket yöneticisi
+260|frontend-design|skill|||||router|Anthropic'in Claude'u daha iyi ön yüz üretmeye yönlendiren skill'i; Im
+261|Cursor|CLI,teknik||||||MCP istemcisi olarak anılan IDE
+262|MCP|MCP,teknik||||||Ruflo'nun Claude Code'a sunduğu 170+ araçlık entegrasyon
+263|flow-nexus|MCP||||||Bulut sürü dağıtımı MCP sunucusu
+264|Claude Code Setup|plugin||||||Kod tabanını tarayıp uygun hook, skill, subagent ve MCP önerileri suna
+265|Skills|skill||||||Claude Code skill'leri; plugin tarafından önerilir
+266|Postgres|MCP||||||Açıklamada örnek MCP sunucusu
+267|Claude|CLI,skill,||||||Görevi alan ve alt-ajanları üreten ana yapay zekâ aracı
+268|ElevenLabs MCP|MCP|||||animasyon|ElevenLabs'in Claude'a ses, müzik, efekt, görsel ve dudak senkronlu vi
+269|reel-factory|skill||||||Reel üretimi için Claude skill'i
+270|hook-arsenal|skill||||||Hook (açılış cümlesi) skill'i
+271|concept-graphics|skill||||||Konsept grafikleri skill'i
+272|go-viral|skill||||||Viral içerik skill'i
+273|scroll-stopper|skill|||||animasyon|Kaydırmayı durduran içerik skill'i
+274|story-audit|skill||||||Hikâye denetimi skill'i
+275|dopamine-ladder|skill||||||Dopamin merdiveni skill'i
+276|viral-emotion|skill|||||animasyon|Viral duygu skill'i
+277|camera-moves|skill||||||Kamera hareketleri skill'i
+278|frame-direction|skill||||||Kare yönetmenliği skill'i
+279|reel-transitions|skill||||||Reel geçişleri skill'i
+280|one-object-film|skill||||||Tek nesneli film skill'i
+281|hook-mining|skill||||||Hook çıkarma (aykırı gönderilerden) skill'i
+282|Coder|plugin||||||Yapay zekâ ajanlarını kendi sunucularında kilitli çalışma alanlarında 
+283|Anti UI Slop|skill|||||tasarim|Kodlama ajanını gerçek ürün, mevcut bileşen ve token'lardan çalışmaya 
+284|UIZZE|plugin|||||tasarim|Ajanlara UI zevki öğreten servis; 800.000+ tasarım keşfi, Agent SDK ve
+285|Emil Design Engineering|skill|||||animasyon|Emil Kowalski'nin skill'i; animasyon, easing, etkileşim ve küçük bileş
+286|skills.sh|plugin||||||Skill dizini; Vercel skill sayfası kurulum komutu ve istatistik göster
+287|Trail of Bits Security Skill|skill||||||Yapay zekâ kodlama ajanları için güvenlik odaklı skill seti
+288|Email Voice|skill||||||Gönderilmiş e-postalardan ses profili çıkarıp o sesle taslak yazan ücr
+289|replica-build|skill||||||Uygulamayı yeniden inşa eden skill
+290|replica-test|skill||||||Klonu hatalara ve orijinalle uyuma (parity score) karşı test eden skil
+291|replica-entrepreneur|skill||||||Kullanıcı yorumlarını okuyup eksik özellikleri bulan ve uygulamada çöz
+292|Claude Ads|skill||||||Claude Code için reklam denetim skill'i; Google, Meta, YouTube, Linked
+293|STE Skill|skill||||||Belirsiz İngilizce ajan çıktısını ASD-STE100 kurallarıyla sadeleştiren
+294|Booking Skills|skill||||||Ajana otel/uçuş arama, fiyat karşılaştırma ve rezervasyon ekleyen skil
+295|LLM Apps|skill||||||Hazır AI agent, RAG ve skill örneklerini toplayan repo (awesome-llm-ap
+296|SkillOpt|skill||||||Model ağırlıklarını değiştirmeden skill metinlerini ajan izlerine göre
+297|Claude Subagents|plugin||||||Claude Code için 100+ uzman alt ajan koleksiyonu (awesome-claude-code-
+298|Claude Skills|skill||||||Claude'un gerektiğinde açtığı, düz metin dosyasından oluşan yetenek pa
+299|Devin for Terminal|CLI|||||tasarim|Open Design'ın desteklediği kodlama ajanı
+300|Cursor Agent|CLI|||||tasarim|Open Design'ın desteklediği kodlama ajanı
+301|Kiro|CLI|||||tasarim|Open Design'ın desteklediği kodlama ajanı
+302|Claude Token Monitor|CLI||||||Token tüketimini izleyen terminal aracı
+303|CLI-Anything|CLI||||||Masaüstü yazılımları ajanların kullanabileceği CLI'ye çeviren açık kay
+304|pip|CLI||||||CLI-Hub paketini kuran Python paket yöneticisi
+305|Open Code Review|CLI||||||Alibaba'nın hibrit (deterministik hat + LLM ajan) kod inceleme aracı; 
+306|npx skills add|CLI||||||Skills CLI ile skill kurma komutu.
+307|Fincept Terminal|CLI||||||Bloomberg Terminal alternatifi ücretsiz finans terminali; 20+ ajan, 10
+308|Token Monitor|CLI||||||Claude Code, Codex, Cursor kullanımını, limit ve maliyeti tek panelde 
+309|Archon|CLI||||||Kodlama ajanları için YAML iş akışı tabanlı açık kaynak harness builde
+310|rea-agents|CLI||||||REA MCP sunucusunu ve iş akışı talimatlarını agentlara kuran npx paket
+311|npx|CLI||||||rea-agents kurulum komutunu çalıştırır
+312|Grok Build|CLI||||||REA'nın desteklediği agent
+313|GitHub|CLI,iş akı||||||Ruflo deposunun README, commit ve sürüm sayfaları; videoda sıralama id
+314|Design.MD library|skill|||||tasarim|2000'den fazla site tasarım sistemi içeren ücretsiz kütüphane
+315|HeyGen|iş akışı||||||Konuşan kafa avatar videosu üreten servis
+316|Higgsfield|plugin||||||Claude'a sohbet içinde görsel ve video reklam üretme yeteneği veren ba
+317|canvas-design|skill|||||tasarim|Tarif edilen çalışmadan bitmiş PNG üretir.
+318|Kimi|CLI,iş akı|||||tasarim|Open Design'ın desteklediği kodlama ajanı
+319|ChatGPT|ipucu,plug||||||MCP istemcisi olarak anılan yapay zekâ uygulaması
+320|Agentic Slides|iş akışı||||||Kimi'nin tek prompt'la slayt üreten özelliği
+321|Supabase|MCP,plugin||||||MCP ile bağlanılan veritabanı örneği
+322|HubSpot|iş akışı||||||Sesli ajanda CRM kişisi oluşturma
+323|AutoHedge|iş akışı||||||4 yapay zekâ ajanıyla (seçim, matematik kontrolü, risk, işlem) çalışan
+324|Vibe-Trading|iş akışı||||||64 finans becerisi olan, ajanların işlem öncesi tartıştığı çok ajanlı 
+325|Vibe Kanban|iş akışı||||||Kanban panosundan ajanlı geliştirme, kod farkı inceleme ve PR açma; ku
+326|Kdenlive|CLI||||||Hub listesinde görünen video düzenleyici
+327|Gitleaks|CLI||||||Kod deposunda sızdırılmış gizli anahtar ve parolaları tarayan güvenlik
+328|Semgrep|CLI||||||Kodda güvenlik açıklarını ve hatalı kalıpları statik analizle bulan ar
+329|Qwen|CLI,teknik|||||tasarim|Open Design'ın desteklediği kodlama ajanı
+330|Canva|iş akışı|||||tasarim|Rakip tasarım aracı olarak anılıyor
+331|claude-plugins-official|plugin||||||Anthropic'in resmi plugin deposu; recommender referans dosyaları burad
+332|Vercel|MCP,teknik||||||Açıklamada örnek MCP sunucusu
+333|Convex|MCP||||||Recommender'a eklenen veritabanı seçeneği
+334|Supabase MCP testi|prompt||||||Supabase'teki en son 5 veritabanı kaydını getirmesi isteniyor.
+335|Boss Loop|prompt||||||Görev + işçi alt-ajanlar + katı boss ajanı ile kendi kendine döngüleye
+336|Boss Loop ile işçi ajanlar v|prompt|||||tasarim|Claude'a görev ver ve iyi sonucun çıtasını gösteren gerçek bir örnek e
+337|Clay|plugin||||||Claude içinde potansiyel müşteri bulma bağlayıcısı
+338|Email Voice skill'ini güncel|prompt||||||Taslakları kullanıcının sesiyle yaz; gerekirse 'update my email voice'
+339|Kişi listesini Beehive'e akt|prompt||||||Yüklenen sahte lead CSV'sindeki tüm kişileri Zapier MCP ile Beehive'e 
+340|Skill kurulumu|prompt||||||Repo bağlantısı (github.com/Jakeschincariol/replica-skill) Claude Code
+341|recent.design|iş akışı|||||tasarim|Web tasarım ilham galerisi
+342|Planner|skill||||||Haftayı Pazartesi–Pazar planlayıp Reels'i yayına hizalar
+343|Replies|skill||||||Yorumlara yanıt verir ve DM gönderir
+344|Perplexity|MCP||||||Claude'a derin arama ve araştırma yeteneği veren connector
+345|Firecrawl|MCP|||||tasarim|Web sitelerini kazıyıp rakip analizi ve marka görselleri çıkaran conne
+346|PostHog|MCP|||||tasarim|Kullanıcı kaybı ve site hatalarını bulan analiz connector'ü
+347|Composio|MCP||||||Claude'u birçok uygulamaya tek bağlantıyla bağlayan connector
+348|YouTube|MCP||||||Composio üzerinden bağlanan uygulama
+349|Facebook|MCP||||||Composio üzerinden bağlanan uygulama
+350|Meta|MCP||||||Composio üzerinden bağlanan uygulama
+351|Notion|MCP||||||Composio entegrasyonu olarak gösterilen uygulama
+352|Google Drive|MCP|||||animasyon|Composio entegrasyonu olarak gösterilen uygulama
+353|Google Sheets|MCP||||||Composio entegrasyonu olarak gösterilen uygulama
+354|WhatsApp|MCP||||||Composio entegrasyonu olarak gösterilen uygulama
+355|Trello|MCP||||||Composio entegrasyonu olarak gösterilen uygulama
+356|Takvim|MCP||||||Composio entegrasyonu olarak gösterilen takvim uygulaması
+357|Uygulama özelliğini tersine |prompt||||||Ajanına REA ile bir uygulamada gördüğün özelliğin nasıl çalıştığını ar
+358|CLI-Hub|CLI||||||Topluluk yapımı CLI'lere göz atma, kurma ve yönetme merkezi
+359|OBS Studio|CLI||||||Kayıt için hazır CLI'si olan uygulama
+360|GIMP|CLI||||||Görüntü düzenleyici; hazır CLI
+361|LibreOffice|CLI||||||Ofis paketi; hazır CLI
+362|Zoom|CLI||||||Toplantı uygulaması; hazır CLI
+363|Krita|CLI||||||Çizim uygulaması; hub'da listeli
+364|Inkscape|CLI||||||Vektör çizim; hub'da listeli
+365|FreeCAD|CLI||||||Rover demosu yapılan CAD yazılımı
+366|Zotero|CLI||||||Hub listesinde görünen kaynak/atıf yöneticisi
+367|uv|CLI||||||Laya kurulumunda önerilen paket yöneticisi
+368|shadcn CLI|CLI||||||Componentry bileşenlerini kurmak için kullanılan komut satırı aracı.
+369|Hopper|CLI||||||Binary disassembly ve analizinde kullanılan araç
+370|Sıfırdan prompt ile tasarım |prompt|||||tasarim|Fintech uygulaması için sade, minimal, yumuşak gölgeli, yuvarlak kartl
+371|OOTTO|CLI,iş akı||||||Videoda 'CLAUDE × OOTTO' ve 'OOTTO FIELD NOTE' olarak geçen marka/araç
+372|Blender|CLI,teknik|||||blender|3B yazılım; hazır CLI ve 3B drone demosu
+373|Yeniden kullanılabilir AI ka|prompt||||||Kızıl saçlı, çilli, yeşil gözlü bir karakter bir kez oluşturulur; sonr
+374|Gamma|iş akışı||||||Rakip sunum aracı olarak anılıyor
+375|PowerPoint|iş akışı||||||Geleneksel sunum aracı; indirme formatı PPT
+376|Google Slides|iş akışı||||||Dışa aktarma formatı
+377|Yahoo Finance|iş akışı||||||Adaptive modun eriştiği veri kaynağı
+378|IMF|iş akışı||||||Veri kaynağı
+379|World Bank|iş akışı||||||Veri kaynağı (Dünya Bankası)
+380|Google Scholar|iş akışı||||||Akademik kaynak
+381|Arxiv|iş akışı||||||Akademik makale kaynağı
+382|Slack|MCP,teknik||||||Örnek görevde #acct-acme kanalı taranıyor
+383|Gmail|MCP,iş akı||||||Zamanlanmış görevin son 90 gün 'Acme' e-postalarını taradığı e-posta s
+384|Apify|iş akışı||||||Lead üretiminde veri kazıma düğümü
+385|Google Calendar|iş akışı||||||Randevu oluşturma düğümü
+386|Make|iş akışı||||||Otomasyon platformu; kapakta mor logo olarak görünüyor (logo tanımı ta
+387|Claude Cowork|iş akışı||||||Bağlayıcıların ve görevlerin çalıştırıldığı Claude uygulama modu
+388|Aurelio|iş akışı||||||Kişisel finans aracı: net değer, ETF içeriği (look-through) ve yerel ç
+389|Rasulov Akademi|iş akışı||||||Sunucunun eğitim programı; sponsor/tanıtım amaçlı başvuru çağrısı.
+390|Skill'siz baseline testi|ipucu||||||Skill yazmadan önce Claude'u skill'siz çalıştırıp neyin bozulduğunu gö
+391|500 satır sınırı|ipucu||||||Her skill dosyasını 500 satırın altında tutma önerisi
+392|Üç test yöntemi|ipucu||||||Skill yazmadan önce skill'siz çalıştırıp hataları görme, sonra yalnızc
+393|Kod tabanı taraması|prompt||||||Kullanıcı Claude'dan tüm kod tabanını taramasını istiyor (scan my enti
+394|Reklam metni, seslendirme ve|prompt||||||Bu ürün için kısa bir reklam metni yazmasını, metni seslendirmesini ve
+395|Audacity|CLI,teknik||||||Ses editörü; hazır CLI
+396|Godot|CLI,teknik||||||Oyun motoru; hub'da listeli
+397|n8n|CLI,iş akı||||||Hub listesinde görünen iş akışı otomasyon aracı
+398|Zamanlanmış görev ve entegra|prompt||||||Kullanıcı yarınki Acme QBR toplantısı için e-posta, Slack, toplantı ka
+399|GPT-6 Luna Decisions API örn|prompt|||||router|Örnek ekran: 10.000 müşteri talebini (customer_requests.csv) kategoril
+400|Zapier|MCP,teknik||||||Ücretli çok adımlı iş akışı otomasyon servisi; değiştirilen yazılım
+401|Higgsfield ile tek cümleden |prompt||||||Empire State Building'in sokak seviyesinden fotogerçekçi görselini ist
+402|Clay ile pazarlama kişileri |prompt||||||Bir şirketteki pazarlama kişilerini bul; isim, unvan, LinkedIn ve e-po
+403|Instagram|MCP,iş akı||||||İçeriğin yayınlandığı ve yorum/DM'lerin geldiği platform
+404|Perplexity ile sektör araştı|prompt||||||Kullanıcı Claude'a 'Bu sektörde son gelişmeler neler?' diye soruyor; P
+405|/compact|ipucu||||||Konuşmayı sıkıştırma komutu
+406|Connectors|ipucu||||||Claude'un bağlantı dizini; ElevenLabs buradan bulunup eklenir
