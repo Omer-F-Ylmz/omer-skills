@@ -1,0 +1,11 @@
+# HERMES-KUR-1, KISMEN BİTTİ (CC kabulü ✓, Desktop elle doğrulanmadı)
+- Kurulum: Hermes Agent 2026.9.24 (MIT) Windows-yerel, `araclar/hermes` (Py 3.14, `uv sync --frozen --extra mcp`; HERMES_HOME=araclar/hermes-home). WSL/Docker gerekmedi (docker-kur-1 hâlâ yönetici bekliyor). install.ps1 çalıştırılmadı.
+- Güvenlik: gitleaks 928 = OAuth client-id/fixture (gerçek sır yok); semgrep secrets 0, 19 ERROR = shell=True/tainted env (ajanın kabuk aracı); semgrep 10 dosya Timeout = TARANMADI. agentshield yapılmadı (zaman).
+- MCP: çekirdekte sunucu yok → plugin `mcp-serve` (10 araç, mesajlaşma köprüsü; terminal/dosya yok). CC user-scope `hermes` eklendi; headless CC → `channels_list` çağrısı başarılı ("HERMES-MCP-OK 0", $0.36 haiku).
+- DESKTOP: claude_desktop_config.json'a `hermes` girdisi yazıldı (yedek .hermes-oncesi); Desktop yeniden başlatılıp araç görülmeli, ben doğrulayamadım.
+- Alt ajan: ajan-sira `motor=hermes` + merdivenin ücretsiz basamağı (hazırsa) → tools/hermes_motor.py. Gerçek koşu: dosya yaz+oku görevi 22 sn, subtype success, $0, nemotron-3.5-lightning:free. Testler kırmızı→yeşil: test_hermes_motor 4, test_hermes_ogrenme 1.
+- Öğrenme: tools/hermes_ogrenme.py (bundled olmayan skill → gitleaks kapısı → .kos/kopru/aday-skill/hermes + beyin olayı). Yapılmadı: ruflo'ya otomatik köprü (yalnız beyin olayı).
+- RAM: boşta %86,3; hermes çalışırken süreç tepe 17 MB, sistem tepe %87,1.
+- Doküman: docs/hermes-ogrenme.md · skills/hermes-desktop + dist/claude-ai/yukle-24eki/hermes-desktop.zip (zip_denetle temiz) · gorev-arac-ajan-ozellik-1.md'ye 1 satır.
+- Tam suit: video 1424/1425 · jev 85/85 · mcp 40/40 · jev-dotnet 22/22 · tests 971/976 · tools/tests 381/382 · cc-kopru 1 kırmızı. Kırmızılar bana ait değil: test_butce_bul (BUTCE 0.3≠0.5, önceden), RAM-bekçi test_esikler/test_agac_* (başka oturumun ajan_ram_bekci.py değişikliği), test_geri_cagirma skill'li/skill'siz aynı kırmızı, cc-kopru sızıntı testi paralel suit yüzünden olası (kanıtlanmadı).
+- Sapmalar: OpenRouter :free slug'ları değişken (gpt-oss/llama 404); Groq/Mistral/SambaNova Hermes'te yerleşik değil → yalnız openrouter denendi. Push yok. Bütçe hedefi $0.80 aşıldı (~$4): oturum kesilmesi + 25 dk suit + CC MCP testi.

@@ -18,13 +18,14 @@ ESIK, TAVAN, ARA, SURE = 82, 3, 90, 10800
 TAVAN_DOSYA = K / "ajan-sira.tavan"  # Desktop 20 Eki 12:15 (Ömer: haftalık %7, token düşsün): tavan dosyadan, varsayılan 3  # Desktop 14 Eki 19:45: 88'de başlatılan işle RAM %89'a çıktı (sınır %90, yeni iş ≥%85 yok)
 sys.path.insert(0, str(KOK / "tools"))
 import zorunlu_arac  # ZORUNLU-ARAÇ-1: ön uçuş bloğu + son denetim
+import hermes_motor  # HERMES-KUR-1: motor=hermes kolu (tools/hermes_motor.py)
 import ucretsiz_motor  # UCRETSIZ-MOTOR-1: OmniRoute ücretsiz model kolu (env/kimlik temizliği, kolay iş sınıflayıcı)
 import arka_istek  # ARKA-KALICI-1: ajan yerine yönetici başlatır
 import ajan_ram_bekci  # RAM-BEKCI-1: çalışan ajanların alt süreçleri için RAM bekçisi
 import cc_profil  # TOKEN-2 K2: köprüyle aynı "ajan" profili (ttl 5m + ajanTut deny); CC_PROFIL_ZORLA=tam geri alır
 ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-slash-commands", "--strict-mcp-config",
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
-MODELLER = ("opus", "sonnet", "haiku", "ucretsiz")
+MODELLER = ("opus", "sonnet", "haiku", "ucretsiz", "hermes")  # hermes: HERMES-KUR-1, claude -p değil tools/hermes_motor.py (ücretsiz, $0)
 KONSOL = K / "ajan-sira.konsol"  # KONSOL-GECIS-1: bayrak varsa claude -p alt süreci Console API anahtarıyla (ANTHROPIC_API_KEY_AJAN) koşar; yoksa abonelik
 KONSOL_GUN_TAVAN, KONSOL_UYARI = 12.0, (150, 180, 195)  # günlük $ tavan (yeni iş başlatılmaz, koşan kesilmez) · toplam $ uyarı eşikleri
 KONSOL_ISLER = set()  # Console ile başlatılan işler (is_kaydi defter kaynağı)
@@ -573,8 +574,10 @@ def kuyruk():
         if len(p) >= 2 and not satir.startswith("#"):
             ek = dict(x.strip().split("=", 1) for x in p[3:] if "=" in x)
             efor, model, motor = ek.get("efor", ""), ek.get("model"), ek.get("motor")  # model yok → MERDIVEN (haiku medium'dan)
-            if efor not in ("", "medium", "high") or (model is not None and model not in MODELLER) or motor not in (None, "ucretsiz"):
+            if efor not in ("", "medium", "high") or (model is not None and model not in MODELLER) or motor not in (None, "ucretsiz", "hermes"):
                 raise ValueError(f"geçersiz efor/model/motor: {satir!r}")
+            if motor == "hermes":
+                model = "hermes"  # başarısızlıkta bas=0 → merdiven 1 (haiku medium)
             s.append((p[0].strip(), p[1].strip(), p[2].strip() if len(p) > 2 else "", efor, model, 0 if motor else None, ek.get("cwd")))  # motor=ucretsiz → merdiven 0. basamaktan
     return s
 
@@ -594,6 +597,8 @@ def basamak_sec(ad, bas, metin=""):
 def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
+    if model == "hermes":  # HERMES-KUR-1: claude yok, API anahtarı taşınmaz; istem stdin'den
+        return [sys.executable, "-I", str(KOK / "tools/hermes_motor.py")], {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_")}
     argv = [(ucretsiz_motor.MODEL if model == "ucretsiz" else model) if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
     if mcp:
         argv[argv.index("--mcp-config") + 1] = str(mcp)
@@ -754,7 +759,7 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
     ok = j.get("subtype") == "success"  # RC1-TESHIS-1: hook hatası rc'yi 1 yapsa da sonuç success ise başarılı
     usd = j.get("total_cost_usd", 0)
-    if model == "ucretsiz":  # UCRETSIZ-MOTOR-1: Claude'a harcama yok (claude'un tahmini fiyatı yazılmaz); kabul satırı raporda yoksa başarısız → üst basamak
+    if model in ("ucretsiz", "hermes"):  # UCRETSIZ-MOTOR-1: Claude'a harcama yok (claude'un tahmini fiyatı yazılmaz); kabul satırı raporda yoksa başarısız → üst basamak
         usd = 0
         ok = ok and (not kabul or "kabul" in (j.get("result") or "").lower())
         try:  # UCRETSIZ-MOTOR-2: BOŞ-KOŞU (selamlama/anahtarsız) başarı sayılmaz → merdivende üst basamak; jeton Claude $'ı değil
@@ -768,7 +773,7 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
         with (K / "ucretsiz-jeton.tsv").open("a", encoding="utf-8") as f:
             f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{u2.get('input_tokens', 0)}\t{u2.get('output_tokens', 0)}\t{int(ok)}\n")
     girdi = u.get("input_tokens", 0) + u.get("cache_creation_input_tokens", 0) + u.get("cache_read_input_tokens", 0)
-    if ad in KONSOL_ISLER and model != "ucretsiz":  # KONSOL-GECIS-1: Console harcaması + cache isabeti (okunan / toplam girdi) deftere
+    if ad in KONSOL_ISLER and model not in ("ucretsiz", "hermes"):  # KONSOL-GECIS-1: Console harcaması + cache isabeti (okunan / toplam girdi) deftere
         KONSOL_ISLER.discard(ad)
         maliyet_defter.yaz(ad, f"{model}-{efor}" if efor else model, usd, ok, kaynak="konsol", cache=u.get("cache_read_input_tokens", 0) / girdi if girdi else 0)
     else:
@@ -1002,6 +1007,8 @@ def main():
                 if model is None:
                     bas = basamak_sec(ad, bas, (KOK / istem).read_text(encoding="utf-8"))
                     model, efor = MERDIVEN[bas]
+                    if model == "ucretsiz" and hermes_motor.hazir():  # HERMES-KUR-1: ladder'ın ücretsiz basamağı Hermes (kolay işte varsayılan); hazır değilse eski ücretsiz yol
+                        model = "hermes"
                 else:
                     model, efor = konsol_politika(model, efor, (KOK / istem).read_text(encoding="utf-8"))
                 metin = (KOK / istem).read_text(encoding="utf-8")
@@ -1039,7 +1046,7 @@ def main():
                         mcp = None
                         log("MCP profil hatası", ad, repr(e)[:80])
                 argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad), butce)
-                if KONSOL.exists() and "ANTHROPIC_API_KEY" in env and model != "ucretsiz":
+                if KONSOL.exists() and "ANTHROPIC_API_KEY" in env and model not in ("ucretsiz", "hermes"):
                     KONSOL_ISLER.add(ad)
                 argv += ["--resume" if kesik else "--session-id", sid]
                 p = subprocess.Popen(argv, cwd=str(hedef), stdin=subprocess.PIPE, stdout=fo, stderr=subprocess.STDOUT,
