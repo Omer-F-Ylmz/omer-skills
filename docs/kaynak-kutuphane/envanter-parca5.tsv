@@ -1,0 +1,58 @@
+site	tur	ucretsiz	lisans	sart_atif	indirme	karar	yer
+github.com	platform sitesi	belirsiz/kısıtlı	platform (kütüphane değil)	ürün sitesi; kod kütüphanesi değil	-	ATLANDI	
+mcp.apify.com	MCP platform sitesi	belirsiz/kısıtlı	erişim yok (HTTP 401)	elle kontrol	-	ATLANDI	
+claude.ai	ürün sitesi	belirsiz/kısıtlı	erişim yok (HTTP 403)	ürün, açık kaynak değil	-	ATLANDI	
+hub.docker.com	konteyner kayıt defteri	belirsiz/kısıtlı	sahip repo yok	kod kütüphanesi değil	-	ATLANDI	
+ollaya.dev	ürün/kütüphane sitesi	evet	Apache-2.0	NOTICE/telif korunur; sayfa bağlantısındaki repo, site kodu eşleşmesi elle doğrulanacak	GitHub	AL	<lib>/ürün-kütüphane/ollaya.dev/ollaya
+github.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (github.com); kart düzeltilmeli	-	ATLANDI	
+inkd.in	kısa bağlantı	belirsiz/kısıtlı	tarama bağlantısı koptu	yeniden tarama gerekli	-	ATLANDI	
+insforge.dev	backend platformu	evet	Apache-2.0	NOTICE/telif korunur; sayfa bağlantısındaki repo, site kodu eşleşmesi elle doğrulanacak	GitHub	AL	<lib>/backend/insforge.dev/insforge
+ko-f1.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası; kart düzeltilmeli	-	ATLANDI	
+last.fn	müzik servisi	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (last.fm)	-	ATLANDI	
+freesound.org	ses kütüphanesi	belirsiz/kısıtlı	sayfa bağlantısındaki repo eşleşmedi	mapbox-gl-js gürültü; site kodu yok	-	ATLANDI	
+learn.code	eğitim sitesi	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası	-	ATLANDI	
+lnkd.in	kısa bağlantı (LinkedIn)	belirsiz/kısıtlı	sahip repo yok	repo eşleşmesi gürültü	-	ATLANDI	
+o1laya.dev	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (ollaya.dev)	-	ATLANDI	
+9gag.com	eğlence sitesi	belirsiz/kısıtlı	sahip repo yok	kod kütüphanesi değil	-	ATLANDI	
+api.skyfire.xyz	API servisi	belirsiz/kısıtlı	erişim yok (HTTP 403)	ücretli/kapalı API	-	ATLANDI	
+crowdin.com	çeviri platformu	belirsiz/kısıtlı	sahip repo yok	kod kütüphanesi değil	-	ATLANDI	
+eata.typeracer.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (typeracer.com)	-	ATLANDI	
+example.com	IANA örnek alan adı	belirsiz/kısıtlı	sahip yok	test alanı	-	ATLANDI	
+lab.pentestit.ru	güvenlik eğitim sitesi	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+last.fa	müzik servisi	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (last.fm)	-	ATLANDI	
+ncp.apify.com	alan adı	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası	-	ATLANDI	
+scratch.ait.edu	eğitim sitesi	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+tast.fn	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+api.groq.com	LLM API	belirsiz/kısıtlı	sahip repo yok	ücretli API; kod yok	-	ATLANDI	
+astral.sh	geliştirici araç sitesi (ruff, uv)	evet	MIT	telif notu korunur; ana ürün repo, site kodu değil	GitHub	AL	<lib>/geliştirici/astral.sh/ruff
+code.claude.com	Claude Code dokümantasyonu	belirsiz/kısıtlı	YOK (GitHub licenseInfo)	lisans yok: telif tüm hakları saklı, klon yapılmaz	-	ATLANDI	
+lamafactory.readthedocs.io	dokümantasyon (LLaMA-Factory)	belirsiz/kısıtlı	erişilemedi (HTTP 404)		-	ATLANDI	
+tast.fa	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+tryhacke.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (tryhackme.com)	-	ATLANDI	
+xyz.supabase.co	alan adı	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+api.apify.com	API servisi	belirsiz/kısıtlı	erişilemedi (HTTP 404)		-	ATLANDI	
+austinmarchese.tech	kişisel site	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+bitbucket.org	kod platformu	belirsiz/kısıtlı	sahip repo yok	platform sitesi	-	ATLANDI	
+cdn.acttvepteces.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+cdn.jsdelivr.net	CDN	evet	MIT	telif notu korunur; sayfa bağlantısındaki repo, site kodu eşleşmesi elle doğrulanacak	GitHub	AL	<lib>/cdn/cdn.jsdelivr.net/jsdelivr
+data.typeracer.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	erişilemedi	-	ATLANDI	
+en.gravatar.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (gravatar.com)	-	ATLANDI	
+github.cm	alan adı yazım hatası	belirsiz/kısıtlı	sahip repo yok	yazım hatası olası (github.com)	-	ATLANDI	
+hermes-agent.nousresearch.com	agent sitesi	evet	MIT	telif notu korunur; sayfa bağlantısındaki repo, site kodu eşleşmesi elle doğrulanacak	GitHub	AL	<lib>/agent/hermes-agent.nousresearch.com/hermes-agent
+httrack.com	web kopyalama aracı	evet	GPL-3.0	GPL-3.0: dağıtımda copyleft koşulları; atıf	GitHub	AL-ŞARTLI	<lib>/web/httrack.com/httrack
+huggingface.co	model platformu	belirsiz/kısıtlı	sahip repo yok	sayfa bağlantısı repo eşleşmesi gürültü	-	ATLANDI	
+kfinance.kensho.com	finans sitesi	belirsiz/kısıtlı	erişilemedi (HTTP 404)		-	ATLANDI	
+lamafactory.readthedocs.jo	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (.io)	-	ATLANDI	
+mcp.apify.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (apify.com)	-	ATLANDI	
+nautilustrader.io	algoritmik ticaret platformu	evet	LGPL-3.0	LGPL-3.0: bağlantı serbest; değişiklikler açık paylaşılır	GitHub	AL-ŞARTLI	<lib>/algoritmik/nautilustrader.io/nautilus_trader
+ollama.com	LLM çalışma zamanı	evet	MIT	telif notu korunur	GitHub	AL	<lib>/llm/ollama.com/ollama
+open.spotify.com	müzik platformu	belirsiz/kısıtlı	sahip repo yok	kod kütüphanesi değil	-	ATLANDI	
+premium.mcp.pitchbook.com	finans veri servisi	belirsiz/kısıtlı	erişilemedi (HTTP 404)	ücretli servis	-	ATLANDI	
+rocm.docs.amd.com	GPU dokümantasyonu	evet	MIT	telif notu korunur; sayfa bağlantısındaki repo, site kodu eşleşmesi elle doğrulanacak	GitHub	AL	<lib>/gpu/rocm.docs.amd.com/rocm-docs
+skills.sh	agent skill dizini	evet	MIT	telif notu korunur	GitHub	AL	<lib>/agent/skills.sh/skills
+skool.com	topluluk platformu	belirsiz/kısıtlı	sahip repo yok	repo eşleşmesi gürültü	-	ATLANDI	
+t.me	Telegram kısa bağlantı	belirsiz/kısıtlı	sahip repo yok	kod kütüphanesi değil	-	ATLANDI	
+t.ne	alan adı	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (t.me)	-	ATLANDI	
+trello.com	proje yönetimi	belirsiz/kısıtlı	sahip repo yok	repo eşleşmesi gürültü	-	ATLANDI	
+trendyol.com	e-ticaret sitesi	belirsiz/kısıtlı	sahip repo yok	repo eşleşmesi gürültü	-	ATLANDI	
+w.codecadeay.con	alan adı yazım hatası	belirsiz/kısıtlı	alan adı çözülmedi	yazım hatası olası (codecademy.com)	-	ATLANDI	

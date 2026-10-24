@@ -1,0 +1,1288 @@
+{
+ "github.com": {
+  "host": "github.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "_private/browser",
+   "apps/desktop",
+   "cmc_internal/api",
+   "enterprise/premium-support",
+   "enterprise/startups",
+   "get-started/accessibility"
+  ],
+  "npm": [],
+  "sitemap_url": 375,
+  "sitemap_ornek": [
+   "https://github.com",
+   "https://github.com/about",
+   "https://github.com/about/diversity",
+   "https://github.com/about/diversity/report",
+   "https://github.com/about/leadership",
+   "https://github.com/about/press",
+   "https://github.com/customer-stories",
+   "https://github.com/customer-stories/3m"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://github.com/",
+  "baslik": "GitHub · Change is constant. GitHub keeps you ahead. · GitHub · GitHub",
+  "aciklama": "Join the world&#39;s most widely adopted, AI-powered developer platform where millions of developers, businesses, and the largest open source community build software that advances humanity.",
+  "repo_bilgi": [
+   {
+    "repo": "_private/browser",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "apps/desktop",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "cmc_internal/api",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "enterprise/premium-support",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "enterprise/startups",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   },
+   {
+    "repo": "get-started/accessibility",
+    "lisans": "?",
+    "yildiz": 0,
+    "son": "",
+    "ozet": ""
+   }
+  ]
+ },
+ "mcp.apify.com": {
+  "host": "mcp.apify.com",
+  "durum": "hata: HTTPError HTTP Error 401: Unauthorized",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "claude.ai": {
+  "host": "claude.ai",
+  "durum": "hata: HTTPError HTTP Error 403: Forbidden",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "hub.docker.com": {
+  "host": "hub.docker.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://hub.docker.com/",
+  "baslik": "Docker Hub Container Image Library | App Containerization",
+  "aciklama": "Welcome to the world&#x27;s largest container registry built for developers and open source contributors to find, use, and share their container images. Build, push and pull.",
+  "repo_bilgi": []
+ },
+ "ollaya.dev": {
+  "host": "ollaya.dev",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "ollaya-dev/ollaya",
+   "openlabs-so/openanalytics"
+  ],
+  "npm": [],
+  "sitemap_url": 181,
+  "sitemap_ornek": [
+   "https://ollaya.dev/",
+   "https://ollaya.dev/search",
+   "https://ollaya.dev/download",
+   "https://ollaya.dev/results",
+   "https://ollaya.dev/stats",
+   "https://ollaya.dev/docs",
+   "https://ollaya.dev/try",
+   "https://ollaya.dev/contributors"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://ollaya.dev/",
+  "baslik": "Ollaya · Run decision models locally",
+  "aciklama": "System 1 for AI agents. Ollaya serves open decision models on your own machine, behind a self-hosted, Jev-compatible API: typed, calibrated answers in milliseconds for routing, guardrails, triage and ",
+  "repo_bilgi": [
+   {
+    "repo": "ollaya-dev/ollaya",
+    "lisans": "apache-2.0",
+    "yildiz": 1390,
+    "son": "2026-10-24",
+    "ozet": "Jev-compatible API server for open decision models. Ollama for decision models: pull and serve 25 mo"
+   },
+   {
+    "repo": "openlabs-so/openanalytics",
+    "lisans": "agpl-3.0",
+    "yildiz": 638,
+    "son": "2026-10-22",
+    "ozet": "Open-source, privacy-first and cookieless web analytics with revenue attribution and an MCP server."
+   }
+  ]
+ },
+ "github.con": {
+  "host": "github.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "inkd.in": {
+  "host": "inkd.in",
+  "durum": "hata: URLError <urlopen error [WinError 10054] Varolan bir bağlantı uzaktak",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "insforge.dev": {
+  "host": "insforge.dev",
+  "durum": "ok",
+  "libs": {
+   "gsap": 2,
+   "next.js": 83,
+   "lucide": 18
+  },
+  "github": [
+   "insforge/insforge"
+  ],
+  "npm": [],
+  "sitemap_url": 100,
+  "sitemap_ornek": [
+   "https://insforge.dev",
+   "https://insforge.dev/blog",
+   "https://insforge.dev/changelogs",
+   "https://insforge.dev/customers",
+   "https://insforge.dev/pricing",
+   "https://insforge.dev/contact",
+   "https://insforge.dev/terms",
+   "https://insforge.dev/privacy"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://insforge.dev/",
+  "baslik": "InsForge - The agent-native cloud infrastructure platform",
+  "aciklama": "Model gateway, compute, deployment, database, auth, and more. Every service built for AI coding agents to operate end to end through CLI and skills.",
+  "repo_bilgi": [
+   {
+    "repo": "insforge/insforge",
+    "lisans": "apache-2.0",
+    "yildiz": 13179,
+    "son": "2026-10-24",
+    "ozet": "The all-in-one, open-source backend platform for agentic coding. InsForge gives your coding agent da"
+   }
+  ]
+ },
+ "ko-f1.con": {
+  "host": "ko-f1.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "last.fn": {
+  "host": "last.fn",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "freesound.org": {
+  "host": "freesound.org",
+  "durum": "ok",
+  "libs": {
+   "webgl-shader": 68
+  },
+  "github": [
+   "mapbox/mapbox-gl-js"
+  ],
+  "npm": [],
+  "sitemap_url": 37702,
+  "sitemap_ornek": [
+   "https://freesound.org/people/kvgarlic/sounds/875800/",
+   "https://freesound.org/people/tim.kahn/sounds/875799/",
+   "https://freesound.org/people/Erokia/sounds/875798/",
+   "https://freesound.org/people/looplicator/sounds/875796/",
+   "https://freesound.org/people/CAT-FOX_ALEX/sounds/875795/",
+   "https://freesound.org/people/looplicator/sounds/875794/",
+   "https://freesound.org/people/looplicator/sounds/875779/",
+   "https://freesound.org/people/bassimat/sounds/875778/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://freesound.org/",
+  "baslik": "Freesound",
+  "aciklama": "Freesound: collaborative database of creative-commons licensed sound for musicians and sound lovers. Have you freed your sound today?",
+  "repo_bilgi": [
+   {
+    "repo": "mapbox/mapbox-gl-js",
+    "lisans": "other",
+    "yildiz": 12453,
+    "son": "2026-10-23",
+    "ozet": "Interactive, thoroughly customizable maps in the browser, powered by vector tiles and WebGL"
+   }
+  ]
+ },
+ "learn.code": {
+  "host": "learn.code",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "lnkd.in": {
+  "host": "lnkd.in",
+  "durum": "ok",
+  "libs": {
+   "react-spring": 1,
+   "webgl-shader": 2
+  },
+  "github": [
+   "timostamm/protobuf-ts",
+   "uuidjs/uuid"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.linkedin.com/",
+  "baslik": "Oturum Açın veya Kaydolun | LinkedIn",
+  "aciklama": "1 milyar üye | Profesyonel kimliğinizi yönetin. Profesyonel ağınızı kurun ve ağınızla bağlantıya geçin. Bilgi birikimlerine, içgörülere ve fırsatlara erişin.",
+  "repo_bilgi": [
+   {
+    "repo": "timostamm/protobuf-ts",
+    "lisans": "apache-2.0",
+    "yildiz": 1345,
+    "son": "2026-07-22",
+    "ozet": "Protobuf and RPC for TypeScript"
+   },
+   {
+    "repo": "uuidjs/uuid",
+    "lisans": "mit",
+    "yildiz": 15342,
+    "son": "2026-10-23",
+    "ozet": "Generate RFC-compliant UUIDs in JavaScript"
+   }
+  ]
+ },
+ "o1laya.dev": {
+  "host": "o1laya.dev",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "9gag.com": {
+  "host": "9gag.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 104,
+  "sitemap_ornek": [
+   "https://9gag.com",
+   "https://9gag.com/trending",
+   "https://9gag.com/top",
+   "https://9gag.com/fresh",
+   "https://9gag.com/gag/ayqEQ4y",
+   "https://9gag.com/gag/aAQBXKE",
+   "https://9gag.com/gag/a17pLm8",
+   "https://9gag.com/gag/a9zjXzj"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": false,
+  "final": "https://9gag.com/",
+  "baslik": "9GAG - Best Funny Memes and Breaking News",
+  "aciklama": "Your daily dose of funny memes, GIFs, videos and weird news stories. We deliver hundreds of new memes daily and much more humor anywhere you go.",
+  "repo_bilgi": []
+ },
+ "api.skyfire.xyz": {
+  "host": "api.skyfire.xyz",
+  "durum": "hata: HTTPError HTTP Error 403: Forbidden",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "crowdin.com": {
+  "host": "crowdin.com",
+  "durum": "ok",
+  "libs": {
+   "shadcn": 1,
+   "astro": 88,
+   "lucide": 209
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 411,
+  "sitemap_ornek": [
+   "https://crowdin.com/",
+   "https://crowdin.com/about",
+   "https://crowdin.com/alternatives/lokalise-alternative",
+   "https://crowdin.com/alternatives/phrase-alternative",
+   "https://crowdin.com/contacts",
+   "https://crowdin.com/customers",
+   "https://crowdin.com/demo",
+   "https://crowdin.com/enterprise"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://crowdin.com/",
+  "baslik": "Crowdin: Localization Platform to Manage Your Translation",
+  "aciklama": "Crowdin is an all-in-one localization and translation management platform with all the software, tools and integrations you need to localize your content.",
+  "repo_bilgi": []
+ },
+ "eata.typeracer.con": {
+  "host": "eata.typeracer.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "example.com": {
+  "host": "example.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://example.com/",
+  "baslik": "Example Domain",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "lab.pentestit.ru": {
+  "host": "lab.pentestit.ru",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "last.fa": {
+  "host": "last.fa",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "ncp.apify.com": {
+  "host": "ncp.apify.com",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "scratch.ait.edu": {
+  "host": "scratch.ait.edu",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "tast.fn": {
+  "host": "tast.fn",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "api.groq.com": {
+  "host": "api.groq.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://api.groq.com/",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "astral.sh": {
+  "host": "astral.sh",
+  "durum": "ok",
+  "libs": {
+   "lottie": 4,
+   "next.js": 283
+  },
+  "github": [
+   "astral-sh/ruff"
+  ],
+  "npm": [],
+  "sitemap_url": 48,
+  "sitemap_ornek": [
+   "https://astral.sh/",
+   "https://astral.sh/blog",
+   "https://astral.sh/about",
+   "https://astral.sh/ruff",
+   "https://astral.sh/pyx",
+   "https://astral.sh/legal/privacy",
+   "https://astral.sh/legal/terms",
+   "https://astral.sh/blog/uv-ty-integration"
+  ],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://astral.sh/",
+  "baslik": "Astral: High-performance Python tooling",
+  "aciklama": "Astral builds high-performance developer tools for the Python ecosystem: Ruff, ty, and uv, an extremely fast Python package manager, written in Rust.",
+  "repo_bilgi": [
+   {
+    "repo": "astral-sh/ruff",
+    "lisans": "mit",
+    "yildiz": 50255,
+    "son": "2026-10-24",
+    "ozet": "An extremely fast Python linter and code formatter, written in Rust."
+   }
+  ]
+ },
+ "code.claude.com": {
+  "host": "code.claude.com",
+  "durum": "ok",
+  "libs": {
+   "lottie": 12,
+   "next.js": 396
+  },
+  "github": [
+   "anthropics/claude-code"
+  ],
+  "npm": [],
+  "sitemap_url": 4368,
+  "sitemap_ornek": [
+   "https://claude.com/",
+   "https://claude.com/check-files",
+   "https://claude.com/claude-for-google-workspace",
+   "https://claude.com/claude-for-microsoft-365",
+   "https://claude.com/claude-in-chrome",
+   "https://claude.com/code-with-claude",
+   "https://claude.com/code-with-claude/code-of-conduct",
+   "https://claude.com/code-with-claude/london"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://claude.com/product/claude-code",
+  "baslik": "Claude Code by Anthropic | AI Coding Agent, Terminal, IDE",
+  "aciklama": "Anthropic&#x27;s agentic coding tool for developers. Claude Code understands your codebase, edits files, runs commands, and helps you ship faster.",
+  "repo_bilgi": [
+   {
+    "repo": "anthropics/claude-code",
+    "lisans": "YOK",
+    "yildiz": 153271,
+    "son": "2026-10-24",
+    "ozet": "Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and he"
+   }
+  ]
+ },
+ "lamafactory.readthedocs.io": {
+  "host": "lamafactory.readthedocs.io",
+  "durum": "hata: HTTPError HTTP Error 404: Not Found",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "tast.fa": {
+  "host": "tast.fa",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "tryhacke.con": {
+  "host": "tryhacke.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "xyz.supabase.co": {
+  "host": "xyz.supabase.co",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "api.apify.com": {
+  "host": "api.apify.com",
+  "durum": "hata: HTTPError HTTP Error 404: Not Found",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "austinmarchese.tech": {
+  "host": "austinmarchese.tech",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "bitbucket.org": {
+  "host": "bitbucket.org",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 6
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://bitbucket.org/",
+  "baslik": "Bitbucket | Git solution for teams using Jira",
+  "aciklama": "Bitbucket Cloud is a Git-based code and CI/CD tool optimized for teams using Jira.",
+  "repo_bilgi": []
+ },
+ "cdn.acttvepteces.con": {
+  "host": "cdn.acttvepteces.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "cdn.jsdelivr.net": {
+  "host": "cdn.jsdelivr.net",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "jsdelivr/jsdelivr",
+   "jsdelivr/jsdelivr-media",
+   "martinkolarik/ractive-route",
+   "ractivejs/ractive"
+  ],
+  "npm": [],
+  "sitemap_url": 16779,
+  "sitemap_ornek": [
+   "https://www.jsdelivr.com",
+   "https://www.jsdelivr.com/about",
+   "https://www.jsdelivr.com/become-a-sponsor",
+   "https://www.jsdelivr.com/documentation",
+   "https://www.jsdelivr.com/esm-benchmark",
+   "https://www.jsdelivr.com/esm",
+   "https://www.jsdelivr.com/esmsh",
+   "https://www.jsdelivr.com/foundationcdn"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.jsdelivr.com/",
+  "baslik": "jsDelivr - A free, fast, and reliable CDN for JS and open source",
+  "aciklama": "Optimized for JS and ESM delivery from npm and GitHub. Works with all web formats. Serving more than 150 billion requests per month.",
+  "repo_bilgi": [
+   {
+    "repo": "jsdelivr/jsdelivr",
+    "lisans": "mit",
+    "yildiz": 6411,
+    "son": "2026-10-05",
+    "ozet": "A free, fast, and reliable Open Source CDN for npm, GitHub, Javascript, and ESM"
+   },
+   {
+    "repo": "jsdelivr/jsdelivr-media",
+    "lisans": "YOK",
+    "yildiz": 3,
+    "son": "2021-07-11",
+    "ozet": "jsDelivr logo files"
+   },
+   {
+    "repo": "martinkolarik/ractive-route",
+    "lisans": "mit",
+    "yildiz": 38,
+    "son": "2026-03-19",
+    "ozet": "Routing library for Ractive.js"
+   },
+   {
+    "repo": "ractivejs/ractive",
+    "lisans": "mit",
+    "yildiz": 5909,
+    "son": "2024-05-22",
+    "ozet": "Next-generation DOM manipulation"
+   }
+  ]
+ },
+ "data.typeracer.con": {
+  "host": "data.typeracer.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "en.gravatar.con": {
+  "host": "en.gravatar.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "github.cm": {
+  "host": "github.cm",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://morefro.com/match-9525/92091/172069907/1792868991/mf_467e2699-c20e-47a7-8f69-d0e33a870e10/YXBpeDA3LWdpdGh1Yi5jbXxITklPTjc1NkVNMlVHMVpOMVoyM1NNN1V8MjA5/feed",
+  "baslik": "",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "hermes-agent.nousresearch.com": {
+  "host": "hermes-agent.nousresearch.com",
+  "durum": "ok",
+  "libs": {
+   "lenis": 1,
+   "next.js": 244
+  },
+  "github": [
+   "nousresearch/hermes-agent"
+  ],
+  "npm": [],
+  "sitemap_url": 1810,
+  "sitemap_ornek": [
+   "https://hermes-agent.nousresearch.com/",
+   "https://hermes-agent.nousresearch.com/desktop",
+   "https://hermes-agent.nousresearch.com/docs",
+   "https://hermes-agent.nousresearch.com/docs/plugins/",
+   "https://hermes-agent.nousresearch.com/docs/plugins/0bull",
+   "https://hermes-agent.nousresearch.com/docs/plugins/aave-mcp",
+   "https://hermes-agent.nousresearch.com/docs/plugins/abstract-provider",
+   "https://hermes-agent.nousresearch.com/docs/plugins/accent-picker"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://hermes-agent.nousresearch.com/",
+  "baslik": "Hermes Agent — Open-Source AI Agent That Grows With You | Nous Research",
+  "aciklama": "Hermes Agent is the open-source, self-hosted AI agent by Nous Research. Persistent memory, self-created skills, and a messaging gateway for Telegram, Discord, Slack, and more. Download Hermes Desktop ",
+  "repo_bilgi": [
+   {
+    "repo": "nousresearch/hermes-agent",
+    "lisans": "mit",
+    "yildiz": 256754,
+    "son": "2026-10-24",
+    "ozet": "The agent that grows with you"
+   }
+  ]
+ },
+ "httrack.com": {
+  "host": "httrack.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "xroche/httrack"
+  ],
+  "npm": [],
+  "sitemap_url": 23,
+  "sitemap_ornek": [
+   "https://www.httrack.com/page/1/en/index.html",
+   "https://www.httrack.com/page/1/fr/index.html",
+   "https://www.httrack.com/page/2/en/index.html",
+   "https://www.httrack.com/page/2/fr/index.html",
+   "https://www.httrack.com/page/4/en/index.html",
+   "https://www.httrack.com/page/4/fr/index.html",
+   "https://www.httrack.com/page/5/en/index.html",
+   "https://www.httrack.com/page/5/fr/index.html"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.httrack.com/",
+  "baslik": "HTTrack Website Copier - Free Software Offline Browser (GNU GPL)",
+  "aciklama": "HTTrack is a free (GPL, libre/free software) and easy-to-use offline browser utility. It allows you to download a World Wide Web site from the Internet to a local directory, building recursively all d",
+  "repo_bilgi": [
+   {
+    "repo": "xroche/httrack",
+    "lisans": "gpl-3.0",
+    "yildiz": 4797,
+    "son": "2026-10-22",
+    "ozet": "HTTrack Website Copier, copy websites to your computer (Official repository)"
+   }
+  ]
+ },
+ "huggingface.co": {
+  "host": "huggingface.co",
+  "durum": "ok",
+  "libs": {
+   "svelte": 15
+  },
+  "github": [
+   "uuidjs/uuid"
+  ],
+  "npm": [],
+  "sitemap_url": 62,
+  "sitemap_ornek": [
+   "https://huggingface.co/models",
+   "https://huggingface.co/datasets",
+   "https://huggingface.co/spaces",
+   "https://huggingface.co/docs",
+   "https://huggingface.co/blog",
+   "https://huggingface.co/pricing",
+   "https://huggingface.co/organizations",
+   "https://huggingface.co/learn"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://huggingface.co/",
+  "baslik": "Hugging Face – The AI community building the future.",
+  "aciklama": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+  "repo_bilgi": [
+   {
+    "repo": "uuidjs/uuid",
+    "lisans": "mit",
+    "yildiz": 15342,
+    "son": "2026-10-23",
+    "ozet": "Generate RFC-compliant UUIDs in JavaScript"
+   }
+  ]
+ },
+ "kfinance.kensho.com": {
+  "host": "kfinance.kensho.com",
+  "durum": "hata: HTTPError HTTP Error 404: Not Found",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "lamafactory.readthedocs.jo": {
+  "host": "lamafactory.readthedocs.jo",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "mcp.apify.con": {
+  "host": "mcp.apify.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "nautilustrader.io": {
+  "host": "nautilustrader.io",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 1,
+   "next.js": 177
+  },
+  "github": [
+   "nautechsystems/nautilus_trader",
+   "paulirish/lite-youtube-embed"
+  ],
+  "npm": [],
+  "sitemap_url": 38,
+  "sitemap_ornek": [
+   "https://nautilustrader.io/",
+   "https://nautilustrader.io/docs/",
+   "https://nautilustrader.io/cloud-platform/",
+   "https://nautilustrader.io/open-source/",
+   "https://nautilustrader.io/institutional/",
+   "https://nautilustrader.io/prediction/",
+   "https://nautilustrader.io/pro/",
+   "https://nautilustrader.io/architect/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://nautilustrader.io/",
+  "baslik": "NautilusTrader: open-source algorithmic trading platform",
+  "aciklama": "Open-source algorithmic trading platform with a Rust-native core, Python strategy API, deterministic backtesting, and live deployment across asset classes and venues.",
+  "repo_bilgi": [
+   {
+    "repo": "nautechsystems/nautilus_trader",
+    "lisans": "lgpl-3.0",
+    "yildiz": 30719,
+    "son": "2026-10-24",
+    "ozet": "Production-grade Rust-native trading engine with deterministic event-driven architecture"
+   },
+   {
+    "repo": "paulirish/lite-youtube-embed",
+    "lisans": "other",
+    "yildiz": 6351,
+    "son": "2025-11-10",
+    "ozet": "A faster youtube embed."
+   }
+  ]
+ },
+ "ollama.com": {
+  "host": "ollama.com",
+  "durum": "ok",
+  "libs": {
+   "tailwind": 1
+  },
+  "github": [
+   "ollama/ollama"
+  ],
+  "npm": [],
+  "sitemap_url": 402,
+  "sitemap_ornek": [
+   "https://ollama.com/",
+   "https://ollama.com/download",
+   "https://ollama.com/search",
+   "https://ollama.com/pricing",
+   "https://ollama.com/blog",
+   "https://ollama.com/library",
+   "https://ollama.com/privacy",
+   "https://ollama.com/terms"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://ollama.com/",
+  "baslik": "Ollama · Run AI models locally and in the cloud",
+  "aciklama": "Ollama is the easiest way to run and build with open AI models locally or in the cloud on macOS, Windows, and Linux.",
+  "repo_bilgi": [
+   {
+    "repo": "ollama/ollama",
+    "lisans": "mit",
+    "yildiz": 184640,
+    "son": "2026-10-24",
+    "ozet": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models."
+   }
+  ]
+ },
+ "open.spotify.com": {
+  "host": "open.spotify.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 21,
+  "sitemap_ornek": [
+   "https://open.spotify.com/",
+   "https://open.spotify.com/intl-id/",
+   "https://open.spotify.com/intl-de/",
+   "https://open.spotify.com/intl-pt/",
+   "https://open.spotify.com/intl-ja/",
+   "https://open.spotify.com/intl-fr/",
+   "https://open.spotify.com/intl-es/",
+   "https://open.spotify.com/intl-tr/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://open.spotify.com/",
+  "baslik": "Spotify - Web Player: Listen to Music, Podcasts, and Audiobooks Online",
+  "aciklama": "Spotify is a digital music service that gives you access to millions of songs, podcasts, and audiobooks. Listen to your favorites online now.",
+  "repo_bilgi": []
+ },
+ "premium.mcp.pitchbook.com": {
+  "host": "premium.mcp.pitchbook.com",
+  "durum": "hata: HTTPError HTTP Error 404: Not Found",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "rocm.docs.amd.com": {
+  "host": "rocm.docs.amd.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "rocm/rocm-docs",
+   "rocm/rocm-examples"
+  ],
+  "npm": [],
+  "sitemap_url": 34,
+  "sitemap_ornek": [
+   "https://rocm.docs.amd.com/en/latest/",
+   "https://rocm.docs.amd.com/en/docs-7.2.4/",
+   "https://rocm.docs.amd.com/en/docs-7.2.3/",
+   "https://rocm.docs.amd.com/en/docs-7.2.2/",
+   "https://rocm.docs.amd.com/en/docs-7.2.1/",
+   "https://rocm.docs.amd.com/en/docs-7.2.0/",
+   "https://rocm.docs.amd.com/en/docs-7.14.1/",
+   "https://rocm.docs.amd.com/en/docs-7.14.0/"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://rocm.docs.amd.com/en/latest/",
+  "baslik": "AMD ROCm &#8212; AMD ROCm 10.1.0",
+  "aciklama": "",
+  "repo_bilgi": [
+   {
+    "repo": "rocm/rocm-docs",
+    "lisans": "mit",
+    "yildiz": 5,
+    "son": "2026-10-24",
+    "ozet": "Source for the ROCm documentation website (rocm.docs.amd.com)"
+   },
+   {
+    "repo": "rocm/rocm-examples",
+    "lisans": "mit",
+    "yildiz": 327,
+    "son": "2026-10-23",
+    "ozet": "A collection of examples for the ROCm software stack"
+   }
+  ]
+ },
+ "skills.sh": {
+  "host": "skills.sh",
+  "durum": "ok",
+  "libs": {
+   "gsap": 28,
+   "lottie": 2,
+   "tailwind": 4,
+   "shadcn": 10,
+   "next.js": 72,
+   "lucide": 11
+  },
+  "github": [
+   "vercel-labs/skills"
+  ],
+  "npm": [],
+  "sitemap_url": 18300,
+  "sitemap_ornek": [
+   "https://www.skills.sh/",
+   "https://www.skills.sh/hot",
+   "https://www.skills.sh/trending",
+   "https://www.skills.sh/picks",
+   "https://www.skills.sh/audits",
+   "https://www.skills.sh/official",
+   "https://www.skills.sh/search",
+   "https://www.skills.sh/docs"
+  ],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.skills.sh/",
+  "baslik": "The Agent Skills Directory",
+  "aciklama": "Discover and install skills for AI agents.",
+  "repo_bilgi": [
+   {
+    "repo": "vercel-labs/skills",
+    "lisans": "mit",
+    "yildiz": 36389,
+    "son": "2026-10-19",
+    "ozet": "The open agent skills tool - npx skills"
+   }
+  ]
+ },
+ "skool.com": {
+  "host": "skool.com",
+  "durum": "ok",
+  "libs": {
+   "next.js": 46
+  },
+  "github": [
+   "styled-components/styled-components",
+   "uuidjs/uuid",
+   "zloirock/core-js"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.skool.com/",
+  "baslik": "Skool: Discover Communities or Create Your Own",
+  "aciklama": "Skool is a community platform. You can discover communities or create your own. Some are free, some paid. People earn full-time incomes building on Skool. You can, too!",
+  "repo_bilgi": [
+   {
+    "repo": "styled-components/styled-components",
+    "lisans": "mit",
+    "yildiz": 41062,
+    "son": "2026-10-19",
+    "ozet": "Fast, expressive styling for React. Server components, client components, streaming SSR, React Nativ"
+   },
+   {
+    "repo": "uuidjs/uuid",
+    "lisans": "mit",
+    "yildiz": 15342,
+    "son": "2026-10-23",
+    "ozet": "Generate RFC-compliant UUIDs in JavaScript"
+   },
+   {
+    "repo": "zloirock/core-js",
+    "lisans": "mit",
+    "yildiz": 25526,
+    "son": "2026-10-24",
+    "ozet": "Standard Library"
+   }
+  ]
+ },
+ "t.me": {
+  "host": "t.me",
+  "durum": "ok",
+  "libs": {
+   "lottie": 55
+  },
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "yok",
+  "alt_sayfa_izinli": true,
+  "final": "https://telegram.org/",
+  "baslik": "Telegram Messenger",
+  "aciklama": "",
+  "repo_bilgi": []
+ },
+ "t.ne": {
+  "host": "t.ne",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ },
+ "trello.com": {
+  "host": "trello.com",
+  "durum": "ok",
+  "libs": {
+   "framer-motion/motion": 2
+  },
+  "github": [
+   "styled-components/styled-components"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://trello.com/",
+  "baslik": "Capture, organize, and tackle your to-dos from anywhere",
+  "aciklama": "Make the impossible, possible with Trello. The ultimate tool to boost your productivity. Escape the clutter and chaos—stay efficient with Inbox, Boards, and Planner from anywhere, even on mobile.",
+  "repo_bilgi": [
+   {
+    "repo": "styled-components/styled-components",
+    "lisans": "mit",
+    "yildiz": 41062,
+    "son": "2026-10-19",
+    "ozet": "Fast, expressive styling for React. Server components, client components, streaming SSR, React Nativ"
+   }
+  ]
+ },
+ "trendyol.com": {
+  "host": "trendyol.com",
+  "durum": "ok",
+  "libs": {},
+  "github": [
+   "jonschlinkert/is-plain-object",
+   "jonschlinkert/isobject",
+   "mourner/suncalc",
+   "simonwep/nanopop",
+   "simonwep/pickr"
+  ],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "var",
+  "alt_sayfa_izinli": true,
+  "final": "https://www.trendyol.com/",
+  "baslik": "En Trend Ürünler Türkiye'nin Online Alışveriş Sitesi Trendyol'da",
+  "aciklama": "Giyim, bilgisayar, cep telefonu, kozmetik, beyaz eşya, süpermarket ve daha aradığın yüz binlerce indirimli ürün en uygun fiyatlar ve kampanyalarla ...",
+  "repo_bilgi": [
+   {
+    "repo": "jonschlinkert/is-plain-object",
+    "lisans": "mit",
+    "yildiz": 157,
+    "son": "2026-08-21",
+    "ozet": "Returns true if the given value is an object created by the Object constructor."
+   },
+   {
+    "repo": "jonschlinkert/isobject",
+    "lisans": "mit",
+    "yildiz": 107,
+    "son": "2026-08-21",
+    "ozet": "Is the value an object, and not an array or null?"
+   },
+   {
+    "repo": "mourner/suncalc",
+    "lisans": "bsd-2-clause",
+    "yildiz": 3505,
+    "son": "2026-10-05",
+    "ozet": "A tiny JavaScript library for calculating sun/moon positions and phases."
+   },
+   {
+    "repo": "simonwep/nanopop",
+    "lisans": "mit",
+    "yildiz": 717,
+    "son": "2025-03-09",
+    "ozet": "🍦 Minimalistic, small, positioning engine. Build for high-performance, minimal footprint and maximum"
+   },
+   {
+    "repo": "simonwep/pickr",
+    "lisans": "mit",
+    "yildiz": 4490,
+    "son": "2026-09-08",
+    "ozet": "🎨 Pickr - A simple, multi-themed, responsive and hackable Color-Picker library. No dependencies, no "
+   }
+  ]
+ },
+ "w.codecadeay.con": {
+  "host": "w.codecadeay.con",
+  "durum": "hata: URLError <urlopen error [Errno 11001] getaddrinfo failed>",
+  "libs": {},
+  "github": [],
+  "npm": [],
+  "sitemap_url": 0,
+  "sitemap_ornek": [],
+  "robots": "",
+  "alt_sayfa_izinli": null,
+  "repo_bilgi": []
+ }
+}

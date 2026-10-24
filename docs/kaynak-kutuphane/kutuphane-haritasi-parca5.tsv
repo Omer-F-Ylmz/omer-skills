@@ -1,0 +1,11 @@
+kutuphane	siteler	ne_icin	lisans	repo
+next.js	astral.sh,code.claude.com,hermes-agent.nousresearch.com,insforge.dev,nautilustrader.io,skills.sh,skool.com	React framework	MIT	vercel/next.js
+lottie	astral.sh,code.claude.com,skills.sh,t.me	vektör animasyon oynatma	MIT	airbnb/lottie-web
+lucide	crowdin.com,insforge.dev,skills.sh	ikon	ISC	lucide-icons/lucide
+gsap	insforge.dev,skills.sh	timeline/scroll animasyon	GSAP Standard	greensock/GSAP
+webgl-shader	freesound.org,lnkd.in	GLSL shader	-	-
+framer-motion/motion	bitbucket.org,trello.com	React/JS animasyon	MIT	motiondivision/motion
+astro	crowdin.com			
+svelte	huggingface.co	UI framework	MIT	sveltejs/svelte
+tailwind	skills.sh	utility CSS	MIT	tailwindlabs/tailwindcss
+shadcn	skills.sh	bileşen dağıtım modeli	MIT	shadcn-ui/ui
