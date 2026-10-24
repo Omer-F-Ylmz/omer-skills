@@ -5,7 +5,7 @@ Efor: mekanik iş (ölçüm koşusu, paketleme, birleştirme, kapı tekrarı) me
 Başlatma koşulu: RAM < ESIK, bu yöneticinin çalışanı < TAVAN, iki başlatma arası >= ARA sn. Durdurma: .kos/kopru/ajan-sira.dur
 Çıktı: .kos/kopru/ajan-sira/<ad>.json · günlük .kos/kopru/ajan-sira.log (arka.py ile koşar).
   python arka.py .kos/kopru/ajan-sira.log .kos/kopru/ajan_sira.py"""
-import atexit, ctypes, io, json, os, re, subprocess, sys, tempfile, time, uuid
+import atexit, ctypes, io, json, os, re, shutil, subprocess, sys, tempfile, time, uuid
 from pathlib import Path
 
 import maliyet_defter  # maliyet.tsv: biten her iş + haftalık Haiku-zayıf türler (merdiven başlangıcı)
@@ -300,15 +300,51 @@ DEVAM = {}  # ad → kesilen oturumun session_id'si (transkript varsa --resume) 
 DEVAM_ISTEM = "Oturum yönetici/Desktop kapanınca yarıda kesildi. Kaldığın yerden devam et, görevi bitir ve raporla."
 
 
+GIT_BASH = Path(r"C:\Program Files\Git\bin")
+
+
+def bash_yolu_ekle(env):
+    """RC1-TESHIS-1 (a): Windows PATH'inde bash yok → eklentilerin 'bash' SessionEnd hook'u 'Executable not found' verip rc'yi 1 yapıyordu.
+    Hook kalkmaz; çocuk süreç PATH'ine Git Bash dizini eklenir (zaten varsa dokunulmaz)."""
+    if (GIT_BASH / "bash.exe").exists() and not shutil.which("bash", path=env.get("PATH", "")):
+        env["PATH"] = f"{env.get('PATH', '')};{GIT_BASH}".lstrip(";")
+    return env
+
+
+def json_satir(s):
+    """RC1-TESHIS-1: satırdaki İLK geçerli JSON nesnesi (raw_decode); arkasına yapışan hook hata metni ('Extra data') yok sayılır. Yoksa None."""
+    if s.startswith("{"):
+        try:
+            j, _ = json.JSONDecoder().raw_decode(s)
+            return j if isinstance(j, dict) else None
+        except ValueError:
+            pass
+    return None
+
+
 def sonuc_var(ad):
     """ad.json'un son JSON satırı claude -p sonucu (type=result) mu? Öldürülen iş sonucu sonda yazdığı için boş/yarım kalır."""
     try:
         for s in reversed((CIKTI / f"{ad}.json").read_text(encoding="utf-8", errors="replace").splitlines()):
             if s.startswith("{"):
-                return json.loads(s).get("type") == "result"
-    except (OSError, ValueError):
+                return (json_satir(s) or {}).get("type") == "result"
+    except OSError:
         pass
     return False
+
+
+def kopya_calisiyor(ad):
+    """RC1-TESHIS-1 (c): aynı işin RAM-yeniden (-b) / basamak (-r) kopyası koşuyor ya da bitmişse neden metni, yoksa ''. KURTAR ikinci kopya açmaz."""
+    for ek in ("-b", "-r"):
+        f = CIKTI / f"{ad}{ek}.basladi"
+        if not f.exists():
+            continue
+        if sonuc_var(ad + ek):
+            return f"{ad}{ek} bitmiş"
+        p = f.read_text(encoding="utf-8", errors="replace").split()
+        if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
+            return f"{ad}{ek} koşuyor"
+    return ""
 
 
 def git_var(ad):
@@ -330,6 +366,9 @@ def kurtar(satirlar, baslayan):
             continue
         p = f.read_text(encoding="utf-8", errors="replace").split()
         if len(p) >= 3 and p[1] == "pid" and p[2].isdigit() and pid_canli(p[2]) and claude_sureci(p[2], f.stat().st_mtime):
+            continue
+        if neden := kopya_calisiyor(ad):
+            log("KURTAR-ATLA", ad, f"tek kopya kilidi: {neden}")
             continue
         kardes = next((x[0] for x in satirlar if x[0] != ad and x[1] == dosya and sonuc_var(x[0])), None)
         if kardes:
@@ -592,6 +631,7 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
         argv[i] = str(kayit)
     env.setdefault("MCP_TIMEOUT", "240000")  # RUFLO-BAG-1: yük altında ruflo soğuk başlangıcı ~165 sn; CC varsayılanı 30 sn → MCP 'failed', araçlar hiç gelmiyordu
     env.update(ajan_ram_bekci.TARAYICI_ENV)  # TARAYICI-KAPI-1: BROWSER=none, CI=1, OPEN_BROWSER=false → ajan alt süreçleri Opera açmaz
+    bash_yolu_ekle(env)
     env["AJAN_SIRA_KUYRUK"] = "1"  # SAYAC-FIX-1: cagri_sayac.py bu ajanda devir/DUR uyarısı basmaz
     if "max-old-space-size" not in env.get("NODE_OPTIONS", ""):  # RAM-1: ajan başı node MCP'leri (rea, chrome-devtools) sınırsız heap büyütmesin
         env["NODE_OPTIONS"] = (env.get("NODE_OPTIONS", "") + " --max-old-space-size=2048").strip()
@@ -638,12 +678,13 @@ def sonuc_temizle(ad):
     yol = CIKTI / f"{ad}.json"
     temiz, stray = [], []
     for s in yol.read_text(encoding="utf-8", errors="replace").splitlines():
-        try:
-            json.loads(s)
-            temiz.append(s)
-        except ValueError:
-            if s.strip():
-                stray.append(s)
+        if json_satir(s):
+            j, son = json.JSONDecoder().raw_decode(s)
+            temiz.append(s[:son])
+            if s[son:].strip():  # JSON'un arkasına yapışan hook hata metni
+                stray.append(s[son:].strip())
+        elif s.strip():
+            stray.append(s)
     if stray:
         yol.write_text("\n".join(temiz) + "\n", encoding="utf-8")
         (CIKTI / f"{ad}.stray.txt").write_text("\n".join(stray) + "\n", encoding="utf-8")
@@ -656,10 +697,7 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False):
     j = {}
     for s in reversed((CIKTI / f"{ad}.json").read_text(encoding="utf-8", errors="replace").splitlines()):
         if s.startswith("{"):
-            try:
-                j = json.loads(s)
-            except ValueError:
-                pass
+            j = json_satir(s) or {}
             break
     u = j.get("usage") or {}
     agir = (u.get("input_tokens", 0) + 1.25 * u.get("cache_creation_input_tokens", 0) + 0.1 * u.get("cache_read_input_tokens", 0)
@@ -670,7 +708,7 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False):
     with ISKAYDI.open("a", encoding="utf-8") as f:
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{efor or '-'}\t{dk:.0f}\t{j.get('num_turns', 0)}\t{agir:.0f}\t"
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
-    ok = rc == 0 and j.get("subtype") == "success"
+    ok = j.get("subtype") == "success"  # RC1-TESHIS-1: hook hatası rc'yi 1 yapsa da sonuç success ise başarılı
     usd = j.get("total_cost_usd", 0)
     if model == "ucretsiz":  # UCRETSIZ-MOTOR-1: Claude'a harcama yok (claude'un tahmini fiyatı yazılmaz); kabul satırı raporda yoksa başarısız → üst basamak
         usd = 0

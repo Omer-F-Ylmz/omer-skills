@@ -673,3 +673,45 @@ def test_ara_aralik_100_sn_ve_dongu_kullanir():
     """YARIM-B1 5: yoklama 30 sn adımlı; eşik 100 sn → ara olay aralığı ≤2 dk (önceden 2.0–2.6)."""
     assert ajan_sira.ARA_ARALIK == 100
     assert "time.time() - ara_t >= ARA_ARALIK" in Path(ajan_sira.__file__).read_text(encoding="utf-8")
+
+
+def test_is_kaydi_hook_hatasi_rc1_yine_basari(tmp_path, monkeypatch):
+    """RC1-TESHIS-1: JSON'un arkasına SessionEnd hook hata satırı (aynı satırda da) → rc 1 olsa da subtype=success BAŞARILI."""
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")
+    j = '{"type":"result","subtype":"success","num_turns":3,"total_cost_usd":0.2,"result":"tamam"}'
+    (tmp_path / "h1.json").write_text(j + "\nSessionEnd hook [bash x] failed: Executable not found in $PATH: \"bash\"\n", encoding="utf-8")
+    (tmp_path / "h2.json").write_text(j + "SessionEnd hook [bash x] failed\n", encoding="utf-8")
+    assert ajan_sira.is_kaydi("h1", 1, 4.0, "", "haiku") is True
+    assert ajan_sira.is_kaydi("h2", 1, 4.0, "", "haiku") is True
+    assert ajan_sira.sonuc_var("h2") is True
+    ajan_sira.sonuc_temizle("h2")
+    assert json.loads((tmp_path / "h2.json").read_text(encoding="utf-8").strip())["subtype"] == "success"
+    assert "SessionEnd" in (tmp_path / "h2.stray.txt").read_text(encoding="utf-8")
+
+
+def test_kurtar_yeniden_kopya_canliysa_ikinci_kopya_yok(tmp_path, monkeypatch):
+    """RC1-TESHIS-1 (c): ad-b (RAM yeniden) koşuyorken ya da bitmişken ad için KURTAR --resume açılmaz."""
+    _kurtar_ortam(tmp_path, monkeypatch)
+    monkeypatch.setattr(ajan_sira, "pid_canli", lambda p: True)
+    monkeypatch.setattr(ajan_sira, "claude_sureci", lambda p, t: True)
+    _olu_is(tmp_path, "is-k")
+    (tmp_path / "is-k-b.basladi").write_text("12:00:00 pid 4242", encoding="utf-8")
+    (tmp_path / "is-k-b.json").write_text("", encoding="utf-8")
+    assert ajan_sira.kurtar([("is-k", "g.md")], {"is-k", "is-k-b"}) == {}
+    assert not (tmp_path / "is-k.kurtar").exists()
+    monkeypatch.setattr(ajan_sira, "pid_canli", lambda p: False)  # kopya öldü, sonuç da yok → asıl iş kurtarılır
+    assert ajan_sira.kurtar([("is-k", "g.md")], {"is-k"}) == {"is-k": None}
+    (tmp_path / "is-k-b.json").write_text('{"type":"result","subtype":"success"}\n', encoding="utf-8")  # kopya bitti → kurtarma gereksiz
+    (tmp_path / "is-k.kurtar").unlink()
+    assert ajan_sira.kurtar([("is-k", "g.md")], {"is-k"}) == {}
+
+
+def test_bash_yolu_ekle(tmp_path, monkeypatch):
+    """RC1-TESHIS-1 (a): PATH'te bash yoksa Git Bash dizini eklenir; varsa PATH aynen kalır."""
+    (tmp_path / "bash.exe").write_text("", encoding="utf-8")
+    monkeypatch.setattr(ajan_sira, "GIT_BASH", tmp_path)
+    e = ajan_sira.bash_yolu_ekle({"PATH": r"C:\Windows\system32"})
+    assert e["PATH"] == rf"C:\Windows\system32;{tmp_path}"
+    assert ajan_sira.bash_yolu_ekle(dict(e))["PATH"] == e["PATH"]
