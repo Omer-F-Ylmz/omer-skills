@@ -12,7 +12,9 @@ TUR = [  # (desen, MCP'ler); türler birleşir
     (r"(?i)site-3d|\b(site|landing|three(\.js)?|webgl|3d|frontend)\b", ["rea", "playwright", "chrome-devtools", "context7", "21st"]),
     (r"(?i)\b(render\w*|blender)\b", ["blender"]),
     (r"(?i)\bvideo\w*", ["premiere-pro"]),
+    (r"(?i)\b(typescript|javascript|node(\.js)?|npm|package\.json|next(\.js)?|react|tsx?|jsx?)\b", ["stalemap"]),  # STALEMAP-KUR-2
 ]
+STALEMAP = {"command": "npx", "args": ["-y", "stalemap@0.4.1", "mcp"]}  # ~/.claude.json'da yok; eklenti .mcp.json'unun aynısı
 KEEP = {  # MCP-AÇ-2: yalnız bu araçlar açık kalır; listede olmayan MCP'ler (blender, context7, premiere-pro) tam kalır
     "ruflo": ["agentdb_pattern-search", "agentdb_pattern-store", "hooks_intelligence_pattern-search", "hooks_intelligence_pattern-store", "memory_search", "memory_store", "memory_retrieve"],
     "rea": ["capture_web_screenshot", "inspect_web_page", "analyze_web_bundle", "compare_web_screenshots", "compare_web_captures",
@@ -40,7 +42,7 @@ def codemode():
 
 
 def tanimlar():
-    t = {}
+    t = {"stalemap": STALEMAP}
     for f in KAYNAK:
         try:
             d = json.loads(f.read_text(encoding="utf-8"))
