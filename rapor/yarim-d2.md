@@ -15,3 +15,12 @@
   - `loo.json` yerel için %1,29 gösteriyor ama uzlaşılmayan bloklar joker sayıldığından alt sınır; hedefin kanıtı sayılmaz.
   - ÖMER: 2–3 klibin (~300 kelime) altın metnini kulakla doğrula; ancak bağımsız referansla %2 iddiası doğrulanır ya da çürür.
 - Kod/test değişikliği yok, commit yok (yalnız rapor + plan satırı).
+
+## DEVAM (24 Eki, akşam): kelime WER <%2, ROVER yolu
+- **Kelime WER <%2: DEVAM / kanıtlanamadı.** Ömer'e elle transkript yok (karar 24 Eki 16:20). Gemini ses-girdili döküm zaten vardı; Mistral Türkçe desteklemiyor (%34), havuz dışı. ROVER: groq (pivot) + gemini + yerel large-v3, 4017 kelime, 342 ayrışma kümesi → `.kos/kopru/wer-altin/rover/<id>.txt` (`tools/rover_ref.py`).
+- **Belirsiz** (üçü ayrışan): 98 kelime = %2,44 (≤%3) → zaman damgalı liste gerekmedi; blokları `rover/belirsiz.json`. ÖMER (isteğe bağlı): yok.
+- **Ölçüm** (`tools/rover_olc.py`, ROVER ref lehine yanlı: üç kaynağın oyundan çıktı): yerel large-v3 %2,76 · groq %6,30 · gemini %6,52 · ROVER'ın eski altına farkı %5,0 (altın groq-pivotlu ve hatalıydı: `claude→klad`, `github reposu→gitar pripası`, `codex te→kodekste`; ROVER bunları düzeltiyor). Eski altına karşı groq %2,95 yanlıydı; gerçek sıralama yerel > groq ≈ gemini.
+- **Hedef <%2 tutmadı/kanıtlanamıyor:** en iyi tek kaynak yerel %2,76 (biased alt sınır); ROVER üretim adayı olarak ölçülemez (kendi referansı), 3 kaynak çalıştırmak (Gemini kotası+Groq+GPU) video başına maliyetli. Bağımsız altın olmadan %2 iddiası doğrulanamaz.
+- **Klip kenarı kesilmesi (adım 3): üretimde yok.** `video_derin.groq_asr` tam sesi tek dosya yollar (≤15 MB); kesik kelime ölçüm harnesinin klip kesiminden. Ayrışma kümelerinin yalnız 7/342'si (%2) klip kenarında → segment örtüşmesi eklenmedi (kusur yok, kırmızı test yok).
+- **Ekran adı düzeltici (adım 4): bu 13 klipte etkisi 0.** Groq çıktısında 0 düzeltme (10 klipte OCR var, 3'ünde derin JSON yok; `posthog/claude` ekranda yazılı değil) → WER değişmedi (%6,30→%6,30 ROVER, %2,95→%2,95 altın). Etkiyi ölçmek için adın ekranda geçtiği klipler gerekir.
+- Test: `tests/test_rover_ref.py` (2) + wer testleri 5 geçti. Commit aşağıda.
