@@ -1,0 +1,100 @@
+{
+"diğer": [
+"gitleaks",
+"semgrep",
+"skillspector",
+"mcp-builder",
+"systematic-debugging",
+"test-driven-development",
+"pixeljury",
+"remotion-video-paket"
+],
+"kurulum": [
+"gitleaks",
+"semgrep",
+"awesome-rehber",
+"convex-paket",
+"ecc:opensource-packager",
+"playwright",
+"katalog_kanca",
+"davila7-security-paket"
+],
+"video": [
+"pixeljury",
+"hyperframes-paket",
+"remotion-video-paket",
+"video-uygula",
+"video-tarama",
+"premiere-pro",
+"is-akisi",
+"yt-dlp"
+],
+"fikir-karar": [
+"pln-fikir-olgunlastir",
+"21st",
+"chrome-devtools",
+"ajn-ajan-orkestrasyon",
+"ecc-orkestrasyon-paket",
+"premiere-pro",
+"lifekernel-monthly-review",
+"pln-hedef-planlayici"
+],
+"belge": [
+"ai-labs-paket",
+"daymade-belge-finans-macos-paket",
+"markitdown",
+"summarize",
+"gitleaks",
+"headroom-compress",
+"semgrep",
+"departman-belge"
+],
+"guvenlik": [
+"gitleaks",
+"semgrep",
+"ecc-agentshield",
+"strix",
+"skillspector",
+"playwright",
+"rea",
+"sec-guvenlik-raporu"
+],
+"mod": [
+"blender",
+"gitleaks",
+"semgrep",
+"rtk",
+"gh",
+"is-akisi",
+"video-tarama",
+"video-tarayici"
+],
+"logo-gorsel": [
+"playwright",
+"yt-dlp"
+],
+"site-3d": [
+"playwright",
+"frontend-craft",
+"threejs-3d-paket",
+"web-sahne-desenleri",
+"gsap-skills:gsap-core",
+"rea",
+"semgrep",
+"gitleaks"
+],
+"kod-backend": [
+"convex",
+"octo:droids:octo-backend-architect",
+"premiere-pro"
+],
+"render": [
+"bl-python-betik",
+"gitleaks",
+"playwright",
+"rea",
+"semgrep",
+"blender-uretim",
+"ucretsiz_havuz"
+]
+}

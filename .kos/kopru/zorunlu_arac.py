@@ -265,6 +265,20 @@ def kombinler(metin, k=2):
         return []
 
 
+SECICI_KOK = None  # test: sahte kart kökü
+
+
+def secici_satir(metin, tur):
+    """BEYIN-ARAC-KART-1: işe özel önerilen küme (arac_ara.sec: kart sırası + geçmişte birlikte KABUL alan eşler + iş türü tarifi); kart yoksa ''."""
+    try:
+        sys.path.insert(0, str(KOK / "tools"))
+        import arac_ara
+        r = arac_ara.sec(kapsam(metin), SECICI_KOK, None if tur == "diğer" else tur)
+        return "SEÇİCİ (arac_ara, işe özel, isteğe bağlı): " + ", ".join(r["kume"]) if r["kume"] else ""
+    except Exception:
+        return ""
+
+
 def blok(ad, metin):
     ar = araclar(metin)
     if not ar:
@@ -287,6 +301,8 @@ def blok(ad, metin):
     if gorsel_gerek(metin):
         s.append("- gorsel_hakem (görsel iş: `python .kos/kopru/gorsel_hakem.py` çağrısı olmadan kanit_eksik)")
     s += [f"- KOMBİN {o['id']}: " + " > ".join(o["adimlar"]) for o in kombin]
+    if sec := secici_satir(metin, tur):
+        s.append(sec)
     s.append("YARATICI KOMBİN: " + yaratici(metin, tur))
     if gec:
         s.append(f"GEÇMİŞ ({tur}): {gec}")

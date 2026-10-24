@@ -14,3 +14,4 @@ description: Picks the best 1-3 proven tool combinations (skill + MCP + CLI chai
 7. Report one line: `kombin: <id> · adimlar kullanilan/toplam`.
 
 New combo idea after a job? Add it to your report as `kombin-oneri: <id> · amac · adimlar`; the owner approves before it is added.
+6. Tool lookup: `references/arac-kartlari.md` holds one short card per installed tool (what, when, not-when, call pattern, good partners, history); `references/kombin-gecmis.md` lists tool sets that succeeded per job type. Grep them by keyword; open a tool's own SKILL.md only for detail.

@@ -248,6 +248,11 @@ def main():
     for f in (jl, CIKTI / "yetenek.tsv", CIKTI / "ogrenim.jsonl", Path(katalog_ara.__file__)):
         shutil.copy2(f, KOK / "skills" / "yetenek-getir" / f.name)
     shutil.copy2(KOK / "tools" / "plan_kur.py", KOK / "skills" / "plan-kur" / "plan_kur.py")
+    try:  # BEYIN-ARAC-KART-1: yeni kurulan araç katalogla birlikte kart + bölüm indeksi alır (kaynak hash'i değişenler yenilenir)
+        import arac_kart
+        print("arac-kart", arac_kart.yenile())
+    except Exception as e:
+        print("arac-kart atlandı:", type(e).__name__, e)
     from collections import Counter
     print(len(rows), dict(Counter(o["tur"] for o in rows)), "ozet_bekliyor", sum(o["ozet_bekliyor"] for o in rows),
           "is_bos", sum(not o["is"] for o in rows))
