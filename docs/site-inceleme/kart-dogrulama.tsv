@@ -197,7 +197,7 @@ stitch.build	dogrulandi	1	3	mistral/ministral-14b-latest
 styles.refero.design	hakem-yok-	0	0	-
 superdesign.dev	hakem-yok-	0	0	-
 swarms.xyz	dogrulandi	8	3	nvidia/nvidia/nemotron-3-ultra-550b-a55b
-temlis.com	hakem-yok-	0	0	-
+temlis.com	dogrulandi	3	1	openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
 textures.com	hakem-yok-	0	0	-
 theincubator.xyz	dogrulandi	2	2	mistral/ministral-14b-latest
 theunwindai.com	dogrulandi	3	1	mistral/ministral-14b-latest
@@ -222,6 +222,8 @@ wallhang.com	kanit-yok	0	0	-
 webild.io	dogrulandi	1	3	openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
 websiteprompts.ai	hakem-yok-	0	0	-
 webzooo.com	dogrulandi	1	2	mistral/ministral-14b-latest
+whatships.com	dogrulandi	1	3	gemini/gemini-3.6-flash
 wordtune.com	hakem-yok-	0	0	-
 yapaytu.com	dogrulandi	0	4	groq/openai/gpt-oss-20b
+zed.dev	dogrulandi	2	2	groq/openai/gpt-oss-120b
 zoetrope.furkankly.dev	dogrulandi	3	1	mistral/ministral-14b-latest

@@ -3,6 +3,7 @@ site: https://whatships.com
 tur: ikon/font/gorsel
 kaynak: icerik+teknik
 kart-modeli: mistral/ministral-8b-latest
+dogrulama: dogrulandi (kanitli=1 kanitsiz=3 hakem=gemini/gemini-3.6-flash)
 ---
 # whatships.com
 
@@ -11,13 +12,13 @@ kart-modeli: mistral/ministral-8b-latest
   X platformından startup ve ürün lansman videolarının kategorize edilmiş derlemesi (AI, Developer Tools, Design, Motion, Productivity, Hardware, Consumer, Other). Kategorilere göre filtrelenmiş videolar.
 
 - **Ücretsiz kısım**
-  Tüm videolar ücretsiz izlenebilir; kategorilere göre arama ve filtreleme özgür.
+  Tüm videolar ücretsiz izlenebilir; kategorilere göre arama ve filtreleme özgür. ⚠[kanitsiz]
 
 - **İndirilebilir varlık/kaynak kod**
-  **Yok** (kanıt: `github: []`, `dl: []`).
+  **Yok** (kanıt: `github: []`, `dl: []`). ⚠[kanitsiz]
 
 - **Teknoloji**
-  Frontend: **Three.js** (3D animasyonlar için kullanım kanıtı yok, ancak site dinamik görseller barındırır). Diğer teknolojiler: **Google Tag Manager**, **Cloudflare Insights** (izleme scriptleri).
+  Frontend: **Three.js** (3D animasyonlar için kullanım kanıtı yok, ancak site dinamik görseller barındırır). Diğer teknolojiler: **Google Tag Manager**, **Cloudflare Insights** (izleme scriptleri). ⚠[kanitsiz]
 
 - **Bizde kullanım**
   **İkon/Font/Görsel tasarımcılar** (UI/UX animasyonları için referans), **Startup marka yöneticileri** (ürün lansman videoları için ilham), **AI/Developer Tools kullanıcıları** (yeni araçların tanıtım videolarını izlemek).
