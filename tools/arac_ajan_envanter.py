@@ -11,10 +11,10 @@ BASLIK = ["arac", "tur", "ozellik", "ne_yapar", "bizde_karsiligi", "akista_adim"
 # kart etiketi → regex (kelime sınırlı; yalnız açıklama/ad metninde). Öncelik sırası = sözlük sırası.
 KART = {
     "swarm": r"\b(swarm|hive|queen|consensus|raft|multi-?agent)\b",
-    "is-akisi": r"\b(workflow engine|orchestrat\w*|orkestrasyon|dispatch\w*|ralph|conductor|herdr|loopy|dmux|devfleet|gsd|octo|(agent|autonomous) loops?)\b",
-    "ogrenen-bellek": r"\b(agent memory|long-term memory|memory (store|layer|system)s?|self-learning|continuous.learning|learning loop|instincts?|reasoningbank|self-improv\w*|mem-search|agentmemory|agentdb)\b",
+    "is-akisi": r"\b(orchestrat\w*|orkestrasyon|dispatch\w*|ralph|conductor|herdr(?![-\w])|herdr-paket|loopy|dmux|devfleet|gsd|octo-paket|(agent|autonomous) loops?)\b",
+    "ogrenen-bellek": r"\b(agent memory|long-term memory|memory (store|layer|system)s?|continuous.learning|learning loop|instincts?|reasoningbank|self-improv\w*|mem-search|agentmemory|agentdb)\b",
     "hakem": r"\b(llm judge|judge model|council|multi-?model|arbiter|cross-model|a2a|model router|llm router|omniroute (combos?|routing)|yönlendirici|9router (combos?|routing))\b",
-    "hook": r"\b((pre|post)-?tool-?use|(session-?start|stop|claude code|git|pre-commit) hooks?|hooks? (system|engine|runner|rules?)|tdd-guard|gateguard)\b",
+    "hook": r"\b((pre|post)-?tool-?use|(session-?start|stop|claude code|git|pre-commit) hooks?|hooks? (system|engine|runner|rules?)|tdd-guard|gateguard|hookify|(create|write|add) (claude code )?hooks?)\b",
     "ajan": r"\b(sub-?agents?|orchestrator|coordinator)\b",
 }
 # kart etiketi → (bizde karşılığı, akıştaki adım, RAM/token maliyeti)
@@ -34,17 +34,15 @@ def kartlar(ad, metin, sayac=None):
     if sayac:
         if sayac["ajan"] > 0 and "ajan" not in et:
             et.append("ajan")
-        if sayac["hook"] and "hook" not in et:
-            et.append("hook")
     return et
 
 
 def eklenti_ayir(oz):
     """'N skill · N komut · N ajan · N MCP · [hook ·] açık · açıklama' → (sayaç, açıklama); biçim tutmazsa (None, oz)."""
     p = oz.split(" · ")
-    if len(p) < 6 or not p[2].endswith("ajan"):
+    if len(p) < 5 or not p[2].endswith("ajan"):
         return None, oz
-    return {"ajan": int(p[2].split()[0]), "hook": "hook" in p[4:6]}, p[-1]
+    return {"ajan": int(p[2].split()[0])}, re.sub(r"^(açık|kapalı) — ", "", p[-1])
 
 
 def sec(etiketler):
@@ -75,12 +73,21 @@ CEKIRDEK = [
 def main():
     with open(GIRDI, encoding="utf-8", errors="replace", newline="") as f:
         satirlar = list(csv.DictReader(f, delimiter="\t"))
+    # kaynakta açıklaması boş kalan 5 ad: skill adı ve kullanımından elle
+    aciklama = {"tdd-guard": "testten önce kod yazmayı engelleyen kanca", "design-mastery": "tasarım eklentisi (kaynakta açıklama yok)",
+                "dispatching-parallel-agents": "bağımsız işleri paralel alt ajanlara dağıtır",
+                "subagent-driven-development": "görev başına taze alt ajan ve iki aşamalı inceleme",
+                "superpowers-subagent-driven-development": "görev başına taze alt ajan ve iki aşamalı inceleme"}
+    for s in satirlar:
+        if len(s["ozellik"]) > 20:
+            aciklama.setdefault(s["ad"].lower(), eklenti_ayir(s["ozellik"])[1])
     cikti = [c + (", ".join(kartlar(c[0], c[2] + " " + c[3])) or "çekirdek-araç",) for c in CEKIRDEK]
     gorulen = {c[0].lower() for c in CEKIRDEK}
     for s in satirlar:
         if s["tur"] == "arastirilan" or s["ad"].lower() in gorulen:
             continue
         sayac, acik = eklenti_ayir(s["ozellik"]) if s["tur"] == "plugin" else (None, s["ozellik"])
+        acik = acik or aciklama.get(s["ad"].lower(), "")  # boş açıklama: aynı adlı başka satırdan
         et = kartlar(s["ad"], acik, sayac)
         if s["tur"] == "ajan":  # alan uzmanı ajan tanımı araç özelliği değil; yalnız orkestrasyon/bellek/hakem/hook sözcüğü olanlar
             et = [k for k in et if k != "ajan"]
