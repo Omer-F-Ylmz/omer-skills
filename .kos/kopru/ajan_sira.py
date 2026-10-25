@@ -27,7 +27,7 @@ ARGV = [CLAUDE, "-p", "--output-format", "json", "--model", "opus", "--disable-s
         "--mcp-config", '{"mcpServers":{}}', *cc_profil.kur("ajan")[0]]
 MODELLER = ("opus", "sonnet", "haiku", "ucretsiz", "hermes")  # hermes: HERMES-KUR-1, claude -p değil tools/hermes_motor.py (ücretsiz, $0)
 KONSOL = K / "ajan-sira.konsol"  # KONSOL-GECIS-1: bayrak varsa claude -p alt süreci Console API anahtarıyla (ANTHROPIC_API_KEY_AJAN) koşar; yoksa abonelik
-KONSOL_GUN_TAVAN, KONSOL_UYARI = 12.0, (150, 180, 195)  # günlük $ tavan (yeni iş başlatılmaz, koşan kesilmez) · toplam $ uyarı eşikleri
+KONSOL_GUN_TAVAN, KONSOL_UYARI = 1.0, (150, 180, 195)  # KONSOL-GECIS-2: Console yalnız kontrol rolü → günlük ≤$1 (tools/kontrol_onoku.py aynı tavanı uygular) · toplam $ uyarı eşikleri
 KONSOL_ISLER = set()  # Console ile başlatılan işler (is_kaydi defter kaynağı)
 MERDIVEN = [("ucretsiz", "high"), ("haiku", "medium"), ("haiku", "high"), ("sonnet", "medium"), ("sonnet", "high")]  # UCRETSIZ-MOTOR-1: 0 = ücretsiz (yalnız kolay iş/motor=ucretsiz), tsv'de model yok → 1 (haiku medium); başarısız → bir üst (en fazla 1 kez)
 SLASH_DOSYA = K / "ajan-sira.slash"  # SLASH-ÖĞREN d1: dosya varsa köprü oturumlarında Skill aracı açık (onay/slash_ac.py)
@@ -594,7 +594,12 @@ def basamak_sec(ad, bas, metin=""):
     return 1 if bas == 0 and not ucretsiz_motor.hazir() else bas
 
 
-def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
+def konsol_sizdi(env, rol, ajan_anahtar):
+    """KONSOL-GECIS-2: rol≠kontrol alt sürecinin ortamında Console anahtarı (değer karşılaştırması; değer yazılmaz) → True → BAŞLATMA, log 'KONSOL-RED'."""
+    return rol != "kontrol" and bool(ajan_anahtar) and ajan_anahtar in (env.get("ANTHROPIC_API_KEY"), env.get("ANTHROPIC_AUTH_TOKEN"), env.get("ANTHROPIC_API_KEY_AJAN"))
+
+
+def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None, rol=None):
     """TOKEN-3 K11: efor varsa --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezer → yalnız alt süreçten çıkar (KÖPRÜ-EFFORT-1).
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
     if model == "hermes":  # HERMES-KUR-1: claude yok, API anahtarı taşınmaz; istem stdin'den
@@ -638,8 +643,8 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None):
         kayit = Path(tempfile.gettempdir()) / f"cc_um_{os.getpid()}_{abs(hash(argv[i]))}.json"
         kayit.write_text(json.dumps(ayar), encoding="utf-8")
         argv[i] = str(kayit)
-    if model != "ucretsiz" and KONSOL.exists():  # KONSOL-GECIS-1: abonelik OAuth yerine Console anahtarı; anahtar yalnız alt süreç ortamında (ucretsiz kolu ANTHROPIC_* hep temizler)
-        k = env.pop("ANTHROPIC_API_KEY_AJAN", None)
+    k = env.pop("ANTHROPIC_API_KEY_AJAN", None)  # KONSOL-GECIS-2: Console anahtarı yalnız rol=kontrol alt sürecine; iş ajanları (rol=None) hep abonelik
+    if model != "ucretsiz" and rol == "kontrol" and KONSOL.exists():  # abonelik OAuth yerine Console anahtarı; anahtar yalnız alt süreç ortamında (ucretsiz kolu ANTHROPIC_* hep temizler)
         if k:
             env = {a: d for a, d in env.items() if not a.startswith("CLAUDE_CODE_OAUTH")}
             env["ANTHROPIC_API_KEY"] = k
@@ -697,9 +702,10 @@ def konsol_izle(uyari):
     return False
 
 
-def konsol_politika(model, efor, metin):
-    """KONSOL-GECIS-1: bayrak açıkken tsv'de açık model/efor: kuyruk ajanında opus yok (→ sonnet); high yalnız 'zor' (mimari/güvenlik/inatçı) görevde, yoksa medium."""
-    if not KONSOL.exists() or model == "ucretsiz":
+def konsol_politika(model, efor, metin, rol=None):
+    """KONSOL-GECIS-1: bayrak açıkken tsv'de açık model/efor: opus yok (→ sonnet); high yalnız 'zor' (mimari/güvenlik/inatçı) görevde, yoksa medium.
+    KONSOL-GECIS-2: yalnız rol=kontrol; iş ajanları krediye geçmediği için bayrak onların modelini/eforunu değiştirmez."""
+    if rol != "kontrol" or not KONSOL.exists() or model == "ucretsiz":
         return model, efor
     if efor == "high" and not ucretsiz_motor.ZOR.search(metin):
         efor = "medium"
@@ -711,13 +717,13 @@ EMNIYET_KAT = 8  # yalnız kaçak döngü emniyeti
 BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): merdiven bunları yeniden denemez
 
 
-def butce_bul(metin):
-    """BÜTÇE-KAPI-1: görev metnindeki ilk 'BÜTÇE ... ≤$X' (ondalık virgül ya da nokta) → USD; yoksa varsayılan."""
+def butce_bul(metin, rol=None):
+    """BÜTÇE-KAPI-1: görev metnindeki ilk 'BÜTÇE ... ≤$X' (ondalık virgül ya da nokta) → USD; yoksa varsayılan (KONSOL-GECIS-2: Console hedefleri yalnız rol=kontrol)."""
     m = re.search(r"BÜTÇE[^\n≤]*≤\s*\$\s*(\d+(?:[.,]\d+)?)", metin)
     if m:
         return float(m.group(1).replace(",", "."))
-    if KONSOL.exists():  # KONSOL-GECIS-1: iş başı hedef $0.30 kolay / $0.80 zor
-        return 0.80 if ucretsiz_motor.ZOR.search(metin) else 0.30
+    if rol == "kontrol" and KONSOL.exists():  # KONSOL-GECIS-1: iş başı hedef $0.30 kolay / $0.80 zor
+        return 0.40 if ucretsiz_motor.ZOR.search(metin) else 0.15  # Ömer 25 Eki 00:15: 0.80/0.30 → 0.40/0.15
     return BUTCE_VARSAYILAN
 
 
@@ -758,7 +764,10 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{efor or '-'}\t{dk:.0f}\t{j.get('num_turns', 0)}\t{agir:.0f}\t"
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
     ok = j.get("subtype") == "success"  # RC1-TESHIS-1: hook hatası rc'yi 1 yapsa da sonuç success ise başarılı
-    usd = j.get("total_cost_usd", 0)
+    usd = j.get("total_cost_usd")
+    if usd is None:  # KONSOL-DEFTER-1: kesilen/rc≠0 işin json'u boş → gerçek harcama oturum transkriptinden
+        sid = re.search(r"sid (\S+)", (CIKTI / f"{ad}.basladi").read_text(encoding="utf-8")) if (CIKTI / f"{ad}.basladi").exists() else None
+        usd = (maliyet_defter.transkript_usd(sid.group(1)) if sid else None) or 0
     if model in ("ucretsiz", "hermes"):  # UCRETSIZ-MOTOR-1: Claude'a harcama yok (claude'un tahmini fiyatı yazılmaz); kabul satırı raporda yoksa başarısız → üst basamak
         usd = 0
         ok = ok and (not kabul or "kabul" in (j.get("result") or "").lower())
@@ -972,8 +981,8 @@ def main():
             continue
         uyari.discard("bos")
         r = ram()
-        konsol_tavan = konsol_izle(uyari)  # KONSOL-GECIS-1: günlük tavan dolunca yeni iş yok, koşanlar sürer
-        if not DUR.exists() and not konsol_tavan and not oyun_modu() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
+        konsol_izle(uyari)  # KONSOL-GECIS-2: yalnız uyarı/log; iş ajanları krediye geçmediği için tavan yeni iş başlatmayı durdurmaz (tavan kontrol_onoku.py'de)
+        if not DUR.exists() and not oyun_modu() and len(calisan) + dis < tavan() + (3 if r < esik() - 10 else 0) and r < esik() and time.time() - son >= ARA:  # RAM-1: RAM boşken tavan +3; asıl koruma aday başına tahmin kapısı
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if not ram_yeniden_hazir(ad, r):  # RAM-BEKCI-2: RAM ile kesilen iş RAM < %85'e inene dek bekler
                     continue
@@ -1046,6 +1055,10 @@ def main():
                         mcp = None
                         log("MCP profil hatası", ad, repr(e)[:80])
                 argv, env = baslat_argv(efor, model, mcp, zorunlu_arac.ajan_adlari(ad), butce)
+                if konsol_sizdi(env, None, taze_env().get("ANTHROPIC_API_KEY_AJAN")):  # KONSOL-GECIS-2: iş ajanına Console anahtarı sızdıysa başlatma
+                    log("KONSOL-RED", ad, "iş ajanı ortamında Console anahtarı → başlatılmadı")
+                    fo.close()
+                    continue
                 if KONSOL.exists() and "ANTHROPIC_API_KEY" in env and model not in ("ucretsiz", "hermes"):
                     KONSOL_ISLER.add(ad)
                 argv += ["--resume" if kesik else "--session-id", sid]

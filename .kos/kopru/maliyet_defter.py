@@ -26,6 +26,26 @@ def yaz(ad, model, usd, ok, yol=None, kaynak=None, cache=None):
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{model}\t{usd:.2f}\t{tur(ad)}\t{int(ok)}{ek}\n")
 
 
+def transkript_usd(sid, ev=None):
+    """KONSOL-DEFTER-1: kesilen işin ~/.claude/projects/*/<sid>.jsonl usage alanlarından gerçek $ (token_olc.FIYAT; aynı mesaj kimliği bir kez); transkript yoksa None."""
+    import json
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "tools"))
+    import token_olc
+    yol = next(((ev or Path.home()) / ".claude/projects").glob(f"*/{sid}.jsonl"), None)
+    if not yol:
+        return None
+    son = {}  # mesaj kimliği → (usage, model); akış parçaları son değerle ezilir
+    for s in yol.read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            m = json.loads(s).get("message") or {}
+        except ValueError:
+            continue
+        if m.get("usage") and m.get("id"):
+            son[m["id"]] = (m["usage"], m.get("model"))
+    return sum(token_olc.usd(u, mo) or 0 for u, mo in son.values())
+
+
 def yaz_butce(ad, butce, usd, durum, yol=None):
     """BÜTÇE-KAPI-1: iş başına bütçe · harcanan · oran · sonuç alt türü (error_max_budget_usd = bütçe doldu)."""
     yol = yol or BUTCE_DEFTER
