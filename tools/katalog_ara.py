@@ -151,6 +151,20 @@ def aday(q, n=ADAY, tur=None, satirlar=None, taban=TABAN):
     return sec
 
 
+def karma_aday(q, n=ADAY, tur=None):
+    """SKILL-MODE-3: karma arama (BM25 + çok dilli yoğun + etiket kolu, EN çeviri; ayar %99.4 / test %100 @80). Dizin yoksa/yüklenemezse None → aday()."""
+    sm = Path(__file__).resolve().parents[1] / ".kos" / "kopru" / "skill-mode"
+    if not (sm / "vek.npy").exists():
+        return None
+    sys.path.insert(0, str(sm))
+    try:
+        import karma_ara
+        r = karma_ara.ara(q, TAVAN if tur else n)
+    except Exception:
+        return None
+    return [o for o in r if not tur or o["tur"] == tur][:n] if r else None
+
+
 def yigin(q, cwd="."):
     """İş metni + cwd proje dosyalarından (package.json bağımlılıkları, işaret dosyaları) yığın adları."""
     d, t = Path(cwd), q.lower()
@@ -219,7 +233,7 @@ def main():
         sonuc = ogrenim_ara(q, n if "--aday" in a else 3 * OGR_N)
     else:
         # PLAN-KUR-2 (Ömer 14 Eki 06:38): kurulu olmayan araç listelenmez; yığınla uyumsuz araç elenir
-        sonuc, elen, yok = suz(ara(q, tur, oran) if "--esik" in a else aday(q, n, tur), yigin(q))
+        sonuc, elen, yok = suz(ara(q, tur, oran) if "--esik" in a else (karma_aday(q, n, tur) or aday(q, n, tur)), yigin(q))
         bas = f"elendi: {elen} (yığın) · {len(yok)} kurulu değil\n"
         sonuc += [] if tur else ogrenim_ara(q)
     listele(sonuc, len(sonuc) > UZUN and "--esik" in a and "--tam" not in a, bas if tur != "ogrenim" else "")

@@ -120,6 +120,8 @@ def tur_bul(kap):
     say = sorted(((len(re.findall(d, kap)), t, c) for t, d, c in CEKIRDEK), key=lambda x: -x[0])
     if say[0][0] == 0 or say[0][0] == say[1][0]:
         return "diğer", []
+    if say[0][1] == "mod" and say[0][0] < 2:  # SKILL-MODE-3: tek 'oyun' sözcüğü mod işi sayılmaz (ram-bekci-test-1'e blender-uretim/comfyui dayatıyordu)
+        return "diğer", []
     return say[0][1], say[0][2]
 
 
@@ -203,10 +205,15 @@ def araclar(metin):
                 goruldu.add(m)
                 sec.append({"ad": m, "tur": "mcp", "cagri": f"mcp__{m}__*", "ne": "MCP profilinde (görev türü)", "dolgu": True})
     q = f"{kap.splitlines()[0]} {tur if tur != 'diğer' else ''}"
-    puan, gerek = katalog_ara.puanla(q, satirlar=rows)
-    tepe = puan[0][0] if puan else 0
-    bm = [o for s, kap_, o in puan[:40] if s >= 0.6 * tepe and kap_ >= gerek and o["tur"] in sira and o["ad"] not in GENEL
-          and "reposunda" not in o["metin"]]
+    kr = katalog_ara.karma_aday(q, 40)  # SKILL-MODE-3: karma arama (EN çeviri + yoğun + etiket); None → BM25
+    if kr:
+        bm = [o for o in kr if o["tur"] in sira and o["ad"] not in GENEL and "reposunda" not in o["metin"]]
+        puan = [(0, 0, o) for o in kr]
+    else:
+        puan, gerek = katalog_ara.puanla(q, satirlar=rows)
+        tepe = puan[0][0] if puan else 0
+        bm = [o for s, kap_, o in puan[:40] if s >= 0.6 * tepe and kap_ >= gerek and o["tur"] in sira and o["ad"] not in GENEL
+              and "reposunda" not in o["metin"]]
     if tur != "diğer" and len(bm) < 3:  # tür biliniyorsa kapı en az 3 BM25 aracı döndürür (eşik gevşer)
         bm += [o for _, _, o in puan[:40] if o not in bm and o["tur"] in sira and o["ad"] not in GENEL and "reposunda" not in o["metin"]][:3 - len(bm)]
     for o in katalog_ara.suz(bm, katalog_ara.yigin(q))[0]:
