@@ -604,7 +604,7 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None, rol=None):
     20 Eki: model= sütunu (opus|sonnet|haiku), varsayılan opus. MCP-AÇ-1: mcp= profil dosyası yolu (yoksa boş MCP)."""
     if model == "hermes":  # HERMES-KUR-1: claude yok, API anahtarı taşınmaz; istem stdin'den
         return [sys.executable, "-I", str(KOK / "tools/hermes_motor.py")], {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_")}
-    argv = [(ucretsiz_motor.MODEL if model == "ucretsiz" else model) if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
+    argv = [(ucretsiz_motor.model() if model == "ucretsiz" else model) if (i > 0 and ARGV[i - 1] == "--model") else a for i, a in enumerate(ARGV)]
     if mcp:
         argv[argv.index("--mcp-config") + 1] = str(mcp)
     if ajanlar and "--settings" in argv:  # ENGEL-TARAMA-1: ZORUNLU ARAÇLAR'daki ajanlar Agent(ad) deny'dan çıkar (görev başına ayrı ayar dosyası)
@@ -640,6 +640,7 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None, rol=None):
         i = argv.index("--settings") + 1
         ayar = json.loads(Path(argv[i]).read_text(encoding="utf-8"))
         ayar["env"] = {**ayar.get("env", {}), **ucretsiz_motor.ayar_env()}
+        ayar["disableAllHooks"] = True  # UCRETSIZ-MOTOR-2-DEVAM B: oturum açılış hook çıktıları (~190k bağlam) zayıf modeli dağıtıyordu
         kayit = Path(tempfile.gettempdir()) / f"cc_um_{os.getpid()}_{abs(hash(argv[i]))}.json"
         kayit.write_text(json.dumps(ayar), encoding="utf-8")
         argv[i] = str(kayit)
@@ -715,6 +716,54 @@ def konsol_politika(model, efor, metin, rol=None):
 BUTCE_VARSAYILAN = 0.50  # BÜTÇE-KAPI-1: görev dosyasında "BÜTÇE ... ≤$X" satırı yoksa (22 Eki: HEDEF, kesme değil)
 EMNIYET_KAT = 8  # yalnız kaçak döngü emniyeti
 BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): merdiven bunları yeniden denemez
+AG_ISLER, AG_DENEME, AG_BEKLE, AG_DURUM = set(), {}, {}, {"ardisik": 0, "kesik": False}  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ hatası bitenler · taban ad→deneme · yeni ad→başlama zamanı
+ZINCIR_ADIM = {}  # UCRETSIZ-MOTOR-2-DEVAM A: iş adı → ucretsiz_motor.ZINCIR indisi
+
+
+def taban_ad(ad):
+    return re.sub(r"(-r|-a\d+|-z\d+)+$", "", ad)
+
+
+def ag_karar(ad, bas, ef, mdl, istem, kosul, cwd, simdi=None):
+    """AĞ-HATASI: aynı basamakta üstel bekleyerek (2/5/10 dk) en çok 3 kez yeniden; üst üste 3 → AĞ-KESİK (ağ dönene dek yeni iş başlamaz). Yeniden satırı ya da None."""
+    simdi = simdi or time.time()
+    AG_DURUM["ardisik"] += 1
+    if AG_DURUM["ardisik"] >= 3 and not AG_DURUM["kesik"]:
+        AG_DURUM["kesik"] = True
+        log("AĞ-KESİK", ad, "üst üste 3 ağ hatası; ağ dönene dek yeni iş başlamaz")
+    taban = taban_ad(ad)
+    n = AG_DENEME.get(taban, 0) + 1
+    if n > len(ucretsiz_motor.AG_BEKLE_DK):
+        return None
+    AG_DENEME[taban] = n
+    yeni = f"{taban}-a{n}"
+    AG_BEKLE[yeni] = simdi + ucretsiz_motor.AG_BEKLE_DK[n - 1] * 60
+    ZINCIR_ADIM[yeni] = ZINCIR_ADIM.get(ad, 0)
+    log("AĞ-HATASI", ad, f"→ {yeni} {ucretsiz_motor.AG_BEKLE_DK[n - 1]} dk sonra")
+    return (yeni, istem, kosul, None if bas is not None else ef, None if bas is not None else mdl, bas, cwd)
+
+
+def ag_bekliyor(ad, simdi=None):
+    """Başlatma kapısı: ağ-bekleme süresi dolmadıysa ya da AĞ-KESİK sürüyorsa (DNS dönmediyse) True."""
+    if AG_DURUM["kesik"]:
+        if not ucretsiz_motor.ag_var():
+            return True
+        AG_DURUM.update(kesik=False, ardisik=0)
+        log("AĞ DÖNDÜ", ad, "yeni iş başlatma sürüyor")
+    return AG_BEKLE.get(ad, 0) > (simdi or time.time())
+
+
+def zincir_karar(ad, bas, mdl, istem, kosul, cwd):
+    """A: başarısız ücretsiz koşu (BOŞ-KOŞU dahil) → haiku yerine zincirde sıradaki ücretsiz sağlayıcı; zincir bitince None (merdiven haiku'ya geçer)."""
+    if mdl not in ("ucretsiz", "hermes"):
+        return None
+    sn = ucretsiz_motor.sonraki(ZINCIR_ADIM.get(ad, 0), hermes_motor.hazir())
+    if sn is None:
+        return None
+    yeni = f"{taban_ad(ad)}-z{sn}"
+    ZINCIR_ADIM[yeni] = sn
+    log("ZİNCİR", ad, f"→ {ucretsiz_motor.ZINCIR[sn]}")
+    return (yeni, istem, kosul, None, None, 0, cwd)
 
 
 def butce_bul(metin, rol=None):
@@ -764,6 +813,10 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
         f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{efor or '-'}\t{dk:.0f}\t{j.get('num_turns', 0)}\t{agir:.0f}\t"
                 f"{j.get('total_cost_usd', 0):.2f}\t{j.get('subtype') or f'rc{rc}'}\t{kalite.group(0).strip()[:80] if kalite else '-'}\n")
     ok = j.get("subtype") == "success"  # RC1-TESHIS-1: hook hatası rc'yi 1 yapsa da sonuç success ise başarılı
+    if ok and ucretsiz_motor.ag_hatasi(j):  # UCRETSIZ-MOTOR-2-DEVAM B2: 502/connection_error/getaddrinfo sonucu başarı değil → maliyet.tsv başarı=0, merdiven yükselmez
+        ok = False
+        AG_ISLER.add(ad)
+        log("AĞ-HATASI", ad, "sonuç ağ hatası; model başarısı sayılmadı")
     usd = j.get("total_cost_usd")
     if usd is None:  # KONSOL-DEFTER-1: kesilen/rc≠0 işin json'u boş → gerçek harcama oturum transkriptinden
         sid = re.search(r"sid (\S+)", (CIKTI / f"{ad}.basladi").read_text(encoding="utf-8")) if (CIKTI / f"{ad}.basladi").exists() else None
@@ -920,7 +973,19 @@ def main():
                 if dustu:
                     stray = CIKTI / f"{ad}.stray.txt"
                     log("BAŞLAMADAN DÜŞTÜ", ad, "rc", p.returncode, (stray.read_text(encoding="utf-8", errors="replace").strip()[-200:] if stray.exists() else "stderr boş"))
-                if bas is not None and not ok and not ram_kesti and not dustu and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
+                ag = ad in AG_ISLER
+                AG_ISLER.discard(ad)
+                yb2 = None
+                if ag:  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ hatası → aynı basamakta bekleyerek yeniden (üst basamağa çıkmaz)
+                    yb2 = ag_karar(ad, bas, ef, mdl, istem, kosul, cwd)
+                    if yb2:
+                        yeniden.append(yb2)
+                    yb2 = yb2 or True
+                else:
+                    AG_DURUM["ardisik"] = 0
+                    if bas is not None and not ok and not ram_kesti and not dustu and ad not in BUTCE_ASTI and (yb2 := zincir_karar(ad, bas, mdl, istem, kosul, cwd)):
+                        yeniden.append(yb2)  # UCRETSIZ-MOTOR-2-DEVAM A: ücretsiz başarısız → sıradaki ücretsiz sağlayıcı
+                if yb2 is None and bas is not None and not ok and not ram_kesti and not dustu and ad not in tekrar and ad not in BUTCE_ASTI and bas + 1 < len(MERDIVEN):  # bütçe dolan iş üst modelle yeniden koşmaz
                     yeniden.append((ad + "-r", istem, kosul, None, None, bas + 1, cwd))
                     tekrar.add(ad + "-r")
                     log("YENİDEN", ad, "→ bir üst basamak", MERDIVEN[bas + 1])
@@ -986,6 +1051,8 @@ def main():
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if not ram_yeniden_hazir(ad, r):  # RAM-BEKCI-2: RAM ile kesilen iş RAM < %85'e inene dek bekler
                     continue
+                if ag_bekliyor(ad):  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ-hatası bekleme süresi / AĞ-KESİK
+                    continue
                 if ("k", ad) not in uyari:  # ZORUNLU-ARAÇ-1 d4: koşul görev dosyasının kendinde geçiyorsa erken başlar
                     uyari.add(("k", ad))
                     if u := zorunlu_arac.kosul_uyari(kosul, istem):
@@ -1013,11 +1080,19 @@ def main():
                         uyari.add(("r", ad))
                         log("RAM BEKLE", ad, f"tahmin {tah} MB · RAM %{r} · eşik %{esik()}")
                     continue
+                ucretsiz_motor.AKTIF = None
                 if model is None:
                     bas = basamak_sec(ad, bas, (KOK / istem).read_text(encoding="utf-8"))
                     model, efor = MERDIVEN[bas]
-                    if model == "ucretsiz" and hermes_motor.hazir():  # HERMES-KUR-1: ladder'ın ücretsiz basamağı Hermes (kolay işte varsayılan); hazır değilse eski ücretsiz yol
-                        model = "hermes"
+                    if model == "ucretsiz":  # HERMES-KUR-1: ücretsiz basamak Hermes ile başlar; UCRETSIZ-MOTOR-2-DEVAM A: başarısızlıkta zincirde sıradaki ücretsiz sağlayıcı
+                        zi = ZINCIR_ADIM.get(ad, 0)
+                        if ucretsiz_motor.ZINCIR[zi] == "hermes" and not hermes_motor.hazir():
+                            zi = ucretsiz_motor.sonraki(zi, False) or 1
+                        ZINCIR_ADIM[ad] = zi
+                        if ucretsiz_motor.ZINCIR[zi] == "hermes":
+                            model = "hermes"
+                        else:
+                            ucretsiz_motor.AKTIF = ucretsiz_motor.ZINCIR[zi]
                 else:
                     model, efor = konsol_politika(model, efor, (KOK / istem).read_text(encoding="utf-8"))
                 metin = (KOK / istem).read_text(encoding="utf-8")

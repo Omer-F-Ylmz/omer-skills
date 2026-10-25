@@ -11,8 +11,42 @@ ZOR = re.compile(r"mimari|güvenlik (düzelt|açığ)|inatçı|kalite kapısı",
 KOLAY = re.compile(r"paketle|paketleme|rapor|kanıt|doğrula|katalog|kart|muaf|zip|belge|log tara", re.I)
 
 
+# UCRETSIZ-MOTOR-2-DEVAM A: boş koşu/hata sonrası haiku'ya değil sıradaki ücretsiz sağlayıcıya (OmniRoute'ta görünenler; Mistral/Cloudflare/SambaNova OmniRoute'ta yok → atlandı)
+ZINCIR = ["hermes", "ucretsiz-ozet2", "openrouter/nvidia/nemotron-3.5-lightning:free", "ucretsiz-groq", "gemini/gemini-3.7-flash", "ollama/qwen3.5:9b"]
+AKTIF = None  # ajan_sira başlatmadan önce seçili zincir modelini koyar
+AG_RE = re.compile(r"API Error|\b50[234]\b|connection_error|getaddrinfo|ECONNRESET|ETIMEDOUT", re.I)
+AG_BEKLE_DK = (2, 5, 10)
+
+
+def model():
+    return AKTIF or MODEL
+
+
+def sonraki(adim, hermes_hazir=True):
+    """Zincirde adim'dan sonraki ücretsiz basamak (hermes hazır değilse atlanır); bitti → None."""
+    for i in range(adim + 1, len(ZINCIR)):
+        if ZINCIR[i] != "hermes" or hermes_hazir:
+            return i
+    return None
+
+
+def ag_hatasi(j):
+    """UCRETSIZ-MOTOR-2-DEVAM B2: subtype=success olsa da sonuç ağ/ağ geçidi hatasıysa model başarısı değil, AĞ-HATASI."""
+    return bool(j.get("api_error_status") in (502, 503, 504) or AG_RE.search((j.get("result") or "")[:400]) and j.get("num_turns", 0) <= 1)
+
+
+def ag_var(ana="openrouter.ai"):
+    import socket
+    try:
+        socket.getaddrinfo(ana, 443)
+        return True
+    except OSError:
+        return False
+
+
 def anahtarlar(ad, istem):
     """UCRETSIZ-MOTOR-2: görevin ad/rapor yolu/commit öneki — sonuç metninde en az biri geçmeli."""
+    ad = re.sub(r"(-r|-a\d+|-z\d+)+$", "", ad)  # yeniden deneme ekleri: ajan görevin asıl adını yazar
     return [ad.lower()] + [x.lower() for x in re.findall(r"rapor/[\w.-]+\.md", istem)] + \
            [x.lower() for x in re.findall(r'Commit "([^"]+)"', istem)]
 
@@ -55,8 +89,9 @@ def kolay(ad, metin):
 
 def ayar_env():
     """--settings profil dosyasına birleşecek env (anahtar YOK): profildeki olası ANTHROPIC_* ezilir, arka plan çağrıları da ücretsiz modele gider."""
-    return {"ANTHROPIC_BASE_URL": URL, "ANTHROPIC_MODEL": MODEL, "ANTHROPIC_SMALL_FAST_MODEL": MODEL,
-            "ANTHROPIC_DEFAULT_HAIKU_MODEL": MODEL, "ANTHROPIC_DEFAULT_SONNET_MODEL": MODEL, "ANTHROPIC_DEFAULT_OPUS_MODEL": MODEL}
+    m = model()
+    return {"ANTHROPIC_BASE_URL": URL, "ANTHROPIC_MODEL": m, "ANTHROPIC_SMALL_FAST_MODEL": m,
+            "ANTHROPIC_DEFAULT_HAIKU_MODEL": m, "ANTHROPIC_DEFAULT_SONNET_MODEL": m, "ANTHROPIC_DEFAULT_OPUS_MODEL": m}
 
 
 def env_kur(env):

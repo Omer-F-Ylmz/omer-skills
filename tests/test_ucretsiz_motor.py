@@ -192,3 +192,62 @@ def test_kanit_abonelik_kimligi_proxy_surecine_gecmez(monkeypatch, tmp_path):
     tum = json.dumps(kayit)
     assert "SIZMA" not in tum and "sk-ant" not in tum  # abonelik/API kimliği hiçbir istekte yok
     assert any(ANAHTAR in (h.get("authorization", "") + h.get("x-api-key", "")) for h in kayit)  # kimlik = yalnız proxy anahtarı
+
+
+# --- UCRETSIZ-MOTOR-2-DEVAM: ağ hatası + ücretsiz sağlayıcı zinciri ---
+SAHTE_502 = {"subtype": "success", "num_turns": 1, "is_error": True, "api_error_status": 502,
+             "result": 'API Error: 502 event: error {"type": "connection_error", "message": "getaddrinfo failed"}'}
+
+
+def test_ag_hatasi_502_basari_sayilmaz(tmp_path, monkeypatch):
+    assert um.ag_hatasi(SAHTE_502) is True
+    assert um.ag_hatasi({"subtype": "success", "num_turns": 6, "result": "ucretsiz-motor-2 tamam, 502 satır işlendi"}) is False
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    monkeypatch.setattr(ajan_sira, "K", tmp_path)
+    monkeypatch.setattr(ajan_sira.maliyet_defter, "DEFTER", tmp_path / "maliyet.tsv")
+    (tmp_path / "x.json").write_text(json.dumps(SAHTE_502), encoding="utf-8")
+    ajan_sira.AG_ISLER.clear()
+    assert ajan_sira.is_kaydi("x", 0, 1, "", "haiku") is False
+    assert "x" in ajan_sira.AG_ISLER
+    assert (tmp_path / "maliyet.tsv").read_text(encoding="utf-8").splitlines()[1].split("\t")[-1] == "0"
+
+
+def test_ag_karar_ustel_bekleme_ve_kesik(monkeypatch):
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: None)
+    ajan_sira.AG_DENEME.clear(); ajan_sira.AG_BEKLE.clear()
+    ajan_sira.AG_DURUM.update(ardisik=0, kesik=False)
+    sonuc = [ajan_sira.ag_karar(ad, 1, None, None, "g.md", "", None, simdi=1000) for ad in ("t", "t-a1", "t-a2", "t-a3")]
+    assert [s[0] if s else None for s in sonuc] == ["t-a1", "t-a2", "t-a3", None]  # 4. denemede vazgeçer
+    assert [ajan_sira.AG_BEKLE[n] - 1000 for n in ("t-a1", "t-a2", "t-a3")] == [120, 300, 600]
+    assert all(s[5] == 1 for s in sonuc[:3])  # basamak yükselmez
+    assert ajan_sira.AG_DURUM["kesik"] is True
+    monkeypatch.setattr(um, "ag_var", lambda *a: False)
+    assert ajan_sira.ag_bekliyor("baska") is True  # AĞ-KESİK: DNS dönmedi → yeni iş yok
+    monkeypatch.setattr(um, "ag_var", lambda *a: True)
+    assert ajan_sira.ag_bekliyor("baska") is False and ajan_sira.AG_DURUM["kesik"] is False
+    assert ajan_sira.ag_bekliyor("t-a1", simdi=1001) is True and ajan_sira.ag_bekliyor("t-a1", simdi=1121) is False
+
+
+def test_zincir_iki_saglayici_hatasi_ucuncuye_gecer(monkeypatch):
+    monkeypatch.setattr(ajan_sira, "log", lambda *a: None)
+    monkeypatch.setattr(ajan_sira.hermes_motor, "hazir", lambda *a: True)
+    ajan_sira.ZINCIR_ADIM.clear()
+    y1 = ajan_sira.zincir_karar("g", 0, "hermes", "g.md", "", None)        # hermes boş koştu → 2. sağlayıcı
+    y2 = ajan_sira.zincir_karar(y1[0], 0, "ucretsiz", "g.md", "", None)    # 2. de boş → 3. sağlayıcı
+    assert (y1[0], y2[0]) == ("g-z1", "g-z2") and y2[5] == 0
+    assert um.ZINCIR[ajan_sira.ZINCIR_ADIM[y2[0]]] == "openrouter/nvidia/nemotron-3.5-lightning:free"
+    assert ajan_sira.zincir_karar("g", 1, "haiku", "g.md", "", None) is None  # claude modelleri zincire girmez
+    assert um.sonraki(len(um.ZINCIR) - 1) is None and um.sonraki(0, False) == 1
+
+
+def test_anahtarlar_yeniden_deneme_eki_soyulur():
+    assert um.anahtarlar("g-z2-a1-r", "x")[0] == "g"
+    assert um.anahtarlar("ucretsiz-motor-1-b", "x")[0] == "ucretsiz-motor-1-b"
+
+
+def test_ayar_env_zincir_modelini_kullanir(monkeypatch):
+    monkeypatch.setattr(um, "AKTIF", "ucretsiz-groq")
+    assert um.ayar_env()["ANTHROPIC_MODEL"] == "ucretsiz-groq"
+    monkeypatch.setattr(um, "AKTIF", None)
+    assert um.ayar_env()["ANTHROPIC_MODEL"] == um.MODEL
