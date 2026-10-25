@@ -7,3 +7,13 @@ bin/
 obj/
 graphify-out/
 node_modules/
+laya/
+code-mode/
+dist/
+videolar/
+.git/
+*.zip
+*.safetensors
+*.gguf
+*.onnx
+*.bin

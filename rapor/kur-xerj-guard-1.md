@@ -11,3 +11,9 @@
 
 **devam:** (1) kilitli dosyayı bul: `autoindex` alt klasör alt klasör (`skills/`, `tools/`, `docs/`, `rapor/` ayrı `--prefix`), (2) `xerj mcp` önce `claude mcp add -s user xerj -e XERJ_URL=http://127.0.0.1:9200 -e XERJ_DISABLE_FEEDBACK=true -- <tam yol>\xerj.exe mcp`, (3) guard `/plugin install`.
 Maliyet ≈ $1.2 (hedef $0.50 aşıldı: çok uzun yardım/okuma çıktısı). Commit yalnız baslat.py + .xerjignore + bu rapor.
+
+## DEVAM-B-RD (25 Eki), KISMI
+- Düğüm düşmüştü (indeks.log'da 37 klasör connect hatası); yeniden kalktı. 114 klasör ok=true; 36 yeniden indeksleniyor (indeks2.log, arka plan, ~40 dk). `tools/.claude` atlandı (title long/string eşleme çakışması).
+- Desktop yapılandırmasında xerj yoktu → eklendi (CC'de vardı). Gerçek `xerj_search` çağrısı yapılmadı: indeksleme sürerken `os-*` arama zaman aşımı.
+- guard kurulu, `AGENT_GUARD_AGENT_MAX` ayarlı; etkileşimli sınır=7 diyaloğu YAPILMADI (bu oturum -p). Headless ajan kilitlenmedi (bu tur çalıştı).
+- Yapılmadı: 6 görevlik jeton/doğruluk tablosu, tam suit (indeksleme bitmeden RAM/süre), `devam` komutu .kos/kopru/ara/kur-xerj-guard-1-devam-b-rd.md.
