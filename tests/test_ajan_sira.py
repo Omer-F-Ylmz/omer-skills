@@ -729,9 +729,25 @@ def _konsol_hazir(tmp_path, monkeypatch, bayrak=True):
 
 def test_konsol_bayrak_anahtari_aktarir(tmp_path, monkeypatch):
     _konsol_hazir(tmp_path, monkeypatch)
-    _, env = ajan_sira.baslat_argv("medium", "haiku")
+    _, env = ajan_sira.baslat_argv("medium", "haiku", rol="kontrol")
     assert env["ANTHROPIC_API_KEY"] == "sahte-anahtar" and "ANTHROPIC_API_KEY_AJAN" not in env and "CLAUDE_CODE_OAUTH_TOKEN" not in env
     assert env["MAX_THINKING_TOKENS"] == "10000"  # think10k yalnız kuyruk ajanında
+
+
+def test_konsol_is_ajani_ortaminda_anahtar_yok(tmp_path, monkeypatch):
+    """KONSOL-GECIS-2: bayrak AÇIKKEN bile rol≠kontrol alt sürecinde Console anahtarı yok; abonelik kalır."""
+    _konsol_hazir(tmp_path, monkeypatch)
+    for model in ("haiku", "sonnet", "opus", "ucretsiz", "hermes"):
+        monkeypatch.setattr(ajan_sira.ucretsiz_motor, "anahtar", lambda e: "omni")
+        _, env = ajan_sira.baslat_argv("medium", model)
+        assert "sahte-anahtar" not in env.values() and "ANTHROPIC_API_KEY" not in env and "ANTHROPIC_API_KEY_AJAN" not in env, model
+        assert not ajan_sira.konsol_sizdi(env, None, "sahte-anahtar"), model
+
+
+def test_konsol_sizdi_red():
+    assert ajan_sira.konsol_sizdi({"ANTHROPIC_API_KEY": "k"}, None, "k")
+    assert not ajan_sira.konsol_sizdi({"ANTHROPIC_API_KEY": "k"}, "kontrol", "k")
+    assert not ajan_sira.konsol_sizdi({"ANTHROPIC_API_KEY": "baska"}, None, "k") and not ajan_sira.konsol_sizdi({}, None, None)
 
 
 def test_konsol_bayraksiz_eski_davranis(tmp_path, monkeypatch):
@@ -750,7 +766,7 @@ def test_konsol_ucretsiz_motor_anahtar_tasimaz(tmp_path, monkeypatch):
 def test_konsol_anahtar_yoksa_abonelik(tmp_path, monkeypatch):
     _konsol_hazir(tmp_path, monkeypatch)
     monkeypatch.setattr(ajan_sira, "taze_env", lambda: {"PATH": "x"})
-    _, env = ajan_sira.baslat_argv("", "haiku")
+    _, env = ajan_sira.baslat_argv("", "haiku", rol="kontrol")
     assert "ANTHROPIC_API_KEY" not in env
 
 
@@ -789,17 +805,20 @@ def test_konsol_izle_bayraksiz_kapali(tmp_path, monkeypatch):
 
 def test_konsol_politika(tmp_path, monkeypatch):
     _konsol_hazir(tmp_path, monkeypatch)
-    assert ajan_sira.konsol_politika("opus", "high", "sıradan iş") == ("sonnet", "medium")
-    assert ajan_sira.konsol_politika("sonnet", "high", "mimari karar ver") == ("sonnet", "high")  # zor etiketi → high kalır
-    assert ajan_sira.konsol_politika("haiku", "", "iş") == ("haiku", "")
-    assert ajan_sira.konsol_politika("ucretsiz", "high", "iş") == ("ucretsiz", "high")
+    k = "kontrol"
+    assert ajan_sira.konsol_politika("opus", "high", "sıradan iş", k) == ("sonnet", "medium")
+    assert ajan_sira.konsol_politika("sonnet", "high", "mimari karar ver", k) == ("sonnet", "high")  # zor etiketi → high kalır
+    assert ajan_sira.konsol_politika("haiku", "", "iş", k) == ("haiku", "")
+    assert ajan_sira.konsol_politika("ucretsiz", "high", "iş", k) == ("ucretsiz", "high")
+    assert ajan_sira.konsol_politika("opus", "high", "iş") == ("opus", "high")  # iş ajanı (rol yok): bayrak dokunmaz
     (tmp_path / "ajan-sira.konsol").unlink()
-    assert ajan_sira.konsol_politika("opus", "high", "iş") == ("opus", "high")
+    assert ajan_sira.konsol_politika("opus", "high", "iş", k) == ("opus", "high")
 
 
 def test_konsol_butce_hedefi(tmp_path, monkeypatch):
     _konsol_hazir(tmp_path, monkeypatch)
-    assert ajan_sira.butce_bul("sıradan iş") == 0.30 and ajan_sira.butce_bul("mimari karar") == 0.80
+    assert ajan_sira.butce_bul("sıradan iş", "kontrol") == 0.15 and ajan_sira.butce_bul("mimari karar", "kontrol") == 0.40
+    assert ajan_sira.butce_bul("sıradan iş") == ajan_sira.BUTCE_VARSAYILAN  # iş ajanı: bayrak açık olsa da varsayılan
     assert ajan_sira.butce_bul("BÜTÇE ≤$2") == 2.0  # açık bütçe satırı kazanır
     (tmp_path / "ajan-sira.konsol").unlink()
     assert ajan_sira.butce_bul("sıradan iş") == ajan_sira.BUTCE_VARSAYILAN
