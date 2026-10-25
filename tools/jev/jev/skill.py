@@ -252,6 +252,25 @@ def hook_durum(satirlar):
             "sonuc": dict(Counter(k[2] for k in kayit))}
 
 
+def suz(istem, aday, ust=DILIM):
+    """JEV-2: 2 sn bütçede yalnız ilk dilim yargılanır → adayları kart seçicisiyle (tools/arac_ara) göreve göre ≤ust'a indir.
+    Fail-open: seçici yok/boş/hata → aday olduğu gibi. Eşleşme son ad parçasıyla (ns:ad ≡ ad)."""
+    try:
+        import sys
+        tools = str(Path(__file__).resolve().parents[2])
+        if tools not in sys.path:
+            sys.path.insert(0, tools)
+        import arac_ara
+        s = arac_ara.ara(istem, n=ust, aday=ust)
+        ham = lambda a: a.split("[")[0].split(":")[-1].strip()  # noqa: E731
+        sira = [k["ad"] for k in s["kartlar"] if k["tur"] == "skill"] + [a[6:] for a in s["adaylar"] if a.startswith("skill:")]
+        oncelik = {ham(a): i for i, a in reversed(list(enumerate(sira)))}
+        secili = sorted((x for x in aday if ham(x[0]) in oncelik), key=lambda x: oncelik[ham(x[0])])[:ust]
+        return secili or aday
+    except Exception:
+        return aday
+
+
 def hook(girdi, env, ev=None, gonder=None, bugun=None, aday=None, saat=time.monotonic, t0=None):
     """UserPromptSubmit: fail-open. Kapı → günlük tavan → 2 istek (t0'dan 2 sn) → Act varsa ilk 3 ad. Her hata: boş çıktı.
     t0 = süreç başı (__main__); her çağrı hook.log'a tek satır yazar."""
@@ -267,7 +286,7 @@ def hook(girdi, env, ev=None, gonder=None, bugun=None, aday=None, saat=time.mono
                             bugun or date.today().isoformat()):
             durum = "sessiz-tavan"
         else:
-            aday = adaylar(ev) if aday is None else aday
+            aday = suz(istem, adaylar(ev)) if aday is None else aday
             n = len(aday)
 
             def zamanli(url, basliklar, govde):
