@@ -24,7 +24,7 @@ def belge_metin(o):
     return f"{o['ad']} · {o.get('is', '')} · {o.get('tetik', '')} · {str(o.get('metin', ''))[:400]}"
 
 
-def dizin():
+def dizin_bm25():
     rows = yukle(KAT)
     docs = [ka.kelimeler(o["ad"]) * 2 + ka.kelimeler(f"{o.get('is', '')} {o.get('tetik', '') or ka.tetik(o.get('metin', ''))} {o.get('metin', '')}") for o in rows]
     tf = [Counter(d) for d in docs]
@@ -32,6 +32,11 @@ def dizin():
     ln = [len(d) for d in docs]
     pickle.dump({"rows": rows, "tf": tf, "df": df, "ln": ln}, open(D / "bm25.pkl", "wb"))
     print("bm25 tamam", len(rows), flush=True)
+
+
+def dizin():
+    dizin_bm25()
+    rows = yukle(KAT)
     import numpy as np
     from fastembed import TextEmbedding
     m = TextEmbedding(MODEL, threads=4)
