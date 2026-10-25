@@ -20,7 +20,7 @@ ADAY = KOK / ".kos/ogrenme/ders_aday.jsonl"
 OBSIDIAN = Path(r"C:\Users\pc\Desktop\Obsidian\50-dersler")
 KAYNAK = [KOK / ".kos/kopru/rapor", KOK / ".kos/kopru/devir", KOK / ".kos/kopru/gorev"]
 ISARET = re.compile(r"\b(DUR|RED|ARAC_EKSIK|KANIT_EKSIK)\b")
-K, JETON = 5, 150
+K, JETON = 3, 150
 
 
 def oku(yol=None):
@@ -77,7 +77,8 @@ def getir(tur, gorev, k=K, jeton=JETON):
     if not secilen:
         return "", []
     pay = jeton * 3 // len(secilen) - 1  # jeton ≈ karakter/3 (ucretsiz_havuz ile aynı)
-    return "\n".join(f"- [{x['id']}] {x['tetik']} → {x['dogru']} (kaçın: {x['hata']})"[:pay] for x in secilen), [x["id"] for x in secilen]
+    # eylem (dogru) başta: bütçe kesince tetik/hata gider, kural kalır
+    return "\n".join(f"- {x['dogru']} [{x['id']}; durum: {x['tetik']}; kaçın: {x['hata']}]"[:pay] for x in secilen), [x["id"] for x in secilen]
 
 
 def onek(gorev, tur=None):
@@ -165,12 +166,15 @@ def olc():
             for ad, on in (("derssiz", lambda g, t=None: ""), ("dersli", lambda g, t=None, tur=v["tur"]: asil(g, tur))):
                 dd.onek = on  # derssiz kol: cagir'ın kendi ders enjeksiyonu da kapalı
                 for _ in range(4):  # paralel ajanlar havuz kotasını yiyor; yanıtsızsa soğumayı bekleyip yeniden dene
-                    m, _, _ = ucretsiz_havuz.cagir("ozet", v["gorev"] + "\nKısa yanıtla: hangi adımları atarsın?", max_tokens=400, zaman=60)
+                    m, _, _ = ucretsiz_havuz.cagir("ozet", v["gorev"] + "\nTürkçe ve kısa yanıtla: hangi adımları atarsın?", max_tokens=400, zaman=60)
                     if m is not None:
                         break
                     time.sleep(30)
                 say["bos"] += m is None  # havuz yanıtsız → 0'ı "uygulanmadı" sanma
-                say[ad] += bool(m and re.search(v["uygula"], m, re.I))
+                ok = bool(m and re.search(v["uygula"], m, re.I))
+                say[ad] += ok
+                if ad == "dersli" and not ok:
+                    say.setdefault("kacan", []).append(v["ad"])
     finally:
         dd.onek = asil
     return {"vaka": len(vakalar), **say}
