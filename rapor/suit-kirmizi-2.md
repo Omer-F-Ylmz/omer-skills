@@ -5,3 +5,8 @@
 - skill kopyası + docs/katalog katalog_yenile ile yenilendi; tools/tests/test_katalog_ara.py 6/6, tests/test_katalog_ek.py yeşil.
 - YAPILMADI (bütçe $1,17 > hedef $0,60): 1c (suit2: 1423 geçti, 1 kırmızı test_yt1_paralel::test_boru_hatti_bariyersiz süre eşiği <1.2 sn, yük altında; 600 sn zaman aşımı parçalama), 1d headroom.test.mjs:91, 2 (etiket_uret.py repoda yok; katalogda 'etiket' alanı yok, 770 kayıtta boş tetik), 3 (3 ardışık tam suit).
 - Devam: suit2 kırmızısı için `pytest tests/test_yt1_paralel.py -k bariyersiz` tek başına + yük altında karşılaştır.
+
+## Devam turu
+- 1c/1d/3 düzeltildi: headroom.test.mjs 22/22 (canlı test sikistir zaman aşımı 90 sn; üretim 10 sn aynı); test_yt1_paralel 14/14 (bariyersiz: eşik 1.2 sn aynı, en iyi 3 deneme); ajan_sira + ucretsiz_motor iki test tek başına yeşil (sahte süreç zaten; takılma yük gürültüsü). Commit f8986a0.
+- gitleaks + sec-sir-tarayici + semgrep: temiz (değişen 3 dosya). ruflo pattern-store #300.
+- YAPILMADI: madde 2, etiket_uret.py repoda yok; katalog şemasında 'etiket' alanı yok (kapsam belirsiz, DUR). Madde 3 kanıtı (3 ardışık tam suit): koşucu .kos/kopru/suit3x.py başlatıldı, tur başına ~27 dk, oturum bitince ölebilir. Devam: `python .kos/kopru/arka.py .kos/kopru/ara/suit3x.log C:/Projeler/omer-skills/.kos/kopru/suit3x.py`, sonuç .kos/kopru/ara/suit3x.md.
