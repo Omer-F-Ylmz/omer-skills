@@ -93,7 +93,8 @@ def test_baslat_argv_ucretsiz(monkeypatch):
     argv, env = ajan_sira.baslat_argv("high", "ucretsiz")
     assert argv[argv.index("--model") + 1] == um.MODEL
     assert env["ANTHROPIC_AUTH_TOKEN"] == ANAHTAR and env["ANTHROPIC_BASE_URL"] == um.URL
-    assert not [a for a in env if a.startswith("ANTHROPIC_API_KEY")] and "CLAUDE_CODE_OAUTH_TOKEN" not in env and "OMNIROUTE_KEY" not in env
+    assert [a for a in env if a.startswith("ANTHROPIC_API_KEY")] == ["ANTHROPIC_API_KEY"] and env["ANTHROPIC_API_KEY"] == ANAHTAR and "--bare" in argv  # --bare yalnız API_KEY okur: OmniRoute anahtarı, Claude kimliği değil
+    assert "CLAUDE_CODE_OAUTH_TOKEN" not in env and "OMNIROUTE_KEY" not in env
     ayar_yolu = Path(argv[argv.index("--settings") + 1])
     ayar = ayar_yolu.read_text(encoding="utf-8")
     assert json.loads(ayar)["env"]["ANTHROPIC_BASE_URL"] == um.URL and ANAHTAR not in ayar  # anahtar dosyaya yazılmaz
