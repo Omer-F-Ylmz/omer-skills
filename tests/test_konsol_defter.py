@@ -27,3 +27,9 @@ def test_transkript_usd_toplar_ve_tekrari_sayar(tmp_path):
 
 def test_transkript_usd_yoksa_none(tmp_path):
     assert maliyet_defter.transkript_usd("yok", tmp_path) is None
+
+
+def test_konsol_kurus_alti_usd_sifira_yuvarlanmaz(tmp_path):
+    y = tmp_path / "m.tsv"
+    maliyet_defter.yaz("a", "haiku-kontrol", 0.0019, True, yol=y, kaynak="konsol", cache=0)
+    assert maliyet_defter.konsol_harcama(maliyet_defter.oku(y), model="haiku-kontrol") == 0.0019

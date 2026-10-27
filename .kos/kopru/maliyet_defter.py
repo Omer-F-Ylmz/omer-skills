@@ -22,8 +22,9 @@ def yaz(ad, model, usd, ok, yol=None, kaynak=None, cache=None):
     if not yol.exists():
         yol.write_text(BASLIK, encoding="utf-8")
     ek = f"\t{kaynak}\t{cache or 0:.2f}" if kaynak else ""
+    usd_s = f"{usd:.4f}" if kaynak else f"{usd:.2f}"  # Console çağrıları kuruş altı: .2f hepsini 0.00 yapıp günlük tavanı hiç doldurmuyordu
     with yol.open("a", encoding="utf-8") as f:
-        f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{model}\t{usd:.2f}\t{tur(ad)}\t{int(ok)}{ek}\n")
+        f.write(f"{time.strftime('%Y-%m-%d %H:%M')}\t{ad}\t{model}\t{usd_s}\t{tur(ad)}\t{int(ok)}{ek}\n")
 
 
 def transkript_usd(sid, ev=None):
@@ -77,9 +78,9 @@ def oku(yol=None):
     return rows
 
 
-def konsol_harcama(rows, gun=None):
-    """KONSOL-GECIS-1: Console (API) harcaması; gun = 'YYYY-MM-DD' → o gün, yoksa toplam."""
-    return sum(r["usd"] for r in rows if r["kaynak"] == "konsol" and (gun is None or r["zaman"].startswith(gun)))
+def konsol_harcama(rows, gun=None, model=None):
+    """KONSOL-GECIS-1: Console (API) harcaması; gun = 'YYYY-MM-DD' → o gün, yoksa toplam; model verilirse yalnız o model satırları (kontrol rolü: 'haiku-kontrol')."""
+    return sum(r["usd"] for r in rows if r["kaynak"] == "konsol" and (gun is None or r["zaman"].startswith(gun)) and (model is None or r["model"] == model))
 
 
 def gunluk(rows, gun):

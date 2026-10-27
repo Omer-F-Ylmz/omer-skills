@@ -3,6 +3,8 @@ import json
 import sys
 from pathlib import Path
 
+import time
+
 import pytest
 
 KOK = Path(__file__).resolve().parent.parent
@@ -42,6 +44,24 @@ def test_konsol_gunluk_tavan_cagri_yapmaz(monkeypatch, tmp_path):
     monkeypatch.setattr(ko, "LOG", tmp_path / "l.log")
     monkeypatch.setattr(ko, "anahtar", lambda: "sahte")
     monkeypatch.setattr(ko.maliyet_defter, "oku", lambda: [])
-    monkeypatch.setattr(ko.maliyet_defter, "konsol_harcama", lambda rows, gun=None: 0.999)
+    monkeypatch.setattr(ko.maliyet_defter, "konsol_harcama", lambda rows, gun=None, model=None: 0.999)
     monkeypatch.setattr(ko.urllib.request, "urlopen", lambda *a, **k: pytest.fail("çağrı yapıldı"))
     assert ko.konsol("a", "x" * 3000) is None
+
+
+def test_konsol_tavan_yalniz_kontrol_satirlarini_sayar(monkeypatch, tmp_path):
+    g = time.strftime("%Y-%m-%d")
+    rows = [{"zaman": g + " 08:00", "ad": "is-1", "model": "sonnet-medium", "usd": 2.87, "tur": "is", "ok": True, "kaynak": "konsol", "cache": 0},
+            {"zaman": g + " 08:01", "ad": "is-1", "model": "haiku-kontrol", "usd": 0.01, "tur": "is", "ok": True, "kaynak": "konsol", "cache": 0}]
+    assert ko.maliyet_defter.konsol_harcama(rows, g, model="haiku-kontrol") == 0.01
+    monkeypatch.setattr(ko, "LOG", tmp_path / "l.log")
+    monkeypatch.setattr(ko, "anahtar", lambda: "sahte")
+    monkeypatch.setattr(ko.maliyet_defter, "oku", lambda: rows)
+
+    class R:
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+        def read(self): return b'{"content":[{"text":"KABUL ok"}],"usage":{"input_tokens":10,"output_tokens":5}}'
+    monkeypatch.setattr(ko.maliyet_defter, "yaz", lambda *a, **k: None)
+    monkeypatch.setattr(ko.urllib.request, "urlopen", lambda *a, **k: R())
+    assert ko.konsol("a", "x" * 300) == "KABUL ok"

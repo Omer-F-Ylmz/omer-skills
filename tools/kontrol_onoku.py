@@ -65,7 +65,7 @@ def konsol(ad, istem):
         log("KONSOL-YOK", ad, "anahtar yok → kredi kullanılmadı")
         return None
     tahmin = len(istem) / 3 * FIYAT[0] / 1e6 + MAX_CIKTI * FIYAT[1] / 1e6
-    bugun = maliyet_defter.konsol_harcama(maliyet_defter.oku(), time.strftime("%Y-%m-%d"))
+    bugun = maliyet_defter.konsol_harcama(maliyet_defter.oku(), time.strftime("%Y-%m-%d"), model="haiku-kontrol")  # iş ajanı satırları kontrol tavanına sayılmaz
     if tahmin > CAGRI_TAVAN or bugun + tahmin > GUN_TAVAN:
         log("KONSOL-TAVAN", ad, f"tahmin ${tahmin:.4f} · bugün ${bugun:.2f} → çağrı yapılmadı")
         return None
