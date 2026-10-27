@@ -14,7 +14,7 @@ ISLER = [
     ("xUnit testi yaz C#", {"dn-xunit-test-yazar"}),
     ("flaky test neden ara sıra kırılıyor", {"qa-flaky-avci"}),
     ("Playwright ile uçtan uca test", {"qa-e2e-playwright", "qa-playwright", "playwright", "playwright-cli"}),
-    ("repo geçmişinde sızmış sır tara gitleaks", {"sec-gitleaks-gecmis", "gitleaks"}),
+    ("repo geçmişinde sızmış sır tara gitleaks", {"sec-gitleaks-gecmis", "sec-sir-tarayici", "gitleaks"}),
     ("JWT doğrulama güvenliğini incele", {"sec-jwt-denetci", "sec-jwt-oturum"}),
     ("SQL injection açığı bul", {"sec-injection-denetci"}),
     ("ffmpeg ile video kırp ve sıkıştır", {"vid-ffmpeg-donusturucu", "ffmpeg"}),

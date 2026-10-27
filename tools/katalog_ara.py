@@ -42,7 +42,9 @@ ES = {
     "altyazi": "subtitle caption transcript", "kilit": "deadlock lock", "deadlock": "kilitlenme lock",
     "dogrula": "validation validate verify", "uctan": "e2e end-to-end", "orneklem": "sample size statistics experiment testing",
     "kirili": "flaky intermittent", "flaky": "flaky intermittent", "jwt": "jwt token", "dokum": "transcript", "pdf": "pdf document",
-    "kirp": "trim", "sikistir": "compress",
+    "kirp": "trim", "sikistir": "compress", "markdown": "markdown markitdown",
+    "yavas": "slow index indexes", "sql": "sql index indexes",
+    "gecmis": "history git", "sizmis": "leaked leak secrets", "tara": "scan scans",
 }
 ORAN, GENIS, UZUN, ILK = 0.3, 0.5, 30, 5
 KAVRAM, SIRA, BAYAG = 0.5, 3, 0.05
