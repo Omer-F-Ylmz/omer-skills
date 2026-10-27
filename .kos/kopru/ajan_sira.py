@@ -644,6 +644,8 @@ def baslat_argv(efor, model="opus", mcp=None, ajanlar=(), butce=None, rol=None):
         kayit = Path(tempfile.gettempdir()) / f"cc_um_{os.getpid()}_{abs(hash(argv[i]))}.json"
         kayit.write_text(json.dumps(ayar), encoding="utf-8")
         argv[i] = str(kayit)
+        argv.insert(1, "--bare")  # B: hook/CLAUDE.md/plugin/skill listesi yok (3 gerçek görevde girdi 77k/tur → 2-11k/tur, boş koşu 0/3); --bare yalnız ANTHROPIC_API_KEY okur → OmniRoute anahtarı (Claude kimliği değil)
+        env["ANTHROPIC_API_KEY"] = env["ANTHROPIC_AUTH_TOKEN"]
     k = env.pop("ANTHROPIC_API_KEY_AJAN", None)  # KONSOL-GECIS-2: Console anahtarı yalnız rol=kontrol alt sürecine; iş ajanları (rol=None) hep abonelik
     if model != "ucretsiz" and rol == "kontrol" and KONSOL.exists():  # abonelik OAuth yerine Console anahtarı; anahtar yalnız alt süreç ortamında (ucretsiz kolu ANTHROPIC_* hep temizler)
         if k:
@@ -716,6 +718,18 @@ def konsol_politika(model, efor, metin, rol=None):
 BUTCE_VARSAYILAN = 0.50  # BÜTÇE-KAPI-1: görev dosyasında "BÜTÇE ... ≤$X" satırı yoksa (22 Eki: HEDEF, kesme değil)
 EMNIYET_KAT = 8  # yalnız kaçak döngü emniyeti
 BUTCE_ASTI = set()  # bütçesi dolup durdurulan işler (error_max_budget_usd): merdiven bunları yeniden denemez
+LIMIT_RE = re.compile(r"hit your (monthly spend|usage) limit|usage limit reached", re.I)  # LIMIT-SONRASI-1: plan/harcama limiti yanıtı
+LIMIT_ISLER, LIMIT_BEKLE = set(), {"bitis": 0.0}  # limitle biten işler · bu zamana dek (60 dk) yeni iş başlamaz
+
+
+def limit_hatasi(j):
+    return bool(LIMIT_RE.search((j.get("result") or "")[:300]))
+
+
+def limit_bekliyor(simdi=None):
+    return LIMIT_BEKLE["bitis"] > (simdi or time.time())
+
+
 AG_ISLER, AG_DENEME, AG_BEKLE, AG_DURUM = set(), {}, {}, {"ardisik": 0, "kesik": False}  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ hatası bitenler · taban ad→deneme · yeni ad→başlama zamanı
 ZINCIR_ADIM = {}  # UCRETSIZ-MOTOR-2-DEVAM A: iş adı → ucretsiz_motor.ZINCIR indisi
 
@@ -817,6 +831,11 @@ def is_kaydi(ad, rc, dk, efor, model, butce=None, kabul=False, istem_yolu=None):
         ok = False
         AG_ISLER.add(ad)
         log("AĞ-HATASI", ad, "sonuç ağ hatası; model başarısı sayılmadı")
+    if limit_hatasi(j):  # LIMIT-SONRASI-1: -a/-b/-r/KURTAR açılmaz (hepsi aynı limite çarpar); 60 dk yeni iş başlamaz
+        ok = False
+        LIMIT_ISLER.add(ad)
+        LIMIT_BEKLE["bitis"] = time.time() + 3600
+        log("LIMIT-BEKLE", ad, "limit yanıtı; 60 dk yeni iş başlatılmaz, yeniden deneme yok")
     usd = j.get("total_cost_usd")
     if usd is None:  # KONSOL-DEFTER-1: kesilen/rc≠0 işin json'u boş → gerçek harcama oturum transkriptinden
         sid = re.search(r"sid (\S+)", (CIKTI / f"{ad}.basladi").read_text(encoding="utf-8")) if (CIKTI / f"{ad}.basladi").exists() else None
@@ -936,7 +955,7 @@ def main():
     DEVAM.update(kurtar(kuyruk(), baslayan))  # d3: Desktop/yönetici kapanınca ölen işler yeniden sıraya
     devral(calisan, kuyruk())  # YONETICI-YENILE-2: yenilemeden önceki yöneticinin hâlâ koşan ajanları izlenmeye devam eder
     log(f"başladı · tavan {tavan()} · RAM eşiği %{esik()} · önceden başlamış {len(baslayan)} · dış çalışan {dis_calisan(set())}")
-    ara_t, kapi_t, yarim_t = 0.0, {}, 0.0
+    ara_t, kapi_t, yarim_t, yonetici_t = 0.0, {}, 0.0, time.time()
     izle, son_degisen, yenile, yenile_t0 = izlenen_mtime(), {}, False, 0.0  # YONETICI-YENILE-1: kod değişince kendini yeniler; çalışanları yeni yönetici devralır (YENILE-2)
     while True:
         if time.time() - ara_t >= ARA_ARALIK:  # BEYIN-CANLI-1: çalışan her ajan için 2 dk'da bir ara olay + bekçi (sessiz ölüm yok)
@@ -975,8 +994,12 @@ def main():
                     log("BAŞLAMADAN DÜŞTÜ", ad, "rc", p.returncode, (stray.read_text(encoding="utf-8", errors="replace").strip()[-200:] if stray.exists() else "stderr boş"))
                 ag = ad in AG_ISLER
                 AG_ISLER.discard(ad)
+                limit = ad in LIMIT_ISLER
+                LIMIT_ISLER.discard(ad)
                 yb2 = None
-                if ag:  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ hatası → aynı basamakta bekleyerek yeniden (üst basamağa çıkmaz)
+                if limit:
+                    yb2 = True  # LIMIT-SONRASI-1: üst basamak/zincir/yeniden yok
+                elif ag:  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ hatası → aynı basamakta bekleyerek yeniden (üst basamağa çıkmaz)
                     yb2 = ag_karar(ad, bas, ef, mdl, istem, kosul, cwd)
                     if yb2:
                         yeniden.append(yb2)
@@ -1016,6 +1039,16 @@ def main():
                     log(s_)
             except Exception as e:
                 log("yarim_bekci hata", repr(e)[:120])
+        try:  # YONETICI-API-1: 20 dk'da bir kontrol turu (rol=kontrol, ajan-sira.konsol bayrağından bağımsız; yeni süreç yok); kontrol Console ≥$2 → 40 dk; hata döngüyü durdurmaz
+            sys.path.insert(0, str(KOK / "tools"))
+            import yonetici_tur
+            bugun_ = maliyet_defter.konsol_harcama(maliyet_defter.oku(), time.strftime("%Y-%m-%d"), model="haiku-kontrol")
+            if yonetici_tur.vakit(yonetici_t, time.time(), bugun_):
+                yonetici_t = time.time()
+                yonetici_tur.calistir(log, ram(), bugun_)
+        except Exception as e:
+            yonetici_t = time.time()
+            log("YONETICI hata", repr(e)[:120])
         karar, son_degisen, hatalar = yenile_karar(izle, son_degisen)  # YONETICI-YENILE-1: derleme hatası varsa yenileme yok, ALARM
         if karar == "alarm":
             yenile = False
@@ -1051,6 +1084,8 @@ def main():
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if not ram_yeniden_hazir(ad, r):  # RAM-BEKCI-2: RAM ile kesilen iş RAM < %85'e inene dek bekler
                     continue
+                if limit_bekliyor():  # LIMIT-SONRASI-1
+                    break
                 if ag_bekliyor(ad):  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ-hatası bekleme süresi / AĞ-KESİK
                     continue
                 if ("k", ad) not in uyari:  # ZORUNLU-ARAÇ-1 d4: koşul görev dosyasının kendinde geçiyorsa erken başlar

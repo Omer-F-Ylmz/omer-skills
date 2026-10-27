@@ -740,7 +740,7 @@ def test_konsol_is_ajani_ortaminda_anahtar_yok(tmp_path, monkeypatch):
     for model in ("haiku", "sonnet", "opus", "ucretsiz", "hermes"):
         monkeypatch.setattr(ajan_sira.ucretsiz_motor, "anahtar", lambda e: "omni")
         _, env = ajan_sira.baslat_argv("medium", model)
-        assert "sahte-anahtar" not in env.values() and "ANTHROPIC_API_KEY" not in env and "ANTHROPIC_API_KEY_AJAN" not in env, model
+        assert "sahte-anahtar" not in env.values() and env.get("ANTHROPIC_API_KEY", "omni" if model == "ucretsiz" else None) == ("omni" if model == "ucretsiz" else None) and "ANTHROPIC_API_KEY_AJAN" not in env, model  # ücretsizde API_KEY = OmniRoute anahtarı (--bare)
         assert not ajan_sira.konsol_sizdi(env, None, "sahte-anahtar"), model
 
 
@@ -760,7 +760,7 @@ def test_konsol_ucretsiz_motor_anahtar_tasimaz(tmp_path, monkeypatch):
     _konsol_hazir(tmp_path, monkeypatch)
     monkeypatch.setattr(ajan_sira.ucretsiz_motor, "anahtar", lambda e: "omni")
     _, env = ajan_sira.baslat_argv("high", "ucretsiz")
-    assert "sahte-anahtar" not in env.values() and "ANTHROPIC_API_KEY" not in env and "MAX_THINKING_TOKENS" not in env
+    assert "sahte-anahtar" not in env.values() and env.get("ANTHROPIC_API_KEY") in (None, "omni") and "MAX_THINKING_TOKENS" not in env  # ücretsizde API_KEY = OmniRoute anahtarı (--bare)
 
 
 def test_konsol_anahtar_yoksa_abonelik(tmp_path, monkeypatch):
@@ -833,3 +833,15 @@ def test_is_kaydi_konsol_kaynak(tmp_path, monkeypatch):
     assert ajan_sira.is_kaydi("k", 0, 1, "medium", "haiku") is True
     r = ajan_sira.maliyet_defter.oku()[-1]
     assert r["kaynak"] == "konsol" and r["cache"] == 0.8 and r["usd"] == 0.4
+
+
+def test_limit_yaniti_yeniden_denemeyi_durdurur(tmp_path, monkeypatch):
+    _konsol_hazir(tmp_path, monkeypatch)
+    monkeypatch.setattr(ajan_sira, "CIKTI", tmp_path)
+    monkeypatch.setattr(ajan_sira, "ISKAYDI", tmp_path / "is.tsv")
+    monkeypatch.setitem(ajan_sira.LIMIT_BEKLE, "bitis", 0.0)
+    (tmp_path / "l.json").write_text('{"subtype":"success","num_turns":1,"result":"You\'ve hit your monthly spend limit - raise it"}', encoding="utf-8")
+    assert ajan_sira.is_kaydi("l", 0, 1, "medium", "sonnet") is False
+    assert "l" in ajan_sira.LIMIT_ISLER and ajan_sira.limit_bekliyor()
+    ajan_sira.LIMIT_ISLER.discard("l")
+    assert ajan_sira.limit_hatasi({"result": "tamam"}) is False
