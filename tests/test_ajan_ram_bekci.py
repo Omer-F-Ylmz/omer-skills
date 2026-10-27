@@ -81,9 +81,9 @@ def test_esikler():
     olaylar = []
     oldur = lambda pid: olaylar.append(pid)
     log = lambda *a: None
-    assert ajan_ram_bekci.kontrol(86, {10}, AGAC, oldur, log)[0] is None
-    assert ajan_ram_bekci.kontrol(87, {10}, AGAC, oldur, log)[0] == "aday" and olaylar == []
-    d, h = ajan_ram_bekci.kontrol(88, {10}, AGAC, oldur, log)
+    assert ajan_ram_bekci.kontrol(ajan_ram_bekci.ADAY_ESIK - 1, {10}, AGAC, oldur, log)[0] is None
+    assert ajan_ram_bekci.kontrol(ajan_ram_bekci.ADAY_ESIK, {10}, AGAC, oldur, log)[0] == "aday" and olaylar == []
+    d, h = ajan_ram_bekci.kontrol(ajan_ram_bekci.DUR_ESIK, {10}, AGAC, oldur, log)
     assert d == "durdurdu" and h[0] == 13 and olaylar == [13]
 
 
@@ -119,7 +119,7 @@ def test_agac_en_yeni_baslayan_kok_secilir_buyuk_degil():  # RAM-BEKCI-3: eski a
 def test_agac_88de_hedef_yoksa_en_yeni_agac_kesilir_digeri_kalir():
     s = _bas(_agac(10, 2, 300), 10, 100.0) + _bas(_agac(40, 2, 100), 40, 200.0)
     olaylar = []
-    d, kok, ad = ajan_ram_bekci.agac_kontrol(88, {10: "eski", 40: "yeni"}, s, olaylar.extend, lambda *a: None, set())
+    d, kok, ad = ajan_ram_bekci.agac_kontrol(ajan_ram_bekci.AGAC_ESIK, {10: "eski", 40: "yeni"}, s, olaylar.extend, lambda *a: None, set())
     assert (d, kok, ad) == ("kesildi", 40, "yeni") and 10 not in olaylar and 40 in olaylar
 
 
@@ -150,8 +150,8 @@ def test_agac_pidleri_yapraktan_koke():
 def test_agac_esigi_88_altinda_durdurmaz_ustunde_durdurur():  # RAM-BEKCI-3: 92 → 88 (15:02 olayı: 88→90, hedef yok)
     s = _agac(10, 2, 100)
     olaylar, kayit = [], []
-    assert ajan_ram_bekci.agac_kontrol(87, {10: "iş-a"}, s, olaylar.extend, lambda *a: None, set())[0] is None and olaylar == []
-    d, kok, ad = ajan_ram_bekci.agac_kontrol(88, {10: "iş-a"}, s, olaylar.extend, lambda *a: kayit.append(a), set())
+    assert ajan_ram_bekci.agac_kontrol(ajan_ram_bekci.AGAC_ESIK - 1, {10: "iş-a"}, s, olaylar.extend, lambda *a: None, set())[0] is None and olaylar == []
+    d, kok, ad = ajan_ram_bekci.agac_kontrol(ajan_ram_bekci.AGAC_ESIK, {10: "iş-a"}, s, olaylar.extend, lambda *a: kayit.append(a), set())
     assert (d, kok, ad) == ("kesildi", 10, "iş-a") and olaylar == [10000 + 1, 10000, 10] and kayit
 
 
