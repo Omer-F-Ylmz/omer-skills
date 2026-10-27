@@ -4,10 +4,10 @@ Hedef yalnız yöneticinin başlattığı ajan köklerinin (claude.exe) alt/toru
 import importlib.util
 import os
 
-ADAY_ESIK, DUR_ESIK = 87, 88
+ADAY_ESIK, DUR_ESIK = 94, 95  # Ömer 24 Eki 18:38: ajan öldürme yalnız RAM %95'te (eski 87/88 yeni işleri 1-3 dk'da öldürüyordu)
 # RAM-BEKCI-2 (24 Eki 09:45, oyun açıkken claude -p ağacı 93 alt süreç/2.5 GB, RAM %98): tek alt süreç yetmedi → >= AGAC_ESIK'te ajan ağacının tamamı
 # RAM-BEKCI-3 (24 Eki 15:02, RAM %88→90, "hedef yok"): 92 → 88; ≥600 MB tek kaçak yoksa en yeni başlayan ağaç
-AGAC_ESIK, UYARI_RAM, UYARI_MB, UYARI_ALT = 88, 80, 1536, 60
+AGAC_ESIK, UYARI_RAM, UYARI_MB, UYARI_ALT = 95, 80, 1536, 60
 TEK_MIN_MB = 600
 # izin listesi: ad (küçük harf) ya da komut satırında geçen parça → asla hedef değil
 IZIN_AD = {"claude.exe", "chrome.exe", "headroom.exe", "system", "registry", "smss.exe", "csrss.exe", "wininit.exe", "services.exe",
