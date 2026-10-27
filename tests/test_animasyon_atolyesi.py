@@ -49,7 +49,7 @@ def test_birimsiz_sure_hareketi_bozmaz(tmp_path, ad):
     # ANİMASYON-1 yeni2 w1: ajan "sure": 600 verdi → CSS'te birimsiz süre → animasyon geçersiz, hareket 0
     import uyarla
     hedef = tmp_path / "index.html"
-    uyarla.uyarla(ad, hedef, {"sure": 600, "gecikme": 80})
+    uyarla.uyarla(ad, hedef, {"sure": 4000, "gecikme": 80})  # uzun süre: yük altında geç alınan ilk kare animasyon bitmeden yakalanır
     kare = tmp_path / "kare"
     kare.mkdir()
     assert olc.sayfa(hedef, kare)["hareket"] > 0

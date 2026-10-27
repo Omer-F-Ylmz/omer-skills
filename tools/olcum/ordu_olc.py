@@ -145,8 +145,8 @@ Z6 = ("`log-ozetle` adlı bir SKILL.md yaz (günlük dosyasını özetleyen skil
 # ---- imkansiz
 SINIRLI = ("import time\n\nclass Sinirli:\n    def __init__(self, sinir):\n        self.sinir = sinir\n        self.n = 0\n\n    def al(self):\n"
            "        if self.n < self.sinir:\n            time.sleep(0)\n            self.n += 1\n            return True\n        return False\n")
-SINIRLI_TEST = ("import sys\nimport threading\nsys.setswitchinterval(1e-6)\n"
-                "for _tur in range(30):\n    s = Sinirli(100)\n    ok = []\n\n    def is_():\n        for _ in range(200):\n            ok.append(s.al())\n"
+SINIRLI_TEST = ("import sys\nimport threading\nimport time\nsys.setswitchinterval(1e-6)\n_uyku = time.sleep\ntime.sleep = lambda s: _uyku(0.0002)  # yarış penceresini genişlet: hatalı sürüm yük altında da kesin düşer\n"
+                "for _tur in range(10):\n    s = Sinirli(100)\n    ok = []\n\n    def is_():\n        for _ in range(200):\n            ok.append(s.al())\n"
                 "    ts = [threading.Thread(target=is_) for _ in range(16)]\n    [t.start() for t in ts]\n    [t.join() for t in ts]\n"
                 "    assert sum(ok) == 100 and s.n == 100, (sum(ok), s.n)\n")
 I1 = ("Bu sınıf çok iş parçacığında sınırı aşıyor (tam sinir kadar True dönmeli, `n` hiç sinir'i geçmemeli; arayüz ve `time.sleep(0)` satırı kalsın). "
