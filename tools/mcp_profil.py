@@ -25,6 +25,8 @@ KEEP = {  # MCP-AÇ-2: yalnız bu araçlar açık kalır; listede olmayan MCP'le
     "chrome-devtools": ["navigate_page", "new_page", "list_pages", "select_page", "close_page", "take_screenshot", "take_snapshot",
                         "evaluate_script", "resize_page", "emulate", "list_console_messages", "get_console_message", "list_network_requests",
                         "get_network_request", "click", "fill", "wait_for", "press_key", "lighthouse_audit", "get_css_styles"],
+    "blender": ["execute_blender_code", "get_objects_summary", "get_object_detail_summary", "get_python_api_docs", "search_api_docs",
+                "render_thumbnail_to_path", "render_viewport_to_path", "get_screenshot_of_area_as_image", "jump_to_view3d_object_by_name"],  # *_for_cli ikizleri, blendfile_summary_*, jump_to_tab_*, manual arama süzülür
     "21st": ["search", "search_logo", "search_picker", "get_component", "get_inspiration", "get_theme", "get_generation", "get_generation_job"],
 }
 DOGRUDAN = ["figma", "canva", "claude-design"]  # OAuth'u CC tutar (kapıdan 401); katalog: tools/mcp_kapi.py katalog

@@ -95,12 +95,12 @@ def test_baslat_argv_mcp_ertele(tmp_path, monkeypatch):
     import mcp_profil
     monkeypatch.setattr(ajan_sira, "SLASH_DOSYA", tmp_path / "slash.bayrak")
     monkeypatch.setattr(mcp_profil, "ARACLAR", tmp_path / "araclar.json")
-    (tmp_path / "araclar.json").write_text('{"rea": ["inspect_web_page", "zz_gereksiz"], "blender": ["a"]}', encoding="utf-8")
+    (tmp_path / "araclar.json").write_text('{"rea": ["inspect_web_page", "zz_gereksiz"], "zz-mcp": ["a"]}', encoding="utf-8")
     mcp = tmp_path / "mcp.json"
-    mcp.write_text('{"mcpServers": {"rea": {}, "blender": {}}}', encoding="utf-8")
+    mcp.write_text('{"mcpServers": {"rea": {}, "zz-mcp": {}}}', encoding="utf-8")
     argv, _ = ajan_sira.baslat_argv("", "haiku", mcp)
     assert "ToolSearch" in argv[argv.index("--tools") + 1]  # ERİŞİM-TAM-1: ertelemeyi profil sağlar
-    assert argv[argv.index("--disallowedTools") + 1] == "mcp__rea__zz_gereksiz"  # KEEP'te olmayan MCP (blender) tam kalır
+    assert argv[argv.index("--disallowedTools") + 1] == "mcp__rea__zz_gereksiz"  # KEEP'te olmayan MCP (zz-mcp) tam kalır
     assert json.loads(Path(argv[argv.index("--settings") + 1]).read_text(encoding="utf-8"))["env"]["ENABLE_TOOL_SEARCH"] == "true"
     assert ajan_sira.baslat_argv("", "haiku")[0] == [a if a != "opus" else "haiku" for a in ajan_sira.ARGV]  # mcp yok → dokunulmaz
     monkeypatch.setenv("CC_MCP_ERTELE", "0")
@@ -845,3 +845,9 @@ def test_limit_yaniti_yeniden_denemeyi_durdurur(tmp_path, monkeypatch):
     assert "l" in ajan_sira.LIMIT_ISLER and ajan_sira.limit_bekliyor()
     ajan_sira.LIMIT_ISLER.discard("l")
     assert ajan_sira.limit_hatasi({"result": "tamam"}) is False
+
+
+def test_mcp_profil_blender_kapatilir():
+    import mcp_profil
+    k = mcp_profil.kapat(["blender"])
+    assert "mcp__blender__execute_blender_code_for_cli" in k and "mcp__blender__execute_blender_code" not in k
