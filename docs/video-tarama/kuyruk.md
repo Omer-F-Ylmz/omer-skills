@@ -803,6 +803,10 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | emWgP_fr04k | 43.9 | ⚡ Inside Google Labs: Building The Gemin | bağlantılı video (_xQnSNlBP_w) | işlendi: d9569b1 |
 | deMrq2uzRKA | 27.6 | Michael Truell: How Cursor Builds at the | bağlantılı video (_xQnSNlBP_w) | işlendi: d9569b1 |
 | zSngJFKTsrM | 8.5 | Claude Code Tutorial: Skills (The Part M | bağlantılı video (ig-DdxKYYvRysZ) | işlendi: d9569b1 |
+| SX08NT55YhA | 16.8 | AI Learns to Drive From Scratch in Track | bağlantılı video (5eBlDBD0nho) | bekliyor |
+| kopoLzvh5jY | 3.0 | Multi-Agent Hide and Seek | bağlantılı video (5eBlDBD0nho) | bekliyor |
+| _0E-dzhjCoY | 360.7 | Full App Building Course with Claude Cod | bağlantılı video (n1je-98lvsQ) | bekliyor |
+| 87DyyMV0kCY | 37.5 | Black Hat USA 2026 / The 'Breaking' News | bağlantılı video (eIB1pFMlpbQ) | bekliyor |
 
 ## Eklenen: 2026-10-08 (93 tekil video)
 
@@ -969,3 +973,86 @@ Parti boyu önerisi: uzun video (≥7 dk) 3/oturum · short (<2 dk) 8/oturum.
 | ig-Dc1NYVJA8A2 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
 | ig-Dd6pRc_sye8 | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
 | ig-DaLUGUbMp4K | 1.0 | Instagram reel | 8 Eki · süre ölçülmedi, short sayıldı · IG-EKSIK-1 | işlendi: a45920c |
+
+## Sıra 0 — Ömer 27 Eki (LINK-27EKI, 78 link)
+
+| id | dk | başlık | not | durum |
+|---|---|---|---|---|
+| ig-De1IdFfjpAL | 1.0 | Instagram reel | 27 Eki · Obsidian ile kombo · https://www.instagram.com/reel/De1IdFfjpAL/ | bekliyor |
+| ig-DezhKLaMyaA | 1.0 | Instagram reel | 27 Eki · hazır güzel şeyler, süsleyip kullan · https://www.instagram.com/reel/DezhKLaMyaA/ | bekliyor |
+| ig-De1u9y2D6Ix | 1.0 | Instagram reel | 27 Eki · hazır güzel şeyler, süsleyip kullan · https://www.instagram.com/reel/De1u9y2D6Ix/ | bekliyor |
+| ig-DeLr-0LNvvA | 1.0 | Instagram reel | 27 Eki · web sitemize çok hızlı veri akışı · https://www.instagram.com/reel/DeLr-0LNvvA/ | bekliyor |
+| ig-De10iPOiB6V | 1.0 | Instagram reel | 27 Eki · web sitemize çok hızlı veri akışı · https://www.instagram.com/reel/De10iPOiB6V/ | bekliyor |
+| ig-De0ukYXBMsG | 1.0 | Instagram reel | 27 Eki · böyle reklam animasyonları yapmayı öğren · https://www.instagram.com/reel/De0ukYXBMsG/ | bekliyor |
+| ig-DYNW3X7J2TH | 1.0 | Instagram reel | 27 Eki · daha iyi işler için ekle (Desktop kendisi izler) · https://www.instagram.com/reel/DYNW3X7J2TH/ | bekliyor |
+| ig-De1tiaNNapd | 1.0 | Instagram reel | 27 Eki · başka bir site reposu ve yapılışı · https://www.instagram.com/reel/De1tiaNNapd/ | bekliyor |
+| ig-DeKIi1Vos0s | 1.0 | Instagram reel | 27 Eki · böyle aşırı havalı edit · https://www.instagram.com/reel/DeKIi1Vos0s/ | bekliyor |
+| ig-De33iyPCNyC | 1.0 | Instagram reel | 27 Eki · 2. beyinle ilgili (Desktop kendisi izler) · https://www.instagram.com/reel/De33iyPCNyC/ | bekliyor |
+| ig-Ddglq0BMDPW | 1.0 | Instagram reel | 27 Eki · Higgsfield + Seedance 2.5 üretimleri, biz de yapalım · https://www.instagram.com/reel/Ddglq0BMDPW/ | bekliyor |
+| AI1aeeCjdgQ | 1.0 | YouTube | 27 Eki · beleş modellerle kullan, bünyeye ekle · https://youtube.com/shorts/AI1aeeCjdgQ | bekliyor |
+| ig-DeqQGZrJhCG | 1.0 | Instagram reel | 27 Eki · alet/ürün içini açıp havalı animasyonla sunma · https://www.instagram.com/reel/DeqQGZrJhCG/ | bekliyor |
+| ig-DevVTopkRwf | 1.0 | Instagram post | 27 Eki · Harness2 kur (self-improvement) · https://www.instagram.com/p/DevVTopkRwf/ | bekliyor |
+| ig-Dd8wLKzn7fK | 1.0 | Instagram reel | 27 Eki · kendi kendine çalışmaya yardım · https://www.instagram.com/reel/Dd8wLKzn7fK/ | bekliyor |
+| ig-DePG1srTjBo | 1.0 | Instagram reel | 27 Eki · kendi kendine çalışma anlatımı · https://www.instagram.com/reel/DePG1srTjBo/ | bekliyor |
+| ig-De4DkBqDH-R | 1.0 | Instagram reel | 27 Eki · Desktop+CC+ajanlara kur · https://www.instagram.com/reel/De4DkBqDH-R/ | bekliyor |
+| ig-DeSLvUkRlTF | 1.0 | Instagram reel | 27 Eki · omer-site fikri (SONRA kümesi; yalnız fikir kaydı): ofise görüşmeye gelir gibi sinematik giriş + Ömer'in yüzü; scroll'da defter uzatılır, defterde site küçük görselleri, üzerine bakınca içine gitme efektiyle siteye geçiş, geri dönüşte ters efekt · https://www.instagram.com/reel/DeSLvUkRlTF/ | bekliyor |
+| ig-DePehUIyFLB | 1.0 | Instagram reel | 27 Eki · havalı sinematik şeyler · https://www.instagram.com/reel/DePehUIyFLB/ | bekliyor |
+| ig-De00AyASinQ | 1.0 | Instagram reel | 27 Eki · hazırdan site yapan araçlar, kullan + iyileştir · https://www.instagram.com/reel/De00AyASinQ/ | bekliyor |
+| ig-Dez5CGMkq5K | 1.0 | Instagram reel | 27 Eki · siteler için · https://www.instagram.com/reel/Dez5CGMkq5K/ | bekliyor |
+| ig-De2EFbZjBHi | 1.0 | Instagram post | 27 Eki · self-improve trading bot → REA ile analiz, Desktop+CC+ajanlar+2. beyin döngüsüne self-improvement olarak uyarla (daha az token, nihai kurallar) · https://www.instagram.com/p/De2EFbZjBHi/ | bekliyor |
+| ig-DeyDEFlCBsL | 1.0 | Instagram reel | 27 Eki · - · https://www.instagram.com/reel/DeyDEFlCBsL/ | bekliyor |
+| ig-De4Ly5Tyhlu | 1.0 | Instagram reel | 27 Eki · fikir; daha interaktif/gelişmiş yapılabilir · https://www.instagram.com/reel/De4Ly5Tyhlu/ | bekliyor |
+| ig-DdO9-XXTh02 | 1.0 | Instagram reel | 27 Eki · incele · https://www.instagram.com/reel/DdO9-XXTh02/ | bekliyor |
+| ig-De0VmwJD8zS | 1.0 | Instagram reel | 27 Eki · kullanıp dene · https://www.instagram.com/reel/De0VmwJD8zS/ | bekliyor |
+| ig-DeZwcxrFAlE | 1.0 | Instagram post | 27 Eki · nasıl yapıldığını öğren · https://www.instagram.com/p/DeZwcxrFAlE/ | bekliyor |
+| ig-DbzttxfNxjK | 1.0 | Instagram reel | 27 Eki · ne yapıyor nasıl yapılıyor · https://www.instagram.com/reel/DbzttxfNxjK/ | bekliyor |
+| ig-Deg4e9QjnaY | 1.0 | Instagram post | 27 Eki · nasıl yapıldığını öğren + kur · https://www.instagram.com/p/Deg4e9QjnaY/ | bekliyor |
+| ig-DeWsGkaE_tk | 1.0 | Instagram post | 27 Eki · iyi incele — hedef: Blender vb. işleri alt ajanlar 0 token maliyetle çok iyi yapsın; siteden alınan modelleri hızlı özelleştirme · https://www.instagram.com/p/DeWsGkaE_tk/ | bekliyor |
+| ig-De4uoo1xmDw | 1.0 | Instagram reel | 27 Eki · - · https://www.instagram.com/reel/De4uoo1xmDw/ | bekliyor |
+| ig-De6FeaaDP04 | 1.0 | Instagram post | 27 Eki · 4070 Ti tensor "unlock" iddiası — doğrula; yalnız güvenli/geri alınabilir yöntem, vBIOS flash YOK (Ömer onayı olmadan) · https://www.instagram.com/p/De6FeaaDP04/ | bekliyor |
+| ig-De6gVFpCFmE | 1.0 | Instagram reel | 27 Eki · bunu yapalım · https://www.instagram.com/reel/De6gVFpCFmE/ | bekliyor |
+| qs-DetJr2nQ | 1.0 | YouTube | 27 Eki · yetenek: araştır, Desktop+CC+ajanlara indir · https://youtube.com/shorts/qs-DetJr2nQ | bekliyor |
+| ig-De4kdJeBD8E | 1.0 | Instagram reel | 27 Eki · hemen kur · https://www.instagram.com/reel/De4kdJeBD8E/ | bekliyor |
+| ig-De6oEmiMblJ | 1.0 | Instagram reel | 27 Eki · kur · https://www.instagram.com/reel/De6oEmiMblJ/ | bekliyor |
+| ig-De4e4TmkvmH | 1.0 | Instagram post | 27 Eki · AI slop'u yok etmek için · https://www.instagram.com/p/De4e4TmkvmH/ | bekliyor |
+| ig-De6cx6MRxbZ | 1.0 | Instagram reel | 27 Eki · 0 token otomasyon: YouTube/TikTok/IG reels hattı · https://www.instagram.com/reel/De6cx6MRxbZ/ | bekliyor |
+| ig-DeT8XphH4jq | 1.0 | Instagram post | 27 Eki · hazır alınabilecek siteler · tekrar — önceki: 63a985c · https://www.instagram.com/p/DeT8XphH4jq/ | bekliyor |
+| ig-De4WluEDDQ_ | 1.0 | Instagram reel | 27 Eki · akıllanmak: Desktop+CC+ajanlara kur · https://www.instagram.com/reel/De4WluEDDQ_/ | bekliyor |
+| ig-De7EBPTiU1a | 1.0 | Instagram reel | 27 Eki · daha az token: kur · https://www.instagram.com/reel/De7EBPTiU1a/ | bekliyor |
+| 90Mr2UP1HFA | 1.0 | YouTube | 27 Eki · Desktop+CC+ajanlara indir, 2. beyinle birleştir · https://youtube.com/shorts/90Mr2UP1HFA | bekliyor |
+| ig-De6-sZ1BhfA | 1.0 | Instagram reel | 27 Eki · iyice incele, kur — Desktop/CC ajanları daha iyi kontrol eder, ajanlar akıllanır · https://www.instagram.com/reel/De6-sZ1BhfA/ | bekliyor |
+| ig-De1iMu0taFs | 1.0 | Instagram reel | 27 Eki · context azaltıcı: kur · https://www.instagram.com/reel/De1iMu0taFs/ | bekliyor |
+| ig-DeY_8acEaiy | 1.0 | Instagram post | 27 Eki · token tasarrufu · https://www.instagram.com/p/DeY_8acEaiy/ | bekliyor |
+| ig-De78haLIIrT | 1.0 | Instagram reel | 27 Eki · başka kütüphane sitesi, içine göz at · https://www.instagram.com/reel/De78haLIIrT/ | bekliyor |
+| ig-De6XSviD6R1 | 1.0 | Instagram reel | 27 Eki · çok iyi görünüyor: izle, kur · https://www.instagram.com/reel/De6XSviD6R1/ | bekliyor |
+| ig-De5KFvOy66O | 1.0 | Instagram reel | 27 Eki · daha az token: kur · https://www.instagram.com/reel/De5KFvOy66O/ | bekliyor |
+| ig-De4926nC1iw | 1.0 | Instagram reel | 27 Eki · ajanları daha iyi yönetmek · https://www.instagram.com/reel/De4926nC1iw/ | bekliyor |
+| ig-De6tjiYAIU_ | 1.0 | Instagram reel | 27 Eki · 4070 Ti sürümü var mı — REA ile anla (kişisel kullanım) · https://www.instagram.com/reel/De6tjiYAIU_/ | bekliyor |
+| ig-DeHx3kBzY30 | 1.0 | Instagram reel | 27 Eki · site tara · https://www.instagram.com/reel/DeHx3kBzY30/ | bekliyor |
+| ig-De8oaV4PZei | 1.0 | Instagram reel | 27 Eki · düşünüp tekrar düşünüp iyileştiren: Desktop+CC+ajanlar+2. beyin · https://www.instagram.com/reel/De8oaV4PZei/ | bekliyor |
+| ig-DejcAcwz89b | 1.0 | Instagram reel | 27 Eki · sorun bulurken harcanan fazla token · https://www.instagram.com/reel/DejcAcwz89b/ | bekliyor |
+| ig-De8NxnagICD | 1.0 | Instagram reel | 27 Eki · siteler · https://www.instagram.com/reel/De8NxnagICD/ | bekliyor |
+| ig-De5_-eyDU0y | 1.0 | Instagram reel | 27 Eki · baya iyi: kur · https://www.instagram.com/reel/De5_-eyDU0y/ | bekliyor |
+| ig-De7MatdDOnZ | 1.0 | Instagram reel | 27 Eki · bir roast room daha (jüri/pixeljury ile karşılaştır) · https://www.instagram.com/reel/De7MatdDOnZ/ | bekliyor |
+| ig-DdRUhaJzwk2 | 1.0 | Instagram reel | 27 Eki · - · https://www.instagram.com/reel/DdRUhaJzwk2/ | bekliyor |
+| ig-De1mAq9oaDP | 1.0 | Instagram reel | 27 Eki · çok faydalı olabilir · https://www.instagram.com/reel/De1mAq9oaDP/ | bekliyor |
+| ig-DdQkBgtxYe2 | 1.0 | Instagram reel | 27 Eki · siteler · https://www.instagram.com/reel/DdQkBgtxYe2/ | bekliyor |
+| ig-De86cK0ihyb | 1.0 | Instagram reel | 27 Eki · bak · https://www.instagram.com/reel/De86cK0ihyb/ | bekliyor |
+| CmOs0LZUOMM | 1.0 | YouTube | 27 Eki · limite ulaşmama önlemleri — uygula; doğru işe doğru model · https://www.youtube.com/watch?v=CmOs0LZUOMM | bekliyor |
+| ig-De4qvI2zaCe | 1.0 | Instagram reel | 27 Eki · beleş başka API'ler · https://www.instagram.com/reel/De4qvI2zaCe/ | bekliyor |
+| ig-De9mZYXCGeB | 1.0 | Instagram reel | 27 Eki · eksiğimiz var mı · https://www.instagram.com/reel/De9mZYXCGeB/ | bekliyor |
+| ig-DeviJpAGrW3 | 1.0 | Instagram post | 27 Eki · kütüphane gibi siteler · https://www.instagram.com/p/DeviJpAGrW3/ | bekliyor |
+| ig-De9c4mMxRZ_ | 1.0 | Instagram reel | 27 Eki · araştır · https://www.instagram.com/reel/De9c4mMxRZ_/ | bekliyor |
+| ig-De9mjg8lYbo | 1.0 | Instagram reel | 27 Eki · araştır · https://www.instagram.com/reel/De9mjg8lYbo/ | bekliyor |
+| ig-De7ueOMSVHF | 1.0 | Instagram reel | 27 Eki · LLM geliştirme kiti mi? · https://www.instagram.com/reel/De7ueOMSVHF/ | bekliyor |
+| ig-De9z8ShAa1r | 1.0 | Instagram reel | 27 Eki · kur · https://www.instagram.com/reel/De9z8ShAa1r/ | bekliyor |
+| ig-De95N60JYG2 | 1.0 | Instagram reel | 27 Eki · 2. beyinle birlikte kullanım · https://www.instagram.com/reel/De95N60JYG2/ | bekliyor |
+| ig-De7P1O-Bx6V | 1.0 | Instagram reel | 27 Eki · bak · https://www.instagram.com/reel/De7P1O-Bx6V/ | bekliyor |
+| ig-De96ZEuvmbc | 1.0 | Instagram reel | 27 Eki · - · https://www.instagram.com/reel/De96ZEuvmbc/ | bekliyor |
+| ig-De6FeaaDP04 | 1.0 | Instagram post | 27 Eki · 4070 Ti'de dene, farkları ölç (güvenli yöntemle) · aynı listede tekrar (img_index) · https://www.instagram.com/p/De6FeaaDP04/?img_index=4 | bekliyor |
+| ig-De9kMGeShp9 | 1.0 | Instagram reel | 27 Eki · ajanlara özel hızlı tarayıcı: kur · https://www.instagram.com/reel/De9kMGeShp9/ | bekliyor |
+| ig-De90wGYPyQQ | 1.0 | Instagram reel | 27 Eki · siteler · https://www.instagram.com/reel/De90wGYPyQQ/ | bekliyor |
+| ig-Deesy64AN1- | 1.0 | Instagram reel | 27 Eki · siteler · https://www.instagram.com/reel/Deesy64AN1-/ | bekliyor |
+| ig-DceOpdKOks8 | 1.0 | Instagram reel | 27 Eki · nasıl yapmış, öğren · https://www.instagram.com/reel/DceOpdKOks8/ | bekliyor |
+| ig-De9Ih2LiSI7 | 1.0 | Instagram reel | 27 Eki · 2. beyin · https://www.instagram.com/reel/De9Ih2LiSI7/ | bekliyor |
+| ig-DdrRps4Jgf7 | 1.0 | Instagram reel | 27 Eki · - · https://www.instagram.com/reel/DdrRps4Jgf7/ | bekliyor |
