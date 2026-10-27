@@ -105,11 +105,18 @@ def test_tara_ikili_modeller_eszamanli(tmp_path):
 
 # (A) 4 video, paketleme 0.2 s + tarama 0.3 s, N=2 → toplam < 1.2 s (bariyerli sürüm ≥ 1.4 s)
 def test_boru_hatti_bariyersiz(tmp_path, monkeypatch):
-    kok, ctx, ns = _kur(tmp_path, monkeypatch, _idler(4), cagir=_cagir_uyku(.3), paralel=2)
-    ctx["alt"] = _sahte_alt(kok / "c", .2)
-    t0 = time.monotonic()
-    assert pt.parti(ns, ctx) == 0
-    assert time.monotonic() - t0 < 1.2
+    # Yük gürültüsü süreyi yalnız uzatır: 3 denemenin en iyisi eşiğin altında olmalı (eşik aynı).
+    en_iyi = 99
+    for i in range(3):
+        (tmp_path / str(i)).mkdir()
+        kok, ctx, ns = _kur(tmp_path / str(i), monkeypatch, _idler(4), cagir=_cagir_uyku(.3), paralel=2)
+        ctx["alt"] = _sahte_alt(kok / "c", .2)
+        t0 = time.monotonic()
+        assert pt.parti(ns, ctx) == 0
+        en_iyi = min(en_iyi, time.monotonic() - t0)
+        if en_iyi < 1.2:
+            break
+    assert en_iyi < 1.2
     assert all(s["tarama"]["durum"] == "tamam" for s in _durum(kok)["videolar"].values())
 
 

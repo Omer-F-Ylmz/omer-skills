@@ -89,11 +89,12 @@ test("logBudama LOG_DIZIN'de son LOG_TAVAN dosyayi birakir", () => {
 
 // ---------------------------------------------------------------- canlı headroom
 test("json >8 KB sikisir ve ilk satir yuzde + tam yolu tasir", async () => {
-  const z = await sikistir(JSON_GOVDE);
-  assert.ok(z, "headroom mcp serve cevap vermedi");
+  const z = await sikistir(JSON_GOVDE, 90000);
+  assert.ok(z && !z.sebep, "headroom mcp serve cevap vermedi: " + z?.sebep);
   assert.ok(z.original_tokens > z.compressed_tokens,
             `kazanc yok: ${z.original_tokens} -> ${z.compressed_tokens}`);
-  const c = await ciktiHazirla(JSON_GOVDE, 30000);
+  // Tam suitte yük altında 10 sn'lik üretim tavanı aşılıyor; canlı testte tavan gevşek.
+  const c = await ciktiHazirla(JSON_GOVDE, 30000, { sikistirici: (m) => sikistir(m, 90000) });
   assert.match(c, /^\[headroom %[\d.]+ · tam: .+\]/);
   const yol = /· tam: (.+)\]/.exec(c)[1];
   assert.equal(fs.readFileSync(yol, "utf8"), JSON_GOVDE, "tam cikti log'da degil");
