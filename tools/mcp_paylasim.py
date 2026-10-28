@@ -19,7 +19,9 @@ PROXY = Path.home() / ".local" / "bin" / "mcp-proxy.exe"
 # blender/unity/godot (yerel editör köprüsü), codebase-memory-mcp (proje indeksi), http olanlar zaten süreçsiz.
 PAYLASIM = ["airtable", "apify", "arxiv", "brave-search", "clickhouse", "code-review", "context7",
             "drizzle-docs", "gsc", "headroom", "hfspace", "hostinger", "jev", "markitdown", "mcp-fetch",
-            "mcp-memory", "mcp-sequential-thinking", "mcp-time", "n8n-mcp", "netlify", "stitch"]
+            "mcp-memory", "mcp-sequential-thinking", "mcp-time", "n8n-mcp", "netlify", "stitch",
+            # RAM-OPT-1 d3: Desktop durumlu 9 sunucu (tek kopya; Desktop ikinci başlatmayı hafif köprüyle yapar)
+            "mcp-filesystem", "mcp-git", "obsidian", "claude-design", "binlog", "claude-mem", "puppeteer", "playwright", "blender"]
 
 
 # RAM-BEKCI-3c: ikinci havuz (47801), çalışan 47800 proxy'sine dokunmadan; ruflo (env'deki sabit mutlak DB yolları → tek süreç güvenli), premiere-pro (durumsuz köprü).

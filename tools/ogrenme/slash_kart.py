@@ -16,7 +16,7 @@ def kos(dizin, istem):
     dizin.mkdir(parents=True, exist_ok=True)
     (dizin / "slug.py").write_text(KAYNAK, encoding="utf-8")
     p = subprocess.run([shutil.which("claude"), "-p", "--output-format", "stream-json", "--verbose", "--model", "sonnet", "--max-turns", "14",
-                        "--permission-mode", "acceptEdits", "--allowedTools", "Bash(python:*) Bash(pytest:*) Bash(py:*)"],
+                        "--permission-mode", "acceptEdits", "--allowedTools", "Bash(python:*) Bash(pytest:*) Bash(py:*) Bash(rtk:*)"],
                        input=istem, capture_output=True, text=True, encoding="utf-8", cwd=str(dizin), timeout=600)
     (dizin / "ham.jsonl").write_text(p.stdout, encoding="utf-8")
     olay = [json.loads(s) for s in p.stdout.splitlines() if s.startswith("{")]
