@@ -6,3 +6,6 @@ Sonuç: skill adlarını gizlemek yükü düşürmüyor (listeleme bütçesi zat
 Tam (MCP'li) kol bu turda da asıldı (240 sn, çıktı 0 bayt; RAM %75'te bile) → 3 örnek iş jeton A/B ve bağımsız hakem YAPILMADI. (c) CLI kapısı = arka_uygulama.py komut; (a) kapı = arac_ara.py --tam zaten var.
 AÇIK: tam kolun asılma nedeni (MCP başlatma), ajan tanımı yükü (32k) için silmeden yol, ComfyUI üretim düşmesi (WinError 10054/10061).
 Ölçüm oturumları tek tek, RAM ≤%85 kapısıyla koştu; hepsi --strict-mcp-config (MCP süreci açılmadı).
+TUR 3 (tek tek, RAM <=%85 kapili, --strict-mcp-config): yalniz proje katmani 29,3k · kullanici katmani kancasiz 127,6k · + 417 eklenti kapali 64,7k → eklenti katmani ~63k (290 ajan dahil), kalan ~35k = 2403 kullanici skill adi + genel CLAUDE.md.
+TUR 3 kok neden: tam kolun/kullanici katmaninin asilmasi MCP degil KANCA (disableAllHooks ile 11 sn, kancayla 150 sn zaman asimi; 'ajan' profili de kancayla asildi). Skill adlari ayarda zaten name-only (2415)/off (329) → ek skill gizleme kazanc vermez.
+KALAN: 3 ornek is A/B + hakem YAPILMADI (kanca asilmasi + RAM %90+ baska oturumlar). Sonraki adim: asilan kancayi bul (SessionStart), eklenti yukunu is turune gore profille (pluginKapat) kapatmadan degil profil gecisiyle sun. Global ayara dokunulmadi.
