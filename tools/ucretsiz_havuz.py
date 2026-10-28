@@ -26,7 +26,8 @@ SAG = {"gemini": ("https://generativelanguage.googleapis.com/v1beta/openai/chat/
        "cloudflare": ("https://api.cloudflare.com/client/v4/accounts/{CLOUDFLARE_ACCOUNT_ID}/ai/v1/chat/completions", "CLOUDFLARE_API_KEY", 1),
        "nvidia": ("https://integrate.api.nvidia.com/v1/chat/completions", "NVIDIA_API_KEY", 1),
        "sambanova": ("https://api.sambanova.ai/v1/chat/completions", "SAMBANOVA_API_KEY", 0.5),
-       "ollama": ("https://ollama.com/v1/chat/completions", "OLLAMA_API_KEY", 0.5)}
+       "ollama": ("https://ollama.com/v1/chat/completions", "OLLAMA_API_KEY", 0.5),
+       "huggingface": ("https://router.huggingface.co/v1/chat/completions", "HF_TOKEN", 0.5)}  # şablon: HF_TOKEN yok, model satırı (E) token gelince eklenecek
 DUSUNME = {"gemini", "groq", "openrouter", "omniroute", "ollama"}  # reasoning_effort bilen uçlar; diğerleri bilinmeyen alanı 400/422 yapabilir
 E = namedtuple("E", "prov model aile kova rpm tpm rpd baglam turler")
 Z, H, Y, U, K = "ozet", "hakem", "yazim", "uzun", "kod"
@@ -45,7 +46,7 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("openrouter", "google/gemma-4-31b-it:free", "google", "openrouter", 18, 10**6, 900, 100_000, (Z, H, Y)),
        E("openrouter", "minimax/minimax-m3.1-flash:free", "minimax", "openrouter", 18, 10**6, 900, 100_000, ()),  # KAPALI: :free 22 Eki 2026'da kalktı (404)
        E("openrouter", "nvidia/nemotron-3-ultra-550b-a55b:free", "nvidia", "openrouter", 18, 10**6, 900, 100_000, (H, Y)),
-       E("github", "openai/gpt-4.1-mini", "openai", None, 10, 7000, 120, 5500, ()),  # KAPALI: models.github.ai her yola 200 + gövde "OK" (20 Eki); düzelince türleri aç
+       E("github", "openai/gpt-4.1-mini", "openai", None, 10, 7000, 120, 5500, ()),  # KAPALI (29 Eki yeniden ölçüm): 200 ama gövde düz "OK", JSON değil (gh token ve GITHUB_TOKEN, başlıklar denendi); eski azure uç DNS'te yok
        E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U)),
        # 20 Eki canlı: mistral 429 (hız sınırı, kendini toparlarsa açılır) · cloudflare 200 · ollama "Free usage limit" 429; sınırlar acilabilir.md'deki belge değerlerinin muhafazakârı; ilk 429'da soğuma devreye girer
        E("mistral", "mistral-small-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, U)),
@@ -69,6 +70,64 @@ ZINCIR = {Z: ["groq/qwen/qwen3.8-27b", "mistral/ministral-14b-latest", "gemini/g
           K: ["mistral/codestral-latest", "groq/openai/gpt-oss-120b", "nvidia/nvidia/nemotron-3.5-lightning-30b-a3b"],
           Y: ["mistral/ministral-14b-latest", "gemini/gemini-3-flash-preview", "groq/qwen/qwen3.8-27b"],
           U: ["gemini/gemini-3.1-flash-lite", "gemini/gemini-3.5-flash-lite", "mistral/mistral-small-latest"]}
+
+# TUR 2: canlı model listesi. Sağlayıcının /models yanıtı 1 saat önbelleklenir; listede olmayan sabit halka atlanır (404/410 eski ad),
+# openrouter :free listesinden yeni adlar halka olarak eklenir. Liste alınamazsa (ağ/anahtar) sabit ENT olduğu gibi kalır.
+CANLI = DIZIN / "modeller.json"
+CANLI_SURE = 3600
+CANLI_ATLA = {"omniroute", "cloudflare", "github", "huggingface"}  # /models yok ya da farklı uç
+_CANLI = {}
+CKILIT = threading.Lock()  # _sec KILIT altında _canli'yi çağırır; ayrı kilit şart
+
+
+def _canli(prov):
+    """{model id} | None (liste yok → süzgeç uygulanmaz)."""
+    if prov in CANLI_ATLA or not _anahtar(SAG[prov][1]) or not _url(prov):
+        return None
+    now = time.time()
+    with CKILIT:
+        if prov in _CANLI and _CANLI[prov][0] > now - CANLI_SURE:
+            return _CANLI[prov][1]
+        try:
+            d = json.loads(CANLI.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            d = {}
+        v = d.get(prov)
+        if v and v[0] > now - CANLI_SURE:
+            _CANLI[prov] = (v[0], set(v[1]) if v[1] is not None else None)
+            return _CANLI[prov][1]
+    ids = None
+    try:
+        q = urllib.request.Request(_url(prov).rsplit("/chat/completions", 1)[0] + "/models", headers={"User-Agent": "curl/8", "Authorization": "Bearer " + _anahtar(SAG[prov][1])})
+        with urllib.request.urlopen(q, timeout=20) as f:
+            j = json.load(f)
+        ids = {str(m.get("id") or m.get("name", "")).removeprefix("models/") for m in (j.get("data") or j.get("models") or [])} - {""}
+    except (OSError, ValueError):
+        pass
+    with CKILIT:
+        _CANLI[prov] = (now, ids)
+        try:
+            d = json.loads(CANLI.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            d = {}
+        d[prov] = [now, sorted(ids) if ids is not None else None]
+        DIZIN.mkdir(parents=True, exist_ok=True); atomik_yaz.yaz_bayt(CANLI, json.dumps(d).encode("utf-8"))
+    return ids
+
+
+def _canli_ekle():
+    """openrouter :free listesindeki, ENT'de olmayan metin modellerini (görsel/gömme/koruma hariç) en çok 6 halka olarak ekler."""
+    ids = _canli("openrouter")
+    if not ids:
+        return
+    var = {e.model for e in ENT if e.prov == "openrouter"}
+    ek = sorted(m for m in ids if m.endswith(":free") and m not in var and not re.search(r"vl|vision|image|embed|guard|safety|audio|whisper|lyria|router", m))[:6]
+    for m in ek:
+        ENT.append(E("openrouter", m, m.split("/")[0], "openrouter", 18, 10**6, 900, 100_000, (Z, H, Y)))
+
+
+_EKLENDI = []
+
 ERT, SONUC = DIZIN / "ertelenen.jsonl", DIZIN / "ertelenen-sonuc.jsonl"
 SERT = re.compile(r"free usage limit|per ?day|tokens per day|\btpd\b|daily|günlük", re.I)
 
@@ -154,6 +213,12 @@ def _say(d, k, bugun):
 
 def _sec(tur, tahmin, aile, haric, denenen, rezerv=None, saglayici=None):
     """Uygun halkaların en az yüklüsünü seçer ve kotasını hemen rezerve eder (paralel iş parçacıkları aşmasın)."""
+    if not _EKLENDI:
+        _EKLENDI.append(1)
+        try:
+            _canli_ekle()
+        except Exception:  # noqa: BLE001 - liste hatası çağrıyı düşürmesin
+            pass
     with KILIT:
         d = _durum(); now = time.time(); bugun = time.strftime("%Y-%m-%d", time.gmtime())
         for k in ("say", "soguma", "dk", "son", "ardisik"):
@@ -169,6 +234,8 @@ def _sec(tur, tahmin, aile, haric, denenen, rezerv=None, saglayici=None):
             if len(dk) >= e.rpm or sum(x[1] for x in dk) + (rezerv or tahmin) > e.tpm or _say(d, kova, bugun) >= e.rpd:  # çıktı tavanı tam dolmaz: dakika kovası yarım max_tokens sayar
                 continue
             if not _anahtar(SAG[e.prov][1]) or not _url(e.prov) or (e.prov == "omniroute" and not _omni_serbest()):
+                continue
+            if (c := _canli(e.prov)) is not None and e.model not in c:  # eski/kalkmış ad: canlı listede yok
                 continue
             uygun.append((_hata_oranu(d, e.aile), (ZINCIR.get(tur, []) + [ad(e)]).index(ad(e)), _say(d, "p:" + e.prov, bugun) / SAG[e.prov][2], _say(d, ad(e), bugun), d["son"].get(ad(e), 0), e))
         if not uygun:
@@ -197,7 +264,7 @@ def _dus(e, h):
             sure = 14400 if gunluk else min(h.bekle or 60, 900) * min(n, 4)  # OpenRouter "per-day" 429'u model başına geçici (20 Eki ölçüm): 4 saat değil
         elif h.kod in (401, 402, 403):
             d["soguma"]["p:" + e.prov] = now + 3600; _yaz(d); return  # anahtar/izin sorunu: sağlayıcının hepsi
-        elif h.kod in (400, 404):
+        elif h.kod in (400, 404, 410):
             sure = 3600
         elif h.kod == 413:
             sure = 600
