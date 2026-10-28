@@ -1,0 +1,11 @@
+ad	yol	ozet	etiket
+GitHub	mcp:github	depo, issue, PR; gh CLI once	baglayici hesap github repo
+Google Drive	claude.ai:Google Drive	dosya arama/okuma	baglayici drive dosya
+Notion	claude.ai:Notion	not/veritabani sayfalari	baglayici notion not
+Slack	claude.ai:Slack	kanal mesaj arama/gonderme	baglayici slack mesaj
+Linear	claude.ai:Linear	issue/proje takibi	baglayici linear issue
+Atlassian (Jira/Confluence)	claude.ai:Atlassian (Jira/Confluence)	Jira is + Confluence sayfa	baglayici jira confluence
+claude.ai tasarim sistemleri/projeler	claude.ai:claude.ai tasarim sistemleri/projeler	Desktop projeleri ve tasarim sistemi (DesignSync)	baglayici tasarim sistemi proje
+Netlify	netlify-cli	site yayini, deploy	hesap deploy site netlify
+Higgsfield	@higgsfield npm	gorsel/video uretim hesabi	hesap video gorsel uretim
+Firecrawl	firecrawl-cli	site kazima/tarama	hesap tarama site scrape

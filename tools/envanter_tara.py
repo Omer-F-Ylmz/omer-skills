@@ -3,9 +3,11 @@
 Kaynaklar (ara sonuçlar bağlama girmez, yalnız birleşik liste basılır): katalog_ara (BM25) · arac_ara --sec · kart.jsonl (docs/arac-kart)
 · kombin.json (iş türü) · graphify query · docs/kaynak-kutuphane/envanter.tsv · tasarim-katalog kaynak.tsv · omer-kutuphaneler raf
 · altın örnekler (.kos/kopru/altin-ornek/*.jsonl) · her zaman çok yönlüler. xerj PATH'te yoksa atlanır.
+KAYNAK-DIZIN-1: `--dizin [--tam]` birleşik kaynak dizinini (.kos/kopru/kaynak-dizin/dizin.tsv) artımlı günceller; `--kaynak "<iş>" [--hepsi]` yalnız kaynaklar bölümü.
 Önbellek: .kos/kopru/tara-onbellek/<hash>.txt, 7 gün."""
 import hashlib
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -163,11 +165,248 @@ def altin(is_):
                     sonuc.append((a, "altin", "benzer işte seçilmişti"))
     return sonuc
 
+# ---- KAYNAK-DIZIN-1: tüm kaynak türleri tek yerel dizinde (tür · ad · yol/URL · özet · etiket); artımlı (mtime önbelleği) ----
+DIZIN = KOK / ".kos" / "kopru" / "kaynak-dizin"
+MASA = Path.home() / "Desktop" / "Claude ile yapılanlar"
+ATLA = {"node_modules", ".git", ".venv", "venv", "__pycache__", "dist", "build", ".next", "site-packages", "Library", "Temp"}
+VARLIK = {".glsl", ".frag", ".vert", ".blend", ".gltf", ".glb", ".lottie", ".hdr", ".exr", ".ttf", ".otf"}
+VARLIK_AD = re.compile(r"shader|logo|hero|anim|scene|sahne|component|bilesen|design[-_ ]?system|tokens", re.I)
+EL = chr(92)
+SINONIM = {"video": "ffmpeg whisper remotion", "logo": "pixeljury brand", "gorsel": "pixeljury", "blender": "bpy 3d", "borsa": "trading algoritmik",
+           "kripto": "trading algoritmik", "scroll": "gsap hero-video", "arka": "hero-video"}
+
+
+def ozet_md(metin):
+    """Dosyanın tek satırlık özeti: **Ne:** satırı, yoksa başlık + ilk düz cümle."""
+    govde = metin.split("---", 2)[-1] if metin.startswith("---") else metin
+    satirlar = [l.strip() for l in govde.splitlines() if l.strip()]
+    for l in satirlar[:12]:
+        m = re.match(r"[-*\s]*\*\*(?:Ne|Amaç|Özet):\*\*\s*(.+)", l)
+        if m:
+            return m.group(1)[:110]
+    baslik = next((l.lstrip("# ") for l in satirlar if l.startswith("#")), "")
+    duzyazi = next((l for l in satirlar if not l.startswith(("#", "|", "```", "<", "![", "-")) and len(l) > 20), "")
+    return (baslik + (" — " + duzyazi if duzyazi else ""))[:110]
+
+
+def md_satir(tur, f, etiket, kok):
+    try:
+        t = f.read_text(encoding="utf-8", errors="replace")[:3000]
+    except OSError:
+        return []
+    try:
+        yol = str(f.relative_to(kok)).replace(EL, "/") if kok == KOK else str(f).replace(EL, "/")
+    except ValueError:
+        yol = str(f)
+    return [(tur, f.stem[:60], yol, ozet_md(t), etiket)]
+
+
+def json_video(f):
+    try:
+        d = json.loads(f.read_text(encoding="utf-8", errors="replace"))
+    except ValueError:
+        return []
+    if not isinstance(d, dict):
+        return []
+    m = d.get("meta")
+    baslik = (m.get("title") or m.get("baslik") or "") if isinstance(m, dict) else ""
+    tr = d.get("transkript") or ""
+    ozet = baslik or (tr if isinstance(tr, str) else json.dumps(tr, ensure_ascii=False))
+    return [("yontem", f.stem, d.get("url") or f"docs/video-tarama/{f.parent.name}/{f.name}", str(ozet).replace(chr(10), " ")[:110], "video yontem")]
+
+
+def tsv_satir(f, tur, ad_k, yol_k, ozet_k, etiket):
+    out = []
+    for s in f.read_text(encoding="utf-8", errors="replace").splitlines()[1:]:
+        k = s.split("\t")
+        if len(k) > max(ad_k, yol_k, ozet_k):
+            out.append((tur, k[ad_k][:60], k[yol_k][:140], k[ozet_k][:110], etiket))
+    return out
+
+
+def dosya_kaynaklari():
+    """(dosya, üretici) çiftleri; dosya mtime'ı aynıysa satırlar yeniden üretilmez."""
+    r = []
+    ekle = lambda dosyalar, uret: r.extend((f, uret) for f in dosyalar)
+    ekle(sorted((KOK / "docs/site-inceleme").glob("*.md")), lambda f: md_satir("site", f, "site inceleme", KOK))
+    ekle(sorted((KOK / "docs/site-inceleme/kart").glob("*.md")), lambda f: md_satir("site", f, "site kart", KOK))
+    ekle([KOK / "docs/kaynak-kutuphane/envanter.tsv"], lambda f: tsv_satir(f, "site", 0, 7, 1, "kaynak-kutuphane"))
+    ekle([KOK / "skills/tasarim-katalog/references/kaynak.tsv"], lambda f: tsv_satir(f, "site", 0, 1, 5, "tasarim-katalog"))
+    ekle(sorted((KOK / "docs/kaynak-kutuphane").glob("*.md")), lambda f: md_satir("klon", f, "kaynak-kutuphane", KOK))
+    ekle(sorted((KOK / "docs/video-tarama").glob("derin*/*.json")), json_video)
+    ekle(sorted((KOK / "docs/video-tarama").glob("kaynak/*.json")), json_video)
+    for d, tur, e in (("docs/ogren", "yontem", "ders"), ("docs/mekanizmalar", "yontem", "mekanizma"), ("docs/uyarlamalar", "yontem", "uyarlama"),
+                      (".roast-room", "yontem", "roast"), ("docs/kutuphane", "klon", "kutuphane"), ("templates", "sablon", "sablon")):
+        ekle([f for f in sorted((KOK / d).rglob("*.md")) if "olcum" not in f.parts][:600], lambda f, tur=tur, e=e: md_satir(tur, f, e, KOK))
+    ekle([KOK / "docs/kaynak-dizin/baglayici.tsv"], lambda f: tsv_satir(f, "baglayici", 0, 1, 2, "baglayici"))
+    obs = MASA / "Obsidian"
+    if obs.exists():
+        ekle([f for f in sorted(obs.rglob("*.md")) if not ATLA & set(f.parts) and not f.name.startswith("gorev-")][:4000], lambda f: md_satir("yontem", f, "2.beyin obsidian", obs))
+    return r
+
+
+def proje_satirlari():
+    """Geçmiş proje varlığı: her proje dizini (yol + özet) + varlık dosyaları (shader/blend/logo/animasyon…); içerik kopyalanmaz."""
+    import os
+    out = []
+    if not MASA.exists():
+        return out
+    for p in sorted(MASA.iterdir()):
+        if not p.is_dir() or p.name in ATLA:
+            continue
+        oz = ""
+        for ad in ("README.md", "readme.md", "CLAUDE.md"):
+            if (p / ad).exists():
+                oz = ozet_md((p / ad).read_text(encoding="utf-8", errors="replace")[:3000])
+                break
+        try:
+            alt = ", ".join(sorted(x.name for x in p.iterdir() if x.is_dir() and x.name not in ATLA)[:6])
+        except OSError:
+            alt = ""
+        out.append(("proje", p.name[:60], str(p).replace(EL, "/"), (oz or ("alt: " + alt))[:110], "gecmis-proje"))
+        sayac = 0
+        for yol, dirs, files in os.walk(p):
+            dirs[:] = [d for d in dirs if d not in ATLA and not d.startswith(".")]
+            if len(Path(yol).relative_to(p).parts) >= 4:
+                dirs[:] = []
+            for f in files:
+                e = Path(f).suffix.lower()
+                if sayac < 25 and (e in VARLIK or (e in {".svg", ".tsx", ".jsx", ".vue", ".css", ".json"} and VARLIK_AD.search(f))):
+                    sayac += 1
+                    out.append(("varlik", f[:60], str(Path(yol) / f).replace(EL, "/"), f"{p.name} · {e[1:]}", "gecmis-proje " + e[1:]))
+    return out
+
+
+def klon_satirlari():
+    out = []
+    for kok, etiket in ((KOK / "araclar", "klon araclar"), (MASA / "kaynak-kutuphane", "klon kaynak-kutuphane"), (MASA / "araclar", "klon araclar")):
+        if not kok.exists():
+            continue
+        for p in sorted(kok.iterdir()):
+            if p.is_dir() and p.name not in ATLA:
+                oz = ""
+                for ad in ("README.md", "readme.md"):
+                    if (p / ad).exists():
+                        oz = ozet_md((p / ad).read_text(encoding="utf-8", errors="replace")[:3000])
+                        break
+                out.append(("klon", p.name[:60], str(p).replace(EL, "/"), oz or "dizin", etiket))
+    t = KOK / "templates"
+    if t.exists():
+        out += [("sablon", x.name[:60], str(x.relative_to(KOK)).replace(EL, "/"), "şablon " + ("dizini" if x.is_dir() else x.suffix[1:]), "sablon") for x in sorted(t.iterdir())]
+    return out
+
+
+def sistem_satirlari():
+    """Yerel modeller, global npm paketleri, Chrome yer imleri."""
+    out = []
+    ol = calis(["ollama", "list"], 15).splitlines()[1:] if shutil.which("ollama") else []
+    out += [("model", s.split()[0], "ollama:" + s.split()[0], "yerel model " + " ".join(s.split()[2:4]), "model ollama yerel") for s in ol if s.split()]
+    npm = Path.home() / "AppData/Roaming/npm/node_modules"
+    if npm.exists():
+        for p in sorted(npm.iterdir()):
+            alt = [x for x in p.iterdir() if x.is_dir()] if p.name.startswith("@") else [p]
+            for q in alt:
+                ad = f"{p.name}/{q.name}" if p.name.startswith("@") else q.name
+                out.append(("arac", ad[:60], f"npm -g:{ad}", "global npm paketi", "npm global cli"))
+    yi = Path.home() / "AppData/Local/Google/Chrome/User Data/Default/Bookmarks"
+    if yi.exists():
+        def gez(n):
+            if n.get("type") == "url":
+                yield ("site", n.get("name", "")[:60], n.get("url", ""), "Chrome yer imi", "yer-imi")
+            for c in n.get("children", []):
+                yield from gez(c)
+        try:
+            for k in json.loads(yi.read_text(encoding="utf-8")).get("roots", {}).values():
+                if isinstance(k, dict):
+                    out += list(gez(k))
+        except ValueError:
+            pass
+    return out
+
+
+def dizin_guncelle(tam=False):
+    """Artımlı: dosya mtime'ı değişmeyen kaynağın satırları önbellekten gelir. Tekilleştirme: aynı yol/URL tek satır."""
+    DIZIN.mkdir(parents=True, exist_ok=True)
+    onb_yol = DIZIN / "onbellek.json"
+    try:
+        onb = {} if tam else json.loads(onb_yol.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        onb = {}
+    yeni, satirlar = {}, []
+    for f, uret in dosya_kaynaklari():
+        try:
+            mt = f.stat().st_mtime
+        except OSError:
+            continue
+        k = str(f)
+        if k in onb and onb[k][0] == mt:
+            rows = onb[k][1]
+        else:
+            try:
+                rows = [list(x) for x in uret(f)]
+            except Exception:
+                rows = []
+        yeni[k] = [mt, rows]
+        satirlar += rows
+    ts = time.time()
+    if "_dizin" in onb and ts - onb["_dizin"][0] < 6 * 3600:  # proje/klon/sistem taraması pahalı: 6 saatte bir
+        rows = onb["_dizin"][1]
+        yeni["_dizin"] = onb["_dizin"]
+    else:
+        rows = [list(x) for x in proje_satirlari() + klon_satirlari() + sistem_satirlari()]
+        yeni["_dizin"] = [ts, rows]
+    satirlar += rows
+    gor, son = set(), []
+    for r in satirlar:
+        anahtar = re.sub(r"^https?://(www\.)?|/$", "", r[2]).lower()
+        if anahtar in gor:
+            continue
+        gor.add(anahtar)
+        son.append(r)
+    temiz = lambda x: re.sub(r"\s+", " ", str(x)).strip()
+    (DIZIN / "dizin.tsv").write_text("tur\tad\tyol\tozet\tetiket\n" + "\n".join("\t".join(temiz(x) for x in r) for r in son) + "\n", encoding="utf-8")
+    onb_yol.write_text(json.dumps(yeni, ensure_ascii=False), encoding="utf-8")
+    return son
+
+
+def dizin_oku():
+    p = DIZIN / "dizin.tsv"
+    if not p.exists():
+        dizin_guncelle()
+    return [s.split("\t") for s in p.read_text(encoding="utf-8").splitlines()[1:] if s.count("\t") == 4]
+
+
+def kaynak_ara(is_, en=15):
+    """İşe en ilgili ≤en kaynak; tür başına adil pay, kalan boş yerler en yüksek puanlılara."""
+    w = [x for x in kelimeler(is_) if x not in {"icin", "yap", "bir", "ile"}]
+    if not w:
+        return []
+    satirlar = dizin_oku()
+    metin = [duz(" ".join(r)) for r in satirlar]
+    n = len(satirlar)
+    for k, ek in SINONIM.items():  # iş türü → ilgili araç/kaynak adları (dizinde ad/etiket eşleşmesi)
+        if any(x.startswith(k) for x in w):
+            w += [e for e in ek.split() if e not in w]
+    w = [x[:5] if len(x) > 6 else x for x in w]  # Türkçe ek: 7+ harfli sözcük 5 harf köküyle aranır (videosu→video)
+    agirlik = {x: math.log(1 + n / (sum(1 for m in metin if x in m) or 1)) for x in w}
+    puan = {}
+    for r, m in zip(satirlar, metin):
+        on = duz(r[1] + " " + r[4])
+        z = sum(agirlik[x] * (2 if x in on else 1) for x in w if x in m)
+        if z:
+            puan.setdefault(r[0], []).append((z, r))
+    for v in puan.values():
+        v.sort(key=lambda t: -t[0])
+    turler = sorted(puan, key=lambda t: -puan[t][0][0])
+    pay = max(en // max(len(turler), 1), 2)
+    secilen = [x for t in turler for x in puan[t][:pay]]
+    secilen += sorted((x for t in turler for x in puan[t][pay:]), key=lambda t: -t[0])[:max(en - len(secilen), 0)]
+    secilen.sort(key=lambda t: -t[0])
+    return [f"{r[0]} · {r[1][:40]} · {r[2][-48:]} · {r[3][:34]}" for _, r in secilen[:en]]
+
 
 def birlestir(is_, satir):
     kaynaklar = [altin(is_), kombin(is_), tip_aile(is_), sec(is_), katalog(is_), graf(is_), xerj(is_),
-                 tsv_ara("docs/kaynak-kutuphane/envanter.tsv", is_, 0, 1, "kaynak"),
-                 tsv_ara("skills/tasarim-katalog/references/kaynak.tsv", is_, 0, 5, "tasarim"),
                  kutuphane_raf(is_)]
     gor = {}
     for liste in kaynaklar:  # sıra = öncelik; aynı ad tek satır, kaynaklar birleşir
@@ -181,7 +420,8 @@ def birlestir(is_, satir):
         g = "ALTIN" if {"ALTIN!", "altin"} & turler else (sorted(turler)[0])
         gruplar.setdefault(g, []).append(a if g == "aile" else f"{a} · {'/'.join(sorted(turler))} · {ne}")
     aile = gruplar.pop("aile", [])  # yalnız ad: 8'i bir satırda (jeton ucuz, satır sayısı şişmez)
-    bos = max(satir - 4 - 2 * len(gruplar) - len(aile) // 8 - 2, 20)
+    kay = kaynak_ara(is_)
+    bos = max(satir - 4 - 2 * len(gruplar) - len(aile) // 8 - 2 - (len(kay) + 1 + 50 if kay else 0), 20)  # kaynaklar bölümü payı gövdeden düşer (jeton artmasın)
     tavan = max(bos // max(len(gruplar), 1), 4)  # grup başına adil pay; kısa gruplardan artan pay uzun gruplara
     kullan = {g: min(len(v), tavan) for g, v in gruplar.items()}
     artan = bos - sum(kullan.values())
@@ -199,7 +439,8 @@ def birlestir(is_, satir):
         cikti.append(f"## aile ({len(aile)}) — departman müdürleri + iş türü aileleri, yalnız ad")
         cikti += [" · ".join(aile[i:i + 8]) for i in range(0, len(aile), 8)]
     kes = cikti
-    return [f"# aday kümesi: {is_} (seçim ana oturumda; eksik varsa ekle)"] + kes + ["## çok yönlüler (her zaman)", " · ".join(COK_YONLU)]
+    ust = [f"## kaynaklar ({len(kay)}; tam küme: python tools/envanter_tara.py --kaynak \"<iş>\" --hepsi)"] + kay if kay else []
+    return [f"# aday kümesi: {is_} (seçim ana oturumda; eksik varsa ekle)"] + kes + ust + ["## çok yönlüler (her zaman)", " · ".join(COK_YONLU)]
 
 
 def main(a):
@@ -209,6 +450,17 @@ def main(a):
         satir = int(a[i + 1])
         del a[i:i + 2]
     yenile = "--yenile" in a
+    if "--dizin" in a:  # artımlı dizin güncelleme (günlük görev); --tam: sıfırdan
+        son = dizin_guncelle("--tam" in a)
+        sayi = {}
+        for r in son:
+            sayi[r[0]] = sayi.get(r[0], 0) + 1
+        print(len(son), "satır:", ", ".join(f"{k} {v}" for k, v in sorted(sayi.items())))
+        return 0
+    if "--kaynak" in a:  # yalnız kaynaklar bölümü; --hepsi: tüm eşleşmeler (geri açma yolu)
+        sorgu = " ".join(x for x in a if not x.startswith("--"))
+        sys.stdout.buffer.write((chr(10).join(kaynak_ara(sorgu, 5000 if "--hepsi" in a else 15)) + chr(10)).encode("utf-8", "replace"))
+        return 0
     is_ = " ".join(x for x in a if not x.startswith("--"))
     if not is_:
         print(__doc__)
