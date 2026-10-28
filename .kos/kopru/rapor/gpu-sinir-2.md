@@ -1,0 +1,4 @@
+GPU-SINIR-2: tools/gpu_sinir.py (1 sn utilization, son 2 ort >=%78 -> yalniz python/pythonw/blender/ComfyUI suspend 0,3-0,6 sn, <=%70 birak; finally+atexit+sinyal+bayat durum resume; oncelik BELOW_NORMAL; ofl oldurme yok).
+Gorev: omer-gpu-sinir (5 dk, tek ornek kilidi) kuruldu ve calisiyor; ONLOGON gorevi "Erisim engellendi" (yonetici) -> yalniz 5 dk tetikleyici var.
+Kaynak olcumu (large-v3, 7XhX8P0ebEU): fp16 b4 134s/0,5 ref; fp16 b2 153s, VRAM 10,2GB; int8_float16 b4 128s, benzerlik 0,990; b2 165s 0,985. Tepe util hepsinde 100 -> b2/int8 kullanimi dusurmedi; varsayilan b4 fp16 kaldi.
+Dogrulama: 240 sn, 1 sn ornek: ort %56,6, tepe %79, >%80 orani %0,00 (hedef <=%2). Eksik: 300 sn degil 240; yuk ilik-v4 ile birlikteydi, kendi yuk betigim wav hatasiyla dustu; bekcinin askiya aldigi an sayilmadi.
