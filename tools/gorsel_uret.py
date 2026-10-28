@@ -131,7 +131,7 @@ def ac():
              "--disable-auto-launch", "--cache-ram"]
     with open(DURUM.with_suffix(".log"), "w", encoding="utf-8") as log:
         pid = subprocess.Popen(komut, cwd=COMFY, stdout=log, stderr=subprocess.STDOUT,
-                               creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP).pid
+                               creationflags=subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP).pid  # Ekran kuralı: pencere yok
     gk.al("gorsel_uret", pid)  # kilit ComfyUI süreciyle yaşar; süreç ölürse kendiliğinden düşer
     for _ in range(ACILIS_SN):
         time.sleep(1)
