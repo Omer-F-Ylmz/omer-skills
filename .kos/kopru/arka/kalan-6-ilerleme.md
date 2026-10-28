@@ -15,3 +15,4 @@ Sonraki adım: RAM ≤%89 olunca 1'den devam; tarifi dar dizinlerde (`rapor/`, `
 - 6 gorev-usta-blender-1: ENGEL (hakem koştu A1/B1 30→45, mutlak ≥90 eşiği geçilmedi) rapor/gorev-usta-blender-1.md
 - 3 slash-ogren: ENGEL izin nedeni rtk:* eksikti, duzeltildi; yeniden kosu 600sn zaman asimi (rapor/slash-ogren-bitir.md)
 - 4 ram-opt-1-d3: BITTI 9/9 havuzda, Desktop config kopruye cevrildi, Desktop yeniden baslatilinca etkili (rapor/ram-opt-1-d3.md)
+- 1 skill-paket-2: ENGEL claude.ai kayit 932>900 (3. taraf yuklenmez); kendi 13 zip hazir, kanit rapor/skill-paket-2.md

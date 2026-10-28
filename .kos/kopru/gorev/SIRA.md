@@ -504,3 +504,6 @@ TERS-1 d1 — REA=morluto/rea (MIT, aktif); tarama: SkillSpector toplam DO_NOT_I
 - 
 - SLASH-ÖĞREN d5 BİTTİ (kısmi kart): 5 kart ölçüldü (graphify/plan-kur/yetenek-getir/watch/video-izle), TDD kartı kısmi (izin reddi); video-izle altyazı-yok halkası `paket --asr groq` IG DelsVQJR6ZE kanıtlı; dist/slash-2 14 zip TEMİZ; Obsidian 20-ogren/slash-ogren-d5.md
 - 21 Eki 06:30 KURULUM-V1 BİTTİ (d5): 15/15 aday karara bağlandı (hiring-panel KURULDU; geri kalan 14 ELE, 4'ünde tarama ZAMAN AŞIMI: AirLLM, Editor, UnoRouter, PYNK). ÖĞREN 2. tur kapısı AÇIK.
+
+- 2026-10-24 TOKEN-7b devam, karar think10k+cmnudge (cmnudge kanıtlı; birleşik G01–G05 temiz, G06–G12 ölçülmedi: claude -p tavanı 13/12, bütçe); onay/token_7b_uygula.py --kuru OK, uygulama Ömer; rapor docs/token/token-7b-sonuc.md
+| skill-paket-2 | 2026-10-28 | KISMEN: fark a53/b82/c327, 13 zip temiz; 932>900 ENGEL 3.taraf | rapor/skill-paket-2.md |

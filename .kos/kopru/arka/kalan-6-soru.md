@@ -1,0 +1,1 @@
+- skill-paket-2: claude.ai 932 kayit (>900 hedef) - 3. taraf paketler icin hedefi 1000'e cikaralim mi, yoksa once b listesindeki 82 kopya silinsin mi?
