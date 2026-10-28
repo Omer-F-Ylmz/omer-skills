@@ -15,18 +15,21 @@ def calis(py, q, ek=()):
     return r.stdout, time.time() - t
 
 
-top = 0
-tum = 0
+import tiktoken
+_e = tiktoken.get_encoding("cl100k_base")
+tj = lambda s: len(_e.encode(s))
+t15 = ozet = hepsi = tum = 0
 for ad, (q, gold) in ISLER.items():
     y, sn = calis("tools/envanter_tara.py", q, ["--yenile"])
     y2, sn2 = calis("tools/envanter_tara.py", q)
+    b, bsn = calis("tools/envanter_tara.py", q, ["--brief", "--yenile"])
     e, _ = calis("tools/_eski_envanter.py", q, ["--yenile"])
     kay = y.split("## kaynaklar")[1].split("## ")[0].splitlines()[1:] if "## kaynaklar" in y else []
-    kay = [k for k in kay if k.strip()]
-    bulunan = [g for g in gold if any(g in k for k in kay)]
+    ilk = [k for k in kay if k.strip() and not k.startswith("  (") and not k.startswith("+")]
+    o15 = [g for g in gold if any(g in k for k in ilk)]
+    oz = [g for g in gold if any(g in k for k in kay)]
     tum_k, _ = calis("tools/envanter_tara.py", q, ["--kaynak", "--hepsi"])
-    bulunan_hepsi = [g for g in gold if any(g in k for k in tum_k.splitlines())]
-    tj = lambda s: len(s.encode("utf-8")) / 3.6
-    print(f"{ad}: top15 recall {len(bulunan)}/{len(gold)} (hepsi-modu {len(bulunan_hepsi)}/{len(gold)}) eksik={[g for g in gold if g not in bulunan]} | kaynaklar satır {len(kay)} toplam satır {len(y.splitlines())} | jeton yeni {tj(y):.0f} eski {tj(e):.0f} | süre önbelleksiz {sn:.2f}s önbellekli {sn2:.2f}s")
-    top += len(bulunan_hepsi); tum += len(gold)
-print(f"genel recall (kaynaklar --hepsi): {top}/{tum} = {top / tum:.0%}")
+    oh = [g for g in gold if any(g in k for k in tum_k.splitlines())]
+    print(f"{ad}: top15 {len(o15)}/{len(gold)} özet+kuyruk {len(oz)}/{len(gold)} hepsi {len(oh)}/{len(gold)} eksik(özet)={[g for g in gold if g not in oz]} | jeton tam {tj(y)} brief {tj(b)} eski {tj(e)} | süre ilk {sn:.1f}s brief-ilk {bsn:.1f}s önbellekli {sn2:.2f}s")
+    t15 += len(o15); ozet += len(oz); hepsi += len(oh); tum += len(gold)
+print(f"recall top15 {t15/tum:.0%} · özet+kuyruk {ozet/tum:.0%} · --hepsi {hepsi/tum:.0%}")

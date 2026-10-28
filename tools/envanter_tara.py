@@ -50,6 +50,17 @@ def kelimeler(is_):
 
 
 def calis(args, sn=60):
+    onb = ONBELLEK / ("calis-" + hashlib.sha1(json.dumps(args).encode()).hexdigest()[:16] + ".txt")  # aynı komut 6 saat önbellekli
+    if onb.exists() and time.time() - onb.stat().st_mtime < 6 * 3600:
+        return onb.read_text(encoding="utf-8")
+    cikti = _calis(args, sn)
+    if cikti:
+        ONBELLEK.mkdir(parents=True, exist_ok=True)
+        onb.write_text(cikti, encoding="utf-8")
+    return cikti
+
+
+def _calis(args, sn=60):
     try:
         r = subprocess.run(args, capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=KOK, timeout=sn)
         return r.stdout or ""
@@ -376,7 +387,7 @@ def dizin_oku():
     return [s.split("\t") for s in p.read_text(encoding="utf-8").splitlines()[1:] if s.count("\t") == 4]
 
 
-def kaynak_ara(is_, en=15):
+def kaynak_ara(is_, en=15, kuyruk=0, tur=None):
     """İşe en ilgili ≤en kaynak; tür başına adil pay, kalan boş yerler en yüksek puanlılara."""
     w = [x for x in kelimeler(is_) if x not in {"icin", "yap", "bir", "ile"}]
     if not w:
@@ -395,19 +406,49 @@ def kaynak_ara(is_, en=15):
         z = sum(agirlik[x] * (2 if x in on else 1) for x in w if x in m)
         if z:
             puan.setdefault(r[0], []).append((z, r))
+    ak = {duz(a[0]) for a in altin(is_)}  # altın örnekte geçen kaynaklar öne çıkar
+    for t, v in puan.items():
+        puan[t] = [(z + (3 if any(a and a in duz(r[1]) for a in ak) else 0), r) for z, r in v]
     for v in puan.values():
         v.sort(key=lambda t: -t[0])
+    # aynı kaynağın varyantları (omer-logo-2, kart/inceleme çifti) tek satırda toplanır: yer açar, hiçbiri kaybolmaz
+    kok = lambda ad: re.sub(r"(?:[-_ ]*(?:\d+|final|v\d+))+$", "", re.split(r" \(", ad.lower())[0]).strip(" -_.") or ad.lower()
+    for t, v in list(puan.items()):
+        gr, sira = {}, []
+        for z, r in v:
+            k = kok(r[1])
+            if k not in gr:
+                gr[k] = [z, r, []]
+                sira.append(k)
+            elif r[1] != gr[k][1][1]:
+                gr[k][2].append(r[1][:30])
+        puan[t] = [(gr[k][0], gr[k][1][:1] + [gr[k][1][1] + (f" (+{len(set(gr[k][2]))}: {', '.join(sorted(set(gr[k][2]))[:4])})" if gr[k][2] else "")] + gr[k][1][2:]) for k in sira]
+    if tur:
+        puan = {t: v for t, v in puan.items() if t == tur}
     turler = sorted(puan, key=lambda t: -puan[t][0][0])
     pay = max(en // max(len(turler), 1), 2)
     secilen = [x for t in turler for x in puan[t][:pay]]
     secilen += sorted((x for t in turler for x in puan[t][pay:]), key=lambda t: -t[0])[:max(en - len(secilen), 0)]
     secilen.sort(key=lambda t: -t[0])
-    return [f"{r[0]} · {r[1][:40]} · {r[2][-48:]} · {r[3][:34]}" for _, r in secilen[:en]]
+    toplam = sum(len(v) for v in puan.values())
+    cik = [f"{r[0]} · {r[1][:70]} · {r[2][-48:]} · {r[3][:34]}" for _, r in secilen[:en]]
+    if en < 1000 and toplam > len(cik):
+        gor = {id(r) for _, r in secilen[:en]}
+        kalan = sorted(((z, r) for v in puan.values() for z, r in v if id(r) not in gor), key=lambda t: -t[0])[:kuyruk]
+        gr = {}  # kayıpsız özet: ilk en kalemden sonraki en iyi `kuyruk` kaynağın yalnız adı, tür başına tek satır
+        for _, r in kalan:
+            gr.setdefault(r[0], []).append(r[1].split(" (+")[0][:26])
+        cik += [f"  ({t}) " + ", ".join(v) for t, v in gr.items()]
+        if toplam > len(cik_ilk := secilen[:en]) + len(kalan):
+            cik.append(f"+{toplam - len(cik_ilk) - len(kalan)} daha: --kaynak \"{is_[:40]}\" --hepsi [--tur <tür>]")
+    return cik
 
 
-def birlestir(is_, satir):
-    kaynaklar = [altin(is_), kombin(is_), tip_aile(is_), sec(is_), katalog(is_), graf(is_), xerj(is_),
-                 kutuphane_raf(is_)]
+def birlestir(is_, satir, brief=False):
+    from concurrent.futures import ThreadPoolExecutor  # yavaş alt süreçler (katalog, graphify) paralel: toplam süre en yavaşı kadar
+    with ThreadPoolExecutor(6) as ex:
+        fl = [ex.submit(f, is_) for f in (altin, kombin, tip_aile, sec, katalog, (lambda _: []) if brief else graf, xerj, kutuphane_raf)]  # brief'te graphify kod grafı atlanır (kaynak brief'ine katkısı yok, 4-6 sn)
+        kaynaklar = [f.result() for f in fl]
     gor = {}
     for liste in kaynaklar:  # sıra = öncelik; aynı ad tek satır, kaynaklar birleşir
         for ad, tur, ne in liste:
@@ -420,9 +461,12 @@ def birlestir(is_, satir):
         g = "ALTIN" if {"ALTIN!", "altin"} & turler else (sorted(turler)[0])
         gruplar.setdefault(g, []).append(a if g == "aile" else f"{a} · {'/'.join(sorted(turler))} · {ne}")
     aile = gruplar.pop("aile", [])  # yalnız ad: 8'i bir satırda (jeton ucuz, satır sayısı şişmez)
-    kay = kaynak_ara(is_)
+    kay = kaynak_ara(is_, 15, 70)
     bos = max(satir - 4 - 2 * len(gruplar) - len(aile) // 8 - 2 - (len(kay) + 1 + 50 if kay else 0), 20)  # kaynaklar bölümü payı gövdeden düşer (jeton artmasın)
-    tavan = max(bos // max(len(gruplar), 1), 4)  # grup başına adil pay; kısa gruplardan artan pay uzun gruplara
+    if brief:
+        bos = 3 * len(gruplar)
+        aile = []
+    tavan = max(bos // max(len(gruplar), 1), 3 if brief else 4)  # grup başına adil pay; kısa gruplardan artan pay uzun gruplara
     kullan = {g: min(len(v), tavan) for g, v in gruplar.items()}
     artan = bos - sum(kullan.values())
     for g in sorted(gruplar, key=lambda x: -len(gruplar[x])):
@@ -445,6 +489,7 @@ def birlestir(is_, satir):
 
 def main(a):
     satir = 130
+    brief = "--brief" in a
     if "--satir" in a:
         i = a.index("--satir")
         satir = int(a[i + 1])
@@ -458,15 +503,16 @@ def main(a):
         print(len(son), "satır:", ", ".join(f"{k} {v}" for k, v in sorted(sayi.items())))
         return 0
     if "--kaynak" in a:  # yalnız kaynaklar bölümü; --hepsi: tüm eşleşmeler (geri açma yolu)
-        sorgu = " ".join(x for x in a if not x.startswith("--"))
-        sys.stdout.buffer.write((chr(10).join(kaynak_ara(sorgu, 5000 if "--hepsi" in a else 15)) + chr(10)).encode("utf-8", "replace"))
+        tur = a[a.index("--tur") + 1] if "--tur" in a else None
+        sorgu = " ".join(x for x in a if not x.startswith("--") and x != tur)
+        sys.stdout.buffer.write((chr(10).join(kaynak_ara(sorgu, 5000 if "--hepsi" in a else 15, 0 if "--hepsi" in a else 70, tur)) + chr(10)).encode("utf-8", "replace"))
         return 0
     is_ = " ".join(x for x in a if not x.startswith("--"))
     if not is_:
         print(__doc__)
         return 2
     ONBELLEK.mkdir(parents=True, exist_ok=True)
-    f = ONBELLEK / (hashlib.sha1(f"{is_}|{satir}".encode()).hexdigest()[:16] + ".txt")
+    f = ONBELLEK / (hashlib.sha1(f"{is_}|{satir}|{brief}".encode()).hexdigest()[:16] + ".txt")
     # altın örnek eklenince önbellek geçersiz: en yeni altın dosya önbellekten yeniyse yeniden hesapla
     taze = f.exists() and time.time() - f.stat().st_mtime < GUN7 and not yenile
     if taze and ALTIN.exists() and any(g.stat().st_mtime > f.stat().st_mtime for g in ALTIN.glob("*.jsonl")):
@@ -474,7 +520,7 @@ def main(a):
     if taze:
         metin = f.read_text(encoding="utf-8")
     else:
-        metin = chr(10).join(birlestir(is_, satir))
+        metin = chr(10).join(birlestir(is_, satir, brief))
         f.write_text(metin, encoding="utf-8")
     sys.stdout.buffer.write((metin + chr(10)).encode("utf-8", "replace"))
     return 0

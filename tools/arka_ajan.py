@@ -26,8 +26,37 @@ def hafif_bayrak(j, isim):
         cfg = os.path.join(KOK, isim + ".eklenti.json")
         json.dump({"enabledPlugins": {k: k in j["eklenti"] for k in ep}}, open(cfg, "w", encoding="utf-8"))
         a += ["--settings", cfg]
+    if j.get("mcp_dosya"):
+        a += ["--strict-mcp-config", "--mcp-config", os.path.join(KOK, j["mcp_dosya"])]
     if j.get("hafif"): a += ["--disable-slash-commands"]
     return a
+
+def geri_oku(gorev, ad):
+    """BEYIN-GERI-1: işin başına beyin-özet + ilgili ders/hatalar (0 jeton); beyin okunamazsa '' (iş engellenmez)."""
+    try:
+        sys.path.insert(0, os.path.dirname(BU))
+        import beyin_dusun
+        return beyin_dusun.geri_oku(gorev, ad)
+    except Exception:
+        return ""
+
+NIHAI33 = "NİHAİ 33 (zorunlu): CC'yi Ömer gibi kullan — kurulu skill/plugin/MCP/CLI'yi işe göre kullan, ama Claude jetonunu en aza indir: dosyayı tam okuma yerine cc-kopru oku/rg/graphify, ağır işi yerel/ücretsiz modele ver, ara çıktıyı bağlama alma (dosyaya yaz, özet oku), gereksiz tur/yeniden okuma yok; hedef iş başına <$0,50.\nNİHAİ — DOĞRULAMA DÖNGÜSÜ (Ömer 28 Eki 20:32, zorunlu): 'BITTI' yazmadan önce her kabul maddesini ÖLÇEREK kontrol et; bitmeyen varsa düzelt ve yeniden ölç (döngü), ancak hepsi gerçekten tutunca BITTI. Kendi işine puan verme: kalite puanını ayrı ve sert bir hakem (ücretsiz/ucuz farklı model, pixeljury/jev) verir; Ömer ölçeği: bizim '95/100' dediğimiz ilik-v4 Ömer'e göre 50–55/100 — hakem bu ölçekle puanlar. Kurulu bütün ilgili özellikleri (skill/plugin/MCP/CLI/model) kullanmadan iş yapma.\nNİHAİ 36: 'her şeyimiz' gerçekten her şey — kurulu araçlar + Ömer'in attığı videolardan çıkan yüzlerce site/araç/yöntem (docs/video-tarama), docs/kaynak-kutuphane, referans site listeleri, hazır şablon/bileşen kaynakları, dış kütüphaneler, 2. beyin; hepsi ucuz araçla taranır, hazır olan alınıp geliştirilir, raporda taranan/kullanılan kaynak listesi zorunlu (C:/Projeler/omer-kurallar.md 36).\n"
+TARA_KANCA = 'İşe başlamadan: python tools/envanter_tara.py "<iş>" → listeyi oku, eksik ekle, planını yaz, python tools/altin_ornek.py kaydet "<iş>" <seçim dosyası> ile kaydet.\n'
+
+
+def on_brief(gorev):
+    """Önceden hazırlanmış iş brief'i (kaynak dizini + araç adayları, ~2K jeton); hata işi engellemez."""
+    try:
+        r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "envanter_tara.py"), "--brief", gorev[:300]], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=40, creationflags=0x08000000)
+        return r.stdout.strip()
+    except Exception:
+        return ""
+
+
+def girdi(j, isim):
+    g = geri_oku(j["gorev"], isim)
+    b = on_brief(j["gorev"])
+    return (g + "\n" if g else "") + (b + "\n" if b else "") + NIHAI33 + j["gorev"] + f"\n\n[bütçe] En fazla {j.get('max_turns', 60)} tur kullan."
 
 def kos(isim):
     j = json.load(open(os.path.join(KOK, isim + ".json"), encoding="utf-8"))
@@ -63,7 +92,7 @@ def kos(isim):
             f.write(f"BASLADI {t0}\n"); f.flush()
             p = subprocess.Popen(argv, cwd=j["cwd"], stdin=subprocess.PIPE, stdout=f, stderr=subprocess.STDOUT,
                                  env=env, creationflags=0x08000000)
-            p.stdin.write((j["gorev"] + f"\n\n[bütçe] En fazla {j.get('max_turns', 60)} tur kullan.").encode("utf-8")); p.stdin.close()
+            p.stdin.write(girdi(j, isim).encode("utf-8")); p.stdin.close()
             def agac(): subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
             bas = time.time(); sonuc_t = None
             while True:
