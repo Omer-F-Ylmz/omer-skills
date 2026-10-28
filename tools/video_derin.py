@@ -56,7 +56,7 @@ def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cooki
 
 
 def indir(url, d):
-    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+wa/w[height>=360]/best", "--no-playlist", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+wa/w[height>=360]/best", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",)), None)
     return v, r.stderr[-200:]
 
@@ -79,6 +79,8 @@ def kareler(v, d, tavan=240):
 
 WHISPER = {"cuda": ("large-v3", "float16"), "cpu": ("small", "int8")}
 _whisper = {}
+ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "1"))  # >1 toplu yol: uzun dosyada sessizce 0 kelime döndürdü (7XhX8P0ebEU), varsayılan kapalı
+ASR_BEAM = int(os.environ.get("VD_ASR_BEAM", "1"))  # turbo+beam1: 10 linkte link/komut/OCR aynı, ASR 760→48 sn (rapor/derin-hiz-1.md)
 ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
 KILIT = threading.Lock()  # ilerleme dosyası ve konsol satırları
 
@@ -120,7 +122,7 @@ def groq_asr(wav):
 
 
 def asr(v, d):
-    from faster_whisper import WhisperModel
+    from faster_whisper import BatchedInferencePipeline, WhisperModel
     kos("ffmpeg", "-y", "-i", v, "-vn", "-ac", "1", "-ar", "16000", d / "a.wav")
     if not (d / "a.wav").exists():
         return "", []
@@ -131,8 +133,11 @@ def asr(v, d):
         try:
             with ASR_KILIT:
                 if aygit not in _whisper:
-                    _whisper[aygit] = WhisperModel(model, device=aygit, compute_type=tip)
-                seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True)  # toplu yol WER %1,8–4,2: kullanılmaz
+                    m = WhisperModel(os.environ.get("VD_ASR_MODEL", "large-v3-turbo") if aygit == "cuda" else model, device=aygit, compute_type=tip)
+                    _whisper[aygit] = BatchedInferencePipeline(m) if aygit == "cuda" and ASR_BATCH > 1 else m  # DERIN-HIZ-1: toplu çözümleme, VRAM tavanı batch_size ile
+                kw = {"batch_size": ASR_BATCH} if aygit == "cuda" and ASR_BATCH > 1 else {}
+                kw["beam_size"] = ASR_BEAM
+                seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, **kw)  # toplu yol WER %1,8–4,2: kullanılmaz
                 out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]  # üretici tüketilmeden hata yakalanmaz
             print(f"device={aygit} model={model}", flush=True)
             return info.language, out
