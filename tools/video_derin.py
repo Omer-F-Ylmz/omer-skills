@@ -36,7 +36,7 @@ for ad in CUDA13_ADAYLAR:
         os.environ["PATH"] = ad + os.pathsep + os.environ["PATH"]
         break
 URL_RE = re.compile(r"(?:https?://|www\.)[^\s\"'<>]+|\b[\w.-]+\.(?:com|io|ai|dev|app|org|net|co|xyz)(?:/[^\s]*)?\b|\b[\w-]+/[\w.-]+\b(?=.*github)", re.I)
-KOMUT_RE = re.compile(r"^(?:\$\s*)?(?:npm|npx|pnpm|pip|pipx|uv|git|brew|winget|docker|curl|claude|python|node)\s+.+", re.I | re.M)
+KOMUT_RE = re.compile(r"^(?:\$\s*)?(?:npm|npx|pnpm|pip|pipx|uv|git|brew|winget|docker|curl|python|node|claude(?=\s+(?:-|mcp|plugin|code|doctor|update|config|install|agents|login|\/)))\s+.+", re.I | re.M)
 _ocr = None
 
 
@@ -114,8 +114,8 @@ def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cooki
 
 
 def indir(url, d):
-    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+ba/w[height>=360]/best", "-S", "lang", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
-    v = next((p for p in d.glob("v.*") if p.suffix not in (".json",)), None)
+    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360][protocol^=http]+ba/w[height>=360]/best", "-S", "lang", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    v = next((p for p in d.glob("v.*") if p.suffix not in (".json",) and not re.match(r"v\.f\d", p.name)), None)  # birleştirme düştüyse v.f229.mp4 gibi yalnız-video parçası seçilmez (ASR "yok" kök nedeni)
     return v, r.stderr[-200:]
 
 
