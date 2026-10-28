@@ -91,6 +91,16 @@ def gpu_nefes(patlama):
     time.sleep(patlama * GPU_ORAN + (0.25 if u >= GPU_TAVAN else 0))
 
 
+RAM_TAVAN = float(os.environ.get("VD_RAM_TAVAN", "88.5"))  # TUR 2: tavan %89, taban Ömer'in süreçleriyle ~%87,5 → her ağır aşama başlamadan RAM'e bakar
+
+
+def ram_kapi(max_bekle=240):
+    """Ağır aşama (indirme/ffmpeg/model) başlamadan RAM < RAM_TAVAN olana dek bekler; zaman aşımında devam eder (kilitlenme yok)."""
+    son = time.time() + max_bekle
+    while psutil.virtual_memory().percent >= RAM_TAVAN and time.time() < son:
+        time.sleep(1)
+
+
 def kod_of(u):
     m = re.search(r"(?:reel|p|tv|shorts)/([\w-]+)|[?&]v=([\w-]+)|youtu\.be/([\w-]+)", u)
     return next((g for g in m.groups() if g), re.sub(r"\W+", "_", u)[-24:]) if m else re.sub(r"\W+", "_", u)[-24:]
@@ -104,7 +114,7 @@ def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cooki
 
 
 def indir(url, d):
-    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+ba/w[height>=360]/best", "-S", "lang,+abr", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+ba/w[height>=360]/best", "-S", "lang", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",)), None)
     return v, r.stderr[-200:]
 
@@ -215,6 +225,7 @@ def asr(v, d):
     from faster_whisper import BatchedInferencePipeline, WhisperModel
     if r := altyazi_dene(d):
         return *r, "altyazi"
+    ram_kapi()
     kos("ffmpeg", "-y", "-i", v, "-vn", "-ac", "1", "-ar", "16000", d / "a.wav")
     if not (d / "a.wav").exists():
         return "", [], "yok"
@@ -290,7 +301,7 @@ def ocr(ks):
         try:
             with OCR_KILIT, GPU_KILIT:  # OCR ve ASR GPU'yu sırayla kullanır; patlama sonrası nefes (bekçi %78 eşiği)
                 t0 = time.time()
-                res, _ = ocr_motor()(str(k))
+                res, _ = ocr_motor()(str(k), use_cls=os.environ.get("VD_OCR_CLS", "0") == "1")  # TUR 2: açı sınıflandırıcı ekran metninde gereksiz, kare başı süre düşer
                 if OCR_AYGIT == "cuda":
                     gpu_nefes(time.time() - t0)
         except Exception:
@@ -375,6 +386,33 @@ def gemini_aciklama(ks, n=4):
     return None
 
 
+ACIK_KUYRUK = KOK / ".kos/kopru/aciklama-kuyruk"  # TUR 2: ücretsiz havuz tükenince kareler burada bekler; `--doldur` sonradan açıklar
+
+
+def kuyruga_al(kod, ks, n=3):
+    sec = [ks[int(i * len(ks) / n)] for i in range(min(n, len(ks)))]
+    q = ACIK_KUYRUK / kod
+    q.mkdir(parents=True, exist_ok=True)
+    for i, k in enumerate(sec):
+        shutil.copy(k, q / f"{i}.jpg")
+
+
+def doldur(cikti=None):
+    """Kuyruktaki videoların kare açıklamasını havuzdan doldurur (JSON'daki kare_aciklama null → metin); başarılı olan kuyruktan silinir."""
+    cikti = cikti or CIKTI
+    n = 0
+    for q in sorted(ACIK_KUYRUK.glob("*")) if ACIK_KUYRUK.exists() else []:
+        j = cikti / f"{q.name}.json"
+        if not j.exists():
+            continue
+        r = havuz_aciklama(sorted(q.glob("*.jpg")), n=3) or gemini_aciklama(sorted(q.glob("*.jpg")), n=3)
+        if r:
+            v = json.loads(j.read_text(encoding="utf-8")); v["kare_aciklama"] = r
+            j.write_text(json.dumps(v, ensure_ascii=False, indent=1), encoding="utf-8")
+            shutil.rmtree(q); n += 1
+    print(f"DOLDUR doldurulan={n}", flush=True)
+
+
 def atla_kodlari():
     return set(ATLA_DOSYA.read_text(encoding="utf-8").split()) if ATLA_DOSYA.exists() else set()
 
@@ -390,6 +428,7 @@ def isle(url):
     t0 = time.time()
     adim = {}
     try:
+        ram_kapi()
         with DL_SEM, zam(kod, "indir"):  # ağ/CPU kuyruğu: GPU işçileri beklemesin diye ayrı eşzamanlılık
             v, hata = indir(url, d)
         if not v:
@@ -402,11 +441,17 @@ def isle(url):
         with zam(kod, "asr"):
             dil, seg, kaynak = asr(v, d)
         t2 = time.time(); adim["asr"] = t2 - t1
+        ram_kapi()
         with CPU_SEM, zam(kod, "kare"):
             ks = kareler(v, d)
         t3 = time.time(); adim["kare"] = t3 - t2
         def acik_zamanli():  # ölçüm: açıklama süresi ayrı tutulur (ADIM satırı)
-            s = time.time(); r = havuz_aciklama(ks) or gemini_aciklama(ks) or yerel_aciklama(ks); adim["acik_s"] = time.time() - s; return r
+            s = time.time(); r = havuz_aciklama(ks) or gemini_aciklama(ks)
+            if not r and os.environ.get("VD_YEREL", "0") == "1":  # TUR 2: yerel Ollama ikinci GPU süreci → varsayılan KAPALI, açıklama kuyruğa
+                r = yerel_aciklama(ks)
+            if not r:
+                kuyruga_al(kod, ks)
+            adim["acik_s"] = time.time() - s; return r
         with ThreadPoolExecutor(1) as px:  # kare açıklaması (Gemini/Ollama) OCR ile örtüşür; profilde "ocr" ikisini birden kapsar
             acik_f = px.submit(acik_zamanli)
             with zam(kod, "ocr"):
@@ -486,7 +531,7 @@ def isle_post(url):
         shutil.rmtree(d, ignore_errors=True)
 
 
-RAM_AZALT, RAM_DUR = 86, 88  # RAM-BEKCI-3: ≥86'da işçi yarıya (çalışanlar kesilmez, yeni video sayı altına inene dek beklemez), ≥88'de yeni video yok (tavan %89)
+RAM_AZALT, RAM_DUR = 85, 88  # RAM-BEKCI-3: ≥86'da işçi yarıya (çalışanlar kesilmez, yeni video sayı altına inene dek beklemez), ≥88'de yeni video yok (tavan %89)
 AKTIF, AKTIF_KILIT = [0], threading.Lock()
 
 
@@ -501,7 +546,7 @@ def ram_bekle(es):
             if AKTIF[0] < isci_hedef(psutil.virtual_memory().percent, es):
                 AKTIF[0] += 1
                 return
-        time.sleep(30)
+        time.sleep(2)  # TUR 2: 30 sn bekleme RAM düşünce işçileri boşta bırakıyordu
 
 
 def calis(u, es=3):
@@ -530,6 +575,8 @@ def main():
     if GPU_PY.is_file() and Path(sys.prefix).resolve() != GPU_PY.parents[1].resolve():
         sys.exit(subprocess.call([str(GPU_PY), *sys.argv], stdout=sys.stdout, stderr=sys.stderr, creationflags=NW))  # NW tek başına çıktıyı yutar: akış açıkça verilir
     a = sys.argv[1:]
+    if a and a[0] == "--doldur":
+        return doldur()
     en, es = 10**9, 3
     if "--en" in a:
         i = a.index("--en"); en = int(a[i + 1]); del a[i:i + 2]
