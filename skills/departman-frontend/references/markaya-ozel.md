@@ -1,0 +1,2 @@
+# Markaya özel malzeme
+Site jenerik görünmesin: AI-slop yasak (beyaz zemin+mor geçiş, 3 kart ızgarası, varsayılan font, hareketsiz). Biçim: özel görsel+imza etkileşim / gerçek zamanlı 3D / kaydırmaya bağlı kare dizisi. Malzeme `python tools/uret_malzeme.py gorsel|video|3d --kuru` ile (ücretsiz önce, ücretli `--tavan` ile; envanter docs/malzeme-envanter.md). Pahalı video modelinde önce ucuz taslak, sonra kalite; ayrıntı frontend-craft Bölüm 13.

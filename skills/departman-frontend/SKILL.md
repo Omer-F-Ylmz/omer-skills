@@ -24,6 +24,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 10. **Kapanış** — `design-critique` (yalnız Desktop/claude.ai; CC'de kapalı), tur raporu (frontend-craft ÇEKİRDEK formatı), omer-kurallar:15 altı madde (fonksiyon · güvenlik · bağımlılık · ZAP · KVKK · SEO/A11y; SEO için `fixing-metadata`).
 
 ## Kapılar
+- Markaya özel malzeme (AI-slop yasak, jenerik site yok): `references/markaya-ozel.md`.
 - DESIGN.md olmadan kod yok (REF modunda referans kazanır).
 - Screenshot turu sayıyla raporlanır; 4 turu aşmak yasak.
 - a11y 0 hata ve performans sayısı olmadan görsel QA'ya geçilmez; görsel QA geçmeden kapanış yok.
