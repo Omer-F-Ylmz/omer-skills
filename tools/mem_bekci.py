@@ -236,6 +236,12 @@ if __name__ == "__main__":
                        capture_output=True, timeout=120, creationflags=0x08000000)
     except Exception as e:
         yaz("yetim hata:", repr(e)[:200])
+    try:  # VRAM kilidi (≥%80 → .kos/kopru/vram-dolu; GPU işleri bekler)
+        sys.path.insert(0, os.path.join(KOK, "tools"))
+        import vram_bekci
+        vram_bekci.kilit_guncelle(vram_bekci.yuzde_olc())
+    except Exception as e:
+        yaz("vram hata:", repr(e)[:200])
     try:  # RAM büyüme alarmı (log + uyku-ozet satırı; öldürmez)
         subprocess.run([sys.executable, os.path.join(KOK, "tools", "ram", "buyume.py")],
                        capture_output=True, timeout=120, creationflags=0x08000000)

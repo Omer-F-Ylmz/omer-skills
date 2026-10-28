@@ -10,6 +10,7 @@ from pathlib import Path
 import psutil
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vram_bekci  # VRAM-BEKCI: GPU işi başlatma kapısı
 import ekran_duzelt
 
 KOK = Path(__file__).resolve().parents[1]
@@ -79,7 +80,7 @@ def kareler(v, d, tavan=240):
 
 WHISPER = {"cuda": ("large-v3", "float16"), "cpu": ("small", "int8")}
 _whisper = {}
-ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "8"))  # DERIN-HIZ-3: batched fp16 + VAD ayarı 0,972 / ~34 sn; 0 segmentte sıralı yola düşer (7XhX8P0ebEU)
+ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "4"))  # DERIN-HIZ-3: batched fp16 + VAD ayarı 0,972 / ~34 sn; 0 segmentte sıralı yola düşer (7XhX8P0ebEU). VRAM-BEKCI: 9,6 GB tavanına göre 8→4 (batch başına GB ölçülmedi)
 ASR_VAD = {"min_silence_duration_ms": 500, "speech_pad_ms": 400}
 ASR_BEAM = int(os.environ.get("VD_ASR_BEAM", "5"))  # DERIN-HIZ-2: turbo+beam1 kapıyı geçmedi (0,886); yerel yedek large-v3 beam5
 ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
@@ -148,6 +149,9 @@ def asr(v, d):
         return g
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
         try:
+            if aygit == "cuda":  # VRAM-BEKCI: VRAM ≥%80 iken GPU işi bekler; öncelik BELOW_NORMAL
+                vram_bekci.vram_bekle()
+                vram_bekci.dusuk_oncelik()
             with ASR_KILIT:
                 if aygit not in _whisper:
                     m = WhisperModel(os.environ.get("VD_ASR_MODEL", "large-v3") if aygit == "cuda" else model, device=aygit, compute_type=tip)
