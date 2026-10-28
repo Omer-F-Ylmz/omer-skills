@@ -13,6 +13,22 @@ def baslat(isim):
     r = subprocess.run(["schtasks", "/Run", "/TN", tn], capture_output=True, text=True)
     print("baslatildi", tn, r.returncode, r.stdout.strip()[:200], r.stderr.strip()[:200])
 
+def hafif_bayrak(j, isim):
+    """Varsayılan değişmez; iş json'u "mcp" / "eklenti" / "hafif" verirse o oturumda yalnız yükleme biçimi daralır (dosya silinmez)."""
+    a = []
+    if "mcp" in j:
+        ks = json.load(open(os.path.expanduser("~/.claude.json"), encoding="utf-8")).get("mcpServers", {})
+        cfg = os.path.join(KOK, isim + ".mcp.json")
+        json.dump({"mcpServers": {k: ks[k] for k in j["mcp"] if k in ks}}, open(cfg, "w", encoding="utf-8"))
+        a += ["--strict-mcp-config", "--mcp-config", cfg]
+    if "eklenti" in j:
+        ep = json.load(open(os.path.expanduser("~/.claude/settings.json"), encoding="utf-8")).get("enabledPlugins", {})
+        cfg = os.path.join(KOK, isim + ".eklenti.json")
+        json.dump({"enabledPlugins": {k: k in j["eklenti"] for k in ep}}, open(cfg, "w", encoding="utf-8"))
+        a += ["--settings", cfg]
+    if j.get("hafif"): a += ["--disable-slash-commands"]
+    return a
+
 def kos(isim):
     j = json.load(open(os.path.join(KOK, isim + ".json"), encoding="utf-8"))
     log = os.path.join(KOK, isim + ".log")
@@ -39,6 +55,7 @@ def kos(isim):
         except Exception:
             pass
     if devam: argv += ["--resume", devam]
+    argv += hafif_bayrak(j, isim)
     env = dict(os.environ); env.pop("CLAUDE_CODE_EFFORT_LEVEL", None)
     t0 = time.strftime("%H:%M")
     try:

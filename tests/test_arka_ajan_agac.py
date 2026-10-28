@@ -53,3 +53,13 @@ def test_bayat_kilit_eski_olur(tmp_path, monkeypatch):
     (tmp_path / "b.kilit").write_text("999999")
     m.kos("b")
     assert (tmp_path / "b.kilit-eski").exists() and (tmp_path / "b.log").exists()
+
+
+def test_hafif_bayrak_varsayilan_bos_secenek_dolu(tmp_path, monkeypatch):
+    m = _yukle(tmp_path, monkeypatch)
+    assert m.hafif_bayrak({"cwd": "x"}, "h") == []
+    a = m.hafif_bayrak({"mcp": [], "eklenti": [], "hafif": True}, "h")
+    assert a[:2] == ["--strict-mcp-config", "--mcp-config"] and "--disable-slash-commands" in a
+    assert json.loads((tmp_path / "h.mcp.json").read_text())["mcpServers"] == {}
+    ep = json.loads((tmp_path / "h.eklenti.json").read_text())["enabledPlugins"]
+    assert ep and not any(ep.values())
