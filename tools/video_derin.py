@@ -44,6 +44,53 @@ def kos(*a, timeout=600):
     return subprocess.run(list(map(str, a)), capture_output=True, text=True, timeout=timeout, creationflags=NW)
 
 
+ZAMAN = KOK / ".kos/kopru/derin-zaman.tsv"  # VIDEO-HIZ-4: aşama başı zaman günlüğü (kod, aşama, başlangıç epoch, süre sn, iş parçacığı)
+ZAMAN_KILIT = threading.Lock()
+ASAMA_AKTIF = {}  # takılma teşhisi: iş parçacığı → (kod, aşama, başlangıç); ASAMA_TAKILI bunu tarar
+
+
+class zam:
+    def __init__(self, kod, asama):
+        self.kod, self.asama = kod, asama
+
+    def __enter__(self):
+        self.t = time.time()
+        ASAMA_AKTIF[threading.get_ident()] = (self.kod, self.asama, self.t)
+        return self
+
+    def __exit__(self, *e):
+        ASAMA_AKTIF.pop(threading.get_ident(), None)
+        with ZAMAN_KILIT, ZAMAN.open("a", encoding="utf-8") as f:
+            f.write(f"{self.kod}\t{self.asama}\t{self.t:.1f}\t{time.time() - self.t:.2f}\t{threading.get_ident()}\n")
+
+
+def gpu_olc():
+    """(kullanım %, VRAM %, VRAM GB boş) — 0,5 sn önbellekli tek nvidia-smi çağrısı."""
+    if time.time() - gpu_olc.t < 0.5:
+        return gpu_olc.v
+    try:
+        u, k, t = (float(x) for x in kos("nvidia-smi", "--query-gpu=utilization.gpu,memory.used,memory.total", "--format=csv,noheader,nounits", timeout=10).stdout.strip().splitlines()[0].split(","))
+        gpu_olc.v = (u, 100 * k / t, (t - k) / 1024)
+    except Exception:
+        pass
+    gpu_olc.t = time.time()
+    return gpu_olc.v
+
+
+gpu_olc.t, gpu_olc.v = 0.0, (0.0, 0.0, 99.0)
+GPU_KILIT = threading.Lock()  # ASR toplu adımı ve OCR kareleri TEK GPU sırası: aynı anda tek çekirdek akışı
+GPU_ORAN = float(os.environ.get("VD_GPU_ORAN", "0.33"))  # bekçiler (gpu_sinir ≥%78) hiç devreye girmesin: her GPU patlamasından sonra patlama×ORAN boşta kal (~%75 görev oranı)
+DL_SEM = threading.BoundedSemaphore(int(os.environ.get("VD_DL", "8")))
+CPU_SEM = threading.BoundedSemaphore(int(os.environ.get("VD_CPU", "4")))  # ffmpeg kare/ses çıkarma
+GPU_TAVAN = float(os.environ.get("VD_GPU_TAVAN", "70"))  # ölçülen kullanım bunu aşarsa ek bekleme
+
+
+def gpu_nefes(patlama):
+    """GPU_KILIT tutulurken çağrılır: kilidi bırakmadan uyur, böylece boşluğu başka işçi doldurmaz."""
+    u = gpu_olc()[0]
+    time.sleep(patlama * GPU_ORAN + (0.25 if u >= GPU_TAVAN else 0))
+
+
 def kod_of(u):
     m = re.search(r"(?:reel|p|tv|shorts)/([\w-]+)|[?&]v=([\w-]+)|youtu\.be/([\w-]+)", u)
     return next((g for g in m.groups() if g), re.sub(r"\W+", "_", u)[-24:]) if m else re.sub(r"\W+", "_", u)[-24:]
@@ -57,9 +104,32 @@ def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cooki
 
 
 def indir(url, d):
-    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+wa/w[height>=360]/best", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360]+ba/w[height>=360]/best", "-S", "lang,+abr", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",)), None)
     return v, r.stderr[-200:]
+
+
+TEKIL_ESIK = int(os.environ.get("VD_TEKIL", "2"))  # dHash Hamming uzaklığı ≤ eşik → aynı kare (OCR yinelenmez); 0 = kapalı
+
+
+def tekil(ks):
+    """VIDEO-HIZ-4: OCR'yi kes — neredeyse aynı kareleri (dHash) ve düz/boş kareleri (gri std < 6) at; en az 1 kare kalır."""
+    if TEKIL_ESIK <= 0 or len(ks) < 2:
+        return ks
+    import numpy as np
+    from PIL import Image
+    kalan, hashler = [], []
+    for k in ks:
+        try:
+            g = np.asarray(Image.open(k).convert("L").resize((9, 8)), dtype=np.int16)
+            std = float(np.asarray(Image.open(k).convert("L").resize((64, 36)), dtype=np.float32).std())
+        except Exception:
+            kalan.append(k); continue
+        h = (g[:, 1:] > g[:, :-1]).ravel()
+        if std < 6 or any(int((h != x).sum()) <= TEKIL_ESIK for x in hashler):
+            continue
+        hashler.append(h); kalan.append(k)
+    return kalan or ks[:1]
 
 
 def kareler(v, d, tavan=240):
@@ -71,7 +141,7 @@ def kareler(v, d, tavan=240):
         shutil.rmtree(k)
         k.mkdir()
         kos("ffmpeg", "-y", "-i", v, "-vf", "fps=1,scale=640:-1", "-q:v", "4", k / "%04d.jpg")
-    ks = sorted(k.glob("*.jpg"))
+    ks = tekil(sorted(k.glob("*.jpg")))
     if len(ks) > tavan:  # tavani asarsa esit aralikla ornekle
         adim = len(ks) / tavan
         ks = [ks[int(i * adim)] for i in range(tavan)]
@@ -80,7 +150,8 @@ def kareler(v, d, tavan=240):
 
 WHISPER = {"cuda": ("large-v3", "float16"), "cpu": ("small", "int8")}
 _whisper = {}
-ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "4"))  # DERIN-HIZ-3: batched fp16 + VAD ayarı 0,972 / ~34 sn; 0 segmentte sıralı yola düşer (7XhX8P0ebEU). VRAM-BEKCI: 9,6 GB tavanına göre 8→4 (batch başına GB ölçülmedi)
+ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "2"))  # DERIN-HIZ-3: batched fp16 + VAD ayarı 0,972 / ~34 sn; 0 segmentte sıralı yola düşer (7XhX8P0ebEU). VRAM-BEKCI: 9,6 GB tavanına göre 8→4 (batch başına GB ölçülmedi)
+TOPLU_MIN = int(os.environ.get("VD_TOPLU_MIN", "120"))  # sn
 ASR_VAD = {"min_silence_duration_ms": 500, "speech_pad_ms": 400}
 ASR_BEAM = int(os.environ.get("VD_ASR_BEAM", "5"))  # DERIN-HIZ-2: turbo+beam1 kapıyı geçmedi (0,886); yerel yedek large-v3 beam5
 ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
@@ -123,12 +194,15 @@ def groq_asr(wav):
         return None
 
 
+ALT_MIN = int(os.environ.get("VD_ALT_MIN", "900"))
+
+
 def altyazi_dene(d):  # DERIN-HIZ-3: YouTube'da videonun kendi dilinde altyazı varsa ve ayrıştırma sağlıklıysa ASR atlanır
     ij = next(d.glob("*.info.json"), None)
     if not ij or os.environ.get("VD_ALTYAZI", "1") != "1":
         return None
     j = json.loads(ij.read_text(encoding="utf-8"))
-    if j.get("extractor_key") != "Youtube":
+    if j.get("extractor_key") != "Youtube" or (j.get("duration") or 0) <= ALT_MIN:  # VIDEO-HIZ-4: kısa videoda ASR ucuz ve altyazı referansa 0,60–0,95 (kapı ≥0,96) → yalnız uzunda
         return None
     import altyazi
     r = altyazi.getir(j["id"], j.get("duration"), (j.get("language") or "").split("-")[0])
@@ -140,37 +214,55 @@ def altyazi_dene(d):  # DERIN-HIZ-3: YouTube'da videonun kendi dilinde altyazı 
 def asr(v, d):
     from faster_whisper import BatchedInferencePipeline, WhisperModel
     if r := altyazi_dene(d):
-        return r
+        return *r, "altyazi"
     kos("ffmpeg", "-y", "-i", v, "-vn", "-ac", "1", "-ar", "16000", d / "a.wav")
     if not (d / "a.wav").exists():
-        return "", []
+        return "", [], "yok"
     if os.environ.get("VD_GROQ", "0") == "1" and (g := groq_asr(d / "a.wav")):  # DERIN-HIZ-2: Groq kapıyı geçmedi (0,913), varsayılan KAPALI
         print("device=groq model=whisper-large-v3", flush=True)
-        return g
+        return *g, "groq"
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
         try:
             if aygit == "cuda":  # VRAM-BEKCI: VRAM ≥%80 iken GPU işi bekler; öncelik BELOW_NORMAL
                 vram_bekci.vram_bekle()
                 vram_bekci.dusuk_oncelik()
-            with ASR_KILIT:
+            with ASR_KILIT:  # tek kalıcı ASR işçisi: model süreç başına BİR kez yüklenir
                 if aygit not in _whisper:
-                    m = WhisperModel(os.environ.get("VD_ASR_MODEL", "large-v3") if aygit == "cuda" else model, device=aygit, compute_type=tip)
+                    if aygit == "cuda":  # VRAM ≤%70: bekçi (vram_siper %78'de kapatır) hiç tetiklenmesin
+                        son = time.time() + 600
+                        while gpu_olc()[1] > 55 and time.time() < son:  # model + toplu bellek ~%15 ekler
+                            time.sleep(5)
+                    tip_ = os.environ.get("VD_ASR_TIP") or tip
+                    m = WhisperModel(os.environ.get("VD_ASR_MODEL") or ("large-v3" if aygit == "cuda" else model), device=aygit, compute_type=tip_ if aygit == "cuda" else tip)
                     _whisper[aygit + "_seq"] = m
                     _whisper[aygit] = BatchedInferencePipeline(m) if aygit == "cuda" and ASR_BATCH > 1 else m  # VRAM tavanı batch_size ile
-                toplu = aygit == "cuda" and ASR_BATCH > 1
+                toplu = aygit == "cuda" and ASR_BATCH > 1 and (d / "a.wav").stat().st_size > TOPLU_MIN * 32000  # VIDEO-HIZ-4: kısa sesde batched 0,85–0,97 (sıralı 1,00 = referansla aynı yol); batched yalnız uzunda
                 kw = {"batch_size": ASR_BATCH, "vad_parameters": ASR_VAD, "without_timestamps": False} if toplu else {}
                 kw["beam_size"] = ASR_BEAM
-                seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, **kw)
-                out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]  # üretici tüketilmeden hata yakalanmaz
+
+                def dok(m_, **k_):  # üretici tüketilirken her GPU patlaması arasında nefes (kilit tutulur)
+                    sg, inf = m_.transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, **k_)
+                    o, it = [], iter(sg)
+                    while True:
+                        t0 = time.time()
+                        with GPU_KILIT:
+                            s = next(it, None)
+                            if s is not None and aygit == "cuda":
+                                gpu_nefes(time.time() - t0)
+                        if s is None:
+                            return inf, o
+                        o.append({"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()})
+                with zam(d.name, "asr_gpu"):
+                    info, out = dok(_whisper[aygit], **kw)
+                seq_dustu = False
                 if toplu and not out:  # toplu yol sessizce 0 kelime verdi: sıralı yol kesin sonuç
-                    seg, info = _whisper[aygit + "_seq"].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, beam_size=ASR_BEAM)
-                    out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]
+                    info, out = dok(_whisper[aygit + "_seq"], beam_size=ASR_BEAM); seq_dustu = True
             print(f"device={aygit} model={model}", flush=True)
-            return info.language, out
+            return info.language, out, "asr-batched" if toplu and out and not seq_dustu else "asr-sirali"
         except Exception as e:
             _whisper.pop(aygit, None)
             print(f"device={aygit} basarisiz: {str(e)[:150]}", flush=True)
-    return "", []
+    return "", [], "yok"
 
 
 OCR_KILIT = threading.Lock()  # tek ORT oturumu: GPU çağrıları sıralanır (kare başı ~0,2 sn)
@@ -196,8 +288,11 @@ def ocr(ks):
     gorulen, out = set(), []
     for i, k in enumerate(ks):
         try:
-            with OCR_KILIT:
+            with OCR_KILIT, GPU_KILIT:  # OCR ve ASR GPU'yu sırayla kullanır; patlama sonrası nefes (bekçi %78 eşiği)
+                t0 = time.time()
                 res, _ = ocr_motor()(str(k))
+                if OCR_AYGIT == "cuda":
+                    gpu_nefes(time.time() - t0)
         except Exception:
             continue
         for _, t, c in res or []:
@@ -227,6 +322,37 @@ def yerel_aciklama(ks, n=4, model="gemma4:e4b"):  # Gemini kotası/anahtarı yok
 
 
 gemini_durum = {"kapali": 0.0}
+HAVUZ_G = [("nvidia", "meta/llama-3.2-11b-vision-instruct"), ("mistral", "ministral-8b-latest"), ("groq", "qwen/qwen3.8-27b"),
+           ("openrouter", "minimax/minimax-m3.1-flash:free"), ("nvidia", "nvidia/ising-calibration-1.5-31b"), ("gemini", "gemini-3.5-flash-lite")]  # gorsel_dogrula.py 3/3 geçenler
+HAVUZ_SIRA, HAVUZ_KOTA = [0], {}  # sağlayıcı → soğuma bitişi; HAVUZ_G ≤3 deneme/link
+
+
+def havuz_aciklama(ks, n=3):
+    """VIDEO-HIZ-4: ücretsiz görsel model havuzu, link başına en fazla 3 istek; 429/hata → sağlayıcı 10 dk soğur, sıradaki denenir."""
+    if not ks:
+        return None
+    try:
+        import havuz_envanter as E
+    except Exception:
+        return None
+    sec = [ks[int(i * len(ks) / n)] for i in range(min(n, len(ks)))]
+    icerik = [{"type": "text", "text": KARE_PROMPT}] + [{"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(k.read_bytes()).decode()}} for k in sec]
+    with KILIT:
+        bas = HAVUZ_SIRA[0]; HAVUZ_SIRA[0] += 1
+    denenen = 0
+    for i in range(len(HAVUZ_G)):
+        prov, model = HAVUZ_G[(bas + i) % len(HAVUZ_G)]
+        if time.time() < HAVUZ_KOTA.get(prov, 0) or denenen >= 3:
+            continue
+        denenen += 1
+        try:
+            m, kod, _, _ = E._gonder(prov, model, icerik, 1200, 60)
+        except Exception:
+            m, kod = None, 599
+        if m and len(m.strip()) > 40:
+            return m
+        HAVUZ_KOTA[prov] = time.time() + 600
+    return None
 
 
 def gemini_aciklama(ks, n=4):
@@ -264,7 +390,8 @@ def isle(url):
     t0 = time.time()
     adim = {}
     try:
-        v, hata = indir(url, d)
+        with DL_SEM, zam(kod, "indir"):  # ağ/CPU kuyruğu: GPU işçileri beklemesin diye ayrı eşzamanlılık
+            v, hata = indir(url, d)
         if not v:
             if "No video formats found" in hata:  # kalıcı: format yok, yeniden deneme anlamsız
                 with ATLA_DOSYA.open("a", encoding="utf-8") as f:
@@ -272,15 +399,18 @@ def isle(url):
                 return kod, "atla"
             return kod, "indirilemedi: " + hata.strip().splitlines()[-1][:120] if hata.strip() else "indirilemedi"
         t1 = time.time(); adim["indir"] = t1 - t0
-        dil, seg = asr(v, d)
+        with zam(kod, "asr"):
+            dil, seg, kaynak = asr(v, d)
         t2 = time.time(); adim["asr"] = t2 - t1
-        ks = kareler(v, d)
+        with CPU_SEM, zam(kod, "kare"):
+            ks = kareler(v, d)
         t3 = time.time(); adim["kare"] = t3 - t2
         def acik_zamanli():  # ölçüm: açıklama süresi ayrı tutulur (ADIM satırı)
-            s = time.time(); r = gemini_aciklama(ks) or yerel_aciklama(ks); adim["acik_s"] = time.time() - s; return r
+            s = time.time(); r = havuz_aciklama(ks) or gemini_aciklama(ks) or yerel_aciklama(ks); adim["acik_s"] = time.time() - s; return r
         with ThreadPoolExecutor(1) as px:  # kare açıklaması (Gemini/Ollama) OCR ile örtüşür; profilde "ocr" ikisini birden kapsar
             acik_f = px.submit(acik_zamanli)
-            ekran = ocr(ks)
+            with zam(kod, "ocr"):
+                ekran = ocr(ks)
             adim["ocr_s"] = time.time() - t3
             acik = acik_f.result()
         t4 = time.time(); adim["ocr"] = t4 - t3
@@ -298,7 +428,8 @@ def isle(url):
             j = json.loads(ij.read_text(encoding="utf-8"))
             info = {"baslik": j.get("title"), "sure": j.get("duration"), "yukleyen": j.get("uploader"), "aciklama": (j.get("description") or "")[:800]}
         veri = {"kod": kod, "url": url, "dil": dil, "meta": info, "transkript": seg, "ekran": ekran,
-                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": acik, "kare_sayisi": len(ks), "duzeltme": duzeltme}
+                "linkler": linkler, "komutlar": komutlar, "kare_aciklama": acik, "kare_sayisi": len(ks), "duzeltme": duzeltme,
+                "asr": {"kaynak": kaynak, "kelime_sn": round(sum(len(x["t"].split()) for x in seg) / info["sure"], 2) if info.get("sure") else None}}
         adim["acik"] = time.time() - t4
         with KILIT, PROFIL.open("a", encoding="utf-8") as f:
             f.write(f"{kod}\t" + "\t".join(f"{adim[x]:.1f}" for x in ("indir", "asr", "kare", "ocr", "acik")) + f"\t{len(ks)}\t{OCR_AYGIT}\n")
@@ -328,7 +459,7 @@ def isle_post(url):
         seg, ks, dil = [], list(gorseller), None
         for i, v in enumerate(p for p in slaytlar if p.suffix.lower() == ".mp4"):
             dv = d / f"v{i}"; dv.mkdir()
-            dil, s = asr(v, dv); seg += s
+            dil, s, _ = asr(v, dv); seg += s
             ks += kareler(v, dv, tavan=30)  # karusel video slaytı: 240 kare × 9 slayt OCR kuyruğunu saatlerce tıkıyordu
         ekran = ocr(ks)
         ekran_m = "\n".join(e["t"] for e in ekran)
