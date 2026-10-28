@@ -27,7 +27,7 @@ URL = "http://127.0.0.1:20128/v1/chat/completions"
 OLLAMA = "http://127.0.0.1:11434/api/chat"
 YEREL_KAPALI = Path(__file__).resolve().parents[1] / ".kos" / "yerel-model.kapali"
 COMBO = "cc-ucuz-free"  # yalnız :free üyeler; güçlü limit yedeği cc-yedek-dis'e (cc-kopru/omniroute.mjs) dokunulmaz
-SURUM = "v3"  # istem/şema değişince artır: hem yerel hem OmniRoute önbelleği eski yanıtı döndürmez
+SURUM = "v4"  # istem/şema değişince artır: hem yerel hem OmniRoute önbelleği eski yanıtı döndürmez
 TAVAN = 400_000  # bağlam karakteri; combo'daki en küçük pencereye sığsın
 DB = os.path.expanduser("~/.omniroute/storage.sqlite")
 DIZIN = Path(__file__).resolve().parents[1] / ".kos/kopru/ucuz-onbellek"
@@ -37,7 +37,7 @@ HAVUZ = [("havuz", "ozet"), ("havuz", "hakem"), ("havuz", "yazim"), ("omni", COM
 ZINCIR = {"ozet": HAVUZ, "lisans": HAVUZ, "etiket": HAVUZ,
           "gorsel": [("omni", "openrouter/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free")]}
 TASLAK = {"etiket", "gorsel", "ozet"}  # kapı ≥%98'e ulaşmayan türler: çıktı yazılır ama çıkış 3 (Claude doğrular); ozet kör hakem 78/84
-SEMA = {"ozet": '{"ozet": "<istenen özet>", "alinti": ["özeti destekleyen, bağlamdan BİREBİR 1-3 alıntı, her biri ≤200 karakter"]}',
+SEMA = {"ozet": '{"ozet": "<istenen özet; numaralı madde istendiyse HER madde tam cümle olsun, parça/boş bırakma; \'yok\' yalnız bağlamı baştan sona taradıktan sonra o konuda hiçbir ipucu (lisans/license rozeti, requirements/prerequisites/gereksinim, desteklenen platform/sürüm, kurulum komutu) yoksa>", "alinti": ["özeti destekleyen, bağlamdan BİREBİR 1-3 alıntı, her biri ≤200 karakter"]}',
         "lisans": '{"lisans": "SPDX kimliği (MIT, Apache-2.0, GPL-3.0 …) ya da yok", "alinti": "lisansı gösteren BİREBİR alıntı ≤200 karakter"}',
         "etiket": '{"etiket": "<seçeneklerden biri>", "alinti": "etiketi destekleyen BİREBİR alıntı ≤200 karakter"}',
         "gorsel": '{"metin": "görseldeki metin (yoksa boş)", "hukum": "<istenen yargı>"}'}
@@ -141,6 +141,14 @@ def dogrula(tur, o, baglam, secenek):
     alan = {"ozet": "ozet", "lisans": "lisans", "etiket": "etiket"}[tur]
     if bos(o.get(alan, "")):
         return f"{alan} boş/belirsiz"
+    if tur == "ozet":  # OMNİ-AYIR-DÜZELT: numaralı maddelerde parça/yanlış "yok" kilidi
+        maddeler = [m.strip() for m in re.split(r"(?:^|\s)\d\)\s", str(o["ozet"]))[1:]]
+        ipucu = {3: r"requir|prerequisite|gereksinim|node|python|windows|macos|linux|sürüm", 4: r"licen[cs]e|lisans|\bmit\b|apache|gpl"}
+        for i, m in enumerate(maddeler, 1):
+            if len(m) < 15:
+                return f"madde {i} parça/boş"
+            if re.search(r"\byok\b|not (?:mentioned|specified)", n(m)) and i in ipucu and re.search(ipucu[i], nb):
+                return f"madde {i} 'yok' dedi ama bağlamda ipucu var"
     if tur == "lisans" and n(o["lisans"]) in ("yok", "none"):
         return "lisans yok dedi ama bağlamda lisans geçiyor" if re.search(r"licen[cs]e|lisans", nb) else None
     if tur == "etiket" and secenek and n(o["etiket"]) not in {n(s) for s in secenek}:
