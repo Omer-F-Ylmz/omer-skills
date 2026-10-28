@@ -25,6 +25,12 @@ VIDEO HATTI KURALI (Ömer 21 Eki): üretim (görüntü/video/ses/kurgu) tamamen 
 `--model` ile elle seçilebilir; `--referans` yalnız `duzenle` işinde.
 Prompt her zaman İngilizce yazılır (Türkçe prompt Z-Image'da konudan sapar: "beyaz fonda seramik fincan" → ahşap masada kavanoz); görselin İÇİNE yazılacak metin (ör. "Türk Kahvesi") tırnak içinde aynen kalır.
 
+## İstem kalıpları (VIDEO-IHZ-2)
+- Sohbet tarzı istem: JSON'a çevirtme yok; sahneyi arkadaşına anlatır gibi yaz, kamera/ışık/malzemeyi düz cümleyle ver. Metin modeli (klein) için metin tırnak içinde.
+- Dondur + yeşil ekran (animasyon kalıbı): "freeze the subject in place, same position, make the background greenscreen" — kare ilk üretilir, sonra arka plan `arkaplan` ile ayrılır (ücretsiz yerel).
+- Site arka plan döngü videosu tarifi: kısa (4–8 sn), döngülü (başı = sonu), ≤1,5 MB, 16:9 ve mobil kırpma, poster = ilk kare (JPG/WebP), `prefers-reduced-motion` için video yerine poster.
+- Karşılıklar: Flow/Nano Banana → zimage/klein; Veo/Omni video → yerel Wan + ffmpeg (döngü kırpma).
+
 ## Bellek
 - Model değişiminde bellek araçla boşaltılır (`/free`); elle müdahale gerekmez.
 - Bekçi, iş öncesi boş RAM'e bakar (ram_gb = K6 tepe + 2): zimage 4.4 · klein 4.5 · buyut 3.5 GB; `ac` en küçüğünü ister.

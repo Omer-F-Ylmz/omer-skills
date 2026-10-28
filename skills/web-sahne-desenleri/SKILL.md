@@ -90,6 +90,32 @@ Bizim farkımız: tek paylaşılan materyal + doku atlası ya da InstancedMesh (
 12. Katman sınırı ve dantel (R0e): sınır gürültüsünün eğimi < 1 tut (fbm 2 oktav, düşük genlik) — aşınca kendi üstüne katlanan "yırtık kâğıt" kenar; lacing yarı saydam ve kapakta yok; crema geniş degrade + benek genliği ≈ .015–.02 (yüksek değer "leopar" okunur).
 13. Ölçüm tuzağı: döküm benzetimi sayfalar arasında belirlenimci değil (aynı kod benek 4.46/3.85) → maske farkı ölçümü için sabit tohum + sabit adım sayısı, iki çekimin ortalaması.
 
+### 2e. Arka plan videosu — sessiz döngü, lazy, poster
+
+Sitede arka planda oynayan kısa döngü videosu (VIDEO-IHZ-2). Hareket dekoratif; içerik poster ile de okunmalı.
+
+```html
+<section class="bg-hero">
+  <video class="bg-hero__video" autoplay muted loop playsinline preload="none"
+         poster="/img/hero-poster.webp" aria-hidden="true">
+    <source src="/video/hero-loop.webm" type="video/webm">
+    <source src="/video/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="bg-hero__content">…</div>
+</section>
+```
+
+```css
+.bg-hero { position: relative; isolation: isolate; }
+.bg-hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+@media (prefers-reduced-motion: reduce) { .bg-hero__video { display: none; } }
+```
+
+- Kural: ≤1,5 MB, 4–8 sn, döngü başı = sonu; webm öncelikli; 720p yeterli.
+- Lazy: `preload="none"` + IntersectionObserver ile `play()` yalnız görünürken; sekme gizliyse `pause()`.
+- Mobil: düşük veri/`prefers-reduced-motion` → poster; ayrı mobil kırpma kaynağı tercih edilir.
+- Kapı: §3 Lighthouse perf kapısı video sayfasında da geçer; LCP öğesi poster görseli olmalı.
+
 ## 3. Sahne kalite kapısı
 - Anahtar karede metin kontrastı (TELVE-R1): metni gizleyip aynı kareyi yeniden çek, başlık/gövde kutusundaki zeminin metne en yakın %5 lümenine karşı WCAG oranı ölç (medyan yetmez: K3'te medyan 16:1, en kötü %5 4.7:1 → parçacık şeridi metnin altındaydı). Betik: TELVE docs/r1/_ham/r1/kare/cek-r1.mjs.
 
