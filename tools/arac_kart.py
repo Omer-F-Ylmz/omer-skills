@@ -239,7 +239,7 @@ def uret(satir, atlas, yol, gec, ders, aileler):
         "hash": kaynak_hash(p) if p else hashlib.sha256(f"{satir.get('metin')}{satir.get('cagri')}{satir.get('imza')}".encode()).hexdigest()[:12],
         "yol": str(p) if p else "", "tetik": satir.get("tetik") or "", "ba":temiz(" | ".join(bs[:12]), 160),
         "gecmis": {"n": ga.get("n", 0), "kabul": ga.get("kabul", 0), "usd": round(ga.get("usd", 0), 3)} if ga else {},
-        "ders": ders.get(ad0.lower(), []),
+        "ders": ders.get(ad0.lower(), []), "etiket": "",  # etiket: tools/etiket_uret.py doldurur
     }
 
 
@@ -328,6 +328,7 @@ def yenile(c=None, yalniz=None):
             yeni.append(k0)
             continue
         k = uret(s, atlas, yol, gec, ders, aileler)
+        k["etiket"] = (k0 or {}).get("etiket", "")  # yenilemede korunur
         if degisti or not k0:
             _bolum_yaz(b, k, s)
             say["yenilendi"] += 1
