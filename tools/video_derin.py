@@ -79,8 +79,9 @@ def kareler(v, d, tavan=240):
 
 WHISPER = {"cuda": ("large-v3", "float16"), "cpu": ("small", "int8")}
 _whisper = {}
-ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "1"))  # >1 toplu yol: uzun dosyada sessizce 0 kelime döndürdü (7XhX8P0ebEU), varsayılan kapalı
-ASR_BEAM = int(os.environ.get("VD_ASR_BEAM", "1"))  # turbo+beam1: 10 linkte link/komut/OCR aynı, ASR 760→48 sn (rapor/derin-hiz-1.md)
+ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "8"))  # DERIN-HIZ-3: batched fp16 + VAD ayarı 0,972 / ~34 sn; 0 segmentte sıralı yola düşer (7XhX8P0ebEU)
+ASR_VAD = {"min_silence_duration_ms": 500, "speech_pad_ms": 400}
+ASR_BEAM = int(os.environ.get("VD_ASR_BEAM", "5"))  # DERIN-HIZ-2: turbo+beam1 kapıyı geçmedi (0,886); yerel yedek large-v3 beam5
 ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
 KILIT = threading.Lock()  # ilerleme dosyası ve konsol satırları
 
@@ -89,11 +90,11 @@ GROQ_ASR = "https://api.groq.com/openai/v1/audio/transcriptions"
 GROQ_DIL = {"turkish": "tr", "english": "en", "german": "de", "spanish": "es", "french": "fr", "russian": "ru", "arabic": "ar",
             "italian": "it", "portuguese": "pt", "hindi": "hi", "japanese": "ja", "korean": "ko", "chinese": "zh"}
 GROQ_KILIT = threading.Lock()
-groq_durum = {"sonraki": 0.0, "kapali": 0.0}  # ücretsiz kota: 20 istek/dk; 429'da 90 sn kapanır, GPU'ya döner
+groq_durum = {"sonraki": 0.0, "kapali": 0.0}  # ücretsiz kota: 20 istek/dk; 429'da 600 sn kapanır, GPU'ya döner
 
 
 def groq_asr(wav):
-    """GPU döküm kuyruğu doluyken taşan videoyu Groq whisper-large-v3'ya (ücretsiz) gönderir; başarısızsa None."""
+    """Önce ücretsiz Groq whisper-large-v3 (yerelle aynı model); kota/hata/büyük dosyada None, yerel large-v3 beam5 devralır."""
     key = os.environ.get("GROQ_API_KEY")
     if not key or wav.stat().st_size > 15_000_000:
         return None
@@ -116,29 +117,50 @@ def groq_asr(wav):
         return GROQ_DIL.get(str(r.get("language", "")).lower(), str(r.get("language", ""))), out
     except Exception as e:
         if "429" in str(e):
-            groq_durum["kapali"] = time.time() + 90
+            groq_durum["kapali"] = time.time() + 600
         print(f"device=groq basarisiz: {str(e)[:100]}", flush=True)
         return None
 
 
+def altyazi_dene(d):  # DERIN-HIZ-3: YouTube'da videonun kendi dilinde altyazı varsa ve ayrıştırma sağlıklıysa ASR atlanır
+    ij = next(d.glob("*.info.json"), None)
+    if not ij or os.environ.get("VD_ALTYAZI", "1") != "1":
+        return None
+    j = json.loads(ij.read_text(encoding="utf-8"))
+    if j.get("extractor_key") != "Youtube":
+        return None
+    import altyazi
+    r = altyazi.getir(j["id"], j.get("duration"), (j.get("language") or "").split("-")[0])
+    if r:
+        print(f"device=altyazi dil={r[0]}", flush=True)
+    return r
+
+
 def asr(v, d):
     from faster_whisper import BatchedInferencePipeline, WhisperModel
+    if r := altyazi_dene(d):
+        return r
     kos("ffmpeg", "-y", "-i", v, "-vn", "-ac", "1", "-ar", "16000", d / "a.wav")
     if not (d / "a.wav").exists():
         return "", []
-    if ASR_KILIT.locked() and (g := groq_asr(d / "a.wav")):  # GPU kuyruğu dolu: taşan video ücretsiz Groq kanalına
+    if os.environ.get("VD_GROQ", "0") == "1" and (g := groq_asr(d / "a.wav")):  # DERIN-HIZ-2: Groq kapıyı geçmedi (0,913), varsayılan KAPALI
         print("device=groq model=whisper-large-v3", flush=True)
         return g
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
         try:
             with ASR_KILIT:
                 if aygit not in _whisper:
-                    m = WhisperModel(os.environ.get("VD_ASR_MODEL", "large-v3-turbo") if aygit == "cuda" else model, device=aygit, compute_type=tip)
-                    _whisper[aygit] = BatchedInferencePipeline(m) if aygit == "cuda" and ASR_BATCH > 1 else m  # DERIN-HIZ-1: toplu çözümleme, VRAM tavanı batch_size ile
-                kw = {"batch_size": ASR_BATCH} if aygit == "cuda" and ASR_BATCH > 1 else {}
+                    m = WhisperModel(os.environ.get("VD_ASR_MODEL", "large-v3") if aygit == "cuda" else model, device=aygit, compute_type=tip)
+                    _whisper[aygit + "_seq"] = m
+                    _whisper[aygit] = BatchedInferencePipeline(m) if aygit == "cuda" and ASR_BATCH > 1 else m  # VRAM tavanı batch_size ile
+                toplu = aygit == "cuda" and ASR_BATCH > 1
+                kw = {"batch_size": ASR_BATCH, "vad_parameters": ASR_VAD, "without_timestamps": False} if toplu else {}
                 kw["beam_size"] = ASR_BEAM
-                seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, **kw)  # toplu yol WER %1,8–4,2: kullanılmaz
+                seg, info = _whisper[aygit].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, **kw)
                 out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]  # üretici tüketilmeden hata yakalanmaz
+                if toplu and not out:  # toplu yol sessizce 0 kelime verdi: sıralı yol kesin sonuç
+                    seg, info = _whisper[aygit + "_seq"].transcribe(str(d / "a.wav"), word_timestamps=True, vad_filter=True, beam_size=ASR_BEAM)
+                    out = [{"b": round(s.start, 1), "s": round(s.end, 1), "t": s.text.strip()} for s in seg]
             print(f"device={aygit} model={model}", flush=True)
             return info.language, out
         except Exception as e:
