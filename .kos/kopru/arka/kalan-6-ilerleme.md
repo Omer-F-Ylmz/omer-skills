@@ -11,3 +11,7 @@
 Sonraki adım: RAM ≤%89 olunca 1'den devam; tarifi dar dizinlerde (`rapor/`, `.kos/ajan-sira/`) `grep -l` ile ara.
 - 10:19 RAM %62,5 OK; tarif .kos/kopru/gorev/skill-paket-2.md bulundu, 1'e devam
 - 2 omni-ayir: ENGEL duzeltme kodda (ucuz_alt v4 ozet dogrulayici), held-out 1/12 (yavas); %98 kanitlanmadi (rapor/omni-ayir-duzelt.md)
+- 5 video-13: BITTI (K kalır; KO/KA RET; haiku tarayici ENGEL=ucretli API) rapor/video-13.md
+- 6 gorev-usta-blender-1: ENGEL (hakem koştu A1/B1 30→45, mutlak ≥90 eşiği geçilmedi) rapor/gorev-usta-blender-1.md
+- 3 slash-ogren: ENGEL izin nedeni rtk:* eksikti, duzeltildi; yeniden kosu 600sn zaman asimi (rapor/slash-ogren-bitir.md)
+- 4 ram-opt-1-d3: BITTI 9/9 havuzda, Desktop config kopruye cevrildi, Desktop yeniden baslatilinca etkili (rapor/ram-opt-1-d3.md)
