@@ -2,3 +2,5 @@ GPU-SINIR-2: tools/gpu_sinir.py (1 sn utilization, son 2 ort >=%78 -> yalniz pyt
 Gorev: omer-gpu-sinir (5 dk, tek ornek kilidi) kuruldu ve calisiyor; ONLOGON gorevi "Erisim engellendi" (yonetici) -> yalniz 5 dk tetikleyici var.
 Kaynak olcumu (large-v3, 7XhX8P0ebEU): fp16 b4 134s/0,5 ref; fp16 b2 153s, VRAM 10,2GB; int8_float16 b4 128s, benzerlik 0,990; b2 165s 0,985. Tepe util hepsinde 100 -> b2/int8 kullanimi dusurmedi; varsayilan b4 fp16 kaldi.
 Dogrulama: 240 sn, 1 sn ornek: ort %56,6, tepe %79, >%80 orani %0,00 (hedef <=%2). Eksik: 300 sn degil 240; yuk ilik-v4 ile birlikteydi, kendi yuk betigim wav hatasiyla dustu; bekcinin askiya aldigi an sayilmadi.
+TUR2 dogrulama (video-hiz-4 GPU'da, 300 sn, 1 sn): util ort %48,7, tepe %100, >%80 orani %10,0 (hedef <=%2: GECMEDI); VRAM tepe %62,2, >%80 %0. gpu_sinir askiya sayaci yok (gpu-sinir.json bos) -> sayilamadi. Not: 1 sn ornekleme + 2 olcum ortalamasi ani tepeleri kacirir; eslik eden 2. GPU sureci (hiz4_olc + video_derin) tepeyi uretiyor.
+Gorev omer-vram-siper (5 dk, IgnoreNew) kuruldu, Ready; ONLOGON denenmedi. Python sureci toptan kapatilmadi.
