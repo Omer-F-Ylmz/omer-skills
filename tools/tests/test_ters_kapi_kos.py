@@ -85,3 +85,15 @@ def test_tek_haiku_hakem_tek_oyla_yeter_ve_sabit_oy_aileyi_dusurmez(tmp_path, mo
     h = {"ad": "x", "maddeler": [{"madde": str(i)} for i in range(5)]}
     r = K.hakem(h, {"skill": [{"madde": "s"}], "zemin": [{"madde": "z"}]}, K.random.Random(0))
     assert r == {"skill": 1.0, "zemin": 1.0} and cagrilan == ["anthropic"] and not K.SABIT_OY
+
+
+def test_js_tek_dosya_gecici_dizine_kopyalanip_rea_ya_verilir(tmp_path, monkeypatch):
+    kaynak = tmp_path / "tek.js"; kaynak.write_text("export const a = 1")
+    cagrilar = []
+
+    def sahte(komut, **kw):
+        d = Path(komut[2]); cagrilar.append((d, [p.name for p in d.iterdir()]))
+        return type("C", (), {"stdout": '{"ok": 1}'})()
+    monkeypatch.setattr(K, "rea_yol", lambda: "rea.cmd"); monkeypatch.setattr(K.subprocess, "run", sahte)
+    assert K.rea_kanit({"tur": "js", "yol": str(kaynak)}) == '{"ok": 1}'
+    assert cagrilar[0][1] == ["tek.js"] and cagrilar[0][0] != kaynak.parent

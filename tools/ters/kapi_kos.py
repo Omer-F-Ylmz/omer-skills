@@ -2,7 +2,7 @@
   python tools/ters/kapi_kos.py          → docs/ters/kapi/sonuc.md + sonuc.json; --dene → yalnız 1 hedef (kuru deneme)
 Kollar: skill (SKILL.md + prob/REA kanıtı + ham kaynak) vs zemin (yalnız ham kaynak), aynı yazar model. Hakem: iki aile ücretsiz bulut, ikisi onaylamazsa madde 0.
 Bulut çağrı tavanı yazar 80 / hakem 130 (sayaç + önbellek CIKTI altında); anahtar değerleri basılmaz."""
-import functools, hashlib, http.server, json, os, random, re, shutil, subprocess, sys, threading, time, urllib.request
+import functools, hashlib, http.server, json, os, random, re, shutil, subprocess, sys, tempfile, threading, time, urllib.request
 from pathlib import Path
 from PIL import Image, ImageChops, ImageStat
 
@@ -128,10 +128,13 @@ def rea_kanit(h):  # REA çalışmazsa koşu durur: hata satırıyla skill kolu 
     yol = rea_yol()
     if h["tur"] == "dotnet": komut = [yol, "inspect-managed-members", h["derlenmis"], "--json"]
     else: komut = [yol, "analyze-javascript-application", h.get("rea_yol", h["yol"]), "--json"]  # rea_yol: tek dosyalık js için dizin
-    try:
-        c = subprocess.run(komut, capture_output=True, text=True, timeout=180, creationflags=0x08000000, encoding="utf-8")
-    except Exception as e:
-        raise ReaYok(f"REA hata: {type(e).__name__}")
+    with tempfile.TemporaryDirectory() as gecici:
+        if h["tur"] == "js" and Path(komut[2]).is_file():  # REA js için dizin ister: tek dosya geçici dizine kopyalanır
+            shutil.copy(komut[2], gecici); komut[2] = gecici
+        try:
+            c = subprocess.run(komut, capture_output=True, text=True, timeout=180, creationflags=0x08000000, encoding="utf-8")
+        except Exception as e:
+            raise ReaYok(f"REA hata: {type(e).__name__}")
     if not (c.stdout or "").strip(): raise ReaYok("REA boş çıktı")
     if re.match(r'\s*\{\s*"error"', c.stdout): raise ReaYok("REA hata JSON: " + c.stdout[:200])  # ör. unsupported_target (js için dizin/.asar gerekir)
     return c.stdout[:6000]
