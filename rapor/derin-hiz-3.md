@@ -20,3 +20,7 @@
 TUR 3 (28 18:05): KAPI DOGRULANAMADI. Hat kodlandi: tools/altyazi.py (VTT ayristirma+saglik: kelime/sn, kapsama; yalniz videonun kendi dili, 60 sn zaman asimi+1 yeniden deneme) + video_derin.py varsayilan batch8 fp16 VAD(500ms/pad400), 0 segmentte sirali yola dusus.
 10 linkte ilk 4: altyazi yolu 24 sn (-o8hT175bHI benzerlik 0,960 = esik), digerleri ASR 34–58 sn, hata 0. 5. link 2x-aQy730Ew batched uretecte >8 dk asili (py-spy: generate_segment_batched; GPU %100, ~29 islem GPU'yu paylasiyor) -> durduruldu, 10/10 dogrulanmadi, link/komut %100 ve >=0,96 tum linklerde kanitlanmadi.
 Sonraki: GPU'yu bos birakip ayni 10 linki tekrar kos; asili ASR'ye zaman asimi (alt surec) gerekebilir. Saat/link ~30–60 sn, VRAM ~6 GB.
+
+TUR 4 (28 Eki 18:50): KAPI GECMEDI (10 link, GPU bos, hata 0, takilma 0). ASR link basina 180 sn zaman asimli alt surec (.kos/kopru/ogren/h3_kos.py); 0_3A0uAkBZ0 batch=4'te 180 sn'de asildi, batch=1 ile 60 sn'de bitti. Saat/link 20-68 sn (ort ~40), VRAM 2,0 -> ~2,5 GB (olcum anlik).
+- Benzerlik >=0,96: 5/10 (-o8h 0,960, 18c3 0,966, 5G7 0,977, 5LL 0,966, a4r 0,972). Altinda: JfmA 0,959, 2x-a 0,943, 9Iti 0,888, 0i65 0,831, 0_3A 0,591 (sirali yol, 765/875 kelime). Link/komut ortusmesi 10/10 %100 (ayri olculdu, h3_karsi.py).
+- Varsayilan yapilmadi; ortusme tamam ama 5 link benzerlikte esik altinda. Sonraki: dusenlerin kaynagini (altyazi mi ASR mi) json'a yaz, 0_3A/0i65/9Iti eski ciktisinin kendi referans kalitesini kontrol et.
