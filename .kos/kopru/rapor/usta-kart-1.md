@@ -25,3 +25,9 @@
 - Hakem (bağımsız Haiku, 40 kart, tam kaynak): 35/40 = %88 < %92 KAPI GEÇMEDİ. Yeniden üretilen 26 kartta 24/26 (%92; 2 red kart ikisi de geçti; 2 red: 1 kart "en sık hata" iddiası kaynakta yok, 1 "özet kullanıcıya seçtirilmez"); eski 14 kartta 11/14 (%79: 3 red, genel/tekrar ve token_ipucu çelişkisi).
 - Maliyet: $ ölçülemedi; 13 üretici ≈ 1,1M Haiku jetonu (94+2 kart → ≈11k/kart), hakem 259k.
 - Sıradaki: reddedilen 5 kartı yeniden üret; eski (parçalı kaynaksız üretilmiş) kartlardaki genel kartlar için --zayif benzeri "genel" süzgeç; sonra yeni 40'lık hakem. Push yok.
+
+# TUR 11 (29 Eki)
+- Parçalı kaynak öncesi üretilmiş 106 eski kart (tur 5-8; `hazirla --eski`) 14 Haiku high alt ajanıyla parçalı kaynakla yeniden üretildi; usta.jsonl 300 (yedek .bak, ileri/ _arsiv/tur10, tur10b).
+- Hakem (bağımsız Haiku, yeniden üretilenlerden rastgele 40, tam kaynak): 39/40 = %97,5 ≥ %92 KAPI GEÇTİ. Tek ret: bir animasyon kartında "yalnız transform/opacity" kaynaktaki "unless necessary" istisnasıyla çelişiyor.
+- Maliyet: $ ölçülemedi; 14 üretici ≈ 0,66M Haiku jetonu (≈6k/kart), hakem 120k. Tur 10'daki 5 ret ayrıca yeniden üretilmedi (94 uzun kart tur 10'da zaten yenilenmişti; 1 ret ek).
+- Sıradaki: 300 kart tamam; kartsız kalan kalemler için `hazirla` yeni kalem verir, bir sonraki tur oradan.

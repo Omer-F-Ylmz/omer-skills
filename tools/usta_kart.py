@@ -248,6 +248,8 @@ def hazirla(grup_n, n=50):
     if "--zayif" in sys.argv:  # ornek/kombin boş kalan kartları yeniden üret
         Z = {a for a, c in U.items() if not c["kombin"] or c["ornek"] in (a, "Skill " + a)}
         S = [k for k in kartlar() if k["ad"] in Z][:n]
+    elif "--eski" in sys.argv:  # parçalı kaynak öncesi (tur 5-8) üretilmiş kartlar
+        S = [k for k in kartlar() if k["ad"] in U and U[k["ad"]].get("tarih", 0) < 1793263800][:n]
     elif "--uzun" in sys.argv:  # kaynağı 6000'i aşan mevcut kartları parçalı kaynakla yeniden üret
         S = [k for k in kartlar() if k["ad"] in U and len(kaynak(k, 10**6)) > 6000][:n]
     else:
