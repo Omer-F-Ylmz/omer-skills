@@ -76,6 +76,21 @@ def sirali(K, U):
     return sorted(adaylar, key=anahtar)
 
 
+def alt_skiller(d):
+    out = []
+    for sd in sorted(d.glob("*/SKILL.md")) if d.exists() else []:
+        t = sd.read_text(encoding="utf-8", errors="replace")
+        t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
+        m = re.match(r"^---\s*(.*?)\n---\s*", t, flags=re.S)
+        fm = ""
+        if m:
+            fm = " ".join(l.strip() for l in m.group(1).splitlines() if re.match(r"\s*(name|description):", l))[:300]
+            t = t[m.end():]
+        t = re.sub(r"(?m)^#{1,3} .*(preamble|telemetry|upgrade check).*$", "", t, flags=re.I)
+        out.append(f"[{sd.parent.name}] {fm} {re.sub(r'[ \t\r\n]+', ' ', t)[:500]}")
+    return " ".join(out)
+
+
 def kaynak(k, lim=900):
     yol = k.get("yol") or ""
     if yol and os.path.exists(yol):
@@ -89,7 +104,10 @@ def kaynak(k, lim=900):
             t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
             parcalar = re.split(r"(?m)^(?=#{1,3} )", t)
             govde = "".join(x for x in parcalar if not re.match(r"#{1,3} .*(preamble|telemetry|upgrade check)", x, flags=re.I))
-            return re.sub(r"\s+", " ", fm + " " + govde)[:lim]
+            ust = re.sub(r"\s+", " ", fm + " " + govde)
+            if k["ad"].endswith("-paket"):  # paket: alt skill adlari + her SKILL.md'den kisa kesit
+                ust += " ALT SKILL'LER: " + alt_skiller(Path(yol).parent / "skills")
+            return ust[:lim]
         except OSError:
             pass
     return re.sub(r"\s+", " ", f"{k.get('ne','')} {k.get('ba','')} {k.get('etiket','')}")[:600]
@@ -248,6 +266,8 @@ def hazirla(grup_n, n=50):
     if "--zayif" in sys.argv:  # ornek/kombin boş kalan kartları yeniden üret
         Z = {a for a, c in U.items() if not c["kombin"] or c["ornek"] in (a, "Skill " + a)}
         S = [k for k in kartlar() if k["ad"] in Z][:n]
+    elif "--paket" in sys.argv:  # tur 13: tur 12 paket kartlari alt skill kaynagiyla
+        S = [k for k in kartlar() if k["ad"] in U and k["ad"].endswith("-paket") and U[k["ad"]].get("tarih", 0) >= 1793275200][:n]
     elif "--eski" in sys.argv:  # parçalı kaynak öncesi (tur 5-8) üretilmiş kartlar
         S = [k for k in kartlar() if k["ad"] in U and U[k["ad"]].get("tarih", 0) < 1793263800][:n]
     elif "--uzun" in sys.argv:  # kaynağı 6000'i aşan mevcut kartları parçalı kaynakla yeniden üret

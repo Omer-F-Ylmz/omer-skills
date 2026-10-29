@@ -31,3 +31,7 @@
 - Hakem (bağımsız Haiku, yeniden üretilenlerden rastgele 40, tam kaynak): 39/40 = %97,5 ≥ %92 KAPI GEÇTİ. Tek ret: bir animasyon kartında "yalnız transform/opacity" kaynaktaki "unless necessary" istisnasıyla çelişiyor.
 - Maliyet: $ ölçülemedi; 14 üretici ≈ 0,66M Haiku jetonu (≈6k/kart), hakem 120k. Tur 10'daki 5 ret ayrıca yeniden üretilmedi (94 uzun kart tur 10'da zaten yenilenmişti; 1 ret ek).
 - Sıradaki: 300 kart tamam; kartsız kalan kalemler için `hazirla` yeni kalem verir, bir sonraki tur oradan.
+
+# TUR 13 (29 Eki)
+- 48 tur-12 paket karti alt skill kaynagiyla (kaynak() alt_skiller, hazirla --paket) Haiku high ile yeniden uretildi; animation-performance/systems "yalniz transform/opacity" ifadesi "varsayilan/mumkunse" yapildi. usta.jsonl 400.
+- Hakem (bagimsiz Haiku, 40 kart): RED=10; kapi %87. Kaynaklar katalog tablosu oldugu icin paket kartlarinda ornek cogu TALIMAT.md yolu, komut yok. Maliyet: $ olculemedi; 8 uretici ~410k Haiku jeton (~8.5k/kart).
