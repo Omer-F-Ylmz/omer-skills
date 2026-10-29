@@ -1,0 +1,30 @@
+{"ad": "sparse-autoencoder-training", "tarif": "Dil modelinin içinde hangi kavramların öğrendiğini küçük parçalara ayırıp anlamak istiyorum.", "model": "haiku"}
+{"ad": "graph-query", "tarif": "Bu kodda bir fonksiyonu kimin çağırdığını ya da bir parçayı değiştirirsem neyin etkileneceğini göster.", "model": "haiku"}
+{"ad": "wix:wix-headless-fast", "tarif": "Wix'te hazır kodlarla hızlıca bir mağaza ya da randevu sitesi kurmak istiyorum.", "model": "haiku"}
+{"ad": "agent-skills:frontend-ui-engineering", "tarif": "Web sitemin ekranlarını profesyonel, herkesin kullanabileceği ve mobilde düzgün görünen şekilde tasarlayıp düzenleyebilir misin?", "model": "haiku"}
+{"ad": "y23-github-sensitive-data-cleanup", "tarif": "GitHub'a yanlışlıkla yüklediğim şifreyi ve gizli bilgileri depodan tamamen silmek istiyorum.", "model": "haiku"}
+{"ad": "developing-ios-apps", "tarif": "iPhone uygulamamı derleyip telefona yüklemek ya da imzalama hatasını çözmek istiyorum.", "model": "haiku"}
+{"ad": "extension-points", "tarif": "Derleme sürecine kendi ek adımlarımı nasıl ekleyeceğimi anlatır mısın?", "model": "haiku"}
+{"ad": "api-documenter", "tarif": "Yazdığım programın arayüz belgelerini geliştiricilerin kolayca okuyabileceği şekilde hazırlar mısın?", "model": "haiku"}
+{"ad": "nested-container-clean-agency", "tarif": "Sayfamın tasarımını iç içe kutulu, temiz ve ajans gibi şık bir görünüme çevirir misin?", "model": "haiku"}
+{"ad": "memory-forensics", "tarif": "Bilgisayarın bellek dökümünü inceleyip şüpheli bir saldırı izi olup olmadığını bulmak istiyorum.", "model": "haiku"}
+{"ad": "zoom-video-sdk-ios", "tarif": "iPhone uygulamama Zoom ile görüntülü görüşme özelliği eklemek istiyorum.", "model": "haiku"}
+{"ad": "claude-win11-speckit-update-skill", "tarif": "Windows 11 bilgisayarımın sistem ayarlarını yönetmemde yardım eder misin?", "model": "haiku"}
+{"ad": "bigdata-peer-comparables", "tarif": "Bir şirketin değerini ve performansını rakip şirketlerle karşılaştırıp ucuz mu pahalı mı söyler misin?", "model": "haiku"}
+{"ad": "product-tracking-skills:product-tracking-business-case", "tarif": "Uygulamama kullanıcı takibi ve analiz ekleme işinin neden değdiğini yöneticilere anlatan kısa bir rapor hazırlar mısın?", "model": "haiku"}
+{"ad": "Design Critique", "tarif": "Hazırladığım tasarımı değerlendirip neleri nasıl düzeltmem gerektiğini önem sırasına göre söyler misin?", "model": "haiku"}
+{"ad": "setup-notifications-via-wecom:1.3.0", "tarif": "WeCom grubuma otomatik bildirim ya da uyarı mesajı gönderecek ayarı kurar mısın?", "model": "haiku"}
+{"ad": "editorial-tech", "tarif": "Web sitemin tasarımını dergi sayfası gibi asimetrik, şık ve teknolojik bir görünüme çevirir misin?", "model": "haiku"}
+{"ad": "adspirer-launch", "tarif": "Reklam kampanyamı Google, Meta gibi platformlarda bütçeyi bölüştürerek başlatmama yardım eder misin?", "model": "haiku"}
+{"ad": "b12-claude-plugin:logo-generator", "tarif": "Bir işletme için logo tasarlar mısın, dosya olarak indirebileceğim şekilde?", "model": "haiku"}
+{"ad": "context-mode:ctx-insight", "tarif": "Analiz panelini tarayıcımda açar mısın?", "model": "haiku"}
+{"ad": "virtual-agent/ios", "tarif": "iPhone uygulamama Zoom sanal asistan sohbetini eklemek istiyorum.", "model": "haiku"}
+{"ad": "skill-prototype", "tarif": "Riskli bir fikri sınırlı bir bütçeyle küçük bir denemeyle test edip işe yarayıp yaramadığına karar vermek istiyorum.", "model": "haiku"}
+{"ad": "noibu:checkout-analysis", "tarif": "Online mağazamda müşteriler ödeme sayfasında nerede vazgeçiyor, bunu analiz eder misin?", "model": "haiku"}
+{"ad": "last30days", "tarif": "Son 30 günde bir konuyu Reddit ve X'te neler konuşulmuş, özetleyip araştırır mısın?", "model": "haiku"}
+{"ad": "small-business:hiring-screener", "tarif": "Elime gelen onlarca iş başvurusunu eleyip en uygun adayların kısa listesini çıkarır mısın?", "model": "haiku"}
+{"ad": "azure-reliability", "tarif": "Azure'daki uygulamamın kesintisiz çalışması için eksiklerini kontrol edip güvenilirliğini artırır mısın?", "model": "haiku"}
+{"ad": "no-frontmatter", "tarif": "Bu beceri ne işe yarıyor, neler yapabiliyor, kısaca anlatır mısın?", "model": "haiku"}
+{"ad": "ads-monitor", "tarif": "Reklam hesabımın bütçesini, harcamasını ve performansını günlük olarak kontrol edip sorunları bildirir misin?", "model": "haiku"}
+{"ad": "evaluation", "tarif": "Yapay zeka asistanımın ne kadar iyi çalıştığını ölçmek için bir değerlendirme sistemi kurar mısın?", "model": "haiku"}
+{"ad": "testing-for-open-redirect-vulnerabilities", "tarif": "Web sitemizdeki giriş yönlendirmelerinde güvenlik açığı olup olmadığını test eder misin?", "model": "haiku"}

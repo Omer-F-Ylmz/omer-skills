@@ -1,0 +1,302 @@
+[
+ {
+  "ad": "sparse-autoencoder-training",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-arastirma-ogrenme",
+   "departman-frontend",
+   "opus-akis"
+  ]
+ },
+ {
+  "ad": "graph-query",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "tasarim-etkilesim-ui-paket",
+   "beyin",
+   "ai-etkilesim-tasarim-paket"
+  ]
+ },
+ {
+  "ad": "wix:wix-headless-fast",
+  "ok": true,
+  "sira": 8,
+  "ilk3": [
+   "departman-surec-ajan-arac",
+   "departman-verimlilik",
+   "cli-anything"
+  ]
+ },
+ {
+  "ad": "agent-skills:frontend-ui-engineering",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-belge",
+   "departman-diger",
+   "expo:expo-web-to-native"
+  ]
+ },
+ {
+  "ad": "y23-github-sensitive-data-cleanup",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-surec-ajan-arac",
+   "departman-verimlilik",
+   "datarobot-agent-skills:datarobot-app-framework-cicd"
+  ]
+ },
+ {
+  "ad": "developing-ios-apps",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-backend-dotnet",
+   "departman-surec-ajan-arac",
+   "ios-qa"
+  ]
+ },
+ {
+  "ad": "extension-points",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-backend-dotnet",
+   "departman-surec-git-yayin",
+   "surec"
+  ]
+ },
+ {
+  "ad": "api-documenter",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-belge",
+   "departman-frontend",
+   "arayuz-iyilestirme-paket"
+  ]
+ },
+ {
+  "ad": "nested-container-clean-agency",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-arastirma-ogrenme",
+   "departman-frontend",
+   "unlimited-ocr"
+  ]
+ },
+ {
+  "ad": "memory-forensics",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-arastirma-ogrenme",
+   "departman-belge",
+   "qmd-paket"
+  ]
+ },
+ {
+  "ad": "zoom-video-sdk-ios",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-surec-ajan-arac",
+   "departman-test-qa",
+   "tasarim-arastirma-strateji-paket"
+  ]
+ },
+ {
+  "ad": "claude-win11-speckit-update-skill",
+  "ok": true,
+  "sira": 7,
+  "ilk3": [
+   "departman-frontend",
+   "tasarim-sistem-prototip-paket",
+   "windows-privilege-escalation"
+  ]
+ },
+ {
+  "ad": "bigdata-peer-comparables",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "performance-profiling",
+   "aws-secrets-rotation",
+   "application-performance-performance-optimization"
+  ]
+ },
+ {
+  "ad": "product-tracking-skills:product-tracking-business-case",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-belge",
+   "departman-test-qa",
+   "is-akisi"
+  ]
+ },
+ {
+  "ad": "Design Critique",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-belge",
+   "departman-frontend",
+   "designer-ai-paket"
+  ]
+ },
+ {
+  "ad": "setup-notifications-via-wecom:1.3.0",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-diger",
+   "y23-setup-notifications-via-wecom",
+   "y23-notify-wecom"
+  ]
+ },
+ {
+  "ad": "editorial-tech",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-frontend",
+   "departman-verimlilik",
+   "unlimited-ocr"
+  ]
+ },
+ {
+  "ad": "adspirer-launch",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-diger",
+   "departman-frontend",
+   "paid-ads"
+  ]
+ },
+ {
+  "ad": "b12-claude-plugin:logo-generator",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-diger",
+   "departman-frontend",
+   "illustrasyon-logo-paket"
+  ]
+ },
+ {
+  "ad": "context-mode:ctx-insight",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-arastirma-ogrenme",
+   "departman-guvenlik",
+   "video-tarayici"
+  ]
+ },
+ {
+  "ad": "virtual-agent/ios",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-surec-ajan-arac",
+   "departman-test-qa",
+   "y23-zoom-plugin-d1"
+  ]
+ },
+ {
+  "ad": "skill-prototype",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-test-qa",
+   "departman-guvenlik",
+   "video-uygula"
+  ]
+ },
+ {
+  "ad": "noibu:checkout-analysis",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "marketing-skills:customer-research",
+   "okuyucu",
+   "notfair:ecommerce-seo"
+  ]
+ },
+ {
+  "ad": "last30days",
+  "ok": true,
+  "sira": 4,
+  "ilk3": [
+   "departman-arastirma-ogrenme",
+   "reddit-automation",
+   "reddit-marketing"
+  ]
+ },
+ {
+  "ad": "small-business:hiring-screener",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-surec-ajan-arac",
+   "departman-test-qa",
+   "yetenek-getir"
+  ]
+ },
+ {
+  "ad": "azure-reliability",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-test-qa",
+   "departman-guvenlik",
+   "azure-altyapi-paket"
+  ]
+ },
+ {
+  "ad": "no-frontmatter",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "animasyon-scroll-paket",
+   "departman-surec-ajan-arac",
+   "ecc:skill-stocktake"
+  ]
+ },
+ {
+  "ad": "ads-monitor",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-arastirma-ogrenme",
+   "departman-backend-dotnet",
+   "reklam-ads-paket"
+  ]
+ },
+ {
+  "ad": "evaluation",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-test-qa",
+   "9router-paket",
+   "infinite-canvas-paket"
+  ]
+ },
+ {
+  "ad": "testing-for-open-redirect-vulnerabilities",
+  "ok": false,
+  "sira": null,
+  "ilk3": [
+   "departman-guvenlik",
+   "departman-test-qa",
+   "mukul975-web-application-security-paket"
+  ]
+ }
+]

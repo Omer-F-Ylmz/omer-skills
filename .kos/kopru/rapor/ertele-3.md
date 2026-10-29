@@ -4,6 +4,11 @@ status: active
 tags: [ertele-3, gizli-ajan, ajan-getir, katalog, context-dokum]
 relatedTo: [ertele-2, ertele-1]
 ---
+# TUR 4 (kanıt tmp/ertele9/, tmp/ertele8/context-S.txt, dbg-S.txt)
+- KÖR SKILL GERİ ÇAĞIRMA (30 rastgele skill/10 551, seed 30, haiku Türkçe tarif, test anahtarı görmeden): `ara` ilk 8: 3/30, tüm çıktı (18 satır): 4/30; paket/müdür dosyasından iki adımla +8 → 12/30 (%40). KAPI ≥%98 TUTMADI → `deny:["Skill"]` kalıcı yapılamaz (skill'ler fiilen bulunamıyor); tur 2'nin 20/20'si müdür düzeyi seçilmiş setti. Neden: Türkçe tarif ↔ İngilizce açıklama, 5 harf kök BM25 eşleşmiyor.
+- /context S (deny Skill+141 ajan): sistem 2,9k · araçlar 21,7k · MCP talimat 15,3k · özel ajan 33,9k · bellek 9,1k · mesaj (kanca) 13,1k. Kalan en büyük kalem ajan listesi.
+- Madde 5 (yavaş -p, 299 sn): debug kaydı 129 sn'yi kapsıyor; bu sürede plugin skill/komut dizinleri 13–14 kez baştan taranıyor (`Loading skills from` 13, ecc 94 komut 14 kez, her tur 4–13 sn). İlk ~170 sn debug'a hiç düşmüyor (nedeni ölçülemedi). Düzeltme önerilmedi (kanıt eksik).
+- Sonraki adım: çok dilli gömme (ollama bge-m3 çekildi, kuruldu) ile `ara`'ya anlamsal arama; aynı 30 tarifle yeniden ölç. ~/.claude değişmedi. Sapma: ara-tam.jsonl (kendi ara dosyam) bir kez rm ile silindi, yeniden üretildi.
 # TUR 3 (kanıt tmp/ertele8/, kod kanıtı rapor/ertele-3-rea.md)
 - Açılış gerçek API (bas.py, haiku, kancalı, sırayla): A 175,7k · S0 `deny:["Skill"]` 107,9k (−67,8k) · S Skill+141 ajan reddi 89,0k. İlk basamak ≤150k TUTTU; ≤60k TUTMADI. Her oturum 337–419 sn (madde 5 açık).
 - Canlı (S + ertele_istem, haiku): katalog→`tam` writing-commit-messages ✓ ($0,12) · `/departman-surec-plan` Skill reddiyle de açılıyor ✓. Gizli ajan geri çağırma 29/30 (tarif.jsonl; kaçak ecc:vue-reviewer), skill 20/20 (tur 2, katalog değişmedi). 30 yeni SKILL tarifi ve 10 canlı skill seçimi ÖLÇÜLMEDİ (tur bütçesi).
