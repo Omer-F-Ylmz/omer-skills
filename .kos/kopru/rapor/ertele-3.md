@@ -4,6 +4,10 @@ status: active
 tags: [ertele-3, gizli-ajan, ajan-getir, katalog, context-dokum]
 relatedTo: [ertele-2, ertele-1]
 ---
+# TUR 3 (kanıt tmp/ertele8/, kod kanıtı rapor/ertele-3-rea.md)
+- Açılış gerçek API (bas.py, haiku, kancalı, sırayla): A 175,7k · S0 `deny:["Skill"]` 107,9k (−67,8k) · S Skill+141 ajan reddi 89,0k. İlk basamak ≤150k TUTTU; ≤60k TUTMADI. Her oturum 337–419 sn (madde 5 açık).
+- Canlı (S + ertele_istem, haiku): katalog→`tam` writing-commit-messages ✓ ($0,12) · `/departman-surec-plan` Skill reddiyle de açılıyor ✓. Gizli ajan geri çağırma 29/30 (tarif.jsonl; kaçak ecc:vue-reviewer), skill 20/20 (tur 2, katalog değişmedi). 30 yeni SKILL tarifi ve 10 canlı skill seçimi ÖLÇÜLMEDİ (tur bütçesi).
+- Karar Ömer'e: `deny:["Skill"]` Skill aracını kapatır (skill'e erişim katalog `tam` + /komut ile kalır) — kural 21–24 açısından onay gerekir; ~/.claude'a uygulanmadı. Açık: madde 3 kopya, 5 (120 sn), MCP talimatı ertelemesi kodda yok (rea md madde 5).
 # ERTELE-3 TUR 1 (kanıt tmp/ertele7/)
 - Döküm (/context, context-A.txt; gerçek API ~192k, fark kanca ekleri): Skills 52,4k (5752 satır: User 2375 ≈23,8k · sync ≈6k · ecc 3,8k · kalan plugin adları) · Custom agents 32,1k (ecc 6,2k, octo 4,3k, claude-ads 2,2k) · MCP talimat 16,2k · bellek 9,1k (global CLAUDE.md 5,2k) · sistem 2,2k.
 - Kopya (kopya.py, sha256): 376 grupta 407 fazla dosya; listede aynı kısa ad çok kaynaktan 447 satır (≈4–5k) — en çok sync+user 30, core-skills+hyperframes 34, n8n plugin+user 13.
