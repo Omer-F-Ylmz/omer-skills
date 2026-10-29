@@ -59,6 +59,9 @@ def uret(ev=EV):
 
 def main():
     satirlar, eksik = uret()
+    nz = CIKTI.parent / "ne_zaman.tsv"  # ERTELE-3: Türkçe "ne zaman" anahtarları (İngilizce tek satır Türkçe tariften bulunmuyordu)
+    nz = dict(l.rstrip("\n").split("\t", 1) for l in nz.read_text(encoding="utf-8").splitlines() if "\t" in l) if nz.exists() else {}
+    satirlar = [(a, m, f"{t} · ne zaman: {nz[a]}" if a in nz else t, y) for a, m, t, y in satirlar]
     CIKTI.write_text("ad\tmodel\ttek_satir\tyol\n" + "".join("\t".join(s) + "\n" for s in satirlar), encoding="utf-8", newline="\n")
     print(f"{len(satirlar)} ajan → {CIKTI} · dosyası bulunmayan gizli ad {len(eksik)}: {', '.join(eksik[:5])}")
     return 0

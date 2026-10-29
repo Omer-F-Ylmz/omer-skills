@@ -49,7 +49,12 @@ def kur():
                 _ekle(d, "ajan", f"{eklenti}:{ic}", f)
             for f in sorted(p.glob("commands/**/*.md")):
                 _ekle(d, "komut", f"{eklenti}:{f.stem}", f)
-    for ad, v in d.items():  # müdür → adını verdiği özel skill'ler (yalnız dizinde; skill dosyasına dokunulmaz)
+    nz = KOK / "skills" / "ajan-getir" / "ne_zaman.tsv"  # ERTELE-3: gizli ajanların Türkçe "ne zaman" anahtarları
+    for l in (nz.read_text(encoding="utf-8").splitlines() if nz.exists() else []):
+        ad, _, kw = l.partition("\t")
+        if ad in d:
+            d[ad]["acik"] = f"{d[ad]['acik']} · ne zaman: {kw}"
+    for ad, v in d.items():  # müdür →adını verdiği özel skill'ler (yalnız dizinde; skill dosyasına dokunulmaz)
         if ad.startswith("departman-") and ":" not in ad:
             metin = Path(v["yol"]).read_text(encoding="utf-8", errors="ignore")
             v["ozel"] = list(dict.fromkeys(a for a in re.findall(r"[\w:-]{3,}", metin)

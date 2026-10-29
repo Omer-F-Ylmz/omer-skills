@@ -1,0 +1,60 @@
+{
+ "deny": 141,
+ "katalog_satir": 1063,
+ "katalogda_yok": [],
+ "yol_bozuk": [],
+ "grup": [
+  [
+   "ecc",
+   58
+  ],
+  [
+   "octo",
+   35
+  ],
+  [
+   "claude-ads",
+   25
+  ],
+  [
+   "impeccable",
+   4
+  ],
+  [
+   "pr-review-toolkit",
+   4
+  ],
+  [
+   "design-mastery",
+   3
+  ],
+  [
+   "fable-advisor",
+   3
+  ],
+  [
+   "plugin-dev",
+   3
+  ],
+  [
+   "agent-sdk-dev",
+   2
+  ],
+  [
+   "codex",
+   1
+  ],
+  [
+   "dotnet-msbuild",
+   1
+  ],
+  [
+   "feature-dev",
+   1
+  ],
+  [
+   "hookify",
+   1
+  ]
+ ]
+}
