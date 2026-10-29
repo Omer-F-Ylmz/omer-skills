@@ -2,7 +2,7 @@
 yt-dlp -> ffmpeg (0,5 sn kare) -> faster-whisper (kelime zamanli) -> RapidOCR -> Gemini kare aciklamasi -> JSON.
 Kullanim: python tools/video_derin.py <url|kod> [...]   |  --liste <dosya> [--en N]
 Cikti: docs/video-tarama/derin/<kod>.json ; ilerleme: .kos/kopru/derin-ilerleme.txt (kaldigi yerden)."""
-import base64, json, os, re, shutil, site, subprocess, sys, tempfile, threading, time, urllib.request
+import base64, contextlib, json, os, re, shutil, site, subprocess, sys, tempfile, threading, time, urllib.request
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -142,11 +142,14 @@ def tekil(ks):
     return kalan or ks[:1]
 
 
+SAHNE_ESIK = os.environ.get("VD_SAHNE", "0.3")  # VIDEO-HIZ-5: ffmpeg sahne değişimi eşiği (yükselince OCR karesi azalır)
+
+
 def kareler(v, d, tavan=240):
     k = d / "k"
     k.mkdir(exist_ok=True)
     # sahne değişimi: fps=2'ye göre OCR kare sayısı ~10× düşer; hiç sahne değişimi yoksa (tek kare) sabit 1 kare/sn
-    kos("ffmpeg", "-y", "-i", v, "-vf", "select=eq(n\\,0)+gt(scene\\,0.3),scale=640:-1", "-fps_mode", "vfr", "-q:v", "4", k / "%04d.jpg")
+    kos("ffmpeg", "-y", "-i", v, "-vf", f"select=eq(n\\,0)+gt(scene\\,{SAHNE_ESIK}),scale=640:-1", "-fps_mode", "vfr", "-q:v", "4", k / "%04d.jpg")
     if len(list(k.glob("*.jpg"))) < 2:
         shutil.rmtree(k)
         k.mkdir()
@@ -164,6 +167,8 @@ ASR_BATCH = int(os.environ.get("VD_ASR_BATCH", "2"))  # DERIN-HIZ-3: batched fp1
 TOPLU_MIN = int(os.environ.get("VD_TOPLU_MIN", "120"))  # sn
 ASR_VAD = {"min_silence_duration_ms": 500, "speech_pad_ms": 400}
 ASR_BEAM = int(os.environ.get("VD_ASR_BEAM", "5"))  # DERIN-HIZ-2: turbo+beam1 kapıyı geçmedi (0,886); yerel yedek large-v3 beam5
+ASR_AYGIT = os.environ.get("VD_ASR_AYGIT", "otomatik")  # VIDEO-HIZ-5: otomatik (GPU, düşerse CPU small) | cpu (large-v3 int8, GPU boş kalır) | cuda
+ASR_CPU_IPLIK = int(os.environ.get("VD_ASR_IPLIK", "12"))
 ASR_KILIT = threading.Lock()  # tek GPU: döküm sırayla; kare/OCR işçileri bu sırada paralel sürer
 KILIT = threading.Lock()  # ilerleme dosyası ve konsol satırları
 
@@ -172,7 +177,9 @@ GROQ_ASR = "https://api.groq.com/openai/v1/audio/transcriptions"
 GROQ_DIL = {"turkish": "tr", "english": "en", "german": "de", "spanish": "es", "french": "fr", "russian": "ru", "arabic": "ar",
             "italian": "it", "portuguese": "pt", "hindi": "hi", "japanese": "ja", "korean": "ko", "chinese": "zh"}
 GROQ_KILIT = threading.Lock()
-groq_durum = {"sonraki": 0.0, "kapali": 0.0}  # ücretsiz kota: 20 istek/dk; 429'da 600 sn kapanır, GPU'ya döner
+groq_durum = {}  # model → {sonraki, kapali, kayit}; ücretsiz kota: 20 istek/dk; 429'da model 600 sn kapanır, sıradaki modele/GPU'ya düşer
+GROQ_MODELLER = [m for m in os.environ.get("VD_GROQ_MODELLER", "whisper-large-v3").split(",") if m]
+GROQ_SAAT_SN = float(os.environ.get("VD_GROQ_SAAT", "6500"))  # model başına saatlik ses saniyesi (kota 7200)
 
 
 def groq_asr(wav):
@@ -180,16 +187,22 @@ def groq_asr(wav):
     key = os.environ.get("GROQ_API_KEY")
     if not key or wav.stat().st_size > 15_000_000:
         return None
-    with GROQ_KILIT:
-        if time.time() < groq_durum["kapali"]:
+    sure = wav.stat().st_size / 32000  # 16 kHz mono 16 bit
+    with GROQ_KILIT:  # VIDEO-HIZ-5: model başına saatlik ses saniyesi bütçesi (ücretsiz kota 7200 sn/sa/model); dolunca sıradaki model, hiçbiri yoksa yerel GPU
+        simdi = time.time()
+        model = next((m for m in GROQ_MODELLER if simdi >= groq_durum.setdefault(m, {"sonraki": 0.0, "kapali": 0.0, "kayit": []})["kapali"]
+                      and sum(s for t, s in groq_durum[m]["kayit"] if simdi - t < 3600) + sure <= GROQ_SAAT_SN), None)
+        if not model:
             return None
-        bekle = groq_durum["sonraki"] - time.time()
-        groq_durum["sonraki"] = max(time.time(), groq_durum["sonraki"]) + 3.2
+        gd = groq_durum[model]
+        gd["kayit"] = [(t, s) for t, s in gd["kayit"] if simdi - t < 3600] + [(simdi, sure)]
+        bekle = gd["sonraki"] - simdi
+        gd["sonraki"] = max(simdi, gd["sonraki"]) + 3.2
     if bekle > 0:
         time.sleep(bekle)
     sinir = "vd" + str(time.time_ns())
     alan = lambda ad, de: f'--{sinir}\r\nContent-Disposition: form-data; name="{ad}"\r\n\r\n{de}\r\n'.encode()
-    govde = (alan("model", "whisper-large-v3") + alan("response_format", "verbose_json") + alan("temperature", "0")
+    govde = (alan("model", model) + alan("response_format", "verbose_json") + alan("temperature", "0")
              + f'--{sinir}\r\nContent-Disposition: form-data; name="file"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n'.encode()
              + wav.read_bytes() + f"\r\n--{sinir}--\r\n".encode())
     try:  # Python-urllib UA'sı Cloudflare'da 1010/403 alır: açık UA şart
@@ -199,7 +212,7 @@ def groq_asr(wav):
         return GROQ_DIL.get(str(r.get("language", "")).lower(), str(r.get("language", ""))), out
     except Exception as e:
         if "429" in str(e):
-            groq_durum["kapali"] = time.time() + 600
+            groq_durum[model]["kapali"] = time.time() + 600
         print(f"device=groq basarisiz: {str(e)[:100]}", flush=True)
         return None
 
@@ -233,6 +246,8 @@ def asr(v, d):
         print("device=groq model=whisper-large-v3", flush=True)
         return *g, "groq"
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
+        if ASR_AYGIT != "otomatik" and aygit != ASR_AYGIT:  # VIDEO-HIZ-5: "cpu" → GPU'ya hiç dokunmaz (large-v3 int8)
+            continue
         try:
             if aygit == "cuda":  # VRAM-BEKCI: VRAM ≥%80 iken GPU işi bekler; öncelik BELOW_NORMAL
                 vram_bekci.vram_bekle()
@@ -244,7 +259,7 @@ def asr(v, d):
                         while gpu_olc()[1] > 55 and time.time() < son:  # model + toplu bellek ~%15 ekler
                             time.sleep(5)
                     tip_ = os.environ.get("VD_ASR_TIP") or tip
-                    m = WhisperModel(os.environ.get("VD_ASR_MODEL") or ("large-v3" if aygit == "cuda" else model), device=aygit, compute_type=tip_ if aygit == "cuda" else tip)
+                    m = WhisperModel(os.environ.get("VD_ASR_MODEL") or ("large-v3" if aygit == "cuda" or ASR_AYGIT == "cpu" else model), device=aygit, compute_type=tip_ if aygit == "cuda" else tip, **({"cpu_threads": ASR_CPU_IPLIK} if aygit == "cpu" else {}))
                     _whisper[aygit + "_seq"] = m
                     _whisper[aygit] = BatchedInferencePipeline(m) if aygit == "cuda" and ASR_BATCH > 1 else m  # VRAM tavanı batch_size ile
                 toplu = aygit == "cuda" and ASR_BATCH > 1 and (d / "a.wav").stat().st_size > TOPLU_MIN * 32000  # VIDEO-HIZ-4: kısa sesde batched 0,85–0,97 (sıralı 1,00 = referansla aynı yol); batched yalnız uzunda
@@ -256,7 +271,7 @@ def asr(v, d):
                     o, it = [], iter(sg)
                     while True:
                         t0 = time.time()
-                        with GPU_KILIT:
+                        with GPU_KILIT if aygit == "cuda" else contextlib.nullcontext():  # CPU ASR GPU sırasını tutmaz (OCR beklemez)
                             s = next(it, None)
                             if s is not None and aygit == "cuda":
                                 gpu_nefes(time.time() - t0)
