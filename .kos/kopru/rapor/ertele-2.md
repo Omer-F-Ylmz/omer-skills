@@ -35,3 +35,11 @@ relatedTo: [ertele-1]
 - Ajan: özel/plugin ajan için ad-yalnız modu yok (`whenToUseLean` yalnız yerleşik); plugin ajan açıklaması 237k kr, kaynak düzenleme cache güncellemesinde ezilir.
 - KAPI TUTMADI; ~/.claude'a hiçbir şey uygulanmadı. Kaldırmasız ve çağrılabilir kalan aday A'yı geçmiyor. Desktop önerisi: aynı sonuç (skill listesi Desktop'ta da attachment, ayar yok).
 - Kalan tek gerçek yol (Ömer kararı gerekir): plugin başına skill/ajan sayısını kaynakta azaltmak ya da kullanılmayan plugin'leri disable — ikisi de mevcut kuralla çelişiyor.
+
+# TUR 5 (kanıt tmp/ertele6/: secim.jsonl, manifest.json, yedek/)
+- A-önce (kancalı, haiku, tek tur, 30 soruluk seçim istemi): girdi 193,4k · ajan 2/10 · skill 17/20 ($0,17).
+- `tools/ajan_aciklama_tasi.py` uygulandı: 470 plugin ajan dosyası; description ≤160 kr özete, tam metin gövdede `## Ne zaman`; yedek + sha256 manifest; `--geri`, `--kanca`.
+- Bulgu: ~/.claude/settings.json'da ÖNCEDEN 141 `Agent(...)` reddi var (bu tur eklemedi); ilk 10 test ajanının 8'i reddli → A 2/10 · B 3/10 geçersiz. Reddsiz 153 dönüşen ajandan yeni 10 ile yeniden.
+- A2 (geri alınmış): 192,2k · ajan 7/10 · skill 18/20. B2 (taşıma): 182,7k (−9,6k) · ajan 6/10 · skill 19/20. Canlı: /departman-surec-plan ✓, Skill aracı ✓, Agent aracı reddli ajanda deny ile düştü (dönüşümden değil).
+- KAPI TUTMADI: ajan isabeti A'dan 1 düştü (10/10 hedefi A'da da yok) → `--geri` uygulandı (470/470), plugin desc tekrar 237,5k kr; SessionStart kancası kaydedilmedi, settings.json değişmedi. Skill açıklama taşıma (madde 3) tavan nedeniyle koşulmadı.
+- Ölçüm harcaması ≈ $1,35 (7 haiku çağrısı). Tek koşu gürültüsü ölçülmedi; kazanç zaten küçük (−9,6k, ≤60k hedefinden uzak) çünkü 141 reddli ajan listede değil ve cache'teki 765 dosyanın çoğu etkin olmayan sürüm.
