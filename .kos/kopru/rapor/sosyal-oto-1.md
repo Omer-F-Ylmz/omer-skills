@@ -20,3 +20,6 @@ relatedTo: [SOSYAL-OTO-1]
 2. `python -I hat.py b --n 2`, `python -I hat.py a https://jan.ai`.
 3. Her grup 2 video, hakem ≥70 değilse en iyi + neden raporla; kare ızgarası hakem-izgara.jpg.
 4. TikTok 61 sn+ varyantı (kelime sınırı 150–175) ayrı bayrak.
+
+## Ek (A koşusu sonucu)
+- upscayl: nemotron yedeği metni yazdı, Kokoro sesi üretildi (ses-kokoro.wav 1.9M); whisper GPU cublas64_12.dll yok diye düştü → kelime.py CPU yedeği eklendi, yeniden koşulmadı.
