@@ -23,7 +23,8 @@ SURE = int(os.environ.get("USTA_SURE", "540"))  # dongu üst süre (sn)
 ISTEM = """Sen araç dokümanı damıtıcısın. Aşağıdaki {n} kalemin HER biri için YALNIZ verilen kaynak metne dayanarak Türkçe ustalık kartı yaz.
 Uydurma yok: kaynakta olmayan şeyi yazma; bilgi yetmiyorsa kısa ve genel kal.
 Çıktı: YALNIZ geçerli JSON dizisi, kalem sırasıyla, her eleman:
-{{"ad":"<aynen>","kullanim":["en iyi kullanım 1","2","3"],"tuzak":"en sık hata/tuzak (1 cümle)","token_ipucu":"jeton tasarrufu ipucu (1 cümle)","kombin":["birlikte kullanılan araç adları, en çok 3"],"ornek":"tek satırlık örnek çağrı"}}
+{{"ad":"<aynen>","kullanim":["en iyi kullanım 1","2","3"],"tuzak":"en sık hata/tuzak (1 cümle)","token_ipucu":"jeton tasarrufu ipucu (1 cümle)","kombin":["birlikte kullanılan araç adları, en çok 3"],"ornek":"kaynakta AYNEN geçen bir komut/çağrı; yoksa boş string"}}
+Kural: kaynakta olmayan komut, bayrak, CLI, API adı ya da parametre YAZMA (uydurma örnek en sık hatadır); kombin yalnız kaynakta adı geçen araçlar, yoksa boş liste; kaynak başka bir şeyden söz ediyorsa kısa ve genel kal.
 Her metin ≤140 karakter.
 
 {kalemler}"""
@@ -96,7 +97,7 @@ def dogrula_fabrika(adlar):
         if not isinstance(a, list) or len(a) != len(adlar):
             return "sayi"
         for e, ad in zip(a, adlar):
-            if not isinstance(e, dict) or any(not e.get(x) for x in ALANLAR) or len(e["kullanim"]) < 3:
+            if not isinstance(e, dict) or any(not e.get(x) for x in ALANLAR if x not in ("ornek", "kombin")) or len(e["kullanim"]) < 3:
                 return "alan"
         return None
     return d
@@ -113,6 +114,10 @@ def grup_uret(grup):
     a = json.loads(m[m.index("["):m.rindex("]") + 1])
     out = []
     for e, k in zip(a, grup):
+        src = kaynak(k)
+        o = str(e.get("ornek") or "").strip()
+        e["ornek"] = o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"])  # uydurma komut kalıbı: örnek kaynakta yoksa çağrı adı
+        e["kombin"] = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
         out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [str(x)[:200] for x in e["kullanim"][:3]], "tuzak": str(e["tuzak"])[:220],
                     "token_ipucu": str(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in (e["kombin"] if isinstance(e["kombin"], list) else [e["kombin"]])[:3]],
                     "ornek": str(e["ornek"])[:220], "model": kol, "tarih": int(time.time())})
