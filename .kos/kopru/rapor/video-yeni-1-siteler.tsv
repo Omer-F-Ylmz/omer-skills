@@ -1,0 +1,241 @@
+durum	kod	ad	tür	url/komut	ne işe yarar
+KURULACAK	De_J0aOl9SJ	Skiper UI	SİTE	skiper-ui.com	Sık görülmeyen animasyonlu React/shadcn bileşenleri; npx shadcn add @skiper-ui/... ile kurulur
+KURULU	De_J0aOl9SJ	Kokonut UI	SİTE	kokonutui.com	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
+KURULU	De_J0aOl9SJ	Cult UI	SİTE	cult-ui.com	Farklı tatlı shadcn blokları ve bileşenleri
+KURULACAK	De_J0aOl9SJ	SmoothUI	SİTE	smoothui.dev	Akıcı mikro etkileşim bileşenleri
+KURULACAK	De_J0aOl9SJ	Animata	SİTE	animata.design	150+ hazır animasyon
+KURULACAK	De_J0aOl9SJ	Eldora UI	SİTE	eldoraui.site	Landing page efektleri
+KURULACAK	De_J0aOl9SJ	Hover.dev	SİTE	hover.dev	Cesur buton ve bölüm bileşenleri
+KURULACAK	De_J0aOl9SJ	Shadcnblocks.com	SİTE	shadcnblocks.com	OCR'da geçen shadcn blok sitesi (Skiper'in kullanıcıları arasında)
+KURULACAK	DfACIz1y7eG	Orginkit.dev (?)	SİTE	orginkit.dev (?)	700+ animasyonlu bileşen (metin, arka plan, etkileşim); hero bölümü saniyeler içinde
+KURULACAK	DdQkBgtxYe2	Manus.im	SİTE	manus.im	Tek promptla web sitesi yapıp yayınlayan AI ajan
+KURULU	DdQkBgtxYe2	BKLit	SİTE	BKLit.com	Bar grafik, ısı haritası gibi veri görselleştirme bileşenleri
+KURULACAK	De1p5PkkRxk	skool.com/knox	SİTE	skool.com/knox	Yayıncının topluluk sayfası
+KURULACAK	De4kdJeBD8E	Creem	SİTE		Stripe alternatifi Merchant of Record; Türkiye destekli, %3,9+0,40$, Claude Code MCP ile kurulum
+KURULACAK	De8IBjoxxVH	Detailing sitesi (tasarım örneği)	SİTE		Araç değil, premium scroll animasyonlu detailing site tasarımı örneği
+KURULACAK	De8i5P9Ddtl	threeui.com	SİTE	threeui.com	Three.js bileşen, şablon ve shader kütüphanesi (799 bileşen)
+KURULACAK	De8i5P9Ddtl	glass3d.dev	SİTE	glass3d.dev	OCR linklerinde geçen 3D site
+KURULACAK	De8i5P9Ddtl	createwithswift.com	SİTE	createwithswift.com	Swift/SwiftUI öğreticileri
+KURULACAK	De8i5P9Ddtl	junaidjamel.com	SİTE	junaidjamel.com	Yayıncının kendi sitesi
+KURULACAK	DeWnsIiuiai	Prompt Motion	SİTE		Claude ile yapılan hareket videolarının promptlarını veren ücretsiz galeri
+KURULACAK	De_8WxEmaa5	SiteInspire	SİTE	siteinspire.com	Stil ve türe göre filtrelenen seçilmiş web galerisi
+KURULACAK	De_8WxEmaa5	Httpster	SİTE	httpster.net	Elle seçilmiş siteler, açık/koyu mod
+KURULACAK	De_8WxEmaa5	Minimal Gallery	SİTE	minimal.gallery	Sektöre göre filtrelenen minimal siteler
+KURULACAK	De_8WxEmaa5	GetLayers	SİTE	getlayers.ai/templates	Sürükleyici site şablonları
+KURULACAK	DevhIPGmRzm	Magic UI	SİTE		Animasyonlu hazır bileşenler
+KURULU	DevhIPGmRzm	21st.dev	SİTE	21st.dev	Hazır UI bileşenleri koleksiyonu
+KURULACAK	DevhIPGmRzm	Aceternity UI	SİTE		Dikkat çekici animasyonlu arayüz bileşenleri
+KURULACAK	Dez5CGMkq5K	MotionSites.ai	SİTE	MotionSites.ai	600+ premium animasyonlu site promptu; Cursor/AI builder'a yapıştırılır
+KURULU	DezEkQ2NNSu	Libraries.dev	SİTE	Libraries.dev	Ajanlar için özenli UI kütüphaneleri koleksiyonu
+KURULACAK	DezEkQ2NNSu	Bencho (?)	SİTE		Etkileşimli UI bileşenleri ve ses/animasyon kütüphanesi (?)
+KURULACAK	DezX4yhCQzy	gittrend.io	SİTE	gittrend.io	Trend açık kaynak projeler sitesi
+KURULACAK	DfACBy9Bt6z	skiper-ui.com	SİTE	skiper-ui.com	Premium animasyonlu yaratıcı bileşenler
+KURULACAK	DfAj-cJubzn	React Bits	SİTE	reactbits.dev	Canlı ayarlanıp dışa aktarılan animasyonlu arka plan, doku, bileşen
+KURULACAK	DfAj-cJubzn	Animos	SİTE		3D ürün vitrini
+KURULACAK	DfAj-cJubzn	Arc UI	SİTE		Animasyonlu bileşenler
+KURULACAK	DfAj-cJubzn	Planes UI	SİTE		Animasyonlu bileşenler
+KURULU	De-Th5KAOY8	Google Maps	SİTE		Lead scraper'ın kaynaklarından biri
+KURULACAK	DfCb5-sGtrk	Kigen color generator	SİTE	https://kigen.design/color	Renk skalası üretici (SVG/Figma dışa aktarım)
+KURULACAK	DfCb5-sGtrk	Rune Icons	SİTE	https://www.runeicons.com/	900+ ikon, 5 stil, SVG/JSX olarak kopyalanır
+KURULACAK	DfCb5-sGtrk	HyperUI	SİTE	https://www.hyperui.dev/	Ücretsiz açık kaynak Tailwind CSS bileşen koleksiyonu
+KURULACAK	DfCb5-sGtrk	Freefaces gallery	SİTE	https://www.freefaces.gallery/	Ücretsiz yazı tipleri galerisi
+KURULACAK	DdRUhaJzwk2	Shaders (580+ arka plan)	SİTE		580+ arka plan, 150+ logo shader, 30+ görsel efekt (adı videoda 'Shaders'; OCR'da TypeGPU geçiyor) (?)
+KURULU	DdRUhaJzwk2	Spline	SİTE	spline.design	3D model/etkileşimli sahne; topluluktan export edip siteye gömme
+KURULACAK	De1qf_Fk-Xn	Skillry	SİTE		418 videonun canlı yeniden yapımını yan yana gösteren site
+KURULACAK	De4qvI2zaCe	Bytez	SİTE		100.000+ açık kaynak model için tek API (metin, görsel, video, ses)
+KURULU	De4qvI2zaCe	NVIDIA NIM	SİTE		DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
+KURULU	De4qvI2zaCe	OpenRouter	SİTE		Qwen, Kimi, Llama, MiniMax gibi ücretsiz modeller; dakikada 20 istek
+KURULACAK	De8NxnagICD	Skipper UI	SİTE	skipper-ui.com	Sıra dışı animasyonlu bileşenler
+KURULACAK	De8NxnagICD	Amicro	SİTE	amicro.vercel.app	Kopyala-yapıştır mikro etkileşim ve geçişler (React)
+KURULACAK	DeHx3kBzY30	OriginKit	SİTE	originkit.dev	540-600+ animasyonlu bileşen (arka plan, metin animasyonu, butonlar, bölümler); kodu kopyala-ekle
+KURULACAK	DeWrEkJjMkv	Dither tool (halftone/ASCII) (?)	SİTE		75+ efektle görsel/video dönüştürme (ASCII, dither, halftone, pixel)
+KURULU	DeWrEkJjMkv	Dump (?)	SİTE		Fotoğraf, mesaj baloncuğu, çıkartma ve mockup'u tek tuvalde birleştiren tarayıcı aracı
+KURULACAK	DeWrEkJjMkv	MCKP.live (?)	SİTE		Mockup/ürün tanıtım videosu stüdyosu (Is.graphics projesi)
+KURULACAK	DedQE_qNgTh	Scrolltide	SİTE	scrolltide.co	Scroll-sürümlü animasyonlu site istem kütüphanesi; Claude'a yapıştırıp site üretme
+KURULACAK	DeviJpAGrW3	scrolltide.co	SİTE	scrolltide.co	3B ve scroll-sürümlü site için 600+ istem + kaynak kod
+KURULACAK	DeviJpAGrW3	navbar.gallery	SİTE	navbar.gallery	Navbar ilham galerisi
+KURULACAK	DeviJpAGrW3	footer.design	SİTE	footer.design	Yaratıcı footer örnekleri
+KURULACAK	DeviJpAGrW3	cta.gallery	SİTE	cta.gallery	Eylem çağrısı (CTA) tasarım örnekleri
+KURULACAK	DeviJpAGrW3	minimal.gallery	SİTE	minimal.gallery	Temiz, minimal site galerisi
+KURULACAK	DeviJpAGrW3	60fps.design	SİTE	60fps.design	En iyi uygulamalardan mobil arayüz animasyon ve etkileşimleri
+KURULACAK	DeviJpAGrW3	collectui.com	SİTE	collectui.com	Günlük UI konseptleri
+KURULACAK	DeviJpAGrW3	posts.design	SİTE	posts.design	Sosyal medya görsel örnekleri
+KURULACAK	DeviJpAGrW3	landdding.com	SİTE	landdding.com	Her gün güncellenen landing page referansları
+KURULU	DfEvh09DBat	TradingView	SİTE		Grafik ve Pine Script platformu
+KURULACAK	De-blYnCBbn	Netlify Drop	SİTE	app.netlify.com/drop	Hazır siteyi sürükle-bırak ile ücretsiz yayına alma
+KURULACAK	DeTqN3uEidC	Design Engineer Tools	SİTE	https://designengineer.tools	Web odaklı design engineer'lar için araç/site/kaynak kütüphanesi (ilham, AI kod, bileşen, yardımcı, video, organizasyon)
+KURULU	DeTqN3uEidC	60fps	SİTE		İlham kategorisinde listelenen site (?)
+KURULU	DeTqN3uEidC	Awwwards	SİTE	awwwards.com	Ödüllü web sitesi vitrini
+KURULU	DeTqN3uEidC	Cosmos	SİTE	cosmos.so	Görsel ilham toplama platformu
+KURULACAK	DeTqN3uEidC	Mobbin	SİTE		Gerçek ürün UI/akış referans kütüphanesi
+KURULACAK	DeTqN3uEidC	Curated Design	SİTE		Tasarım ilham listesi (?)
+KURULU	DeTqN3uEidC	Pinterest	SİTE		Görsel ilham panosu
+KURULACAK	DeTqN3uEidC	Design Spells	SİTE		Tasarım/etkileşim ilham sitesi (?)
+KURULU	DeTqN3uEidC	Rebrand	SİTE		Marka yenileme ilham sitesi (?)
+KURULACAK	DeTqN3uEidC	Saaspo	SİTE		SaaS landing ilham galerisi (?)
+KURULACAK	DeTqN3uEidC	Godly	SİTE		Web tasarım ilham galerisi (?)
+KURULU	DeTqN3uEidC	Same Energy	SİTE		Görsel benzerlik arama motoru (?)
+KURULACAK	DeTqN3uEidC	Supahero	SİTE		Hero bölümü ilham sitesi (?)
+KURULACAK	DeTqN3uEidC	loadmo.re	SİTE		İlham sitesi (?)
+KURULU	DeTqN3uEidC	Layers	SİTE		İlham sitesi (?)
+KURULACAK	DeTqN3uEidC	SEESAW	SİTE		İlham sitesi (?)
+KURULACAK	DeTqN3uEidC	GameUIDatabase	SİTE		Oyun UI referans veritabanı
+KURULACAK	DeTqN3uEidC	Interface In Game	SİTE		Oyun arayüzü referans sitesi
+KURULACAK	DeTqN3uEidC	HUDS+GUIS	SİTE		Oyun HUD/GUI referans sitesi
+KURULACAK	DeTqN3uEidC	Component Gallery	SİTE		UI bileşen galerisi
+KURULACAK	DeTqN3uEidC	Fancy Components	SİTE		Bileşen kütüphanesi
+KURULACAK	DeTqN3uEidC	Are.na	SİTE		Referans toplama platformu
+KURULACAK	DeTqN3uEidC	animations.dev	SİTE	animations.dev	Animasyon eğitim kaynağı
+KURULACAK	DeTqN3uEidC	ui.land	SİTE	https://ui.land	Videoda link olarak geçen UI sitesi
+KURULACAK	DeTqN3uEidC	gradientool	SİTE	https://www.gradientool.com	Gradyan aracı (?)
+KURULACAK	DeTqN3uEidC	pear.com	SİTE	https://www.pear.com	Videoda link olarak geçen site
+KURULACAK	DeTqN3uEidC	remediate.ski	SİTE	https://www.remediate.ski	Videoda link olarak geçen site
+KURULACAK	DfASJnjIYe2	httpster.net	SİTE	httpster.net	Küratörlü web tasarım ilham sitesi
+KURULACAK	DfASJnjIYe2	siteinspire.com	SİTE	siteinspire.com	Web tasarım galerisi
+KURULACAK	DfASJnjIYe2	fontsinuse.com	SİTE	fontsinuse.com	Gerçek kullanımda yazı tipleri arşivi
+KURULACAK	DfASJnjIYe2	landing.love	SİTE	landing.love	Landing page ilham galerisi
+KURULACAK	DfASJnjIYe2	lapa.ninja	SİTE	lapa.ninja	Landing page ilham galerisi
+KURULACAK	DfASJnjIYe2	darkmodedesign.com	SİTE	darkmodedesign.com	Koyu mod site galerisi
+KURULACAK	DfASJnjIYe2	hoverstat.es	SİTE	hoverstat.es	Hover etkileşim ilham sitesi
+KURULACAK	DfASJnjIYe2	land-book.com	SİTE	land-book.com	Landing page galerisi
+KURULACAK	DfASJnjIYe2	designmadeingermany.de	SİTE	designmadeingermany.de	Alman tasarım ilham galerisi
+KURULACAK	DfASJnjIYe2	onepagelove.com	SİTE	onepagelove.com	Tek sayfa site galerisi
+KURULACAK	DfASJnjIYe2	bestwebsite.gallery	SİTE	bestwebsite.gallery	En iyi site galerisi
+KURULACAK	DfCesyEIxdU	Recent Design	SİTE	recent.design	Günlük tasarım ilhamı
+KURULACAK	DfCesyEIxdU	Dark.Design	SİTE	dark.design	Koyu mod site/UI referansları
+KURULACAK	DfCesyEIxdU	NicelyDone	SİTE	nicelydone.club	Gerçek ürün akışı ve UI bileşen referansı
+KURULACAK	De1ghhSBC2O	Pixo Studio	SİTE		Tarayıcıda 3D, scroll animasyonlu site örnekleri üreten ajans (araç adı verilmedi)
+KURULACAK	De7bHbulPRr	Cosmos.so	SİTE	cosmos.so	Görsel ilham toplama platformu
+KURULACAK	De7bHbulPRr	Brandlogo.co	SİTE	brandlogo.co	Küratörlü logo ilham kütüphanesi
+KURULACAK	De7bHbulPRr	Animos.app	SİTE	animos.app	Statik UI/tasarımı hareketli sunuma çeviren tarayıcı aracı
+KURULACAK	De7bHbulPRr	MacFolio	SİTE	macfolio.com	Mac uygulamaları ve yaratıcı araç rehberi
+KURULACAK	De9ulC6CE_x	Photopea	SİTE	https://www.photopea.com	Tarayıcıda Photoshop alternatifi, PSD açar
+KURULACAK	DeSLvUkRlTF	cubimatural portfolio	SİTE		Kitap gibi etkileşimli portfolyo sitesi örneği; prompt bio linkinde
+KURULACAK	Derh5Bzgan2	The Design Stack prompts	SİTE	thedesignstack.com/prompts	Premium etkileşim animasyonları için hazır prompt koleksiyonu (marquee, kart istifi, imleç itme, kumaş vb.)
+KURULACAK	Dez88-KooO8	Kombai Gallery	SİTE		20.000+ web ve mobil UI tasarımı galerisi; ekran görüntüsünü Claude Code'a referans verme
+KURULACAK	DfAoV4Wz1ez	Same.dev	SİTE	Same.dev	Canlı site URL'sini yerleşim ve animasyonla klonlar
+KURULACAK	DfFDa-rJpqo	UImaxxing	SİTE		Hazır ürün UI bileşenleri
+KURULACAK	wY-hZK7UN7A	Google Cloud Console	SİTE		API key üretim yeri
+KURULACAK	DeXFxPDCLe8	404s.design	SİTE	404s.design	404 hata sayfası tasarım örnekleri
+KURULACAK	DeXFxPDCLe8	unsection.com	SİTE	unsection.com	Uyarlanabilir hazır bölüm (section) tasarımları
+KURULACAK	DeXFxPDCLe8	bentogrids.com	SİTE	bentogrids.com	İnternetteki bento ızgara düzenleri koleksiyonu
+KURULACAK	DeXFxPDCLe8	6ofps.design (?)	SİTE	6ofps.design (?)	Uygulamayı pahalı hissettiren mikro hareket/animasyon örnekleri
+KURULACAK	De1tiaNNapd	Spline (Community)	SİTE		3D tasarım topluluğu; Remix + Export bağlantısıyla 3D sahne siteye gömülür
+KURULACAK	DeJxYRblNR2	interfaces.dev	SİTE	interfaces.dev	Modern web UI desenleri ve etkileşim kütüphanesi
+KURULACAK	DeJxYRblNR2	Spotted in Prod	SİTE	spottedinprod.com	Gerçek ürünlerden UI detay arşivi
+KURULACAK	DeJxYRblNR2	Ditther	SİTE	ditther.com	Dither/ASCII/halftone efekti, tarayıcıda ücretsiz
+KURULACAK	DeJxYRblNR2	ascii-magic.com	SİTE	ascii-magic.com	ASCII efekt aracı (?)
+KURULACAK	DeJxYRblNR2	doronsupply.com	SİTE	doronsupply.com	Tasarım kaynağı sitesi (açıklaması okunamadı)
+KURULACAK	DeJxYRblNR2	ultramock.io	SİTE	ultramock.io	Mockup üretme aracı (?)
+KURULACAK	De2ffFouvor	Uilora (?)	SİTE	uilora (?)	UI bileşenleri, tasarım sistemi ve web/mobil için hazır kod parçaları sunan ücretsiz UI kütüphanesi
+KURULACAK	De2ffFouvor	Forge UI	SİTE		Kopyala-yapıştır animasyonlu hazır bloklar sunan UI kütüphanesi
+KURULACAK	De2ffFouvor	Uiverse	SİTE	uiverse	7.000+ topluluk yapımı açık kaynak UI elemanı (buton, loader vb.) kütüphanesi
+KURULACAK	DeZXAa6jE8s	Designspiration	SİTE	designspiration.com	Görsel sanat için yaratıcı arama platformu, tasarım ilham koleksiyonu
+KURULACAK	DeZXAa6jE8s	Best Website Gallery	SİTE	bestwebsite.gallery	Seçkin web sitelerinin küratörlü arşivi
+KURULACAK	DeZXAa6jE8s	The Inspiration Grid	SİTE	theinspirationgrid.com	Yaratıcı görsel tasarım online dergisi
+KURULACAK	DeZXAa6jE8s	Scrnshts	SİTE	scrnshts.club	Küratörlü App Store ekran görüntüsü tasarımları
+KURULACAK	DeZXAa6jE8s	Appinspo	SİTE	appinspo.com	Küratörlü mobil uygulama tasarım galerisi
+KURULACAK	DeZXAa6jE8s	Dark Mode Design	SİTE	darkmodedesign.com	Karanlık mod tasarımlarını sergileyen galeri
+KURULU	DeZXAa6jE8s	Behance	SİTE	behance.net	Adobe'un yaratıcı portfolyo vitrini
+KURULACAK	DeZXAa6jE8s	navbar.design	SİTE	navbar.design	Navigasyon çubuğu kalıpları galerisi
+KURULACAK	DeZXAa6jE8s	Land-book	SİTE	land-book.com	Sektöre göre düzenlenmiş landing page galerisi
+KURULACAK	DeZXAa6jE8s	Collect UI	SİTE	collectui.com	Bileşene göre etiketli günlük UI ilhamı
+KURULACAK	DeZXAa6jE8s	Lapa Ninja	SİTE	lapa.ninja	Küratörlü responsive landing page galerisi
+KURULACAK	DeZXAa6jE8s	Imageory	SİTE	imageory.in	Görselleri prompt'larla eşleştiren görsel galeri
+KURULACAK	DeZXAa6jE8s	Backgrounds Supply	SİTE	backgrounds.supply	El yapımı hazır web sitesi arka planları
+KURULACAK	DeZXAa6jE8s	Venust Backgrounds	SİTE	backgrounds.venust.ai	Arka plan koleksiyonu (link listesinde geçiyor)
+KURULU	DeZXAa6jE8s	Dribbble	SİTE	dribbble.com	Tasarımcı portfolyo/ilham platformu (link listesinde)
+KURULACAK	DeZXAa6jE8s	One Page Love	SİTE	onepagelove.com	Tek sayfa site ilham galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Landingfolio	SİTE	landingfolio.com	Landing page ilham galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Screenlane	SİTE	screenlane.com	UI ekran ilham galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	UX Archive	SİTE	uxarchive.com	UX akış referans arşivi (link listesinde)
+KURULACAK	DeZXAa6jE8s	SaaS Landing Page	SİTE	saaslandingpage.com	SaaS landing page galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Best SaaS Web Designs	SİTE	bestsaaswebdesigns.com	SaaS web tasarım galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	SaaSFrame	SİTE	saasframe.io	SaaS UI referans galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Pttrns	SİTE	pttrns.com	Mobil UI kalıp galerisi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Flowbase	SİTE	flowbase.co	Webflow bileşen/şablon kaynağı (link listesinde)
+KURULU	DeZXAa6jE8s	Framer	SİTE	framer.com	Web sitesi tasarım/yayın aracı (link listesinde)
+KURULACAK	DeZXAa6jE8s	Interface Craft	SİTE	interfacecraft.dev	Arayüz işçiliği kaynağı (link listesinde)
+KURULACAK	DeZXAa6jE8s	UI Playbook	SİTE	uiplaybook.dev	UI kaynak sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	UI Labs	SİTE	uilabs.dev	UI kaynak sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	design.dev	SİTE	design.dev	Tasarım kaynak sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	lab01.dev	SİTE	lab01.dev	Tasarım/UI kaynak sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Insposite	SİTE	insposite.com	Tasarım ilham sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Best Designs on X	SİTE	bestdesignsonx.com	X'teki en iyi tasarımlar derlemesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Betwn Studios	SİTE	betwnstudios.com	Tasarım stüdyosu/kaynak sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Landdding	SİTE	landdding.com	Landing page kaynak sitesi (link listesinde) (?)
+KURULACAK	DeZXAa6jE8s	Motionimo	SİTE	motionimo.xyz	Hareket/animasyon ilham sitesi (link listesinde)
+KURULACAK	DeZXAa6jE8s	Loader Buttons (Appllama)	SİTE	loader-buttons.appllama.io	Loader butonu bileşenleri (link listesinde)
+KURULACAK	DeZXAa6jE8s	whatships.com	SİTE	whatships.com	Ürün/tasarım ilham sitesi (link listesinde)
+KURULACAK	DfDMzXZzvy_	Thinkingods	SİTE	Thinkingods.com	Web sitelerini hareketlendiren hazır prompt koleksiyonu (hero bölümü örneği: driftwood log fırça maskesi)
+KURULACAK	Ddn_GQns8hC	Hyper3D	SİTE		Metin/eskizden 3D varlık üretimi
+KURULACAK	De3wrvFp4ix	Hyper3D (Rodin / WorldGen / MaxGen)	SİTE		Tek fotoğraftan düzenlenebilir 3D dünya, Blender/Unreal/Unity/Godot'a dışa aktarım, MCP ve API var
+KURULACAK	De84m_VEk6F	mesh3d.gallery	SİTE	mesh3d.gallery	Etkileşimli Three.js deneyimleri vitrini (574 deneyim)
+KURULACAK	De84m_VEk6F	Designeer	SİTE	designeer.xyz	Arayüz işçiliği, bileşen kütüphaneleri, AI araçları kataloğu
+KURULACAK	De84m_VEk6F	Snakepool	SİTE	snakepool.org	Web sitesi ilham kütüphanesi (günlük güncel)
+KURULACAK	De9m92FhliN	ReactVibe	SİTE	reactvibe.com	Kopyala-yapıştır hazır React bölümleri, hareketli bileşenler, arka planlar
+KURULACAK	DeKEMIPtQiq	Designely Studio	SİTE	designely.studio	Görsel etkileşim, 3D ve efekt ekleyip kodu dışa aktaran tasarım canvas aracı
+KURULACAK	DebxQZrD-cl	The Design Shop	SİTE		Vibe-coding siteleri için copy-paste tasarım/hareket promptları satan kaynak (?)
+KURULACAK	DebxQZrD-cl	The Design Stack	SİTE		Tasarım kaynağı paketi; yorum "DESIGN" ile link (?)
+KURULU	DfAth9AgWFM	MotionSites	SİTE		En beğenilen web tasarım promptları ve sinematik hero videolar
+KURULACAK	o4iY8QEeKmU	Seferboğaz	SİTE	Seferboğaz.higgsfield.app	Videoda kurulan Boğaz turu sitesi (scroll ile sabahtan geceye) (?)
+KURULACAK	Db0YC6jzsKZ	Meridian (örnek site)	SİTE		Manus ile yapılmış örnek site
+KURULACAK	DdB2dB5OvwC	Ripplix	SİTE	Ripplix.com	Dünyanın en büyük UI animasyon/mikro etkileşim kütüphanesi
+KURULACAK	De2HewBtWhH	oyun geliştirme kaynakları (Brackeys, The Cherno, ArtStation, Extra Credits, CodeMonkey, FreeCodeCamp vb.)	SİTE		Kod/sanat/oyun tasarımı/pazarlama öğrenme kaynakları listesi
+KURULACAK	De4EwvahdMl	Eyecandy	SİTE		Yaratıcı video teknikleri ve efekt adları örnekleri
+KURULACAK	De4EwvahdMl	Savee	SİTE		Görsel referans/ilham
+KURULACAK	De4EwvahdMl	Motionographer	SİTE		Lansman filmleri ve motion design örnekleri
+KURULACAK	De64R5emX-i	overworldaudio.com	SİTE	overworldaudio.com	Keşfedilebilir 3D dünya hero örneği
+KURULACAK	De64R5emX-i	lusion.co	SİTE	lusion.co	3D hikaye anlatımı, awwwards kalite site
+KURULACAK	De64R5emX-i	belgradearbor.rs	SİTE		Smooth scroll örneği (?)
+KURULACAK	De64R5emX-i	ascension.pegassi.be	SİTE		Smooth scroll örneği (Pegassi Ascension)
+KURULACAK	De64R5emX-i	landonorris.com	SİTE	Landonorris.com	Split-letter kinetik başlık örneği
+KURULACAK	De64R5emX-i	signal-a.studio	SİTE		Split-letter kinetik başlık örneği
+KURULACAK	De64R5emX-i	getlayers.ai	SİTE	getlayers.ai/templates	Boş sayfadan başlamama; şablon kaynağı
+KURULACAK	De78haLIIrT	Animaster Library	SİTE		200+ animasyonlu bileşen, 100+ portfolyo site (?)
+KURULACAK	De78haLIIrT	designprompts.dev	SİTE	prompts.dev	Monochrome, SaaS, Bauhaus vb. web tasarım stili promptları, ücretsiz tek tık kopya (?)
+KURULACAK	De86cK0ihyb	Google Playground	SİTE	playground.google.com	Kodsuz oyun yapma: Nano Banana görsel, Lyria müzik, Gemini kod
+KURULACAK	Deesy64AN1-	alimdesigner.com	SİTE	alimdesigner.com	Ürün tasarımcı portfolyosu
+KURULACAK	Deesy64AN1-	cyze.dev	SİTE	cyze.dev	Design engineer portfolyosu
+KURULACAK	Deesy64AN1-	keychain.vercel.app	SİTE	keychain.vercel.app	Portfolyo ilhamı
+KURULACAK	DejMCrBjFNs	SiteReel.ai	SİTE	SiteReel.ai	Yapay zeka ile site yapmak için büyük prompt koleksiyonu
+KURULACAK	Deu0zarxG9w	Ambar Serum cilt bakım sitesi	SİTE		Etkileşimli animasyonlu örnek marka sitesi
+KURULACAK	DezTQtljo0n	Morphicons	SİTE	morphicons.com	SVG ikon animasyonları/geçişleri
+KURULACAK	DezTQtljo0n	Isocons	SİTE	isocons.app	İzometrik 3D görünümlü ikonlar
+KURULU	DezTQtljo0n	Nucleo	SİTE	nucleoapp.com	Büyük uygulamalar için ikon kütüphanesi ve yönetim araçları
+KURULACAK	DezTQtljo0n	Iconsax	SİTE	iconsax.io	Çok stilli ikon kütüphanesi (dashboard, mobil, SaaS)
+KURULACAK	DezTQtljo0n	Hugeicons	SİTE	hugeicons.com	Geniş özelleştirilebilir ikon koleksiyonu
+KURULACAK	bK31qhKPDOQ	Açık kaynak yazılım alternatifleri sitesi	SİTE		Claude Code, Cursor, Photoshop, Canva, Notion ücretsiz karşılıkları kategori kategori (site adı verilmemiş)
+KURULU	DfDrgIqSh_P	Meta Ad Library	SİTE		Rakiplerin aktif reklamlarının herkese açık kütüphanesi; 400 reklam çekilir
+KURULACAK	DdxYLVrEkdr	Hugging Face Spaces	SİTE		AuK demosu kurulumsuz denenebilir
+KURULACAK	De11l1Nuxn-	Swishy AI	SİTE	swishy.ai	Ne animasyon istediğini yazınca üreten AI motion designer
+KURULACAK	De1awnxH44d	meow.codes	SİTE		oh-my-opencode-slim marketplace sayfası (?)
+KURULU	DeKYdKRzlhT	Google Stitch	SİTE	stitch.withgoogle.com	Tek prompttan tam uygulama tasarımı
+KURULACAK	DeKYdKRzlhT	Google Pomelli	SİTE	labs.google/pomelli	Web sitesi linkinden sosyal içerik kiti üretir
+KURULACAK	DeuFYtAIKHm	TrustMRR	SİTE		Stripe ile doğrulanmış gelir verisi
+KURULACAK	DezU-xDkzFO	modulify.ai	SİTE	modulify.ai	Lovable'dan ucuz, prompttan site/app üretimi
+KURULACAK	DezU-xDkzFO	Motionin	SİTE	motionin.design	1 prompt 1 website
+KURULACAK	DezU-xDkzFO	Wonderlist	SİTE	wonderlist.design	127 tam Figma web tasarımı
+KURULACAK	DezU-xDkzFO	Iconly	SİTE	iconly.design	İkon koleksiyonu
+KURULACAK	DezU-xDkzFO	Fontinlogo	SİTE	fontinlogo.com	Markaların kullandığı fontlar
+KURULACAK	DezU-xDkzFO	on.design	SİTE	on.design	Tasarım topluluğu
+KURULACAK	DezU-xDkzFO	recent.design	SİTE	recent.design	Tasarım ilhamı
+KURULACAK	DezU-xDkzFO	backgrounds.supply	SİTE	backgrounds.supply	Arka plan koleksiyonu
+KURULACAK	DezsnjllIa1	Site of Sites	SİTE	siteofsites.co	Site koleksiyonu
+KURULACAK	Dd08uX3ocwk	bleibtgleich.dev	SİTE	https://bleibtgleich.dev	Portfolyo referansı: designer/developer
+KURULACAK	Dd08uX3ocwk	danilodemarco.com	SİTE	https://danilodemarco.com	Portfolyo referansı: görsel ve tipografi tasarımcısı
+KURULACAK	Dd08uX3ocwk	niccolomiranda.com	SİTE	https://niccolomiranda.com	Portfolyo referansı: dijital art director/developer
+KURULACAK	Dd08uX3ocwk	thibaut.cool	SİTE	https://www.thibaut.cool	Portfolyo referansı: 3D ve motion
+KURULACAK	Dd08uX3ocwk	2xa.studio	SİTE		Portfolyo referansı: web stüdyosu (?)
+KURULU	De3Jzcyow4k	Motion.dev	SİTE	https://motion.dev	Claude'u dokümanına yönlendirince cilalı geçiş/animasyon ekletir
+KURULACAK	De7ClqFAC3T	skool.com/ai-marketing-hub-pro	SİTE	skool.com/ai-marketing-hub-pro	AI Marketing Hub Pro topluluğu
+KURULACAK	De8e0bWBKGV	aiprofitboardroom.com	SİTE	AIprofitboardroom.com	Julian Goldie topluluk sitesi (?)
+KURULU	DeR-SLBxBPe	claudecodeclub.ai	SİTE	claudecodeclub.ai	Claude Code Club topluluğu
+KURULACAK	De_wbM_gdoD	monolith.nyc	SİTE	monolith.nyc	Yükleme ekranı tasarım referansı
+KURULACAK	De_wbM_gdoD	incommonwith.com	SİTE	incommonwith.com	Işık aç/kapa geçişli ürün sayfası referansı
+KURULACAK	De_wbM_gdoD	palmer-dinnerware.com	SİTE	palmer-dinnerware.com	İki gezinme modlu ızgara referansı
+KURULACAK	De_wbM_gdoD	passport-hotel.vercel.app	SİTE	passport-hotel.vercel.app	Yatay kaydırma ve sürükle-keşfet referansı
+KURULACAK	Deq28xtp6dj	Prompt Motion (100xEngineers)	SİTE		Claude Opus 5.5 ile yapılmış 200+ hareketli grafik galerisi, her biri prompt/skill'iyle
+KURULACAK	Dez1KPeuXqA	Sinematik AI web sitesi prompt kütüphanesi	SİTE		Kopyala-yapıştır site promptları, kaynak kod, Obsidian vault'u; adı videoda yok
+KURULACAK	DfA-nQWiPKz	charliehills.substack.com	SİTE	charliehills.substack.com	Kaynak olarak ekranda
+KURULACAK	DfBcE4Bli0y	agentskills.io	SİTE	agentskills.io	Ajan skill standardı sitesi
