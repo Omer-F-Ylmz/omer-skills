@@ -242,39 +242,52 @@ def hakem(n):
             print(" RED", ornek[e["i"]]["ad"], e.get("neden"))
 
 
-def hazirla(grup_n):
-    """Haiku kolu: mevcut kartların kalemlerini grup_n'lik istem dosyalarına yazar (alt ajan okur, g<i>.json yazar)."""
-    U = oku_usta()
-    K = [k for k in kartlar() if k["ad"] in U]
-    d = KOK / ".kos/kopru/usta-haiku"
+def hazirla(grup_n, n=50):
+    """Haiku kolu: kartı olmayan/eski ilk n kalemi (öncelik sırasıyla) grup_n'lik istem dosyalarına yazar; sıra manifest.json'da (alt ajan g<i>.txt okur, g<i>.json yazar)."""
+    S = sirali(kartlar(), oku_usta())[:n]
+    d = KOK / ".kos/kopru/usta-haiku/ileri"
     d.mkdir(parents=True, exist_ok=True)
-    for i in range(0, len(K), grup_n):
-        g = K[i:i + grup_n]
+    (d / "manifest.json").write_text(json.dumps([k["ad"] for k in S], ensure_ascii=False), encoding="utf-8")
+    for i in range(0, len(S), grup_n):
+        g = S[i:i + grup_n]
         kal = "\n".join(f"### {j+1}. {k['ad']} ({k['tur']})\n{kaynak(k)}" for j, k in enumerate(g))
         (d / f"g{i//grup_n}.txt").write_text(ISTEM.format(n=len(g), kalemler=kal), encoding="utf-8")
-    print("istem", -(-len(K) // grup_n), "kalem", len(K))
+    print("istem", -(-len(S) // grup_n), "kalem", len(S))
 
 
 def isle(grup_n):
-    """Haiku çıktısı g<i>.json'u aynı süzgeçle haiku.jsonl'e yazar."""
-    d = KOK / ".kos/kopru/usta-haiku"
-    K = [k for k in kartlar() if k["ad"] in oku_usta()]
+    """Haiku çıktısı g<i>.json'u aynı süzgeçle ileri/haiku.jsonl'e yazar (manifest sırasıyla)."""
+    d = KOK / ".kos/kopru/usta-haiku/ileri"
+    K = {k["ad"]: k for k in kartlar()}
+    S = [K[a] for a in json.loads((d / "manifest.json").read_text(encoding="utf-8"))]
     out = []
-    for i in range(0, len(K), grup_n):
+    for i in range(0, len(S), grup_n):
         f = d / f"g{i//grup_n}.json"
         if not f.exists():
             print("YOK", f.name); continue
         m = f.read_text(encoding="utf-8")
         a = json.loads(m[m.index("["):m.rindex("]") + 1])
-        for e, k in zip(a, K[i:i + grup_n]):
+        for e, k in zip(a, S[i:i + grup_n]):
             src = kaynak(k)
             o = str(e.get("ornek") or "").strip()
             ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
                         "token_ipucu": temiz(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in ko[:3]],
-                        "ornek": (o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-medium", "tarih": int(time.time())})
+                        "ornek": (o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
     (d / "haiku.jsonl").write_text("\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n", encoding="utf-8")
     print("kart", len(out))
+
+
+def birlestir(yol):
+    """yol'daki jsonl kartlarını usta.jsonl'e ekler/değiştirir (aynı ad → yenisi); eskiyi usta.jsonl.bak'a yedekler."""
+    U = oku_usta()
+    if USTA.exists():
+        (USTA.parent / "usta.jsonl.bak").write_bytes(USTA.read_bytes())
+    for l in Path(yol).read_text(encoding="utf-8").splitlines():
+        if l.strip():
+            c = json.loads(l); U[c["ad"]] = c
+    USTA.write_text("".join(json.dumps(c, ensure_ascii=False) + "\n" for c in U.values()), encoding="utf-8", newline="\n")
+    print("usta", len(U))
 
 
 def obsidian():
@@ -290,4 +303,4 @@ def obsidian():
 if __name__ == "__main__":
     a = sys.argv[1:]
     g = lambda b, v: int(a[a.index(b) + 1]) if b in a else v
-    {"say": say, "uret": lambda: uret(g("--n", 50), g("--is", 3)), "dongu": lambda: dongu(g("--hedef", 400), g("--is", 3)), "hakem": lambda: hakem(g("--n", 20)), "obsidian": obsidian, "hazirla": lambda: hazirla(g("--g", 8)), "isle": lambda: isle(g("--g", 8))}[a[0]]()
+    {"say": say, "uret": lambda: uret(g("--n", 50), g("--is", 3)), "dongu": lambda: dongu(g("--hedef", 400), g("--is", 3)), "hakem": lambda: hakem(g("--n", 20)), "obsidian": obsidian, "hazirla": lambda: hazirla(g("--g", 8), g("--n", 50)), "birlestir": lambda: birlestir(a[1]), "isle": lambda: isle(g("--g", 8))}[a[0]]()
