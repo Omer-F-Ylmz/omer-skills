@@ -20,10 +20,10 @@ DIL = "\nTürkçe ve kısa yanıtla: hangi adımları atarsın?"
 
 def sor(istem):
     for _ in range(4):
-        m, _, _ = ucretsiz_havuz.cagir("ozet", istem, max_tokens=400, zaman=60)
+        m, _, _ = ucretsiz_havuz.cagir("ozet", istem, max_tokens=400, zaman=60, saglayici="groq")
         if m is not None:
             return m
-        time.sleep(30)
+        time.sleep(10)
     return None
 
 
