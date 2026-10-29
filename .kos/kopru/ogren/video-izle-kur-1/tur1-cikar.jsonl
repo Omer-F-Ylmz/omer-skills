@@ -1,0 +1,40 @@
+{"ad": "Interactive Assets Skill", "durum": "derin-yok"}
+{"ad": "CTA Strategist", "durum": "ok", "kaynak": "groq/qwen/qwen3.8-27b", "repo_veya_url": "yok", "kurulum_komutu": "yok", "ayarlar": "yok", "kullanim": "Tüm videolarınızda kullandığınız CTA'ları analiz eder, en çok lead üreten özellikleri çıkarır ve her CTA varyantı üzerinde istatistiksel test gerçekleştirir. Kendi videolarınızda veya lead üreten herhangi bir kanalda çalıştırılabilir.", "iddia_edilen_fayda": "Lead sayısını 4 kat artırdı (bin görüntüleme başına 8 lead → 31 lead)", "kanit_alinti": "If I do none of the four, my videos drive eight leads per thousand views. But if I do all four, it drives 31 leads per thousand. Literally 4x."}
+{"ad": "Magpie", "durum": "ok", "kaynak": "groq/qwen/qwen3.8-27b", "repo_veya_url": "yok", "kurulum_komutu": "yok", "ayarlar": "magpie accounts discovery off (sign-in dosyalarını okumayı kapatır); DO_NOT_TRAC (anonim usage ping'i kapatır)", "kullanim": "magpie claude deepseek/deepseek-v4-pro", "iddia_edilen_fayda": "Kotaya ulaşınca tek komutla modeli değiştirir (DeepSeek/Kimi/Glm), iki hesap bir grupta tutulursa biri dolunca otomatik diğerine geçer ve hata Claude'a ulaşmaz", "kanit_alinti": "when your plan hits the wall, one command moves Claude onto DeepSeek or Kimmy, and the work keeps going"}
+{"ad": "CCBaga", "durum": "ok", "kaynak": "groq/openai/gpt-oss-20b", "repo_veya_url": "https://github.com/liseami/CcBaga", "kurulum_komutu": "CInstall", "ayarlar": "language and time zone set to selected region", "kullanim": "save current Cloud setup, switch to a saved one, start fresh, restarts browser and verifies settings", "iddia_edilen_fayda": "cleans up your Cloud setup and proves the change actually worked", "kanit_alinti": "\"CC Baga cleans up your Cloud setup and proves the change actually worked.\""}
+{"ad": "Open WebUI", "durum": "ok", "kaynak": "groq/openai/gpt-oss-20b", "repo_veya_url": "https://github.com/open-webui/open-webui", "kurulum_komutu": "$ pip install open-webui", "ayarlar": "yok", "kullanim": "Connects local models or any OpenAI‑compatible API, provides admin roles, groups, permissions, token usage tracking, team channels, shared memory, and automations for collaborative AI use.", "iddia_edilen_fayda": "A free, self‑hosted AI app that lets teams own their data, saves on paid seats, offers role‑based access, team channels, persistent shared context, and automation features.", "kanit_alinti": "\"This free app runs your team's AI on your own server.\""}
+{"ad": "Claude Commercial", "durum": "ok", "kaynak": "groq/openai/gpt-oss-20b", "repo_veya_url": "yok", "kurulum_komutu": "yok", "ayarlar": "yok", "kullanim": "This skill allows users to define assets and an idea in plain English, then automatically generates image prompts for each asset and compiles them into a master prompt with realistic camera settings, physics, and lighting, which can be used to generate a finished AI commercial.", "iddia_edilen_fayda": "Creates full AI commercials in under 10 minutes, acting as an entire production crew.", "kanit_alinti": "\"This Claude skill makes full AI commercials in under 10 minutes and you can grab it at the end. It's called the Claude commercial skill and it does the job of an entire production crew.\""}
+{"ad": "Fallow", "durum": "derin-yok"}
+{"ad": "Colibri", "durum": "ok", "kaynak": "groq/openai/gpt-oss-20b", "repo_veya_url": "yok", "kurulum_komutu": "one setup script", "ayarlar": "yok", "kullanim": "runs fully offline, or as your own AI endpoint for your apps", "iddia_edilen_fayda": "run a 744 B AI model on a laptop without a GPU, using only ~11 GB of RAM", "kanit_alinti": "\"The trick: only ~11GB of the model is “thinking” at any moment. Colibri keeps that in RAM and streams the rest from your drive, like Netflix instead of a download.\""}
+{"ad": "AI Stupid Meter", "durum": "ok", "kaynak": "groq/openai/gpt-oss-120b", "repo_veya_url": "https://github.com/studioplatforms/aistupidmeter-web", "kurulum_komutu": "yok", "ayarlar": "yok", "kullanim": "yok", "iddia_edilen_fayda": "AI Stupid Meter watches your AI models to catch when they quietly get worse, flagging degradation before your code breaks or users notice, saving money and headaches.", "kanit_alinti": "AI Stupid Meter watches your AI models to catch when they quietly get worse. It uses a smart statistical method called QSum to spot sudden drops in performance that you might miss, flagging degradation before your code breaks or your users notice."}
+{"ad": "I Have ADHD", "durum": "derin-yok"}
+{"ad": "Claude at Director", "durum": "derin-yok"}
+{"ad": "Slop Monster", "durum": "derin-yok"}
+{"ad": "MiroFish", "durum": "derin-yok"}
+{"ad": "FreeLLMAPI", "durum": "ok", "kaynak": "groq/openai/gpt-oss-120b", "repo_veya_url": "https://github.com/tashfeenahmed/freellmapi", "kurulum_komutu": "npx freellmapi setup-claude", "ayarlar": "yok", "kullanim": "Tek komutla Claude Code’a bağlanıyor; model limiti dolunca otomatik olarak sıradaki modele geçiyor ve notlar taşınıyor.", "iddia_edilen_fayda": "34 sağlayıcı, 635+ ücretsiz yapay zekâ modeli tek yerde; her ay 7,4 milyar ücretsiz token; limit dolduğunda otomatik model geçişi ve notların taşınması.", "kanit_alinti": "“34 sağlayıcı, 635+ ücretsiz yapay zekâ modeli tek yerde … Her ay toplam 7,4 milyar ücretsiz token … Bir modelin limiti dolunca otomatik olarak sıradakine geçiyor, notlarını da yanında taşıyor.”"}
+{"ad": "Free Claude Code", "durum": "ok", "kaynak": "groq/openai/gpt-oss-120b", "repo_veya_url": "yok", "kurulum_komutu": "yok", "ayarlar": "yok", "kullanim": "yok", "iddia_edilen_fayda": "bedava kullanım, kredilerin hemen tükenmesini önleyerek ücretsiz modelle çalıştırma", "kanit_alinti": "Free Claude Code adlı açık kaynak proje, Claude Code'un isteklerini bilgisayarındaki küçük bir aracıya, oradan NVIDIA'nın ücretsiz modeline gönderiyor."}
+{"ad": "ChatDev 2.0", "durum": "model-yok", "kaynak": null}
+{"ad": "TurboVec", "durum": "model-yok", "kaynak": null}
+{"ad": "Harvey", "durum": "model-yok", "kaynak": null}
+{"ad": "Prime Agent", "durum": "model-yok", "kaynak": null}
+{"ad": "CareerOps", "durum": "model-yok", "kaynak": null}
+{"ad": "RE Walkthrough Pro", "durum": "derin-yok"}
+{"ad": "Gropector", "durum": "derin-yok"}
+{"ad": "OpenSandbox", "durum": "model-yok", "kaynak": null}
+{"ad": "CROWD (isimsiz simülasyon aracı)", "durum": "model-yok", "kaynak": null}
+{"ad": "Sullivan", "durum": "derin-yok"}
+{"ad": "HTML Anything", "durum": "model-yok", "kaynak": null}
+{"ad": "Reicon", "durum": "model-yok", "kaynak": null}
+{"ad": "OpenQodex", "durum": "model-yok", "kaynak": null}
+{"ad": "Voicebox", "durum": "model-yok", "kaynak": null}
+{"ad": "The Premium UI Kit", "durum": "model-yok", "kaynak": null}
+{"ad": "Agentation", "durum": "model-yok", "kaynak": null}
+{"ad": "Cloudroom", "durum": "derin-yok"}
+{"ad": "Improve System (Build Partner)", "durum": "model-yok", "kaynak": null}
+{"ad": "Superset", "durum": "derin-yok"}
+{"ad": "Vendeo Instagram skill paketi", "durum": "derin-yok"}
+{"ad": "Açık kaynak ElevenLabs alternatifi (adı belirtilmemiş)", "durum": "derin-yok"}
+{"ad": "ReelMimic", "durum": "derin-yok"}
+{"ad": "LLM Wiki skill", "durum": "derin-yok"}
+{"ad": "Dioramas", "durum": "derin-yok"}
+{"ad": "auto-handoff", "durum": "derin-yok"}
