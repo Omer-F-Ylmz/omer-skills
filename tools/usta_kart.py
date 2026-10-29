@@ -76,7 +76,7 @@ def sirali(K, U):
     return sorted(adaylar, key=anahtar)
 
 
-def kaynak(k):
+def kaynak(k, lim=900):
     yol = k.get("yol") or ""
     if yol and os.path.exists(yol):
         try:
@@ -89,7 +89,7 @@ def kaynak(k):
             t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
             parcalar = re.split(r"(?m)^(?=#{1,3} )", t)
             govde = "".join(x for x in parcalar if not re.match(r"#{1,3} .*(preamble|telemetry|upgrade check)", x, flags=re.I))
-            return re.sub(r"\s+", " ", fm + " " + govde)[:900]
+            return re.sub(r"\s+", " ", fm + " " + govde)[:lim]
         except OSError:
             pass
     return re.sub(r"\s+", " ", f"{k.get('ne','')} {k.get('ba','')} {k.get('etiket','')}")[:600]
@@ -244,13 +244,25 @@ def hakem(n):
 
 def hazirla(grup_n, n=50):
     """Haiku kolu: kartı olmayan/eski ilk n kalemi (öncelik sırasıyla) grup_n'lik istem dosyalarına yazar; sıra manifest.json'da (alt ajan g<i>.txt okur, g<i>.json yazar)."""
-    S = sirali(kartlar(), oku_usta())[:n]
+    U = oku_usta()
+    if "--zayif" in sys.argv:  # ornek/kombin boş kalan kartları yeniden üret
+        Z = {a for a, c in U.items() if not c["kombin"] or c["ornek"] in (a, "Skill " + a)}
+        S = [k for k in kartlar() if k["ad"] in Z][:n]
+    else:
+        S = sirali(kartlar(), U)[:n]
     d = KOK / ".kos/kopru/usta-haiku/ileri"
     d.mkdir(parents=True, exist_ok=True)
     (d / "manifest.json").write_text(json.dumps([k["ad"] for k in S], ensure_ascii=False), encoding="utf-8")
     for i in range(0, len(S), grup_n):
         g = S[i:i + grup_n]
-        kal = "\n".join(f"### {j+1}. {k['ad']} ({k['tur']})\n{kaynak(k)}" for j, k in enumerate(g))
+        kd = d / "kaynak"; kd.mkdir(exist_ok=True)
+        pr = []
+        for j, k in enumerate(g):
+            src = kaynak(k, 6000); f = kd / f"{i+j}.txt"
+            f.write_text(src, encoding="utf-8")
+            assert len(f.read_text(encoding="utf-8")) == len(src) <= 6000
+            pr.append(f"### {j+1}. {k['ad']} ({k['tur']}) kaynak dosyası (TAMAMINI Read ile oku, {len(src)} karakter): {f}")
+        kal = "\n".join(pr)
         (d / f"g{i//grup_n}.txt").write_text(ISTEM.format(n=len(g), kalemler=kal), encoding="utf-8")
     print("istem", -(-len(S) // grup_n), "kalem", len(S))
 
@@ -268,7 +280,7 @@ def isle(grup_n):
         m = f.read_text(encoding="utf-8")
         a = json.loads(m[m.index("["):m.rindex("]") + 1])
         for e, k in zip(a, S[i:i + grup_n]):
-            src = kaynak(k)
+            src = kaynak(k, 6000)
             o = str(e.get("ornek") or "").strip()
             ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
