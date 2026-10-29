@@ -248,8 +248,11 @@ def hazirla(grup_n, n=50):
     if "--zayif" in sys.argv:  # ornek/kombin boş kalan kartları yeniden üret
         Z = {a for a, c in U.items() if not c["kombin"] or c["ornek"] in (a, "Skill " + a)}
         S = [k for k in kartlar() if k["ad"] in Z][:n]
+    elif "--uzun" in sys.argv:  # kaynağı 6000'i aşan mevcut kartları parçalı kaynakla yeniden üret
+        S = [k for k in kartlar() if k["ad"] in U and len(kaynak(k, 10**6)) > 6000][:n]
     else:
         S = sirali(kartlar(), U)[:n]
+        S = sorted(S, key=lambda k: len(kaynak(k, 10**6)) > 1500)  # kısa kaynaklılar başa (medium denemesi)
     d = KOK / ".kos/kopru/usta-haiku/ileri"
     d.mkdir(parents=True, exist_ok=True)
     (d / "manifest.json").write_text(json.dumps([k["ad"] for k in S], ensure_ascii=False), encoding="utf-8")
@@ -258,13 +261,18 @@ def hazirla(grup_n, n=50):
         kd = d / "kaynak"; kd.mkdir(exist_ok=True)
         pr = []
         for j, k in enumerate(g):
-            src = kaynak(k, 6000); f = kd / f"{i+j}.txt"
-            f.write_text(src, encoding="utf-8")
-            assert len(f.read_text(encoding="utf-8")) == len(src) <= 6000
-            pr.append(f"### {j+1}. {k['ad']} ({k['tur']}) kaynak dosyası (TAMAMINI Read ile oku, {len(src)} karakter): {f}")
+            tam = kaynak(k, 10**6); par = [tam[x:x + 6000] for x in range(0, len(tam), 6000)] or [""]
+            fl = []
+            for q, ps in enumerate(par):
+                f = kd / f"{i+j}_{q}.txt"; f.write_text(ps, encoding="utf-8")
+                assert len(f.read_text(encoding="utf-8")) == len(ps) <= 6000
+                fl.append(str(f))
+            pr.append(f"### {j+1}. {k['ad']} ({k['tur']}) kaynak {len(par)} parça dosyası, toplam {len(tam)} karakter (HER parçayı Read ile oku): " + " ; ".join(fl))
         kal = "\n".join(pr)
         (d / f"g{i//grup_n}.txt").write_text(ISTEM.format(n=len(g), kalemler=kal), encoding="utf-8")
-    print("istem", -(-len(S) // grup_n), "kalem", len(S))
+    kisa = [all(len(kaynak(x, 10**6)) <= 1500 for x in S[i:i + grup_n]) for i in range(0, len(S), grup_n)]
+    (d / "kisa.json").write_text(json.dumps(kisa), encoding="utf-8")
+    print("istem", -(-len(S) // grup_n), "kalem", len(S), "kisa-grup", kisa)
 
 
 def isle(grup_n):
@@ -280,7 +288,7 @@ def isle(grup_n):
         m = f.read_text(encoding="utf-8")
         a = json.loads(m[m.index("["):m.rindex("]") + 1])
         for e, k in zip(a, S[i:i + grup_n]):
-            src = kaynak(k, 6000)
+            src = kaynak(k, 10**6)
             o = str(e.get("ornek") or "").strip()
             ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
