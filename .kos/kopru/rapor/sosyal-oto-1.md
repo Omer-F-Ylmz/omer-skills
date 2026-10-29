@@ -23,3 +23,9 @@ relatedTo: [SOSYAL-OTO-1]
 
 ## Ek (A koşusu sonucu)
 - upscayl: nemotron yedeği metni yazdı, Kokoro sesi üretildi (ses-kokoro.wav 1.9M); whisper GPU cublas64_12.dll yok diye düştü → kelime.py CPU yedeği eklendi, yeniden koşulmadı.
+
+## Tur 2 (30 Eki 02:20, çağrı tavanı yine doldu)
+- GPU kelime zamanı ÇÖZÜLDÜ: nvidia-cublas/cudnn pip paketleri zaten kuruluydu, DLL dizini PATH'te değildi; kelime.py başına os.add_dll_directory(site-packages/nvidia/*/bin) eklendi. Ölçüm: upscayl ses-kokoro.wav → 112 kelime, gpu, 53 sn (model yükleme dahil). CPU yedeği duruyor.
+- Metin adımı ÇÖZÜLDÜ: nemotron-nano düşünme jetonuyla max_tokens'u yiyip içerik boş dönüyordu → "reasoning": {"enabled": False} (260 jeton, geçerli JSON). Ret olunca 3 geri bildirimli deneme eklendi; nano 73–84 kelime yazıyor → alt sınır 95→75 (~30 sn). Metinde gerçek-dışı ayrıntı riski (War of the Worlds testinde "çiftçi" uydurdu): hakem/olgu kontrolü şart.
+- Video HÂLÂ YOK: montaj aşaması ffmpeg'de düşüyor. A: "Error reinitializing filters" (-22, libx264 açılmadı); B: montaj_b ffmpeg rc 3221225477 (0xC0000005) stderr boş. Hakem puanı yok, mp4 yok.
+- Sonraki oturum: (1) hat.py montaj_a/montaj_b filtre dizgisini `ffmpeg -v error` ile tek tek yokla (görsel boyutu tek sayı? zoompan/boxblur girdisi? Wikimedia dosyası bozuk mu?); (2) sonra `hat.py a https://upscayl.org https://jan.ai`, `hat.py b --n 2`; (3) hakem. Not: arka.py+kos2.py yoluyla koşuda hat.py rc 1 veriyordu; doğrudan `python -I hat.py ...` çalışıyor (run_in_background).
