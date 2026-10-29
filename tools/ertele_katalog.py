@@ -18,6 +18,9 @@ DIZIN = EV / "ertele-dizin.json"
 def _on_bilgi(yol):
     m = re.match(r"---\s*\n(.*?)\n---", yol.read_text(encoding="utf-8", errors="ignore"), re.S)
     alan = dict(re.findall(r"^(name|description):\s*(.*)$", m.group(1), re.M)) if m else {}
+    if alan.get("description", "").strip() in ("", ">", ">-", "|", "|-", ">+", "|+"):  # YAML blok açıklama: girintili satırlar
+        b = re.search(r"^description:[^\n]*\n((?:[ \t]+[^\n]*\n?)+)", m.group(1) + "\n", re.M) if m else None
+        alan["description"] = " ".join(b.group(1).split()) if b else ""
     return alan.get("name", "").strip().strip("'\""), alan.get("description", "").strip().strip("'\"")[:200]
 
 
@@ -99,18 +102,95 @@ def _bm25(gorev, d):
                     for w in q if w in t) for ad, t in docs.items()}
 
 
-def ara(gorev, n=8):
+GOMME = EV / "ertele-gomme.npy"  # ERTELE-3 tur5: çok dilli gömme (Cloudflare Workers AI bge-m3), tanım dosyası başına bir satır
+
+
+def _cf(model, govde, zaman=120):
+    import os
+    import urllib.request
+    u = f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CLOUDFLARE_ACCOUNT_ID']}/ai/run/{model}"
+    r = urllib.request.Request(u, data=json.dumps(govde).encode(), headers={
+        "Authorization": "Bearer " + os.environ["CLOUDFLARE_API_KEY"], "Content-Type": "application/json"})
+    return json.load(urllib.request.urlopen(r, timeout=zaman))["result"]
+
+
+def _gom(metinler):
+    return _cf("@cf/baai/bge-m3", {"text": metinler})["data"]
+
+
+def _llm(istem, max_tokens=200):
+    return _cf("@cf/meta/llama-3.3-70b-instruct-fp8-fast", {"messages": [{"role": "user", "content": istem}],
+                                                           "max_tokens": max_tokens}, 60)["response"].strip()
+
+
+def gom():
+    """Her tanım dosyası için ad + tam açıklama (+ ne zaman) gömülür; sorgu başına yalnız sorgu gömülür."""
+    import numpy as np
+    d = _dizin()
+    yollar = list(dict.fromkeys(v["yol"] for v in d.values()))
+    adlar = collections.defaultdict(list)
+    for ad, v in d.items():
+        adlar[v["yol"]].append(ad.replace(":", " ").replace("-", " "))
+    metin = []
+    for y in yollar:
+        bas = Path(y).read_text(encoding="utf-8", errors="ignore")[:6000]
+        tam_acik = re.search(r"^description:[ \t]*([^\n]*(?:\n[ \t]+[^\n]*)*)", bas, re.M)
+        acik = " ".join((tam_acik.group(1) if tam_acik else "").split()).lstrip(">|-+ ")
+        if len(acik) < 40:  # açıklamasız tanım: gövdenin ilk metni
+            acik += " " + " ".join(re.sub(r"^---.*?\n---", "", bas, flags=re.S).split())[:500]
+        metin.append(f"{' / '.join(dict.fromkeys(adlar[y]))}: {acik[:700]}"[:1000])
+    nz = {d[a]["yol"]: d[a]["acik"].split(" · ne zaman: ", 1)[1] for a in d if " · ne zaman: " in d[a]["acik"]}
+    metin = [m + (" · " + nz[y] if y in nz else "") for m, y in zip(metin, yollar)]
+    v = []
+    for i in range(0, len(metin), 50):
+        v += _gom(metin[i:i + 50])
+    v = np.asarray(v, dtype=np.float32)
+    np.save(GOMME, (v / np.linalg.norm(v, axis=1, keepdims=True)).astype(np.float16))
+    (EV / "ertele-gomme.json").write_text(json.dumps(yollar, ensure_ascii=False), encoding="utf-8")
+    return len(yollar)
+
+
+def _anlamsal(gorev):
+    """yol → kosinüs; gömme dosyası ya da ağ yoksa boş (BM25 tek başına çalışır)."""
+    try:
+        import numpy as np
+        yollar = json.loads((EV / "ertele-gomme.json").read_text(encoding="utf-8"))
+        q = np.asarray(_gom([gorev])[0], dtype=np.float32)
+        return dict(zip(yollar, (np.load(GOMME).astype(np.float32) @ (q / np.linalg.norm(q))).tolist()))
+    except Exception:
+        return {}
+
+
+def _birlesik(gorev, d, n):
+    """BM25 + gömme sıra birleştirme (RRF); aynı dosyanın ikinci adı tekrar listelenmez."""
+    bm = sorted(((p, ad) for ad, p in _bm25(gorev, d).items() if p > 0), reverse=True)
+    an = _anlamsal(gorev)
+    gm = sorted(((an[d[ad]["yol"]], ad) for ad in d if d[ad]["yol"] in an), reverse=True)
+    rrf = collections.Counter()
+    for liste, w in ((bm, 1.0), (gm, 1.0 if an else 0)):
+        for i, (_, ad) in enumerate(liste[:200]):
+            rrf[ad] += w / (60 + i)
+    cikti, gor = [], set()
+    for ad, _ in rrf.most_common():
+        if d[ad]["yol"] not in gor:
+            gor.add(d[ad]["yol"])
+            cikti.append(ad)
+        if len(cikti) == n:
+            break
+    return cikti
+
+
+def ara(gorev, n=12):
     import arac_ara as aa
     d = _dizin()
     mudur = _mudur(gorev, d)
     o = [f"{ad} · müdür skill · {d[ad]['acik'][:110]}\n  → özel skill (işe en yakın): {', '.join(_ozel_sira(gorev, d, ad)) or '-'}"
          for ad in mudur]
-    kartlar = [k for k in aa.ara(gorev)["kartlar"] if k.get("tur") in ("skill", "ajan", None) and k["ad"] not in mudur][:n] \
-        or aa.ara(gorev)["kartlar"][:n]
+    bir = [ad for ad in _birlesik(gorev, d, n + len(mudur)) if ad not in mudur][:n]
+    o += [f"{ad} · {d[ad]['tur']} · {d[ad]['acik'][:110]}" for ad in bir]
+    gor = set(bir) | set(mudur)
+    kartlar = [k for k in aa.ara(gorev)["kartlar"] if k.get("tur") in ("skill", "ajan", None) and k["ad"] not in gor][:4]
     o += [f"{k['ad']} · {k.get('tur', '?')} · {(k.get('ne_yapar') or k.get('aciklama') or '')[:110]}" for k in kartlar]
-    gor = {k["ad"] for k in kartlar} | set(mudur)
-    puan = sorted(((p, ad, d[ad]) for ad, p in _bm25(gorev, d).items() if ad not in gor), key=lambda x: -x[0])
-    o += [f"{ad} · {v['tur']} · {v['acik'][:110]}" for p, ad, v in puan[:n] if p > 0]
     return "\n".join(o) + "\n(tam metin: python tools/ertele_katalog.py tam <ad>)"
 
 
@@ -131,4 +211,4 @@ def tam(ad):
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     k, *a = sys.argv[1:] or ["?"]
-    print({"kur": lambda: f"{len(kur())} tanım → {DIZIN}", "ara": lambda: ara(" ".join(a)), "tam": lambda: tam(a[0])}.get(k, lambda: __doc__)())
+    print({"kur": lambda: f"{len(kur())} tanım → {DIZIN}", "gom": lambda: f"{gom()} dosya → {GOMME}", "ara": lambda: ara(" ".join(a)), "tam": lambda: tam(a[0])}.get(k, lambda: __doc__)())

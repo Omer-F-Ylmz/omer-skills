@@ -1,0 +1,30 @@
+{"ad": "Red-Team a Claim", "tarif": "Bir bulguyu ekibime göstermeden önce ona karşı sert itirazlar deneyip hangilerinin ayakta kaldığını kaydetmek istiyorum.", "model": "haiku"}
+{"ad": "qbr-prep", "tarif": "Müşteriyle yapacağım üç aylık iş değerlendirme toplantısı için değer anları, kullanım durumu, riskler ve açık konuları içeren bir hazırlık dosyası istiyorum.", "model": "haiku"}
+{"ad": "carta-investors:carta-agm-deck-builder", "tarif": "Fonumun yıllık genel kurul sunumunu marka kimliğimle uyumlu, canlı fon verilerini içeren bir slayt destesi olarak hazırlamasını istiyorum.", "model": "haiku"}
+{"ad": "n8n-code-python", "tarif": "n8n iş akışımdaki kod kutusunda Python ile yazılmış eski kodu yeni sürüme uygun hale getirmek ve Python kodu yazmak istiyorum.", "model": "haiku"}
+{"ad": "code-context-finder", "tarif": "Projedeki kodun birbirine nasıl bağlandığını bilgi grafiğinden bulup bu soru için ilgili bağlamı önümüze getirmesini istiyorum.", "model": "haiku"}
+{"ad": "analyzing-windows-lnk-files-for-artifacts", "tarif": "Bir kısayol dosyasının hangi yolu gösterdiğini ve ne zaman oluşturulup değiştirildiğini adli inceleme için öğrenmek istiyorum.", "model": "haiku"}
+{"ad": "cockroachdb:auditing-cis-benchmark", "tarif": "Kendi sunucumda çalışan veritabanı kümemin güvenlik ayarlarını standart bir kontrol listesine göre denetleyip eksikleri raporlamasını istiyorum.", "model": "haiku"}
+{"ad": "carta-investors:carta-brand-extraction", "tarif": "Bir firmanın web sitesine bakıp renklerini, yazı tiplerini ve logolarını çıkararak düzenli bir marka panosu hazırlamasını istiyorum.", "model": "haiku"}
+{"ad": "small-business:speed-to-lead", "tarif": "Web formundan, ortak gelen kutusundan ve müşteri kayıt sisteminden gelen potansiyel müşterilere hiçbirini cevapsız bırakmadan hızlıca dönüş yapılmasını istiyorum.", "model": "haiku"}
+{"ad": "ecc:inventory-demand-planning", "tarif": "Mağazamdaki stok seviyelerini takip edip gelecek ayki satış tahminine göre ne zaman, ne kadar mal sipariş etmem gerektiğini planlamasını istiyorum.", "model": "haiku"}
+{"ad": "cockroachdb:managing-certificates-and-encryption", "tarif": "Veritabanı sunucularımdaki güvenlik sertifikalarının süresinin dolmasını izlemesini ve yenilemelerini planlamasını istiyorum.", "model": "haiku"}
+{"ad": "comparative-evaluation", "tarif": "İki farklı yapay zeka cevabını yan yana koyup hangisinin daha iyi olduğunu deneyerek sıralamasını istiyorum.", "model": "haiku"}
+{"ad": "ai-alignment-reasoning--value-specification", "tarif": "Şirketimizin değerlerini ve kullanıcıların beklentilerini yapay zeka sistemine verilecek kurallara çevirmesine yardımcı olmasını istiyorum.", "model": "haiku"}
+{"ad": "azure-ai-translation-text-py", "tarif": "Uygulamama bir metni başka dile çevirecek hizmeti Python ile nasıl bağlayacağımı adım adım göstermesini istiyorum.", "model": "haiku"}
+{"ad": "close-automation", "tarif": "Satış kayıt sistemime yeni müşteri adayları eklemek, aramaları ve mesajları yönetmek için kısa komutlarla işimi hızlandırmasını istiyorum.", "model": "haiku"}
+{"ad": "ecc:hipaa-compliance", "tarif": "Sağlık verilerini koruyan bir uygulama kurarken gizlilik kurallarına uymak, erişim kayıtlarını tutmak ve güvenlik önlemlerini almak istiyorum.", "model": "haiku"}
+{"ad": "sms", "tarif": "Müşterilerime SMS ve WhatsApp üzerinden hoş geldin, terk edilmiş sepet ve geri kazanım mesajlarından oluşan otomatik akışlar planlamak istiyorum.", "model": "haiku"}
+{"ad": "planetscale:11-change-gates-and-approval-contract", "tarif": "Veritabanımda, depomda ya da erişim anahtarlarımda değişiklik yapılmadan önce mutlaka benden onay istenmesini sağlamak istiyorum.", "model": "haiku"}
+{"ad": "simple-animation", "tarif": "Basit bir hareketli tanıtım filmi hazırlatıp yazılımın sahnelerinde akıcı geçişler olmasını istiyorum.", "model": "haiku"}
+{"ad": "omni-cache", "tarif": "Yapay zeka cevap önbelleğimin istatistiklerini görmek, eski kayıtları temizlemek ve ne kadar süre saklanacağını ayarlamak istiyorum.", "model": "haiku"}
+{"ad": "detecting-data-and-model-poisoning", "tarif": "Eğitim verimde ya da indirdiğim yapay zeka modelinde gizlice zararlı veri ya da arka kapı olup olmadığını taramak istiyorum.", "model": "haiku"}
+{"ad": "vanta-mcp-plugin:fix-test", "tarif": "Uyumluluk kontrolümde başarısız görünen bir testi düzeltmek için gerekli kod değişikliğini yapıp değişikliği incelemeye göndermesini istiyorum.", "model": "haiku"}
+{"ad": "brand-review", "tarif": "Yayına vermeden önce bir metnin marka sesime, yazım kurallarıma ve mesaj başlıklarıma uyup uymadığını kontrol edip düzeltmelerini göstermesini istiyorum.", "model": "haiku"}
+{"ad": "cf-crawl", "tarif": "Bir web sitesinin tüm sayfalarını gezip içeriklerini düzenli metin dosyaları halinde kaydetmesini istiyorum.", "model": "haiku"}
+{"ad": "add-to-pipeline", "tarif": "Bir şirketi potansiyel müşteri listeme ekleyip sıcak aday gibi etiketlemesini istiyorum.", "model": "haiku"}
+{"ad": "notfair:paid-ads-integrations", "tarif": "Reklam hesabımı bağlamak, hangi reklam işlemlerini yapabildiğini görmek ve erişim sorunlarını çözmek istiyorum.", "model": "haiku"}
+{"ad": "ito-baskets", "tarif": "Tahmin piyasalarındaki etkinlik sepetlerine bakıp birini tezimle karşılaştırmasını ve sadece okuma yaparak araştırma yapmasını istiyorum.", "model": "haiku"}
+{"ad": "design-research:research-repository", "tarif": "Ekibimizin yaptığı kullanıcı araştırmalarını kolayca bulunabilir ve tekrar kullanılabilir bir arşive dönüştürmesini istiyorum.", "model": "haiku"}
+{"ad": "detecting-indirect-prompt-injection", "tarif": "Yapay zekaya okutacağım web sayfalarına ya da belgelere gizlenmiş zararlı talimatları tespit edip savunma önerileri vermesini istiyorum.", "model": "haiku"}
+{"ad": "incident-io:on-call", "tarif": "Nöbetçi takvimimizde kimin o an nöbette olduğunu, vardiya değişikliklerini ve çağrıların nasıl yönlendirildiğini öğrenmek istiyorum.", "model": "haiku"}

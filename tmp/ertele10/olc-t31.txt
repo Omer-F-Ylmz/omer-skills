@@ -1,0 +1,11 @@
+YOK carta-investors:carta-agm-deck-builder | departman-verimlilik, departman-belge, octo:personas:exec-communicator
+YOK code-context-finder | departman-backend-dotnet, departman-arastirma-ogrenme, ecc:code-architect
+YOK cockroachdb:auditing-cis-benchmark | departman-belge, departman-surec-ajan-arac, ecc:database-reviewer
+YOK carta-investors:carta-brand-extraction | departman-belge, departman-surec-ajan-arac, design-mastery:brand-architect
+YOK cockroachdb:managing-certificates-and-encryption | departman-surec-plan, departman-surec-ajan-arac, ecc:database-reviewer
+YOK close-automation | departman-arastirma-ogrenme, departman-guvenlik, octo:personas:business-analyst
+YOK ecc:hipaa-compliance | departman-verimlilik, departman-guvenlik, ecc:healthcare-reviewer
+YOK simple-animation | departman-surec-ajan-arac, departman-surec-plan, hyperframes-studio
+YOK vanta-mcp-plugin:fix-test | departman-surec-inceleme, departman-belge, octo:skills:octopus-code-review
+YOK notfair:paid-ads-integrations | departman-arastirma-ogrenme, departman-backend-dotnet, claude-ads:audit-policy-compliance
+tmp/ertele10/tarif31.jsonl: tüm 20/30 · ilk8 11/30

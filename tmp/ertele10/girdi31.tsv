@@ -1,0 +1,30 @@
+Red-Team a Claim	Attack a finding before the operator sees it, and record what survived.
+qbr-prep	Assemble a QBR prep pack for a business review — value moments, usage and adoption themes, risks, and open items, with a deal and relationship snapshot. Combines account_research for the account pictu
+carta-investors:carta-agm-deck-builder	End-to-end AGM deck generator. Extracts a firm's brand identity from their website, pulls live fund data from the Carta MCP (NAV, TVPI, portfolio, capital activity, benchmarks, fees, balance sheet, LP
+n8n-code-python	Write Python in n8n Code nodes (native Python, `language` pythonNative, n8n 2.x). Use when the user explicitly wants Python in a Code node, when migrating old Pyodide/"Python (Beta)" code that used _i
+code-context-finder	Automatically find relevant context from knowledge graph and code relationships
+analyzing-windows-lnk-files-for-artifacts	Parse Windows LNK shortcut files to extract target paths, MAC timestamps,
+cockroachdb:auditing-cis-benchmark	Audits a self-hosted CockroachDB cluster against the CIS CockroachDB Benchmark v1.0.0 Level 1 controls. Supports two audit depths — quick automated scans and full CIS audit procedures. Produces a stru
+carta-investors:carta-brand-extraction	Generates a brand board from a firm's website URL and optional user-provided assets. Analyzes the website to extract theme colors, typography, logos, and imagery, then produces a polished brand board 
+small-business:speed-to-lead	Makes sure no inbound lead goes unanswered. Watches web forms, the shared inbox, and the CRM for new inquiries, qualifies each one against the owner's criteria, drafts a reply in the owner's voice wit
+ecc:inventory-demand-planning	在庫管理、需要予測、補充戦略、およびサプライチェーン最適化。
+cockroachdb:managing-certificates-and-encryption	Manages TLS certificate and encryption key lifecycle across all tiers. Self-Hosted covers certificate expiry monitoring, node/CA/client cert rotation, and Kubernetes cert management. Advanced/BYOC cov
+comparative-evaluation	Run A/B tests, side-by-side comparisons, and preference ranking of AI outputs.
+ai-alignment-reasoning--value-specification	Translate organisational values and user expectations into AI system constraints.
+azure-ai-translation-text-py	|
+close-automation	Automate Close CRM tasks via Rube MCP (Composio): create leads, manage calls/SMS, handle tasks, and track notes. Always search tools first for current schemas.
+ecc:hipaa-compliance	HIPAA準拠実装、セキュリティ対策、監査ログ、およびデータ保護戦略。
+sms	Plan SMS, MMS, and WhatsApp marketing: welcome, abandoned cart, win-back flows; Klaviyo, Twilio, A2P 10DLC
+planetscale:11-change-gates-and-approval-contract	Enforce explicit approval gates for any PlanetScale, database, repository, credential, network, or automation mutation.
+simple-animation	A Motion film.
+omni-cache	Manage the LLM response cache. View cache statistics, clear entries, configure TTL policies, and control semantic-similarity caching thresholds.
+detecting-data-and-model-poisoning	Identify poisoned training data and backdoored ML models across the pipeline using IBM's Adversarial Robustness Toolbox (activation clustering, spectral signatures, trigger reconstruction), Cleanlab f
+vanta-mcp-plugin:fix-test	Fix a failing Vanta compliance test by generating code changes and opening a pull request
+brand-review	Review content against your brand voice, style guide, and messaging pillars, flagging deviations by severity with specific before/after fixes. Use when checking a draft before it ships, when auditing 
+cf-crawl	Crawl entire websites using Cloudflare Browser Rendering /crawl API. Initiates async crawl jobs, polls for completion, and saves results as markdown files. Useful for ingesting documentation sites, kn
+add-to-pipeline	Tag a company and/or add it to a list in Leadfeeder. Use this skill when the user wants to action a company — "tag Acme as Hot Lead", "add Acme to my DACH-Enterprise list", "mark Acme as Tier-1", "put
+notfair:paid-ads-integrations	Discover, connect, and verify NotFair paid-ad integrations and their actual capabilities. Use when asked to connect an ad account, configure an ads MCP, check available tools, troubleshoot access, or 
+ito-baskets	Use when browsing Ito baskets, comparing one to a thesis, or researching prediction-market events; read-only
+design-research:research-repository	Build a repository that makes findings findable, reusable, and cumulative across teams. Use when the same research keeps getting redone. For synthesising one study, use `affinity-diagram`.
+detecting-indirect-prompt-injection	Detect and defend against indirect prompt injection hidden in web pages, documents,
+incident-io:on-call	Who is on call in incident.io and how they get paged: schedules, rotas and shifts, overrides, cover requests, escalation paths, and pages (escalations). Use whenever you're working with any of these i
