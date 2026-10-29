@@ -5,8 +5,11 @@ C  iki geçiş: model yanıtlar, sonra eşleşen ders(ler)e göre kendi yanıtı
 Kullanım: python tools/ders_test/tasarim.py [A|B|C ...]  → JSON; ayrıca getir geri çağırma (bekle id'si ≤K içinde mi, model yok)."""
 import importlib
 import json
+import os
 import re
+import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -15,16 +18,36 @@ sys.path.insert(0, str(KOK / "tools"))
 dd = importlib.import_module("ders_dongu")
 import ucretsiz_havuz  # noqa: E402
 
-DIL = "\nTürkçe ve kısa yanıtla: hangi adımları atarsın?"
+ZINCIR = ["openrouter", "nvidia", "groq"]
+DIL ="\nTürkçe ve kısa yanıtla: hangi adımları atarsın?"
 
 
 def sor(istem):
-    for _ in range(4):
-        m, _, _ = ucretsiz_havuz.cagir("ozet", istem, max_tokens=400, zaman=60, saglayici="groq")
-        if m is not None:
-            return m
-        time.sleep(10)
-    return None
+    for sag in ZINCIR:  # boş yanıt "cevap yok" sayılmaz: sağlayıcı başına 3 deneme, sonra sıradaki
+        for _ in range(3):
+            m, _, _ = ucretsiz_havuz.cagir("ozet", istem, max_tokens=400, zaman=60, saglayici=sag)
+            if m:
+                return m
+            time.sleep(3)
+    return haiku(dd.onek(istem) + istem)
+
+
+def haiku(istem):  # model merdiveni son halka: Haiku medium (tavan $0,30); aciklama_yaz.claude kalıbı: araçsız, ANTHROPIC_BASE_URL'siz
+    env = {k: v for k, v in os.environ.items() if k != "ANTHROPIC_BASE_URL"}
+    with tempfile.TemporaryDirectory(prefix="tasarim-", ignore_cleanup_errors=True) as bos:
+        r = subprocess.run(["claude", "-p", "--model", "haiku", "--effort", "medium", "--output-format", "json", "--max-turns", "1",
+                            "--tools", "", "--setting-sources", "", "--strict-mcp-config", "--safe-mode",
+                            "--disable-slash-commands", "--no-session-persistence"],
+                           input=istem, capture_output=True, encoding="utf-8", errors="replace", env=env, cwd=bos, timeout=120)
+    try:
+        j = json.loads(r.stdout)
+    except json.JSONDecodeError:
+        return None
+    haiku.maliyet += j.get("total_cost_usd", 0)
+    return (j.get("result") or "").strip() or None
+
+
+haiku.maliyet = 0.0
 
 
 def kol(ad, v):
@@ -62,4 +85,5 @@ if __name__ == "__main__":
             sonuc[ad] = {"uygulanan": ok, "bos": bos, "kacan": kacan}
     finally:
         dd.onek = asil
+    sonuc["haiku_usd"] = round(haiku.maliyet, 3)
     print(json.dumps(sonuc, ensure_ascii=False))
