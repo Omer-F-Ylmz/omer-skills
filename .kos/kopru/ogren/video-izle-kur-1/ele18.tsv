@@ -1,0 +1,19 @@
+ad	tür	grup	repo	lisans	puan	durum	kanıt
+MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	7	ELE-V1	ELE: skill degil, 200MB Docker uygulamasi + ucretli API akisi
+Brag	skill	YENI	latent-spaces/brag	mit	8	ELE-V1	ELE: Hyperframes+uv+ffmpeg bagimliligi kurulu degil, lansman videosu akisi yok (
+PentAGI	repo	YENI	vxcontrol/pentagi	mit	7	ELE-V1	ELE: otonom saldiri ajani, izin kapsami genis, kazanc yok
+Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	7	ELE-V1	ELE: AGPL-3.0 (ağ kopyaleft, kullanım koşulu) + skill değil, sosyal hesap token'
+Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	7	ELE-V1	ELE: 266MB çoklu ajan ofisi uygulaması, bizde karşılığı var (ordu/ajan); gitleak
+Xtool	repo	YENI	xtool-org/xtool	mit	7	ELE-V1	ELE: iOS/Swift derleme araç zinciri, Windows+CC iş akışımızda yok; SS HIGH 57, g
+AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	7	ELE-V1	ELE: SkillSpector 600 sn ZAMAN AŞIMI (tarama eksik); GPU'ya bağlı büyük model çı
+mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	7	ELE-V1	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon,
+Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	7	ELE-V1	ELE: video editörü kütüphanesi, kazanç yok; SkillSpector ZAMAN AŞIMI (tarama eks
+DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	7	ELE-V1	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); dizi üretimi,
+TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	7	ELE-V1	ELE: finans alanı dışı, ücretli LLM API akışı; SS HIGH 45, gl 2, semgrep 12; biz
+Company Brain	repo	YENI	supermemoryai/company-brain	apache-2.0	5	ELE-V1	ELE (Slack botu + ücretli supermemory API)
+UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	7	ELE-V1	ELE: AGPL-3.0 + OmniRoute zaten var; tarama ZAMAN AŞIMI (eksik)
+PYNK	skill	YENI	ralbuque/Pynkaro		7	ELE-V1	ELE: lisans yok (license-gate: kurulmaz); animasyonlu metin, kazanç yok; tarama 
+FreeToken	repo	YENI	FlashML-org/FreeToken	apache-2.0	7	ELE-V1	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir)
+Hindsight	arac	YENI	vectorize-io/hindsight	mit	5	ELE-V1	ELE (ağır servis; hafıza mekanizması UYARLA notu: retain/recall/reflect ayrımı)
+Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	8	ELE-V1	ELE: 'proaktif ve cömertçe' tetik = her yanita sayfa uretimi (token+davranis), b
+Task-CoEvolve	repo	YENI	Agent4Science-UTokyo/Task-CoEvolve		6	ELE-V1	ELE (lisans kapısı: lisanssız repo kurulmaz)

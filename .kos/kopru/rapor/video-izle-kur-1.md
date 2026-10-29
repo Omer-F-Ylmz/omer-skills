@@ -2,13 +2,13 @@
 type: rapor
 status: devam
 tags: [video, kurulum, nihai-36]
-relatedTo: [video-764-1, kurulum-v1]
+relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 ---
-# VIDEO-IZLE-KUR-1 — tur 1 (29 Eki) · ARA KAYIT
-- ADIM 1 envanter: `video_izle_kur_1_envanter.py` → `ogren/video-izle-kur-1/envanter.tsv` 174 tekil (video-764-aday). KURULU 40 · KLONLU 32 · KURULACAK 84 · ELE-V1 18 (güvenlik/lisans kanıtlı). Kalan 116 → 3 tur (40/40/36).
-- Kapsam dışı (ölçülmedi): v2'deki 235 UYARLA + 3 AL satırının araç adı sütunu yok; aday.tsv dışında kalan araç adı çıkarılmadı.
-- Tur 1 (40): 23 kalemin derin json'u var, 17 eksik video `video_derin.py` (Groq ASR) ile kuyrukta; 29 repolu kalem `video_izle_kur_1_tara.py` (SkillSpector/gitleaks/semgrep, RAM kapısı %89) ile `C:\AI\indirilen\video-izle-kur-1`; ADIM 2 çıkarma `video_izle_kur_1_cikar.py` (ücretsiz havuz).
-- ADIM 2 çıkarma (Groq, Claude $0): 40 kalemden 9 ok (`tur1-cikar.jsonl`), 14 model-yok (havuz düştü, yeniden koşulacak), 17 derin-yok.
-- Derin izleme ~25 dk'da 0/17: ilk IG reel'inde yt-dlp indirmesi takıldı (süreç canlı, ilerleme dosyası değişmedi). Tarama: 29 repodan 1'i (magpie) SkillSpector'da, sonuç 0. RAM %92-95 (başka oturumun 4 haiku `claude -p` süreci), sonra %85.
-- ADIM 3 kurulum ve ADIM 4 usta kartı: başlamadı (tarama sonucu yok). Arka işler oturum ölünce ölür (breakaway reddi); 3 betik kaldığı yerden devam eder.
-- SIRA: `arka-istek` ile tara+derin yeniden başlat → model-yok 14 için cikar yeniden → MIT/Apache + tarama temiz olanları kur. Yeni 800-900 link için hazır DEĞİL (116 kalem kaldı).
+# VIDEO-IZLE-KUR-1 — tur 2 (29 Eki 13:50) · ARA KAYIT
+- Sayaç: video 815 tekil (ölçüldü); derin var 554, eksik 261 (257 IG) → `derin-eksik.txt`, derin izleme arka görevde (Groq ASR, gözetmen). Tur 1'in 17 derin eksiği bitti (17/17 ok).
+- Envanter 176: KURULU 42 · KLONLU 32 · KURULACAK 102 (EK 7: 18 ELE-V1'in 18'i KURULACAK'a alındı, eski gerekçe kanıt sütununda). Yedek: `envanter-tur1.tsv`.
+- Kurulan (tur 2): Content Research Writer (ComposioHQ) + Voice DNA (hamzafarooq/claude-code-starter, MIT; videodaki repo kanıtlanmadı, aynı adlı en yakın SKILL.md) → `~/.claude/skills` + `dist/video-izle-kur-1/*.zip`, zip_denetle TEMİZ, gitleaks temiz. Usta kartı yok.
+- Ücretsiz havuz bugün tükendi (ölçüldü: Gemini/OpenRouter/OmniRoute günlük kota dolu, Groq ~3 sa soğuma, Mistral 58 dk soğuma). Tur 1 çıkarma 31 kalem + v2 238 satır araç adı çıkarma (`video_izle_kur_1_v2arac.py`) Mistral açılınca `video_izle_kur_1_bekle.py` ile kendiliğinden koşar.
+- Güvenlik taraması `tara-tur2.tsv` (58 kalem, 47 repolu; önce PentAGI/Xtool/TradingAgents/FreeToken, sonra 14 ELE, sonra tur 1) arka görevde; SkillSpector 2400 s, semgrep 1500 s, zaman aşımı satırları yeniden taranır. `guvenlik-4.md` tarama bitince yazılacak.
+- Arka görevler (Görev Zamanlayıcı, oturumdan bağımsız): tara-tur2, derin-tur2, bekle-tur2 → günlükler `ogren/video-izle-kur-1/*.log`.
+- SIRA: guvenlik-4.md (4 kalemin SS/gitleaks örnekleri) → tarama temiz tur 1 kalemlerini kur + ölç + zip → v2 araç adlarını envantere birleştir → usta kartları. Yeni 800-900 link için hazır DEĞİL (102 kalem kaldı).

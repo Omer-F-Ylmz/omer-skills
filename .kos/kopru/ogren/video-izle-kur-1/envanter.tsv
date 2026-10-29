@@ -5,28 +5,28 @@ Graphify	repo	UYARLA				KURULU	skill:graphify
 HyperFrames	arac	UYARLA				KURULU	plugin:hyperframes@hyperframes
 Replica	skill	UYARLA				KURULACAK	
 TradingView MCP	mcp	YENI	tradesdontlie/tradingview-mcp	other	4	KLONLU	klon:tradesdontlie__tradingview-mcp
-MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	7	ELE-V1	ELE: skill degil, 200MB Docker uygulamasi + ucretli API akisi
+MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	7	KURULACAK	ELE: skill degil, 200MB Docker uygulamasi + ucretli API akisi | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Paperclip	repo	YENI	paperclipai/paperclip	mit	5	KURULU	skill:paperclip
-Brag	skill	YENI	latent-spaces/brag	mit	8	ELE-V1	ELE: Hyperframes+uv+ffmpeg bagimliligi kurulu degil, lansman videosu akisi yok (
-PentAGI	repo	YENI	vxcontrol/pentagi	mit	7	ELE-V1	ELE: otonom saldiri ajani, izin kapsami genis, kazanc yok
+Brag	skill	YENI	latent-spaces/brag	mit	8	KURULACAK	ELE: Hyperframes+uv+ffmpeg bagimliligi kurulu degil, lansman videosu akisi yok ( | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
+PentAGI	repo	YENI	vxcontrol/pentagi	mit	7	KURULACAK	ELE: otonom saldiri ajani, izin kapsami genis, kazanc yok | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Context Mode	arac	UYARLA				KURULU	plugin:context-mode@context-mode
 Grill Me	skill	YENI	RobMitt/grill-me-skill		4	KURULACAK	
 Hypit	repo	YENI	hypit-ai/hypit	other	5	KURULACAK	
 gstack	repo	UYARLA				KURULU	skill:gstack
 prompts.chat	mcp	YENI	f/prompts.chat	other	5	KURULACAK	
-Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	7	ELE-V1	ELE: AGPL-3.0 (ağ kopyaleft, kullanım koşulu) + skill değil, sosyal hesap token'
+Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	7	KURULACAK	ELE: AGPL-3.0 (ağ kopyaleft, kullanım koşulu) + skill değil, sosyal hesap token' | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Academic Research Skills	repo	UYARLA				KURULACAK	
 Prime Agent	arac	YENI	PrimeIntellect-ai/prime-agent	other	6	KURULACAK	
 ScrapeGraphAI	repo	UYARLA				KURULACAK	
-Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	7	ELE-V1	ELE: 266MB çoklu ajan ofisi uygulaması, bizde karşılığı var (ordu/ajan); gitleak
+Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	7	KURULACAK	ELE: 266MB çoklu ajan ofisi uygulaması, bizde karşılığı var (ordu/ajan); gitleak | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 MotionSites.ai	arac	YENI-kaynaksiz			6	KURULU	kaynak-kutuphane
 Generate	skill	UYARLA				KURULACAK	
 VibeWise	skill	OLU?	vibewisehq/vibewise			KURULU	plugin:vibe-wise@vibe-wise
 Ponytail	repo	UYARLA				KURULU	plugin:ponytail@ponytail
 Google Maps Scraper Kit	repo	UYARLA				KURULACAK	
 Founder	skill	UYARLA				KURULU	npm/uv/pip/mcp/tools
-Xtool	repo	YENI	xtool-org/xtool	mit	7	ELE-V1	ELE: iOS/Swift derleme araç zinciri, Windows+CC iş akışımızda yok; SS HIGH 57, g
-AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	7	ELE-V1	ELE: SkillSpector 600 sn ZAMAN AŞIMI (tarama eksik); GPU'ya bağlı büyük model çı
+Xtool	repo	YENI	xtool-org/xtool	mit	7	KURULACAK	ELE: iOS/Swift derleme araç zinciri, Windows+CC iş akışımızda yok; SS HIGH 57, g | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
+AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	7	KURULACAK	ELE: SkillSpector 600 sn ZAMAN AŞIMI (tarama eksik); GPU'ya bağlı büyük model çı | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Video Use	skill	UYARLA				KURULU	skill:video-use
 /linkedin-roast	skill	OLU?	yogibagus/linkedin-roaster			KURULACAK	
 CareerOps	repo	YENI	TelivityAI/careerops	apache-2.0	6	KURULACAK	
@@ -46,23 +46,23 @@ OpenSandbox	repo	YENI	opensandbox-group/OpenSandbox	apache-2.0	6	KLONLU	klon:ope
 TRADER	repo	YENI	timercrack/trader	apache-2.0	5	KURULACAK	
 GODMODE	arac	UYARLA				KURULACAK	
 Claude Watch	skill	UYARLA				KLONLU	klon:taoufik123-collab__claude-watch
-mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	7	ELE-V1	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon,
-Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	7	ELE-V1	ELE: video editörü kütüphanesi, kazanç yok; SkillSpector ZAMAN AŞIMI (tarama eks
+mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	7	KURULACAK	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon, | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
+Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	7	KURULACAK	ELE: video editörü kütüphanesi, kazanç yok; SkillSpector ZAMAN AŞIMI (tarama eks | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Flick	skill	OLU?	metafizzy/flickity			KURULACAK	
-DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	7	ELE-V1	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); dizi üretimi,
+DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	7	KURULACAK	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); dizi üretimi, | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 social agents (meta agent pipeline)	repo	YENI-kaynaksiz			5	KURULACAK	
-TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	7	ELE-V1	ELE: finans alanı dışı, ücretli LLM API akışı; SS HIGH 45, gl 2, semgrep 12; biz
+TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	7	KURULACAK	ELE: finans alanı dışı, ücretli LLM API akışı; SS HIGH 45, gl 2, semgrep 12; biz | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 security-audit	skill	CIFT->Security Audit (Cloudflare)				KURULU	skill:security-audit
 Ollaya	repo	UYARLA				KLONLU	klon:ollaya-dev__ollaya
 ARES	arac	OLU?	sweetsoftware/Ares			KURULACAK	
 VoiceStudio	arac	UYARLA				KURULU	skill:voicestudio
-Company Brain	repo	YENI	supermemoryai/company-brain	apache-2.0	5	ELE-V1	ELE (Slack botu + ücretli supermemory API)
+Company Brain	repo	YENI	supermemoryai/company-brain	apache-2.0	5	KURULACAK	ELE (Slack botu + ücretli supermemory API) | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Mantis	repo	YENI	mantisbt/mantisbt		5	KURULACAK	
 CROWD (isimsiz simülasyon aracı)	arac	YENI-kaynaksiz			6	KURULACAK	
 Sullivan	arac	YENI-kaynaksiz			6	KURULACAK	
 MarkItDown MCP	mcp	UYARLA				KURULU	npm/uv/pip/mcp/tools
-UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	7	ELE-V1	ELE: AGPL-3.0 + OmniRoute zaten var; tarama ZAMAN AŞIMI (eksik)
-PYNK	skill	YENI	ralbuque/Pynkaro		7	ELE-V1	ELE: lisans yok (license-gate: kurulmaz); animasyonlu metin, kazanç yok; tarama 
+UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	7	KURULACAK	ELE: AGPL-3.0 + OmniRoute zaten var; tarama ZAMAN AŞIMI (eksik) | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
+PYNK	skill	YENI	ralbuque/Pynkaro		7	KURULACAK	ELE: lisans yok (license-gate: kurulmaz); animasyonlu metin, kazanç yok; tarama  | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 HTML Anything	repo	YENI	nexu-io/html-anything	apache-2.0	6	KURULACAK	
 apple-design	skill	UYARLA				KURULU	skill:apple-design
 fancy components	repo	YENI	danielpetho/fancy	mit	5	KURULU	kaynak-kutuphane
@@ -91,7 +91,7 @@ matpococ/skills	repo	CIFT->Matt Pocock Skills				KURULACAK
 3D Asset Server	mcp	YENI-kaynaksiz			4	KURULACAK	
 OpenQodex	arac	YENI	openqodex/openqodex	apache-2.0	6	KURULACAK	
 Voicebox	arac	YENI	jamiepine/voicebox	mit	6	KLONLU	klon:jamiepine__voicebox
-FreeToken	repo	YENI	FlashML-org/FreeToken	apache-2.0	7	ELE-V1	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir)
+FreeToken	repo	YENI	FlashML-org/FreeToken	apache-2.0	7	KURULACAK	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir) | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Open WebUI	repo	YENI	open-webui/open-webui	other	7	KLONLU	klon:open-webui__open-webui
 /hiring-panel	skill	YENI	alexyc9381/hiring-panel-skill	mit	8	KURULU	KURULDU: npx skills add alexyc9381/hiring-panel-skill -g -a claude-code -y; dist
 Claude Commercial	skill	YENI	opaiiva/claude-commercial-ops-skills		7	KURULACAK	
@@ -102,7 +102,7 @@ AI Stupid Meter	repo	YENI	StudioPlatforms/aistupidmeter-web	mit	7	KLONLU	klon:St
 REA	mcp	YENI	morluto/rea	mit	5	KLONLU	klon:morluto__rea
 Dock	arac	UYARLA				KURULACAK	
 The Premium UI Kit	arac	YENI-kaynaksiz			6	KURULACAK	
-Hindsight	arac	YENI	vectorize-io/hindsight	mit	5	ELE-V1	ELE (ağır servis; hafıza mekanizması UYARLA notu: retain/recall/reflect ayrımı)
+Hindsight	arac	YENI	vectorize-io/hindsight	mit	5	KURULACAK	ELE (ağır servis; hafıza mekanizması UYARLA notu: retain/recall/reflect ayrımı) | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Agentation	mcp	YENI	benjitaylor/agentation	other	6	KURULACAK	
 I Have ADHD	skill	YENI	ayghri/i-have-adhd	mit	7	KURULACAK	
 Cloudroom	arac	YENI	davidondrej/cloudroom-core	apache-2.0	6	KURULACAK	
@@ -114,8 +114,8 @@ Superset	arac	YENI	apache/superset	apache-2.0	6	KLONLU	klon:apache__superset
 Dray	arac	OLU?	CenturyLinkLabs/dray	apache-2.0		KURULACAK	
 Auto Harness	skill	YENI	aiming-lab/AutoHarness	mit	5	KURULU	plugin:autoharness@autoharness
 Vendeo Instagram skill paketi	skill	YENI-kaynaksiz			6	KURULACAK	
-Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	8	ELE-V1	ELE: 'proaktif ve cömertçe' tetik = her yanita sayfa uretimi (token+davranis), b
-Task-CoEvolve	repo	YENI	Agent4Science-UTokyo/Task-CoEvolve		6	ELE-V1	ELE (lisans kapısı: lisanssız repo kurulmaz)
+Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	8	KURULACAK	ELE: 'proaktif ve cömertçe' tetik = her yanita sayfa uretimi (token+davranis), b | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
+Task-CoEvolve	repo	YENI	Agent4Science-UTokyo/Task-CoEvolve		6	KURULACAK	ELE (lisans kapısı: lisanssız repo kurulmaz) | EK7 29Eki 13:36: 18in 18i kurulur (eski: ELE-V1)
 Harness²	repo	UYARLA				KURULU	npm/uv/pip/mcp/tools
 Açık kaynak ElevenLabs alternatifi (adı belirtilmemiş)	arac	YENI-kaynaksiz			6	KURULACAK	
 OpenCut	repo	UYARLA				KLONLU	klon:OpenCut-app__OpenCut
@@ -173,3 +173,5 @@ Gbrain	repo	UYARLA				KURULACAK
 Everything (Everything Claude Code)	repo	CIFT->Everything Claude Code				KURULACAK	
 CC Usage	arac	YENI	ccusage/ccusage	other	7	KURULU	UYARLANDI: tools/ccusage_kiyas.py f099788f. 2 gün: girdi/cache okuma/yazma ±0.0%
 Meta resmi MCP	mcp	YENI-kaynaksiz			4	KURULACAK	
+Content Research Writer	skill	IG-karusel	ComposioHQ/awesome-claude-skills	-		KURULU	tur2: ~/.claude/skills/content-research-writer + dist/video-izle-kur-1 zip; gitleaks temiz
+Voice DNA	skill	IG-karusel	hamzafarooq/claude-code-starter	mit		KURULU	tur2: ~/.claude/skills/voice-dna + dist zip; videodaki repo kanitlanmadi (gh arama: ayni adla en yakin MIT SKILL.md)

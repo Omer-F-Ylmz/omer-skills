@@ -1,0 +1,59 @@
+ad	tür	grup	repo	lisans	puan	durum	kanıt
+PentAGI	repo	YENI	vxcontrol/pentagi	mit	7	ELE-V1	ELE: otonom saldiri ajani, izin kapsami genis, kazanc yok
+Xtool	repo	YENI	xtool-org/xtool	mit	7	ELE-V1	ELE: iOS/Swift derleme araç zinciri, Windows+CC iş akışımızda yok; SS HIGH 57, g
+TradingAgents	repo	YENI	TauricResearch/TradingAgents	apache-2.0	7	ELE-V1	ELE: finans alanı dışı, ücretli LLM API akışı; SS HIGH 45, gl 2, semgrep 12; biz
+FreeToken	repo	YENI	FlashML-org/FreeToken	apache-2.0	7	ELE-V1	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir)
+MoneyPrinterTurbo	repo	YENI	harry0703/MoneyPrinterTurbo	mit	7	ELE-V1	ELE: skill degil, 200MB Docker uygulamasi + ucretli API akisi
+Brag	skill	YENI	latent-spaces/brag	mit	8	ELE-V1	ELE: Hyperframes+uv+ffmpeg bagimliligi kurulu degil, lansman videosu akisi yok (
+Postiz	repo	YENI	gitroomhq/postiz-app	agpl-3.0	7	ELE-V1	ELE: AGPL-3.0 (ağ kopyaleft, kullanım koşulu) + skill değil, sosyal hesap token'
+Munder Difflin	repo	YENI	HarnessMD/munder-difflin	mit	7	ELE-V1	ELE: 266MB çoklu ajan ofisi uygulaması, bizde karşılığı var (ordu/ajan); gitleak
+AirLLM	repo	YENI	lyogavin/airllm	apache-2.0	7	ELE-V1	ELE: SkillSpector 600 sn ZAMAN AŞIMI (tarama eksik); GPU'ya bağlı büyük model çı
+mixamo-llm-mocap	repo	YENI	squall01337/mixamo-llm-mocap	other	7	ELE-V1	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon,
+Diffusion Studio Editor	repo	YENI	diffusionstudio/editor	mpl-2.0	7	ELE-V1	ELE: video editörü kütüphanesi, kazanç yok; SkillSpector ZAMAN AŞIMI (tarama eks
+DramaClaw	repo	YENI	dramaclaw/dramaclaw	other	7	ELE-V1	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); dizi üretimi,
+Company Brain	repo	YENI	supermemoryai/company-brain	apache-2.0	5	ELE-V1	ELE (Slack botu + ücretli supermemory API)
+UnoRouter	arac	YENI	unorouter/unorouter	agpl-3.0	7	ELE-V1	ELE: AGPL-3.0 + OmniRoute zaten var; tarama ZAMAN AŞIMI (eksik)
+PYNK	skill	YENI	ralbuque/Pynkaro		7	ELE-V1	ELE: lisans yok (license-gate: kurulmaz); animasyonlu metin, kazanç yok; tarama 
+Hindsight	arac	YENI	vectorize-io/hindsight	mit	5	ELE-V1	ELE (ağır servis; hafıza mekanizması UYARLA notu: retain/recall/reflect ayrımı)
+Answer Me with HTML	skill	YENI	QingYunA/answer-me-with-html	mit	8	ELE-V1	ELE: 'proaktif ve cömertçe' tetik = her yanita sayfa uretimi (token+davranis), b
+Task-CoEvolve	repo	YENI	Agent4Science-UTokyo/Task-CoEvolve		6	ELE-V1	ELE (lisans kapısı: lisanssız repo kurulmaz)
+Interactive Assets Skill	skill	YENI-kaynaksiz			7	KURULACAK	
+CTA Strategist	skill	YENI-kaynaksiz			7	KURULACAK	
+Magpie	arac	YENI	yetone/magpie	mit	7	KURULACAK	
+CCBaga	arac	YENI	liseami/CCBaga	mit	7	KLONLU	klon:liseami__CCBaga
+Open WebUI	repo	YENI	open-webui/open-webui	other	7	KLONLU	klon:open-webui__open-webui
+Claude Commercial	skill	YENI	opaiiva/claude-commercial-ops-skills		7	KURULACAK	
+Fallow	arac	YENI	fallow-rs/fallow	mit	7	KURULACAK	
+Colibri	repo	YENI	JustVugg/colibri	apache-2.0	7	KLONLU	klon:JustVugg__colibri
+AI Stupid Meter	repo	YENI	StudioPlatforms/aistupidmeter-web	mit	7	KLONLU	klon:StudioPlatforms__aistupidmeter-web
+I Have ADHD	skill	YENI	ayghri/i-have-adhd	mit	7	KURULACAK	
+Claude at Director	skill	YENI-kaynaksiz			7	KURULACAK	
+Slop Monster	skill	YENI	ItsssssJack/SlopMonster	mit	7	KURULACAK	
+MiroFish	repo	YENI	666ghj/MiroFish	agpl-3.0	7	KLONLU	klon:666ghj__MiroFish
+FreeLLMAPI	arac	YENI	tashfeenahmed/freellmapi	mit	7	KLONLU	klon:tashfeenahmed__freellmapi
+Free Claude Code	repo	YENI	Alishahryar1/free-claude-code	other	7	KURULACAK	
+ChatDev 2.0	repo	YENI	OpenBMB/ChatDev	apache-2.0	7	KLONLU	klon:OpenBMB__ChatDev
+TurboVec	repo	YENI	RyanCodrai/turbovec	mit	7	KLONLU	klon:RyanCodrai__turbovec
+Harvey	repo	YENI	ethanplusai/harvey	mit	6	KLONLU	klon:ethanplusai__harvey
+Prime Agent	arac	YENI	PrimeIntellect-ai/prime-agent	other	6	KURULACAK	
+CareerOps	repo	YENI	TelivityAI/careerops	apache-2.0	6	KURULACAK	
+RE Walkthrough Pro	skill	YENI	charlesdove977/re-walkthrough-pro	mit	6	KURULACAK	
+Gropector	repo	YENI	erendevelops/gropector	mit	6	KURULACAK	
+OpenSandbox	repo	YENI	opensandbox-group/OpenSandbox	apache-2.0	6	KLONLU	klon:opensandbox-group__OpenSandbox
+CROWD (isimsiz simülasyon aracı)	arac	YENI-kaynaksiz			6	KURULACAK	
+Sullivan	arac	YENI-kaynaksiz			6	KURULACAK	
+HTML Anything	repo	YENI	nexu-io/html-anything	apache-2.0	6	KURULACAK	
+Reicon	arac	YENI-kaynaksiz			6	KURULACAK	
+OpenQodex	arac	YENI	openqodex/openqodex	apache-2.0	6	KURULACAK	
+Voicebox	arac	YENI	jamiepine/voicebox	mit	6	KLONLU	klon:jamiepine__voicebox
+The Premium UI Kit	arac	YENI-kaynaksiz			6	KURULACAK	
+Agentation	mcp	YENI	benjitaylor/agentation	other	6	KURULACAK	
+Cloudroom	arac	YENI	davidondrej/cloudroom-core	apache-2.0	6	KURULACAK	
+Improve System (Build Partner)	skill	YENI-kaynaksiz			6	KURULACAK	
+Superset	arac	YENI	apache/superset	apache-2.0	6	KLONLU	klon:apache__superset
+Vendeo Instagram skill paketi	skill	YENI-kaynaksiz			6	KURULACAK	
+Açık kaynak ElevenLabs alternatifi (adı belirtilmemiş)	arac	YENI-kaynaksiz			6	KURULACAK	
+ReelMimic	repo	YENI	edenfunf/reelmimic	mit	6	KURULACAK	
+LLM Wiki skill	skill	YENI	sdyckjq-lab/llm-wiki-skill		6	KURULACAK	
+Dioramas	repo	YENI-kaynaksiz			6	KURULACAK	
+auto-handoff	repo	YENI	alexknowshtml/claude-auto-handoff	mit	6	KURULACAK	

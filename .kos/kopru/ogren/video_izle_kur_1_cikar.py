@@ -12,7 +12,7 @@ from ucretsiz_havuz import cagir
 D = K / ".kos/kopru/ogren/video-izle-kur-1"
 n = sys.argv[1]
 OUT = D / f"tur{n}-cikar.jsonl"
-bitti = {json.loads(l)["ad"] for l in open(OUT, encoding="utf-8")} if OUT.exists() else set()
+bitti = {d["ad"] for d in map(json.loads, open(OUT, encoding="utf-8")) if d["durum"] == "ok"} if OUT.exists() else set()  # tur 2: model-yok/derin-yok yeniden
 DERIN = [K / "docs/video-tarama/derin", K / "docs/video-tarama/derin-2"]
 ISTEM = """Asagida "{ad}" ({tur}) adli arac hakkinda video(lar)in transkripti, ekran yazisi (OCR), linkler ve komutlar var.
 YALNIZ bu metinde gecen bilgiyle su JSON'u yaz (uydurma yok; metinde yoksa "yok"):

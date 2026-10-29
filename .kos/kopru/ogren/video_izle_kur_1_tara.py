@@ -14,7 +14,7 @@ S = os.path.join(W, "sonuc.tsv")
 
 aday = [x for x in csv.reader(open(TUR, encoding="utf-8"), delimiter="	")][1:]
 aday = [[x[0], "", "", x[3]] for x in aday if x[3].strip()]
-bitti = {l.split("\t")[0] for l in open(S, encoding="utf-8")} if os.path.exists(S) else set()
+bitti = {l.split("\t")[0] for l in open(S, encoding="utf-8") if "ZAMAN AŞIMI" not in l} if os.path.exists(S) else set()  # tur 2: zaman aşımı satırı yeniden taranır
 
 
 def run(cmd, t=300):
@@ -52,7 +52,7 @@ for x in aday:
     ss, gl, sg = (os.path.join(W, r.split("/")[1] + e) for e in (".ss.json", ".gl.json", ".sg.json"))
     za = set()
     if not os.path.exists(ss):
-        if run(["skillspector", "scan", d, "--no-llm", "--format", "json", "--output", ss], 600)[1] == "ZAMAN AŞIMI":
+        if run(["skillspector", "scan", d, "--no-llm", "--format", "json", "--output", ss], 2400)[1] == "ZAMAN AŞIMI":
             za.add("ss")
     if not os.path.exists(gl):
         if run(["gitleaks", "detect", "--no-git", "--redact", "--no-banner", "--source", d, "--report-format", "json", "--report-path", gl])[1] == "ZAMAN AŞIMI":
@@ -60,7 +60,7 @@ for x in aday:
     while psutil.virtual_memory().percent > 89:  # RAM kapisi (kural <=%89)
         time.sleep(30)
     if not os.path.exists(sg):
-        c, o = run(["semgrep", "scan", "--config", "p/default", "--metrics=off", "--quiet", "--json", d], 300)
+        c, o = run(["semgrep", "scan", "--config", "p/default", "--metrics=off", "--quiet", "--json", d], 1500)
         if o.strip().startswith("{"):
             open(sg, "w", encoding="utf-8").write(o)
         elif o == "ZAMAN AŞIMI":
