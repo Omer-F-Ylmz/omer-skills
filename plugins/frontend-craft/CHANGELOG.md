@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.10.0 — 2026-10-28
+- Bölüm 13 Markaya özel malzeme: AI-slop yasak listesi, biçim seçimi (görsel+etkileşim / 3D / kare dizisi), malzeme kaynağı `tools/uret_malzeme.py`, pahalı videoda önce ucuz taslak (SITE-MALZEME-1).
+
 ## 1.7.0 — 2026-10-12
 - `scripts/yakinsama.mjs`: koşular arası tekdüzelik (font ailesi / zemin sınıfı / düzen eş çift payı) + `--gecmis` son 5 proje. slop.mjs her koşuda imzayı geçmişe yazar. Bölüm 3a yakınsama kırıcı: geçmişteki font/zemin tekrar edilmez, refleks seçimler (Georgia, Iowan, krem zemin) yasak, font/zemin brief sözcüğünden türetilir (TASARIM-2).
 - `references/yon-hatti.md`: SIRA'nın her adımında hangi skill/MCP (katalog, design-dna, Stitch, Figma, impeccable, baseline-ui, 21st, claude-design); Bölüm 10'dan tek satır bağlantı.

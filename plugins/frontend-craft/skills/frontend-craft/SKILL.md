@@ -164,3 +164,9 @@ Tur N | mod | PNG yolları | sapma tablosu | audit (+SLOP) | KANIT (FREE): ana/n
 - Bu iki inceleme Bölüm 4 kabul kriterlerinin yerine geçmez, üstüne gelir; `audit.mjs` PASS olmadan teslim kapanmaz.
 - Design eklentisi kapalıysa kapı atlanır, tur raporuna "design incelemesi yok (eklenti kapalı)" yazılır — sessizce geçilmez.
 - Desktop'taki bir Design projesini okumak gerekirse cc-kopru'nun `claude-design` köprüsü kullanılır (`mcp__claude-design__list_projects` / `read_file`); proje dosyaları elle kopyalanmaz.
+
+## 13. Markaya özel malzeme (SITE-MALZEME-1; kaynak ders: Obsidian 30-video/2026-10-28-efecpp-ai-site-neden-kotu.md)
+- AI-slop YASAK: beyaz zemin + mor geçiş, 3 kartlı ızgara, varsayılan font (Inter/Roboto/system), hareketsiz sayfa, stok ikon dizisi. Markaya ait görsel/obje yoksa site "jenerik" sayılır.
+- Biçim seç (brief'e yaz): (a) özel görsel + imza etkileşim (tek unutulmaz hareket) · (b) gerçek zamanlı 3D (GLB ≤3 MB, ≤60k yüz, doku ≤1024; Three.js skill'leri) · (c) kaydırmaya bağlı kare dizisi (webp, video son karesinden zincir).
+- Malzeme kaynağı tek yer: `python tools/uret_malzeme.py gorsel|video|3d --kuru` önce (maliyet + sağlayıcı sırası: ücretsiz yerel/HF → ucuz ücretli). Ücretli üretim `--tavan USD` ile; envanter docs/malzeme-envanter.md.
+- Pahalı video modeli: önce ucuz taslak (kısa, düşük çözünürlük, ucuz model), onaylanınca kalite modeli; çok bacaklı videoda her bacak öncekinin son karesinden başlar (`--bacak`).
