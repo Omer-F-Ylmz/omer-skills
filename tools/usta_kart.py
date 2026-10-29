@@ -4,7 +4,7 @@
   python -I tools/usta_kart.py hakem [--n 20]           rastgele kartları Haiku hakemle puanlar (doğru+yararlı oranı)
   python -I tools/usta_kart.py obsidian                 kart dizinini 30-araclar/usta-kart-dizin.md'ye yazar
 Kaynak: aracın kendi SKILL.md/README (ilk ~900 karakter) → Claude bağlamına girmez, doğrudan ücretsiz modele gider."""
-import csv, json, os, random, re, subprocess, sys, time
+import csv, json, os, random, re, subprocess, sys, time, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -81,8 +81,15 @@ def kaynak(k):
     if yol and os.path.exists(yol):
         try:
             t = Path(yol).read_text(encoding="utf-8", errors="replace")
-            t = re.sub(r"^---.*?---\s*", "", t, count=1, flags=re.S)
-            return re.sub(r"\s+", " ", t)[:900]
+            m = re.match(r"^---\s*(.*?)\n---\s*", t, flags=re.S)
+            fm = ""
+            if m:
+                fm = " ".join(l.strip() for l in m.group(1).splitlines() if re.match(r"\s*(name|description|triggers):|\s*- ", l))[:350]
+                t = t[m.end():]
+            t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
+            parcalar = re.split(r"(?m)^(?=#{1,3} )", t)
+            govde = "".join(x for x in parcalar if not re.match(r"#{1,3} .*(preamble|telemetry|upgrade check)", x, flags=re.I))
+            return re.sub(r"\s+", " ", fm + " " + govde)[:900]
         except OSError:
             pass
     return re.sub(r"\s+", " ", f"{k.get('ne','')} {k.get('ba','')} {k.get('etiket','')}")[:600]
@@ -103,6 +110,49 @@ def dogrula_fabrika(adlar):
     return d
 
 
+def temiz(x):
+    x = unicodedata.normalize("NFC", str(x)).replace(chr(0xfffd), "")
+    return "".join(c for c in x if ord(c) >= 32 and not (0x200b <= ord(c) <= 0x200f or 0x3000 <= ord(c) <= 0x9fff or 0xac00 <= ord(c) <= 0xd7af)).strip()
+
+
+DOGRU_ISTEM = """Denetçisin. Her kartın her satırı kaynak metinle DESTEKLENİYOR mu (kaynakta geçen ya da doğrudan çıkarılabilen)? Kaynakla çelişen ya da kaynakta olmayan iddia = false.
+YALNIZ JSON dizisi, kart sırasıyla: [{{"kullanim":[b,b,b],"tuzak":b,"token_ipucu":b}}] (b = true/false).
+
+{kalemler}"""
+
+
+def ikinci_goz(out, grup):
+    """Her iddia satiri kaynaga karsi: desteklenmeyen satir silinmez, 'dogrulanamadi' alanina tasinir."""
+    import ucretsiz_havuz as H
+    NLC = chr(10)
+    kal = NLC.join(f"### {i+1}. {k['ad']}" + NLC + f"KAYNAK: {kaynak(k)}" + NLC + "KART: " + json.dumps({x: c[x] for x in ("kullanim", "tuzak", "token_ipucu")}, ensure_ascii=False) for i, (c, k) in enumerate(zip(out, grup)))
+
+    def d(m):
+        try:
+            a = json.loads(m[m.index("["):m.rindex("]") + 1])
+        except (ValueError, json.JSONDecodeError):
+            return "json"
+        return None if isinstance(a, list) and len(a) == len(out) and all(isinstance(e, dict) for e in a) else "sayi"
+    m, _, _ = H.cagir("ozet", DOGRU_ISTEM.format(kalemler=kal), max_tokens=1500, haric_aile="anthropic", dogrula=d, etiket="usta-kart-dogrula")
+    if not m:
+        for c in out:
+            c["dogrulanamadi"] = ["(denetlenemedi)"]
+        return
+    a = json.loads(m[m.index("["):m.rindex("]") + 1])
+    for c, v in zip(out, a):
+        bad = []
+        ku = v.get("kullanim") if isinstance(v.get("kullanim"), list) else []
+        keep = [x for i, x in enumerate(c["kullanim"]) if i >= len(ku) or ku[i] is not False]
+        bad += [x for x in c["kullanim"] if x not in keep]
+        c["kullanim"] = keep
+        for f in ("tuzak", "token_ipucu"):
+            if v.get(f) is False:
+                bad.append(c[f])
+                c[f] = ""
+        if bad:
+            c["dogrulanamadi"] = bad
+
+
 def grup_uret(grup):
     import ucretsiz_havuz as H
     adlar = [k["ad"] for k in grup]
@@ -118,9 +168,10 @@ def grup_uret(grup):
         o = str(e.get("ornek") or "").strip()
         e["ornek"] = o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"])  # uydurma komut kalıbı: örnek kaynakta yoksa çağrı adı
         e["kombin"] = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
-        out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [str(x)[:200] for x in e["kullanim"][:3]], "tuzak": str(e["tuzak"])[:220],
-                    "token_ipucu": str(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in (e["kombin"] if isinstance(e["kombin"], list) else [e["kombin"]])[:3]],
+        out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
+                    "token_ipucu": temiz(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in (e["kombin"] if isinstance(e["kombin"], list) else [e["kombin"]])[:3]],
                     "ornek": str(e["ornek"])[:220], "model": kol, "tarih": int(time.time())})
+    ikinci_goz(out, grup)
     return out, kol, log
 
 
@@ -178,7 +229,7 @@ def hakem(n):
     U = list(oku_usta().values())
     ornek = random.sample(U, min(n, len(U)))
     K = {k["ad"]: k for k in kartlar()}
-    par = "\n".join(f"[{i}] {c['ad']} | kaynak: {kaynak(K[c['ad']])[:350]}\n kart: {json.dumps({x: c[x] for x in ALANLAR}, ensure_ascii=False)}" for i, c in enumerate(ornek))
+    par = "\n".join(f"[{i}] {c['ad']} | kaynak: {kaynak(K[c['ad']])}\n kart: {json.dumps({x: c[x] for x in ALANLAR}, ensure_ascii=False)}" for i, c in enumerate(ornek))
     ist = ("Hakemsin. Her kart için: kaynak metne göre DOĞRU (uydurma/yanlış yok) ve YARARLI (somut, genel geçer değil) mi? "
            'YALNIZ JSON dizisi: [{"i":0,"dogru":true,"yararli":true,"neden":"≤10 kelime"}...]\n\n' + par)
     r = subprocess.run(["claude", "-p", "--model", "claude-haiku-5-5", "--no-session-persistence"], input=ist, capture_output=True, text=True, encoding="utf-8", timeout=300, env=dict(os.environ), creationflags=0x08000000)
@@ -189,6 +240,41 @@ def hakem(n):
     for e in a:
         if not (e.get("dogru") and e.get("yararli")):
             print(" RED", ornek[e["i"]]["ad"], e.get("neden"))
+
+
+def hazirla(grup_n):
+    """Haiku kolu: mevcut kartların kalemlerini grup_n'lik istem dosyalarına yazar (alt ajan okur, g<i>.json yazar)."""
+    U = oku_usta()
+    K = [k for k in kartlar() if k["ad"] in U]
+    d = KOK / ".kos/kopru/usta-haiku"
+    d.mkdir(parents=True, exist_ok=True)
+    for i in range(0, len(K), grup_n):
+        g = K[i:i + grup_n]
+        kal = "\n".join(f"### {j+1}. {k['ad']} ({k['tur']})\n{kaynak(k)}" for j, k in enumerate(g))
+        (d / f"g{i//grup_n}.txt").write_text(ISTEM.format(n=len(g), kalemler=kal), encoding="utf-8")
+    print("istem", -(-len(K) // grup_n), "kalem", len(K))
+
+
+def isle(grup_n):
+    """Haiku çıktısı g<i>.json'u aynı süzgeçle haiku.jsonl'e yazar."""
+    d = KOK / ".kos/kopru/usta-haiku"
+    K = [k for k in kartlar() if k["ad"] in oku_usta()]
+    out = []
+    for i in range(0, len(K), grup_n):
+        f = d / f"g{i//grup_n}.json"
+        if not f.exists():
+            print("YOK", f.name); continue
+        m = f.read_text(encoding="utf-8")
+        a = json.loads(m[m.index("["):m.rindex("]") + 1])
+        for e, k in zip(a, K[i:i + grup_n]):
+            src = kaynak(k)
+            o = str(e.get("ornek") or "").strip()
+            ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
+            out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
+                        "token_ipucu": temiz(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in ko[:3]],
+                        "ornek": (o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-medium", "tarih": int(time.time())})
+    (d / "haiku.jsonl").write_text("\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n", encoding="utf-8")
+    print("kart", len(out))
 
 
 def obsidian():
@@ -204,4 +290,4 @@ def obsidian():
 if __name__ == "__main__":
     a = sys.argv[1:]
     g = lambda b, v: int(a[a.index(b) + 1]) if b in a else v
-    {"say": say, "uret": lambda: uret(g("--n", 50), g("--is", 3)), "dongu": lambda: dongu(g("--hedef", 400), g("--is", 3)), "hakem": lambda: hakem(g("--n", 20)), "obsidian": obsidian}[a[0]]()
+    {"say": say, "uret": lambda: uret(g("--n", 50), g("--is", 3)), "dongu": lambda: dongu(g("--hedef", 400), g("--is", 3)), "hakem": lambda: hakem(g("--n", 20)), "obsidian": obsidian, "hazirla": lambda: hazirla(g("--g", 8)), "isle": lambda: isle(g("--g", 8))}[a[0]]()
