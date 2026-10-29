@@ -40,3 +40,14 @@ Notlar:
 | Blender Lab MCP | blender-mcp.exe (ahujasid, MIT) zaten kurulu | resmi Blender Lab deposu bulunamadi; sinif AYNI-AILE kaldi | yok |
 
 Sapmalar: usta karti araci tools/ altinda yok, kart uretilmedi. Playwright/gitleaks bulgulari yer tutucu, gercek sizinti yok. SkillSpector: kurulan sey skill degil, calistirilmadi.
+
+## TUR 4 (29 Eki, kısmi)
+
+Gruplar (737 KURULACAK, `rapor/tur4-gruplar.tsv`): site 225 · repo 163 · paket 105 · skill 68 · uygulama 48 · yöntem 42 · plugin 32 · model 29 (yerel-medya-1'e bırakıldı) · mcp 19 · hesap 6 (en sona).
+
+Yapılan:
+- SİTE 225 → katalog satırı `docs/kaynak-kutuphane/site-katalog-tur4.tsv`, tsv'de KURULU-KANIT (kurulum yok, yalnız katalog).
+- Skill 4 → diskte aynı araç doğrulandı: skill-creator, frontend-design, Remotion Skills (remotion-best-practices), Vibesec (vibesec-skill).
+- Güncel dağılım: KURULU-KANIT 445 · KURULACAK 508 · AYNI-AİLE 1 · BULUNAMADI 1.
+
+Yapılmayan: skill (64), paket, repo, MCP, plugin kurulumu ve usta kartı (bu tur bütçesi); sonraki tur skill → paket → repo → MCP sırasıyla devam. Çoğu skill satırında ad/URL boş, tek tek aday araştırması gerekiyor.

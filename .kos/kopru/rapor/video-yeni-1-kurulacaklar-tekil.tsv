@@ -1,6 +1,6 @@
 sinif	ad	tur	url/komut	kanit	kopya	kod	ne isi yarar
 KURULACAK	System Design Primer	repo	github.com/donnemartin/system-design-primer (?)	benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DdzOasRCJ9h	Ölçeklenebilirlik, önbellek, yük dengeleme gibi sistem tasarımı kavramlarını öğretir
-KURULACAK	Kokonut UI	SİTE	kokonutui.com	yalniz-katalog | tur2: klon var C:/AI/indirilen/kokonut-labs__kokonutui, projeye eklenmedi	2	De_J0aOl9SJ	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
+KURULU-KANIT	Kokonut UI	SİTE	kokonutui.com	yalniz-katalog | tur2: klon var C:/AI/indirilen/kokonut-labs__kokonutui, projeye eklenmedi | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	De_J0aOl9SJ	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
 KURULACAK	shadcn/ui	kütüphane	npx shadcn add	benzer:C:/AI/indirilen/shadcn-ui__ui | tur2: klon var indirilen/shadcn-ui__ui (remote shadcn-ui/ui), kütüphane projeye eklenir	1	De_J0aOl9SJ	Skiper/Kokonut gibi kütüphanelerin kurulum altyapısı olan bileşen sistemi
 KURULACAK	GitDiagram	araç		benzer:~/.claude/skills/diagram | tur2: skills/diagram gstack diyagram skill'i, GitDiagram değil	1	DfCHfMxR8yq	Repoyu görsel diyagrama çevirir, dosya bağlantılarını gösterir
 KURULACAK	Anime.js	kütüphane	animejs.com (?)	yalniz-katalog | tur2: yerelde yok	1	DdQkBgtxYe2	Web'de her şeyi animasyonlayan kütüphane; scroll gözlemci, stagger, SVG araçları
@@ -18,15 +18,15 @@ KURULACAK	n8n Agent Builder Skill	skill		benzer:~/.claude/skills/agent_builder |
 KURULACAK	liquid-glass-js	repo	github.com/dashersw/liquid-glass-js	yalniz-katalog | tur2: yerelde yok	1	DYNW3X7J2TH	Apple Liquid Glass esintili efektler
 KURULU-KANIT	Hyperframes (HeyGen)	skill		benzer:~/.claude/plugins/cache\hyperframes\hyperframes | tur2: plugins/cache+marketplaces/hyperframes, known_marketplaces repo=heygen-com/hyperframes	1	De2dMErAprH	Claude ve kodla hareketli grafik, animasyonlu yazı, geçiş üretir
 KURULU-KANIT	SkillSpector (NVIDIA) (?)	repo		benzer:_inv_uv.txt | tur2: skillspector.exe ~/.local/bin, çalışıyor (API anahtarsız analizörler atlanıyor)	1	De3VPoaTUVn	Skill'i kurmadan önce 68 zafiyet deseni/17 kategoride tarar (statik hızlı mod + LLM derin mod); skill klasörü, SKILL.md, repo veya zip
-KURULACAK	NVIDIA NIM	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil	1	De4qvI2zaCe	DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
-KURULACAK	OpenRouter	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil	1	De4qvI2zaCe	Qwen, Kimi, Llama, MiniMax gibi ücretsiz modeller; dakikada 20 istek
+KURULU-KANIT	NVIDIA NIM	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4qvI2zaCe	DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
+KURULU-KANIT	OpenRouter	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4qvI2zaCe	Qwen, Kimi, Llama, MiniMax gibi ücretsiz modeller; dakikada 20 istek
 KURULACAK	Open Code Review (Alibaba)	repo	github.com/alibaba/opencodereview (?)	benzer:~/.claude/skills/code-review | tur2: skills/code-review = llama.cpp inceleme skill'i, alibaba/opencodereview değil	1	DezJhNJhjqi	Pull request'leri analiz edip hata/performans öneren AI kod inceleme CLI'ı (Apache-2.0, npm, Claude Code/Codex/Cursor/Kimi destekli)
 KURULU-KANIT	OpenMontage	repo	github.com/calesthio/OpenMontage (?)	benzer:envanter.tsv:ikisi:skill | tur2: dist/link27-openmontage + anthropic-skills:openmontage-paket kurulu; calesthio kaynağı doğrulanamadı | tur3: klon araclar/openmontage (calesthio, AGPL-3.0); gitleaks 23 (test/skill-doc yer tutucu), semgrep 11 orta/dusuk; AGPL: ag uzerinden sunulursa kaynak acilmali	1	DfAG3UkyKi2	Senaryodan render'a tüm YouTube videosunu üreten açık kaynak ekip; 100+ araç, 700 ajan skill'i
 KURULACAK	ComfyUI	araç		yalniz-katalog | tur2: where comfyui boş	2	DfCrknOAoua	Openjutsu'nun üzerinde çalıştığı iş akışı motoru
 KURULU-KANIT	Netlify Drop	SİTE	app.netlify.com/drop	benzer:_inv_mcp.txt | tur2: netlify MCP kurulu (gateway); Drop sitesi kurulum gerektirmez | tur3: site referansi: kurulum yok; netlify MCP kayitli; katalog satiri	1	De-blYnCBbn	Hazır siteyi sürükle-bırak ile ücretsiz yayına alma
-KURULACAK	Pinterest	SİTE		benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DeTqN3uEidC	Görsel ilham panosu
+KURULU-KANIT	Pinterest	SİTE		benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Görsel ilham panosu
 KURULU-KANIT	AutoClip	repo		benzer:~/.claude/skills/autoclip-paket | tur2: skills/autoclip-paket kurulu; uygulama/repo kurulu değil | tur3: klon araclar/autoclip (zhouxiaoka/autoclip, MIT, 9.8k yildiz; video kaynagi belirsiz, en yakin aday); gitleaks 31 (testler/doc yer tutucu), semgrep 0; calistirilmadi	1	De__0Eok8OB	Uzun videoyu AI ile viral kliplere çeviren açık kaynak araç (altyazı, reframe, başlık)
-KURULACAK	darkmodedesign.com	SİTE	darkmodedesign.com	benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DfASJnjIYe2	Koyu mod site galerisi
+KURULU-KANIT	darkmodedesign.com	SİTE	darkmodedesign.com	benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Koyu mod site galerisi
 KURULU-KANIT	REA (Reverse Engineer Anything)	MCP		benzer:~/.claude/skills/reverse-engineer-anything | tur2: mcpServers.rea (tools/rea-mcp-compact.mjs) + skills/reverse-engineer-anything	1	De4B-SgiU5i	207 araçlı MCP sunucusu, uygulama/APK ters mühendislik
 KURULACAK	LLM Council	repo		benzer:envanter.tsv:CC:plugin-skill | tur2: consciousness-council başka araç	1	De6gVFpCFmE	Karpathy'nin çok modelli danışman kurulu; videoda tek Claude'a 5 danışman rolü + başkan olarak uyarlanmış
 KURULU-KANIT	obra/superpowers	skill	obra/superpowers	benzer:~/.claude/plugins/cache\claude-plugins-official\superpowers | tur2: plugins/cache/claude-plugins-official/superpowers 6.4.1+7.0.0	2	DeJu_M5inR0	GitHub'da en çok yıldızlı Claude Code/Codex skill'i (295k): kod yazmadan önce plan, test, debug
@@ -39,7 +39,7 @@ KURULU-KANIT	Playwright MCP	MCP		benzer:~/.claude/plugins/cache\claude-plugins-o
 KURULU-KANIT	Awesome MCP Servers	repo		benzer:C:/AI/indirilen/punkpeye__awesome-mcp-servers | tur2: klon indirilen/punkpeye__awesome-mcp-servers remote eşleşir	1	DfCuqy9s9xq	MCP liste deposu
 KURULACAK	Claude Code Router	araç		benzer:C:/AI/indirilen/musistudio__claude-code-router | tur2: klon var indirilen/musistudio__claude-code-router, kurulu değil	1	DfCuqy9s9xq	Model yönlendirme
 KURULACAK	System prompts	repo		benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DfCuqy9s9xq	Sistem prompt derlemesi
-KURULACAK	SaaS Landing Page	SİTE	saaslandingpage.com	benzer:~/.claude/skills/landing-page | tur2: yerelde yok	1	DeZXAa6jE8s	SaaS landing page galerisi (link listesinde)
+KURULU-KANIT	SaaS Landing Page	SİTE	saaslandingpage.com	benzer:~/.claude/skills/landing-page | tur2: yerelde yok | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	SaaS landing page galerisi (link listesinde)
 KURULU-KANIT	Nano Banana	model		benzer:~/.claude/plugins/cache\nano-banana-2-plugins\nano-banana-2 | tur2: plugin nano-banana-2 (daveremy/nano-banana-2-mcp) kurulu; model hizmeti | tur3: plugin nano-banana-2 0.1.1 + GEMINI_API_KEY var; models.list 6 goruntu modeli (gemini-2.5-flash-image, gemini-3.1-flash-image dahil), 0 uretim cagrisi	2	Dax-38bjV8R	Görsel üretim modeli
 KURULACAK	Bklit UI	kütüphane	pnpm dlx shadcn@latest add bklit/bar-chart	yalniz-katalog | tur2: yerelde yok	1	DcSlxgRCBPm	Ücretsiz grafik bileşenleri (line, area, bar, pie, radar, ring)
 KURULACAK	Loop engineering	yöntem		benzer:~/.claude/plugins/cache\knowledge-work-plugins\engineering | tur2: yöntem; eşleşen kurulu araç yok	1	De1j7h5pQOr	Prompt yerine kendi çıktısını denetleyip düzelten döngü yazma; hedefe sayı/kontrol listesi bağlama
@@ -64,12 +64,12 @@ KURULU-KANIT	GSAP skill	skill		benzer:~/.claude/plugins/cache\gsap-skills\gsap-s
 KURULU-KANIT	motion-design-skill	skill	lottiefiles/motion-design-skill	benzer:~/.claude/skills/motion-design | tur2: skills/motion-design author=LottieFiles + klon indirilen/LottieFiles__motion-design-skill	1	De00hFSk-hv	Lottie/SVG animasyon skill'i
 KURULU-KANIT	Google Stitch	SİTE	stitch.withgoogle.com	yalniz-katalog | tur2: mcpServers.stitch (gateway) + skills/stitch-ui-design	2	DeKYdKRzlhT	Tek prompttan tam uygulama tasarımı
 KURULACAK	OpenCut	repo		yalniz-katalog | tur2: klon var indirilen/OpenCut-app__OpenCut, kurulu değil	1	De_-24Einvw	CapCut alternatifi, tarayıcıda çalışan MIT lisanslı video editörü; Claude Code/Codex ile headless kullanılabilir
-KURULACAK	on.design	SİTE	on.design	benzer:~/.claude/skills/motion-design | tur2: site; skills/motion-design ayrı	1	DezU-xDkzFO	Tasarım topluluğu
+KURULU-KANIT	on.design	SİTE	on.design	benzer:~/.claude/skills/motion-design | tur2: site; skills/motion-design ayrı | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezU-xDkzFO	Tasarım topluluğu
 AYNI-AİLE	Blender Lab MCP	MCP		yalniz-katalog | tur2: blender-mcp.exe kurulu (blender MCP); Blender Lab resmî sürümü doğrulanamadı	1	DfBbQs6jKUJ	Hermes ile Blender'da 3D yapar (resmi)
 KURULU-KANIT	awesome-design-md	skill	http://skills.sh/VoltAgent/awesome-design-md	benzer:C:/AI/indirilen/VoltAgent__awesome-design-md | tur2: klon indirilen/VoltAgent__awesome-design-md remote eşleşir	1	De4e4TmkvmH	Tasarım md koleksiyonu
 KURULU-KANIT	agent-usage-guard (rbartoli)	repo	rbartoli/agent-usage-guard	benzer:~/.claude/plugins/cache\agent-usage-guard\agent-usage-guard | tur2: known_marketplaces rbartoli/agent-usage-guard + cache	1	De5KFvOy66O	Claude Code modu: plan kullanımı %80 üstü onay ister, %95 üstü reddeder, 4 eşzamanlı ajan sınırı, 3 aynı hata sonrası tekrarı durdurur (MIT)
 KURULU-KANIT	Steph Ango Obsidian skills	skill		benzer:~/.claude/plugins/marketplaces\obsidian-skills | tur2: marketplaces/obsidian-skills remote kepano/obsidian-skills	1	De95NHOuo-x	Obsidian CEO'sunun skill'leri: bağlı sayfalar ve Canvas konu haritası
-KURULACAK	claudecodeclub.ai	SİTE	claudecodeclub.ai	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: site; yolu obra/superpowers'a çözülüyor	1	DeR-SLBxBPe	Claude Code Club topluluğu
+KURULU-KANIT	claudecodeclub.ai	SİTE	claudecodeclub.ai	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: site; yolu obra/superpowers'a çözülüyor | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeR-SLBxBPe	Claude Code Club topluluğu
 KURULU-KANIT	baidu/Unlimited-OCR	repo	baidu/Unlimited-OCR	benzer:~/.claude/skills/unlimited-ocr | tur2: skills/unlimited-ocr (Baidu Unlimited-OCR 3B, MIT)	1	DehD9WBq0Qb	Tüm PDF'i tek seferde okuyan yerel OCR modeli, tablo ve formül korur (MIT); Hugging Face demosu var
 KURULACAK	Harness²	repo	harness2.github.io	benzer:~/.claude/plugins/cache\autoharness\autoharness | tur2: autoharness (tigerless-labs) skill-bakım aracı, harness2.github.io değil	1	DevVTopkRwf	Google Research çerçevesi: ajanın hafıza, skill, alt ajan gibi 8 parçasını ayarlar, yerel demo
 KURULACAK	Learn Claude Code	repo		benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: yol obra/superpowers'a çözülüyor, ayrı araç	1	DfBcE4Bli0y	17 derste küçük Claude Code yapma
@@ -85,14 +85,14 @@ KURULACAK	Coding Interview University	repo	github.com/jwasham/coding-interview-u
 KURULACAK	Awesome Python	repo	github.com/vinta/awesome-python (?)		1	DdzOasRCJ9h	Python kütüphane, framework ve araçlarının derlenmiş listesi
 KURULACAK	Project Based Learning	repo	github.com/practical-tutorials/project-based-learning (?)		1	DdzOasRCJ9h	Proje yaparak öğrenmeyi sağlayan öğretici listesi (aciklama kesik, 10. repo)
 KURULACAK	Figma animasyon (Neu Web Studio)	yöntem			1	De9cw29tBSr	"Figma'da premium site animasyonu öğretme vaadi; yalnız ""SKILLS yorumla"" çağrısı, somut araç yok"
-KURULACAK	Skiper UI	SİTE	skiper-ui.com		1	De_J0aOl9SJ	Sık görülmeyen animasyonlu React/shadcn bileşenleri; npx shadcn add @skiper-ui/... ile kurulur
-KURULACAK	Cult UI	SİTE	cult-ui.com		1	De_J0aOl9SJ	Farklı tatlı shadcn blokları ve bileşenleri
-KURULACAK	SmoothUI	SİTE	smoothui.dev		1	De_J0aOl9SJ	Akıcı mikro etkileşim bileşenleri
-KURULACAK	Animata	SİTE	animata.design		1	De_J0aOl9SJ	150+ hazır animasyon
-KURULACAK	Eldora UI	SİTE	eldoraui.site		1	De_J0aOl9SJ	Landing page efektleri
-KURULACAK	Hover.dev	SİTE	hover.dev		1	De_J0aOl9SJ	Cesur buton ve bölüm bileşenleri
-KURULACAK	Shadcnblocks.com	SİTE	shadcnblocks.com		1	De_J0aOl9SJ	OCR'da geçen shadcn blok sitesi (Skiper'in kullanıcıları arasında)
-KURULACAK	Orginkit.dev (?)	SİTE	orginkit.dev (?)		1	DfACIz1y7eG	700+ animasyonlu bileşen (metin, arka plan, etkileşim); hero bölümü saniyeler içinde
+KURULU-KANIT	Skiper UI	SİTE	skiper-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Sık görülmeyen animasyonlu React/shadcn bileşenleri; npx shadcn add @skiper-ui/... ile kurulur
+KURULU-KANIT	Cult UI	SİTE	cult-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Farklı tatlı shadcn blokları ve bileşenleri
+KURULU-KANIT	SmoothUI	SİTE	smoothui.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Akıcı mikro etkileşim bileşenleri
+KURULU-KANIT	Animata	SİTE	animata.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	150+ hazır animasyon
+KURULU-KANIT	Eldora UI	SİTE	eldoraui.site	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Landing page efektleri
+KURULU-KANIT	Hover.dev	SİTE	hover.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Cesur buton ve bölüm bileşenleri
+KURULU-KANIT	Shadcnblocks.com	SİTE	shadcnblocks.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	OCR'da geçen shadcn blok sitesi (Skiper'in kullanıcıları arasında)
+KURULU-KANIT	Orginkit.dev (?)	SİTE	orginkit.dev (?)	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfACIz1y7eG	700+ animasyonlu bileşen (metin, arka plan, etkileşim); hero bölümü saniyeler içinde
 KURULACAK	Explain GitHub (?)	araç			1	DfCHfMxR8yq	GitHub URL'sini değiştirip repo hakkında sohbet ederek açıklama alma
 KURULACAK	GitReverse	araç			1	DfCHfMxR8yq	Repoyu yapılandırılmış prompta çeviren tersine mühendislik aracı (GitHub yerine GitReverse yazılır)
 KURULACAK	GitIngest	araç			1	DfCHfMxR8yq	Proje özeti, klasör yapısı ve dosya içeriğini tek temiz belgeye toplar
@@ -102,8 +102,8 @@ KURULACAK	Hermes Agent	araç			1	DbzttxfNxjK	27+ ajanı yöneten delegator/condu
 KURULACAK	VisualARP (?)	uygulama			1	DbzttxfNxjK	"Çok ajanlı şirket işletim sistemi görünümü (adı ""VisualARP"" olarak transkriptte); repo ""Founder"" yorumuyla veriliyor"
 KURULACAK	Jev	araç			1	Dd1wKuDIO9r	Yargı/sınıflandırma aracı; lead üretiminde kullanılıyor (320 kişiyi ~1 cente eler)
 KURULACAK	Treg (?)	uygulama			1	Dd1wKuDIO9r	Clay'i Jev üstünde yeniden yapan lead bulma aracı, Clay'den %85 ucuz
-KURULACAK	Manus.im	SİTE	manus.im		2	DdQkBgtxYe2	Tek promptla web sitesi yapıp yayınlayan AI ajan
-KURULACAK	BKLit	SİTE	BKLit.com		1	DdQkBgtxYe2	Bar grafik, ısı haritası gibi veri görselleştirme bileşenleri
+KURULU-KANIT	Manus.im	SİTE	manus.im	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DdQkBgtxYe2	Tek promptla web sitesi yapıp yayınlayan AI ajan
+KURULU-KANIT	BKLit	SİTE	BKLit.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DdQkBgtxYe2	Bar grafik, ısı haritası gibi veri görselleştirme bileşenleri
 KURULACAK	Perplexity	MCP			1	De-NlsAtzUn	Claude'a gerçek zamanlı araştırma erişimi veren konektör
 KURULACAK	PostHog	MCP			1	De-NlsAtzUn	Claude'un site kullanıcı davranışı, kayıt ve hataları görmesini sağlar
 KURULACAK	Fooocus	repo	github.com/lllyasviel/Fooocus (?)		1	De18V-pAezC	Yerel görsel üretimi, ücretli araçlara alternatif
@@ -113,22 +113,22 @@ KURULACAK	Zep/Graphiti	repo			1	De1fLVOkpiu	Zaman damgalı (temporal) bilgi graf
 KURULACAK	Sylph	repo			1	De1fLVOkpiu	NaoLabs (YC) açık kaynak DIY Claude Code+git şirket beyni (?)
 KURULACAK	automation-master	skill	.claude/skills/automation-master/SKILL.md		1	De1p5PkkRxk	Uzun çok adımlı görevleri otomatik çalıştıran ana skill
 KURULACAK	file-automation	skill	.claude/skills/file-automation/SKILL.md		1	De1p5PkkRxk	Dosya düzenleme, toplu yeniden adlandırma, format dönüştürme
-KURULACAK	skool.com/knox	SİTE	skool.com/knox		1	De1p5PkkRxk	Yayıncının topluluk sayfası
+KURULU-KANIT	skool.com/knox	SİTE	skool.com/knox	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1p5PkkRxk	Yayıncının topluluk sayfası
 KURULACAK	Top Claude/Codex design skills listesi	yöntem			1	De2C0LADUkG	320 skill GitHub yıldızına göre sıralı, kurulum komutlu liste (yoruma bağlı)
 KURULACAK	invoice-organizer	skill	ComposioHQ/awesome-claude-skills		1	De3S2C3P7yb	Fatura ve fişleri vergi için okuyup sıralar
-KURULACAK	Remotion Skills	skill	remotion-dev/skills		1	De3S2C3P7yb	Kodla video üretme skill'leri
-KURULACAK	Vibesec (?)	skill			1	De3S2C3P7yb	"Baştan güvenli kod yazdıran skill (transkriptte ""Vibesect"")"
+KURULU-KANIT	Remotion Skills	skill	remotion-dev/skills	 | tur4: ~/.claude/skills/remotion-best-practices (Remotion skill router) + remotion-* skilleri	1	De3S2C3P7yb	Kodla video üretme skill'leri
+KURULU-KANIT	Vibesec (?)	skill		 | tur4: ~/.claude/skills/vibesec-skill/SKILL.md (secure web app)	1	De3S2C3P7yb	"Baştan güvenli kod yazdıran skill (transkriptte ""Vibesect"")"
 KURULACAK	Claude day trading skills (11)	skill			1	De416D0vm4l	"Tarayıcı, haber, giriş, çıkış ve 10.000 simülasyonlu ""Time Machine"" içeren açık kaynak 11 skill; onay vermeden işlem yok"
 KURULACAK	Three.js parçacık hero	yöntem			1	De4Ly5Tyhlu	Three.js ve parçacıklarla Claude'a yaptırılmış hero animasyonu (prompt yoruma bağlı)
-KURULACAK	Creem	SİTE			1	De4kdJeBD8E	Stripe alternatifi Merchant of Record; Türkiye destekli, %3,9+0,40$, Claude Code MCP ile kurulum
+KURULU-KANIT	Creem	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4kdJeBD8E	Stripe alternatifi Merchant of Record; Türkiye destekli, %3,9+0,40$, Claude Code MCP ile kurulum
 KURULACAK	Graphite	araç			1	De69lhTE8Z0	Açık kaynak vektör tasarım (Illustrator alternatifi), düğüm tabanlı
 KURULACAK	Inkscape	araç			1	De69lhTE8Z0	Açık kaynak vektör editörü
 KURULACAK	API Anything	araç			1	De7EBPTiU1a	Siteyi ajanın doğrudan kullanacağı API hattına çevirir; YouTube, Amazon, Airbnb hazır
-KURULACAK	Detailing sitesi (tasarım örneği)	SİTE			1	De8IBjoxxVH	Araç değil, premium scroll animasyonlu detailing site tasarımı örneği
-KURULACAK	threeui.com	SİTE	threeui.com		1	De8i5P9Ddtl	Three.js bileşen, şablon ve shader kütüphanesi (799 bileşen)
-KURULACAK	glass3d.dev	SİTE	glass3d.dev		1	De8i5P9Ddtl	OCR linklerinde geçen 3D site
-KURULACAK	createwithswift.com	SİTE	createwithswift.com		1	De8i5P9Ddtl	Swift/SwiftUI öğreticileri
-KURULACAK	junaidjamel.com	SİTE	junaidjamel.com		1	De8i5P9Ddtl	Yayıncının kendi sitesi
+KURULU-KANIT	Detailing sitesi (tasarım örneği)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8IBjoxxVH	Araç değil, premium scroll animasyonlu detailing site tasarımı örneği
+KURULU-KANIT	threeui.com	SİTE	threeui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8i5P9Ddtl	Three.js bileşen, şablon ve shader kütüphanesi (799 bileşen)
+KURULU-KANIT	glass3d.dev	SİTE	glass3d.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8i5P9Ddtl	OCR linklerinde geçen 3D site
+KURULU-KANIT	createwithswift.com	SİTE	createwithswift.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8i5P9Ddtl	Swift/SwiftUI öğreticileri
+KURULU-KANIT	junaidjamel.com	SİTE	junaidjamel.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8i5P9Ddtl	Yayıncının kendi sitesi
 KURULACAK	Zagitta/gpu-unlock	repo	github.com/Zagitta/gpu-unlock (?)		1	De95_e3Ntp_	RTX 30 serisinde FP16/BF16 Tensor Core hızını yaklaşık 1.8x artıran yazılım unlock
 KURULACAK	claude-cookbooks	repo	github.com/anthropics/claude-cookbooks		1	De9SUccyZF-	Anthropic örnek tarifler
 KURULACAK	claude-quickstarts	repo	github.com/anthropics/claude-quickstarts		1	De9SUccyZF-	Anthropic hızlı başlangıç projeleri
@@ -150,41 +150,41 @@ KURULACAK	Alan's Way	repo	github alans-way		1	DeHXkHSlNKK	Hermes Agent üstüne 
 KURULACAK	Hermes Agent (Nous Research)	araç			1	DeHXkHSlNKK	Nous Research'ün ücretsiz açık kaynak ajanı
 KURULACAK	apk-reverse	skill	github.com/newtiver666/apk-reverse (?)		1	DeL14cPOqin	Android APK tersine mühendislik Agent Skill'i (DEX, Frida, Flutter); MIT, 3.2k yıldız
 KURULACAK	MiroFish	repo			1	DeR4IFRTKIu	Binlerce yapay müşteriyle lansman simülasyonu yapan sürü zekası motoru (AGPL-3.0, ~76k yıldız)
-KURULACAK	Prompt Motion	SİTE			1	DeWnsIiuiai	Claude ile yapılan hareket videolarının promptlarını veren ücretsiz galeri
-KURULACAK	SiteInspire	SİTE	siteinspire.com		1	De_8WxEmaa5	Stil ve türe göre filtrelenen seçilmiş web galerisi
-KURULACAK	Httpster	SİTE	httpster.net		1	De_8WxEmaa5	Elle seçilmiş siteler, açık/koyu mod
-KURULACAK	Minimal Gallery	SİTE	minimal.gallery		2	De_8WxEmaa5	Sektöre göre filtrelenen minimal siteler
-KURULACAK	GetLayers	SİTE	getlayers.ai/templates		1	De_8WxEmaa5	Sürükleyici site şablonları
+KURULU-KANIT	Prompt Motion	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeWnsIiuiai	Claude ile yapılan hareket videolarının promptlarını veren ücretsiz galeri
+KURULU-KANIT	SiteInspire	SİTE	siteinspire.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_8WxEmaa5	Stil ve türe göre filtrelenen seçilmiş web galerisi
+KURULU-KANIT	Httpster	SİTE	httpster.net	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_8WxEmaa5	Elle seçilmiş siteler, açık/koyu mod
+KURULU-KANIT	Minimal Gallery	SİTE	minimal.gallery	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	De_8WxEmaa5	Sektöre göre filtrelenen minimal siteler
+KURULU-KANIT	GetLayers	SİTE	getlayers.ai/templates	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_8WxEmaa5	Sürükleyici site şablonları
 KURULACAK	Claude Skills 6 set (Automation Master, Data Analysis, Research Agent, Content Writer, Social Media, Design)	skill	mkdir -p ~/.claude/skills/...		1	Deb8CA6oDno	Tekrarlayan görev otomasyonu için altı skill (De1p5PkkRxk ile benzer set)
 KURULACAK	Rive	kütüphane			1	DehjgOtDn77	Uygulama içi tepki veren animasyon
 KURULACAK	Satori	kütüphane			1	DehjgOtDn77	Kodu başlık kartlarına çevirir
 KURULACAK	REA	repo	github.com/moruto/rea (?)		1	DejuQStmPny	Tersine mühendislik (?)
 KURULACAK	Onyx (?)	repo	github.com/senlindesign/ (?)		1	DejuQStmPny	Bilgi kaynaklarına bağlı self-hosted AI sohbet (?)
-KURULACAK	Magic UI	SİTE			1	DevhIPGmRzm	Animasyonlu hazır bileşenler
-KURULACAK	Aceternity UI	SİTE			1	DevhIPGmRzm	Dikkat çekici animasyonlu arayüz bileşenleri
+KURULU-KANIT	Magic UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DevhIPGmRzm	Animasyonlu hazır bileşenler
+KURULU-KANIT	Aceternity UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DevhIPGmRzm	Dikkat çekici animasyonlu arayüz bileşenleri
 KURULACAK	Radix UI	kütüphane			1	DevhIPGmRzm	Erişilebilir UI primitifleri
 KURULACAK	AI trading ekibi (7 ajan)	yöntem			1	Dewvyk2E2Je	Araştırma, strateji, kod, backtest, doğrulama, risk, icra ajanlarıyla algo trading hattı (somut repo yok)
-KURULACAK	MotionSites.ai	SİTE	MotionSites.ai		1	Dez5CGMkq5K	600+ premium animasyonlu site promptu; Cursor/AI builder'a yapıştırılır
-KURULACAK	Bencho (?)	SİTE			1	DezEkQ2NNSu	Etkileşimli UI bileşenleri ve ses/animasyon kütüphanesi (?)
+KURULU-KANIT	MotionSites.ai	SİTE	MotionSites.ai	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dez5CGMkq5K	600+ premium animasyonlu site promptu; Cursor/AI builder'a yapıştırılır
+KURULU-KANIT	Bencho (?)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezEkQ2NNSu	Etkileşimli UI bileşenleri ve ses/animasyon kütüphanesi (?)
 KURULACAK	Concord MCP	repo	github.com/Get-Concord-AI/concord-mcp		1	DezX4yhCQzy	Claude Code, Codex, Cursor gibi ajanların birbiriyle konuşup işi bölmesi (MIT, yerel)
-KURULACAK	gittrend.io	SİTE	gittrend.io		1	DezX4yhCQzy	Trend açık kaynak projeler sitesi
-KURULACAK	skiper-ui.com	SİTE	skiper-ui.com		1	DfACBy9Bt6z	Premium animasyonlu yaratıcı bileşenler
-KURULACAK	React Bits	SİTE	reactbits.dev		2	DfAj-cJubzn	Canlı ayarlanıp dışa aktarılan animasyonlu arka plan, doku, bileşen
-KURULACAK	Animos	SİTE			1	DfAj-cJubzn	3D ürün vitrini
-KURULACAK	Arc UI	SİTE			2	DfAj-cJubzn	Animasyonlu bileşenler
-KURULACAK	Planes UI	SİTE			2	DfAj-cJubzn	Animasyonlu bileşenler
+KURULU-KANIT	gittrend.io	SİTE	gittrend.io	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezX4yhCQzy	Trend açık kaynak projeler sitesi
+KURULU-KANIT	skiper-ui.com	SİTE	skiper-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfACBy9Bt6z	Premium animasyonlu yaratıcı bileşenler
+KURULU-KANIT	React Bits	SİTE	reactbits.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfAj-cJubzn	Canlı ayarlanıp dışa aktarılan animasyonlu arka plan, doku, bileşen
+KURULU-KANIT	Animos	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfAj-cJubzn	3D ürün vitrini
+KURULU-KANIT	Arc UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfAj-cJubzn	Animasyonlu bileşenler
+KURULU-KANIT	Planes UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfAj-cJubzn	Animasyonlu bileşenler
 KURULACAK	Swishy AI	uygulama			3	DfAj-cJubzn	Ne animasyonlanacağını yazarak üreten araç
 KURULACAK	12 Claude müşteri bulma skill'i	skill			1	DfBySgVNV4H	12 ajan oylamasıyla ödeme yapacak müşteri bulur (CLIENT yorumuyla veriliyor)
 KURULACAK	NotebookLM + Claude Code repo	repo			1	DfCqFtxoN0y	Notebook LM yeteneklerini (podcast, slayt, YouTube) Claude Code'a veren repo; repo adı videoda verilmiyor
 KURULACAK	Ripping (getripping) (?)	plugin			1	DfDD57jAQ44	Instagram otopilotu için Claude eklentisi: fikir bulma, senaryo, düzenleme, paylaşım
 KURULACAK	Artemis	repo	github.com/google/artemis		1	DfEo0zLDAKl	Google'ın Android telefonu Claude Code/Codex ile kontrol eden açık kaynak aracı (MCP sunucusu)
 KURULACAK	Claude Code + Antigravity ile arsa videosu	yöntem			1	qs-DetJr2nQ	Parsel sorgudan uydu görüntüsü çizip arsa etrafında dönen drone tarzı video üretme
-KURULACAK	Skill-creator (Anthropic)	skill			1	De-Th5KAOY8	Anthropic'in ücretsiz skill üretici aracı; videodaki skill'lerin üçü bununla yapılıyor
-KURULACAK	frontend-design (resmi Anthropic skill)	skill			1	De-Th5KAOY8	Claude'un 'AI şablonu' görünümünü bırakıp cesur font ve gerçek yerleşimli premium site yapmasını sağlar
+KURULU-KANIT	Skill-creator (Anthropic)	skill		 | tur4: ~/.claude/skills/skill-creator/SKILL.md (create/improve skills, ayni arac)	1	De-Th5KAOY8	Anthropic'in ücretsiz skill üretici aracı; videodaki skill'lerin üçü bununla yapılıyor
+KURULU-KANIT	frontend-design (resmi Anthropic skill)	skill		 | tur4: ~/.claude/skills/frontend-design/SKILL.md	1	De-Th5KAOY8	Claude'un 'AI şablonu' görünümünü bırakıp cesur font ve gerçek yerleşimli premium site yapmasını sağlar
 KURULACAK	New Client System skill	skill			1	De-Th5KAOY8	Outreach, takip, teklif ve onboarding SOP'lerini yazan müşteri kazanım sistemi (skill-creator ile yapılıyor)
 KURULACAK	Lead scraper skill	skill			1	De-Th5KAOY8	Nişe göre potansiyel müşteri bulup Google Business/Maps/dizinlerden temiz liste çıkarır, Sheets'e aktarır
 KURULACAK	n8n	araç			1	De-Th5KAOY8	İş akışı otomasyon aracı
-KURULACAK	Google Maps	SİTE			1	De-Th5KAOY8	Lead scraper'ın kaynaklarından biri
+KURULU-KANIT	Google Maps	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De-Th5KAOY8	Lead scraper'ın kaynaklarından biri
 KURULACAK	GPT-6 Astra (?)	model			1	DeLXOK-ozyh	Videodaki portfolyo hero bölümünü üretmek için kullanıldığı söylenen model
 KURULACAK	Futuristic portfolio hero (Debbie)	yöntem			1	DeLXOK-ozyh	Vibe coder portfolyo hero bölümü örneği; ana istem + asset yorumla isteniyor
 KURULACAK	Redlamp	uygulama	https://redlamp.app		1	De_VbZCkgvh	Swift ve Metal ile yazılmış açık kaynak (MPL-2.0) Mac RAW fotoğraf editörü, Lightroom iş akışı
@@ -193,10 +193,10 @@ KURULACAK	72pt Fonts for Designers	uygulama			1	De_VbZCkgvh	App Store uygulamas�
 KURULACAK	Powermove	uygulama	https://trypowermove.com		1	De_VbZCkgvh	Ajan bağlayıp komutla video editörünü şekillendirme; GitHub'da açık
 KURULACAK	Onlook	uygulama	https://www.onlook.com		1	De_VbZCkgvh	Tasarımcılar için ücretsiz, yerel öncelikli görsel kod editörü (27k yıldız)
 KURULACAK	Uberdesigner	yöntem			1	DfADHxap6Dk	Claude ile hızlı tasarım; viral reel kütüphanesi + istem (Guide yorumuyla); içerik yetersiz
-KURULACAK	Kigen color generator	SİTE	https://kigen.design/color		1	DfCb5-sGtrk	Renk skalası üretici (SVG/Figma dışa aktarım)
-KURULACAK	Rune Icons	SİTE	https://www.runeicons.com/		1	DfCb5-sGtrk	900+ ikon, 5 stil, SVG/JSX olarak kopyalanır
-KURULACAK	HyperUI	SİTE	https://www.hyperui.dev/		1	DfCb5-sGtrk	Ücretsiz açık kaynak Tailwind CSS bileşen koleksiyonu
-KURULACAK	Freefaces gallery	SİTE	https://www.freefaces.gallery/		1	DfCb5-sGtrk	Ücretsiz yazı tipleri galerisi
+KURULU-KANIT	Kigen color generator	SİTE	https://kigen.design/color	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfCb5-sGtrk	Renk skalası üretici (SVG/Figma dışa aktarım)
+KURULU-KANIT	Rune Icons	SİTE	https://www.runeicons.com/	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfCb5-sGtrk	900+ ikon, 5 stil, SVG/JSX olarak kopyalanır
+KURULU-KANIT	HyperUI	SİTE	https://www.hyperui.dev/	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfCb5-sGtrk	Ücretsiz açık kaynak Tailwind CSS bileşen koleksiyonu
+KURULU-KANIT	Freefaces gallery	SİTE	https://www.freefaces.gallery/	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfCb5-sGtrk	Ücretsiz yazı tipleri galerisi
 KURULACAK	The Modern Visionary interaktif web siteleri	yöntem			1	DfEIoQjtkMB	İşletmeler için interaktif (dövme/The Ink Experience tarzı) siteler; adım adım rehber + şablon yorumla veriliyor
 KURULACAK	ShaderGradient	repo	github.com/ruucm/shadergradient		1	DYNW3X7J2TH	React'te hareketli gradyanlar (şekil, renk, hareket özelleştirilebilir)
 KURULACAK	liquid-logo	repo	github.com/paper-design/liquid-logo		1	DYNW3X7J2TH	Her şeye metal/krom sıvı görünüm verir
@@ -205,8 +205,8 @@ KURULACAK	Cursor	uygulama			2	DYNW3X7J2TH	Vibe coding için anılan kod editör�
 KURULACAK	ASO 20 madde kontrol listesi	yöntem			1	Dc6jk1-DhMN	App Store arama sıralaması için 20 alanlık kontrol listesi (anahtar kelime, alt başlık, dil, görseller, yorum vb.)
 KURULACAK	SeeCut	repo	github.com/yeje-cpu/seecut		1	Dd56RIYHZ5_	Kendi kurgusunu izleyip düzelten AI video kurgu skill'i (coding agent için), konuşmacı klibini hareketli grafikli kısa videoya çevirir
 KURULACAK	HeyGen	araç			1	Dd56RIYHZ5_	SeeCut demosunda dijital insan ham klibi kaynağı
-KURULACAK	Shaders (580+ arka plan)	SİTE			1	DdRUhaJzwk2	580+ arka plan, 150+ logo shader, 30+ görsel efekt (adı videoda 'Shaders'; OCR'da TypeGPU geçiyor) (?)
-KURULACAK	Spline	SİTE	spline.design		2	DdRUhaJzwk2	3D model/etkileşimli sahne; topluluktan export edip siteye gömme
+KURULU-KANIT	Shaders (580+ arka plan)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DdRUhaJzwk2	580+ arka plan, 150+ logo shader, 30+ görsel efekt (adı videoda 'Shaders'; OCR'da TypeGPU geçiyor) (?)
+KURULU-KANIT	Spline	SİTE	spline.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DdRUhaJzwk2	3D model/etkileşimli sahne; topluluktan export edip siteye gömme
 KURULACAK	Framer	araç			3	DdRUhaJzwk2	Animasyon, scroll efekti, duyarlı yerleşim yapan site oluşturucu
 KURULACAK	Nvidia RTX BF16/FP16 yazılım kilidi açma	yöntem			1	De-ToVCgoRJ	RTX 20/30/40 serisinde yazılımla kısıtlı BF16/FP16 performansını açma haberi; aracı adı verilmiyor
 KURULACAK	Top 9 Free AI Tools Trending on GitHub	yöntem			1	De0LtiLO3TA	Liste yorumla veriliyor; araç adı videoda yok
@@ -220,7 +220,7 @@ KURULACAK	4D-Humans	repo	github.com/shubham-goel/4D-Humans		1	De1frq7ifup	Videod
 KURULACAK	WHAM	repo	github.com/yohanshin/WHAM		1	De1frq7ifup	3B insan hareketi kestirimi
 KURULACAK	tfjs-models pose-detection	repo	github.com/tensorflow/tfjs-models/tree/master/pose-detection		1	De1frq7ifup	Tarayıcıda TensorFlow.js poz algılama
 KURULACAK	awesome-opus5-5-videos (yihui-dew)	repo	github.com/yihui-dew/awesome-opus5-5-videos (?)		1	De1qf_Fk-Xn	Claude Opus 5.5 ile yapılan viral videoların 703 istemi, 418'i canlı yeniden üretimle
-KURULACAK	Skillry	SİTE			1	De1qf_Fk-Xn	418 videonun canlı yeniden yapımını yan yana gösteren site
+KURULU-KANIT	Skillry	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1qf_Fk-Xn	418 videonun canlı yeniden yapımını yan yana gösteren site
 KURULACAK	Roast Room	skill			2	De2C9ULFeFL	Claude Code'da bir kararı Hormozi, Buffett, Bezos vb. danışman kuruluna tartıştırıp oylatan skill; skor ve PDF üretir (komut: roast-room)
 KURULACAK	One Take	skill			1	De2dMErAprH	Kamera hiç kesilmeyen tek plan video üretir
 KURULACAK	Collage B-roll	skill			1	De2dMErAprH	Metin satırından Gemini ile animasyonlu kolaj B-roll yapar
@@ -228,35 +228,35 @@ KURULACAK	Claude Animation Base	skill			2	De2dMErAprH	Claude maskotuyla elle boy
 KURULACAK	Karpathy LLM wiki repo	repo			1	De33iyPCNyC	Konu klasöründe Claude'a wiki oluşturturan Karpathy repo'su (tam ad videoda yok)
 KURULACAK	Claude Code (masaüstü, klasör seçili)	yöntem			1	De33iyPCNyC	Hafızayı klasördeki metin dosyalarında tutarak unutmayı ve token kullanımını azaltma yöntemi
 KURULACAK	Billion-context (?)	repo			1	De4MkaHgbgw	Eski sohbeti kayıpsız özetler halinde katlayıp gerektiğinde açan bağlam yönetimi; Claude Code, Codex, Cursor ile çalışır; adı OCR'da 'Billy in Context' (?)
-KURULACAK	Bytez	SİTE			1	De4qvI2zaCe	100.000+ açık kaynak model için tek API (metin, görsel, video, ses)
+KURULU-KANIT	Bytez	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4qvI2zaCe	100.000+ açık kaynak model için tek API (metin, görsel, video, ses)
 KURULACAK	Meshy plugin for Hermes Agent	plugin			1	De5_-eyDU0y	Nous Research'ün resmi Meshy eklentisi: cümleden 3B model, fotoğraftan baskılık model
 KURULACAK	Meshy	araç			1	De5_-eyDU0y	Metin/görselden 3B model üretici
 KURULACAK	awesome-claude-5-5-videos (athemeroy)	repo	github.com/athemeroy/awesome-claude-5-5-videos (?)		1	De6BzO3kWQn	Claude 5.5 ile yapılan 400+ video ve istemlerin koleksiyonu (CC-BY-4.0)
 KURULACAK	ai-video skill (Adilet)	skill			1	De6cx6MRxbZ	Tek satırdan senaryo, seslendirme, sahne animasyonu, kendi hareketini puanlayıp render eden reel skill'i
 KURULACAK	Orca	uygulama			1	De7aJAEgdIN	Claude Code, Codex, OpenCode, Grok ajanlarını ayrı git worktree'lerde paralel çalıştıran AI orkestratör (MIT, 100K+ yıldız, iOS/Android eşlik uygulaması)
-KURULACAK	Skipper UI	SİTE	skipper-ui.com		1	De8NxnagICD	Sıra dışı animasyonlu bileşenler
+KURULU-KANIT	Skipper UI	SİTE	skipper-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8NxnagICD	Sıra dışı animasyonlu bileşenler
 KURULACAK	Manus	araç	manus.im		2	De8NxnagICD	Tek istemden backend, veritabanı, analitik ve SEO kurar
-KURULACAK	Amicro	SİTE	amicro.vercel.app		1	De8NxnagICD	Kopyala-yapıştır mikro etkileşim ve geçişler (React)
+KURULU-KANIT	Amicro	SİTE	amicro.vercel.app	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8NxnagICD	Kopyala-yapıştır mikro etkileşim ve geçişler (React)
 KURULACAK	ThinkRail (JetBrains)	repo	github.com/JetBrains/thinkrail		1	De8oaV4PZei	pi kodlama ajanı etrafında ajan IDE; paralel worktree, canlı spec dosyaları, GitHub PR (Apache-2.0)
 KURULACAK	BASE	araç	basemode		1	De96ZEuvmbc	Claude içinde hook'larla bilgi grafı/ikinci beyin; anahtar kelimeyle yalnız ilgili bağlam; localhost:3741 panosu
 KURULACAK	Infinity (AWS + UC Berkeley)	repo			1	De9or1Jienw	Asenkron Rust çalışma zamanı; boştaki ajanı ~100 KB anlık görüntüye sıkıştırıp 8 GB RAM'de 75.000 ajan (Apache-2.0)
-KURULACAK	OriginKit	SİTE	originkit.dev		1	DeHx3kBzY30	540-600+ animasyonlu bileşen (arka plan, metin animasyonu, butonlar, bölümler); kodu kopyala-ekle
+KURULU-KANIT	OriginKit	SİTE	originkit.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeHx3kBzY30	540-600+ animasyonlu bileşen (arka plan, metin animasyonu, butonlar, bölümler); kodu kopyala-ekle
 KURULACAK	Oyun geliştirme için ücretsiz art uygulamaları	yöntem			1	DeLr-0LNvvA	Ücretsiz oyun motoru ve art programı listesi; ad yok
 KURULACAK	AgentTrail	repo	github.com/sodiumsun/agenttrail		1	DeRukVeytFt	Kodlama ajanlarının plan, araç çağrısı ve dosya değişimini yerelde canlı gösteren pano (npx agenttrail, MIT)
-KURULACAK	Dither tool (halftone/ASCII) (?)	SİTE			1	DeWrEkJjMkv	75+ efektle görsel/video dönüştürme (ASCII, dither, halftone, pixel)
-KURULACAK	Dump (?)	SİTE			1	DeWrEkJjMkv	Fotoğraf, mesaj baloncuğu, çıkartma ve mockup'u tek tuvalde birleştiren tarayıcı aracı
-KURULACAK	MCKP.live (?)	SİTE			1	DeWrEkJjMkv	Mockup/ürün tanıtım videosu stüdyosu (Is.graphics projesi)
-KURULACAK	Scrolltide	SİTE	scrolltide.co		1	DedQE_qNgTh	Scroll-sürümlü animasyonlu site istem kütüphanesi; Claude'a yapıştırıp site üretme
+KURULU-KANIT	Dither tool (halftone/ASCII) (?)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeWrEkJjMkv	75+ efektle görsel/video dönüştürme (ASCII, dither, halftone, pixel)
+KURULU-KANIT	Dump (?)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeWrEkJjMkv	Fotoğraf, mesaj baloncuğu, çıkartma ve mockup'u tek tuvalde birleştiren tarayıcı aracı
+KURULU-KANIT	MCKP.live (?)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeWrEkJjMkv	Mockup/ürün tanıtım videosu stüdyosu (Is.graphics projesi)
+KURULU-KANIT	Scrolltide	SİTE	scrolltide.co	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DedQE_qNgTh	Scroll-sürümlü animasyonlu site istem kütüphanesi; Claude'a yapıştırıp site üretme
 KURULACAK	Magic UI	repo	github.com/magicuidesign/magicui		1	DekHAwgRXjr	150+ ücretsiz site animasyonu (logo şeridi, parlayan buton, yazan metin, sayaç); Claude'a ekletilir
 KURULACAK	Turnitout	repo	github.com/AhmadHassan-BTed/Turnitout-Humanizer (?)		1	DeqxR63jS8I	Kural tabanlı motor: gizli AI filigranı, sıfır genişlikli karakter ve belge metadata'sını temizler; kod yorumu tonunu değiştirir (canlı: turnitout.streamlit.app)
-KURULACAK	scrolltide.co	SİTE	scrolltide.co		1	DeviJpAGrW3	3B ve scroll-sürümlü site için 600+ istem + kaynak kod
-KURULACAK	navbar.gallery	SİTE	navbar.gallery		1	DeviJpAGrW3	Navbar ilham galerisi
-KURULACAK	footer.design	SİTE	footer.design		1	DeviJpAGrW3	Yaratıcı footer örnekleri
-KURULACAK	cta.gallery	SİTE	cta.gallery		1	DeviJpAGrW3	Eylem çağrısı (CTA) tasarım örnekleri
-KURULACAK	60fps.design	SİTE	60fps.design		1	DeviJpAGrW3	En iyi uygulamalardan mobil arayüz animasyon ve etkileşimleri
-KURULACAK	collectui.com	SİTE	collectui.com		1	DeviJpAGrW3	Günlük UI konseptleri
-KURULACAK	posts.design	SİTE	posts.design		1	DeviJpAGrW3	Sosyal medya görsel örnekleri
-KURULACAK	landdding.com	SİTE	landdding.com		1	DeviJpAGrW3	Her gün güncellenen landing page referansları
+KURULU-KANIT	scrolltide.co	SİTE	scrolltide.co	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	3B ve scroll-sürümlü site için 600+ istem + kaynak kod
+KURULU-KANIT	navbar.gallery	SİTE	navbar.gallery	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	Navbar ilham galerisi
+KURULU-KANIT	footer.design	SİTE	footer.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	Yaratıcı footer örnekleri
+KURULU-KANIT	cta.gallery	SİTE	cta.gallery	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	Eylem çağrısı (CTA) tasarım örnekleri
+KURULU-KANIT	60fps.design	SİTE	60fps.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	En iyi uygulamalardan mobil arayüz animasyon ve etkileşimleri
+KURULU-KANIT	collectui.com	SİTE	collectui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	Günlük UI konseptleri
+KURULU-KANIT	posts.design	SİTE	posts.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	Sosyal medya görsel örnekleri
+KURULU-KANIT	landdding.com	SİTE	landdding.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeviJpAGrW3	Her gün güncellenen landing page referansları
 KURULACAK	ATAS (Any Time, Any Space)	repo	github.com/ziplab/atas		1	DexLWKlgrBA	Sahnenin dünya durumunu kalıcı tutan, planlar arası tutarlı ajan tabanlı video üretim çerçevesi (MIT)
 KURULACAK	Alıntı doğrulayan araştırma skill'i (adı yok)	skill			1	Dez74xdlRpc	Her alıntıyı kaynağa karşı kontrol eden, tek harf hata varsa rapor üretmeyen Claude Code skill'i (1.100 yıldız, MIT, Japonca yazılmış); link yorumda
 KURULACAK	Mikro etkileşim/geçiş MCP kütüphanesi	yöntem			1	DezgyaEN-T8	Claude'a hover, imleç ve scroll geçişi cilası ekleten MCP; adı videoda yok; istem yorumla
@@ -269,34 +269,34 @@ KURULACAK	Qwen3-VL 8B	model			1	DfCrknOAoua	Görüntü ve plan betimlemesi için
 KURULACAK	isitsecure	MCP			1	DfDPssIKX9F	Uygulamayı A-F güvenlik notuyla tarar, düzeltmeleri sade dille verir (Claude Code'da MCP)
 KURULACAK	21st MCP	MCP			1	DfDPssIKX9F	10.000+ React/Tailwind UI bileşeni arama
 KURULACAK	TradingView MCP	MCP			1	DfEvh09DBat	Claude'un TradingView'ı yönetip grafik çizme, Pine Script, backtest, replay, tarama yapmasını sağlar
-KURULACAK	TradingView	SİTE			2	DfEvh09DBat	Grafik ve Pine Script platformu
+KURULU-KANIT	TradingView	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfEvh09DBat	Grafik ve Pine Script platformu
 KURULACAK	LLM Council (Karpathy)	repo			1	s7Iaq5lGkY0	Soruyu birden çok modele sorar, çapraz değerlendirir, başkan model karar verir; videoda tek Claude'a 5 danışman rolü verme versiyonu anlatılıyor
 KURULACAK	elayadesign/ai-design-skills (designer skill)	skill	github.com/elayadesign/ai-design-skills		1	De-blYnCBbn	"Landing page için 14 soru soran, sabit sayfa sırası ve copy kuralları olan, ""elevate/seamless"" gibi AI klişelerini yasaklayan açık kaynak tasarımcı skill'i"
-KURULACAK	Design Engineer Tools	SİTE	https://designengineer.tools		1	DeTqN3uEidC	Web odaklı design engineer'lar için araç/site/kaynak kütüphanesi (ilham, AI kod, bileşen, yardımcı, video, organizasyon)
-KURULACAK	60fps	SİTE			1	DeTqN3uEidC	İlham kategorisinde listelenen site (?)
-KURULACAK	Awwwards	SİTE	awwwards.com		2	DeTqN3uEidC	Ödüllü web sitesi vitrini
-KURULACAK	Cosmos	SİTE	cosmos.so		1	DeTqN3uEidC	Görsel ilham toplama platformu
-KURULACAK	Mobbin	SİTE			1	DeTqN3uEidC	Gerçek ürün UI/akış referans kütüphanesi
-KURULACAK	Curated Design	SİTE			1	DeTqN3uEidC	Tasarım ilham listesi (?)
-KURULACAK	Design Spells	SİTE			1	DeTqN3uEidC	Tasarım/etkileşim ilham sitesi (?)
-KURULACAK	Rebrand	SİTE			1	DeTqN3uEidC	Marka yenileme ilham sitesi (?)
-KURULACAK	Saaspo	SİTE			1	DeTqN3uEidC	SaaS landing ilham galerisi (?)
-KURULACAK	Godly	SİTE			1	DeTqN3uEidC	Web tasarım ilham galerisi (?)
-KURULACAK	Same Energy	SİTE			1	DeTqN3uEidC	Görsel benzerlik arama motoru (?)
-KURULACAK	Supahero	SİTE			1	DeTqN3uEidC	Hero bölümü ilham sitesi (?)
-KURULACAK	loadmo.re	SİTE			1	DeTqN3uEidC	İlham sitesi (?)
-KURULACAK	Layers	SİTE			1	DeTqN3uEidC	İlham sitesi (?)
-KURULACAK	SEESAW	SİTE			1	DeTqN3uEidC	İlham sitesi (?)
-KURULACAK	GameUIDatabase	SİTE			1	DeTqN3uEidC	Oyun UI referans veritabanı
-KURULACAK	Interface In Game	SİTE			1	DeTqN3uEidC	Oyun arayüzü referans sitesi
-KURULACAK	HUDS+GUIS	SİTE			1	DeTqN3uEidC	Oyun HUD/GUI referans sitesi
+KURULU-KANIT	Design Engineer Tools	SİTE	https://designengineer.tools	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Web odaklı design engineer'lar için araç/site/kaynak kütüphanesi (ilham, AI kod, bileşen, yardımcı, video, organizasyon)
+KURULU-KANIT	60fps	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	İlham kategorisinde listelenen site (?)
+KURULU-KANIT	Awwwards	SİTE	awwwards.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DeTqN3uEidC	Ödüllü web sitesi vitrini
+KURULU-KANIT	Cosmos	SİTE	cosmos.so	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Görsel ilham toplama platformu
+KURULU-KANIT	Mobbin	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Gerçek ürün UI/akış referans kütüphanesi
+KURULU-KANIT	Curated Design	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Tasarım ilham listesi (?)
+KURULU-KANIT	Design Spells	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Tasarım/etkileşim ilham sitesi (?)
+KURULU-KANIT	Rebrand	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Marka yenileme ilham sitesi (?)
+KURULU-KANIT	Saaspo	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	SaaS landing ilham galerisi (?)
+KURULU-KANIT	Godly	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Web tasarım ilham galerisi (?)
+KURULU-KANIT	Same Energy	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Görsel benzerlik arama motoru (?)
+KURULU-KANIT	Supahero	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Hero bölümü ilham sitesi (?)
+KURULU-KANIT	loadmo.re	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	İlham sitesi (?)
+KURULU-KANIT	Layers	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	İlham sitesi (?)
+KURULU-KANIT	SEESAW	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	İlham sitesi (?)
+KURULU-KANIT	GameUIDatabase	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Oyun UI referans veritabanı
+KURULU-KANIT	Interface In Game	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Oyun arayüzü referans sitesi
+KURULU-KANIT	HUDS+GUIS	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Oyun HUD/GUI referans sitesi
 KURULACAK	Bolt.new	araç	bolt.new		1	DeTqN3uEidC	AI ile web uygulaması üreten kod aracı
 KURULACAK	Cline	araç			1	DeTqN3uEidC	AI kod ajanı eklentisi
 KURULACAK	v0 by Vercel	araç			1	DeTqN3uEidC	Vercel AI UI üretici
 KURULACAK	Windsurf	araç			1	DeTqN3uEidC	AI kod editörü
 KURULACAK	Zed	araç			1	DeTqN3uEidC	Kod editörü
-KURULACAK	Component Gallery	SİTE			1	DeTqN3uEidC	UI bileşen galerisi
-KURULACAK	Fancy Components	SİTE			1	DeTqN3uEidC	Bileşen kütüphanesi
+KURULU-KANIT	Component Gallery	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	UI bileşen galerisi
+KURULU-KANIT	Fancy Components	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Bileşen kütüphanesi
 KURULACAK	Motion Primitives	kütüphane			1	DeTqN3uEidC	Animasyon bileşen kütüphanesi
 KURULACAK	NumberFlow	kütüphane			1	DeTqN3uEidC	Animasyonlu sayı bileşeni
 KURULACAK	Cursify	kütüphane			1	DeTqN3uEidC	İmleç efekt/bileşen kütüphanesi (?)
@@ -317,26 +317,26 @@ KURULACAK	DaVinci Resolve	uygulama			1	DeTqN3uEidC	Video kurgu yazılımı
 KURULACAK	LosslessCut	uygulama			1	DeTqN3uEidC	Kayıpsız video kesme
 KURULACAK	AFFiNE	uygulama			1	DeTqN3uEidC	Whiteboard/not uygulaması
 KURULACAK	FigJam	uygulama			1	DeTqN3uEidC	Beyaz tahta aracı
-KURULACAK	Are.na	SİTE			1	DeTqN3uEidC	Referans toplama platformu
-KURULACAK	animations.dev	SİTE	animations.dev		1	DeTqN3uEidC	Animasyon eğitim kaynağı
-KURULACAK	ui.land	SİTE	https://ui.land		1	DeTqN3uEidC	Videoda link olarak geçen UI sitesi
-KURULACAK	gradientool	SİTE	https://www.gradientool.com		1	DeTqN3uEidC	Gradyan aracı (?)
-KURULACAK	pear.com	SİTE	https://www.pear.com		1	DeTqN3uEidC	Videoda link olarak geçen site
-KURULACAK	remediate.ski	SİTE	https://www.remediate.ski		1	DeTqN3uEidC	Videoda link olarak geçen site
+KURULU-KANIT	Are.na	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Referans toplama platformu
+KURULU-KANIT	animations.dev	SİTE	animations.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Animasyon eğitim kaynağı
+KURULU-KANIT	ui.land	SİTE	https://ui.land	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Videoda link olarak geçen UI sitesi
+KURULU-KANIT	gradientool	SİTE	https://www.gradientool.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Gradyan aracı (?)
+KURULU-KANIT	pear.com	SİTE	https://www.pear.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Videoda link olarak geçen site
+KURULU-KANIT	remediate.ski	SİTE	https://www.remediate.ski	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Videoda link olarak geçen site
 KURULACAK	firered-openstoryline	repo			1	De__0Eok8OB	Sohbetle AI video üreten açık kaynak storyline/ajan: medya arama, script, düzenleme, yeniden kullanılabilir skill
-KURULACAK	httpster.net	SİTE	httpster.net		1	DfASJnjIYe2	Küratörlü web tasarım ilham sitesi
-KURULACAK	siteinspire.com	SİTE	siteinspire.com		1	DfASJnjIYe2	Web tasarım galerisi
-KURULACAK	fontsinuse.com	SİTE	fontsinuse.com		1	DfASJnjIYe2	Gerçek kullanımda yazı tipleri arşivi
-KURULACAK	landing.love	SİTE	landing.love		1	DfASJnjIYe2	Landing page ilham galerisi
-KURULACAK	lapa.ninja	SİTE	lapa.ninja		2	DfASJnjIYe2	Landing page ilham galerisi
-KURULACAK	hoverstat.es	SİTE	hoverstat.es		1	DfASJnjIYe2	Hover etkileşim ilham sitesi
-KURULACAK	land-book.com	SİTE	land-book.com		1	DfASJnjIYe2	Landing page galerisi
-KURULACAK	designmadeingermany.de	SİTE	designmadeingermany.de		1	DfASJnjIYe2	Alman tasarım ilham galerisi
-KURULACAK	onepagelove.com	SİTE	onepagelove.com		1	DfASJnjIYe2	Tek sayfa site galerisi
-KURULACAK	bestwebsite.gallery	SİTE	bestwebsite.gallery		2	DfASJnjIYe2	En iyi site galerisi
-KURULACAK	Recent Design	SİTE	recent.design		2	DfCesyEIxdU	Günlük tasarım ilhamı
-KURULACAK	Dark.Design	SİTE	dark.design		1	DfCesyEIxdU	Koyu mod site/UI referansları
-KURULACAK	NicelyDone	SİTE	nicelydone.club		1	DfCesyEIxdU	Gerçek ürün akışı ve UI bileşen referansı
+KURULU-KANIT	httpster.net	SİTE	httpster.net	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Küratörlü web tasarım ilham sitesi
+KURULU-KANIT	siteinspire.com	SİTE	siteinspire.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Web tasarım galerisi
+KURULU-KANIT	fontsinuse.com	SİTE	fontsinuse.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Gerçek kullanımda yazı tipleri arşivi
+KURULU-KANIT	landing.love	SİTE	landing.love	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Landing page ilham galerisi
+KURULU-KANIT	lapa.ninja	SİTE	lapa.ninja	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfASJnjIYe2	Landing page ilham galerisi
+KURULU-KANIT	hoverstat.es	SİTE	hoverstat.es	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Hover etkileşim ilham sitesi
+KURULU-KANIT	land-book.com	SİTE	land-book.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Landing page galerisi
+KURULU-KANIT	designmadeingermany.de	SİTE	designmadeingermany.de	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Alman tasarım ilham galerisi
+KURULU-KANIT	onepagelove.com	SİTE	onepagelove.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfASJnjIYe2	Tek sayfa site galerisi
+KURULU-KANIT	bestwebsite.gallery	SİTE	bestwebsite.gallery	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfASJnjIYe2	En iyi site galerisi
+KURULU-KANIT	Recent Design	SİTE	recent.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfCesyEIxdU	Günlük tasarım ilhamı
+KURULU-KANIT	Dark.Design	SİTE	dark.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfCesyEIxdU	Koyu mod site/UI referansları
+KURULU-KANIT	NicelyDone	SİTE	nicelydone.club	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfCesyEIxdU	Gerçek ürün akışı ve UI bileşen referansı
 KURULACAK	st-tech/ppf-contact-solver	repo	https://github.com/st-tech/ppf-contact-solver		1	DYuY_-7Oqk4	ZOZO'nun açık kaynak kumaş/halat/yumuşak cisim fizik motoru, Blender eklentisi ve JupyterLab arayüzü var
 KURULACAK	oooscoos/benzi	repo	github.com/oooscoos/benzi		1	Dd5RAFqyPjh	Tree-sitter ile derleyici düzeyinde sembol/çağrı haritası çıkaran, dosya okumak yerine sorgulayan AI kod ajanı (VS Code eklentisi, 10 dil)
 KURULACAK	Aider	araç			1	Dd5RAFqyPjh	Karşılaştırmada imza haritalayan kod ajanı
@@ -348,7 +348,7 @@ KURULACAK	Anthropic skills	skill			2	De-iVbFiVsO	Anthropic resmi skill'leri
 KURULACAK	Remove AI Design Slop / Infographic Lean / Infographic Feedback	skill			1	De-iVbFiVsO	Görsel/infografik skill'leri
 KURULACAK	wesbos/3d-model-anything	repo	github.com/wesbos/3d-model-anything		1	De0VmwJD8zS	iPhone LiDAR taramasından AI kod ajanıyla düzenlenebilir Three.js oda sahnesi kuran iş akışı ve viewer
 KURULACAK	schmayterling/hibi	repo	github.com/schmayterling/hibi		1	De1IdFfjpAL	Markdown, LaTeX, AsciiDoc vb. destekli yerel not/belge masaüstü editörü, yan yana önizleme (hibi.garden)
-KURULACAK	Pixo Studio	SİTE			1	De1ghhSBC2O	Tarayıcıda 3D, scroll animasyonlu site örnekleri üreten ajans (araç adı verilmedi)
+KURULU-KANIT	Pixo Studio	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1ghhSBC2O	Tarayıcıda 3D, scroll animasyonlu site örnekleri üreten ajans (araç adı verilmedi)
 KURULACAK	Genjutsu	plugin	/genjutsu:cast		2	De1rAYuAHln	Claude Code için hareket ve görsel tasarım skill'i (siteyi hareketli/premium yapar)
 KURULACAK	UX/UI Agent	skill			1	De1rAYuAHln	17 tasarım skill'li kıdemli tasarım mimarı; /design-code
 KURULACAK	Business Skills	skill			1	De1rAYuAHln	Büyüme planı ve strateji çerçeveleri
@@ -366,20 +366,20 @@ KURULACAK	Cal.com	uygulama	Cal.com		2	De4rkL4MSDz	Calendly alternatifi
 KURULACAK	Chatwoot	uygulama			1	De4rkL4MSDz	Intercom alternatifi, tek gelen kutusu
 KURULACAK	Cap	uygulama			1	De4rkL4MSDz	Loom alternatifi ekran kaydı
 KURULACAK	johnHeibel/ClaudeAnimationBase	repo	github.com/johnHeibel/ClaudeAnimationBase		1	De5b0gljdOZ	p5.js ile elle boyanmış çizgi film animasyonu için başlangıç kiti: karakter, 31 duygu, ANIMATION_GUIDE.md (MIT)
-KURULACAK	Cosmos.so	SİTE	cosmos.so		1	De7bHbulPRr	Görsel ilham toplama platformu
-KURULACAK	Brandlogo.co	SİTE	brandlogo.co		1	De7bHbulPRr	Küratörlü logo ilham kütüphanesi
-KURULACAK	Animos.app	SİTE	animos.app		1	De7bHbulPRr	Statik UI/tasarımı hareketli sunuma çeviren tarayıcı aracı
-KURULACAK	MacFolio	SİTE	macfolio.com		1	De7bHbulPRr	Mac uygulamaları ve yaratıcı araç rehberi
+KURULU-KANIT	Cosmos.so	SİTE	cosmos.so	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De7bHbulPRr	Görsel ilham toplama platformu
+KURULU-KANIT	Brandlogo.co	SİTE	brandlogo.co	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De7bHbulPRr	Küratörlü logo ilham kütüphanesi
+KURULU-KANIT	Animos.app	SİTE	animos.app	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De7bHbulPRr	Statik UI/tasarımı hareketli sunuma çeviren tarayıcı aracı
+KURULU-KANIT	MacFolio	SİTE	macfolio.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De7bHbulPRr	Mac uygulamaları ve yaratıcı araç rehberi
 KURULACAK	Motion plugin (adı belirsiz)	plugin			1	De8RH_DIAaK	Claude Code'a eklenen, prompttan lansman videosu üreten plugin; ilk 1000 kişiye ücretsiz sonra 9,99 USD
 KURULACAK	GitHub CLI	araç			1	De9D5Z9kx9a	PR açma ve sürüm
 KURULACAK	Chatterbox	model			1	De9ulC6CE_x	Açık kaynak ses üretimi ve klonlama, Türkçe destekli
-KURULACAK	Photopea	SİTE	https://www.photopea.com		1	De9ulC6CE_x	Tarayıcıda Photoshop alternatifi, PSD açar
+KURULU-KANIT	Photopea	SİTE	https://www.photopea.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De9ulC6CE_x	Tarayıcıda Photoshop alternatifi, PSD açar
 KURULACAK	Affinity	uygulama			1	De9ulC6CE_x	Illustrator/InDesign alternatifi
 KURULACAK	Upscayl	uygulama			1	De9ulC6CE_x	Açık kaynak AI görsel büyütücü (GPU ister)
 KURULACAK	Handy	uygulama			1	De9ulC6CE_x	Açık kaynak çevrimdışı konuşma metne çevirme
 KURULACAK	LM Studio / Ollama	uygulama			1	De9ulC6CE_x	Açık modelleri yerelde çalıştırma
 KURULACAK	Locally Uncensored	uygulama			1	DeNkA4oko-v	Sohbet, görsel, video, kod ajanı tek masaüstü yerel AI stüdyosu (AGPL-3.0, Windows/Linux)
-KURULACAK	cubimatural portfolio	SİTE			1	DeSLvUkRlTF	Kitap gibi etkileşimli portfolyo sitesi örneği; prompt bio linkinde
+KURULU-KANIT	cubimatural portfolio	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeSLvUkRlTF	Kitap gibi etkileşimli portfolyo sitesi örneği; prompt bio linkinde
 KURULACAK	OpenAI agent manager	repo			1	DeWsGkaE_tk	Kanban panosuna görev koyup AI ajanların yaptığı, insanın incelediği ajan yöneticisi
 KURULACAK	Alibaba Qwen voice model	model			1	DeWsGkaE_tk	Metin promptundan ses tasarlayan veya klonlayan model, 10 dil
 KURULACAK	Anthropic finance agents	repo			1	DeWsGkaE_tk	Pitchbook, müşteri tarama, ay kapanışı yapan finans ajanları
@@ -389,26 +389,26 @@ KURULACAK	addyosmani/agent-skills	repo			1	Dej0ddaASU6	Addy Osmani'nin 24 mühen
 KURULACAK	pbakaus/impeccable	skill	npx impeccable install		1	Dem91ptkrhe	24 komutlu tasarım dili skill'i (polish, audit, animate)
 KURULACAK	better-auth/better-icons	skill	npx skills add better-auth/better-icons		1	Dem91ptkrhe	Gerçek ikon kütüphanelerinden SVG çeken skill+MCP
 KURULACAK	hardikpandya/stop-slop	skill			1	Dem91ptkrhe	AI klişesini silen skill
-KURULACAK	The Design Stack prompts	SİTE	thedesignstack.com/prompts		1	Derh5Bzgan2	Premium etkileşim animasyonları için hazır prompt koleksiyonu (marquee, kart istifi, imleç itme, kumaş vb.)
+KURULU-KANIT	The Design Stack prompts	SİTE	thedesignstack.com/prompts	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Derh5Bzgan2	Premium etkileşim animasyonları için hazır prompt koleksiyonu (marquee, kart istifi, imleç itme, kumaş vb.)
 KURULACAK	Cinematic Product Studio	araç			1	DeyDEFlCBsL	Blender eklentisi, ışık ve animasyon
 KURULACAK	Flux Forms	araç			1	DeyDEFlCBsL	Blender eklentisi, sıvı şekiller
 KURULACAK	Optic Lab FX	araç			1	DeyDEFlCBsL	Blender eklentisi, objektif bulanıklık
-KURULACAK	Kombai Gallery	SİTE			1	Dez88-KooO8	20.000+ web ve mobil UI tasarımı galerisi; ekran görüntüsünü Claude Code'a referans verme
-KURULACAK	Same.dev	SİTE	Same.dev		1	DfAoV4Wz1ez	Canlı site URL'sini yerleşim ve animasyonla klonlar
+KURULU-KANIT	Kombai Gallery	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dez88-KooO8	20.000+ web ve mobil UI tasarımı galerisi; ekran görüntüsünü Claude Code'a referans verme
+KURULU-KANIT	Same.dev	SİTE	Same.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfAoV4Wz1ez	Canlı site URL'sini yerleşim ve animasyonla klonlar
 KURULACAK	Webflow AI	araç			1	DfAoV4Wz1ez	Bölüm ve responsive yerleşim üretir
 KURULACAK	Claude Opus 5.5	model			1	DfCAdgyR22H	BMW M5 3B scroll sitesi için kullanılan model
 KURULACAK	REA	MCP	npx rea-agents setup		2	DfCtGNgiWeb	Uygulama/web/APK'yı koda kadar izleyen ters mühendislik MCP'si
-KURULACAK	UImaxxing	SİTE			1	DfFDa-rJpqo	Hazır ürün UI bileşenleri
+KURULU-KANIT	UImaxxing	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfFDa-rJpqo	Hazır ürün UI bileşenleri
 KURULACAK	Halaska UI	kütüphane			1	DfFDa-rJpqo	shadcn/ui üzerine kurulu ekran, desen ve bileşenler
 KURULACAK	beUI	kütüphane			1	DfFDa-rJpqo	React/Next.js animasyonlu bileşenler, playground
 KURULACAK	YouTube Data API v3	araç			1	wY-hZK7UN7A	Claude'u YouTube kanalına bağlamak için API key ile istatistik ve yorum yönetimi
-KURULACAK	Google Cloud Console	SİTE			1	wY-hZK7UN7A	API key üretim yeri
+KURULU-KANIT	Google Cloud Console	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	wY-hZK7UN7A	API key üretim yeri
 KURULACAK	LEANN	repo			1	De-eRt1knz7	Çok küçük vektör indeksi; 60 milyon metin parçasını 6 GB'a sığdırır, GPU/bulut gerekmez, yerel RAG, MCP entegrasyonu, Claude Code ile kod geri getirme
 KURULACAK	ContextBench / SWE-Bench Pro	yöntem			1	De-eRt1knz7	LEANN'in Claude Code'a bağlanıp BM25 ile karşılaştırıldığı kıyas seti
-KURULACAK	404s.design	SİTE	404s.design		1	DeXFxPDCLe8	404 hata sayfası tasarım örnekleri
-KURULACAK	unsection.com	SİTE	unsection.com		1	DeXFxPDCLe8	Uyarlanabilir hazır bölüm (section) tasarımları
-KURULACAK	bentogrids.com	SİTE	bentogrids.com		1	DeXFxPDCLe8	İnternetteki bento ızgara düzenleri koleksiyonu
-KURULACAK	6ofps.design (?)	SİTE	6ofps.design (?)		1	DeXFxPDCLe8	Uygulamayı pahalı hissettiren mikro hareket/animasyon örnekleri
+KURULU-KANIT	404s.design	SİTE	404s.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeXFxPDCLe8	404 hata sayfası tasarım örnekleri
+KURULU-KANIT	unsection.com	SİTE	unsection.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeXFxPDCLe8	Uyarlanabilir hazır bölüm (section) tasarımları
+KURULU-KANIT	bentogrids.com	SİTE	bentogrids.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeXFxPDCLe8	İnternetteki bento ızgara düzenleri koleksiyonu
+KURULU-KANIT	6ofps.design (?)	SİTE	6ofps.design (?)	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeXFxPDCLe8	Uygulamayı pahalı hissettiren mikro hareket/animasyon örnekleri
 KURULACAK	NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4	model	HuggingFace		1	De_bt1XoJav	Nvidia'nın açık indirilebilir kodlama modeli, tek ekran kartında yerel çalışır, 1M token bağlam (videoya göre)
 KURULACAK	AnyMove	repo			1	DfCjVGDhwrl	Tek AI video klibinden yaratık 3D hareketini çıkarıp rig'e aktarır (repo yoruma DM ile verilecek, URL yok)
 KURULACAK	poteto-mode / pstack	skill			1	DfEVFJLAVpc	ub-mode'un temel aldığı kural seti
@@ -419,7 +419,7 @@ KURULACAK	Harness2	repo			1	De-ozuJiHjm	Ajan koşum takımını (prompt/araç) �
 KURULACAK	Blockbench	uygulama			1	De0cO6lCUrG	Minecraft modlama için ücretsiz 3D model/doku/animasyon uygulaması
 KURULACAK	blockbench-mcp-plugin	MCP	github.com/jasonjgardner/blockbench-mcp-plugin		1	De0cO6lCUrG	Claude'un Blockbench içinde model, doku ve animasyon kurmasını sağlar
 KURULACAK	Skill referans dosyası içindekiler listesi yöntemi	yöntem			1	De1KvZjCqWm	100 satırı aşan referans dosyalarının başına içindekiler ekleyip SKILL.md'den tek seviye bağlama
-KURULACAK	Spline (Community)	SİTE			1	De1tiaNNapd	3D tasarım topluluğu; Remix + Export bağlantısıyla 3D sahne siteye gömülür
+KURULU-KANIT	Spline (Community)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1tiaNNapd	3D tasarım topluluğu; Remix + Export bağlantısıyla 3D sahne siteye gömülür
 KURULACAK	Unreal MCP	MCP			1	De2FuK0ouNW	AI asistanı Unreal Engine'e bağlar, görselden 3D ortam kurar
 KURULACAK	Unreal Engine 5.8	uygulama			1	De2FuK0ouNW	Oyun/film motoru, MCP ile sahne üretimi
 KURULACAK	Blender gerçekçilik kontrol skill'i	skill			1	De38b1OomBx	Uzun render öncesi gerçekçiliği denetleyen Claude skill'i (adı/linki yok, DM ile)
@@ -439,11 +439,11 @@ KURULACAK	Hermes Gadget	araç			1	De8XXXOIIZN	ESP32 ekranlı basarak konuş ciha
 KURULACAK	spec-kit	repo	github.com/github/spec-kit		1	De928DMsmEj	Önce spec, plan, görev listesi, sonra kod; Claude Code/Copilot/Codex ile çalışır
 KURULACAK	ComfyUI-FlashVSR	repo	github.com/1038lab/comfyui-flashvsr		1	De9Ek7zSXf5	ComfyUI'da gerçek zamanlı difüzyon video 2x/4x yükseltme, GPL-3.0
 KURULACAK	Cooldock	uygulama	cooldock (?)		1	DeJxYRblNR2	Mac için canlı widget'lı ikinci Dock
-KURULACAK	Spotted in Prod	SİTE	spottedinprod.com		1	DeJxYRblNR2	Gerçek ürünlerden UI detay arşivi
-KURULACAK	Ditther	SİTE	ditther.com		1	DeJxYRblNR2	Dither/ASCII/halftone efekti, tarayıcıda ücretsiz
-KURULACAK	ascii-magic.com	SİTE	ascii-magic.com		1	DeJxYRblNR2	ASCII efekt aracı (?)
-KURULACAK	doronsupply.com	SİTE	doronsupply.com		1	DeJxYRblNR2	Tasarım kaynağı sitesi (açıklaması okunamadı)
-KURULACAK	ultramock.io	SİTE	ultramock.io		1	DeJxYRblNR2	Mockup üretme aracı (?)
+KURULU-KANIT	Spotted in Prod	SİTE	spottedinprod.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeJxYRblNR2	Gerçek ürünlerden UI detay arşivi
+KURULU-KANIT	Ditther	SİTE	ditther.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeJxYRblNR2	Dither/ASCII/halftone efekti, tarayıcıda ücretsiz
+KURULU-KANIT	ascii-magic.com	SİTE	ascii-magic.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeJxYRblNR2	ASCII efekt aracı (?)
+KURULU-KANIT	doronsupply.com	SİTE	doronsupply.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeJxYRblNR2	Tasarım kaynağı sitesi (açıklaması okunamadı)
+KURULU-KANIT	ultramock.io	SİTE	ultramock.io	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeJxYRblNR2	Mockup üretme aracı (?)
 KURULACAK	framefields	kütüphane	github.com/gatewai-dev/gitframes (?); npx skills add gatewai-dev/framefields		1	DeOwi--gJSe	Kodla video: compositing, hareket grafiği, 3D, TypeScript, GPU render, npm paketi, Apache-2.0
 KURULACAK	20 animasyon stili (Claude Code)	yöntem			1	DeSkB0htIbX	Particles, Liquid morph, Glassmorphism, Neo Brutalism vb. 20 animasyon stili listesi
 KURULACAK	/rewind	yöntem			1	DeY_8acEaiy	Hatadan önceki noktaya dönmek için Claude Code komutu
@@ -476,50 +476,50 @@ KURULACAK	CC Switch	araç			1	DfCuqy9s9xq	Sağlayıcı geçişi
 KURULACAK	RTK	araç			1	DfCuqy9s9xq	Komut çıktısını sıkıştırır
 KURULACAK	AI üretimi site düzeltme örnekleri	yöntem			1	DfDdhEih-2s	Yalnız OCR: Lotus, Crest, Emberine, Yohalou gibi örnek site tasarımları; araç adı yok
 KURULACAK	Claude Motion 2.0 / Claude Video 2.0	skill			1	KphrV76DJoI	Ücretsiz skill: stil seç, referans bul, brief yaz, döngü animasyon, kare kontrol
-KURULACAK	Uilora (?)	SİTE	uilora (?)		1	De2ffFouvor	UI bileşenleri, tasarım sistemi ve web/mobil için hazır kod parçaları sunan ücretsiz UI kütüphanesi
-KURULACAK	Forge UI	SİTE			1	De2ffFouvor	Kopyala-yapıştır animasyonlu hazır bloklar sunan UI kütüphanesi
-KURULACAK	Uiverse	SİTE	uiverse		1	De2ffFouvor	7.000+ topluluk yapımı açık kaynak UI elemanı (buton, loader vb.) kütüphanesi
-KURULACAK	Designspiration	SİTE	designspiration.com		1	DeZXAa6jE8s	Görsel sanat için yaratıcı arama platformu, tasarım ilham koleksiyonu
-KURULACAK	The Inspiration Grid	SİTE	theinspirationgrid.com		1	DeZXAa6jE8s	Yaratıcı görsel tasarım online dergisi
-KURULACAK	Scrnshts	SİTE	scrnshts.club		1	DeZXAa6jE8s	Küratörlü App Store ekran görüntüsü tasarımları
-KURULACAK	Appinspo	SİTE	appinspo.com		1	DeZXAa6jE8s	Küratörlü mobil uygulama tasarım galerisi
-KURULACAK	Behance	SİTE	behance.net		1	DeZXAa6jE8s	Adobe'un yaratıcı portfolyo vitrini
-KURULACAK	navbar.design	SİTE	navbar.design		1	DeZXAa6jE8s	Navigasyon çubuğu kalıpları galerisi
-KURULACAK	Land-book	SİTE	land-book.com		1	DeZXAa6jE8s	Sektöre göre düzenlenmiş landing page galerisi
-KURULACAK	Collect UI	SİTE	collectui.com		1	DeZXAa6jE8s	Bileşene göre etiketli günlük UI ilhamı
-KURULACAK	Imageory	SİTE	imageory.in		1	DeZXAa6jE8s	Görselleri prompt'larla eşleştiren görsel galeri
-KURULACAK	Backgrounds Supply	SİTE	backgrounds.supply		2	DeZXAa6jE8s	El yapımı hazır web sitesi arka planları
-KURULACAK	Venust Backgrounds	SİTE	backgrounds.venust.ai		1	DeZXAa6jE8s	Arka plan koleksiyonu (link listesinde geçiyor)
-KURULACAK	Dribbble	SİTE	dribbble.com		1	DeZXAa6jE8s	Tasarımcı portfolyo/ilham platformu (link listesinde)
-KURULACAK	One Page Love	SİTE	onepagelove.com		1	DeZXAa6jE8s	Tek sayfa site ilham galerisi (link listesinde)
-KURULACAK	Landingfolio	SİTE	landingfolio.com		1	DeZXAa6jE8s	Landing page ilham galerisi (link listesinde)
-KURULACAK	Screenlane	SİTE	screenlane.com		1	DeZXAa6jE8s	UI ekran ilham galerisi (link listesinde)
-KURULACAK	UX Archive	SİTE	uxarchive.com		1	DeZXAa6jE8s	UX akış referans arşivi (link listesinde)
-KURULACAK	Best SaaS Web Designs	SİTE	bestsaaswebdesigns.com		1	DeZXAa6jE8s	SaaS web tasarım galerisi (link listesinde)
-KURULACAK	SaaSFrame	SİTE	saasframe.io		1	DeZXAa6jE8s	SaaS UI referans galerisi (link listesinde)
-KURULACAK	Pttrns	SİTE	pttrns.com		1	DeZXAa6jE8s	Mobil UI kalıp galerisi (link listesinde)
-KURULACAK	Flowbase	SİTE	flowbase.co		1	DeZXAa6jE8s	Webflow bileşen/şablon kaynağı (link listesinde)
-KURULACAK	Interface Craft	SİTE	interfacecraft.dev		1	DeZXAa6jE8s	Arayüz işçiliği kaynağı (link listesinde)
-KURULACAK	UI Playbook	SİTE	uiplaybook.dev		1	DeZXAa6jE8s	UI kaynak sitesi (link listesinde)
-KURULACAK	UI Labs	SİTE	uilabs.dev		1	DeZXAa6jE8s	UI kaynak sitesi (link listesinde)
-KURULACAK	design.dev	SİTE	design.dev		1	DeZXAa6jE8s	Tasarım kaynak sitesi (link listesinde)
-KURULACAK	lab01.dev	SİTE	lab01.dev		1	DeZXAa6jE8s	Tasarım/UI kaynak sitesi (link listesinde)
-KURULACAK	Insposite	SİTE	insposite.com		1	DeZXAa6jE8s	Tasarım ilham sitesi (link listesinde)
-KURULACAK	Best Designs on X	SİTE	bestdesignsonx.com		1	DeZXAa6jE8s	X'teki en iyi tasarımlar derlemesi (link listesinde)
-KURULACAK	Betwn Studios	SİTE	betwnstudios.com		1	DeZXAa6jE8s	Tasarım stüdyosu/kaynak sitesi (link listesinde)
-KURULACAK	Landdding	SİTE	landdding.com		1	DeZXAa6jE8s	Landing page kaynak sitesi (link listesinde) (?)
-KURULACAK	Motionimo	SİTE	motionimo.xyz		1	DeZXAa6jE8s	Hareket/animasyon ilham sitesi (link listesinde)
-KURULACAK	Loader Buttons (Appllama)	SİTE	loader-buttons.appllama.io		1	DeZXAa6jE8s	Loader butonu bileşenleri (link listesinde)
-KURULACAK	whatships.com	SİTE	whatships.com		1	DeZXAa6jE8s	Ürün/tasarım ilham sitesi (link listesinde)
+KURULU-KANIT	Uilora (?)	SİTE	uilora (?)	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De2ffFouvor	UI bileşenleri, tasarım sistemi ve web/mobil için hazır kod parçaları sunan ücretsiz UI kütüphanesi
+KURULU-KANIT	Forge UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De2ffFouvor	Kopyala-yapıştır animasyonlu hazır bloklar sunan UI kütüphanesi
+KURULU-KANIT	Uiverse	SİTE	uiverse	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De2ffFouvor	7.000+ topluluk yapımı açık kaynak UI elemanı (buton, loader vb.) kütüphanesi
+KURULU-KANIT	Designspiration	SİTE	designspiration.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Görsel sanat için yaratıcı arama platformu, tasarım ilham koleksiyonu
+KURULU-KANIT	The Inspiration Grid	SİTE	theinspirationgrid.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Yaratıcı görsel tasarım online dergisi
+KURULU-KANIT	Scrnshts	SİTE	scrnshts.club	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Küratörlü App Store ekran görüntüsü tasarımları
+KURULU-KANIT	Appinspo	SİTE	appinspo.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Küratörlü mobil uygulama tasarım galerisi
+KURULU-KANIT	Behance	SİTE	behance.net	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Adobe'un yaratıcı portfolyo vitrini
+KURULU-KANIT	navbar.design	SİTE	navbar.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Navigasyon çubuğu kalıpları galerisi
+KURULU-KANIT	Land-book	SİTE	land-book.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Sektöre göre düzenlenmiş landing page galerisi
+KURULU-KANIT	Collect UI	SİTE	collectui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Bileşene göre etiketli günlük UI ilhamı
+KURULU-KANIT	Imageory	SİTE	imageory.in	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Görselleri prompt'larla eşleştiren görsel galeri
+KURULU-KANIT	Backgrounds Supply	SİTE	backgrounds.supply	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DeZXAa6jE8s	El yapımı hazır web sitesi arka planları
+KURULU-KANIT	Venust Backgrounds	SİTE	backgrounds.venust.ai	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Arka plan koleksiyonu (link listesinde geçiyor)
+KURULU-KANIT	Dribbble	SİTE	dribbble.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Tasarımcı portfolyo/ilham platformu (link listesinde)
+KURULU-KANIT	One Page Love	SİTE	onepagelove.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Tek sayfa site ilham galerisi (link listesinde)
+KURULU-KANIT	Landingfolio	SİTE	landingfolio.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Landing page ilham galerisi (link listesinde)
+KURULU-KANIT	Screenlane	SİTE	screenlane.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	UI ekran ilham galerisi (link listesinde)
+KURULU-KANIT	UX Archive	SİTE	uxarchive.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	UX akış referans arşivi (link listesinde)
+KURULU-KANIT	Best SaaS Web Designs	SİTE	bestsaaswebdesigns.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	SaaS web tasarım galerisi (link listesinde)
+KURULU-KANIT	SaaSFrame	SİTE	saasframe.io	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	SaaS UI referans galerisi (link listesinde)
+KURULU-KANIT	Pttrns	SİTE	pttrns.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Mobil UI kalıp galerisi (link listesinde)
+KURULU-KANIT	Flowbase	SİTE	flowbase.co	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Webflow bileşen/şablon kaynağı (link listesinde)
+KURULU-KANIT	Interface Craft	SİTE	interfacecraft.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Arayüz işçiliği kaynağı (link listesinde)
+KURULU-KANIT	UI Playbook	SİTE	uiplaybook.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	UI kaynak sitesi (link listesinde)
+KURULU-KANIT	UI Labs	SİTE	uilabs.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	UI kaynak sitesi (link listesinde)
+KURULU-KANIT	design.dev	SİTE	design.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Tasarım kaynak sitesi (link listesinde)
+KURULU-KANIT	lab01.dev	SİTE	lab01.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Tasarım/UI kaynak sitesi (link listesinde)
+KURULU-KANIT	Insposite	SİTE	insposite.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Tasarım ilham sitesi (link listesinde)
+KURULU-KANIT	Best Designs on X	SİTE	bestdesignsonx.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	X'teki en iyi tasarımlar derlemesi (link listesinde)
+KURULU-KANIT	Betwn Studios	SİTE	betwnstudios.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Tasarım stüdyosu/kaynak sitesi (link listesinde)
+KURULU-KANIT	Landdding	SİTE	landdding.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Landing page kaynak sitesi (link listesinde) (?)
+KURULU-KANIT	Motionimo	SİTE	motionimo.xyz	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Hareket/animasyon ilham sitesi (link listesinde)
+KURULU-KANIT	Loader Buttons (Appllama)	SİTE	loader-buttons.appllama.io	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Loader butonu bileşenleri (link listesinde)
+KURULU-KANIT	whatships.com	SİTE	whatships.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeZXAa6jE8s	Ürün/tasarım ilham sitesi (link listesinde)
 KURULACAK	Advanced Delegation (Hermes plugin)	plugin	hermes-agent.nousresearch.com/docs/plugins/a...		1	DfAbIv5C8OH	Orkestratörün her alt ajan için farklı model/profil seçmesini sağlayan resmi Hermes eklentisi v1.0.0 (Hermes 0.22.5+ gerekli)
-KURULACAK	Thinkingods	SİTE	Thinkingods.com		1	DfDMzXZzvy_	Web sitelerini hareketlendiren hazır prompt koleksiyonu (hero bölümü örneği: driftwood log fırça maskesi)
+KURULU-KANIT	Thinkingods	SİTE	Thinkingods.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfDMzXZzvy_	Web sitelerini hareketlendiren hazır prompt koleksiyonu (hero bölümü örneği: driftwood log fırça maskesi)
 KURULACAK	davinci-resolve-mcp	MCP	github.com (davinci-resolve-mcp)		1	cLOhuWxqQvI	Claude'u DaVinci Resolve Studio'ya bağlayan MCP sunucusu, MIT lisans, 3.3k yıldız
 KURULACAK	Banana Pro Director (banana-pro-director-skill.md)	skill			1	Dax-38bjV8R	Karakter sayfası, kıyafet referansı, sahne düzeni ve nano banana için ayrıntılı görsel prompt üreten skill
 KURULACAK	Cinema World Builder (cinema-world-builder-skill.md)	skill			1	Dax-38bjV8R	Görselleri kamera hareketi/lens ayarlı sinematik video prompt'larına çeviren skill
 KURULACAK	Seedance 2.0	model			1	Dax-38bjV8R	Video üretim modeli
 KURULACAK	clodfarm	repo	github.com/matankoo1/clodfarm (?)		1	Dd8wLKzn7fK	Claude Code ajanlarını konteynerde gece boyu çalıştıran, planın %80'inde duran, branch başına iş bölen çiftlik
 KURULACAK	OpenRouter / Ollama	araç			1	Dd8wLKzn7fK	clodfarm'da ücretsiz/yerel modelle bot kapasitesi için geçen sağlayıcılar
-KURULACAK	Hyper3D	SİTE			1	Ddn_GQns8hC	Metin/eskizden 3D varlık üretimi
+KURULU-KANIT	Hyper3D	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Ddn_GQns8hC	Metin/eskizden 3D varlık üretimi
 KURULACAK	Rodin Gen 2.5	model			1	Ddn_GQns8hC	Hyper3D'nin 12K doku üreten 3D üretim modeli
 KURULACAK	VS Code	uygulama			1	De1SyIcCDTB	Ücretsiz kod editörü
 KURULACAK	Filee	repo	github.com/KnifeLemon/Filee		1	De2GSWNgtiV	255 formatı çevrimdışı dönüştüren dosya dönüştürücü, CLI: filee convert photo.heic --to jpg, klasör izleme
@@ -528,18 +528,18 @@ KURULACAK	GPT Image	model			1	De2kpfnCFeH	Görsel üretimi
 KURULACAK	Python (veri analizi)	araç			1	De2kpfnCFeH	Veriyi okuyup PDF üretme
 KURULACAK	Wan2GP	repo	github.com/deepbeepmeep/Wan2GP		1	De39wVMAQlT	Kendi bilgisayarında çalışan ücretsiz açık kaynak video üretim uygulaması
 KURULACAK	LTX-2.5	model			1	De39wVMAQlT	Wan2GP'de sesli 1080p video üreten model
-KURULACAK	Hyper3D (Rodin / WorldGen / MaxGen)	SİTE			1	De3wrvFp4ix	Tek fotoğraftan düzenlenebilir 3D dünya, Blender/Unreal/Unity/Godot'a dışa aktarım, MCP ve API var
+KURULU-KANIT	Hyper3D (Rodin / WorldGen / MaxGen)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De3wrvFp4ix	Tek fotoğraftan düzenlenebilir 3D dünya, Blender/Unreal/Unity/Godot'a dışa aktarım, MCP ve API var
 KURULACAK	RRSI	repo	github.com/google-research/rrsi		1	De4WluEDDQ_	Ajan talimat/araç/hafızasını yineleyerek evrimleştiren, yalnız iyileşen düzenlemeleri tutan Google Research çerçevesi (Apache-2.0)
 KURULACAK	EngDesign	repo	github.com/AGI4Engineering/EngDesign		1	De4WluEDDQ_	RRSI README'sinde geçen mühendislik tasarım görev seti
 KURULACAK	harvey-labs	repo	github.com/harveyai/harvey-labs		1	De4WluEDDQ_	RRSI README'sinde geçen görev/benchmark deposu (?)
 KURULACAK	chief-of-staff	skill			1	De6oEmiMblJ	Tek hedefle arka planda ajan ekibi yöneten skill
-KURULACAK	mesh3d.gallery	SİTE	mesh3d.gallery		1	De84m_VEk6F	Etkileşimli Three.js deneyimleri vitrini (574 deneyim)
-KURULACAK	Designeer	SİTE	designeer.xyz		1	De84m_VEk6F	Arayüz işçiliği, bileşen kütüphaneleri, AI araçları kataloğu
-KURULACAK	Snakepool	SİTE	snakepool.org		1	De84m_VEk6F	Web sitesi ilham kütüphanesi (günlük güncel)
+KURULU-KANIT	mesh3d.gallery	SİTE	mesh3d.gallery	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De84m_VEk6F	Etkileşimli Three.js deneyimleri vitrini (574 deneyim)
+KURULU-KANIT	Designeer	SİTE	designeer.xyz	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De84m_VEk6F	Arayüz işçiliği, bileşen kütüphaneleri, AI araçları kataloğu
+KURULU-KANIT	Snakepool	SİTE	snakepool.org	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De84m_VEk6F	Web sitesi ilham kütüphanesi (günlük güncel)
 KURULACAK	Agent Skills (addyosmani)	skill	addyosmani/agent-skills		1	De92kC5ob3a	Üretim kalitesinde mühendislik alışkanlıkları
 KURULACAK	3DCodeVerse (ilabai/3dcodeverse)	model	huggingface.co/datasets/ilabai/3dcodeverse		1	De9HFdBTE68	2 milyon Blender/tarayıcı 3D/CAD/shader kod örneği (prompt+kod+render) içeren ~1TB veri seti
-KURULACAK	ReactVibe	SİTE	reactvibe.com		1	De9m92FhliN	Kopyala-yapıştır hazır React bölümleri, hareketli bileşenler, arka planlar
-KURULACAK	Designely Studio	SİTE	designely.studio		1	DeKEMIPtQiq	Görsel etkileşim, 3D ve efekt ekleyip kodu dışa aktaran tasarım canvas aracı
+KURULU-KANIT	ReactVibe	SİTE	reactvibe.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De9m92FhliN	Kopyala-yapıştır hazır React bölümleri, hareketli bileşenler, arka planlar
+KURULU-KANIT	Designely Studio	SİTE	designely.studio	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeKEMIPtQiq	Görsel etkileşim, 3D ve efekt ekleyip kodu dışa aktaran tasarım canvas aracı
 KURULACAK	Agent Orchestrator (Orchestrator.inc)	repo			1	DeOyWqjiHZA	Go ile yazılmış masaüstü uygulaması; planlayıcı ajan görevleri worker ajanlara (ayrı git branch/worktree) dağıtır, Kanban panosu, 25+ harness (Claude Code, Codex, Cursor, Aider)
 KURULACAK	Ootto	MCP			1	DeUTRQNjRWH	Claude'a bağlanıp reel'lerden yeni versiyon ve aylık içerik planı üreten bağlantı (?)
 KURULACAK	T3-Video	repo	huggingface APRIL-AIGC/T3-Video		1	DeZOzoUmVUg	Mevcut Wan modellerini 3840x2176 yerel 4K'ya uyarlayan, 10x hızlı açık kaynak video modeli
@@ -575,45 +575,45 @@ KURULACAK	SerpAPI	araç			1	De4SNYgGU5K	n8n araştırma ajanında web arama
 KURULACAK	Google Gemini	model			1	De4SNYgGU5K	n8n şablonunda ses/video analizi
 KURULACAK	neuron-explorer	repo	github.com/lyramakesmusic/neuron-explorer		1	De_3H65gDSN	Qwen3.5-4B için nöron keşfi/steering aracı, yerelde CPU/MLX ile çalışır, 3D görünüm
 KURULACAK	Qwen3.5-4B	model			1	De_3H65gDSN	Neuron explorer'ın hedef modeli
-KURULACAK	The Design Shop	SİTE			1	DebxQZrD-cl	Vibe-coding siteleri için copy-paste tasarım/hareket promptları satan kaynak (?)
-KURULACAK	The Design Stack	SİTE			1	DebxQZrD-cl	"Tasarım kaynağı paketi; yorum ""DESIGN"" ile link (?)"
+KURULU-KANIT	The Design Shop	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DebxQZrD-cl	Vibe-coding siteleri için copy-paste tasarım/hareket promptları satan kaynak (?)
+KURULU-KANIT	The Design Stack	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DebxQZrD-cl	"Tasarım kaynağı paketi; yorum ""DESIGN"" ile link (?)"
 KURULACAK	AI slop önleme yöntemi	yöntem			1	DebxQZrD-cl	Önce plan+referans site, bölüm bölüm kur, hazır animasyon promptlarını yapıştır
 KURULACAK	CLINC150 / BANKING77	kütüphane			1	DfDQXqrk2bt	DeepOpen'ın kıyaslama veri setleri
-KURULACAK	Seferboğaz	SİTE	Seferboğaz.higgsfield.app		1	o4iY8QEeKmU	Videoda kurulan Boğaz turu sitesi (scroll ile sabahtan geceye) (?)
-KURULACAK	Meridian (örnek site)	SİTE			1	Db0YC6jzsKZ	Manus ile yapılmış örnek site
+KURULU-KANIT	Seferboğaz	SİTE	Seferboğaz.higgsfield.app	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	o4iY8QEeKmU	Videoda kurulan Boğaz turu sitesi (scroll ile sabahtan geceye) (?)
+KURULU-KANIT	Meridian (örnek site)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Db0YC6jzsKZ	Manus ile yapılmış örnek site
 KURULACAK	Photoshop / After Effects / Illustrator / Premiere	uygulama			1	DcWNKSJtb38	Ferrari tanıtım animasyonu için kullanılan Adobe araçları (?)
-KURULACAK	Ripplix	SİTE	Ripplix.com		1	DdB2dB5OvwC	Dünyanın en büyük UI animasyon/mikro etkileşim kütüphanesi
+KURULU-KANIT	Ripplix	SİTE	Ripplix.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DdB2dB5OvwC	Dünyanın en büyük UI animasyon/mikro etkileşim kütüphanesi
 KURULACAK	Jitter	araç	Jitter.video		1	DdB2dB5OvwC	Yaratıcı ekipler için animasyon tasarım aracı
 KURULACAK	Tripo AI	araç			1	De00AyASinQ	Metinden temiz dokulu 3D model üretir, siteye indirilebilir
 KURULACAK	Opus 5.5	model			1	De00AyASinQ	Tripo varlıklarıyla Apple tarzı scroll-animasyonlu 3D launch sayfası kurma
 KURULACAK	ScrapeGraph	MCP			1	De10iPOiB6V	Siteyi ver, istediğini söyle, düzenli veri döndürür (ücretsiz eklenti)
 KURULACAK	"Claude Code Mods ""You Should Know"""	araç			1	De1ZqF2iK72	Yerleşik mod: ikinci AI oturumu izleyip kaçanları işaretler
 KURULACAK	auto-handoff modu	repo			1	De1ZqF2iK72	Compact öncesi kısa brief yazıp yeni oturuma devreden GitHub modu (adı ekrandan: auto-handoff / handoff-brief.md) (?)
-KURULACAK	oyun geliştirme kaynakları (Brackeys, The Cherno, ArtStation, Extra Credits, CodeMonkey, FreeCodeCamp vb.)	SİTE			1	De2HewBtWhH	Kod/sanat/oyun tasarımı/pazarlama öğrenme kaynakları listesi
+KURULU-KANIT	oyun geliştirme kaynakları (Brackeys, The Cherno, ArtStation, Extra Credits, CodeMonkey, FreeCodeCamp vb.)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De2HewBtWhH	Kod/sanat/oyun tasarımı/pazarlama öğrenme kaynakları listesi
 KURULACAK	minnesotanlp/meta-n	repo	github.com/minnesotanlp/meta-n		1	De2onusyJ5G	Meta^n: ajan kodunu yürütme izlerinden okuyup kendi yardımcı fonksiyonlarını yazan özyinelemeli kendini geliştirme çerçevesi (MIT)
 KURULACAK	OpenFilm	repo			1	De3CVJXvMI5	Claude Code ile video kurduran açık kaynak editör; MP4 export
 KURULACAK	3D scroll hamburger sitesi	yöntem			1	De3xBtpxt_I	Özel 3D scroll restoran sitesi örneği; prompt yorumla verilecek
-KURULACAK	Eyecandy	SİTE			1	De4EwvahdMl	Yaratıcı video teknikleri ve efekt adları örnekleri
-KURULACAK	Savee	SİTE			1	De4EwvahdMl	Görsel referans/ilham
-KURULACAK	Motionographer	SİTE			1	De4EwvahdMl	Lansman filmleri ve motion design örnekleri
+KURULU-KANIT	Eyecandy	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4EwvahdMl	Yaratıcı video teknikleri ve efekt adları örnekleri
+KURULU-KANIT	Savee	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4EwvahdMl	Görsel referans/ilham
+KURULU-KANIT	Motionographer	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4EwvahdMl	Lansman filmleri ve motion design örnekleri
 KURULACAK	59 film stilli Claude Code skill	skill			1	De4XEoLjg_f	59 film stili seç, Claude hikaye/müzik/kesimi kodla yazar (6.3K yıldız)
 KURULACAK	15 motion design stili skill	skill			1	De4XEoLjg_f	15 stil, her biri 10 sn film, tam prompt ve kod
 KURULACAK	Cartoon starter kit	repo			1	De4XEoLjg_f	Hazır çizgi film karakteri + 31 duygu, MIT
 KURULACAK	Lyric music video (kodla)	repo			1	De4XEoLjg_f	4K60 şarkı sözü müzik videosu, 17 sahne
 KURULACAK	content-team-agents	repo			1	De5AU5BD2Jp	5 Claude Code ajanı (Scout, Engineer, QA, Growth, PM) YouTube kanalı yönetir
-KURULACAK	overworldaudio.com	SİTE	overworldaudio.com		1	De64R5emX-i	Keşfedilebilir 3D dünya hero örneği
-KURULACAK	lusion.co	SİTE	lusion.co		1	De64R5emX-i	3D hikaye anlatımı, awwwards kalite site
-KURULACAK	belgradearbor.rs	SİTE			1	De64R5emX-i	Smooth scroll örneği (?)
-KURULACAK	ascension.pegassi.be	SİTE			1	De64R5emX-i	Smooth scroll örneği (Pegassi Ascension)
-KURULACAK	landonorris.com	SİTE	Landonorris.com		1	De64R5emX-i	Split-letter kinetik başlık örneği
-KURULACAK	signal-a.studio	SİTE			1	De64R5emX-i	Split-letter kinetik başlık örneği
-KURULACAK	getlayers.ai	SİTE	getlayers.ai/templates		1	De64R5emX-i	Boş sayfadan başlamama; şablon kaynağı
+KURULU-KANIT	overworldaudio.com	SİTE	overworldaudio.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Keşfedilebilir 3D dünya hero örneği
+KURULU-KANIT	lusion.co	SİTE	lusion.co	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	3D hikaye anlatımı, awwwards kalite site
+KURULU-KANIT	belgradearbor.rs	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Smooth scroll örneği (?)
+KURULU-KANIT	ascension.pegassi.be	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Smooth scroll örneği (Pegassi Ascension)
+KURULU-KANIT	landonorris.com	SİTE	Landonorris.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Split-letter kinetik başlık örneği
+KURULU-KANIT	signal-a.studio	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Split-letter kinetik başlık örneği
+KURULU-KANIT	getlayers.ai	SİTE	getlayers.ai/templates	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Boş sayfadan başlamama; şablon kaynağı
 KURULACAK	Lenis	kütüphane			1	De64R5emX-i	Inertial smooth scroll
 KURULACAK	day-trader-skill (Jake Schincariol)	skill			1	De6XYNozQDh	11 skill: grafik tarama, haber, giriş/stop/hedef, Time Machine 10.000 tekrar, kongre işlemleri (MIT, kağıt ticaret)
-KURULACAK	Animaster Library	SİTE			1	De78haLIIrT	200+ animasyonlu bileşen, 100+ portfolyo site (?)
-KURULACAK	designprompts.dev	SİTE	prompts.dev		1	De78haLIIrT	Monochrome, SaaS, Bauhaus vb. web tasarım stili promptları, ücretsiz tek tık kopya (?)
+KURULU-KANIT	Animaster Library	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De78haLIIrT	200+ animasyonlu bileşen, 100+ portfolyo site (?)
+KURULU-KANIT	designprompts.dev	SİTE	prompts.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De78haLIIrT	Monochrome, SaaS, Bauhaus vb. web tasarım stili promptları, ücretsiz tek tık kopya (?)
 KURULACAK	Grok	model			1	De7MoxyH1-M	TradingAgents'ı çalıştırabilen model
-KURULACAK	Google Playground	SİTE	playground.google.com		1	De86cK0ihyb	Kodsuz oyun yapma: Nano Banana görsel, Lyria müzik, Gemini kod
+KURULU-KANIT	Google Playground	SİTE	playground.google.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De86cK0ihyb	Kodsuz oyun yapma: Nano Banana görsel, Lyria müzik, Gemini kod
 KURULACAK	Lyria	model			1	De86cK0ihyb	Müzik/ses efekti üretimi
 KURULACAK	rossarke/rossark-motion-skill	skill	github.com/rossarke/rossark-motion-skill		1	De8XyKfjt1T	Mascot nefes alma/göz kırpma animasyonu kodu (React Native, SwiftUI; MIT) (?)
 KURULACAK	linkedin-skills (12 skill)	skill			1	De9379bMHW2	Hermes için LinkedIn içerik sistemi: post-writer, comment-writer, profile-optimizer, career-interview, voice-profile vb.
@@ -624,36 +624,36 @@ KURULACAK	mrsarac/ff-tracking	repo	github.com/mrsarac/ff-tracking		1	DeV1Y0pChK-
 KURULACAK	Blender + Claude Opus 5.5	yöntem			1	DeZwcxrFAlE	Blender'da 3D sahne kur/rig/animasyon; ücretsiz asset'leri yerleştirme hilesi; ~90M token maliyeti
 KURULACAK	Kimodo	araç			1	DeZwcxrFAlE	Animasyon aday etiketi (karakter hareketleri) (?)
 KURULACAK	3D site çerçevesi (Astra)	yöntem			1	De_q2EcutoT	5 dakikada 3D site yapma çerçevesi; yorumla verilecek
-KURULACAK	alimdesigner.com	SİTE	alimdesigner.com		1	Deesy64AN1-	Ürün tasarımcı portfolyosu
-KURULACAK	cyze.dev	SİTE	cyze.dev		1	Deesy64AN1-	Design engineer portfolyosu
-KURULACAK	keychain.vercel.app	SİTE	keychain.vercel.app		1	Deesy64AN1-	Portfolyo ilhamı
-KURULACAK	SiteReel.ai	SİTE	SiteReel.ai		1	DejMCrBjFNs	Yapay zeka ile site yapmak için büyük prompt koleksiyonu
+KURULU-KANIT	alimdesigner.com	SİTE	alimdesigner.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Deesy64AN1-	Ürün tasarımcı portfolyosu
+KURULU-KANIT	cyze.dev	SİTE	cyze.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Deesy64AN1-	Design engineer portfolyosu
+KURULU-KANIT	keychain.vercel.app	SİTE	keychain.vercel.app	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Deesy64AN1-	Portfolyo ilhamı
+KURULU-KANIT	SiteReel.ai	SİTE	SiteReel.ai	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DejMCrBjFNs	Yapay zeka ile site yapmak için büyük prompt koleksiyonu
 KURULACAK	Heygem	repo			1	Den39fYxLsI	Ücretsiz HeyGen alternatifi, yüz ve ses klonlayan avatar (yerel)
 KURULACAK	OmniVoice	repo	github.com/k2-fsa/OmniVoice		1	Den39fYxLsI	Gerçek zamanlı açık kaynak ses AI, çoklu dil
 KURULACAK	Handy	repo	github.com/cjpais/Handy		1	Den39fYxLsI	Ücretsiz, çevrimdışı konuşmadan yazıya uygulama (Wispr Flow alternatifi)
-KURULACAK	Ambar Serum cilt bakım sitesi	SİTE			1	Deu0zarxG9w	Etkileşimli animasyonlu örnek marka sitesi
+KURULU-KANIT	Ambar Serum cilt bakım sitesi	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Deu0zarxG9w	Etkileşimli animasyonlu örnek marka sitesi
 KURULACAK	Open WebUI	repo			1	DewhksxCR_Z	ChatGPT Plus alternatifi, yerel/çevrimdışı sohbet arayüzü (156k yıldız)
 KURULACAK	Meetily	repo	maitis.ai (?)		1	DewhksxCR_Z	Çevrimdışı toplantı kaydı/özeti (Otter alternatifi)
 KURULACAK	Duix Avatar	repo	www.duix.com		1	DewhksxCR_Z	HeyGen alternatifi avatar; GPU ister
 KURULACAK	Perplexity / NotebookLM alternatifleri	yöntem			1	DewhksxCR_Z	10 araçlık ücretsiz alternatif listesi (tüm adlar ekranda kesik)
 KURULACAK	gamedev-skills/awesome-gamedev-agent-skills	skill	github.com/gamedev-skills/awesome-gamedev-agent-skills		1	DezB2bBDYgC	74 oyun geliştirme skill'i + yönlendirici (Godot, Unity, Unreal, three.js, Bevy, pygame); Claude Code eklentisi; Apache-2.0
-KURULACAK	Morphicons	SİTE	morphicons.com		1	DezTQtljo0n	SVG ikon animasyonları/geçişleri
-KURULACAK	Isocons	SİTE	isocons.app		1	DezTQtljo0n	İzometrik 3D görünümlü ikonlar
-KURULACAK	Nucleo	SİTE	nucleoapp.com		1	DezTQtljo0n	Büyük uygulamalar için ikon kütüphanesi ve yönetim araçları
-KURULACAK	Iconsax	SİTE	iconsax.io		1	DezTQtljo0n	Çok stilli ikon kütüphanesi (dashboard, mobil, SaaS)
-KURULACAK	Hugeicons	SİTE	hugeicons.com		1	DezTQtljo0n	Geniş özelleştirilebilir ikon koleksiyonu
+KURULU-KANIT	Morphicons	SİTE	morphicons.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezTQtljo0n	SVG ikon animasyonları/geçişleri
+KURULU-KANIT	Isocons	SİTE	isocons.app	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezTQtljo0n	İzometrik 3D görünümlü ikonlar
+KURULU-KANIT	Nucleo	SİTE	nucleoapp.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezTQtljo0n	Büyük uygulamalar için ikon kütüphanesi ve yönetim araçları
+KURULU-KANIT	Iconsax	SİTE	iconsax.io	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezTQtljo0n	Çok stilli ikon kütüphanesi (dashboard, mobil, SaaS)
+KURULU-KANIT	Hugeicons	SİTE	hugeicons.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezTQtljo0n	Geniş özelleştirilebilir ikon koleksiyonu
 KURULACAK	9 GitHub repo (Bloomberg Terminal dahil)	yöntem			1	DfAYTblT-vi	Yatırımcı için ücretli yazılım yerine 9 açık repo (adlar videoda yok)
 KURULACAK	HamSanders/soundbox	repo	github.com/HamSanders/soundbox		1	DfBSFBwCikQ	Yerel ElevenLabs/Suno alternatifi: ses efekti, şarkı, ses klonlama; 21 araçlı MCP; MIT; claude mcp add --transport http soundbox http://127.0.0.1:17494/mcp
 KURULACAK	console-skill	skill	github.com/_/console-skill (?)		1	DfCSjHRsqOb	11 skill: reverse-engineer, graphics-artist, backend-engineer, controller-mapper, mod; PlayStation oyunlarını Claude ile işleme iddiası
 KURULACAK	trycua/cua	repo	github.com/trycua/cua		1	DfCz8bJBlwm	AI ajanlarına masaüstü uygulamalarını kontrol ettiren, VM ve benchmark destekli proje; Hermes entegrasyonu
 KURULACAK	Glif MCP	MCP	glif-mcp-server		1	DfE8f4ogMa7	Yüzlerce görsel/video üretim modeline bağlanır, prompt'u optimize eder
-KURULACAK	Açık kaynak yazılım alternatifleri sitesi	SİTE			1	bK31qhKPDOQ	Claude Code, Cursor, Photoshop, Canva, Notion ücretsiz karşılıkları kategori kategori (site adı verilmemiş)
+KURULU-KANIT	Açık kaynak yazılım alternatifleri sitesi	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	bK31qhKPDOQ	Claude Code, Cursor, Photoshop, Canva, Notion ücretsiz karşılıkları kategori kategori (site adı verilmemiş)
 KURULACAK	claude-trace	repo	badlogic/claude-trace		1	De82MvBGH8X	Claude Code API çağrılarını yakalayıp kaydeder; her tool call, token, karar yerel panelde izlenir (npx)
 KURULACAK	Figma Weave	uygulama			1	De_77oxt8tQ	Figma'nın node tabanlı üretim aracı; şişirilmiş nesne görselleri ve video üretimi
 KURULACAK	Figma Make	uygulama			1	De_77oxt8tQ	Figma'da tasarlanan siteye webcam el takibi eklemek için kullanıldı
 KURULACAK	GPT Image 2.5	model			1	De_77oxt8tQ	Nesneyi şişirilmiş gösteren görsel üretimi (Weave içinde)
 KURULACAK	Seedance 2.5	model			1	De_77oxt8tQ	Görsel dizisinden loop video üretimi (Weave içinde)
-KURULACAK	Meta Ad Library	SİTE			1	DfDrgIqSh_P	Rakiplerin aktif reklamlarının herkese açık kütüphanesi; 400 reklam çekilir
+KURULU-KANIT	Meta Ad Library	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfDrgIqSh_P	Rakiplerin aktif reklamlarının herkese açık kütüphanesi; 400 reklam çekilir
 KURULACAK	agency-agents (The Agency)	repo	msitarzewski/agency-agents		1	Db1Y5sGyxrj	17 bölümde 270 uzman AI ajanı; Claude Code'a install.sh --tool claude-code ile kurulur, masaüstü uygulaması da var (MIT)
 KURULACAK	TradingView Desktop	uygulama			1	DceOpdKOks8	Borsa grafik uygulaması; masaüstü sürümü şart (tarayıcı sürümü MCP ile çalışmıyor)
 KURULACAK	TradingView MCP sürücüsü	MCP			1	DceOpdKOks8	Claude Code'u TradingView Desktop'a bağlayan açık kaynak MCP (adı videoda yok)
@@ -661,9 +661,9 @@ KURULACAK	Fintables MCP	MCP			1	DceOpdKOks8	Bilanço, çarpan, KAP bildirimi ver
 KURULACAK	bist-portfoy-terminali skill	skill			1	DceOpdKOks8	Watchlist'i okuyup Fintables verisiyle birleştiren, tavsiye üretmeyen özel skill
 KURULACAK	Adobe Photoshop (Beta)	uygulama			1	DdJSH7GBxNi	Porsche düzenleme videosunda görünen uygulama; araç içeriği yok
 KURULACAK	AuK	model	Tencent Hunyuan AuK		1	DdxYLVrEkdr	Tek talimatla ses üretme/düzenleme/iyileştirme/ayırma yapan açık kaynak konuşma modeli; AuK-Flash 4 adımda çıkarım
-KURULACAK	Hugging Face Spaces	SİTE			1	DdxYLVrEkdr	AuK demosu kurulumsuz denenebilir
+KURULU-KANIT	Hugging Face Spaces	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DdxYLVrEkdr	AuK demosu kurulumsuz denenebilir
 KURULACAK	oh-my-opencode-slim	plugin			1	De1awnxH44d	OpenCode için çoklu ajan orkestrasyonu (Orchestrator, Explorer, Fixer, Oracle, Designer, Council); modeller karıştırılır
-KURULACAK	meow.codes	SİTE			1	De1awnxH44d	oh-my-opencode-slim marketplace sayfası (?)
+KURULU-KANIT	meow.codes	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1awnxH44d	oh-my-opencode-slim marketplace sayfası (?)
 KURULACAK	Offer Master	skill	https://github.com/Liamrjohnston/offer-master-skill.git		1	De2-09Cjnyx	18 teklif skill'ini birleştirip satış teklifini düzelten skill; kör testte düz Claude 4.6'ya karşı 8.0
 KURULACAK	coreyhaines31/marketingskills	repo	coreyhaines31/marketingskills		2	De2-09Cjnyx	Offer Master'a girdi olan pazarlama skill'leri
 KURULACAK	wondelai/skills	repo	wondelai/skills		1	De2-09Cjnyx	Offer Master girdisi skill deposu
@@ -688,20 +688,20 @@ KURULACAK	Recordly	repo	webadderallorg/Recordly (?)		1	De88VHnzFRS	Ekran kaydın
 KURULACAK	Codex ses modu / Codex TUI	araç			1	De8cK67ACOB	OpenAI Codex terminal güncellemesi: sesle paralel işler, tek ekranda iş listesi, uzaktan kontrol, fork
 KURULACAK	ECC	plugin			1	De9mZYXCGeB	Kod plugin'i
 KURULACAK	Google Opal	araç			1	DeKYdKRzlhT	Kodsuz AI iş akışı kurma
-KURULACAK	Google Pomelli	SİTE	labs.google/pomelli		1	DeKYdKRzlhT	Web sitesi linkinden sosyal içerik kiti üretir
+KURULU-KANIT	Google Pomelli	SİTE	labs.google/pomelli	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeKYdKRzlhT	Web sitesi linkinden sosyal içerik kiti üretir
 KURULACAK	Personal Agent Proxy	repo			1	De_rcg0zSq4	Bağlantıları bir kez kuran, ajan başına izin veren, eylemleri kaydeden açık kaynak self-host erişim katmanı (MCP)
 KURULACAK	3D oyun varlık aracı	araç			1	Deg4e9QjnaY	Tarifle bina/araç/karakter üreten, AI+Blender+Python aracı; Reddit u/Embarrassed_Guide_80, adı yok
 KURULACAK	TrimOne (Reticle (?))	repo			1	DejcAcwz89b	1.2 MB model; dosya/log/sohbetten ajana gereken satırları aynen tutup gerisini atar; CPU'da ms
 KURULACAK	Comp AI	uygulama			1	DeuFYtAIKHm	SOC 2/ISO 27001 sertifikasını AI ile otomatikleştiren açık kaynak şirket
-KURULACAK	TrustMRR	SİTE			1	DeuFYtAIKHm	Stripe ile doğrulanmış gelir verisi
+KURULU-KANIT	TrustMRR	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeuFYtAIKHm	Stripe ile doğrulanmış gelir verisi
 KURULACAK	PromptDirector	plugin	wchao6891/promptdirector		1	Dez-LBzjJUd	Chrome eklentisi: AI görsel/video ve promptlarını kaydeder; Codex/Claude Code yerel MCP ile arar (Apache-2.0)
 KURULACAK	AI design tells skill	skill			1	DezBAUdE1el	60 AI tasarım kokusunu düzelten açık kaynak tasarım skill'i (70k+ yıldız); adı videoda yok
-KURULACAK	modulify.ai	SİTE	modulify.ai		1	DezU-xDkzFO	Lovable'dan ucuz, prompttan site/app üretimi
-KURULACAK	Motionin	SİTE	motionin.design		1	DezU-xDkzFO	1 prompt 1 website
-KURULACAK	Wonderlist	SİTE	wonderlist.design		1	DezU-xDkzFO	127 tam Figma web tasarımı
-KURULACAK	Iconly	SİTE	iconly.design		1	DezU-xDkzFO	İkon koleksiyonu
-KURULACAK	Fontinlogo	SİTE	fontinlogo.com		1	DezU-xDkzFO	Markaların kullandığı fontlar
-KURULACAK	Site of Sites	SİTE	siteofsites.co		1	DezsnjllIa1	Site koleksiyonu
+KURULU-KANIT	modulify.ai	SİTE	modulify.ai	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezU-xDkzFO	Lovable'dan ucuz, prompttan site/app üretimi
+KURULU-KANIT	Motionin	SİTE	motionin.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezU-xDkzFO	1 prompt 1 website
+KURULU-KANIT	Wonderlist	SİTE	wonderlist.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezU-xDkzFO	127 tam Figma web tasarımı
+KURULU-KANIT	Iconly	SİTE	iconly.design	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezU-xDkzFO	İkon koleksiyonu
+KURULU-KANIT	Fontinlogo	SİTE	fontinlogo.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezU-xDkzFO	Markaların kullandığı fontlar
+KURULU-KANIT	Site of Sites	SİTE	siteofsites.co	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezsnjllIa1	Site koleksiyonu
 KURULACAK	AI YouTube video üretici	repo			1	DfAaeqfSfzi	Senaryo, storyboard, görüntü, ses, kurgu ve render yapan açık kaynak sistem; 100+ araç, 700 skill, 72.3K yıldız; adı videoda yok
 KURULACAK	unbrowse	plugin	hermes plugins install unbrowse		1	DfBbQs6jKUJ	Hermes: siteleri API gibi okur
 KURULACAK	hermes-whatsapp-voice	plugin	hermes plugins install hermes-whatsapp-voice		1	DfBbQs6jKUJ	Hermes ile WhatsApp sesli arama
@@ -718,17 +718,17 @@ KURULACAK	Claude sales plugin	plugin			1	DbukLdmuB2x	Aday araştırır, outreach
 KURULACAK	Claude legal plugin	plugin			1	DbukLdmuB2x	Sözleşme/NDA okuyup riskli maddeleri işaretler
 KURULACAK	Claude productivity plugin	plugin			1	DbukLdmuB2x	Takvim, görev, sohbetleri tarar
 KURULACAK	Claude finance plugin	plugin			1	DbukLdmuB2x	Defter tutma, ay sonu rakamları
-KURULACAK	bleibtgleich.dev	SİTE	https://bleibtgleich.dev		1	Dd08uX3ocwk	Portfolyo referansı: designer/developer
-KURULACAK	danilodemarco.com	SİTE	https://danilodemarco.com		1	Dd08uX3ocwk	Portfolyo referansı: görsel ve tipografi tasarımcısı
-KURULACAK	niccolomiranda.com	SİTE	https://niccolomiranda.com		1	Dd08uX3ocwk	Portfolyo referansı: dijital art director/developer
-KURULACAK	thibaut.cool	SİTE	https://www.thibaut.cool		1	Dd08uX3ocwk	Portfolyo referansı: 3D ve motion
-KURULACAK	2xa.studio	SİTE			1	Dd08uX3ocwk	Portfolyo referansı: web stüdyosu (?)
+KURULU-KANIT	bleibtgleich.dev	SİTE	https://bleibtgleich.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: designer/developer
+KURULU-KANIT	danilodemarco.com	SİTE	https://danilodemarco.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: görsel ve tipografi tasarımcısı
+KURULU-KANIT	niccolomiranda.com	SİTE	https://niccolomiranda.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: dijital art director/developer
+KURULU-KANIT	thibaut.cool	SİTE	https://www.thibaut.cool	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: 3D ve motion
+KURULU-KANIT	2xa.studio	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: web stüdyosu (?)
 KURULACAK	Draw.io Skill (agents365-ai/drawio-skill)	skill	agents365-ai.github.io/drawio-skill		1	De14ifUEh-N	Claude ile draw.io diyagramı üreten skill
 KURULACAK	Draw.io	uygulama	Draw.io		1	De14ifUEh-N	Diyagram aracı
 KURULACAK	agent_reach/channels	repo			1	De14ifUEh-N	Agent Reach kanal modülü ekranda görünüyor (?)
 KURULACAK	Replit Design	araç			1	De2BSJgx9RA	Düz İngilizce tarif ve marka varlıklarıyla landing page/ürün sayfası üreten tasarım ajanı
 KURULACAK	rossark-motion-skill	skill	https://github.com/rossarko-official/demo (?)		1	De2Uqd6AN5O	SVG/çizimi 60fps animasyona çeviren MIT Claude Code skill'i (React Native, SwiftUI); animasyon ilkeleri, motor şablonları, kare ölçüm aracı
-KURULACAK	Motion.dev	SİTE	https://motion.dev		1	De3Jzcyow4k	Claude'u dokümanına yönlendirince cilalı geçiş/animasyon ekletir
+KURULU-KANIT	Motion.dev	SİTE	https://motion.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De3Jzcyow4k	Claude'u dokümanına yönlendirince cilalı geçiş/animasyon ekletir
 KURULACAK	OpenSEO	repo			1	De4-9-ugjrL	Semrush/Ahrefs benzeri anahtar kelime araştırması, aboneliksiz, kullandığın kadar veri ücreti
 KURULACAK	Twenty	repo			1	De4-9-ugjrL	Kendi sunucunda barındırılan açık kaynak CRM (Salesforce alternatifi)
 KURULACAK	Agentic AI Implementation Quick Guide	yöntem			1	De68AiWSiMp	Ajan mimarileri, çerçeveler (CrewAI, LangGraph, n8n, Dify, LlamaIndex, AG2/AutoGen, PydanticAI, OpenAI Agents SDK, Claude Agent SDK, Google ADK, Flowise), hafıza, MCP, A2A, RAG, güvenlik şeması
@@ -737,7 +737,7 @@ KURULACAK	Mem0	araç			1	De68AiWSiMp	Uzun vadeli hafıza
 KURULACAK	E2B	araç			1	De68AiWSiMp	Kod sandbox
 KURULACAK	Real SFX (Clipwing)	skill			1	De6cAdNqwVf	Videodaki hareket anlarını bulup sesi tam kareye yerleştiren Claude Code skill'i (MIT), kendi ses kütüphanesi yok
 KURULACAK	Earshot (Leon Lin)	araç			1	De6cAdNqwVf	Aranan ses yoksa kodla sıfırdan üretir, hazır ayarlardan ses kiti çıkarır (MIT)
-KURULACAK	skool.com/ai-marketing-hub-pro	SİTE	skool.com/ai-marketing-hub-pro		1	De7ClqFAC3T	AI Marketing Hub Pro topluluğu
+KURULU-KANIT	skool.com/ai-marketing-hub-pro	SİTE	skool.com/ai-marketing-hub-pro	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De7ClqFAC3T	AI Marketing Hub Pro topluluğu
 KURULACAK	Jakeschincariol/day-trader-skill	skill	github.com/Jakeschincariol/day-trader-skill		1	De8BW-1Rsqr	Gün içi trade için 11 Claude skill'i; grafik tarama, haber, geri oynatma (MIT, emir veremez)
 KURULACAK	Jakeschincariol/trader-skill	skill	github.com/Jakeschincariol/trader-skill (?)		1	De8BW-1Rsqr	Önceki Trader skill'i: 13F, tarayıcı, vergi lotları
 KURULACAK	xbtlin/ai-berkshire	repo	github.com/xbtlin/ai-berkshire (?)		1	De8BW-1Rsqr	Buffett tarzı araştırma yapan AI ajanları
@@ -747,7 +747,7 @@ KURULACAK	quantskills	repo	github.com/quantskills/quantskills (?)		1	De8BW-1Rsqr
 KURULACAK	artillerytrades/ai-wrong	repo			1	De8BW-1Rsqr	Ekranda geçiyor (?)
 KURULACAK	Hermes + Obsidian	yöntem			1	De8e0bWBKGV	Obsidian kasasını Hermes'e bağlayarak notları ajan hafızası yapma; kasa araması, sesli asistan, notlardan içerik
 KURULACAK	Agent OS	araç			1	De8e0bWBKGV	Hermes'i bağlayan ajan işletim sistemi paneli
-KURULACAK	aiprofitboardroom.com	SİTE	AIprofitboardroom.com		1	De8e0bWBKGV	Julian Goldie topluluk sitesi (?)
+KURULU-KANIT	aiprofitboardroom.com	SİTE	AIprofitboardroom.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8e0bWBKGV	Julian Goldie topluluk sitesi (?)
 KURULACAK	Book to Skill (virgiliojr94/book-to-skill)	skill	virgiliojr94/book-to-skill		1	De95NHOuo-x	PDF kitap/makaleyi bölüm bölüm Claude skill'ine çevirir
 KURULACAK	Teach skill (mattpocock)	skill			1	De95NHOuo-x	Neden öğrendiğini sorar, kaynaklardan kısa ders üretir, quiz geçmeden ilerletmez
 KURULACAK	Render CV	araç	rendercv.com (?)		1	De95NHOuo-x	Türkçe/İngilizce düzgün PDF CV üretir
@@ -758,18 +758,18 @@ KURULACAK	OpenWhispr	repo	github.com/OpenWhispr/openwhispr		1	De_0D2tEa9y	WisprF
 KURULACAK	OpenProject	repo	github.com/opf/openproject		1	De_0D2tEa9y	Asana alternatifi
 KURULACAK	Chatwoot	repo	github.com/chatwoot/chatwoot		1	De_0D2tEa9y	Intercom alternatifi
 KURULACAK	Cap	repo	github.com/CapSoftware/Cap		1	De_0D2tEa9y	Loom alternatifi (ekran kaydı)
-KURULACAK	monolith.nyc	SİTE	monolith.nyc		1	De_wbM_gdoD	Yükleme ekranı tasarım referansı
-KURULACAK	incommonwith.com	SİTE	incommonwith.com		1	De_wbM_gdoD	Işık aç/kapa geçişli ürün sayfası referansı
-KURULACAK	palmer-dinnerware.com	SİTE	palmer-dinnerware.com		1	De_wbM_gdoD	İki gezinme modlu ızgara referansı
-KURULACAK	passport-hotel.vercel.app	SİTE	passport-hotel.vercel.app		1	De_wbM_gdoD	Yatay kaydırma ve sürükle-keşfet referansı
+KURULU-KANIT	monolith.nyc	SİTE	monolith.nyc	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_wbM_gdoD	Yükleme ekranı tasarım referansı
+KURULU-KANIT	incommonwith.com	SİTE	incommonwith.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_wbM_gdoD	Işık aç/kapa geçişli ürün sayfası referansı
+KURULU-KANIT	palmer-dinnerware.com	SİTE	palmer-dinnerware.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_wbM_gdoD	İki gezinme modlu ızgara referansı
+KURULU-KANIT	passport-hotel.vercel.app	SİTE	passport-hotel.vercel.app	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_wbM_gdoD	Yatay kaydırma ve sürükle-keşfet referansı
 KURULACAK	PP-OCRv5	model			1	DehD9WBq0Qb	Karşılaştırma olarak ekranda geçiyor (?)
 KURULACAK	FreeVideo (FlashML-org)	repo	https://github.com/FlashML-org/FreeVideo (?)		1	Dejm9UHhd6w	MiniMax H3 video modelini 8GB VRAM'de yerel çalıştırır, ComfyUI özel düğümü
-KURULACAK	Prompt Motion (100xEngineers)	SİTE			1	Deq28xtp6dj	Claude Opus 5.5 ile yapılmış 200+ hareketli grafik galerisi, her biri prompt/skill'iyle
-KURULACAK	Sinematik AI web sitesi prompt kütüphanesi	SİTE			1	Dez1KPeuXqA	Kopyala-yapıştır site promptları, kaynak kod, Obsidian vault'u; adı videoda yok
+KURULU-KANIT	Prompt Motion (100xEngineers)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Deq28xtp6dj	Claude Opus 5.5 ile yapılmış 200+ hareketli grafik galerisi, her biri prompt/skill'iyle
+KURULU-KANIT	Sinematik AI web sitesi prompt kütüphanesi	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dez1KPeuXqA	Kopyala-yapıştır site promptları, kaynak kod, Obsidian vault'u; adı videoda yok
 KURULACAK	WeKnora	repo	github.com/Tencent/WeKnora		1	DezCrecDDSm	Notion AI alternatifi, yerel modeller
 KURULACAK	Claude Token Efficient	repo			1	DezVb3hlauQ	Tek CLAUDE.md dosyası: övgüsüz, kısa cevap; kurulum yok, README'ye göre ~%4-12 az çıktı jetonu
 KURULACAK	PPT Master	repo	https://github.com/hugohe3/ppt-master.git		1	DfA-nQWiPKz	Düzenlenebilir PowerPoint sunumları (67k)
-KURULACAK	charliehills.substack.com	SİTE	charliehills.substack.com		1	DfA-nQWiPKz	Kaynak olarak ekranda
+KURULU-KANIT	charliehills.substack.com	SİTE	charliehills.substack.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfA-nQWiPKz	Kaynak olarak ekranda
 KURULACAK	Cloudflare güvenlik skill'i	skill			1	DfAdjJnIapp	Yapay zeka ile yazılan uygulamada sızıntı/güvenlik denetimi
 KURULACAK	AI Agents for Beginners	repo	aka.ms/ai-agents-beginners		1	DfBcE4Bli0y	Microsoft 18 derslik ajan kursu (~78k yıldız)
 KURULACAK	Awesome LLM Apps	repo			1	DfBcE4Bli0y	100+ çalışan ajan örneği
