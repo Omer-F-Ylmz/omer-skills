@@ -49,6 +49,11 @@ def kur():
                 _ekle(d, "ajan", f"{eklenti}:{ic}", f)
             for f in sorted(p.glob("commands/**/*.md")):
                 _ekle(d, "komut", f"{eklenti}:{f.stem}", f)
+    for ad, v in d.items():  # müdür → adını verdiği özel skill'ler (yalnız dizinde; skill dosyasına dokunulmaz)
+        if ad.startswith("departman-") and ":" not in ad:
+            metin = Path(v["yol"]).read_text(encoding="utf-8", errors="ignore")
+            v["ozel"] = list(dict.fromkeys(a for a in re.findall(r"[\w:-]{3,}", metin)
+                                           if a in d and d[a]["tur"] == "skill" and not a.startswith("departman-")))
     DIZIN.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
     return d
 
@@ -63,17 +68,25 @@ def _katla(s):
 
 def _mudur(gorev, d, n=2):
     """departman-* müdür skill'leri: Türkçe katlama + 5 harflik kök eşleşmesi (araştır → arastirma)."""
-    kok = {s[:5] for s in re.findall(r"\w{4,}", _katla(gorev))}
+    kok = {s[:4] for s in re.findall(r"\w{4,}", _katla(gorev))} | set(re.findall(r"\w[#+]+|\.net\b", _katla(gorev)))  # C#, C++, .NET
     puan = sorted(((sum(k in _katla(ad + " " + v["acik"]) for k in kok), ad) for ad, v in d.items()
                    if ad.startswith("departman-") and ":" not in ad), key=lambda x: -x[0])
     return [ad for p, ad in puan[:n] if p > 0]
+
+
+def _ozel_sira(gorev, d, mudur, n=4):
+    """Müdürün özel skill'leri, iş kökleriyle (5 harf) örtüşmeye göre; örtüşme yoksa müdür metnindeki sıra."""
+    kok = {s[:5] for s in re.findall(r"\w{4,}", _katla(gorev))}
+    oz = d[mudur].get("ozel", [])
+    return sorted(oz, key=lambda a: -sum(k in _katla(a + " " + d[a]["acik"]) for k in kok))[:n]
 
 
 def ara(gorev, n=8):
     import arac_ara as aa
     d = _dizin()
     mudur = _mudur(gorev, d)
-    o = [f"{ad} · müdür skill · {d[ad]['acik'][:110]}" for ad in mudur]
+    o = [f"{ad} · müdür skill · {d[ad]['acik'][:110]}\n  → özel skill (işe en yakın): {', '.join(_ozel_sira(gorev, d, ad)) or '-'}"
+         for ad in mudur]
     kartlar = [k for k in aa.ara(gorev)["kartlar"] if k.get("tur") in ("skill", "ajan", None) and k["ad"] not in mudur][:n] \
         or aa.ara(gorev)["kartlar"][:n]
     o += [f"{k['ad']} · {k.get('tur', '?')} · {(k.get('ne_yapar') or k.get('aciklama') or '')[:110]}" for k in kartlar]
@@ -91,7 +104,11 @@ def tam(ad):
     v = d.get(ad) or d.get(ad.split(":")[-1]) or next(  # komuttan türeyen alt ad: modernize-harden-scan → modernize-harden
         (d[k] for k in sorted(d, key=len, reverse=True) if ad.startswith(k + "-")), None)
     if v:
-        return Path(v["yol"]).read_text(encoding="utf-8", errors="ignore")
+        metin = Path(v["yol"]).read_text(encoding="utf-8", errors="ignore")
+        if v.get("ozel"):
+            metin += ("\n\n---\nKATALOG: bu müdürün adını verdiği özel skill'ler (işi bunlar yapar; uygun olanı "
+                      f"`python tools/ertele_katalog.py tam <ad>` ile yükle): {', '.join(v['ozel'])}\n")
+        return metin
     return aa.tam(ad) or f"bulunamadı: {ad}"
 
 

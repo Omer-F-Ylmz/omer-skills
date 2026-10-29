@@ -29,6 +29,14 @@ def hafif_bayrak(j, isim):
     if j.get("mcp_dosya"):
         a += ["--strict-mcp-config", "--mcp-config", os.path.join(KOK, j["mcp_dosya"])]
     if j.get("hafif"): a += ["--disable-slash-commands"]
+    if j.get("ertele"):  # ERTELE-1: skill listesi bağlama girmez, ertele_katalog ara/tam ile o an yüklenir (varsayılan kapalı)
+        a += ["--disable-slash-commands", "--append-system-prompt-file", os.path.join(os.path.dirname(os.path.abspath(__file__)), "ertele_istem.md"),
+              "--allowedTools", "Bash(python C:/Projeler/omer-skills/tools/ertele_katalog.py:*)"]
+        if "eklenti" in j:  # tek --settings: özel ajan reddini eklenti dosyasına kat
+            cfg = os.path.join(KOK, isim + ".eklenti.json")
+            json.dump({**json.load(open(cfg, encoding="utf-8")), **json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "ertele_ayar.json"), encoding="utf-8"))}, open(cfg, "w", encoding="utf-8"))
+        else:
+            a += ["--settings", os.path.join(os.path.dirname(os.path.abspath(__file__)), "ertele_ayar.json")]
     return a
 
 def geri_oku(gorev, ad):
@@ -40,7 +48,7 @@ def geri_oku(gorev, ad):
     except Exception:
         return ""
 
-NIHAI33 = "NİHAİ 33 (zorunlu): CC'yi Ömer gibi kullan — kurulu skill/plugin/MCP/CLI'yi işe göre kullan, ama Claude jetonunu en aza indir: dosyayı tam okuma yerine cc-kopru oku/rg/graphify, ağır işi yerel/ücretsiz modele ver, ara çıktıyı bağlama alma (dosyaya yaz, özet oku), gereksiz tur/yeniden okuma yok; hedef iş başına <$0,50.\nNİHAİ — DOĞRULAMA DÖNGÜSÜ (Ömer 28 Eki 20:32, zorunlu): 'BITTI' yazmadan önce her kabul maddesini ÖLÇEREK kontrol et; bitmeyen varsa düzelt ve yeniden ölç (döngü), ancak hepsi gerçekten tutunca BITTI. Kendi işine puan verme: kalite puanını ayrı ve sert bir hakem (ücretsiz/ucuz farklı model, pixeljury/jev) verir; Ömer ölçeği: bizim '95/100' dediğimiz ilik-v4 Ömer'e göre 50–55/100 — hakem bu ölçekle puanlar. Kurulu bütün ilgili özellikleri (skill/plugin/MCP/CLI/model) kullanmadan iş yapma.\nNİHAİ 36: 'her şeyimiz' gerçekten her şey — kurulu araçlar + Ömer'in attığı videolardan çıkan yüzlerce site/araç/yöntem (docs/video-tarama), docs/kaynak-kutuphane, referans site listeleri, hazır şablon/bileşen kaynakları, dış kütüphaneler, 2. beyin; hepsi ucuz araçla taranır, hazır olan alınıp geliştirilir, raporda taranan/kullanılan kaynak listesi zorunlu (C:/Projeler/omer-kurallar.md 36).\n"
+NIHAI33 = "NİHAİ 33 (zorunlu): CC'yi Ömer gibi kullan — kurulu skill/plugin/MCP/CLI'yi işe göre kullan, ama Claude jetonunu en aza indir: dosyayı tam okuma yerine cc-kopru oku/rg/graphify, ağır işi yerel/ücretsiz modele ver, ara çıktıyı bağlama alma (dosyaya yaz, özet oku), gereksiz tur/yeniden okuma yok; hedef iş başına <$0,50.\nNİHAİ — DOĞRULAMA DÖNGÜSÜ (Ömer 28 Eki 20:32, zorunlu): 'BITTI' yazmadan önce her kabul maddesini ÖLÇEREK kontrol et; bitmeyen varsa düzelt ve yeniden ölç (döngü), ancak hepsi gerçekten tutunca BITTI. Kendi işine puan verme: kalite puanını ayrı ve sert bir hakem (ücretsiz/ucuz farklı model, pixeljury/jev) verir; Ömer ölçeği: bizim '95/100' dediğimiz ilik-v4 Ömer'e göre 50–55/100 — hakem bu ölçekle puanlar. Kurulu bütün ilgili özellikleri (skill/plugin/MCP/CLI/model) kullanmadan iş yapma.\nTAHMİN YOK (Ömer 29 Eki): hiçbir durum/sonuç iddiası tahminle yazılmaz ('muhtemelen', 'büyük ihtimalle' yok) — araştır, ölç, dosyayı/çıktıyı gör, gerçek sonucu yaz; ölçülemeyeni 'ölçülemedi + neden' diye yaz. SİLME YOK: kendi oluşturduğun geçici dosyalar dahil hiçbir dosya silinmez (gerekirse _arsiv/ altına taşı); git commit'te yalnız kendi dosyalarını ekle (git add <yol>), başka oturumun stage'lenmiş dosyalarını alma. ARA KAYIT: uzun işte her alt adım bitince sonucunu rapor dosyasına hemen yaz (süreç ölürse kaybolmasın).\nNİHAİ 36: 'her şeyimiz' gerçekten her şey — kurulu araçlar + Ömer'in attığı videolardan çıkan yüzlerce site/araç/yöntem (docs/video-tarama), docs/kaynak-kutuphane, referans site listeleri, hazır şablon/bileşen kaynakları, dış kütüphaneler, 2. beyin; hepsi ucuz araçla taranır, hazır olan alınıp geliştirilir, raporda taranan/kullanılan kaynak listesi zorunlu (C:/Projeler/omer-kurallar.md 36).\n"
 TARA_KANCA = 'İşe başlamadan: python tools/envanter_tara.py "<iş>" → listeyi oku, eksik ekle, planını yaz, python tools/altin_ornek.py kaydet "<iş>" <seçim dosyası> ile kaydet.\n'
 
 
@@ -56,7 +64,7 @@ def on_brief(gorev):
 def girdi(j, isim):
     g = geri_oku(j["gorev"], isim)
     b = on_brief(j["gorev"])
-    return (g + "\n" if g else "") + (b + "\n" if b else "") + NIHAI33 + j["gorev"] + f"\n\n[bütçe] En fazla {j.get('max_turns', 60)} tur kullan."
+    return (g + "\n" if g else "") + (b + "\n" if b else "") + NIHAI33 + j.get("devam_notu", "") + j["gorev"] + f"\n\n[bütçe] En fazla {j.get('max_turns', 60)} tur kullan."
 
 def kos(isim):
     j = json.load(open(os.path.join(KOK, isim + ".json"), encoding="utf-8"))
@@ -87,12 +95,13 @@ def kos(isim):
     argv += hafif_bayrak(j, isim)
     env = dict(os.environ); env.pop("CLAUDE_CODE_EFFORT_LEVEL", None)
     t0 = time.strftime("%H:%M")
+    metin = girdi(j, isim).encode("utf-8")
     try:
         with open(log, "w", encoding="utf-8") as f:
             f.write(f"BASLADI {t0}\n"); f.flush()
             p = subprocess.Popen(argv, cwd=j["cwd"], stdin=subprocess.PIPE, stdout=f, stderr=subprocess.STDOUT,
                                  env=env, creationflags=0x08000000)
-            p.stdin.write(girdi(j, isim).encode("utf-8")); p.stdin.close()
+            p.stdin.write(metin); p.stdin.close()
             def agac(): subprocess.run(["taskkill", "/T", "/F", "/PID", str(p.pid)], capture_output=True, creationflags=0x08000000)
             bas = time.time(); sonuc_t = None
             while True:
