@@ -35,3 +35,9 @@
 # TUR 13 (29 Eki)
 - 48 tur-12 paket karti alt skill kaynagiyla (kaynak() alt_skiller, hazirla --paket) Haiku high ile yeniden uretildi; animation-performance/systems "yalniz transform/opacity" ifadesi "varsayilan/mumkunse" yapildi. usta.jsonl 400.
 - Hakem (bagimsiz Haiku, 40 kart): RED=10; kapi %87. Kaynaklar katalog tablosu oldugu icin paket kartlarinda ornek cogu TALIMAT.md yolu, komut yok. Maliyet: $ olculemedi; 8 uretici ~410k Haiku jeton (~8.5k/kart).
+
+# TUR 14 (29 Eki)
+- Kök neden: alt_skiller() yalnız */SKILL.md arıyordu; paketlerde alt skill gövdesi TALIMAT.md. Düzeltildi: TALIMAT/SKILL.md, ilk komut bloğu (KOMUT:), ≤600 kr/alt skill, toplam ≤6000. hazirla --ad eklendi; paket kartında kaynakta olmayan ornek boş string.
+- 10 ret kartı + hakemde çıkan 15 eski ret (paket/tasarım) Haiku high ile yeniden üretildi (25 kart, 5 üretici). usta.jsonl 400.
+- Hakem (bağımsız Haiku alt ajan, 40 kart, UTF-8 dosya): 1. koşu 25/40 (%62; 10 yenilenen kart hepsi geçti, 15 ret eski kartlar); 2. koşu 38/40 = %95 ≥ %87 KAPI GEÇTİ. Kalan ret: davila7-productivity-paket (genel), davila7-sports-paket (lig kapsamı kaynakta yok).
+- Not: claude -p hakem 300 sn zaman aşımı; hakem --istem ile alt ajana verildi. Maliyet $ ölçülemedi; ~8 alt ajan ≈ 0,4M Haiku jetonu. Push yok.

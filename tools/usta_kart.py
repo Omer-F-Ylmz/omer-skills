@@ -78,17 +78,19 @@ def sirali(K, U):
 
 def alt_skiller(d):
     out = []
-    for sd in sorted(d.glob("*/SKILL.md")) if d.exists() else []:
+    for sd in sorted(d.glob("*/TALIMAT.md")) + sorted(d.glob("*/SKILL.md")) if d.exists() else []:
         t = sd.read_text(encoding="utf-8", errors="replace")
         t = re.sub(r"<!--.*?-->", "", t, flags=re.S)
         m = re.match(r"^---\s*(.*?)\n---\s*", t, flags=re.S)
         fm = ""
         if m:
-            fm = " ".join(l.strip() for l in m.group(1).splitlines() if re.match(r"\s*(name|description):", l))[:300]
+            fm = " ".join(l.strip() for l in m.group(1).splitlines() if re.match(r"\s*(name|description):", l))[:200]
             t = t[m.end():]
         t = re.sub(r"(?m)^#{1,3} .*(preamble|telemetry|upgrade check).*$", "", t, flags=re.I)
-        out.append(f"[{sd.parent.name}] {fm} {re.sub(r'[ \t\r\n]+', ' ', t)[:500]}")
-    return " ".join(out)
+        kod = re.search(r"```[a-z]*\n(.*?)```", t, flags=re.S)  # ilk somut komut blogu
+        ek = ("KOMUT: " + re.sub(r"[ \t\r\n]+", " ", kod.group(1)).strip()) if kod else re.sub(r"[ \t\r\n]+", " ", t)
+        out.append(f"[{sd.parent.name}] {fm} {ek[:600 - len(fm)]}")
+    return " ".join(out)[:6000]
 
 
 def kaynak(k, lim=900):
@@ -250,6 +252,10 @@ def hakem(n):
     par = "\n".join(f"[{i}] {c['ad']} | kaynak: {kaynak(K[c['ad']])}\n kart: {json.dumps({x: c[x] for x in ALANLAR}, ensure_ascii=False)}" for i, c in enumerate(ornek))
     ist = ("Hakemsin. Her kart için: kaynak metne göre DOĞRU (uydurma/yanlış yok) ve YARARLI (somut, genel geçer değil) mi? "
            'YALNIZ JSON dizisi: [{"i":0,"dogru":true,"yararli":true,"neden":"≤10 kelime"}...]\n\n' + par)
+    if "--istem" in sys.argv:  # claude -p yavas: istemi dosyaya yaz, hakemi alt ajan okusun
+        (KOK / ".kos/kopru/usta-haiku/ileri/hakem-istem.txt").write_text(ist, encoding="utf-8")
+        (KOK / ".kos/kopru/usta-haiku/ileri/hakem-adlar.json").write_text(json.dumps([c["ad"] for c in ornek]), encoding="utf-8")
+        print("istem yazildi", len(ist)); return
     r = subprocess.run(["claude", "-p", "--model", "claude-haiku-5-5", "--no-session-persistence"], input=ist, capture_output=True, text=True, encoding="utf-8", timeout=300, env=dict(os.environ), creationflags=0x08000000)
     m = r.stdout
     a = json.loads(m[m.index("["):m.rindex("]") + 1])
@@ -266,6 +272,9 @@ def hazirla(grup_n, n=50):
     if "--zayif" in sys.argv:  # ornek/kombin boş kalan kartları yeniden üret
         Z = {a for a, c in U.items() if not c["kombin"] or c["ornek"] in (a, "Skill " + a)}
         S = [k for k in kartlar() if k["ad"] in Z][:n]
+    elif "--ad" in sys.argv:  # tur 14: virgullu adlari yeniden uret
+        ad = set(sys.argv[sys.argv.index("--ad") + 1].split(","))
+        S = [k for k in kartlar() if k["ad"] in ad]
     elif "--paket" in sys.argv:  # tur 13: tur 12 paket kartlari alt skill kaynagiyla
         S = [k for k in kartlar() if k["ad"] in U and k["ad"].endswith("-paket") and U[k["ad"]].get("tarih", 0) >= 1793275200][:n]
     elif "--eski" in sys.argv:  # parçalı kaynak öncesi (tur 5-8) üretilmiş kartlar
@@ -315,7 +324,7 @@ def isle(grup_n):
             ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
                         "token_ipucu": temiz(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in ko[:3]],
-                        "ornek": (o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
+                        "ornek": (o if o and o in src else ("" if k["ad"].endswith("-paket") else f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
     (d / "haiku.jsonl").write_text("\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n", encoding="utf-8")
     print("kart", len(out))
 
