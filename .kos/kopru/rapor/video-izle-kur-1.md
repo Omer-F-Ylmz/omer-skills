@@ -12,3 +12,11 @@ relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 - Güvenlik taraması `tara-tur2.tsv` (58 kalem, 47 repolu; önce PentAGI/Xtool/TradingAgents/FreeToken, sonra 14 ELE, sonra tur 1) arka görevde; SkillSpector 2400 s, semgrep 1500 s, zaman aşımı satırları yeniden taranır. `guvenlik-4.md` tarama bitince yazılacak.
 - Arka görevler (Görev Zamanlayıcı, oturumdan bağımsız): tara-tur2, derin-tur2, bekle-tur2 → günlükler `ogren/video-izle-kur-1/*.log`.
 - SIRA: guvenlik-4.md (4 kalemin SS/gitleaks örnekleri) → tarama temiz tur 1 kalemlerini kur + ölç + zip → v2 araç adlarını envantere birleştir → usta kartları. Yeni 800-900 link için hazır DEĞİL (102 kalem kaldı).
+
+# Tur 3 (29 Eki 15:50) · ARA KAYIT
+- Derin izleme tur 2 bitti (ölçüldü, derin-tur2-goz.log): 261 eksikten 162 işlendi, 144 ok, 18 indirilemedi → bunlar Desktop Chrome listesine.
+- Tarama tur 2'nin 45/49 satırı "klon hata" (yeniden başlatma sırasında ağ yoktu; elle klon şimdi çalışıyor). Arşiv `C:/AI/indirilen/video-izle-kur-1/_arsiv/sonuc-tur2a.tsv`; tarama yeniden arka görevde (tara-tur3.log).
+- v2 araç çıkarma 238/238 "model-yok" çıkmıştı; havuz gerçek çağrıyla denendi (gemini çalışıyor, EK 8) → yeniden arka görevde (v2arac-tur3.log, 16 ok/0 hata). Tur 1 çıkarma da yeniden (cikar-tur3.log, 12 ok).
+- Yeni: `video_izle_kur_1_skill_kur.py` (klon → SkillSpector + gitleaks → ~/.claude/skills + dist zip + zip_denetle). Parti 1 (11 repolu skill) arka görevde → `skill-kur.tsv`.
+- Slop Monster: SS 5 YÜKSEK = AE1 "analysis-evasion", SKILL.md 72/73/86/110'daki `DESLOP_WRITER=x tools/cleanse.sh` satırları; betiklerde ağ/sudo/indirme yok → yanlış alarm, `!` ön ekiyle kurulacak.
+- SIRA: parti 1 sonucu → BEKLE satırlarını tek tek incele → arac_kart yenile --ekle + usta kartı (CRW, Voice DNA, parti 1) → guvenlik-4.md (tarama bitince) → parti 2 (araç/repo). Yeni linklere hazır DEĞİL.
