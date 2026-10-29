@@ -6,3 +6,37 @@
 - BELİRSİZ: yalnız benzer (≥7 harf, ≥%60 örtüşen) ad ya da yalnız katalog (yetenek.tsv) eşleşmesi; aynı araç mı doğrulanmadı. Model/CLI ile `--version` doğrulaması yapılmadı.
 - Sınırlar: ad eşleşmesi 134 satırda aynı-araç garantisi vermez (repo URL'si yok); `where`/`--version` ve mcp list canlı sınanmadı; YANLIŞ EŞLEŞME/KISMEN ayrımı yapılmadı (BELİRSİZ'e düştü). Eski 279 kaba "kurulu"nun tekil karşılığı: 955 içinde 174 kanıtlı.
 - Çıktı: `rapor/video-yeni-1-kurulacaklar-tekil.tsv` (sınıf sıralı). Betik: tmp/ed1_b.py. Kurulum yapılmadı.
+
+## TUR 2 (29 Eki): BELİRSİZ 78 sıfırlandı
+
+Yöntem: betik eşleme (ogren/ev_tur2.py, ev_tur2b.py: SKILL.md frontmatter, git remote, known_marketplaces.json repo, mcpServers, `where`) + elle karar (ogren/uygula_tur2.py). Model çağrısı yok. Yedek: `.yedek-tur2`. Kurulum yapılmadı.
+
+78 BELİRSİZ dağılımı: KURULU-KANIT 26 · KURULACAK 34 · AYNI-AİLE 17 · BULUNAMADI 1.
+
+Güncel dağılım (955 tekil): KURULU-KANIT 200 · KURULACAK 737 · AYNI-AİLE 17 · BULUNAMADI 1 · BELİRSİZ 0.
+
+Notlar:
+- Her satırın `kanit` sütununa `| tur2: <kanıt>` eklendi.
+- Repo klonu (C:/AI/indirilen) remote eşleşirse repo/referans türünde KURULU-KANIT; kurulum gerektiren araç/kütüphanede klon tek başına KURULACAK (klon yolu notta).
+- Canlı sınanan: skillspector.exe çalışıyor; `where comfyui/whisper` boş; firecrawl CLI npm'de var. Sınanmayan: Python paket sürümleri (Scrapling), OpenMontage/diagram-design kaynak URL eşleşmesi.
+- Yalnız-ad eşleşmesiyle KURULU-KANIT: find-skills, i-have-adhd, Scientific Skills (source alanı K-Dense, skill 598B kısa).
+
+## TUR 3: AYNI-AILE 17 kurulumu (29 Eki)
+
+| kalem | kuruldu | kanit | kart |
+|---|---|---|---|
+| Firecrawl / Firecrawl MCP | npm firecrawl-mcp 3.36.0 (MIT), CLI 1.26.22 | require ok; MCP global eklenmedi; FIRECRAWL_API_KEY yok = hesap-en-sona | yok |
+| Remotion | npm remotion 4.0.539 | require ok (araclar/kutuphane-deneme); lisans Remotion License (sirket >3 kisi ucretli) | yok |
+| React Three Fiber | @react-three/fiber 9.8.2 + three | require ok | yok |
+| Scrapling x2 | pip scrapling 0.5 (BSD-3) | import + css secici ok | yok |
+| diagram-design x2 | zaten skills/diagram-design-paket | cathynlaveny/diagram-design 404, kaynak dogrulanamadi | yok |
+| OpenMontage x2 | klon araclar/openmontage | AGPL-3.0; gitleaks 23 (test/skill-doc yer tutucu), semgrep 11 dusuk | yok |
+| Netlify Drop | site referansi | kurulum yok, netlify MCP kayitli | yok |
+| AutoClip | klon araclar/autoclip (zhouxiaoka, MIT) | gitleaks 31 (test/doc yer tutucu), semgrep 0; video kaynagi belirsiz, en yakin aday; calistirilmadi | yok |
+| interfaces.dev | site referansi | plugin interfaces kurulu | yok |
+| Nano Banana | plugin 0.1.1 + GEMINI_API_KEY var | models.list 6 goruntu modeli, 0 uretim | yok |
+| ElevenLabs | pip elevenlabs 2.75.0 | import ok; ELEVENLABS_API_KEY yok = hesap-en-sona | yok |
+| Whisper | faster-whisper 1.2.1 + large-v3 | gercek transkript (tiny): "Hello world, this is a whisper test." | yok |
+| Blender Lab MCP | blender-mcp.exe (ahujasid, MIT) zaten kurulu | resmi Blender Lab deposu bulunamadi; sinif AYNI-AILE kaldi | yok |
+
+Sapmalar: usta karti araci tools/ altinda yok, kart uretilmedi. Playwright/gitleaks bulgulari yer tutucu, gercek sizinti yok. SkillSpector: kurulan sey skill degil, calistirilmadi.

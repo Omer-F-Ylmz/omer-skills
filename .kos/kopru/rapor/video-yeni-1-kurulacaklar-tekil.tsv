@@ -1,90 +1,90 @@
 sinif	ad	tur	url/komut	kanit	kopya	kod	ne isi yarar
-BELİRSİZ	System Design Primer	repo	github.com/donnemartin/system-design-primer (?)	benzer:envanter.tsv:CC:plugin-skill	1	DdzOasRCJ9h	Ölçeklenebilirlik, önbellek, yük dengeleme gibi sistem tasarımı kavramlarını öğretir
-BELİRSİZ	Kokonut UI	SİTE	kokonutui.com	yalniz-katalog	2	De_J0aOl9SJ	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
-BELİRSİZ	shadcn/ui	kütüphane	npx shadcn add	benzer:C:/AI/indirilen/shadcn-ui__ui	1	De_J0aOl9SJ	Skiper/Kokonut gibi kütüphanelerin kurulum altyapısı olan bileşen sistemi
-BELİRSİZ	GitDiagram	araç		benzer:~/.claude/skills/diagram	1	DfCHfMxR8yq	Repoyu görsel diyagrama çevirir, dosya bağlantılarını gösterir
-BELİRSİZ	Anime.js	kütüphane	animejs.com (?)	yalniz-katalog	1	DdQkBgtxYe2	Web'de her şeyi animasyonlayan kütüphane; scroll gözlemci, stagger, SVG araçları
-BELİRSİZ	Firecrawl	MCP		benzer:envanter.tsv:CC:cli	1	De-NlsAtzUn	Claude'a site kazıma, marka varlığı çekme, rakip araştırma yeteneği verir
-BELİRSİZ	research-agent	skill	.claude/skills/research-agent/SKILL.md	benzer:~/.claude/skills/research	1	De1p5PkkRxk	Konudan kaynak toplayıp özet çıkarır
-BELİRSİZ	Scientific Skills	skill		benzer:~/.claude/skills/claude-scientific-skills	1	De3S2C3P7yb	Claude'u bilim insanına çeviren skill (repo OCR'da yok)
-BELİRSİZ	Vercel agent skills	skill	vercel-labs/agent-skills (?)	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	De3S2C3P7yb	Vercel'in React uygulama resmi skill koleksiyonu
-BELİRSİZ	oh-my-claudecode	repo	github.com/Yeachan-Heo/oh-my-claudecode (?)	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	De6cCG2hCuS	Claude Code için 19 ajanlı takım orkestrasyonu, model yönlendirme (40k+ yıldız)
-BELİRSİZ	Remotion	kütüphane		benzer:~/.claude/skills/remotion-docs	2	DehjgOtDn77	Kodla düzenlenebilir video
-BELİRSİZ	Motion Canvas	kütüphane		benzer:C:/AI/indirilen/motion-canvas__examples	1	DehjgOtDn77	Açıklayıcı video ve diyagram animasyonu
-BELİRSİZ	React Three Fiber	kütüphane		benzer:~/.claude/skills/threejs-react-three-fiber	1	DehjgOtDn77	Three.js sahnelerini React'ta kurar
-BELİRSİZ	Scrapling	repo	github.com/D4Vinci/Scrapling (?)	benzer:~/.claude/skills/Scrapling-Skill	1	DejuQStmPny	Web kazıma
-BELİRSİZ	diagram-design	skill	github.com/cathynlaveny/diagram-design (?)	benzer:~/.claude/skills/diagram-design-paket	1	DejuQStmPny	Etkileşimli teknik çizimler
-BELİRSİZ	n8n Agent Builder Skill	skill		benzer:~/.claude/skills/agent_builder	1	De-Th5KAOY8	Claude ile tek istemde n8n iş akışı ve AI ajanı kurar (topluluk skill paketi)
-BELİRSİZ	liquid-glass-js	repo	github.com/dashersw/liquid-glass-js	yalniz-katalog	1	DYNW3X7J2TH	Apple Liquid Glass esintili efektler
-BELİRSİZ	Hyperframes (HeyGen)	skill		benzer:~/.claude/plugins/cache\hyperframes\hyperframes	1	De2dMErAprH	Claude ve kodla hareketli grafik, animasyonlu yazı, geçiş üretir
-BELİRSİZ	SkillSpector (NVIDIA) (?)	repo		benzer:_inv_uv.txt	1	De3VPoaTUVn	Skill'i kurmadan önce 68 zafiyet deseni/17 kategoride tarar (statik hızlı mod + LLM derin mod); skill klasörü, SKILL.md, repo veya zip
-BELİRSİZ	NVIDIA NIM	SİTE		yalniz-katalog	1	De4qvI2zaCe	DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
-BELİRSİZ	OpenRouter	SİTE		yalniz-katalog	1	De4qvI2zaCe	Qwen, Kimi, Llama, MiniMax gibi ücretsiz modeller; dakikada 20 istek
-BELİRSİZ	Open Code Review (Alibaba)	repo	github.com/alibaba/opencodereview (?)	benzer:~/.claude/skills/code-review	1	DezJhNJhjqi	Pull request'leri analiz edip hata/performans öneren AI kod inceleme CLI'ı (Apache-2.0, npm, Claude Code/Codex/Cursor/Kimi destekli)
-BELİRSİZ	OpenMontage	repo	github.com/calesthio/OpenMontage (?)	benzer:envanter.tsv:ikisi:skill	1	DfAG3UkyKi2	Senaryodan render'a tüm YouTube videosunu üreten açık kaynak ekip; 100+ araç, 700 ajan skill'i
-BELİRSİZ	ComfyUI	araç		yalniz-katalog	2	DfCrknOAoua	Openjutsu'nun üzerinde çalıştığı iş akışı motoru
-BELİRSİZ	Netlify Drop	SİTE	app.netlify.com/drop	benzer:_inv_mcp.txt	1	De-blYnCBbn	Hazır siteyi sürükle-bırak ile ücretsiz yayına alma
-BELİRSİZ	Pinterest	SİTE		benzer:envanter.tsv:CC:plugin-skill	1	DeTqN3uEidC	Görsel ilham panosu
-BELİRSİZ	AutoClip	repo		benzer:~/.claude/skills/autoclip-paket	1	De__0Eok8OB	Uzun videoyu AI ile viral kliplere çeviren açık kaynak araç (altyazı, reframe, başlık)
-BELİRSİZ	darkmodedesign.com	SİTE	darkmodedesign.com	benzer:envanter.tsv:CC:plugin-skill	1	DfASJnjIYe2	Koyu mod site galerisi
-BELİRSİZ	REA (Reverse Engineer Anything)	MCP		benzer:~/.claude/skills/reverse-engineer-anything	1	De4B-SgiU5i	207 araçlı MCP sunucusu, uygulama/APK ters mühendislik
-BELİRSİZ	LLM Council	repo		benzer:envanter.tsv:CC:plugin-skill	1	De6gVFpCFmE	Karpathy'nin çok modelli danışman kurulu; videoda tek Claude'a 5 danışman rolü + başkan olarak uyarlanmış
-BELİRSİZ	obra/superpowers	skill	obra/superpowers	benzer:~/.claude/plugins/cache\claude-plugins-official\superpowers	2	DeJu_M5inR0	GitHub'da en çok yıldızlı Claude Code/Codex skill'i (295k): kod yazmadan önce plan, test, debug
-BELİRSİZ	blader/humanizer	skill	npx skills add blader/humanizer --global	benzer:~/.claude/plugins/cache\humanizer\humanizer	1	Dem91ptkrhe	AI metnini insanlaştıran skill
-BELİRSİZ	Replica	plugin	/replica-build	benzer:envanter.tsv:ikisi:skill	1	DfCtGNgiWeb	Uygulamayı tarayan, planlayan, kuran, test eden 11 skill
-BELİRSİZ	obscura	repo	h4ckl0rd0ay/obscura (?)	yalniz-katalog	1	De9kMGeShp9	AI ajanlar ve scraping için Rust headless tarayıcı, Cloudflare'i geçer
-BELİRSİZ	interfaces.dev	SİTE	interfaces.dev	benzer:~/.claude/plugins/cache\interfaces\interfaces	1	DeJxYRblNR2	Modern web UI desenleri ve etkileşim kütüphanesi
-BELİRSİZ	Claude Plugins	repo		benzer:~/.claude/plugins/marketplaces\claude-plugins-official	1	DfCuqy9s9xq	Plugin deposu
-BELİRSİZ	Playwright MCP	MCP		benzer:~/.claude/plugins/cache\claude-plugins-official\playwright	1	DfCuqy9s9xq	Tarayıcı otomasyonu
-BELİRSİZ	Awesome MCP Servers	repo		benzer:C:/AI/indirilen/punkpeye__awesome-mcp-servers	1	DfCuqy9s9xq	MCP liste deposu
-BELİRSİZ	Claude Code Router	araç		benzer:C:/AI/indirilen/musistudio__claude-code-router	1	DfCuqy9s9xq	Model yönlendirme
-BELİRSİZ	System prompts	repo		benzer:envanter.tsv:CC:plugin-skill	1	DfCuqy9s9xq	Sistem prompt derlemesi
-BELİRSİZ	SaaS Landing Page	SİTE	saaslandingpage.com	benzer:~/.claude/skills/landing-page	1	DeZXAa6jE8s	SaaS landing page galerisi (link listesinde)
-BELİRSİZ	Nano Banana	model		benzer:~/.claude/plugins/cache\nano-banana-2-plugins\nano-banana-2	2	Dax-38bjV8R	Görsel üretim modeli
-BELİRSİZ	Bklit UI	kütüphane	pnpm dlx shadcn@latest add bklit/bar-chart	yalniz-katalog	1	DcSlxgRCBPm	Ücretsiz grafik bileşenleri (line, area, bar, pie, radar, ring)
-BELİRSİZ	Loop engineering	yöntem		benzer:~/.claude/plugins/cache\knowledge-work-plugins\engineering	1	De1j7h5pQOr	Prompt yerine kendi çıktısını denetleyip düzelten döngü yazma; hedefe sayı/kontrol listesi bağlama
-BELİRSİZ	ElevenLabs	araç		benzer:~/.claude/skills/elevenlabs-tts	1	De2kpfnCFeH	Metni seslendirmeye çevirme
-BELİRSİZ	Google Drive (MCP)	MCP		benzer:~/.claude/skills/google-drive	1	De2kpfnCFeH	Drive dosyalarını bulma/okuma/yazma
-BELİRSİZ	Whisper	model		benzer:envanter.tsv:ikisi:cli	1	De2kpfnCFeH	Kayıtları transkripte çevirme
-BELİRSİZ	Google Agent Skills	repo		benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	De6-sZ1BhfA	Google'ın 100+ açık kaynak skill'i (Analytics, Ads, Gemini, Firebase, BigQuery, Cloud)
-BELİRSİZ	DiffSynth-Studio	repo		benzer:C:/AI/indirilen/modelscope__DiffSynth-Studio	1	DeZOzoUmVUg	T3-Video ortam hazırlığı için başvurulan çerçeve
-BELİRSİZ	Everything Claude Code (ECC)	plugin		benzer:~/.claude/plugins/marketplaces\everything-claude-code	1	DfDvhU7opmg	Top 30 listesinde adı geçen plugin
-BELİRSİZ	Career Ops	plugin		yalniz-katalog	1	DfDvhU7opmg	Top 30 listesi
-BELİRSİZ	Taste (taste-skill)	plugin		benzer:~/.claude/plugins/cache\taste-skill\taste-skill	1	DfDvhU7opmg	Top 30 listesi (ekranda 'Taste')
-BELİRSİZ	Open Montage	plugin		benzer:envanter.tsv:ikisi:skill	2	DfDvhU7opmg	Top 30 listesi
-BELİRSİZ	Diagram Design	plugin		benzer:~/.claude/skills/diagram-design-paket	1	DfDvhU7opmg	Top 30 listesi
-BELİRSİZ	Higgsfield MCP	MCP	mcp.higgsfield.ai	benzer:envanter.tsv:claude.ai:baglayici	1	o4iY8QEeKmU	Claude'a foto/video/3D model üretimi yetisi veren MCP (sponsorlu)
-BELİRSİZ	Scrapling	kütüphane		benzer:~/.claude/skills/Scrapling-Skill	1	De10iPOiB6V	Kaynak site değişince kendini uyarlayan scraper
-BELİRSİZ	ComfyUI	repo	github.com/Comfy-Org/ComfyUI	yalniz-katalog	1	Den39fYxLsI	Görsel iş akışı ile yerel AI görsel/video üretimi
-BELİRSİZ	Perplexity MCP	MCP	ppl-ai/modelcontextprotocol	yalniz-katalog	1	DfE8f4ogMa7	Gerçek zamanlı web araştırması
-BELİRSİZ	Firecrawl MCP	MCP	firecrawl-mcp-server	yalniz-katalog	1	DfE8f4ogMa7	Web sitesi tarama/içerik yükleme
-BELİRSİZ	Kitchen	kütüphane		benzer:~/.claude/plugins/cache\2389-research\test-kitchen	1	Dew3i03gGAi	Kopyala-yapıştır hazır kodlu, çok detaylı premium UI bileşen kütüphanesi (kaset çalar, basılı tutarak silme, fiş yazdıran ödeme ekranı); link DM'de, videoda yok
-BELİRSİZ	OpenShell	repo	NVIDIA/OpenShell	benzer:C:/AI/indirilen/NVIDIA__OpenShell	1	DfC1lqQjC1N	NVIDIA açık kaynak AI ajan runtime'ı; her ajan ayrı sandbox'ta, ağ bağlantıları politika kontrolünden geçer (Apache-2.0)
-BELİRSİZ	GSAP skill	skill		benzer:~/.claude/plugins/cache\gsap-skills\gsap-skills	1	De00hFSk-hv	Resmi GreenSock skill'i; timeline ve ScrollTrigger animasyonları
-BELİRSİZ	motion-design-skill	skill	lottiefiles/motion-design-skill	benzer:~/.claude/skills/motion-design	1	De00hFSk-hv	Lottie/SVG animasyon skill'i
-BELİRSİZ	Google Stitch	SİTE	stitch.withgoogle.com	yalniz-katalog	2	DeKYdKRzlhT	Tek prompttan tam uygulama tasarımı
-BELİRSİZ	OpenCut	repo		yalniz-katalog	1	De_-24Einvw	CapCut alternatifi, tarayıcıda çalışan MIT lisanslı video editörü; Claude Code/Codex ile headless kullanılabilir
-BELİRSİZ	on.design	SİTE	on.design	benzer:~/.claude/skills/motion-design	1	DezU-xDkzFO	Tasarım topluluğu
-BELİRSİZ	Blender Lab MCP	MCP		yalniz-katalog	1	DfBbQs6jKUJ	Hermes ile Blender'da 3D yapar (resmi)
-BELİRSİZ	awesome-design-md	skill	http://skills.sh/VoltAgent/awesome-design-md	benzer:C:/AI/indirilen/VoltAgent__awesome-design-md	1	De4e4TmkvmH	Tasarım md koleksiyonu
-BELİRSİZ	agent-usage-guard (rbartoli)	repo	rbartoli/agent-usage-guard	benzer:~/.claude/plugins/cache\agent-usage-guard\agent-usage-guard	1	De5KFvOy66O	Claude Code modu: plan kullanımı %80 üstü onay ister, %95 üstü reddeder, 4 eşzamanlı ajan sınırı, 3 aynı hata sonrası tekrarı durdurur (MIT)
-BELİRSİZ	Steph Ango Obsidian skills	skill		benzer:~/.claude/plugins/marketplaces\obsidian-skills	1	De95NHOuo-x	Obsidian CEO'sunun skill'leri: bağlı sayfalar ve Canvas konu haritası
-BELİRSİZ	claudecodeclub.ai	SİTE	claudecodeclub.ai	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	DeR-SLBxBPe	Claude Code Club topluluğu
-BELİRSİZ	baidu/Unlimited-OCR	repo	baidu/Unlimited-OCR	benzer:~/.claude/skills/unlimited-ocr	1	DehD9WBq0Qb	Tüm PDF'i tek seferde okuyan yerel OCR modeli, tablo ve formül korur (MIT); Hugging Face demosu var
-BELİRSİZ	Harness²	repo	harness2.github.io	benzer:~/.claude/plugins/cache\autoharness\autoharness	1	DevVTopkRwf	Google Research çerçevesi: ajanın hafıza, skill, alt ajan gibi 8 parçasını ayarlar, yerel demo
-BELİRSİZ	Learn Claude Code	repo		benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	DfBcE4Bli0y	17 derste küçük Claude Code yapma
-BELİRSİZ	agentskills.io	SİTE	agentskills.io	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	DfBcE4Bli0y	Ajan skill standardı sitesi
-BELİRSİZ	ayghri/i-have-adhd	skill	ayghri/i-have-adhd	benzer:~/.claude/skills/i-have-adhd	1	DfDAxN1Rex-	DEHB dostu skill
-BELİRSİZ	mvanhorn/last30days-skill	skill	mvanhorn/last30days-skill	benzer:~/.claude/plugins/marketplaces\last30days-skill	1	DfDAxN1Rex-	Son 30 gün araştırma
-BELİRSİZ	vercel-labs/skills find-skills	skill	npx skills add vercel-labs/skills@find-skills	benzer:C:/AI/indirilen/vercel-labs__skills	1	DfDAxN1Rex-	Projeyi anlat, 700k+ skill dizininde en güvenilir skill'i bulur
+KURULACAK	System Design Primer	repo	github.com/donnemartin/system-design-primer (?)	benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DdzOasRCJ9h	Ölçeklenebilirlik, önbellek, yük dengeleme gibi sistem tasarımı kavramlarını öğretir
+KURULACAK	Kokonut UI	SİTE	kokonutui.com	yalniz-katalog | tur2: klon var C:/AI/indirilen/kokonut-labs__kokonutui, projeye eklenmedi	2	De_J0aOl9SJ	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
+KURULACAK	shadcn/ui	kütüphane	npx shadcn add	benzer:C:/AI/indirilen/shadcn-ui__ui | tur2: klon var indirilen/shadcn-ui__ui (remote shadcn-ui/ui), kütüphane projeye eklenir	1	De_J0aOl9SJ	Skiper/Kokonut gibi kütüphanelerin kurulum altyapısı olan bileşen sistemi
+KURULACAK	GitDiagram	araç		benzer:~/.claude/skills/diagram | tur2: skills/diagram gstack diyagram skill'i, GitDiagram değil	1	DfCHfMxR8yq	Repoyu görsel diyagrama çevirir, dosya bağlantılarını gösterir
+KURULACAK	Anime.js	kütüphane	animejs.com (?)	yalniz-katalog | tur2: yerelde yok	1	DdQkBgtxYe2	Web'de her şeyi animasyonlayan kütüphane; scroll gözlemci, stagger, SVG araçları
+KURULU-KANIT	Firecrawl	MCP		benzer:envanter.tsv:CC:cli | tur2: firecrawl CLI kurulu (npm firecrawl.cmd) + skills/firecrawl-scraper; MCP mcpServers'ta yok | tur3: firecrawl CLI 1.26.22 + npm firecrawl-mcp 3.36.0 (MIT) araclar/kutuphane-deneme; MCP global eklenmedi; FIRECRAWL_API_KEY yok = hesap-en-sona	1	De-NlsAtzUn	Claude'a site kazıma, marka varlığı çekme, rakip araştırma yeteneği verir
+KURULACAK	research-agent	skill	.claude/skills/research-agent/SKILL.md	benzer:~/.claude/skills/research | tur2: skills/research = trading faz-1 skill'i, başka araç	1	De1p5PkkRxk	Konudan kaynak toplayıp özet çıkarır
+KURULU-KANIT	Scientific Skills	skill		benzer:~/.claude/skills/claude-scientific-skills | tur2: skills/claude-scientific-skills SKILL.md source=K-Dense-AI/claude-scientific-skills (598B kısa skill)	1	De3S2C3P7yb	Claude'u bilim insanına çeviren skill (repo OCR'da yok)
+KURULACAK	Vercel agent skills	skill	vercel-labs/agent-skills (?)	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills | tur2: addy-agent-skills farklı repo; vercel-labs/agent-skills klonu yok	1	De3S2C3P7yb	Vercel'in React uygulama resmi skill koleksiyonu
+KURULACAK	oh-my-claudecode	repo	github.com/Yeachan-Heo/oh-my-claudecode (?)	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: yol obra/superpowers'a çözülüyor, Yeachan-Heo/oh-my-claudecode değil	1	De6cCG2hCuS	Claude Code için 19 ajanlı takım orkestrasyonu, model yönlendirme (40k+ yıldız)
+KURULU-KANIT	Remotion	kütüphane		benzer:~/.claude/skills/remotion-docs | tur2: skills/remotion-docs + remotion-* skill'leri kurulu; remotion paketi projeye eklenmedi | tur3: npm remotion 4.0.539 araclar/kutuphane-deneme require ok; lisans: Remotion License (sirket >3 kisi ucretli)	2	DehjgOtDn77	Kodla düzenlenebilir video
+KURULACAK	Motion Canvas	kütüphane		benzer:C:/AI/indirilen/motion-canvas__examples | tur2: klon var indirilen/motion-canvas__motion-canvas, kurulu değil	1	DehjgOtDn77	Açıklayıcı video ve diyagram animasyonu
+KURULU-KANIT	React Three Fiber	kütüphane		benzer:~/.claude/skills/threejs-react-three-fiber | tur2: skills/threejs-react-three-fiber kurulu; R3F paketi proje bağımlılığı | tur3: npm @react-three/fiber 9.8.2 (MIT) + three araclar/kutuphane-deneme require ok	1	DehjgOtDn77	Three.js sahnelerini React'ta kurar
+KURULU-KANIT	Scrapling	repo	github.com/D4Vinci/Scrapling (?)	benzer:~/.claude/skills/Scrapling-Skill | tur2: skills/Scrapling-Skill (scrapling-official, scrapling.readthedocs) kurulu; Python paketi sınanmadı | tur3: pip scrapling 0.5 (BSD-3) import + Selector css ok	1	DejuQStmPny	Web kazıma
+KURULU-KANIT	diagram-design	skill	github.com/cathynlaveny/diagram-design (?)	benzer:~/.claude/skills/diagram-design-paket | tur2: skills/diagram-design-paket kurulu; cathynlaveny kaynağı doğrulanamadı | tur3: skills/diagram-design-paket; cathynlaveny/diagram-design GitHub 404, kaynak dogrulanamadi	1	DejuQStmPny	Etkileşimli teknik çizimler
+KURULACAK	n8n Agent Builder Skill	skill		benzer:~/.claude/skills/agent_builder | tur2: skills/agent_builder = trading ajanı, n8n değil	1	De-Th5KAOY8	Claude ile tek istemde n8n iş akışı ve AI ajanı kurar (topluluk skill paketi)
+KURULACAK	liquid-glass-js	repo	github.com/dashersw/liquid-glass-js	yalniz-katalog | tur2: yerelde yok	1	DYNW3X7J2TH	Apple Liquid Glass esintili efektler
+KURULU-KANIT	Hyperframes (HeyGen)	skill		benzer:~/.claude/plugins/cache\hyperframes\hyperframes | tur2: plugins/cache+marketplaces/hyperframes, known_marketplaces repo=heygen-com/hyperframes	1	De2dMErAprH	Claude ve kodla hareketli grafik, animasyonlu yazı, geçiş üretir
+KURULU-KANIT	SkillSpector (NVIDIA) (?)	repo		benzer:_inv_uv.txt | tur2: skillspector.exe ~/.local/bin, çalışıyor (API anahtarsız analizörler atlanıyor)	1	De3VPoaTUVn	Skill'i kurmadan önce 68 zafiyet deseni/17 kategoride tarar (statik hızlı mod + LLM derin mod); skill klasörü, SKILL.md, repo veya zip
+KURULACAK	NVIDIA NIM	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil	1	De4qvI2zaCe	DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
+KURULACAK	OpenRouter	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil	1	De4qvI2zaCe	Qwen, Kimi, Llama, MiniMax gibi ücretsiz modeller; dakikada 20 istek
+KURULACAK	Open Code Review (Alibaba)	repo	github.com/alibaba/opencodereview (?)	benzer:~/.claude/skills/code-review | tur2: skills/code-review = llama.cpp inceleme skill'i, alibaba/opencodereview değil	1	DezJhNJhjqi	Pull request'leri analiz edip hata/performans öneren AI kod inceleme CLI'ı (Apache-2.0, npm, Claude Code/Codex/Cursor/Kimi destekli)
+KURULU-KANIT	OpenMontage	repo	github.com/calesthio/OpenMontage (?)	benzer:envanter.tsv:ikisi:skill | tur2: dist/link27-openmontage + anthropic-skills:openmontage-paket kurulu; calesthio kaynağı doğrulanamadı | tur3: klon araclar/openmontage (calesthio, AGPL-3.0); gitleaks 23 (test/skill-doc yer tutucu), semgrep 11 orta/dusuk; AGPL: ag uzerinden sunulursa kaynak acilmali	1	DfAG3UkyKi2	Senaryodan render'a tüm YouTube videosunu üreten açık kaynak ekip; 100+ araç, 700 ajan skill'i
+KURULACAK	ComfyUI	araç		yalniz-katalog | tur2: where comfyui boş	2	DfCrknOAoua	Openjutsu'nun üzerinde çalıştığı iş akışı motoru
+KURULU-KANIT	Netlify Drop	SİTE	app.netlify.com/drop	benzer:_inv_mcp.txt | tur2: netlify MCP kurulu (gateway); Drop sitesi kurulum gerektirmez | tur3: site referansi: kurulum yok; netlify MCP kayitli; katalog satiri	1	De-blYnCBbn	Hazır siteyi sürükle-bırak ile ücretsiz yayına alma
+KURULACAK	Pinterest	SİTE		benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DeTqN3uEidC	Görsel ilham panosu
+KURULU-KANIT	AutoClip	repo		benzer:~/.claude/skills/autoclip-paket | tur2: skills/autoclip-paket kurulu; uygulama/repo kurulu değil | tur3: klon araclar/autoclip (zhouxiaoka/autoclip, MIT, 9.8k yildiz; video kaynagi belirsiz, en yakin aday); gitleaks 31 (testler/doc yer tutucu), semgrep 0; calistirilmadi	1	De__0Eok8OB	Uzun videoyu AI ile viral kliplere çeviren açık kaynak araç (altyazı, reframe, başlık)
+KURULACAK	darkmodedesign.com	SİTE	darkmodedesign.com	benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DfASJnjIYe2	Koyu mod site galerisi
+KURULU-KANIT	REA (Reverse Engineer Anything)	MCP		benzer:~/.claude/skills/reverse-engineer-anything | tur2: mcpServers.rea (tools/rea-mcp-compact.mjs) + skills/reverse-engineer-anything	1	De4B-SgiU5i	207 araçlı MCP sunucusu, uygulama/APK ters mühendislik
+KURULACAK	LLM Council	repo		benzer:envanter.tsv:CC:plugin-skill | tur2: consciousness-council başka araç	1	De6gVFpCFmE	Karpathy'nin çok modelli danışman kurulu; videoda tek Claude'a 5 danışman rolü + başkan olarak uyarlanmış
+KURULU-KANIT	obra/superpowers	skill	obra/superpowers	benzer:~/.claude/plugins/cache\claude-plugins-official\superpowers | tur2: plugins/cache/claude-plugins-official/superpowers 6.4.1+7.0.0	2	DeJu_M5inR0	GitHub'da en çok yıldızlı Claude Code/Codex skill'i (295k): kod yazmadan önce plan, test, debug
+KURULU-KANIT	blader/humanizer	skill	npx skills add blader/humanizer --global	benzer:~/.claude/plugins/cache\humanizer\humanizer | tur2: known_marketplaces blader/humanizer + cache/humanizer	1	Dem91ptkrhe	AI metnini insanlaştıran skill
+KURULU-KANIT	Replica	plugin	/replica-build	benzer:envanter.tsv:ikisi:skill | tur2: known_marketplaces Jakeschincariol/replica-skill + cache/replica-skill	1	DfCtGNgiWeb	Uygulamayı tarayan, planlayan, kuran, test eden 11 skill
+KURULACAK	obscura	repo	h4ckl0rd0ay/obscura (?)	yalniz-katalog | tur2: yerelde yok	1	De9kMGeShp9	AI ajanlar ve scraping için Rust headless tarayıcı, Cloudflare'i geçer
+KURULU-KANIT	interfaces.dev	SİTE	interfaces.dev	benzer:~/.claude/plugins/cache\interfaces\interfaces | tur2: plugin interfaces kurulu (jakubkrehel/skills); interfaces.dev sitesi ayrı | tur3: site referansi: plugin interfaces kurulu; katalog satiri	1	DeJxYRblNR2	Modern web UI desenleri ve etkileşim kütüphanesi
+KURULU-KANIT	Claude Plugins	repo		benzer:~/.claude/plugins/marketplaces\claude-plugins-official | tur2: marketplaces/claude-plugins-official, repo=anthropics/claude-plugins-official	1	DfCuqy9s9xq	Plugin deposu
+KURULU-KANIT	Playwright MCP	MCP		benzer:~/.claude/plugins/cache\claude-plugins-official\playwright | tur2: mcpServers.playwright (@playwright/mcp cli.js) + cache/claude-plugins-official/playwright	1	DfCuqy9s9xq	Tarayıcı otomasyonu
+KURULU-KANIT	Awesome MCP Servers	repo		benzer:C:/AI/indirilen/punkpeye__awesome-mcp-servers | tur2: klon indirilen/punkpeye__awesome-mcp-servers remote eşleşir	1	DfCuqy9s9xq	MCP liste deposu
+KURULACAK	Claude Code Router	araç		benzer:C:/AI/indirilen/musistudio__claude-code-router | tur2: klon var indirilen/musistudio__claude-code-router, kurulu değil	1	DfCuqy9s9xq	Model yönlendirme
+KURULACAK	System prompts	repo		benzer:envanter.tsv:CC:plugin-skill | tur2: yerelde yok	1	DfCuqy9s9xq	Sistem prompt derlemesi
+KURULACAK	SaaS Landing Page	SİTE	saaslandingpage.com	benzer:~/.claude/skills/landing-page | tur2: yerelde yok	1	DeZXAa6jE8s	SaaS landing page galerisi (link listesinde)
+KURULU-KANIT	Nano Banana	model		benzer:~/.claude/plugins/cache\nano-banana-2-plugins\nano-banana-2 | tur2: plugin nano-banana-2 (daveremy/nano-banana-2-mcp) kurulu; model hizmeti | tur3: plugin nano-banana-2 0.1.1 + GEMINI_API_KEY var; models.list 6 goruntu modeli (gemini-2.5-flash-image, gemini-3.1-flash-image dahil), 0 uretim cagrisi	2	Dax-38bjV8R	Görsel üretim modeli
+KURULACAK	Bklit UI	kütüphane	pnpm dlx shadcn@latest add bklit/bar-chart	yalniz-katalog | tur2: yerelde yok	1	DcSlxgRCBPm	Ücretsiz grafik bileşenleri (line, area, bar, pie, radar, ring)
+KURULACAK	Loop engineering	yöntem		benzer:~/.claude/plugins/cache\knowledge-work-plugins\engineering | tur2: yöntem; eşleşen kurulu araç yok	1	De1j7h5pQOr	Prompt yerine kendi çıktısını denetleyip düzelten döngü yazma; hedefe sayı/kontrol listesi bağlama
+KURULU-KANIT	ElevenLabs	araç		benzer:~/.claude/skills/elevenlabs-tts | tur2: skills/elevenlabs-tts kurulu; ElevenLabs hesabı/MCP ayrı | tur3: pip elevenlabs 2.75.0 import ok + skills/elevenlabs-tts; ELEVENLABS_API_KEY yok = hesap-en-sona	1	De2kpfnCFeH	Metni seslendirmeye çevirme
+KURULACAK	Google Drive (MCP)	MCP		benzer:~/.claude/skills/google-drive | tur2: mcpServers'ta google drive yok; skills/google-drive ayrı skill	1	De2kpfnCFeH	Drive dosyalarını bulma/okuma/yazma
+KURULU-KANIT	Whisper	model		benzer:envanter.tsv:ikisi:cli | tur2: faster-whisper large-v3 yerel kurulu (hf modelleri); openai/whisper klonu indirilen | tur3: faster-whisper 1.2.1 + large-v3/turbo hf onbellekte; gercek transkript (tiny, SAPI ses) = Hello world, this is a whisper test.	1	De2kpfnCFeH	Kayıtları transkripte çevirme
+KURULACAK	Google Agent Skills	repo		benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills | tur2: google-plugins cache Google Cloud eklentileri, Google Agent Skills değil	1	De6-sZ1BhfA	Google'ın 100+ açık kaynak skill'i (Analytics, Ads, Gemini, Firebase, BigQuery, Cloud)
+KURULU-KANIT	DiffSynth-Studio	repo		benzer:C:/AI/indirilen/modelscope__DiffSynth-Studio | tur2: klon indirilen/modelscope__DiffSynth-Studio remote eşleşir	1	DeZOzoUmVUg	T3-Video ortam hazırlığı için başvurulan çerçeve
+KURULU-KANIT	Everything Claude Code (ECC)	plugin		benzer:~/.claude/plugins/marketplaces\everything-claude-code | tur2: marketplaces/everything-claude-code (worldflowai) + ecc	1	DfDvhU7opmg	Top 30 listesinde adı geçen plugin
+KURULACAK	Career Ops	plugin		yalniz-katalog | tur2: davila7-career-paket farklı	1	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	Taste (taste-skill)	plugin		benzer:~/.claude/plugins/cache\taste-skill\taste-skill | tur2: known_marketplaces Leonxlnx/taste-skill + skills/taste	1	DfDvhU7opmg	Top 30 listesi (ekranda 'Taste')
+KURULU-KANIT	Open Montage	plugin		benzer:envanter.tsv:ikisi:skill | tur2: dist/link27-openmontage + anthropic-skills:openmontage-paket kurulu | tur3: klon araclar/openmontage (AGPL-3.0) + dist/link27-openmontage	2	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	Diagram Design	plugin		benzer:~/.claude/skills/diagram-design-paket | tur2: skills/diagram-design-paket kurulu; kaynak doğrulanamadı | tur3: skills/diagram-design-paket; kaynak dogrulanamadi (repo 404)	1	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	Higgsfield MCP	MCP	mcp.higgsfield.ai	benzer:envanter.tsv:claude.ai:baglayici | tur2: mcpServers.higgsfield url mcp.higgsfield.ai/mcp	1	o4iY8QEeKmU	Claude'a foto/video/3D model üretimi yetisi veren MCP (sponsorlu)
+KURULU-KANIT	Scrapling	kütüphane		benzer:~/.claude/skills/Scrapling-Skill | tur2: skills/Scrapling-Skill kurulu; Python paketi sınanmadı | tur3: pip scrapling 0.5 (BSD-3) import + Selector css ok	1	De10iPOiB6V	Kaynak site değişince kendini uyarlayan scraper
+KURULACAK	ComfyUI	repo	github.com/Comfy-Org/ComfyUI	yalniz-katalog | tur2: where comfyui boş	1	Den39fYxLsI	Görsel iş akışı ile yerel AI görsel/video üretimi
+KURULACAK	Perplexity MCP	MCP	ppl-ai/modelcontextprotocol	yalniz-katalog | tur2: mcpServers'ta perplexity yok	1	DfE8f4ogMa7	Gerçek zamanlı web araştırması
+KURULU-KANIT	Firecrawl MCP	MCP	firecrawl-mcp-server	yalniz-katalog | tur2: firecrawl CLI kurulu; firecrawl-mcp-server mcpServers'ta yok | tur3: npm firecrawl-mcp 3.36.0 (MIT) araclar/kutuphane-deneme require ok; global kayit yok; FIRECRAWL_API_KEY yok = hesap-en-sona	1	DfE8f4ogMa7	Web sitesi tarama/içerik yükleme
+BULUNAMADI	Kitchen	kütüphane		"benzer:~/.claude/plugins/cache\2389-research\test-kitchen | tur2: ad videoda yalnız ""Kitchen""; test-kitchen (2389) ile eşleşme kanıtlanamaz"	1	Dew3i03gGAi	Kopyala-yapıştır hazır kodlu, çok detaylı premium UI bileşen kütüphanesi (kaset çalar, basılı tutarak silme, fiş yazdıran ödeme ekranı); link DM'de, videoda yok
+KURULU-KANIT	OpenShell	repo	NVIDIA/OpenShell	benzer:C:/AI/indirilen/NVIDIA__OpenShell | tur2: klon indirilen/NVIDIA__OpenShell remote eşleşir	1	DfC1lqQjC1N	NVIDIA açık kaynak AI ajan runtime'ı; her ajan ayrı sandbox'ta, ağ bağlantıları politika kontrolünden geçer (Apache-2.0)
+KURULU-KANIT	GSAP skill	skill		benzer:~/.claude/plugins/cache\gsap-skills\gsap-skills | tur2: known_marketplaces greensock/gsap-skills + skills/gsap	1	De00hFSk-hv	Resmi GreenSock skill'i; timeline ve ScrollTrigger animasyonları
+KURULU-KANIT	motion-design-skill	skill	lottiefiles/motion-design-skill	benzer:~/.claude/skills/motion-design | tur2: skills/motion-design author=LottieFiles + klon indirilen/LottieFiles__motion-design-skill	1	De00hFSk-hv	Lottie/SVG animasyon skill'i
+KURULU-KANIT	Google Stitch	SİTE	stitch.withgoogle.com	yalniz-katalog | tur2: mcpServers.stitch (gateway) + skills/stitch-ui-design	2	DeKYdKRzlhT	Tek prompttan tam uygulama tasarımı
+KURULACAK	OpenCut	repo		yalniz-katalog | tur2: klon var indirilen/OpenCut-app__OpenCut, kurulu değil	1	De_-24Einvw	CapCut alternatifi, tarayıcıda çalışan MIT lisanslı video editörü; Claude Code/Codex ile headless kullanılabilir
+KURULACAK	on.design	SİTE	on.design	benzer:~/.claude/skills/motion-design | tur2: site; skills/motion-design ayrı	1	DezU-xDkzFO	Tasarım topluluğu
+AYNI-AİLE	Blender Lab MCP	MCP		yalniz-katalog | tur2: blender-mcp.exe kurulu (blender MCP); Blender Lab resmî sürümü doğrulanamadı	1	DfBbQs6jKUJ	Hermes ile Blender'da 3D yapar (resmi)
+KURULU-KANIT	awesome-design-md	skill	http://skills.sh/VoltAgent/awesome-design-md	benzer:C:/AI/indirilen/VoltAgent__awesome-design-md | tur2: klon indirilen/VoltAgent__awesome-design-md remote eşleşir	1	De4e4TmkvmH	Tasarım md koleksiyonu
+KURULU-KANIT	agent-usage-guard (rbartoli)	repo	rbartoli/agent-usage-guard	benzer:~/.claude/plugins/cache\agent-usage-guard\agent-usage-guard | tur2: known_marketplaces rbartoli/agent-usage-guard + cache	1	De5KFvOy66O	Claude Code modu: plan kullanımı %80 üstü onay ister, %95 üstü reddeder, 4 eşzamanlı ajan sınırı, 3 aynı hata sonrası tekrarı durdurur (MIT)
+KURULU-KANIT	Steph Ango Obsidian skills	skill		benzer:~/.claude/plugins/marketplaces\obsidian-skills | tur2: marketplaces/obsidian-skills remote kepano/obsidian-skills	1	De95NHOuo-x	Obsidian CEO'sunun skill'leri: bağlı sayfalar ve Canvas konu haritası
+KURULACAK	claudecodeclub.ai	SİTE	claudecodeclub.ai	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: site; yolu obra/superpowers'a çözülüyor	1	DeR-SLBxBPe	Claude Code Club topluluğu
+KURULU-KANIT	baidu/Unlimited-OCR	repo	baidu/Unlimited-OCR	benzer:~/.claude/skills/unlimited-ocr | tur2: skills/unlimited-ocr (Baidu Unlimited-OCR 3B, MIT)	1	DehD9WBq0Qb	Tüm PDF'i tek seferde okuyan yerel OCR modeli, tablo ve formül korur (MIT); Hugging Face demosu var
+KURULACAK	Harness²	repo	harness2.github.io	benzer:~/.claude/plugins/cache\autoharness\autoharness | tur2: autoharness (tigerless-labs) skill-bakım aracı, harness2.github.io değil	1	DevVTopkRwf	Google Research çerçevesi: ajanın hafıza, skill, alt ajan gibi 8 parçasını ayarlar, yerel demo
+KURULACAK	Learn Claude Code	repo		benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: yol obra/superpowers'a çözülüyor, ayrı araç	1	DfBcE4Bli0y	17 derste küçük Claude Code yapma
+KURULU-KANIT	agentskills.io	SİTE	agentskills.io	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills | tur2: klon indirilen/agentskills__agentskills (spec repo)	1	DfBcE4Bli0y	Ajan skill standardı sitesi
+KURULU-KANIT	ayghri/i-have-adhd	skill	ayghri/i-have-adhd	benzer:~/.claude/skills/i-have-adhd | tur2: skills/i-have-adhd SKILL.md ADHD çıktı biçimi, ad eşleşir	1	DfDAxN1Rex-	DEHB dostu skill
+KURULU-KANIT	mvanhorn/last30days-skill	skill	mvanhorn/last30days-skill	benzer:~/.claude/plugins/marketplaces\last30days-skill | tur2: known_marketplaces mvanhorn/last30days-skill + skills/last30days	1	DfDAxN1Rex-	Son 30 gün araştırma
+KURULU-KANIT	vercel-labs/skills find-skills	skill	npx skills add vercel-labs/skills@find-skills	benzer:C:/AI/indirilen/vercel-labs__skills | tur2: skills/find-skills kurulu + klon indirilen/vercel-labs__skills	1	DfDAxN1Rex-	Projeyi anlat, 700k+ skill dizininde en güvenilir skill'i bulur
 KURULACAK	Build Your Own X	repo	github.com/codecrafters-io/build-your-own-x (?)		1	DdzOasRCJ9h	Veritabanı, işletim sistemi, web sunucusu gibi teknolojileri sıfırdan yapmayı anlatan adım adım öğreticiler
-KURULACAK	Awesome	repo	github.com/sindresorhus/awesome (?)		1	DdzOasRCJ9h	Hemen her teknoloji için derlenmiş "awesome" kaynak listelerinin dizini
+KURULACAK	Awesome	repo	github.com/sindresorhus/awesome (?)		1	DdzOasRCJ9h	"Hemen her teknoloji için derlenmiş ""awesome"" kaynak listelerinin dizini"
 KURULACAK	Free Programming Books	repo	github.com/EbookFoundation/free-programming-books (?)		1	DdzOasRCJ9h	Binlerce ücretsiz programlama kitabı ve öğrenme kaynağı listesi
 KURULACAK	Developer Roadmap	repo	github.com/kamranahmedse/developer-roadmap (?)		1	DdzOasRCJ9h	Teknoloji kariyerleri için görsel öğrenme yol haritaları
 KURULACAK	Coding Interview University	repo	github.com/jwasham/coding-interview-university (?)		1	DdzOasRCJ9h	Algoritma, veri yapıları ve CS temelleri için mülakat çalışma planı
 KURULACAK	Awesome Python	repo	github.com/vinta/awesome-python (?)		1	DdzOasRCJ9h	Python kütüphane, framework ve araçlarının derlenmiş listesi
 KURULACAK	Project Based Learning	repo	github.com/practical-tutorials/project-based-learning (?)		1	DdzOasRCJ9h	Proje yaparak öğrenmeyi sağlayan öğretici listesi (aciklama kesik, 10. repo)
-KURULACAK	Figma animasyon (Neu Web Studio)	yöntem			1	De9cw29tBSr	Figma'da premium site animasyonu öğretme vaadi; yalnız "SKILLS yorumla" çağrısı, somut araç yok
+KURULACAK	Figma animasyon (Neu Web Studio)	yöntem			1	De9cw29tBSr	"Figma'da premium site animasyonu öğretme vaadi; yalnız ""SKILLS yorumla"" çağrısı, somut araç yok"
 KURULACAK	Skiper UI	SİTE	skiper-ui.com		1	De_J0aOl9SJ	Sık görülmeyen animasyonlu React/shadcn bileşenleri; npx shadcn add @skiper-ui/... ile kurulur
 KURULACAK	Cult UI	SİTE	cult-ui.com		1	De_J0aOl9SJ	Farklı tatlı shadcn blokları ve bileşenleri
 KURULACAK	SmoothUI	SİTE	smoothui.dev		1	De_J0aOl9SJ	Akıcı mikro etkileşim bileşenleri
@@ -99,7 +99,7 @@ KURULACAK	GitIngest	araç			1	DfCHfMxR8yq	Proje özeti, klasör yapısı ve dosy
 KURULACAK	Claude-Code-Game-Studios	repo	github.com/Donchitos/Claude-Code-Game-Studios		1	DfE6PckgQUf	Claude Code'u 49 ajan ve 72 workflow skill ile oyun stüdyosuna çevirir (MIT, ~28.6k yıldız)
 KURULACAK	GBrain	araç			2	DbzttxfNxjK	Şirket bilgi tabanı (Garry Tan'ın GBrain'i, bkz. De1fLVOkpiu); videoda şirket OS'inin temeli olarak geçer
 KURULACAK	Hermes Agent	araç			1	DbzttxfNxjK	27+ ajanı yöneten delegator/conductor harness olarak kullanılıyor
-KURULACAK	VisualARP (?)	uygulama			1	DbzttxfNxjK	Çok ajanlı şirket işletim sistemi görünümü (adı "VisualARP" olarak transkriptte); repo "Founder" yorumuyla veriliyor
+KURULACAK	VisualARP (?)	uygulama			1	DbzttxfNxjK	"Çok ajanlı şirket işletim sistemi görünümü (adı ""VisualARP"" olarak transkriptte); repo ""Founder"" yorumuyla veriliyor"
 KURULACAK	Jev	araç			1	Dd1wKuDIO9r	Yargı/sınıflandırma aracı; lead üretiminde kullanılıyor (320 kişiyi ~1 cente eler)
 KURULACAK	Treg (?)	uygulama			1	Dd1wKuDIO9r	Clay'i Jev üstünde yeniden yapan lead bulma aracı, Clay'den %85 ucuz
 KURULACAK	Manus.im	SİTE	manus.im		2	DdQkBgtxYe2	Tek promptla web sitesi yapıp yayınlayan AI ajan
@@ -117,8 +117,8 @@ KURULACAK	skool.com/knox	SİTE	skool.com/knox		1	De1p5PkkRxk	Yayıncının toplu
 KURULACAK	Top Claude/Codex design skills listesi	yöntem			1	De2C0LADUkG	320 skill GitHub yıldızına göre sıralı, kurulum komutlu liste (yoruma bağlı)
 KURULACAK	invoice-organizer	skill	ComposioHQ/awesome-claude-skills		1	De3S2C3P7yb	Fatura ve fişleri vergi için okuyup sıralar
 KURULACAK	Remotion Skills	skill	remotion-dev/skills		1	De3S2C3P7yb	Kodla video üretme skill'leri
-KURULACAK	Vibesec (?)	skill			1	De3S2C3P7yb	Baştan güvenli kod yazdıran skill (transkriptte "Vibesect")
-KURULACAK	Claude day trading skills (11)	skill			1	De416D0vm4l	Tarayıcı, haber, giriş, çıkış ve 10.000 simülasyonlu "Time Machine" içeren açık kaynak 11 skill; onay vermeden işlem yok
+KURULACAK	Vibesec (?)	skill			1	De3S2C3P7yb	"Baştan güvenli kod yazdıran skill (transkriptte ""Vibesect"")"
+KURULACAK	Claude day trading skills (11)	skill			1	De416D0vm4l	"Tarayıcı, haber, giriş, çıkış ve 10.000 simülasyonlu ""Time Machine"" içeren açık kaynak 11 skill; onay vermeden işlem yok"
 KURULACAK	Three.js parçacık hero	yöntem			1	De4Ly5Tyhlu	Three.js ve parçacıklarla Claude'a yaptırılmış hero animasyonu (prompt yoruma bağlı)
 KURULACAK	Creem	SİTE			1	De4kdJeBD8E	Stripe alternatifi Merchant of Record; Türkiye destekli, %3,9+0,40$, Claude Code MCP ile kurulum
 KURULACAK	Graphite	araç			1	De69lhTE8Z0	Açık kaynak vektör tasarım (Illustrator alternatifi), düğüm tabanlı
@@ -271,7 +271,7 @@ KURULACAK	21st MCP	MCP			1	DfDPssIKX9F	10.000+ React/Tailwind UI bileşeni arama
 KURULACAK	TradingView MCP	MCP			1	DfEvh09DBat	Claude'un TradingView'ı yönetip grafik çizme, Pine Script, backtest, replay, tarama yapmasını sağlar
 KURULACAK	TradingView	SİTE			2	DfEvh09DBat	Grafik ve Pine Script platformu
 KURULACAK	LLM Council (Karpathy)	repo			1	s7Iaq5lGkY0	Soruyu birden çok modele sorar, çapraz değerlendirir, başkan model karar verir; videoda tek Claude'a 5 danışman rolü verme versiyonu anlatılıyor
-KURULACAK	elayadesign/ai-design-skills (designer skill)	skill	github.com/elayadesign/ai-design-skills		1	De-blYnCBbn	Landing page için 14 soru soran, sabit sayfa sırası ve copy kuralları olan, "elevate/seamless" gibi AI klişelerini yasaklayan açık kaynak tasarımcı skill'i
+KURULACAK	elayadesign/ai-design-skills (designer skill)	skill	github.com/elayadesign/ai-design-skills		1	De-blYnCBbn	"Landing page için 14 soru soran, sabit sayfa sırası ve copy kuralları olan, ""elevate/seamless"" gibi AI klişelerini yasaklayan açık kaynak tasarımcı skill'i"
 KURULACAK	Design Engineer Tools	SİTE	https://designengineer.tools		1	DeTqN3uEidC	Web odaklı design engineer'lar için araç/site/kaynak kütüphanesi (ilham, AI kod, bileşen, yardımcı, video, organizasyon)
 KURULACAK	60fps	SİTE			1	DeTqN3uEidC	İlham kategorisinde listelenen site (?)
 KURULACAK	Awwwards	SİTE	awwwards.com		2	DeTqN3uEidC	Ödüllü web sitesi vitrini
@@ -576,7 +576,7 @@ KURULACAK	Google Gemini	model			1	De4SNYgGU5K	n8n şablonunda ses/video analizi
 KURULACAK	neuron-explorer	repo	github.com/lyramakesmusic/neuron-explorer		1	De_3H65gDSN	Qwen3.5-4B için nöron keşfi/steering aracı, yerelde CPU/MLX ile çalışır, 3D görünüm
 KURULACAK	Qwen3.5-4B	model			1	De_3H65gDSN	Neuron explorer'ın hedef modeli
 KURULACAK	The Design Shop	SİTE			1	DebxQZrD-cl	Vibe-coding siteleri için copy-paste tasarım/hareket promptları satan kaynak (?)
-KURULACAK	The Design Stack	SİTE			1	DebxQZrD-cl	Tasarım kaynağı paketi; yorum "DESIGN" ile link (?)
+KURULACAK	The Design Stack	SİTE			1	DebxQZrD-cl	"Tasarım kaynağı paketi; yorum ""DESIGN"" ile link (?)"
 KURULACAK	AI slop önleme yöntemi	yöntem			1	DebxQZrD-cl	Önce plan+referans site, bölüm bölüm kur, hazır animasyon promptlarını yapıştır
 KURULACAK	CLINC150 / BANKING77	kütüphane			1	DfDQXqrk2bt	DeepOpen'ın kıyaslama veri setleri
 KURULACAK	Seferboğaz	SİTE	Seferboğaz.higgsfield.app		1	o4iY8QEeKmU	Videoda kurulan Boğaz turu sitesi (scroll ile sabahtan geceye) (?)
@@ -587,7 +587,7 @@ KURULACAK	Jitter	araç	Jitter.video		1	DdB2dB5OvwC	Yaratıcı ekipler için anim
 KURULACAK	Tripo AI	araç			1	De00AyASinQ	Metinden temiz dokulu 3D model üretir, siteye indirilebilir
 KURULACAK	Opus 5.5	model			1	De00AyASinQ	Tripo varlıklarıyla Apple tarzı scroll-animasyonlu 3D launch sayfası kurma
 KURULACAK	ScrapeGraph	MCP			1	De10iPOiB6V	Siteyi ver, istediğini söyle, düzenli veri döndürür (ücretsiz eklenti)
-KURULACAK	Claude Code Mods "You Should Know"	araç			1	De1ZqF2iK72	Yerleşik mod: ikinci AI oturumu izleyip kaçanları işaretler
+KURULACAK	"Claude Code Mods ""You Should Know"""	araç			1	De1ZqF2iK72	Yerleşik mod: ikinci AI oturumu izleyip kaçanları işaretler
 KURULACAK	auto-handoff modu	repo			1	De1ZqF2iK72	Compact öncesi kısa brief yazıp yeni oturuma devreden GitHub modu (adı ekrandan: auto-handoff / handoff-brief.md) (?)
 KURULACAK	oyun geliştirme kaynakları (Brackeys, The Cherno, ArtStation, Extra Credits, CodeMonkey, FreeCodeCamp vb.)	SİTE			1	De2HewBtWhH	Kod/sanat/oyun tasarımı/pazarlama öğrenme kaynakları listesi
 KURULACAK	minnesotanlp/meta-n	repo	github.com/minnesotanlp/meta-n		1	De2onusyJ5G	Meta^n: ajan kodunu yürütme izlerinden okuyup kendi yardımcı fonksiyonlarını yazan özyinelemeli kendini geliştirme çerçevesi (MIT)
@@ -910,7 +910,7 @@ KURULU-KANIT	Marketing Skills	plugin		ad=~/.claude/plugins/cache\marketingskills
 KURULU-KANIT	Agent Skills	plugin		ad=~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	DfDvhU7opmg	Top 30 listesi
 KURULU-KANIT	motionsites-ai/claude-skill	skill	github.com/Motionsites-AI/claude-skill	repo-url:motionsites-ai/claude-skill	1	DfAth9AgWFM	Sinematik landing page skill: 40 örnek prompt, 50+ video/30 3D kesit medya rafı, kendi ekran görüntüsüyle düzeltme döngüsü
 KURULU-KANIT	DeepOpen	repo	github.com/deepopen-com/deepopen	repo-url:deepopen-com/deepopen	1	DfDQXqrk2bt	Üretken olmayan niyet sınıflandırma/karar SDK'sı; CLINC150 %98.02; pip install git+https://github.com/deepopen-com/deepopen.git
-KURULU-KANIT	Claude	model		ad=araclar/.claude	1	o4iY8QEeKmU	Siteler için kodu yazan model; "aynı mor site" sorununu yönlendirmeyle çözme
+KURULU-KANIT	Claude	model		ad=araclar/.claude	1	o4iY8QEeKmU	"Siteler için kodu yazan model; ""aynı mor site"" sorununu yönlendirmeyle çözme"
 KURULU-KANIT	ChatGPT	model		ad=_inv_winget.txt	1	DdrRps4Jgf7	Arka plan ağaç görselleri üretimi
 KURULU-KANIT	rederive	skill		ad=~/.claude/plugins/cache\rederive\rederive	1	De1mAq9oaDP	Her kod tabanını ilk ilkelerden yeniden türetmek için problem sorduran skill (Claude Code, Codex, Copilot, opencode vb.)
 KURULU-KANIT	GSAP ScrollTrigger	kütüphane		ad=envanter.tsv:CC:plugin-skill	1	De64R5emX-i	Scroll animasyonu
