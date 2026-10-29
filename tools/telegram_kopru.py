@@ -9,7 +9,22 @@ KOK = Path(__file__).resolve().parents[1]
 DIZ = KOK / ".kos/kopru/telegram"
 GELEN, OFFSET = DIZ / "gelen.jsonl", DIZ / "offset.txt"
 HOME = KOK / "araclar/hermes-home"
-TOK, CHAT = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
+
+
+def _env(ad):
+    """os.environ boşsa kullanıcı ortamından (HKCU\\Environment) oku; değer asla yazdırılmaz."""
+    v = os.environ.get(ad)
+    if v or sys.platform != "win32":
+        return v
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as k:
+            return winreg.QueryValueEx(k, ad)[0] or None
+    except OSError:
+        return None
+
+
+TOK, CHAT = _env("TELEGRAM_BOT_TOKEN"), _env("TELEGRAM_CHAT_ID")
 
 
 def api(yontem, **veri):
@@ -36,6 +51,36 @@ def oku():
     return len(s), yeni
 
 
+def ozet():
+    """'durum' cevabı: saf Python, MODEL ÇAĞRISI YOK (yalnız arka_sira/_oto.json/psutil/nvidia-smi okuma + metin biçimleme)."""
+    import psutil
+    sys.path.insert(0, str(KOK / "tools"))
+    import arka_sira, arka_oto
+    d = arka_oto._durum()
+    s = ["DURUM " + time.strftime("%d %b %H:%M"),
+         "Koşan: " + (", ".join(sorted(arka_sira.canli_isler())) or "yok"),
+         f"Kuyruk ({len(arka_sira.kuyruk())}): " + (", ".join(arka_sira.kuyruk()[:5]) or "boş"),
+         f"RAM %{psutil.virtual_memory().percent:.0f} · GPU %{arka_sira.gpu():.0f}",
+         "Karar bekleyen: " + (", ".join(f"{a}:{n}" for a, n in d["karar"].items()) or "yok"),
+         "Son bitişler:"]
+    s += ["- " + o for o in [o for o in d["olaylar"] if "BITTI" in o.upper() or "bitti" in o][-3:]] or ["- yok"]
+    return "\n".join(s)[:3500]
+
+
+def cevapla():
+    """Yeni mesajları oku; 'durum' / '/durum' ise özet gönder. Başka metin yalnız gelen.jsonl'de kalır; komut ÇALIŞTIRILMAZ."""
+    n0 = GELEN.read_text("utf-8").count("\n") if GELEN.exists() else 0
+    oku()
+    yeni = (GELEN.read_text("utf-8").splitlines() if GELEN.exists() else [])[n0:]
+    cevap = 0
+    for s in yeni:
+        j = json.loads(s)
+        if not j["kimden"] and j["metin"].strip().lstrip("/").lower() == "durum":
+            api("sendMessage", chat_id=CHAT, text=ozet())
+            cevap += 1
+    return len(yeni), cevap
+
+
 def rehber():
     p = HOME / "channel_directory.json"
     d = json.loads(p.read_text("utf-8")) if p.exists() else {"platforms": {}}
@@ -53,6 +98,8 @@ if __name__ == "__main__":
         print("webhook_url_var:", bool(w.get("url")), "bekleyen:", w.get("pending_update_count"))
     elif k == "oku":
         print("alinan, kaydedilen =", oku())
+    elif k == "cevapla":
+        print("yeni, cevap =", cevapla())
     elif k == "son":
         n = int(sys.argv[2]) if len(sys.argv) > 2 else 5
         for s in (GELEN.read_text("utf-8").splitlines() if GELEN.exists() else [])[-n:]:

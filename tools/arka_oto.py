@@ -124,7 +124,7 @@ def degerlendir(d, ad):
     if metin is None:
         return olu(d, ad, j, "bitti ama sonuc yok")
     commit, kapi = cikar(metin), (j.get("kapi") or {}).get("tur")
-    mal = f"${maliyet}" if maliyet else "$?"
+    mal = f"${float(maliyet):.2f}" if maliyet else "$?"
     if not kapi:
         karar, neden = "BITTI", "kapi yok"
     else:
@@ -170,6 +170,33 @@ def olu(d, ad, j, neden):
     open(_p("gece-ozeti.md"), "a", encoding="utf-8").write(f"{time.strftime('%H:%M')} | {ad} | OLDU | $? | -\n")
 
 
+def son_etkinlik(ad):
+    """İşin gerçek etkinlik zamanı: .log yalnız başta/sonda yazılır; asıl iz CC oturum transkripti (~/.claude/projects/*/<oturum>.jsonl).
+    Oturum bilinmiyorsa None → takıldı kararı VERİLMEZ (tahmin yok)."""
+    try:
+        sid = open(_p(ad + ".oturum"), encoding="utf-8").read().strip()
+    except OSError:
+        return None
+    if not sid:
+        return None
+    kok = os.path.join(os.path.expanduser("~"), ".claude", "projects")
+    en = None
+    try:
+        for kl in os.listdir(kok):
+            p = os.path.join(kok, kl, sid + ".jsonl")
+            if os.path.exists(p):
+                t = os.path.getmtime(p)
+                en = t if en is None or t > en else en
+                alt = os.path.join(kok, kl, sid)
+                if os.path.isdir(alt):
+                    for r, _, fs in os.walk(alt):
+                        for f in fs:
+                            en = max(en, os.path.getmtime(os.path.join(r, f)))
+    except OSError:
+        return None
+    return en
+
+
 def tara(canli=None):
     import arka_sira
     ilk = not os.path.exists(_p("_oto.json"))  # ilk koşu: eski loglar taban çizgisi, bildirim/yeniden kuyruk yok
@@ -195,15 +222,15 @@ def tara(canli=None):
                     degerlendir(d, ad)
                 except Exception as e:
                     olay(d, ad, f"degerlendirme hatasi {type(e).__name__}", bildir=True)
-        elif ad in canli and simdi - os.path.getmtime(lg) > TAKILDI_SN:
-            anahtar = f"takildi:{ad}@{int(os.path.getmtime(lg))}"
+        elif ad in canli and (son_etkinlik(ad) is not None) and simdi - max(os.path.getmtime(lg), son_etkinlik(ad)) > TAKILDI_SN:
+            anahtar = f"takildi:{ad}@{int(son_etkinlik(ad))}"
             if d["islenen"].get(ad + "#t") != anahtar:
                 d["islenen"][ad + "#t"] = anahtar
                 try:
                     arka_sira.durdur(ad)
                 except Exception:
                     pass
-                olu(d, ad, {}, "log 30 dk buyumedi")
+                olu(d, ad, {}, "oturum transkripti 30 dk hareketsiz")
         elif not m and ad not in canli and os.path.exists(_p(ad + ".kilit")) and '"result":"' not in t:
             anahtar = f"olu:{ad}@{int(os.path.getmtime(lg))}"
             if d["islenen"].get(ad + "#o") != anahtar:
@@ -218,6 +245,13 @@ def tara(canli=None):
         olay(d, "RAM", f"%{ram:.0f}")
     _yaz(d)
     desktop(d)
+    if not os.environ.get("ARKA_OTO_TEST"):
+        try:
+            import telegram_kopru
+            if telegram_kopru.TOK and telegram_kopru.CHAT:
+                telegram_kopru.cevapla()
+        except Exception:
+            pass
 
 
 def desktop(d=None):
