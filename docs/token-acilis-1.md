@@ -28,3 +28,16 @@ Araç silinmedi; gerekirse iş json'undan profil gevşetilir.
 
 ## A/B
 Hafif kol (`ab-hafif`): 3 tur, temiz, doğru çıktı (3 madde özet + 3 doğru commit), 2 dk. Taban kolu 900+ sn dönmedi, elle sonlandırıldı → jev puanı ve %2 kalite farkı ölçülemedi (taban çıktısı yok). Kalite kanıtı: görev çıktısı beklenen içeriği tam taşıyor.
+
+## Tamamlanan ölçüm (30 Eki, haiku, tek kelime, ilk tur)
+| Varyant | in+cr+cw | süre |
+|---|---|---|
+| `--setting-sources project` | 32,9k | 5 sn |
+| + MCP boş + `--disable-slash-commands` | 28,9k | 3 sn |
+| eklentiler kapalı (p0) / +mcp0 / +hafif | 77,4k / 68,3k / 38,5k | 16-19 sn |
+| taban (415 eklenti açık) | 900 sn'de dönmedi (iki kez) | - |
+
+## Karar: KABUL (seçenekler, opt-in) / RET (varsayılan profil)
+- KABUL: `eklenti`/`mcp`/`hafif` seçenekleri kalır; açılış 350-440k → 29-38k (≤60k hedefi), kalite A/B hafif kolda eşit. Varsayılan davranış değişmedi; hiçbir araç/eklenti kaldırılmadı veya kapatılmadı (yalnız o oturuma yüklenmez).
+- RET: "yarim/hic/kalan/karar/strix için eklenti: []" profilini varsayılan yapmak; Desktop kararı (30 Eki) kurulu aracın kapatılmaması. Profil iş json'unda açıkça istenirse kullanılır; hook/user CLAUDE.md o oturumda düşer.
+- Ölçülemedi: taban kolunda jev kalite puanı (taban dönmedi).
