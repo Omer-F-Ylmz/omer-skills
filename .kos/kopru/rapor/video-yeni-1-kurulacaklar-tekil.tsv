@@ -1,0 +1,956 @@
+sinif	ad	tur	url/komut	kanit	kopya	kod	ne isi yarar
+BELİRSİZ	System Design Primer	repo	github.com/donnemartin/system-design-primer (?)	benzer:envanter.tsv:CC:plugin-skill	1	DdzOasRCJ9h	Ölçeklenebilirlik, önbellek, yük dengeleme gibi sistem tasarımı kavramlarını öğretir
+BELİRSİZ	Kokonut UI	SİTE	kokonutui.com	yalniz-katalog	2	De_J0aOl9SJ	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
+BELİRSİZ	shadcn/ui	kütüphane	npx shadcn add	benzer:C:/AI/indirilen/shadcn-ui__ui	1	De_J0aOl9SJ	Skiper/Kokonut gibi kütüphanelerin kurulum altyapısı olan bileşen sistemi
+BELİRSİZ	GitDiagram	araç		benzer:~/.claude/skills/diagram	1	DfCHfMxR8yq	Repoyu görsel diyagrama çevirir, dosya bağlantılarını gösterir
+BELİRSİZ	Anime.js	kütüphane	animejs.com (?)	yalniz-katalog	1	DdQkBgtxYe2	Web'de her şeyi animasyonlayan kütüphane; scroll gözlemci, stagger, SVG araçları
+BELİRSİZ	Firecrawl	MCP		benzer:envanter.tsv:CC:cli	1	De-NlsAtzUn	Claude'a site kazıma, marka varlığı çekme, rakip araştırma yeteneği verir
+BELİRSİZ	research-agent	skill	.claude/skills/research-agent/SKILL.md	benzer:~/.claude/skills/research	1	De1p5PkkRxk	Konudan kaynak toplayıp özet çıkarır
+BELİRSİZ	Scientific Skills	skill		benzer:~/.claude/skills/claude-scientific-skills	1	De3S2C3P7yb	Claude'u bilim insanına çeviren skill (repo OCR'da yok)
+BELİRSİZ	Vercel agent skills	skill	vercel-labs/agent-skills (?)	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	De3S2C3P7yb	Vercel'in React uygulama resmi skill koleksiyonu
+BELİRSİZ	oh-my-claudecode	repo	github.com/Yeachan-Heo/oh-my-claudecode (?)	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	De6cCG2hCuS	Claude Code için 19 ajanlı takım orkestrasyonu, model yönlendirme (40k+ yıldız)
+BELİRSİZ	Remotion	kütüphane		benzer:~/.claude/skills/remotion-docs	2	DehjgOtDn77	Kodla düzenlenebilir video
+BELİRSİZ	Motion Canvas	kütüphane		benzer:C:/AI/indirilen/motion-canvas__examples	1	DehjgOtDn77	Açıklayıcı video ve diyagram animasyonu
+BELİRSİZ	React Three Fiber	kütüphane		benzer:~/.claude/skills/threejs-react-three-fiber	1	DehjgOtDn77	Three.js sahnelerini React'ta kurar
+BELİRSİZ	Scrapling	repo	github.com/D4Vinci/Scrapling (?)	benzer:~/.claude/skills/Scrapling-Skill	1	DejuQStmPny	Web kazıma
+BELİRSİZ	diagram-design	skill	github.com/cathynlaveny/diagram-design (?)	benzer:~/.claude/skills/diagram-design-paket	1	DejuQStmPny	Etkileşimli teknik çizimler
+BELİRSİZ	n8n Agent Builder Skill	skill		benzer:~/.claude/skills/agent_builder	1	De-Th5KAOY8	Claude ile tek istemde n8n iş akışı ve AI ajanı kurar (topluluk skill paketi)
+BELİRSİZ	liquid-glass-js	repo	github.com/dashersw/liquid-glass-js	yalniz-katalog	1	DYNW3X7J2TH	Apple Liquid Glass esintili efektler
+BELİRSİZ	Hyperframes (HeyGen)	skill		benzer:~/.claude/plugins/cache\hyperframes\hyperframes	1	De2dMErAprH	Claude ve kodla hareketli grafik, animasyonlu yazı, geçiş üretir
+BELİRSİZ	SkillSpector (NVIDIA) (?)	repo		benzer:_inv_uv.txt	1	De3VPoaTUVn	Skill'i kurmadan önce 68 zafiyet deseni/17 kategoride tarar (statik hızlı mod + LLM derin mod); skill klasörü, SKILL.md, repo veya zip
+BELİRSİZ	NVIDIA NIM	SİTE		yalniz-katalog	1	De4qvI2zaCe	DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
+BELİRSİZ	OpenRouter	SİTE		yalniz-katalog	1	De4qvI2zaCe	Qwen, Kimi, Llama, MiniMax gibi ücretsiz modeller; dakikada 20 istek
+BELİRSİZ	Open Code Review (Alibaba)	repo	github.com/alibaba/opencodereview (?)	benzer:~/.claude/skills/code-review	1	DezJhNJhjqi	Pull request'leri analiz edip hata/performans öneren AI kod inceleme CLI'ı (Apache-2.0, npm, Claude Code/Codex/Cursor/Kimi destekli)
+BELİRSİZ	OpenMontage	repo	github.com/calesthio/OpenMontage (?)	benzer:envanter.tsv:ikisi:skill	1	DfAG3UkyKi2	Senaryodan render'a tüm YouTube videosunu üreten açık kaynak ekip; 100+ araç, 700 ajan skill'i
+BELİRSİZ	ComfyUI	araç		yalniz-katalog	2	DfCrknOAoua	Openjutsu'nun üzerinde çalıştığı iş akışı motoru
+BELİRSİZ	Netlify Drop	SİTE	app.netlify.com/drop	benzer:_inv_mcp.txt	1	De-blYnCBbn	Hazır siteyi sürükle-bırak ile ücretsiz yayına alma
+BELİRSİZ	Pinterest	SİTE		benzer:envanter.tsv:CC:plugin-skill	1	DeTqN3uEidC	Görsel ilham panosu
+BELİRSİZ	AutoClip	repo		benzer:~/.claude/skills/autoclip-paket	1	De__0Eok8OB	Uzun videoyu AI ile viral kliplere çeviren açık kaynak araç (altyazı, reframe, başlık)
+BELİRSİZ	darkmodedesign.com	SİTE	darkmodedesign.com	benzer:envanter.tsv:CC:plugin-skill	1	DfASJnjIYe2	Koyu mod site galerisi
+BELİRSİZ	REA (Reverse Engineer Anything)	MCP		benzer:~/.claude/skills/reverse-engineer-anything	1	De4B-SgiU5i	207 araçlı MCP sunucusu, uygulama/APK ters mühendislik
+BELİRSİZ	LLM Council	repo		benzer:envanter.tsv:CC:plugin-skill	1	De6gVFpCFmE	Karpathy'nin çok modelli danışman kurulu; videoda tek Claude'a 5 danışman rolü + başkan olarak uyarlanmış
+BELİRSİZ	obra/superpowers	skill	obra/superpowers	benzer:~/.claude/plugins/cache\claude-plugins-official\superpowers	2	DeJu_M5inR0	GitHub'da en çok yıldızlı Claude Code/Codex skill'i (295k): kod yazmadan önce plan, test, debug
+BELİRSİZ	blader/humanizer	skill	npx skills add blader/humanizer --global	benzer:~/.claude/plugins/cache\humanizer\humanizer	1	Dem91ptkrhe	AI metnini insanlaştıran skill
+BELİRSİZ	Replica	plugin	/replica-build	benzer:envanter.tsv:ikisi:skill	1	DfCtGNgiWeb	Uygulamayı tarayan, planlayan, kuran, test eden 11 skill
+BELİRSİZ	obscura	repo	h4ckl0rd0ay/obscura (?)	yalniz-katalog	1	De9kMGeShp9	AI ajanlar ve scraping için Rust headless tarayıcı, Cloudflare'i geçer
+BELİRSİZ	interfaces.dev	SİTE	interfaces.dev	benzer:~/.claude/plugins/cache\interfaces\interfaces	1	DeJxYRblNR2	Modern web UI desenleri ve etkileşim kütüphanesi
+BELİRSİZ	Claude Plugins	repo		benzer:~/.claude/plugins/marketplaces\claude-plugins-official	1	DfCuqy9s9xq	Plugin deposu
+BELİRSİZ	Playwright MCP	MCP		benzer:~/.claude/plugins/cache\claude-plugins-official\playwright	1	DfCuqy9s9xq	Tarayıcı otomasyonu
+BELİRSİZ	Awesome MCP Servers	repo		benzer:C:/AI/indirilen/punkpeye__awesome-mcp-servers	1	DfCuqy9s9xq	MCP liste deposu
+BELİRSİZ	Claude Code Router	araç		benzer:C:/AI/indirilen/musistudio__claude-code-router	1	DfCuqy9s9xq	Model yönlendirme
+BELİRSİZ	System prompts	repo		benzer:envanter.tsv:CC:plugin-skill	1	DfCuqy9s9xq	Sistem prompt derlemesi
+BELİRSİZ	SaaS Landing Page	SİTE	saaslandingpage.com	benzer:~/.claude/skills/landing-page	1	DeZXAa6jE8s	SaaS landing page galerisi (link listesinde)
+BELİRSİZ	Nano Banana	model		benzer:~/.claude/plugins/cache\nano-banana-2-plugins\nano-banana-2	2	Dax-38bjV8R	Görsel üretim modeli
+BELİRSİZ	Bklit UI	kütüphane	pnpm dlx shadcn@latest add bklit/bar-chart	yalniz-katalog	1	DcSlxgRCBPm	Ücretsiz grafik bileşenleri (line, area, bar, pie, radar, ring)
+BELİRSİZ	Loop engineering	yöntem		benzer:~/.claude/plugins/cache\knowledge-work-plugins\engineering	1	De1j7h5pQOr	Prompt yerine kendi çıktısını denetleyip düzelten döngü yazma; hedefe sayı/kontrol listesi bağlama
+BELİRSİZ	ElevenLabs	araç		benzer:~/.claude/skills/elevenlabs-tts	1	De2kpfnCFeH	Metni seslendirmeye çevirme
+BELİRSİZ	Google Drive (MCP)	MCP		benzer:~/.claude/skills/google-drive	1	De2kpfnCFeH	Drive dosyalarını bulma/okuma/yazma
+BELİRSİZ	Whisper	model		benzer:envanter.tsv:ikisi:cli	1	De2kpfnCFeH	Kayıtları transkripte çevirme
+BELİRSİZ	Google Agent Skills	repo		benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	De6-sZ1BhfA	Google'ın 100+ açık kaynak skill'i (Analytics, Ads, Gemini, Firebase, BigQuery, Cloud)
+BELİRSİZ	DiffSynth-Studio	repo		benzer:C:/AI/indirilen/modelscope__DiffSynth-Studio	1	DeZOzoUmVUg	T3-Video ortam hazırlığı için başvurulan çerçeve
+BELİRSİZ	Everything Claude Code (ECC)	plugin		benzer:~/.claude/plugins/marketplaces\everything-claude-code	1	DfDvhU7opmg	Top 30 listesinde adı geçen plugin
+BELİRSİZ	Career Ops	plugin		yalniz-katalog	1	DfDvhU7opmg	Top 30 listesi
+BELİRSİZ	Taste (taste-skill)	plugin		benzer:~/.claude/plugins/cache\taste-skill\taste-skill	1	DfDvhU7opmg	Top 30 listesi (ekranda 'Taste')
+BELİRSİZ	Open Montage	plugin		benzer:envanter.tsv:ikisi:skill	2	DfDvhU7opmg	Top 30 listesi
+BELİRSİZ	Diagram Design	plugin		benzer:~/.claude/skills/diagram-design-paket	1	DfDvhU7opmg	Top 30 listesi
+BELİRSİZ	Higgsfield MCP	MCP	mcp.higgsfield.ai	benzer:envanter.tsv:claude.ai:baglayici	1	o4iY8QEeKmU	Claude'a foto/video/3D model üretimi yetisi veren MCP (sponsorlu)
+BELİRSİZ	Scrapling	kütüphane		benzer:~/.claude/skills/Scrapling-Skill	1	De10iPOiB6V	Kaynak site değişince kendini uyarlayan scraper
+BELİRSİZ	ComfyUI	repo	github.com/Comfy-Org/ComfyUI	yalniz-katalog	1	Den39fYxLsI	Görsel iş akışı ile yerel AI görsel/video üretimi
+BELİRSİZ	Perplexity MCP	MCP	ppl-ai/modelcontextprotocol	yalniz-katalog	1	DfE8f4ogMa7	Gerçek zamanlı web araştırması
+BELİRSİZ	Firecrawl MCP	MCP	firecrawl-mcp-server	yalniz-katalog	1	DfE8f4ogMa7	Web sitesi tarama/içerik yükleme
+BELİRSİZ	Kitchen	kütüphane		benzer:~/.claude/plugins/cache\2389-research\test-kitchen	1	Dew3i03gGAi	Kopyala-yapıştır hazır kodlu, çok detaylı premium UI bileşen kütüphanesi (kaset çalar, basılı tutarak silme, fiş yazdıran ödeme ekranı); link DM'de, videoda yok
+BELİRSİZ	OpenShell	repo	NVIDIA/OpenShell	benzer:C:/AI/indirilen/NVIDIA__OpenShell	1	DfC1lqQjC1N	NVIDIA açık kaynak AI ajan runtime'ı; her ajan ayrı sandbox'ta, ağ bağlantıları politika kontrolünden geçer (Apache-2.0)
+BELİRSİZ	GSAP skill	skill		benzer:~/.claude/plugins/cache\gsap-skills\gsap-skills	1	De00hFSk-hv	Resmi GreenSock skill'i; timeline ve ScrollTrigger animasyonları
+BELİRSİZ	motion-design-skill	skill	lottiefiles/motion-design-skill	benzer:~/.claude/skills/motion-design	1	De00hFSk-hv	Lottie/SVG animasyon skill'i
+BELİRSİZ	Google Stitch	SİTE	stitch.withgoogle.com	yalniz-katalog	2	DeKYdKRzlhT	Tek prompttan tam uygulama tasarımı
+BELİRSİZ	OpenCut	repo		yalniz-katalog	1	De_-24Einvw	CapCut alternatifi, tarayıcıda çalışan MIT lisanslı video editörü; Claude Code/Codex ile headless kullanılabilir
+BELİRSİZ	on.design	SİTE	on.design	benzer:~/.claude/skills/motion-design	1	DezU-xDkzFO	Tasarım topluluğu
+BELİRSİZ	Blender Lab MCP	MCP		yalniz-katalog	1	DfBbQs6jKUJ	Hermes ile Blender'da 3D yapar (resmi)
+BELİRSİZ	awesome-design-md	skill	http://skills.sh/VoltAgent/awesome-design-md	benzer:C:/AI/indirilen/VoltAgent__awesome-design-md	1	De4e4TmkvmH	Tasarım md koleksiyonu
+BELİRSİZ	agent-usage-guard (rbartoli)	repo	rbartoli/agent-usage-guard	benzer:~/.claude/plugins/cache\agent-usage-guard\agent-usage-guard	1	De5KFvOy66O	Claude Code modu: plan kullanımı %80 üstü onay ister, %95 üstü reddeder, 4 eşzamanlı ajan sınırı, 3 aynı hata sonrası tekrarı durdurur (MIT)
+BELİRSİZ	Steph Ango Obsidian skills	skill		benzer:~/.claude/plugins/marketplaces\obsidian-skills	1	De95NHOuo-x	Obsidian CEO'sunun skill'leri: bağlı sayfalar ve Canvas konu haritası
+BELİRSİZ	claudecodeclub.ai	SİTE	claudecodeclub.ai	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	DeR-SLBxBPe	Claude Code Club topluluğu
+BELİRSİZ	baidu/Unlimited-OCR	repo	baidu/Unlimited-OCR	benzer:~/.claude/skills/unlimited-ocr	1	DehD9WBq0Qb	Tüm PDF'i tek seferde okuyan yerel OCR modeli, tablo ve formül korur (MIT); Hugging Face demosu var
+BELİRSİZ	Harness²	repo	harness2.github.io	benzer:~/.claude/plugins/cache\autoharness\autoharness	1	DevVTopkRwf	Google Research çerçevesi: ajanın hafıza, skill, alt ajan gibi 8 parçasını ayarlar, yerel demo
+BELİRSİZ	Learn Claude Code	repo		benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	DfBcE4Bli0y	17 derste küçük Claude Code yapma
+BELİRSİZ	agentskills.io	SİTE	agentskills.io	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	DfBcE4Bli0y	Ajan skill standardı sitesi
+BELİRSİZ	ayghri/i-have-adhd	skill	ayghri/i-have-adhd	benzer:~/.claude/skills/i-have-adhd	1	DfDAxN1Rex-	DEHB dostu skill
+BELİRSİZ	mvanhorn/last30days-skill	skill	mvanhorn/last30days-skill	benzer:~/.claude/plugins/marketplaces\last30days-skill	1	DfDAxN1Rex-	Son 30 gün araştırma
+BELİRSİZ	vercel-labs/skills find-skills	skill	npx skills add vercel-labs/skills@find-skills	benzer:C:/AI/indirilen/vercel-labs__skills	1	DfDAxN1Rex-	Projeyi anlat, 700k+ skill dizininde en güvenilir skill'i bulur
+KURULACAK	Build Your Own X	repo	github.com/codecrafters-io/build-your-own-x (?)		1	DdzOasRCJ9h	Veritabanı, işletim sistemi, web sunucusu gibi teknolojileri sıfırdan yapmayı anlatan adım adım öğreticiler
+KURULACAK	Awesome	repo	github.com/sindresorhus/awesome (?)		1	DdzOasRCJ9h	Hemen her teknoloji için derlenmiş "awesome" kaynak listelerinin dizini
+KURULACAK	Free Programming Books	repo	github.com/EbookFoundation/free-programming-books (?)		1	DdzOasRCJ9h	Binlerce ücretsiz programlama kitabı ve öğrenme kaynağı listesi
+KURULACAK	Developer Roadmap	repo	github.com/kamranahmedse/developer-roadmap (?)		1	DdzOasRCJ9h	Teknoloji kariyerleri için görsel öğrenme yol haritaları
+KURULACAK	Coding Interview University	repo	github.com/jwasham/coding-interview-university (?)		1	DdzOasRCJ9h	Algoritma, veri yapıları ve CS temelleri için mülakat çalışma planı
+KURULACAK	Awesome Python	repo	github.com/vinta/awesome-python (?)		1	DdzOasRCJ9h	Python kütüphane, framework ve araçlarının derlenmiş listesi
+KURULACAK	Project Based Learning	repo	github.com/practical-tutorials/project-based-learning (?)		1	DdzOasRCJ9h	Proje yaparak öğrenmeyi sağlayan öğretici listesi (aciklama kesik, 10. repo)
+KURULACAK	Figma animasyon (Neu Web Studio)	yöntem			1	De9cw29tBSr	Figma'da premium site animasyonu öğretme vaadi; yalnız "SKILLS yorumla" çağrısı, somut araç yok
+KURULACAK	Skiper UI	SİTE	skiper-ui.com		1	De_J0aOl9SJ	Sık görülmeyen animasyonlu React/shadcn bileşenleri; npx shadcn add @skiper-ui/... ile kurulur
+KURULACAK	Cult UI	SİTE	cult-ui.com		1	De_J0aOl9SJ	Farklı tatlı shadcn blokları ve bileşenleri
+KURULACAK	SmoothUI	SİTE	smoothui.dev		1	De_J0aOl9SJ	Akıcı mikro etkileşim bileşenleri
+KURULACAK	Animata	SİTE	animata.design		1	De_J0aOl9SJ	150+ hazır animasyon
+KURULACAK	Eldora UI	SİTE	eldoraui.site		1	De_J0aOl9SJ	Landing page efektleri
+KURULACAK	Hover.dev	SİTE	hover.dev		1	De_J0aOl9SJ	Cesur buton ve bölüm bileşenleri
+KURULACAK	Shadcnblocks.com	SİTE	shadcnblocks.com		1	De_J0aOl9SJ	OCR'da geçen shadcn blok sitesi (Skiper'in kullanıcıları arasında)
+KURULACAK	Orginkit.dev (?)	SİTE	orginkit.dev (?)		1	DfACIz1y7eG	700+ animasyonlu bileşen (metin, arka plan, etkileşim); hero bölümü saniyeler içinde
+KURULACAK	Explain GitHub (?)	araç			1	DfCHfMxR8yq	GitHub URL'sini değiştirip repo hakkında sohbet ederek açıklama alma
+KURULACAK	GitReverse	araç			1	DfCHfMxR8yq	Repoyu yapılandırılmış prompta çeviren tersine mühendislik aracı (GitHub yerine GitReverse yazılır)
+KURULACAK	GitIngest	araç			1	DfCHfMxR8yq	Proje özeti, klasör yapısı ve dosya içeriğini tek temiz belgeye toplar
+KURULACAK	Claude-Code-Game-Studios	repo	github.com/Donchitos/Claude-Code-Game-Studios		1	DfE6PckgQUf	Claude Code'u 49 ajan ve 72 workflow skill ile oyun stüdyosuna çevirir (MIT, ~28.6k yıldız)
+KURULACAK	GBrain	araç			2	DbzttxfNxjK	Şirket bilgi tabanı (Garry Tan'ın GBrain'i, bkz. De1fLVOkpiu); videoda şirket OS'inin temeli olarak geçer
+KURULACAK	Hermes Agent	araç			1	DbzttxfNxjK	27+ ajanı yöneten delegator/conductor harness olarak kullanılıyor
+KURULACAK	VisualARP (?)	uygulama			1	DbzttxfNxjK	Çok ajanlı şirket işletim sistemi görünümü (adı "VisualARP" olarak transkriptte); repo "Founder" yorumuyla veriliyor
+KURULACAK	Jev	araç			1	Dd1wKuDIO9r	Yargı/sınıflandırma aracı; lead üretiminde kullanılıyor (320 kişiyi ~1 cente eler)
+KURULACAK	Treg (?)	uygulama			1	Dd1wKuDIO9r	Clay'i Jev üstünde yeniden yapan lead bulma aracı, Clay'den %85 ucuz
+KURULACAK	Manus.im	SİTE	manus.im		2	DdQkBgtxYe2	Tek promptla web sitesi yapıp yayınlayan AI ajan
+KURULACAK	BKLit	SİTE	BKLit.com		1	DdQkBgtxYe2	Bar grafik, ısı haritası gibi veri görselleştirme bileşenleri
+KURULACAK	Perplexity	MCP			1	De-NlsAtzUn	Claude'a gerçek zamanlı araştırma erişimi veren konektör
+KURULACAK	PostHog	MCP			1	De-NlsAtzUn	Claude'un site kullanıcı davranışı, kayıt ve hataları görmesini sağlar
+KURULACAK	Fooocus	repo	github.com/lllyasviel/Fooocus (?)		1	De18V-pAezC	Yerel görsel üretimi, ücretli araçlara alternatif
+KURULACAK	Upscayl	repo	github.com/upscayl/upscayl (?)		1	De18V-pAezC	Bulanık görselleri netleştiren upscale aracı
+KURULACAK	Letta	repo			1	De1fLVOkpiu	Oturumlar arası hatırlayan stateful ajanlar
+KURULACAK	Zep/Graphiti	repo			1	De1fLVOkpiu	Zaman damgalı (temporal) bilgi grafiği hafızası
+KURULACAK	Sylph	repo			1	De1fLVOkpiu	NaoLabs (YC) açık kaynak DIY Claude Code+git şirket beyni (?)
+KURULACAK	automation-master	skill	.claude/skills/automation-master/SKILL.md		1	De1p5PkkRxk	Uzun çok adımlı görevleri otomatik çalıştıran ana skill
+KURULACAK	file-automation	skill	.claude/skills/file-automation/SKILL.md		1	De1p5PkkRxk	Dosya düzenleme, toplu yeniden adlandırma, format dönüştürme
+KURULACAK	skool.com/knox	SİTE	skool.com/knox		1	De1p5PkkRxk	Yayıncının topluluk sayfası
+KURULACAK	Top Claude/Codex design skills listesi	yöntem			1	De2C0LADUkG	320 skill GitHub yıldızına göre sıralı, kurulum komutlu liste (yoruma bağlı)
+KURULACAK	invoice-organizer	skill	ComposioHQ/awesome-claude-skills		1	De3S2C3P7yb	Fatura ve fişleri vergi için okuyup sıralar
+KURULACAK	Remotion Skills	skill	remotion-dev/skills		1	De3S2C3P7yb	Kodla video üretme skill'leri
+KURULACAK	Vibesec (?)	skill			1	De3S2C3P7yb	Baştan güvenli kod yazdıran skill (transkriptte "Vibesect")
+KURULACAK	Claude day trading skills (11)	skill			1	De416D0vm4l	Tarayıcı, haber, giriş, çıkış ve 10.000 simülasyonlu "Time Machine" içeren açık kaynak 11 skill; onay vermeden işlem yok
+KURULACAK	Three.js parçacık hero	yöntem			1	De4Ly5Tyhlu	Three.js ve parçacıklarla Claude'a yaptırılmış hero animasyonu (prompt yoruma bağlı)
+KURULACAK	Creem	SİTE			1	De4kdJeBD8E	Stripe alternatifi Merchant of Record; Türkiye destekli, %3,9+0,40$, Claude Code MCP ile kurulum
+KURULACAK	Graphite	araç			1	De69lhTE8Z0	Açık kaynak vektör tasarım (Illustrator alternatifi), düğüm tabanlı
+KURULACAK	Inkscape	araç			1	De69lhTE8Z0	Açık kaynak vektör editörü
+KURULACAK	API Anything	araç			1	De7EBPTiU1a	Siteyi ajanın doğrudan kullanacağı API hattına çevirir; YouTube, Amazon, Airbnb hazır
+KURULACAK	Detailing sitesi (tasarım örneği)	SİTE			1	De8IBjoxxVH	Araç değil, premium scroll animasyonlu detailing site tasarımı örneği
+KURULACAK	threeui.com	SİTE	threeui.com		1	De8i5P9Ddtl	Three.js bileşen, şablon ve shader kütüphanesi (799 bileşen)
+KURULACAK	glass3d.dev	SİTE	glass3d.dev		1	De8i5P9Ddtl	OCR linklerinde geçen 3D site
+KURULACAK	createwithswift.com	SİTE	createwithswift.com		1	De8i5P9Ddtl	Swift/SwiftUI öğreticileri
+KURULACAK	junaidjamel.com	SİTE	junaidjamel.com		1	De8i5P9Ddtl	Yayıncının kendi sitesi
+KURULACAK	Zagitta/gpu-unlock	repo	github.com/Zagitta/gpu-unlock (?)		1	De95_e3Ntp_	RTX 30 serisinde FP16/BF16 Tensor Core hızını yaklaşık 1.8x artıran yazılım unlock
+KURULACAK	claude-cookbooks	repo	github.com/anthropics/claude-cookbooks		1	De9SUccyZF-	Anthropic örnek tarifler
+KURULACAK	claude-quickstarts	repo	github.com/anthropics/claude-quickstarts		1	De9SUccyZF-	Anthropic hızlı başlangıç projeleri
+KURULACAK	claude-desktop-extensions	repo	github.com/anthropics/claude-desktop-extensions		1	De9SUccyZF-	Claude Desktop uzantıları
+KURULACAK	awesome-claude-code	repo	github.com/hesreallyhim/awesome-claude-code		1	De9SUccyZF-	Claude Code kaynak listesi
+KURULACAK	SuperClaude Framework	repo	github.com/SuperClaude-Org/SuperClaude_Framework		1	De9SUccyZF-	Claude Code framework'ü
+KURULACAK	claude-task-master	repo	github.com/eyaltoledano/claude-task-master		1	De9SUccyZF-	Görev yönetimi
+KURULACAK	claude-engineer	repo	github.com/Doriandarko/claude-engineer		1	De9SUccyZF-	Claude tabanlı mühendis ajanı
+KURULACAK	claude-swarm	repo	github.com/parallaxsys/claude-swarm		1	De9SUccyZF-	Claude çoklu ajan sürüsü
+KURULACAK	claude-dev-tools	repo	github.com/zebbern/claude-dev-tools		1	De9SUccyZF-	Claude geliştirici araçları
+KURULACAK	mcp-compass	repo	github.com/liuyoshio/mcp-compass		1	De9SUccyZF-	MCP sunucu keşfi
+KURULACAK	mcp-installer	repo	github.com/anaisbetts/mcp-installer		1	De9SUccyZF-	MCP kurulumu
+KURULACAK	mcphub	repo	github.com/idosal/mcphub		1	De9SUccyZF-	MCP merkezi
+KURULACAK	continue	repo	github.com/continuedev/continue		1	De9SUccyZF-	Açık kaynak kod asistanı
+KURULACAK	open-interpreter	repo	github.com/OpenInterpreter/open-interpreter		1	De9SUccyZF-	Kodu yerelde çalıştıran ajan
+KURULACAK	OpenDevin	repo	github.com/OpenDevin/OpenDevin		1	De9SUccyZF-	Açık kaynak Devin benzeri ajan
+KURULACAK	Reel Kit (tek klasör)	yöntem			1	De9nXY4zTP1	Claude Code ile kodla reel üretimi: senaryo, seslendirme, animasyon, render; 4 stil (print, 3D, toybox, talking head) (KIT yorumuyla veriliyor)
+KURULACAK	Alan's Way	repo	github alans-way		1	DeHXkHSlNKK	Hermes Agent üstüne Telegram'dan yönetilen, bulutta çalışan 10 botlu ekip
+KURULACAK	Hermes Agent (Nous Research)	araç			1	DeHXkHSlNKK	Nous Research'ün ücretsiz açık kaynak ajanı
+KURULACAK	apk-reverse	skill	github.com/newtiver666/apk-reverse (?)		1	DeL14cPOqin	Android APK tersine mühendislik Agent Skill'i (DEX, Frida, Flutter); MIT, 3.2k yıldız
+KURULACAK	MiroFish	repo			1	DeR4IFRTKIu	Binlerce yapay müşteriyle lansman simülasyonu yapan sürü zekası motoru (AGPL-3.0, ~76k yıldız)
+KURULACAK	Prompt Motion	SİTE			1	DeWnsIiuiai	Claude ile yapılan hareket videolarının promptlarını veren ücretsiz galeri
+KURULACAK	SiteInspire	SİTE	siteinspire.com		1	De_8WxEmaa5	Stil ve türe göre filtrelenen seçilmiş web galerisi
+KURULACAK	Httpster	SİTE	httpster.net		1	De_8WxEmaa5	Elle seçilmiş siteler, açık/koyu mod
+KURULACAK	Minimal Gallery	SİTE	minimal.gallery		2	De_8WxEmaa5	Sektöre göre filtrelenen minimal siteler
+KURULACAK	GetLayers	SİTE	getlayers.ai/templates		1	De_8WxEmaa5	Sürükleyici site şablonları
+KURULACAK	Claude Skills 6 set (Automation Master, Data Analysis, Research Agent, Content Writer, Social Media, Design)	skill	mkdir -p ~/.claude/skills/...		1	Deb8CA6oDno	Tekrarlayan görev otomasyonu için altı skill (De1p5PkkRxk ile benzer set)
+KURULACAK	Rive	kütüphane			1	DehjgOtDn77	Uygulama içi tepki veren animasyon
+KURULACAK	Satori	kütüphane			1	DehjgOtDn77	Kodu başlık kartlarına çevirir
+KURULACAK	REA	repo	github.com/moruto/rea (?)		1	DejuQStmPny	Tersine mühendislik (?)
+KURULACAK	Onyx (?)	repo	github.com/senlindesign/ (?)		1	DejuQStmPny	Bilgi kaynaklarına bağlı self-hosted AI sohbet (?)
+KURULACAK	Magic UI	SİTE			1	DevhIPGmRzm	Animasyonlu hazır bileşenler
+KURULACAK	Aceternity UI	SİTE			1	DevhIPGmRzm	Dikkat çekici animasyonlu arayüz bileşenleri
+KURULACAK	Radix UI	kütüphane			1	DevhIPGmRzm	Erişilebilir UI primitifleri
+KURULACAK	AI trading ekibi (7 ajan)	yöntem			1	Dewvyk2E2Je	Araştırma, strateji, kod, backtest, doğrulama, risk, icra ajanlarıyla algo trading hattı (somut repo yok)
+KURULACAK	MotionSites.ai	SİTE	MotionSites.ai		1	Dez5CGMkq5K	600+ premium animasyonlu site promptu; Cursor/AI builder'a yapıştırılır
+KURULACAK	Bencho (?)	SİTE			1	DezEkQ2NNSu	Etkileşimli UI bileşenleri ve ses/animasyon kütüphanesi (?)
+KURULACAK	Concord MCP	repo	github.com/Get-Concord-AI/concord-mcp		1	DezX4yhCQzy	Claude Code, Codex, Cursor gibi ajanların birbiriyle konuşup işi bölmesi (MIT, yerel)
+KURULACAK	gittrend.io	SİTE	gittrend.io		1	DezX4yhCQzy	Trend açık kaynak projeler sitesi
+KURULACAK	skiper-ui.com	SİTE	skiper-ui.com		1	DfACBy9Bt6z	Premium animasyonlu yaratıcı bileşenler
+KURULACAK	React Bits	SİTE	reactbits.dev		2	DfAj-cJubzn	Canlı ayarlanıp dışa aktarılan animasyonlu arka plan, doku, bileşen
+KURULACAK	Animos	SİTE			1	DfAj-cJubzn	3D ürün vitrini
+KURULACAK	Arc UI	SİTE			2	DfAj-cJubzn	Animasyonlu bileşenler
+KURULACAK	Planes UI	SİTE			2	DfAj-cJubzn	Animasyonlu bileşenler
+KURULACAK	Swishy AI	uygulama			3	DfAj-cJubzn	Ne animasyonlanacağını yazarak üreten araç
+KURULACAK	12 Claude müşteri bulma skill'i	skill			1	DfBySgVNV4H	12 ajan oylamasıyla ödeme yapacak müşteri bulur (CLIENT yorumuyla veriliyor)
+KURULACAK	NotebookLM + Claude Code repo	repo			1	DfCqFtxoN0y	Notebook LM yeteneklerini (podcast, slayt, YouTube) Claude Code'a veren repo; repo adı videoda verilmiyor
+KURULACAK	Ripping (getripping) (?)	plugin			1	DfDD57jAQ44	Instagram otopilotu için Claude eklentisi: fikir bulma, senaryo, düzenleme, paylaşım
+KURULACAK	Artemis	repo	github.com/google/artemis		1	DfEo0zLDAKl	Google'ın Android telefonu Claude Code/Codex ile kontrol eden açık kaynak aracı (MCP sunucusu)
+KURULACAK	Claude Code + Antigravity ile arsa videosu	yöntem			1	qs-DetJr2nQ	Parsel sorgudan uydu görüntüsü çizip arsa etrafında dönen drone tarzı video üretme
+KURULACAK	Skill-creator (Anthropic)	skill			1	De-Th5KAOY8	Anthropic'in ücretsiz skill üretici aracı; videodaki skill'lerin üçü bununla yapılıyor
+KURULACAK	frontend-design (resmi Anthropic skill)	skill			1	De-Th5KAOY8	Claude'un 'AI şablonu' görünümünü bırakıp cesur font ve gerçek yerleşimli premium site yapmasını sağlar
+KURULACAK	New Client System skill	skill			1	De-Th5KAOY8	Outreach, takip, teklif ve onboarding SOP'lerini yazan müşteri kazanım sistemi (skill-creator ile yapılıyor)
+KURULACAK	Lead scraper skill	skill			1	De-Th5KAOY8	Nişe göre potansiyel müşteri bulup Google Business/Maps/dizinlerden temiz liste çıkarır, Sheets'e aktarır
+KURULACAK	n8n	araç			1	De-Th5KAOY8	İş akışı otomasyon aracı
+KURULACAK	Google Maps	SİTE			1	De-Th5KAOY8	Lead scraper'ın kaynaklarından biri
+KURULACAK	GPT-6 Astra (?)	model			1	DeLXOK-ozyh	Videodaki portfolyo hero bölümünü üretmek için kullanıldığı söylenen model
+KURULACAK	Futuristic portfolio hero (Debbie)	yöntem			1	DeLXOK-ozyh	Vibe coder portfolyo hero bölümü örneği; ana istem + asset yorumla isteniyor
+KURULACAK	Redlamp	uygulama	https://redlamp.app		1	De_VbZCkgvh	Swift ve Metal ile yazılmış açık kaynak (MPL-2.0) Mac RAW fotoğraf editörü, Lightroom iş akışı
+KURULACAK	Haiku Animator	uygulama	https://www.haikuanimator.com		1	De_VbZCkgvh	Herhangi bir uygulama/site için animasyon oluşturma aracı
+KURULACAK	72pt Fonts for Designers	uygulama			1	De_VbZCkgvh	App Store uygulaması; açık kaynak repolardan seçilmiş 700+ yazı tipi
+KURULACAK	Powermove	uygulama	https://trypowermove.com		1	De_VbZCkgvh	Ajan bağlayıp komutla video editörünü şekillendirme; GitHub'da açık
+KURULACAK	Onlook	uygulama	https://www.onlook.com		1	De_VbZCkgvh	Tasarımcılar için ücretsiz, yerel öncelikli görsel kod editörü (27k yıldız)
+KURULACAK	Uberdesigner	yöntem			1	DfADHxap6Dk	Claude ile hızlı tasarım; viral reel kütüphanesi + istem (Guide yorumuyla); içerik yetersiz
+KURULACAK	Kigen color generator	SİTE	https://kigen.design/color		1	DfCb5-sGtrk	Renk skalası üretici (SVG/Figma dışa aktarım)
+KURULACAK	Rune Icons	SİTE	https://www.runeicons.com/		1	DfCb5-sGtrk	900+ ikon, 5 stil, SVG/JSX olarak kopyalanır
+KURULACAK	HyperUI	SİTE	https://www.hyperui.dev/		1	DfCb5-sGtrk	Ücretsiz açık kaynak Tailwind CSS bileşen koleksiyonu
+KURULACAK	Freefaces gallery	SİTE	https://www.freefaces.gallery/		1	DfCb5-sGtrk	Ücretsiz yazı tipleri galerisi
+KURULACAK	The Modern Visionary interaktif web siteleri	yöntem			1	DfEIoQjtkMB	İşletmeler için interaktif (dövme/The Ink Experience tarzı) siteler; adım adım rehber + şablon yorumla veriliyor
+KURULACAK	ShaderGradient	repo	github.com/ruucm/shadergradient		1	DYNW3X7J2TH	React'te hareketli gradyanlar (şekil, renk, hareket özelleştirilebilir)
+KURULACAK	liquid-logo	repo	github.com/paper-design/liquid-logo		1	DYNW3X7J2TH	Her şeye metal/krom sıvı görünüm verir
+KURULACAK	three	kütüphane	npm install three @types/three @react-three/fiber		1	DYNW3X7J2TH	3D kütüphane kurulum komutu
+KURULACAK	Cursor	uygulama			2	DYNW3X7J2TH	Vibe coding için anılan kod editörü
+KURULACAK	ASO 20 madde kontrol listesi	yöntem			1	Dc6jk1-DhMN	App Store arama sıralaması için 20 alanlık kontrol listesi (anahtar kelime, alt başlık, dil, görseller, yorum vb.)
+KURULACAK	SeeCut	repo	github.com/yeje-cpu/seecut		1	Dd56RIYHZ5_	Kendi kurgusunu izleyip düzelten AI video kurgu skill'i (coding agent için), konuşmacı klibini hareketli grafikli kısa videoya çevirir
+KURULACAK	HeyGen	araç			1	Dd56RIYHZ5_	SeeCut demosunda dijital insan ham klibi kaynağı
+KURULACAK	Shaders (580+ arka plan)	SİTE			1	DdRUhaJzwk2	580+ arka plan, 150+ logo shader, 30+ görsel efekt (adı videoda 'Shaders'; OCR'da TypeGPU geçiyor) (?)
+KURULACAK	Spline	SİTE	spline.design		2	DdRUhaJzwk2	3D model/etkileşimli sahne; topluluktan export edip siteye gömme
+KURULACAK	Framer	araç			3	DdRUhaJzwk2	Animasyon, scroll efekti, duyarlı yerleşim yapan site oluşturucu
+KURULACAK	Nvidia RTX BF16/FP16 yazılım kilidi açma	yöntem			1	De-ToVCgoRJ	RTX 20/30/40 serisinde yazılımla kısıtlı BF16/FP16 performansını açma haberi; aracı adı verilmiyor
+KURULACAK	Top 9 Free AI Tools Trending on GitHub	yöntem			1	De0LtiLO3TA	Liste yorumla veriliyor; araç adı videoda yok
+KURULACAK	Claude + Google Maps lead/redesign iş akışı	yöntem			1	De18lkBjl_G	Eski sitesi olan yerel işletmeleri Google Maps'ten bulur, yeni site + canlı önizleme linki üretip iletir; repo adı verilmiyor
+KURULACAK	MediaPipe	repo	github.com/google-ai-edge/mediapipe		1	De1frq7ifup	Kameradan gerçek zamanlı vücut/el/yüz takibi
+KURULACAK	OpenPose	repo	github.com/CMU-Perceptual-Computing-Lab/openpose		1	De1frq7ifup	Görüntü/videodan insan pozu iskeleti çıkarma
+KURULACAK	MMPose / RTMPose	repo	github.com/open-mmlab/mmpose		1	De1frq7ifup	Hızlı poz tahmin modelleri ve araçları (OpenMMLab)
+KURULACAK	VideoPose3D	repo	github.com/facebookresearch/VideoPose3D		1	De1frq7ifup	Videodan 3B poz çıkarma
+KURULACAK	EasyMocap	repo	github.com/zju3dv/EasyMocap		1	De1frq7ifup	Hareket yakalama (mocap)
+KURULACAK	4D-Humans	repo	github.com/shubham-goel/4D-Humans		1	De1frq7ifup	Videodan 3B insan yeniden oluşturma
+KURULACAK	WHAM	repo	github.com/yohanshin/WHAM		1	De1frq7ifup	3B insan hareketi kestirimi
+KURULACAK	tfjs-models pose-detection	repo	github.com/tensorflow/tfjs-models/tree/master/pose-detection		1	De1frq7ifup	Tarayıcıda TensorFlow.js poz algılama
+KURULACAK	awesome-opus5-5-videos (yihui-dew)	repo	github.com/yihui-dew/awesome-opus5-5-videos (?)		1	De1qf_Fk-Xn	Claude Opus 5.5 ile yapılan viral videoların 703 istemi, 418'i canlı yeniden üretimle
+KURULACAK	Skillry	SİTE			1	De1qf_Fk-Xn	418 videonun canlı yeniden yapımını yan yana gösteren site
+KURULACAK	Roast Room	skill			2	De2C9ULFeFL	Claude Code'da bir kararı Hormozi, Buffett, Bezos vb. danışman kuruluna tartıştırıp oylatan skill; skor ve PDF üretir (komut: roast-room)
+KURULACAK	One Take	skill			1	De2dMErAprH	Kamera hiç kesilmeyen tek plan video üretir
+KURULACAK	Collage B-roll	skill			1	De2dMErAprH	Metin satırından Gemini ile animasyonlu kolaj B-roll yapar
+KURULACAK	Claude Animation Base	skill			2	De2dMErAprH	Claude maskotuyla elle boyanmış karikatür animasyonu (ifade/kıyafet değişir)
+KURULACAK	Karpathy LLM wiki repo	repo			1	De33iyPCNyC	Konu klasöründe Claude'a wiki oluşturturan Karpathy repo'su (tam ad videoda yok)
+KURULACAK	Claude Code (masaüstü, klasör seçili)	yöntem			1	De33iyPCNyC	Hafızayı klasördeki metin dosyalarında tutarak unutmayı ve token kullanımını azaltma yöntemi
+KURULACAK	Billion-context (?)	repo			1	De4MkaHgbgw	Eski sohbeti kayıpsız özetler halinde katlayıp gerektiğinde açan bağlam yönetimi; Claude Code, Codex, Cursor ile çalışır; adı OCR'da 'Billy in Context' (?)
+KURULACAK	Bytez	SİTE			1	De4qvI2zaCe	100.000+ açık kaynak model için tek API (metin, görsel, video, ses)
+KURULACAK	Meshy plugin for Hermes Agent	plugin			1	De5_-eyDU0y	Nous Research'ün resmi Meshy eklentisi: cümleden 3B model, fotoğraftan baskılık model
+KURULACAK	Meshy	araç			1	De5_-eyDU0y	Metin/görselden 3B model üretici
+KURULACAK	awesome-claude-5-5-videos (athemeroy)	repo	github.com/athemeroy/awesome-claude-5-5-videos (?)		1	De6BzO3kWQn	Claude 5.5 ile yapılan 400+ video ve istemlerin koleksiyonu (CC-BY-4.0)
+KURULACAK	ai-video skill (Adilet)	skill			1	De6cx6MRxbZ	Tek satırdan senaryo, seslendirme, sahne animasyonu, kendi hareketini puanlayıp render eden reel skill'i
+KURULACAK	Orca	uygulama			1	De7aJAEgdIN	Claude Code, Codex, OpenCode, Grok ajanlarını ayrı git worktree'lerde paralel çalıştıran AI orkestratör (MIT, 100K+ yıldız, iOS/Android eşlik uygulaması)
+KURULACAK	Skipper UI	SİTE	skipper-ui.com		1	De8NxnagICD	Sıra dışı animasyonlu bileşenler
+KURULACAK	Manus	araç	manus.im		2	De8NxnagICD	Tek istemden backend, veritabanı, analitik ve SEO kurar
+KURULACAK	Amicro	SİTE	amicro.vercel.app		1	De8NxnagICD	Kopyala-yapıştır mikro etkileşim ve geçişler (React)
+KURULACAK	ThinkRail (JetBrains)	repo	github.com/JetBrains/thinkrail		1	De8oaV4PZei	pi kodlama ajanı etrafında ajan IDE; paralel worktree, canlı spec dosyaları, GitHub PR (Apache-2.0)
+KURULACAK	BASE	araç	basemode		1	De96ZEuvmbc	Claude içinde hook'larla bilgi grafı/ikinci beyin; anahtar kelimeyle yalnız ilgili bağlam; localhost:3741 panosu
+KURULACAK	Infinity (AWS + UC Berkeley)	repo			1	De9or1Jienw	Asenkron Rust çalışma zamanı; boştaki ajanı ~100 KB anlık görüntüye sıkıştırıp 8 GB RAM'de 75.000 ajan (Apache-2.0)
+KURULACAK	OriginKit	SİTE	originkit.dev		1	DeHx3kBzY30	540-600+ animasyonlu bileşen (arka plan, metin animasyonu, butonlar, bölümler); kodu kopyala-ekle
+KURULACAK	Oyun geliştirme için ücretsiz art uygulamaları	yöntem			1	DeLr-0LNvvA	Ücretsiz oyun motoru ve art programı listesi; ad yok
+KURULACAK	AgentTrail	repo	github.com/sodiumsun/agenttrail		1	DeRukVeytFt	Kodlama ajanlarının plan, araç çağrısı ve dosya değişimini yerelde canlı gösteren pano (npx agenttrail, MIT)
+KURULACAK	Dither tool (halftone/ASCII) (?)	SİTE			1	DeWrEkJjMkv	75+ efektle görsel/video dönüştürme (ASCII, dither, halftone, pixel)
+KURULACAK	Dump (?)	SİTE			1	DeWrEkJjMkv	Fotoğraf, mesaj baloncuğu, çıkartma ve mockup'u tek tuvalde birleştiren tarayıcı aracı
+KURULACAK	MCKP.live (?)	SİTE			1	DeWrEkJjMkv	Mockup/ürün tanıtım videosu stüdyosu (Is.graphics projesi)
+KURULACAK	Scrolltide	SİTE	scrolltide.co		1	DedQE_qNgTh	Scroll-sürümlü animasyonlu site istem kütüphanesi; Claude'a yapıştırıp site üretme
+KURULACAK	Magic UI	repo	github.com/magicuidesign/magicui		1	DekHAwgRXjr	150+ ücretsiz site animasyonu (logo şeridi, parlayan buton, yazan metin, sayaç); Claude'a ekletilir
+KURULACAK	Turnitout	repo	github.com/AhmadHassan-BTed/Turnitout-Humanizer (?)		1	DeqxR63jS8I	Kural tabanlı motor: gizli AI filigranı, sıfır genişlikli karakter ve belge metadata'sını temizler; kod yorumu tonunu değiştirir (canlı: turnitout.streamlit.app)
+KURULACAK	scrolltide.co	SİTE	scrolltide.co		1	DeviJpAGrW3	3B ve scroll-sürümlü site için 600+ istem + kaynak kod
+KURULACAK	navbar.gallery	SİTE	navbar.gallery		1	DeviJpAGrW3	Navbar ilham galerisi
+KURULACAK	footer.design	SİTE	footer.design		1	DeviJpAGrW3	Yaratıcı footer örnekleri
+KURULACAK	cta.gallery	SİTE	cta.gallery		1	DeviJpAGrW3	Eylem çağrısı (CTA) tasarım örnekleri
+KURULACAK	60fps.design	SİTE	60fps.design		1	DeviJpAGrW3	En iyi uygulamalardan mobil arayüz animasyon ve etkileşimleri
+KURULACAK	collectui.com	SİTE	collectui.com		1	DeviJpAGrW3	Günlük UI konseptleri
+KURULACAK	posts.design	SİTE	posts.design		1	DeviJpAGrW3	Sosyal medya görsel örnekleri
+KURULACAK	landdding.com	SİTE	landdding.com		1	DeviJpAGrW3	Her gün güncellenen landing page referansları
+KURULACAK	ATAS (Any Time, Any Space)	repo	github.com/ziplab/atas		1	DexLWKlgrBA	Sahnenin dünya durumunu kalıcı tutan, planlar arası tutarlı ajan tabanlı video üretim çerçevesi (MIT)
+KURULACAK	Alıntı doğrulayan araştırma skill'i (adı yok)	skill			1	Dez74xdlRpc	Her alıntıyı kaynağa karşı kontrol eden, tek harf hata varsa rapor üretmeyen Claude Code skill'i (1.100 yıldız, MIT, Japonca yazılmış); link yorumda
+KURULACAK	Mikro etkileşim/geçiş MCP kütüphanesi	yöntem			1	DezgyaEN-T8	Claude'a hover, imleç ve scroll geçişi cilası ekleten MCP; adı videoda yok; istem yorumla
+KURULACAK	Higgsfield Virality Predictor	araç			1	DfAnN8buRuB	15 sn'lik videonun beyin tepkisini ve izleyici terk noktasını tahmin eder; Claude Code'a bağlanır; ücretsiz
+KURULACAK	Toplantıdan çıkma tekniği	yöntem			1	DfC6TSeTzta	İçerik şaka/meme; araç yok
+KURULACAK	Openjutsu	repo	github.com/d3voz/openjutsu		1	DfCrknOAoua	Videodaki ana kişiyi kendi yüzünle yerelde değiştirir (MIT; Next.js + ComfyUI)
+KURULACAK	MiniMax H3 (?)	model			1	DfCrknOAoua	Openjutsu'da video üretimi için açık ağırlıklı model
+KURULACAK	SAM 3.1	model			1	DfCrknOAoua	İnsanları takip etmek için
+KURULACAK	Qwen3-VL 8B	model			1	DfCrknOAoua	Görüntü ve plan betimlemesi için
+KURULACAK	isitsecure	MCP			1	DfDPssIKX9F	Uygulamayı A-F güvenlik notuyla tarar, düzeltmeleri sade dille verir (Claude Code'da MCP)
+KURULACAK	21st MCP	MCP			1	DfDPssIKX9F	10.000+ React/Tailwind UI bileşeni arama
+KURULACAK	TradingView MCP	MCP			1	DfEvh09DBat	Claude'un TradingView'ı yönetip grafik çizme, Pine Script, backtest, replay, tarama yapmasını sağlar
+KURULACAK	TradingView	SİTE			2	DfEvh09DBat	Grafik ve Pine Script platformu
+KURULACAK	LLM Council (Karpathy)	repo			1	s7Iaq5lGkY0	Soruyu birden çok modele sorar, çapraz değerlendirir, başkan model karar verir; videoda tek Claude'a 5 danışman rolü verme versiyonu anlatılıyor
+KURULACAK	elayadesign/ai-design-skills (designer skill)	skill	github.com/elayadesign/ai-design-skills		1	De-blYnCBbn	Landing page için 14 soru soran, sabit sayfa sırası ve copy kuralları olan, "elevate/seamless" gibi AI klişelerini yasaklayan açık kaynak tasarımcı skill'i
+KURULACAK	Design Engineer Tools	SİTE	https://designengineer.tools		1	DeTqN3uEidC	Web odaklı design engineer'lar için araç/site/kaynak kütüphanesi (ilham, AI kod, bileşen, yardımcı, video, organizasyon)
+KURULACAK	60fps	SİTE			1	DeTqN3uEidC	İlham kategorisinde listelenen site (?)
+KURULACAK	Awwwards	SİTE	awwwards.com		2	DeTqN3uEidC	Ödüllü web sitesi vitrini
+KURULACAK	Cosmos	SİTE	cosmos.so		1	DeTqN3uEidC	Görsel ilham toplama platformu
+KURULACAK	Mobbin	SİTE			1	DeTqN3uEidC	Gerçek ürün UI/akış referans kütüphanesi
+KURULACAK	Curated Design	SİTE			1	DeTqN3uEidC	Tasarım ilham listesi (?)
+KURULACAK	Design Spells	SİTE			1	DeTqN3uEidC	Tasarım/etkileşim ilham sitesi (?)
+KURULACAK	Rebrand	SİTE			1	DeTqN3uEidC	Marka yenileme ilham sitesi (?)
+KURULACAK	Saaspo	SİTE			1	DeTqN3uEidC	SaaS landing ilham galerisi (?)
+KURULACAK	Godly	SİTE			1	DeTqN3uEidC	Web tasarım ilham galerisi (?)
+KURULACAK	Same Energy	SİTE			1	DeTqN3uEidC	Görsel benzerlik arama motoru (?)
+KURULACAK	Supahero	SİTE			1	DeTqN3uEidC	Hero bölümü ilham sitesi (?)
+KURULACAK	loadmo.re	SİTE			1	DeTqN3uEidC	İlham sitesi (?)
+KURULACAK	Layers	SİTE			1	DeTqN3uEidC	İlham sitesi (?)
+KURULACAK	SEESAW	SİTE			1	DeTqN3uEidC	İlham sitesi (?)
+KURULACAK	GameUIDatabase	SİTE			1	DeTqN3uEidC	Oyun UI referans veritabanı
+KURULACAK	Interface In Game	SİTE			1	DeTqN3uEidC	Oyun arayüzü referans sitesi
+KURULACAK	HUDS+GUIS	SİTE			1	DeTqN3uEidC	Oyun HUD/GUI referans sitesi
+KURULACAK	Bolt.new	araç	bolt.new		1	DeTqN3uEidC	AI ile web uygulaması üreten kod aracı
+KURULACAK	Cline	araç			1	DeTqN3uEidC	AI kod ajanı eklentisi
+KURULACAK	v0 by Vercel	araç			1	DeTqN3uEidC	Vercel AI UI üretici
+KURULACAK	Windsurf	araç			1	DeTqN3uEidC	AI kod editörü
+KURULACAK	Zed	araç			1	DeTqN3uEidC	Kod editörü
+KURULACAK	Component Gallery	SİTE			1	DeTqN3uEidC	UI bileşen galerisi
+KURULACAK	Fancy Components	SİTE			1	DeTqN3uEidC	Bileşen kütüphanesi
+KURULACAK	Motion Primitives	kütüphane			1	DeTqN3uEidC	Animasyon bileşen kütüphanesi
+KURULACAK	NumberFlow	kütüphane			1	DeTqN3uEidC	Animasyonlu sayı bileşeni
+KURULACAK	Cursify	kütüphane			1	DeTqN3uEidC	İmleç efekt/bileşen kütüphanesi (?)
+KURULACAK	Color.review	araç	color.review		1	DeTqN3uEidC	Renk kontrast/erişilebilirlik inceleme aracı
+KURULACAK	OKLCH Color Picker	araç			1	DeTqN3uEidC	OKLCH renk seçici
+KURULACAK	Easing Editor / Easing Functions / Easing Gradients	araç			1	DeTqN3uEidC	Easing eğrisi ve gradyan yardımcı siteleri
+KURULACAK	Ray.so	araç			1	DeTqN3uEidC	Kod ekran görüntüsü üretici
+KURULACAK	RegExr	araç			1	DeTqN3uEidC	Regex deneme aracı
+KURULACAK	SVGOMG	araç			1	DeTqN3uEidC	SVG optimize aracı
+KURULACAK	ui.camera	araç			1	DeTqN3uEidC	UI yardımcı aracı (?)
+KURULACAK	Claude Cowork	uygulama			1	DeTqN3uEidC	Claude masaüstü ajan uygulaması
+KURULACAK	Deskflow	uygulama			1	DeTqN3uEidC	Masaüstü klavye/fare paylaşım aracı
+KURULACAK	LocalSend	uygulama			1	DeTqN3uEidC	Yerel ağ dosya paylaşımı
+KURULACAK	Raycast	uygulama			1	DeTqN3uEidC	Mac başlatıcı/verimlilik aracı
+KURULACAK	Warp	uygulama			1	DeTqN3uEidC	Terminal
+KURULACAK	Wispr Flow	uygulama			1	DeTqN3uEidC	Sesle yazdırma aracı
+KURULACAK	DaVinci Resolve	uygulama			1	DeTqN3uEidC	Video kurgu yazılımı
+KURULACAK	LosslessCut	uygulama			1	DeTqN3uEidC	Kayıpsız video kesme
+KURULACAK	AFFiNE	uygulama			1	DeTqN3uEidC	Whiteboard/not uygulaması
+KURULACAK	FigJam	uygulama			1	DeTqN3uEidC	Beyaz tahta aracı
+KURULACAK	Are.na	SİTE			1	DeTqN3uEidC	Referans toplama platformu
+KURULACAK	animations.dev	SİTE	animations.dev		1	DeTqN3uEidC	Animasyon eğitim kaynağı
+KURULACAK	ui.land	SİTE	https://ui.land		1	DeTqN3uEidC	Videoda link olarak geçen UI sitesi
+KURULACAK	gradientool	SİTE	https://www.gradientool.com		1	DeTqN3uEidC	Gradyan aracı (?)
+KURULACAK	pear.com	SİTE	https://www.pear.com		1	DeTqN3uEidC	Videoda link olarak geçen site
+KURULACAK	remediate.ski	SİTE	https://www.remediate.ski		1	DeTqN3uEidC	Videoda link olarak geçen site
+KURULACAK	firered-openstoryline	repo			1	De__0Eok8OB	Sohbetle AI video üreten açık kaynak storyline/ajan: medya arama, script, düzenleme, yeniden kullanılabilir skill
+KURULACAK	httpster.net	SİTE	httpster.net		1	DfASJnjIYe2	Küratörlü web tasarım ilham sitesi
+KURULACAK	siteinspire.com	SİTE	siteinspire.com		1	DfASJnjIYe2	Web tasarım galerisi
+KURULACAK	fontsinuse.com	SİTE	fontsinuse.com		1	DfASJnjIYe2	Gerçek kullanımda yazı tipleri arşivi
+KURULACAK	landing.love	SİTE	landing.love		1	DfASJnjIYe2	Landing page ilham galerisi
+KURULACAK	lapa.ninja	SİTE	lapa.ninja		2	DfASJnjIYe2	Landing page ilham galerisi
+KURULACAK	hoverstat.es	SİTE	hoverstat.es		1	DfASJnjIYe2	Hover etkileşim ilham sitesi
+KURULACAK	land-book.com	SİTE	land-book.com		1	DfASJnjIYe2	Landing page galerisi
+KURULACAK	designmadeingermany.de	SİTE	designmadeingermany.de		1	DfASJnjIYe2	Alman tasarım ilham galerisi
+KURULACAK	onepagelove.com	SİTE	onepagelove.com		1	DfASJnjIYe2	Tek sayfa site galerisi
+KURULACAK	bestwebsite.gallery	SİTE	bestwebsite.gallery		2	DfASJnjIYe2	En iyi site galerisi
+KURULACAK	Recent Design	SİTE	recent.design		2	DfCesyEIxdU	Günlük tasarım ilhamı
+KURULACAK	Dark.Design	SİTE	dark.design		1	DfCesyEIxdU	Koyu mod site/UI referansları
+KURULACAK	NicelyDone	SİTE	nicelydone.club		1	DfCesyEIxdU	Gerçek ürün akışı ve UI bileşen referansı
+KURULACAK	st-tech/ppf-contact-solver	repo	https://github.com/st-tech/ppf-contact-solver		1	DYuY_-7Oqk4	ZOZO'nun açık kaynak kumaş/halat/yumuşak cisim fizik motoru, Blender eklentisi ve JupyterLab arayüzü var
+KURULACAK	oooscoos/benzi	repo	github.com/oooscoos/benzi		1	Dd5RAFqyPjh	Tree-sitter ile derleyici düzeyinde sembol/çağrı haritası çıkaran, dosya okumak yerine sorgulayan AI kod ajanı (VS Code eklentisi, 10 dil)
+KURULACAK	Aider	araç			1	Dd5RAFqyPjh	Karşılaştırmada imza haritalayan kod ajanı
+KURULACAK	tree-sitter	kütüphane			1	Dd5RAFqyPjh	Benzi'nin parser katmanı
+KURULACAK	Voice Builder / Humanizer / Anti-Slop / Voiceprint	skill			1	De-iVbFiVsO	LinkedIn için Claude skill'leri (ses ve AI-kokusunu silme)
+KURULACAK	Idea Validator / Post Strategist / Trend Fit / Last 30 Days / Niche Research / Content Matrix	skill			1	De-iVbFiVsO	LinkedIn fikir/araştırma skill'leri
+KURULACAK	Post Writer / Hook Generator / Score for LinkedIn / Post Scorer / Remove AI Slop	skill			1	De-iVbFiVsO	LinkedIn yazım ve puanlama skill'leri
+KURULACAK	Anthropic skills	skill			2	De-iVbFiVsO	Anthropic resmi skill'leri
+KURULACAK	Remove AI Design Slop / Infographic Lean / Infographic Feedback	skill			1	De-iVbFiVsO	Görsel/infografik skill'leri
+KURULACAK	wesbos/3d-model-anything	repo	github.com/wesbos/3d-model-anything		1	De0VmwJD8zS	iPhone LiDAR taramasından AI kod ajanıyla düzenlenebilir Three.js oda sahnesi kuran iş akışı ve viewer
+KURULACAK	schmayterling/hibi	repo	github.com/schmayterling/hibi		1	De1IdFfjpAL	Markdown, LaTeX, AsciiDoc vb. destekli yerel not/belge masaüstü editörü, yan yana önizleme (hibi.garden)
+KURULACAK	Pixo Studio	SİTE			1	De1ghhSBC2O	Tarayıcıda 3D, scroll animasyonlu site örnekleri üreten ajans (araç adı verilmedi)
+KURULACAK	Genjutsu	plugin	/genjutsu:cast		2	De1rAYuAHln	Claude Code için hareket ve görsel tasarım skill'i (siteyi hareketli/premium yapar)
+KURULACAK	UX/UI Agent	skill			1	De1rAYuAHln	17 tasarım skill'li kıdemli tasarım mimarı; /design-code
+KURULACAK	Business Skills	skill			1	De1rAYuAHln	Büyüme planı ve strateji çerçeveleri
+KURULACAK	AI Hormozi Skill	skill			1	De1rAYuAHln	Hormozi'nin 2000+ videosundan çıkarılmış playbook
+KURULACAK	Self-improving trading bot mimarisi	yöntem			1	De2EFbZjBHi	Araştırma ajanı, backtest, doğrulama ve sürüm kontrollü kendini geliştirme döngüsü; MetaTrader5/TradingView/Python (repo adı verilmedi)
+KURULACAK	Google AI Studio	araç			1	De2dznqAs9V	Prompttan 3D site üreten ortam
+KURULACAK	Exa	MCP			1	De37CTGo4Km	AI arama motoru, derin araştırma
+KURULACAK	Brand24	araç			1	De37CTGo4Km	Marka bahsi ve rakip izleme
+KURULACAK	Ghidra / jadx / apktool / tshark / binwalk / sqlite3 / asar	araç			1	De4B-SgiU5i	leanrea'nın ajana çağırttığı gerçek ters mühendislik araçları
+KURULACAK	Adobe for Claude	plugin			1	De4TRPhD_vE	Claude içinde 80+ Adobe aracı (PDF birleştir, karart, foto yeniden boyutlandır)
+KURULACAK	AppFlowy	uygulama			2	De4rkL4MSDz	Notion alternatifi, yerel modellerle çalışır
+KURULACAK	OpenWhispr	uygulama			1	De4rkL4MSDz	Wispr Flow alternatifi, her uygulamada sesle yazma
+KURULACAK	OpenProject	uygulama			1	De4rkL4MSDz	Asana alternatifi (Gantt, zaman takibi)
+KURULACAK	Cal.com	uygulama	Cal.com		2	De4rkL4MSDz	Calendly alternatifi
+KURULACAK	Chatwoot	uygulama			1	De4rkL4MSDz	Intercom alternatifi, tek gelen kutusu
+KURULACAK	Cap	uygulama			1	De4rkL4MSDz	Loom alternatifi ekran kaydı
+KURULACAK	johnHeibel/ClaudeAnimationBase	repo	github.com/johnHeibel/ClaudeAnimationBase		1	De5b0gljdOZ	p5.js ile elle boyanmış çizgi film animasyonu için başlangıç kiti: karakter, 31 duygu, ANIMATION_GUIDE.md (MIT)
+KURULACAK	Cosmos.so	SİTE	cosmos.so		1	De7bHbulPRr	Görsel ilham toplama platformu
+KURULACAK	Brandlogo.co	SİTE	brandlogo.co		1	De7bHbulPRr	Küratörlü logo ilham kütüphanesi
+KURULACAK	Animos.app	SİTE	animos.app		1	De7bHbulPRr	Statik UI/tasarımı hareketli sunuma çeviren tarayıcı aracı
+KURULACAK	MacFolio	SİTE	macfolio.com		1	De7bHbulPRr	Mac uygulamaları ve yaratıcı araç rehberi
+KURULACAK	Motion plugin (adı belirsiz)	plugin			1	De8RH_DIAaK	Claude Code'a eklenen, prompttan lansman videosu üreten plugin; ilk 1000 kişiye ücretsiz sonra 9,99 USD
+KURULACAK	GitHub CLI	araç			1	De9D5Z9kx9a	PR açma ve sürüm
+KURULACAK	Chatterbox	model			1	De9ulC6CE_x	Açık kaynak ses üretimi ve klonlama, Türkçe destekli
+KURULACAK	Photopea	SİTE	https://www.photopea.com		1	De9ulC6CE_x	Tarayıcıda Photoshop alternatifi, PSD açar
+KURULACAK	Affinity	uygulama			1	De9ulC6CE_x	Illustrator/InDesign alternatifi
+KURULACAK	Upscayl	uygulama			1	De9ulC6CE_x	Açık kaynak AI görsel büyütücü (GPU ister)
+KURULACAK	Handy	uygulama			1	De9ulC6CE_x	Açık kaynak çevrimdışı konuşma metne çevirme
+KURULACAK	LM Studio / Ollama	uygulama			1	De9ulC6CE_x	Açık modelleri yerelde çalıştırma
+KURULACAK	Locally Uncensored	uygulama			1	DeNkA4oko-v	Sohbet, görsel, video, kod ajanı tek masaüstü yerel AI stüdyosu (AGPL-3.0, Windows/Linux)
+KURULACAK	cubimatural portfolio	SİTE			1	DeSLvUkRlTF	Kitap gibi etkileşimli portfolyo sitesi örneği; prompt bio linkinde
+KURULACAK	OpenAI agent manager	repo			1	DeWsGkaE_tk	Kanban panosuna görev koyup AI ajanların yaptığı, insanın incelediği ajan yöneticisi
+KURULACAK	Alibaba Qwen voice model	model			1	DeWsGkaE_tk	Metin promptundan ses tasarlayan veya klonlayan model, 10 dil
+KURULACAK	Anthropic finance agents	repo			1	DeWsGkaE_tk	Pitchbook, müşteri tarama, ay kapanışı yapan finans ajanları
+KURULACAK	Claude Code SEO / faceless video skill	skill			1	De_HC6vAxy-	Hermes için SEO ve yüzsüz video skill'leri
+KURULACAK	Awesome Opus 5.5 Videos	repo			1	Dee1BaaH71-	418 viral Opus 5.5 video ve prompt koleksiyonu
+KURULACAK	addyosmani/agent-skills	repo			1	Dej0ddaASU6	Addy Osmani'nin 24 mühendislik iş akışı skill'i (planlama, test, debug, güvenlik, performans, review, shipping)
+KURULACAK	pbakaus/impeccable	skill	npx impeccable install		1	Dem91ptkrhe	24 komutlu tasarım dili skill'i (polish, audit, animate)
+KURULACAK	better-auth/better-icons	skill	npx skills add better-auth/better-icons		1	Dem91ptkrhe	Gerçek ikon kütüphanelerinden SVG çeken skill+MCP
+KURULACAK	hardikpandya/stop-slop	skill			1	Dem91ptkrhe	AI klişesini silen skill
+KURULACAK	The Design Stack prompts	SİTE	thedesignstack.com/prompts		1	Derh5Bzgan2	Premium etkileşim animasyonları için hazır prompt koleksiyonu (marquee, kart istifi, imleç itme, kumaş vb.)
+KURULACAK	Cinematic Product Studio	araç			1	DeyDEFlCBsL	Blender eklentisi, ışık ve animasyon
+KURULACAK	Flux Forms	araç			1	DeyDEFlCBsL	Blender eklentisi, sıvı şekiller
+KURULACAK	Optic Lab FX	araç			1	DeyDEFlCBsL	Blender eklentisi, objektif bulanıklık
+KURULACAK	Kombai Gallery	SİTE			1	Dez88-KooO8	20.000+ web ve mobil UI tasarımı galerisi; ekran görüntüsünü Claude Code'a referans verme
+KURULACAK	Same.dev	SİTE	Same.dev		1	DfAoV4Wz1ez	Canlı site URL'sini yerleşim ve animasyonla klonlar
+KURULACAK	Webflow AI	araç			1	DfAoV4Wz1ez	Bölüm ve responsive yerleşim üretir
+KURULACAK	Claude Opus 5.5	model			1	DfCAdgyR22H	BMW M5 3B scroll sitesi için kullanılan model
+KURULACAK	REA	MCP	npx rea-agents setup		2	DfCtGNgiWeb	Uygulama/web/APK'yı koda kadar izleyen ters mühendislik MCP'si
+KURULACAK	UImaxxing	SİTE			1	DfFDa-rJpqo	Hazır ürün UI bileşenleri
+KURULACAK	Halaska UI	kütüphane			1	DfFDa-rJpqo	shadcn/ui üzerine kurulu ekran, desen ve bileşenler
+KURULACAK	beUI	kütüphane			1	DfFDa-rJpqo	React/Next.js animasyonlu bileşenler, playground
+KURULACAK	YouTube Data API v3	araç			1	wY-hZK7UN7A	Claude'u YouTube kanalına bağlamak için API key ile istatistik ve yorum yönetimi
+KURULACAK	Google Cloud Console	SİTE			1	wY-hZK7UN7A	API key üretim yeri
+KURULACAK	LEANN	repo			1	De-eRt1knz7	Çok küçük vektör indeksi; 60 milyon metin parçasını 6 GB'a sığdırır, GPU/bulut gerekmez, yerel RAG, MCP entegrasyonu, Claude Code ile kod geri getirme
+KURULACAK	ContextBench / SWE-Bench Pro	yöntem			1	De-eRt1knz7	LEANN'in Claude Code'a bağlanıp BM25 ile karşılaştırıldığı kıyas seti
+KURULACAK	404s.design	SİTE	404s.design		1	DeXFxPDCLe8	404 hata sayfası tasarım örnekleri
+KURULACAK	unsection.com	SİTE	unsection.com		1	DeXFxPDCLe8	Uyarlanabilir hazır bölüm (section) tasarımları
+KURULACAK	bentogrids.com	SİTE	bentogrids.com		1	DeXFxPDCLe8	İnternetteki bento ızgara düzenleri koleksiyonu
+KURULACAK	6ofps.design (?)	SİTE	6ofps.design (?)		1	DeXFxPDCLe8	Uygulamayı pahalı hissettiren mikro hareket/animasyon örnekleri
+KURULACAK	NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4	model	HuggingFace		1	De_bt1XoJav	Nvidia'nın açık indirilebilir kodlama modeli, tek ekran kartında yerel çalışır, 1M token bağlam (videoya göre)
+KURULACAK	AnyMove	repo			1	DfCjVGDhwrl	Tek AI video klibinden yaratık 3D hareketini çıkarıp rig'e aktarır (repo yoruma DM ile verilecek, URL yok)
+KURULACAK	poteto-mode / pstack	skill			1	DfEVFJLAVpc	ub-mode'un temel aldığı kural seti
+KURULACAK	Claude + canlı piyasa verisi (kongre işlemleri, 13F)	yöntem			1	DZsMUE_Dx9O	Claude'u piyasa/akıllı para verisine bağlama; araç adı verilmiyor, rehber DM ile
+KURULACAK	Atomic Chat	uygulama			1	Dd6P9YOB06z	Yerel AI model uygulaması (ekranda geçiyor)
+KURULACAK	Yüzsüz YouTube kanalı iş akışı (Claude senaryo, ChatGPT storyboard)	yöntem			1	Ddjb_KjkneS	Başarılı kanalı tersine mühendislik, Claude ile belgesel senaryo, ChatGPT ile storyboard, AI görsel/ses
+KURULACAK	Harness2	repo			1	De-ozuJiHjm	Ajan koşum takımını (prompt/araç) özyinelemeli görev iyileştirmesiyle kendiliğinden geliştiren çerçeve; uv pip install -e .
+KURULACAK	Blockbench	uygulama			1	De0cO6lCUrG	Minecraft modlama için ücretsiz 3D model/doku/animasyon uygulaması
+KURULACAK	blockbench-mcp-plugin	MCP	github.com/jasonjgardner/blockbench-mcp-plugin		1	De0cO6lCUrG	Claude'un Blockbench içinde model, doku ve animasyon kurmasını sağlar
+KURULACAK	Skill referans dosyası içindekiler listesi yöntemi	yöntem			1	De1KvZjCqWm	100 satırı aşan referans dosyalarının başına içindekiler ekleyip SKILL.md'den tek seviye bağlama
+KURULACAK	Spline (Community)	SİTE			1	De1tiaNNapd	3D tasarım topluluğu; Remix + Export bağlantısıyla 3D sahne siteye gömülür
+KURULACAK	Unreal MCP	MCP			1	De2FuK0ouNW	AI asistanı Unreal Engine'e bağlar, görselden 3D ortam kurar
+KURULACAK	Unreal Engine 5.8	uygulama			1	De2FuK0ouNW	Oyun/film motoru, MCP ile sahne üretimi
+KURULACAK	Blender gerçekçilik kontrol skill'i	skill			1	De38b1OomBx	Uzun render öncesi gerçekçiliği denetleyen Claude skill'i (adı/linki yok, DM ile)
+KURULACAK	ffmpeg-skill	skill	kajisho5/ffmpeg-skill; npx ffmpeg-skill		1	De3v2qwj7fo	42 yerel FFmpeg aracı + MCP sunucusu: kesim, altyazı, 9:16, ses normalizasyonu, MIT
+KURULACAK	DeerFlow	repo			1	De4DkBqDH-R	ByteDance'in uzun süreli çok ajanlı araştırma/kod yazma ajanı
+KURULACAK	Higgsfield Content Factory	araç			1	De4uoo1xmDw	Tek cümleden Claude kodlu animasyonla video üretir, 3 gün deneme
+KURULACAK	instagram-agent-skill	skill	github.com/Jakeschincariol/instagram-agent-skill (?)		1	De5mVjhuWEK	Instagram hesabı için 13 Claude skill'i (reel, viral araştırma, profil analizi), MIT
+KURULACAK	video-shotcraft	skill	github.com/Vincentwei1021/video-shotcraft		1	De6jpQyDAhc	Ürün tanıtım videosu: sayfa yakalama, 150 çekim reçetesi, Remotion animasyon, FFmpeg
+KURULACAK	LLM-engineer-handbook	repo	SylphAI-Inc/LLM-engineer-handbook		1	De7ueOMSVHF	LLM yaşam döngüsü araçları kürasyonu
+KURULACAK	Unsloth	kütüphane			1	De7ueOMSVHF	Hızlı ince ayar
+KURULACAK	vLLM	kütüphane			1	De7ueOMSVHF	Yüksek verimli model sunumu
+KURULACAK	TensorRT-LLM	kütüphane			1	De7ueOMSVHF	Nvidia model sunum motoru
+KURULACAK	DSPy	kütüphane			1	De7ueOMSVHF	Prompt otomatik optimizasyonu
+KURULACAK	AutoGen	kütüphane			1	De7ueOMSVHF	Ajan orkestrasyon çerçevesi
+KURULACAK	Herald OS (LukeTheDev)	uygulama			1	De8XXXOIIZN	Hermes Agent için konuşulan masaüstü işletim sistemi
+KURULACAK	Hermes Gadget	araç			1	De8XXXOIIZN	ESP32 ekranlı basarak konuş cihazı, tarayıcıdan flash
+KURULACAK	spec-kit	repo	github.com/github/spec-kit		1	De928DMsmEj	Önce spec, plan, görev listesi, sonra kod; Claude Code/Copilot/Codex ile çalışır
+KURULACAK	ComfyUI-FlashVSR	repo	github.com/1038lab/comfyui-flashvsr		1	De9Ek7zSXf5	ComfyUI'da gerçek zamanlı difüzyon video 2x/4x yükseltme, GPL-3.0
+KURULACAK	Cooldock	uygulama	cooldock (?)		1	DeJxYRblNR2	Mac için canlı widget'lı ikinci Dock
+KURULACAK	Spotted in Prod	SİTE	spottedinprod.com		1	DeJxYRblNR2	Gerçek ürünlerden UI detay arşivi
+KURULACAK	Ditther	SİTE	ditther.com		1	DeJxYRblNR2	Dither/ASCII/halftone efekti, tarayıcıda ücretsiz
+KURULACAK	ascii-magic.com	SİTE	ascii-magic.com		1	DeJxYRblNR2	ASCII efekt aracı (?)
+KURULACAK	doronsupply.com	SİTE	doronsupply.com		1	DeJxYRblNR2	Tasarım kaynağı sitesi (açıklaması okunamadı)
+KURULACAK	ultramock.io	SİTE	ultramock.io		1	DeJxYRblNR2	Mockup üretme aracı (?)
+KURULACAK	framefields	kütüphane	github.com/gatewai-dev/gitframes (?); npx skills add gatewai-dev/framefields		1	DeOwi--gJSe	Kodla video: compositing, hareket grafiği, 3D, TypeScript, GPU render, npm paketi, Apache-2.0
+KURULACAK	20 animasyon stili (Claude Code)	yöntem			1	DeSkB0htIbX	Particles, Liquid morph, Glassmorphism, Neo Brutalism vb. 20 animasyon stili listesi
+KURULACAK	/rewind	yöntem			1	DeY_8acEaiy	Hatadan önceki noktaya dönmek için Claude Code komutu
+KURULACAK	earshot	repo	github.com/Leonxinw/earshot (?)		1	De_b6mpD88Q	Kodlama ajanlarına kulak verir: ses dosyasını tarif eder, 201 efektli kodla ses üretir, CPU, MCP
+KURULACAK	Ovio	kütüphane	ovioui.vercel.app		1	DeeFwH6EsvG	Geliştirici siteleri için açık bileşen sistemi, 16 bileşen, 4 görsel dünya, MIT
+KURULACAK	audiocn	kütüphane	audiocn.dev; pnpm dlx shadcn@latest add @audiocn/mixer		1	DeeFwH6EsvG	shadcn/ui için ses UI bileşenleri (mikser, fader, knob)
+KURULACAK	mdxcn	kütüphane	mdxcn.dev		1	DeeFwH6EsvG	MDX için markdown dostu bileşenler (callout, timeline, tablo)
+KURULACAK	uiarc.dev	kütüphane	uiarc.dev		1	DeeFwH6EsvG	UI bileşen sitesi (carousel'de bağlantı olarak geçiyor)
+KURULACAK	gauge-ui.dev	kütüphane	gauge-ui.dev		1	DeeFwH6EsvG	UI bileşen sitesi (carousel'de bağlantı olarak geçiyor)
+KURULACAK	decomp.wtf	repo	decomp.wtf		1	Dej1ymjmUo4	AI ajanlarla oyun binary'sini birebir derlenen C/C++'a decompile eden, MCP, MIT
+KURULACAK	Figma + Claude	yöntem			1	DemPQj2N8aX	Figma tasarımını Claude ile üretme (çerçeve DM ile, içerik yok)
+KURULACAK	ReelMimic	repo	github.com/edenfunf/reelmimic		1	DeyOj96CRXH	Referans videonun stilinde yeni animasyon üretir, çoklu ajan, yerel, MIT
+KURULACAK	mlx-whisper	kütüphane	pip3 install mlx-whisper		1	Dez9ehLmdNZ	Kelime zamanlı transkript (Mac)
+KURULACAK	Homebrew	araç			1	Dez9ehLmdNZ	Mac paket yöneticisi
+KURULACAK	VideoSOS 2	uygulama			1	DezMk9EjKjT	Masaüstü video stüdyosu, 1000+ model (OpenRouter/fal/Runware), MCP sunucusu, MIT, Windows
+KURULACAK	emilkowalski/skills	skill	npx skills@latest add emilkowalski/skills		1	DeziqhPRtkz	Animasyon ve cila kuralları
+KURULACAK	shadcn skill	skill	npx skills add shadcn/ui		1	DeziqhPRtkz	Gerçek shadcn/ui bileşenleriyle üretim
+KURULACAK	Toolcraft	repo	toolcraft.sh		1	DfARM2vgdBV	Claude Code ile özel tasarım araçları üreten başlangıç kiti ve UI kütüphanesi
+KURULACAK	WhisperX	repo	github.com/m-bain/whisperX		1	DfAq1txAF-p	Kelime düzeyi hizalama ve konuşmacı ayrıştırma, 70x gerçek zaman
+KURULACAK	pyannote	kütüphane			1	DfAq1txAF-p	Konuşmacı diarization
+KURULACAK	Recall.ai	araç	Recall.ai		1	DfAq1txAF-p	Toplantı transkripsiyon API'si
+KURULACAK	Gustavo	repo			1	DfCuqy9s9xq	Listedeki depo
+KURULACAK	Awesome Claude Skills	repo			2	DfCuqy9s9xq	Liste deposu
+KURULACAK	Awesome Claude Code	repo			1	DfCuqy9s9xq	Liste deposu
+KURULACAK	Repomix	araç			1	DfCuqy9s9xq	Repoyu tek dosyaya paketler
+KURULACAK	Beads	araç			1	DfCuqy9s9xq	Ajan görev takibi
+KURULACAK	Vibe-kanban	araç			1	DfCuqy9s9xq	Ajan kanban
+KURULACAK	GitHub MCP	MCP			1	DfCuqy9s9xq	GitHub erişimi
+KURULACAK	CC Switch	araç			1	DfCuqy9s9xq	Sağlayıcı geçişi
+KURULACAK	RTK	araç			1	DfCuqy9s9xq	Komut çıktısını sıkıştırır
+KURULACAK	AI üretimi site düzeltme örnekleri	yöntem			1	DfDdhEih-2s	Yalnız OCR: Lotus, Crest, Emberine, Yohalou gibi örnek site tasarımları; araç adı yok
+KURULACAK	Claude Motion 2.0 / Claude Video 2.0	skill			1	KphrV76DJoI	Ücretsiz skill: stil seç, referans bul, brief yaz, döngü animasyon, kare kontrol
+KURULACAK	Uilora (?)	SİTE	uilora (?)		1	De2ffFouvor	UI bileşenleri, tasarım sistemi ve web/mobil için hazır kod parçaları sunan ücretsiz UI kütüphanesi
+KURULACAK	Forge UI	SİTE			1	De2ffFouvor	Kopyala-yapıştır animasyonlu hazır bloklar sunan UI kütüphanesi
+KURULACAK	Uiverse	SİTE	uiverse		1	De2ffFouvor	7.000+ topluluk yapımı açık kaynak UI elemanı (buton, loader vb.) kütüphanesi
+KURULACAK	Designspiration	SİTE	designspiration.com		1	DeZXAa6jE8s	Görsel sanat için yaratıcı arama platformu, tasarım ilham koleksiyonu
+KURULACAK	The Inspiration Grid	SİTE	theinspirationgrid.com		1	DeZXAa6jE8s	Yaratıcı görsel tasarım online dergisi
+KURULACAK	Scrnshts	SİTE	scrnshts.club		1	DeZXAa6jE8s	Küratörlü App Store ekran görüntüsü tasarımları
+KURULACAK	Appinspo	SİTE	appinspo.com		1	DeZXAa6jE8s	Küratörlü mobil uygulama tasarım galerisi
+KURULACAK	Behance	SİTE	behance.net		1	DeZXAa6jE8s	Adobe'un yaratıcı portfolyo vitrini
+KURULACAK	navbar.design	SİTE	navbar.design		1	DeZXAa6jE8s	Navigasyon çubuğu kalıpları galerisi
+KURULACAK	Land-book	SİTE	land-book.com		1	DeZXAa6jE8s	Sektöre göre düzenlenmiş landing page galerisi
+KURULACAK	Collect UI	SİTE	collectui.com		1	DeZXAa6jE8s	Bileşene göre etiketli günlük UI ilhamı
+KURULACAK	Imageory	SİTE	imageory.in		1	DeZXAa6jE8s	Görselleri prompt'larla eşleştiren görsel galeri
+KURULACAK	Backgrounds Supply	SİTE	backgrounds.supply		2	DeZXAa6jE8s	El yapımı hazır web sitesi arka planları
+KURULACAK	Venust Backgrounds	SİTE	backgrounds.venust.ai		1	DeZXAa6jE8s	Arka plan koleksiyonu (link listesinde geçiyor)
+KURULACAK	Dribbble	SİTE	dribbble.com		1	DeZXAa6jE8s	Tasarımcı portfolyo/ilham platformu (link listesinde)
+KURULACAK	One Page Love	SİTE	onepagelove.com		1	DeZXAa6jE8s	Tek sayfa site ilham galerisi (link listesinde)
+KURULACAK	Landingfolio	SİTE	landingfolio.com		1	DeZXAa6jE8s	Landing page ilham galerisi (link listesinde)
+KURULACAK	Screenlane	SİTE	screenlane.com		1	DeZXAa6jE8s	UI ekran ilham galerisi (link listesinde)
+KURULACAK	UX Archive	SİTE	uxarchive.com		1	DeZXAa6jE8s	UX akış referans arşivi (link listesinde)
+KURULACAK	Best SaaS Web Designs	SİTE	bestsaaswebdesigns.com		1	DeZXAa6jE8s	SaaS web tasarım galerisi (link listesinde)
+KURULACAK	SaaSFrame	SİTE	saasframe.io		1	DeZXAa6jE8s	SaaS UI referans galerisi (link listesinde)
+KURULACAK	Pttrns	SİTE	pttrns.com		1	DeZXAa6jE8s	Mobil UI kalıp galerisi (link listesinde)
+KURULACAK	Flowbase	SİTE	flowbase.co		1	DeZXAa6jE8s	Webflow bileşen/şablon kaynağı (link listesinde)
+KURULACAK	Interface Craft	SİTE	interfacecraft.dev		1	DeZXAa6jE8s	Arayüz işçiliği kaynağı (link listesinde)
+KURULACAK	UI Playbook	SİTE	uiplaybook.dev		1	DeZXAa6jE8s	UI kaynak sitesi (link listesinde)
+KURULACAK	UI Labs	SİTE	uilabs.dev		1	DeZXAa6jE8s	UI kaynak sitesi (link listesinde)
+KURULACAK	design.dev	SİTE	design.dev		1	DeZXAa6jE8s	Tasarım kaynak sitesi (link listesinde)
+KURULACAK	lab01.dev	SİTE	lab01.dev		1	DeZXAa6jE8s	Tasarım/UI kaynak sitesi (link listesinde)
+KURULACAK	Insposite	SİTE	insposite.com		1	DeZXAa6jE8s	Tasarım ilham sitesi (link listesinde)
+KURULACAK	Best Designs on X	SİTE	bestdesignsonx.com		1	DeZXAa6jE8s	X'teki en iyi tasarımlar derlemesi (link listesinde)
+KURULACAK	Betwn Studios	SİTE	betwnstudios.com		1	DeZXAa6jE8s	Tasarım stüdyosu/kaynak sitesi (link listesinde)
+KURULACAK	Landdding	SİTE	landdding.com		1	DeZXAa6jE8s	Landing page kaynak sitesi (link listesinde) (?)
+KURULACAK	Motionimo	SİTE	motionimo.xyz		1	DeZXAa6jE8s	Hareket/animasyon ilham sitesi (link listesinde)
+KURULACAK	Loader Buttons (Appllama)	SİTE	loader-buttons.appllama.io		1	DeZXAa6jE8s	Loader butonu bileşenleri (link listesinde)
+KURULACAK	whatships.com	SİTE	whatships.com		1	DeZXAa6jE8s	Ürün/tasarım ilham sitesi (link listesinde)
+KURULACAK	Advanced Delegation (Hermes plugin)	plugin	hermes-agent.nousresearch.com/docs/plugins/a...		1	DfAbIv5C8OH	Orkestratörün her alt ajan için farklı model/profil seçmesini sağlayan resmi Hermes eklentisi v1.0.0 (Hermes 0.22.5+ gerekli)
+KURULACAK	Thinkingods	SİTE	Thinkingods.com		1	DfDMzXZzvy_	Web sitelerini hareketlendiren hazır prompt koleksiyonu (hero bölümü örneği: driftwood log fırça maskesi)
+KURULACAK	davinci-resolve-mcp	MCP	github.com (davinci-resolve-mcp)		1	cLOhuWxqQvI	Claude'u DaVinci Resolve Studio'ya bağlayan MCP sunucusu, MIT lisans, 3.3k yıldız
+KURULACAK	Banana Pro Director (banana-pro-director-skill.md)	skill			1	Dax-38bjV8R	Karakter sayfası, kıyafet referansı, sahne düzeni ve nano banana için ayrıntılı görsel prompt üreten skill
+KURULACAK	Cinema World Builder (cinema-world-builder-skill.md)	skill			1	Dax-38bjV8R	Görselleri kamera hareketi/lens ayarlı sinematik video prompt'larına çeviren skill
+KURULACAK	Seedance 2.0	model			1	Dax-38bjV8R	Video üretim modeli
+KURULACAK	clodfarm	repo	github.com/matankoo1/clodfarm (?)		1	Dd8wLKzn7fK	Claude Code ajanlarını konteynerde gece boyu çalıştıran, planın %80'inde duran, branch başına iş bölen çiftlik
+KURULACAK	OpenRouter / Ollama	araç			1	Dd8wLKzn7fK	clodfarm'da ücretsiz/yerel modelle bot kapasitesi için geçen sağlayıcılar
+KURULACAK	Hyper3D	SİTE			1	Ddn_GQns8hC	Metin/eskizden 3D varlık üretimi
+KURULACAK	Rodin Gen 2.5	model			1	Ddn_GQns8hC	Hyper3D'nin 12K doku üreten 3D üretim modeli
+KURULACAK	VS Code	uygulama			1	De1SyIcCDTB	Ücretsiz kod editörü
+KURULACAK	Filee	repo	github.com/KnifeLemon/Filee		1	De2GSWNgtiV	255 formatı çevrimdışı dönüştüren dosya dönüştürücü, CLI: filee convert photo.heic --to jpg, klasör izleme
+KURULACAK	Figma Design Partner (Figma MCP)	MCP			1	De2kpfnCFeH	Claude'un gerçek Figma dosyalarını okuyup düzenlemesi
+KURULACAK	GPT Image	model			1	De2kpfnCFeH	Görsel üretimi
+KURULACAK	Python (veri analizi)	araç			1	De2kpfnCFeH	Veriyi okuyup PDF üretme
+KURULACAK	Wan2GP	repo	github.com/deepbeepmeep/Wan2GP		1	De39wVMAQlT	Kendi bilgisayarında çalışan ücretsiz açık kaynak video üretim uygulaması
+KURULACAK	LTX-2.5	model			1	De39wVMAQlT	Wan2GP'de sesli 1080p video üreten model
+KURULACAK	Hyper3D (Rodin / WorldGen / MaxGen)	SİTE			1	De3wrvFp4ix	Tek fotoğraftan düzenlenebilir 3D dünya, Blender/Unreal/Unity/Godot'a dışa aktarım, MCP ve API var
+KURULACAK	RRSI	repo	github.com/google-research/rrsi		1	De4WluEDDQ_	Ajan talimat/araç/hafızasını yineleyerek evrimleştiren, yalnız iyileşen düzenlemeleri tutan Google Research çerçevesi (Apache-2.0)
+KURULACAK	EngDesign	repo	github.com/AGI4Engineering/EngDesign		1	De4WluEDDQ_	RRSI README'sinde geçen mühendislik tasarım görev seti
+KURULACAK	harvey-labs	repo	github.com/harveyai/harvey-labs		1	De4WluEDDQ_	RRSI README'sinde geçen görev/benchmark deposu (?)
+KURULACAK	chief-of-staff	skill			1	De6oEmiMblJ	Tek hedefle arka planda ajan ekibi yöneten skill
+KURULACAK	mesh3d.gallery	SİTE	mesh3d.gallery		1	De84m_VEk6F	Etkileşimli Three.js deneyimleri vitrini (574 deneyim)
+KURULACAK	Designeer	SİTE	designeer.xyz		1	De84m_VEk6F	Arayüz işçiliği, bileşen kütüphaneleri, AI araçları kataloğu
+KURULACAK	Snakepool	SİTE	snakepool.org		1	De84m_VEk6F	Web sitesi ilham kütüphanesi (günlük güncel)
+KURULACAK	Agent Skills (addyosmani)	skill	addyosmani/agent-skills		1	De92kC5ob3a	Üretim kalitesinde mühendislik alışkanlıkları
+KURULACAK	3DCodeVerse (ilabai/3dcodeverse)	model	huggingface.co/datasets/ilabai/3dcodeverse		1	De9HFdBTE68	2 milyon Blender/tarayıcı 3D/CAD/shader kod örneği (prompt+kod+render) içeren ~1TB veri seti
+KURULACAK	ReactVibe	SİTE	reactvibe.com		1	De9m92FhliN	Kopyala-yapıştır hazır React bölümleri, hareketli bileşenler, arka planlar
+KURULACAK	Designely Studio	SİTE	designely.studio		1	DeKEMIPtQiq	Görsel etkileşim, 3D ve efekt ekleyip kodu dışa aktaran tasarım canvas aracı
+KURULACAK	Agent Orchestrator (Orchestrator.inc)	repo			1	DeOyWqjiHZA	Go ile yazılmış masaüstü uygulaması; planlayıcı ajan görevleri worker ajanlara (ayrı git branch/worktree) dağıtır, Kanban panosu, 25+ harness (Claude Code, Codex, Cursor, Aider)
+KURULACAK	Ootto	MCP			1	DeUTRQNjRWH	Claude'a bağlanıp reel'lerden yeni versiyon ve aylık içerik planı üreten bağlantı (?)
+KURULACAK	T3-Video	repo	huggingface APRIL-AIGC/T3-Video		1	DeZOzoUmVUg	Mevcut Wan modellerini 3840x2176 yerel 4K'ya uyarlayan, 10x hızlı açık kaynak video modeli
+KURULACAK	Wan2.1-T2V-1.3B	model	huggingface-cli download --repo-type model Wan-AI/Wan2.1-T2V-1.3B		1	DeZOzoUmVUg	T3-Video'nun temel aldığı metinden videoya modeli
+KURULACAK	Wan2.2-TI2V-5B	model	Wan-AI/Wan2.2-TI2V-5B		1	DeZOzoUmVUg	T3-Video'nun diğer temel modeli
+KURULACAK	Groq API	araç	console.groq.com		1	Dej2ynmEjOD	Transkripsiyon için oran sınırlı API (ekranda geçiyor)
+KURULACAK	OpenSource Web Access	repo			1	DembTqftyCI	50+ sağlayıcıya yönlendirmeli ücretsiz web arama ve içerik çekme
+KURULACAK	jev-code	repo			1	DesZCPMlJ-t	Claude Code/Codex/Pi/OpenCode içinde kalibre olasılıklı tipli sınıflandırma aracı (jev_classify, jev_check, jev_score, jev_rank, jev_ask), MIT
+KURULACAK	Kronos	repo	github.com/shiyucoder/Kronos		1	DezlJnWDKEC	Mum grafiklerini token'layıp sonraki mumu tahmin eden, 12 milyar mum ile eğitilmiş açık kaynak model
+KURULACAK	Bot Forge	plugin			1	DfAUro3RU0T	Hermes'e söyleyerek kimlik/hafıza/rutinli AI çalışan ajan kurar
+KURULACAK	Agora	plugin			1	DfAUro3RU0T	Mimar/geliştirici/gözden geçiren/test ajanlarından geliştirme ekibi
+KURULACAK	JoeMemory (?)	plugin			1	DfAUro3RU0T	Cloud Code/Codex/Cursor önceki oturum bağlamını Hermes'e taşır
+KURULACAK	DaVinci Resolve plugin (Hermes)	plugin			1	DfAUro3RU0T	Hermes ile görüntü düzenleme: klasörleme, timeline, marker
+KURULACAK	Hermes Agent plugins koleksiyonu	plugin			1	DfAUro3RU0T	Hermes için yaklaşık 500 ücretsiz eklenti
+KURULACAK	RGB MoCap	repo	github.com/toyxyz/toyxyz_rgbmocap		1	DfBOLz3ClL6	Videodan düzenlenebilir 3D insan animasyonu çıkaran yerel Windows uygulaması, karakter retarget
+KURULACAK	Orbit Agents	uygulama	orbitagents.xyz		1	DfCRr86jGEK	AI ajanlar için hafıza katmanı, 3D bilgi grafı ve ajan işletim sistemi; tek MCP ile bağlanır
+KURULACAK	MotionSites	skill			2	DfCxRQ8uRli	700+ web sitesi tasarımından öğrenip sinematik animasyonlu site üreten açık kaynak skill
+KURULACAK	Reverse Anything Agent (?)	plugin			1	DfDvhU7opmg	Top 30 listesinin 1. sırası (?)
+KURULACAK	Skills by Anthropic	plugin			2	DfDvhU7opmg	Top 30 listesi
+KURULACAK	Archify (Archerfire?) (?)	plugin			1	DfDvhU7opmg	Top 30 listesi
+KURULACAK	PPT Master	plugin			1	DfDvhU7opmg	Top 30 listesi
+KURULACAK	GSD	plugin			1	DfDvhU7opmg	Top 30 listesi
+KURULACAK	BMad Method	plugin			2	DfDvhU7opmg	Top 30 listesi
+KURULACAK	MiMo-V2.6	model			1	Mep87TW9bm8	Çok kipli (görsel, video, ses, belge) açık kaynak model
+KURULACAK	Harness Router	repo			1	Mep87TW9bm8	Unified Harness Protocol, OpenAI Responses uyumlu API; Claude/Codex tarzı ajanları kendi sunucunda 7/24 çalıştırma altyapısı
+KURULACAK	Tencent Cloud Octopus (TencentCloud/Octop..)	repo	github.com/TencentCloud/Octop... (?)		1	Mep87TW9bm8	Kendi barındırılan, çok kullanıcılı/çok ajanlı AI asistanı, Telegram/Discord'dan konuşulur, MIT
+KURULACAK	DeepSeek V4.1 Flash	model			1	Mep87TW9bm8	Çin'in güncel açık kaynak modeli
+KURULACAK	GLM 5.3	model			1	Mep87TW9bm8	Kodlamada güçlü açık kaynak model
+KURULACAK	Qwen3.8 (LiveTranslate)	model			1	Mep87TW9bm8	Gerçekçi metinden sese / canlı çeviri modeli
+KURULACAK	n8n templates (sarveshthakur.ai)	yöntem	sarveshthakur.ai		1	De4SNYgGU5K	WhatsApp/Telegram AI destek, Slack-Notion ekip asistanı, lead zenginleştirme n8n şablonları
+KURULACAK	Jina AI	araç	jina.ai		1	De4SNYgGU5K	Sayfa içeriği çekme (GET jina.ai) n8n araştırma ajanında kullanılıyor
+KURULACAK	SerpAPI	araç			1	De4SNYgGU5K	n8n araştırma ajanında web arama
+KURULACAK	Google Gemini	model			1	De4SNYgGU5K	n8n şablonunda ses/video analizi
+KURULACAK	neuron-explorer	repo	github.com/lyramakesmusic/neuron-explorer		1	De_3H65gDSN	Qwen3.5-4B için nöron keşfi/steering aracı, yerelde CPU/MLX ile çalışır, 3D görünüm
+KURULACAK	Qwen3.5-4B	model			1	De_3H65gDSN	Neuron explorer'ın hedef modeli
+KURULACAK	The Design Shop	SİTE			1	DebxQZrD-cl	Vibe-coding siteleri için copy-paste tasarım/hareket promptları satan kaynak (?)
+KURULACAK	The Design Stack	SİTE			1	DebxQZrD-cl	Tasarım kaynağı paketi; yorum "DESIGN" ile link (?)
+KURULACAK	AI slop önleme yöntemi	yöntem			1	DebxQZrD-cl	Önce plan+referans site, bölüm bölüm kur, hazır animasyon promptlarını yapıştır
+KURULACAK	CLINC150 / BANKING77	kütüphane			1	DfDQXqrk2bt	DeepOpen'ın kıyaslama veri setleri
+KURULACAK	Seferboğaz	SİTE	Seferboğaz.higgsfield.app		1	o4iY8QEeKmU	Videoda kurulan Boğaz turu sitesi (scroll ile sabahtan geceye) (?)
+KURULACAK	Meridian (örnek site)	SİTE			1	Db0YC6jzsKZ	Manus ile yapılmış örnek site
+KURULACAK	Photoshop / After Effects / Illustrator / Premiere	uygulama			1	DcWNKSJtb38	Ferrari tanıtım animasyonu için kullanılan Adobe araçları (?)
+KURULACAK	Ripplix	SİTE	Ripplix.com		1	DdB2dB5OvwC	Dünyanın en büyük UI animasyon/mikro etkileşim kütüphanesi
+KURULACAK	Jitter	araç	Jitter.video		1	DdB2dB5OvwC	Yaratıcı ekipler için animasyon tasarım aracı
+KURULACAK	Tripo AI	araç			1	De00AyASinQ	Metinden temiz dokulu 3D model üretir, siteye indirilebilir
+KURULACAK	Opus 5.5	model			1	De00AyASinQ	Tripo varlıklarıyla Apple tarzı scroll-animasyonlu 3D launch sayfası kurma
+KURULACAK	ScrapeGraph	MCP			1	De10iPOiB6V	Siteyi ver, istediğini söyle, düzenli veri döndürür (ücretsiz eklenti)
+KURULACAK	Claude Code Mods "You Should Know"	araç			1	De1ZqF2iK72	Yerleşik mod: ikinci AI oturumu izleyip kaçanları işaretler
+KURULACAK	auto-handoff modu	repo			1	De1ZqF2iK72	Compact öncesi kısa brief yazıp yeni oturuma devreden GitHub modu (adı ekrandan: auto-handoff / handoff-brief.md) (?)
+KURULACAK	oyun geliştirme kaynakları (Brackeys, The Cherno, ArtStation, Extra Credits, CodeMonkey, FreeCodeCamp vb.)	SİTE			1	De2HewBtWhH	Kod/sanat/oyun tasarımı/pazarlama öğrenme kaynakları listesi
+KURULACAK	minnesotanlp/meta-n	repo	github.com/minnesotanlp/meta-n		1	De2onusyJ5G	Meta^n: ajan kodunu yürütme izlerinden okuyup kendi yardımcı fonksiyonlarını yazan özyinelemeli kendini geliştirme çerçevesi (MIT)
+KURULACAK	OpenFilm	repo			1	De3CVJXvMI5	Claude Code ile video kurduran açık kaynak editör; MP4 export
+KURULACAK	3D scroll hamburger sitesi	yöntem			1	De3xBtpxt_I	Özel 3D scroll restoran sitesi örneği; prompt yorumla verilecek
+KURULACAK	Eyecandy	SİTE			1	De4EwvahdMl	Yaratıcı video teknikleri ve efekt adları örnekleri
+KURULACAK	Savee	SİTE			1	De4EwvahdMl	Görsel referans/ilham
+KURULACAK	Motionographer	SİTE			1	De4EwvahdMl	Lansman filmleri ve motion design örnekleri
+KURULACAK	59 film stilli Claude Code skill	skill			1	De4XEoLjg_f	59 film stili seç, Claude hikaye/müzik/kesimi kodla yazar (6.3K yıldız)
+KURULACAK	15 motion design stili skill	skill			1	De4XEoLjg_f	15 stil, her biri 10 sn film, tam prompt ve kod
+KURULACAK	Cartoon starter kit	repo			1	De4XEoLjg_f	Hazır çizgi film karakteri + 31 duygu, MIT
+KURULACAK	Lyric music video (kodla)	repo			1	De4XEoLjg_f	4K60 şarkı sözü müzik videosu, 17 sahne
+KURULACAK	content-team-agents	repo			1	De5AU5BD2Jp	5 Claude Code ajanı (Scout, Engineer, QA, Growth, PM) YouTube kanalı yönetir
+KURULACAK	overworldaudio.com	SİTE	overworldaudio.com		1	De64R5emX-i	Keşfedilebilir 3D dünya hero örneği
+KURULACAK	lusion.co	SİTE	lusion.co		1	De64R5emX-i	3D hikaye anlatımı, awwwards kalite site
+KURULACAK	belgradearbor.rs	SİTE			1	De64R5emX-i	Smooth scroll örneği (?)
+KURULACAK	ascension.pegassi.be	SİTE			1	De64R5emX-i	Smooth scroll örneği (Pegassi Ascension)
+KURULACAK	landonorris.com	SİTE	Landonorris.com		1	De64R5emX-i	Split-letter kinetik başlık örneği
+KURULACAK	signal-a.studio	SİTE			1	De64R5emX-i	Split-letter kinetik başlık örneği
+KURULACAK	getlayers.ai	SİTE	getlayers.ai/templates		1	De64R5emX-i	Boş sayfadan başlamama; şablon kaynağı
+KURULACAK	Lenis	kütüphane			1	De64R5emX-i	Inertial smooth scroll
+KURULACAK	day-trader-skill (Jake Schincariol)	skill			1	De6XYNozQDh	11 skill: grafik tarama, haber, giriş/stop/hedef, Time Machine 10.000 tekrar, kongre işlemleri (MIT, kağıt ticaret)
+KURULACAK	Animaster Library	SİTE			1	De78haLIIrT	200+ animasyonlu bileşen, 100+ portfolyo site (?)
+KURULACAK	designprompts.dev	SİTE	prompts.dev		1	De78haLIIrT	Monochrome, SaaS, Bauhaus vb. web tasarım stili promptları, ücretsiz tek tık kopya (?)
+KURULACAK	Grok	model			1	De7MoxyH1-M	TradingAgents'ı çalıştırabilen model
+KURULACAK	Google Playground	SİTE	playground.google.com		1	De86cK0ihyb	Kodsuz oyun yapma: Nano Banana görsel, Lyria müzik, Gemini kod
+KURULACAK	Lyria	model			1	De86cK0ihyb	Müzik/ses efekti üretimi
+KURULACAK	rossarke/rossark-motion-skill	skill	github.com/rossarke/rossark-motion-skill		1	De8XyKfjt1T	Mascot nefes alma/göz kırpma animasyonu kodu (React Native, SwiftUI; MIT) (?)
+KURULACAK	linkedin-skills (12 skill)	skill			1	De9379bMHW2	Hermes için LinkedIn içerik sistemi: post-writer, comment-writer, profile-optimizer, career-interview, voice-profile vb.
+KURULACAK	Hermes + Obsidian ortak bellek	yöntem			1	De9Ih2LiSI7	Hermes, Claude Code, Codex, OpenClaw tek Obsidian vault'u paylaşır, gece günlükleri
+KURULACAK	Ruflo benzeri 60 ajanlı orkestratör (adı videoda yok)	repo			1	De9mEmdsWB-	79k yıldızlı; 60 ajan paralel, ortak bellek, akıllı yönlendirme (adı belirtilmemiş)
+KURULACAK	jamwithai/production-agentic-rag-course	repo	github.com/jamwithai/production-agentic-rag-course		1	DeDrlhWk7Q5	Üretim RAG kursu: arXiv Paper Curator, FastAPI, OpenSearch, Docker Compose (MIT)
+KURULACAK	mrsarac/ff-tracking	repo	github.com/mrsarac/ff-tracking		1	DeV1Y0pChK-	Koddan prosedürel sinematik kamera çekimi videosu + sentezlenmiş ses (MIT)
+KURULACAK	Blender + Claude Opus 5.5	yöntem			1	DeZwcxrFAlE	Blender'da 3D sahne kur/rig/animasyon; ücretsiz asset'leri yerleştirme hilesi; ~90M token maliyeti
+KURULACAK	Kimodo	araç			1	DeZwcxrFAlE	Animasyon aday etiketi (karakter hareketleri) (?)
+KURULACAK	3D site çerçevesi (Astra)	yöntem			1	De_q2EcutoT	5 dakikada 3D site yapma çerçevesi; yorumla verilecek
+KURULACAK	alimdesigner.com	SİTE	alimdesigner.com		1	Deesy64AN1-	Ürün tasarımcı portfolyosu
+KURULACAK	cyze.dev	SİTE	cyze.dev		1	Deesy64AN1-	Design engineer portfolyosu
+KURULACAK	keychain.vercel.app	SİTE	keychain.vercel.app		1	Deesy64AN1-	Portfolyo ilhamı
+KURULACAK	SiteReel.ai	SİTE	SiteReel.ai		1	DejMCrBjFNs	Yapay zeka ile site yapmak için büyük prompt koleksiyonu
+KURULACAK	Heygem	repo			1	Den39fYxLsI	Ücretsiz HeyGen alternatifi, yüz ve ses klonlayan avatar (yerel)
+KURULACAK	OmniVoice	repo	github.com/k2-fsa/OmniVoice		1	Den39fYxLsI	Gerçek zamanlı açık kaynak ses AI, çoklu dil
+KURULACAK	Handy	repo	github.com/cjpais/Handy		1	Den39fYxLsI	Ücretsiz, çevrimdışı konuşmadan yazıya uygulama (Wispr Flow alternatifi)
+KURULACAK	Ambar Serum cilt bakım sitesi	SİTE			1	Deu0zarxG9w	Etkileşimli animasyonlu örnek marka sitesi
+KURULACAK	Open WebUI	repo			1	DewhksxCR_Z	ChatGPT Plus alternatifi, yerel/çevrimdışı sohbet arayüzü (156k yıldız)
+KURULACAK	Meetily	repo	maitis.ai (?)		1	DewhksxCR_Z	Çevrimdışı toplantı kaydı/özeti (Otter alternatifi)
+KURULACAK	Duix Avatar	repo	www.duix.com		1	DewhksxCR_Z	HeyGen alternatifi avatar; GPU ister
+KURULACAK	Perplexity / NotebookLM alternatifleri	yöntem			1	DewhksxCR_Z	10 araçlık ücretsiz alternatif listesi (tüm adlar ekranda kesik)
+KURULACAK	gamedev-skills/awesome-gamedev-agent-skills	skill	github.com/gamedev-skills/awesome-gamedev-agent-skills		1	DezB2bBDYgC	74 oyun geliştirme skill'i + yönlendirici (Godot, Unity, Unreal, three.js, Bevy, pygame); Claude Code eklentisi; Apache-2.0
+KURULACAK	Morphicons	SİTE	morphicons.com		1	DezTQtljo0n	SVG ikon animasyonları/geçişleri
+KURULACAK	Isocons	SİTE	isocons.app		1	DezTQtljo0n	İzometrik 3D görünümlü ikonlar
+KURULACAK	Nucleo	SİTE	nucleoapp.com		1	DezTQtljo0n	Büyük uygulamalar için ikon kütüphanesi ve yönetim araçları
+KURULACAK	Iconsax	SİTE	iconsax.io		1	DezTQtljo0n	Çok stilli ikon kütüphanesi (dashboard, mobil, SaaS)
+KURULACAK	Hugeicons	SİTE	hugeicons.com		1	DezTQtljo0n	Geniş özelleştirilebilir ikon koleksiyonu
+KURULACAK	9 GitHub repo (Bloomberg Terminal dahil)	yöntem			1	DfAYTblT-vi	Yatırımcı için ücretli yazılım yerine 9 açık repo (adlar videoda yok)
+KURULACAK	HamSanders/soundbox	repo	github.com/HamSanders/soundbox		1	DfBSFBwCikQ	Yerel ElevenLabs/Suno alternatifi: ses efekti, şarkı, ses klonlama; 21 araçlı MCP; MIT; claude mcp add --transport http soundbox http://127.0.0.1:17494/mcp
+KURULACAK	console-skill	skill	github.com/_/console-skill (?)		1	DfCSjHRsqOb	11 skill: reverse-engineer, graphics-artist, backend-engineer, controller-mapper, mod; PlayStation oyunlarını Claude ile işleme iddiası
+KURULACAK	trycua/cua	repo	github.com/trycua/cua		1	DfCz8bJBlwm	AI ajanlarına masaüstü uygulamalarını kontrol ettiren, VM ve benchmark destekli proje; Hermes entegrasyonu
+KURULACAK	Glif MCP	MCP	glif-mcp-server		1	DfE8f4ogMa7	Yüzlerce görsel/video üretim modeline bağlanır, prompt'u optimize eder
+KURULACAK	Açık kaynak yazılım alternatifleri sitesi	SİTE			1	bK31qhKPDOQ	Claude Code, Cursor, Photoshop, Canva, Notion ücretsiz karşılıkları kategori kategori (site adı verilmemiş)
+KURULACAK	claude-trace	repo	badlogic/claude-trace		1	De82MvBGH8X	Claude Code API çağrılarını yakalayıp kaydeder; her tool call, token, karar yerel panelde izlenir (npx)
+KURULACAK	Figma Weave	uygulama			1	De_77oxt8tQ	Figma'nın node tabanlı üretim aracı; şişirilmiş nesne görselleri ve video üretimi
+KURULACAK	Figma Make	uygulama			1	De_77oxt8tQ	Figma'da tasarlanan siteye webcam el takibi eklemek için kullanıldı
+KURULACAK	GPT Image 2.5	model			1	De_77oxt8tQ	Nesneyi şişirilmiş gösteren görsel üretimi (Weave içinde)
+KURULACAK	Seedance 2.5	model			1	De_77oxt8tQ	Görsel dizisinden loop video üretimi (Weave içinde)
+KURULACAK	Meta Ad Library	SİTE			1	DfDrgIqSh_P	Rakiplerin aktif reklamlarının herkese açık kütüphanesi; 400 reklam çekilir
+KURULACAK	agency-agents (The Agency)	repo	msitarzewski/agency-agents		1	Db1Y5sGyxrj	17 bölümde 270 uzman AI ajanı; Claude Code'a install.sh --tool claude-code ile kurulur, masaüstü uygulaması da var (MIT)
+KURULACAK	TradingView Desktop	uygulama			1	DceOpdKOks8	Borsa grafik uygulaması; masaüstü sürümü şart (tarayıcı sürümü MCP ile çalışmıyor)
+KURULACAK	TradingView MCP sürücüsü	MCP			1	DceOpdKOks8	Claude Code'u TradingView Desktop'a bağlayan açık kaynak MCP (adı videoda yok)
+KURULACAK	Fintables MCP	MCP			1	DceOpdKOks8	Bilanço, çarpan, KAP bildirimi verisini Claude'a getiren Fintables MCP'si
+KURULACAK	bist-portfoy-terminali skill	skill			1	DceOpdKOks8	Watchlist'i okuyup Fintables verisiyle birleştiren, tavsiye üretmeyen özel skill
+KURULACAK	Adobe Photoshop (Beta)	uygulama			1	DdJSH7GBxNi	Porsche düzenleme videosunda görünen uygulama; araç içeriği yok
+KURULACAK	AuK	model	Tencent Hunyuan AuK		1	DdxYLVrEkdr	Tek talimatla ses üretme/düzenleme/iyileştirme/ayırma yapan açık kaynak konuşma modeli; AuK-Flash 4 adımda çıkarım
+KURULACAK	Hugging Face Spaces	SİTE			1	DdxYLVrEkdr	AuK demosu kurulumsuz denenebilir
+KURULACAK	oh-my-opencode-slim	plugin			1	De1awnxH44d	OpenCode için çoklu ajan orkestrasyonu (Orchestrator, Explorer, Fixer, Oracle, Designer, Council); modeller karıştırılır
+KURULACAK	meow.codes	SİTE			1	De1awnxH44d	oh-my-opencode-slim marketplace sayfası (?)
+KURULACAK	Offer Master	skill	https://github.com/Liamrjohnston/offer-master-skill.git		1	De2-09Cjnyx	18 teklif skill'ini birleştirip satış teklifini düzelten skill; kör testte düz Claude 4.6'ya karşı 8.0
+KURULACAK	coreyhaines31/marketingskills	repo	coreyhaines31/marketingskills		2	De2-09Cjnyx	Offer Master'a girdi olan pazarlama skill'leri
+KURULACAK	wondelai/skills	repo	wondelai/skills		1	De2-09Cjnyx	Offer Master girdisi skill deposu
+KURULACAK	getagentseal/founder-playbook	repo	getagentseal/founder-playbook		1	De2-09Cjnyx	Offer Master girdisi
+KURULACAK	alexsmedile/hormozi-skills	repo	alexsmedile/hormozi-skills		1	De2-09Cjnyx	Hormozi tarzı teklif skill'leri
+KURULACAK	minhnv0807/ai-business-skills	repo	minhnv0807/ai-business-skills		1	De2-09Cjnyx	Offer Master girdisi
+KURULACAK	mattgierhart/PRD-driven-context-engineering	repo	mattgierhart/PRD-driven-context-engineering		1	De2-09Cjnyx	Offer Master girdisi
+KURULACAK	coleschaffer/copywritingskills-rmbc	repo	coleschaffer/copywritingskills-rmbc		1	De2-09Cjnyx	Copywriting skill'i
+KURULACAK	BaoCut	uygulama	github.com/jimLiu/baocut		1	De2TJpwjJWX	Düzenlenebilir timeline'lı AI video ajanı; altyazı, çeviri, dublaj, dolgu kelime kesme; Mac/Windows masaüstü
+KURULACAK	headcount	repo	cbrock84/headcount		1	De2yzLsHIcw	16 departman 172 skill; her departman ayrı kurulan plugin (Claude Code, ChatGPT, Codex)
+KURULACAK	/advisor	yöntem	/advisor		1	De3Gaq0TiUj	Claude Code komutu: ucuz model işi yapar, zor kararlarda Opus'a danışır; limit tasarrufu
+KURULACAK	Trading OS mimarisi	yöntem			1	De3y3DGEyXD	Veri, araştırma/AI, strateji, backtest, risk, yürütme, izleme katmanlı Docker dağıtımlı trading sistemi taslağı; somut repo adı yok
+KURULACAK	Anthropic Claude plugin'leri	plugin			1	De4GsI7N9Wl	Anthropic'in açık kaynak rol bazlı plugin'leri (sales, marketing, finance, legal, product, support, data); 11 ilk, 18'e çıkmış; Cowork ve Claude Code
+KURULACAK	Openverse API	araç			1	De4XVvXPTWY	5 milyon+ ses efektine ajan erişimi (arama/indirme)
+KURULACAK	Real SFX	araç			1	De4XVvXPTWY	Timeline'ı çözüp doğru karede ses efekti ekleyen araç
+KURULACAK	earshot	araç			1	De4XVvXPTWY	Kodla yeni ses efekti veya ses kiti üreten araç
+KURULACAK	ScrapeGraphAI	araç			1	De5KBIUB2hD	Düz Türkçe/İngilizce tarif edilen veriyi sitelerden yapılandırılmış çeken AI scraper; MCP sunucusu var
+KURULACAK	Strawberry Browser	uygulama	strawberrybrowser.com		1	De65PpWMw8m	Yerleşik AI takım arkadaşlı web tarayıcısı
+KURULACAK	Claude trading desk skill'leri	yöntem			1	De7CBz-q42H	Scanner, chart analyst (TradingView), researcher (10-K skoru), quant (10.000 tekrar), risk manager skill'leri; rehber DM'de
+KURULACAK	3D animasyon video skill'i	skill			1	De7NZWcodjP	Fikirden görsel promptları, zaman damgalı video promptu, seslendirme ve kurguyla 3D animasyon video; skill dosyası DM'de
+KURULACAK	Recordly	repo	webadderallorg/Recordly (?)		1	De88VHnzFRS	Ekran kaydına zoom, imleç yumuşatma, tık sıçraması, arka plan çerçevesi ekleyen açık kaynak araç (Mac/Win/Linux)
+KURULACAK	Codex ses modu / Codex TUI	araç			1	De8cK67ACOB	OpenAI Codex terminal güncellemesi: sesle paralel işler, tek ekranda iş listesi, uzaktan kontrol, fork
+KURULACAK	ECC	plugin			1	De9mZYXCGeB	Kod plugin'i
+KURULACAK	Google Opal	araç			1	DeKYdKRzlhT	Kodsuz AI iş akışı kurma
+KURULACAK	Google Pomelli	SİTE	labs.google/pomelli		1	DeKYdKRzlhT	Web sitesi linkinden sosyal içerik kiti üretir
+KURULACAK	Personal Agent Proxy	repo			1	De_rcg0zSq4	Bağlantıları bir kez kuran, ajan başına izin veren, eylemleri kaydeden açık kaynak self-host erişim katmanı (MCP)
+KURULACAK	3D oyun varlık aracı	araç			1	Deg4e9QjnaY	Tarifle bina/araç/karakter üreten, AI+Blender+Python aracı; Reddit u/Embarrassed_Guide_80, adı yok
+KURULACAK	TrimOne (Reticle (?))	repo			1	DejcAcwz89b	1.2 MB model; dosya/log/sohbetten ajana gereken satırları aynen tutup gerisini atar; CPU'da ms
+KURULACAK	Comp AI	uygulama			1	DeuFYtAIKHm	SOC 2/ISO 27001 sertifikasını AI ile otomatikleştiren açık kaynak şirket
+KURULACAK	TrustMRR	SİTE			1	DeuFYtAIKHm	Stripe ile doğrulanmış gelir verisi
+KURULACAK	PromptDirector	plugin	wchao6891/promptdirector		1	Dez-LBzjJUd	Chrome eklentisi: AI görsel/video ve promptlarını kaydeder; Codex/Claude Code yerel MCP ile arar (Apache-2.0)
+KURULACAK	AI design tells skill	skill			1	DezBAUdE1el	60 AI tasarım kokusunu düzelten açık kaynak tasarım skill'i (70k+ yıldız); adı videoda yok
+KURULACAK	modulify.ai	SİTE	modulify.ai		1	DezU-xDkzFO	Lovable'dan ucuz, prompttan site/app üretimi
+KURULACAK	Motionin	SİTE	motionin.design		1	DezU-xDkzFO	1 prompt 1 website
+KURULACAK	Wonderlist	SİTE	wonderlist.design		1	DezU-xDkzFO	127 tam Figma web tasarımı
+KURULACAK	Iconly	SİTE	iconly.design		1	DezU-xDkzFO	İkon koleksiyonu
+KURULACAK	Fontinlogo	SİTE	fontinlogo.com		1	DezU-xDkzFO	Markaların kullandığı fontlar
+KURULACAK	Site of Sites	SİTE	siteofsites.co		1	DezsnjllIa1	Site koleksiyonu
+KURULACAK	AI YouTube video üretici	repo			1	DfAaeqfSfzi	Senaryo, storyboard, görüntü, ses, kurgu ve render yapan açık kaynak sistem; 100+ araç, 700 skill, 72.3K yıldız; adı videoda yok
+KURULACAK	unbrowse	plugin	hermes plugins install unbrowse		1	DfBbQs6jKUJ	Hermes: siteleri API gibi okur
+KURULACAK	hermes-whatsapp-voice	plugin	hermes plugins install hermes-whatsapp-voice		1	DfBbQs6jKUJ	Hermes ile WhatsApp sesli arama
+KURULACAK	agent-importers	plugin	hermes import-agent		1	DfBbQs6jKUJ	Claude Code, Codex, Cursor, OpenClaw kurulumunu Hermes'e taşır
+KURULACAK	vibecoded web efektleri	yöntem			1	DfC_kdONa5N	Arina'nın efekt prompt kütüphanesi; araç adı yok
+KURULACAK	Kronos	model			1	DfD4q2sDyNN	12 milyar mum üzerinde eğitilmiş açık kaynak finansal grafik tahmin foundation modeli
+KURULACAK	Candle	araç			1	DfD4q2sDyNN	Kronos çevresinde dürüst skorlama laboratuvarı, 72 sayfa rehber, Claude Code ile kurulum
+KURULACAK	Hermes Apollo	skill			1	De_Dtr8FED7	Hermes ile Jarvis gibi konuşma; sayfa kurar, not açar, hatırlar, Search Console ile SEO boşluklarını bulur
+KURULACAK	Hermes Quicksilver	araç			1	Dezr14Jm0IV	Hermes güncellemesi: soğuk başlangıç 4.3sn'den 0.9sn'ye, fleet routing (tek gateway arkasında ayrı model/hafıza/skill'li çoklu ajan), kalıcı arka plan işleri
+KURULACAK	Konut kulesi kat seçimli site konsepti	yöntem			1	DfC25-KtwRq	Kat seçince kameranın içeri uçtuğu emlak sitesi bölümü (tasarım referansı; Mich - Software Developer)
+KURULACAK	Anthropic Knowledge Work Marketplace	plugin			1	DbukLdmuB2x	Claude Code'da resmi pazaryeri: marketing, sales, legal, productivity, finance eklentileri
+KURULACAK	Claude marketing plugin	plugin			1	DbukLdmuB2x	Marka sesiyle yazar, kampanya planlar, kanal performansı çeker
+KURULACAK	Claude sales plugin	plugin			1	DbukLdmuB2x	Aday araştırır, outreach yazar, görüşme hazırlığı yapar
+KURULACAK	Claude legal plugin	plugin			1	DbukLdmuB2x	Sözleşme/NDA okuyup riskli maddeleri işaretler
+KURULACAK	Claude productivity plugin	plugin			1	DbukLdmuB2x	Takvim, görev, sohbetleri tarar
+KURULACAK	Claude finance plugin	plugin			1	DbukLdmuB2x	Defter tutma, ay sonu rakamları
+KURULACAK	bleibtgleich.dev	SİTE	https://bleibtgleich.dev		1	Dd08uX3ocwk	Portfolyo referansı: designer/developer
+KURULACAK	danilodemarco.com	SİTE	https://danilodemarco.com		1	Dd08uX3ocwk	Portfolyo referansı: görsel ve tipografi tasarımcısı
+KURULACAK	niccolomiranda.com	SİTE	https://niccolomiranda.com		1	Dd08uX3ocwk	Portfolyo referansı: dijital art director/developer
+KURULACAK	thibaut.cool	SİTE	https://www.thibaut.cool		1	Dd08uX3ocwk	Portfolyo referansı: 3D ve motion
+KURULACAK	2xa.studio	SİTE			1	Dd08uX3ocwk	Portfolyo referansı: web stüdyosu (?)
+KURULACAK	Draw.io Skill (agents365-ai/drawio-skill)	skill	agents365-ai.github.io/drawio-skill		1	De14ifUEh-N	Claude ile draw.io diyagramı üreten skill
+KURULACAK	Draw.io	uygulama	Draw.io		1	De14ifUEh-N	Diyagram aracı
+KURULACAK	agent_reach/channels	repo			1	De14ifUEh-N	Agent Reach kanal modülü ekranda görünüyor (?)
+KURULACAK	Replit Design	araç			1	De2BSJgx9RA	Düz İngilizce tarif ve marka varlıklarıyla landing page/ürün sayfası üreten tasarım ajanı
+KURULACAK	rossark-motion-skill	skill	https://github.com/rossarko-official/demo (?)		1	De2Uqd6AN5O	SVG/çizimi 60fps animasyona çeviren MIT Claude Code skill'i (React Native, SwiftUI); animasyon ilkeleri, motor şablonları, kare ölçüm aracı
+KURULACAK	Motion.dev	SİTE	https://motion.dev		1	De3Jzcyow4k	Claude'u dokümanına yönlendirince cilalı geçiş/animasyon ekletir
+KURULACAK	OpenSEO	repo			1	De4-9-ugjrL	Semrush/Ahrefs benzeri anahtar kelime araştırması, aboneliksiz, kullandığın kadar veri ücreti
+KURULACAK	Twenty	repo			1	De4-9-ugjrL	Kendi sunucunda barındırılan açık kaynak CRM (Salesforce alternatifi)
+KURULACAK	Agentic AI Implementation Quick Guide	yöntem			1	De68AiWSiMp	Ajan mimarileri, çerçeveler (CrewAI, LangGraph, n8n, Dify, LlamaIndex, AG2/AutoGen, PydanticAI, OpenAI Agents SDK, Claude Agent SDK, Google ADK, Flowise), hafıza, MCP, A2A, RAG, güvenlik şeması
+KURULACAK	promptfoo	araç			1	De68AiWSiMp	Değerlendirme/test
+KURULACAK	Mem0	araç			1	De68AiWSiMp	Uzun vadeli hafıza
+KURULACAK	E2B	araç			1	De68AiWSiMp	Kod sandbox
+KURULACAK	Real SFX (Clipwing)	skill			1	De6cAdNqwVf	Videodaki hareket anlarını bulup sesi tam kareye yerleştiren Claude Code skill'i (MIT), kendi ses kütüphanesi yok
+KURULACAK	Earshot (Leon Lin)	araç			1	De6cAdNqwVf	Aranan ses yoksa kodla sıfırdan üretir, hazır ayarlardan ses kiti çıkarır (MIT)
+KURULACAK	skool.com/ai-marketing-hub-pro	SİTE	skool.com/ai-marketing-hub-pro		1	De7ClqFAC3T	AI Marketing Hub Pro topluluğu
+KURULACAK	Jakeschincariol/day-trader-skill	skill	github.com/Jakeschincariol/day-trader-skill		1	De8BW-1Rsqr	Gün içi trade için 11 Claude skill'i; grafik tarama, haber, geri oynatma (MIT, emir veremez)
+KURULACAK	Jakeschincariol/trader-skill	skill	github.com/Jakeschincariol/trader-skill (?)		1	De8BW-1Rsqr	Önceki Trader skill'i: 13F, tarayıcı, vergi lotları
+KURULACAK	xbtlin/ai-berkshire	repo	github.com/xbtlin/ai-berkshire (?)		1	De8BW-1Rsqr	Buffett tarzı araştırma yapan AI ajanları
+KURULACAK	huseinzol05/Stock-Prediction-Models	repo	github.com/huseinzol05/Stock-Prediction-Models		1	De8BW-1Rsqr	Düzinelerce derin öğrenme modeli ve trade botu
+KURULACAK	TradeMaster-NTU/TradeMaster	repo	github.com/TradeMaster-NTU/TradeMaster		1	De8BW-1Rsqr	Üniversite yapımı, deneme yanılmayla trade öğrenen platform
+KURULACAK	quantskills	repo	github.com/quantskills/quantskills (?)		1	De8BW-1Rsqr	200+ quant skill/ajan
+KURULACAK	artillerytrades/ai-wrong	repo			1	De8BW-1Rsqr	Ekranda geçiyor (?)
+KURULACAK	Hermes + Obsidian	yöntem			1	De8e0bWBKGV	Obsidian kasasını Hermes'e bağlayarak notları ajan hafızası yapma; kasa araması, sesli asistan, notlardan içerik
+KURULACAK	Agent OS	araç			1	De8e0bWBKGV	Hermes'i bağlayan ajan işletim sistemi paneli
+KURULACAK	aiprofitboardroom.com	SİTE	AIprofitboardroom.com		1	De8e0bWBKGV	Julian Goldie topluluk sitesi (?)
+KURULACAK	Book to Skill (virgiliojr94/book-to-skill)	skill	virgiliojr94/book-to-skill		1	De95NHOuo-x	PDF kitap/makaleyi bölüm bölüm Claude skill'ine çevirir
+KURULACAK	Teach skill (mattpocock)	skill			1	De95NHOuo-x	Neden öğrendiğini sorar, kaynaklardan kısa ders üretir, quiz geçmeden ilerletmez
+KURULACAK	Render CV	araç	rendercv.com (?)		1	De95NHOuo-x	Türkçe/İngilizce düzgün PDF CV üretir
+KURULACAK	Anthropic 11 Claude plugin	plugin			1	DeL-w7yxAS9	Satış, pazarlama, finans, hukuk, ürün vb. her iş rolü için; HubSpot, Notion, Slack bağlar
+KURULACAK	AI Marketing Claude	skill			1	DeR-SLBxBPe	15 pazarlama skill'i paralel alt ajanlarla (~2.7k yıldız)
+KURULACAK	Rimac Nevera	yöntem			1	DeW9zMmNWgK	Yalnız araba reklam görseli, araç yok
+KURULACAK	OpenWhispr	repo	github.com/OpenWhispr/openwhispr		1	De_0D2tEa9y	WisprFlow alternatifi, her uygulamaya dikte
+KURULACAK	OpenProject	repo	github.com/opf/openproject		1	De_0D2tEa9y	Asana alternatifi
+KURULACAK	Chatwoot	repo	github.com/chatwoot/chatwoot		1	De_0D2tEa9y	Intercom alternatifi
+KURULACAK	Cap	repo	github.com/CapSoftware/Cap		1	De_0D2tEa9y	Loom alternatifi (ekran kaydı)
+KURULACAK	monolith.nyc	SİTE	monolith.nyc		1	De_wbM_gdoD	Yükleme ekranı tasarım referansı
+KURULACAK	incommonwith.com	SİTE	incommonwith.com		1	De_wbM_gdoD	Işık aç/kapa geçişli ürün sayfası referansı
+KURULACAK	palmer-dinnerware.com	SİTE	palmer-dinnerware.com		1	De_wbM_gdoD	İki gezinme modlu ızgara referansı
+KURULACAK	passport-hotel.vercel.app	SİTE	passport-hotel.vercel.app		1	De_wbM_gdoD	Yatay kaydırma ve sürükle-keşfet referansı
+KURULACAK	PP-OCRv5	model			1	DehD9WBq0Qb	Karşılaştırma olarak ekranda geçiyor (?)
+KURULACAK	FreeVideo (FlashML-org)	repo	https://github.com/FlashML-org/FreeVideo (?)		1	Dejm9UHhd6w	MiniMax H3 video modelini 8GB VRAM'de yerel çalıştırır, ComfyUI özel düğümü
+KURULACAK	Prompt Motion (100xEngineers)	SİTE			1	Deq28xtp6dj	Claude Opus 5.5 ile yapılmış 200+ hareketli grafik galerisi, her biri prompt/skill'iyle
+KURULACAK	Sinematik AI web sitesi prompt kütüphanesi	SİTE			1	Dez1KPeuXqA	Kopyala-yapıştır site promptları, kaynak kod, Obsidian vault'u; adı videoda yok
+KURULACAK	WeKnora	repo	github.com/Tencent/WeKnora		1	DezCrecDDSm	Notion AI alternatifi, yerel modeller
+KURULACAK	Claude Token Efficient	repo			1	DezVb3hlauQ	Tek CLAUDE.md dosyası: övgüsüz, kısa cevap; kurulum yok, README'ye göre ~%4-12 az çıktı jetonu
+KURULACAK	PPT Master	repo	https://github.com/hugohe3/ppt-master.git		1	DfA-nQWiPKz	Düzenlenebilir PowerPoint sunumları (67k)
+KURULACAK	charliehills.substack.com	SİTE	charliehills.substack.com		1	DfA-nQWiPKz	Kaynak olarak ekranda
+KURULACAK	Cloudflare güvenlik skill'i	skill			1	DfAdjJnIapp	Yapay zeka ile yazılan uygulamada sızıntı/güvenlik denetimi
+KURULACAK	AI Agents for Beginners	repo	aka.ms/ai-agents-beginners		1	DfBcE4Bli0y	Microsoft 18 derslik ajan kursu (~78k yıldız)
+KURULACAK	Awesome LLM Apps	repo			1	DfBcE4Bli0y	100+ çalışan ajan örneği
+KURULACAK	MCP for Beginners	repo			1	DfBcE4Bli0y	Microsoft MCP kursu
+KURULACAK	TradingAgents (TauricResearch)	repo	TauricResearch/TradingAgents		1	DfCqB3dywwJ	Çoklu ajan hisse/kripto analiz firması: 4 analist, boğa-ayı tartışması, risk ekibi (Apache-2.0, ~116k yıldız); pip install, tradingagents
+KURULACAK	cathrynlavery/diagram-design	skill	cathrynlavery/diagram-design		1	DfDAxN1Rex-	Diyagram tasarımı
+KURULACAK	career-ops-hq/career-ops	repo	career-ops-hq/career-ops		1	DfDAxN1Rex-	Kariyer/başvuru
+KURULACAK	Panniantong/Agent-Reach	repo	Panniantong/Agent-Reach		1	DfDAxN1Rex-	Ajan internet erişimi
+KURULACAK	garrytan/gstack	repo	garrytan/gstack		1	DfDAxN1Rex-	Garry Tan skill seti
+KURULACAK	Agent OS Memory Galaxy	araç			1	DfEj5ajgqD2	Obsidian kasasından otomatik oluşan 3B bellek galaksisi (239 not, 1227 bağ); Mission Control ve radar da 3B
+KURULU-KANIT	Public APIs	repo	github.com/public-apis/public-apis (?)	repo-url:public-apis/public-apis	1	DdzOasRCJ9h	Kategoriye göre düzenlenmiş geniş halka açık API listesi
+KURULU-KANIT	FreeCodeCamp	repo	github.com/freeCodeCamp/freeCodeCamp (?)	repo-url:freecodecamp/freecodecamp	1	DdzOasRCJ9h	Web, JavaScript, Python, veri tabanı öğreten açık kaynak öğrenme platformu
+KURULU-KANIT	TencentDB AgentMemory	repo	TencentDB Agent Memory (npm paketi, v1.0.1)	ad=~/.claude/plugins/cache\tencentdb-agent-memory\tencentdb-agent-memory	1	90Mr2UP1HFA	Ajanlara kalıcı yerel hafıza (kısa/uzun süreli katman); token maliyetini %61 azalttığı söylenir
+KURULU-KANIT	Clay	uygulama		ad=envanter.tsv:CC:mcp	1	Dd1wKuDIO9r	Satış ekiplerinin kullandığı ücretli lead zenginleştirme aracı (referans)
+KURULU-KANIT	Playwright	MCP		ad=~/.claude/plugins/cache\claude-plugins-official\playwright	1	De-NlsAtzUn	Claude'a kendi tarayıcısını verir: sayfa açma, buton test, form doldurma
+KURULU-KANIT	Composio	MCP		ad=envanter.tsv:CC:mcp	1	De-NlsAtzUn	Gmail, Slack gibi birçok uygulamaya tek konektörle erişim
+KURULU-KANIT	Logo Design Skill	skill		ad=~/.claude/plugins/marketplaces\logo-design-skill	1	De0BCU3CdJ1	Claude/Codex/Gemini'yi logo tasarımcısına çevirir; 1400+ gerçek logo, favicon ve uygulama ikonu üretir
+KURULU-KANIT	Whisper	repo	github.com/openai/whisper (?)	repo-url:openai/whisper	1	De18V-pAezC	Herhangi bir dilde konuşmadan transkript
+KURULU-KANIT	Browser Use	repo	github.com/browser-use/browser-use (?)	ad=~/.claude/plugins/cache\knowledge-work-plugins\browser-use	1	De18V-pAezC	Tarayıcıdaki işleri yapay zekaya yaptırır
+KURULU-KANIT	VoiceStudio	repo		ad=~/.claude/skills/voicestudio	2	De18V-pAezC	Ses klonlama, dublaj ve seslendirme (aciklamada 646 dil denmiş)
+KURULU-KANIT	browser-automation	skill	.claude/skills/browser-automation/SKILL.md	ad=~/.claude/skills/browser-automation	1	De1p5PkkRxk	Claude'a gerçek tarayıcı kontrolü verir
+KURULU-KANIT	data-analysis	skill	.claude/skills/data-analysis/SKILL.md	ad=~/.claude/skills/data-analysis	1	De1p5PkkRxk	Dağınık tabloyu temizleyip analiz ve rapor üretir
+KURULU-KANIT	content-writer	skill		ad=envanter.tsv:CC:plugin-skill	1	De1p5PkkRxk	İçerik yazım skill'i (8 skill listesinin parçası)
+KURULU-KANIT	UI UX Pro Max	skill	nextlevelbuilder/ui-ux-pro-max-skill	ad=~/.claude/skills/ui-ux-pro-max	3	De2C0LADUkG	GitHub'da 139k yıldız; her UI için stil, palet ve UX kuralları
+KURULU-KANIT	Hermes	araç		ad=araclar/hermes	1	De2XM2to_Pv	Proje yöneticisi ajan: işi görevlere bölüp devreder, sonucu kontrol eder
+KURULU-KANIT	OpenCode	araç		ad=~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\opencode	2	De2XM2to_Pv	Hermes'e bağlanan ücretsiz modellerle kodu yazan kodlama ajanı
+KURULU-KANIT	CrewAI	repo	crewAIInc/crewAI	ad=~/.claude/skills/crewai	2	De33c_hIA9h	Rol/hedef/araçlı çoklu ajan iş akışı Python framework'ü (Crews ve Flows), Ollama destekli
+KURULU-KANIT	Ollama	araç		ad=_inv_winget.txt	1	De33c_hIA9h	Yerel model çalıştırma, CrewAI ile bağlanır
+KURULU-KANIT	humanizer	skill	blader/humanizer	ad=~/.claude/plugins/cache\humanizer\humanizer	2	De3S2C3P7yb	Yazıdan yapay zeka izlerini temizler
+KURULU-KANIT	file-organizer	skill	ComposioHQ/awesome-claude-skills	ad=~/.claude/skills/file-organizer	1	De3S2C3P7yb	Klasörleri düzenler, kopyaları bulur
+KURULU-KANIT	meeting-insights-analyzer	skill	ComposioHQ/awesome-claude-skills	ad=~/.claude/skills/meeting-insights-analyzer	1	De3S2C3P7yb	Toplantı transkriptinden iletişim davranışı analizi
+KURULU-KANIT	last30days-skill	skill	mvanhorn/last30days-skill	ad=~/.claude/plugins/marketplaces\last30days-skill	1	De3S2C3P7yb	Reddit, X, YouTube, HN, Polymarket'te son 30 gün araştırması
+KURULU-KANIT	AgentBrowser	araç		ad=~/.claude/plugins/cache\agent-browser\agent-browser	1	De3S2C3P7yb	Claude'un gerçek tarayıcı sürmesini sağlar
+KURULU-KANIT	Agent Skills (addyosmani)	repo	github.com/addyosmani/agent-skills (?)	repo-url:addyosmani/agent-skills	3	De5LuzmRWv0	24 yaşam döngüsü skill'i, doğrulama kapıları (?)
+KURULU-KANIT	Context7	MCP	github.com/upstash/context7	ad=_inv_mcp.txt	1	De5LuzmRWv0	Kütüphanelerin güncel dokümanını LLM'e verir
+KURULU-KANIT	Graphify	skill	github.com/safishamsi/graphify (?)	ad=~/.claude/skills/graphify	1	De5LuzmRWv0	Kod tabanını sorgulanabilir bilgi grafiğine çevirir
+KURULU-KANIT	21st.dev Magic	MCP	github.com/21st-dev/magic-mcp	repo-url:21st-dev/magic-mcp	1	De5LuzmRWv0	10.000+ React/Tailwind bileşeni arayıp UI üretir
+KURULU-KANIT	Strix	repo	github.com/usestrix/strix (?)	repo-url:usestrix/strix	1	De5LuzmRWv0	Gerçek hacker gibi uygulamaya saldırıp açıkları yamalayan ajan
+KURULU-KANIT	Penpot	araç		ad=envanter.tsv:CC:mcp	2	De69lhTE8Z0	Açık kaynak Figma alternatifi
+KURULU-KANIT	Agency Agents	repo	github.com/msitarzewski/agency-agents	repo-url:msitarzewski/agency-agents	2	De7SMYoqzKv	283 yapay zeka ajanı (18 bölüm), MIT, 163k yıldız; Agents Orchestrator
+KURULU-KANIT	claude-code	repo	github.com/anthropics/claude-code	repo-url:anthropics/claude-code	1	De9SUccyZF-	Claude Code resmi repo
+KURULU-KANIT	awesome-mcp-servers	repo	github.com/punkpeye/awesome-mcp-servers	repo-url:punkpeye/awesome-mcp-servers	1	De9SUccyZF-	MCP sunucu listesi
+KURULU-KANIT	claude-code-router	repo	github.com/musistudio/claude-code-router	repo-url:musistudio/claude-code-router	1	De9SUccyZF-	Claude Code isteklerini farklı modellere yönlendirir
+KURULU-KANIT	cline	repo	github.com/cline/cline	repo-url:cline/cline	1	De9SUccyZF-	Kodlama ajanı
+KURULU-KANIT	aider	repo	github.com/Aider-AI/aider	repo-url:aider-ai/aider	1	De9SUccyZF-	Terminal AI kodlama
+KURULU-KANIT	GSAP	kütüphane		ad=~/.claude/skills/gsap	1	DehjgOtDn77	Metin ve zaman çizelgesi animasyonu
+KURULU-KANIT	Three.js	kütüphane		ad=~/.claude/skills/threejs	1	DehjgOtDn77	3D sahne, kamera, ışık
+KURULU-KANIT	FFmpeg	araç		ad=_inv_winget.txt	1	DehjgOtDn77	Video dışa aktarma ve boyutlandırma
+KURULU-KANIT	Ponytail (?)	repo	github.com/DietrichGebert/ (?)	ad=~/.claude/plugins/cache\ponytail\ponytail	3	DejuQStmPny	Senior developer gibi çalışan skill (?)
+KURULU-KANIT	Hallmark (?)	repo	github.com/nutlope/ (?)	ad=~/.claude/plugins/cache\hallmark\hallmark	2	DejuQStmPny	AI slop'u yerine insan tasarımı (?)
+KURULU-KANIT	taste-skill	skill		ad=~/.claude/plugins/cache\taste-skill\taste-skill	2	DejuQStmPny	Tasarım odaklı skill
+KURULU-KANIT	Impeccable	skill	github.com/bakaus/	ad=~/.claude/plugins/cache\impeccable\impeccable	2	DejuQStmPny	Arayüz cilalama komutları
+KURULU-KANIT	UI/UX Pro Max	skill	github.com/nextlevelbuilder/ui-ux-pro-max-skill	repo-url:nextlevelbuilder/ui-ux-pro-max-skill	1	DejuQStmPny	Tutarlı UI tasarımları üretir
+KURULU-KANIT	Anatomy	skill	npx skills add wheresryan22/anatomy (?)	ad=~/.claude/skills/anatomy	1	DeqQGZrJhCG	Tek satırdan etkileşimli izometrik makine açıklaması üretir (WebGL shader, 3D)
+KURULU-KANIT	21st.dev	SİTE	21st.dev	ad=~/.claude/plugins/marketplaces\21st-dev	1	DevhIPGmRzm	Hazır UI bileşenleri koleksiyonu
+KURULU-KANIT	Libraries.dev	SİTE	Libraries.dev	ad=~/.claude/skills/libraries-dev	1	DezEkQ2NNSu	Ajanlar için özenli UI kütüphaneleri koleksiyonu
+KURULU-KANIT	NotebookLM	uygulama		ad=~/.claude/skills/notebooklm	1	DfCqFtxoN0y	Google araştırma aracı
+KURULU-KANIT	react-three-fiber	repo	github.com/pmndrs/react-three-fiber	repo-url:pmndrs/react-three-fiber	1	DYNW3X7J2TH	Three.js'i React'te render eder; 3D site sahneleri
+KURULU-KANIT	Blender	araç	github.com/blender/blender	ad=~/.claude/plugins/cache\omer-skills\blender	1	De1frq7ifup	Hareket verisini animasyonlu sahneye çevirme
+KURULU-KANIT	Lemo Opuscar	skill		ad=~/.claude/plugins/cache\lemolab\lemo-opuscar	2	De2dMErAprH	51 farklı film stili, kodla üretilen videolar
+KURULU-KANIT	Gemini	model		ad=envanter.tsv:CC:plugin-skill	1	De2dMErAprH	Collage B-roll görsel üretimi için kullanılıyor
+KURULU-KANIT	Obsidian	uygulama		ad=~/.claude/plugins/cache\obsidian-skills\obsidian	1	De33iyPCNyC	Klasörü kasa yapıp ikinci beyni graf olarak görselleştirir; ücretsiz
+KURULU-KANIT	AgentFloor	repo		ad=envanter.tsv:CC:cli	1	De4926nC1iw	Her ajana masa, her projeye ofis veren çoklu ajan görselleştirme arayüzü; bio linkinde
+KURULU-KANIT	Graphify	araç		ad=~/.claude/skills/graphify	2	De96ZEuvmbc	Çalışma alanını bilgi grafiğine çevirir (videoda token yakıyor diye eleştiriliyor)
+KURULU-KANIT	Memvid	repo	www.memvid.com	ad=~/.claude/plugins/marketplaces\memvid	1	De_Cta4m3ls	Ajan hafızasını (veri, gömme, arama indeksi) tek .mv2 dosyasında taşınabilir yapan açık kaynak bellek katmanı (Apache-2.0, Python/Node/Rust/CLI)
+KURULU-KANIT	Higgsfield	araç		ad=envanter.tsv:claude.ai:baglayici	2	DfAnN8buRuB	Virality Predictor'ı barındıran platform
+KURULU-KANIT	Claude Code	araç		ad=~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code	1	DeTqN3uEidC	AI kod ajanı
+KURULU-KANIT	OpenAI Codex	araç		ad=~/.claude/plugins/marketplaces\openai-codex	1	DeTqN3uEidC	OpenAI kod ajanı
+KURULU-KANIT	ui-skills	skill	npx ui-skills	ad=~/.claude/skills/ui-skills	1	DeTqN3uEidC	UI skill paketi; sitesi ui-skills.com
+KURULU-KANIT	Granola	uygulama		ad=~/.claude/skills/granola	1	DeTqN3uEidC	Toplantı not aracı
+KURULU-KANIT	Excalidraw	uygulama		ad=~/.claude/skills/excalidraw	1	DeTqN3uEidC	Beyaz tahta/çizim aracı
+KURULU-KANIT	neuregex/freefield	repo	github.com/neuregex/freefield	repo-url:neuregex/freefield	1	DfEKGBliZ94	Higgsfield'in açık kaynak ComfyUI karşılığı: her uygulama bir klasör, açık ağırlıklı modeller, kendi GPU veya Modal'da çalışır (MIT)
+KURULU-KANIT	Modal	araç		ad=~/.claude/skills/modal	1	DfEKGBliZ94	Freefield'in çalıştırılabildiği bulut GPU
+KURULU-KANIT	Blender	uygulama		ad=~/.claude/plugins/cache\omer-skills\blender	1	DYuY_-7Oqk4	Solver'ın eklenti hedefi 3D yazılım
+KURULU-KANIT	Claude in Chrome	araç		ad=~/.claude/skills/claude-in-chrome	1	De-iVbFiVsO	Claude tarayıcı eklentisi
+KURULU-KANIT	Apify	MCP		ad=_inv_mcp.txt	1	De-iVbFiVsO	Web kazıma/veri toplama
+KURULU-KANIT	Notion	MCP		ad=~/.claude/skills/notion	2	De-iVbFiVsO	Not/doküman entegrasyonu
+KURULU-KANIT	Find Skills	skill		ad=~/.claude/skills/find-skills	1	De1rAYuAHln	Her iş için doğru skill'i bulup kuran skill
+KURULU-KANIT	I Have ADHD	skill		ad=~/.claude/skills/i-have-adhd	2	De1rAYuAHln	Uygulanabilir kısa yanıt veren skill
+KURULU-KANIT	Task-Observer	skill		ad=~/.claude/plugins/cache\one-skill-to-rule-them-all\task-observer	1	De1rAYuAHln	Diğer skill'leri zamanla iyileştiren skill
+KURULU-KANIT	NotFair	skill		ad=~/.claude/plugins/cache\nowork-studio\notfair	1	De1rAYuAHln	SEO, AI arama ve reklam skill'i
+KURULU-KANIT	frontend-design	skill		ad=~/.claude/skills/frontend-design	2	De1rAYuAHln	Üretim kalitesinde UI skill'i
+KURULU-KANIT	webapp-testing	skill		ad=~/.claude/skills/webapp-testing	1	De1rAYuAHln	Uygulamayı gerçek tarayıcıda test
+KURULU-KANIT	skill-creator	skill		ad=~/.claude/skills/skill-creator	1	De1rAYuAHln	Kendi skill'ini üretme
+KURULU-KANIT	HyperFrames	plugin		ad=~/.claude/plugins/cache\hyperframes\hyperframes	3	De37CTGo4Km	Claude ile HTML'den video/kart üretimi
+KURULU-KANIT	Codex	araç		ad=~/.claude/skills/codex	1	De3sKAbj0r_	3D site brief'i için kullanılan kod ajanı (yöntem: sahne sırası, WebGL'siz içerik, statik fallback)
+KURULU-KANIT	aicodeking/leanrea	repo	github.com/aicodeking/leanrea	ad=~/.claude/skills/leanrea	2	De4B-SgiU5i	8 KB tek SKILL.md; REA'nın 207 araçlı MCP'si yerine ajana ters mühendislik komutlarını gösterir (MIT)
+KURULU-KANIT	wide-trace/open-higgsfield	repo	github.com/wide-trace/open-higgsfield	repo-url:wide-trace/open-higgsfield	2	De4rkL4MSDz	Higgsfield'e açık kaynak alternatif AI görsel+video stüdyo
+KURULU-KANIT	every-app/open-seo	repo	github.com/every-app/open-seo	repo-url:every-app/open-seo	2	De4rkL4MSDz	Semrush alternatifi: rank takibi, backlink, site denetimi
+KURULU-KANIT	Reverse Engineer Anything	MCP		ad=~/.claude/skills/reverse-engineer-anything	1	De4rkL4MSDz	Başka bir aracı Claude Code ile yeniden kurmak için
+KURULU-KANIT	LinkedIn agent skill	skill		ad=~/.claude/plugins/marketplaces\linkedin-agent-skill	1	De7IjdMt9Yu	11 ücretsiz MIT Claude skill'i: post, yorum, yanıt, profil puanı, haftalık plan, humanizer
+KURULU-KANIT	Superpowers	skill		ad=~/.claude/plugins/cache\claude-plugins-official\superpowers	2	De9D5Z9kx9a	Planlayıcı, kod yazmadan önce düşünen skill
+KURULU-KANIT	gstack	skill		ad=~/.claude/skills/gstack	3	De9D5Z9kx9a	Tam mühendislik iş akışı tek kurulumda
+KURULU-KANIT	Vercel	araç		ad=~/.claude/skills/vercel	1	De9D5Z9kx9a	Tek komutla yayın
+KURULU-KANIT	Claude HUD	plugin		ad=~/.claude/plugins/cache\claude-hud\claude-hud	2	De9D5Z9kx9a	Bağlam/token/görev durum çubuğu
+KURULU-KANIT	Figma	MCP		ad=~/.claude/skills/figma	2	De9D5Z9kx9a	Figma dosyalarını okuma/düzenleme
+KURULU-KANIT	emil-design-eng	skill		ad=~/.claude/skills/emil-design-eng	1	De9D5Z9kx9a	Küçük UI detayları
+KURULU-KANIT	Nutlope/hallmark	skill	npx skills add nutlope/hallmark	ad=C:/AI/indirilen/Nutlope__hallmark	1	Dem91ptkrhe	57 anti-slop testi, UI denetim modu
+KURULU-KANIT	Leonxlnx/taste-skill	skill	npx skills add https://github.com/Leonxlnx/taste-skill	repo-url:leonxlnx/taste-skill	1	Dem91ptkrhe	Önce art direction seçip tarayıcıda doğrulayan skill
+KURULU-KANIT	juliobsz/skills (awwwards)	skill	github.com/juliobsz/skills	ad=~/.claude/skills/skills	1	DevrrJ4jvAK	Tek satırdan ödül kalibresinde site yapan skill: konsept, renk/yazı sistemi, masaüstü+mobil ekran denetimi (MIT)
+KURULU-KANIT	nateherkai/herk-edit-kit	repo	github.com/nateherkai/herk-edit-kit	repo-url:nateherkai/herk-edit-kit	1	DezMRucmpAz	Transkripte göre boşlukları kesen, HyperFrames+GSAP ile motion grafik ekleyen ajan video düzenleme kiti
+KURULU-KANIT	Claude Code Mods	yöntem		ad=~/.claude/plugins/marketplaces\claude-code-mods	1	DezhKLaMyaA	Session'lar arası mesaj, özel dashboard, istekleri ucuz modele yönlendirme özelliği
+KURULU-KANIT	Lovable	araç	lovable.dev	ad=~/.claude/skills/lovable	1	DfAoV4Wz1ez	Fikirden SaaS/rezervasyon portalı
+KURULU-KANIT	Agent Reach	araç		ad=~/.claude/skills/agent-reach	3	DfCtGNgiWeb	Reddit, X, YouTube, GitHub'ı API ücreti olmadan okutur
+KURULU-KANIT	Chrome DevTools MCP	MCP	/plugin marketplace add ChromeDevTools/chrome-devtools-mcp (?)	ad=~/.claude/plugins/cache\chrome-devtools-plugins\chrome-devtools-mcp	2	DfCtGNgiWeb	Claude'a gerçek tarayıcıda hata görme ve test imkanı
+KURULU-KANIT	YouTube Agent skill	skill		ad=~/.claude/plugins/marketplaces\youtube-agent-skill	1	DfDdDI1SKTi	11 Claude skill: /yt-script, /yt-edit, /yt-plan, /yt-viral vb.
+KURULU-KANIT	unclebob/ub-mode	skill	github.com/unclebob/ub-mode	repo-url:unclebob/ub-mode	1	DfEVFJLAVpc	Ajana TDD, sıfırdan yeniden tasarım ve kalite kapıları dayatan SKILL.md (Uncle Bob), poteto-mode'a dayalı
+KURULU-KANIT	claude-code-setup	plugin	anthropics/claude-plugins-official	ad=~/.claude/plugins/cache\claude-plugins-official\claude-code-setup	1	DcMpM8_S1U3	Repoyu okuyup uygun MCP/skill/hook/subagent/slash komutu önerir
+KURULU-KANIT	OmniRoute	repo	diegosouzapw/OmniRoute	ad=envanter.tsv:CC:cli	1	DcMpM8_S1U3	Tek yerel ağ geçidi, çok sağlayıcı, limit dolunca sonraki modele geçiş
+KURULU-KANIT	claude-mem	plugin		ad=~/.claude/plugins/cache\thedotmack\claude-mem	2	DcMpM8_S1U3	Oturumlar arası Claude belleği
+KURULU-KANIT	Laya	repo	NandhakishorM/laya	ad=_inv_pip.txt	1	Dd6P9YOB06z	Yerel sınıflandırıcı model, Jev'e açık kaynak alternatif (~30 ms), kendi veriyle ince ayar gerekir
+KURULU-KANIT	context-mode	plugin		ad=~/.claude/plugins/cache\context-mode\context-mode	1	De1iMu0taFs	Araç çıktısını sandbox'ta tutup yalnız sonucu bağlama alır (986KB'den 62KB), oturum durumunu yerelde saklar
+KURULU-KANIT	cloudflare/security-audit-skill	skill	npx skills add github.com/cloudflare/security-audit-skill	repo-url:cloudflare/security-audit-skill	1	De2j7BToUy4	Altı aşamalı güvenlik denetimi: keşif, avcı ajanlar, aday doğrulama, çıktı
+KURULU-KANIT	/doctor	yöntem		ad=~/.claude/skills/doctor	1	DeY_8acEaiy	Skill listesi bağlam maliyetini hesaplar
+KURULU-KANIT	Puppeteer	kütüphane	npm install puppeteer	ad=_inv_mcp.txt	1	Dez9ehLmdNZ	Claude'un kurgusunu gerçek videoya çevirir
+KURULU-KANIT	ui-ux-pro-max-skill	skill	nextlevelbuilder/ui-ux-pro-max-skill	ad=~/.claude/plugins/marketplaces\ui-ux-pro-max-skill	1	DeziqhPRtkz	79 UI stili, 192 palet, 74 font eşleşmesi
+KURULU-KANIT	web-design-guidelines	skill	vercel-labs/agent-skills (?)	ad=~/.claude/skills/web-design-guidelines	1	DeziqhPRtkz	UI'ı 100+ kurala göre denetler (Vercel)
+KURULU-KANIT	mukul975/Anthropic-Cybersecurity-Skills (?)	skill	github.com/mukul975 (?)	ad=C:/AI/indirilen/mukul975__Anthropic-Cybersecurity-Skills	1	DfCFmN1o1Un	Siber güvenlik skill koleksiyonu (listedeki bir madde)
+KURULU-KANIT	Karpathy skills	skill		ad=~/.claude/plugins/marketplaces\karpathy-skills	3	DfCuqy9s9xq	Listedeki skill deposu
+KURULU-KANIT	Everything Claude Code	repo		ad=~/.claude/plugins/marketplaces\everything-claude-code	1	DfCuqy9s9xq	Listedeki depo
+KURULU-KANIT	Caveman	skill		ad=~/.claude/plugins/cache\caveman\caveman	2	DfCuqy9s9xq	Listedeki depo
+KURULU-KANIT	Planning with Files	skill		ad=~/.claude/skills/planning-with-files	1	DfCuqy9s9xq	Listedeki depo
+KURULU-KANIT	Matt Pocock skills	skill		ad=~/.claude/plugins/cache\mattpocock\mattpocock-skills	3	DfCuqy9s9xq	Listedeki depo
+KURULU-KANIT	wshobson (agents)	repo		ad=C:/AI/indirilen/wshobson__agents	1	DfCuqy9s9xq	Listedeki depo
+KURULU-KANIT	Serena	MCP		ad=~/.claude/skills/serena	1	DfCuqy9s9xq	Kod gezinme MCP'si
+KURULU-KANIT	Headroom	araç		ad=~/.claude/plugins/cache\headroom-marketplace\headroom	2	DfCuqy9s9xq	Bağlam sıkıştırma
+KURULU-KANIT	Dark Mode Design	SİTE	darkmodedesign.com	ad=envanter.tsv:CC:plugin-skill	1	DeZXAa6jE8s	Karanlık mod tasarımlarını sergileyen galeri
+KURULU-KANIT	andrej-karpathy-skills	repo	github.com/multica-ai/andrej-karpathy-skills	repo-url:multica-ai/andrej-karpathy-skills	1	De-uEh7AgOz	Karpathy notlarından türetilmiş CLAUDE.md/skill; aşırı karmaşıklaştırma, talimat yok sayma, yarım işi bitti sayma, uydurma API'yi önler
+KURULU-KANIT	Node.js	araç		ad=_inv_winget.txt	1	De1SyIcCDTB	Claude Code kurulumu için gerekli
+KURULU-KANIT	mcptoon	repo	github.com/Louis-CFM/coucou (?)	ad=~/.claude/skills/mcptoon	1	De6XSviD6R1	MCP araç şemalarını bağlamdan çıkarıp gerektiğinde çağıran token optimizasyon CLI (255 araçta 71.929 -> 581 token), Apache-2.0
+KURULU-KANIT	teach	skill		ad=~/.claude/skills/teach	1	De6oEmiMblJ	Ders yazan, cheat sheet hazırlayan, ilerlemeyi hatırlayan skill
+KURULU-KANIT	marketing-psychology	skill		ad=~/.claude/skills/marketing-psychology	1	De6oEmiMblJ	50+ psikoloji prensibini pazarlamaya uygulayan skill
+KURULU-KANIT	last30days	skill		ad=~/.claude/skills/last30days	4	De6oEmiMblJ	Reddit, X, YouTube, TikTok'ta son bir ayı tarayan skill
+KURULU-KANIT	Agentation	repo	github.com/benjitaylor/agentation	repo-url:benjitaylor/agentation	1	De7MgbvIBeJ	Sayfada elemana tıklayıp not bırakınca AI koda tam konumu veren görsel geri bildirim aracı (npm install agentation -D), MCP sunucusu var
+KURULU-KANIT	claude-video (watch skill)	repo	https://github.com/bradautomates/claude-video.git	repo-url:bradautomates/claude-video	1	Dej2ynmEjOD	Videodan kare görüntüsü + zaman damgalı transkript alıp Claude'a izleten skill
+KURULU-KANIT	Understand Anything	plugin		ad=~/.claude/plugins/cache\understand-anything\understand-anything	2	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	Marketing Skills	plugin		ad=~/.claude/plugins/cache\marketingskills\marketing-skills	2	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	Agent Skills	plugin		ad=~/.claude/plugins/cache\addy-agent-skills\agent-skills	1	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	motionsites-ai/claude-skill	skill	github.com/Motionsites-AI/claude-skill	repo-url:motionsites-ai/claude-skill	1	DfAth9AgWFM	Sinematik landing page skill: 40 örnek prompt, 50+ video/30 3D kesit medya rafı, kendi ekran görüntüsüyle düzeltme döngüsü
+KURULU-KANIT	DeepOpen	repo	github.com/deepopen-com/deepopen	repo-url:deepopen-com/deepopen	1	DfDQXqrk2bt	Üretken olmayan niyet sınıflandırma/karar SDK'sı; CLINC150 %98.02; pip install git+https://github.com/deepopen-com/deepopen.git
+KURULU-KANIT	Claude	model		ad=araclar/.claude	1	o4iY8QEeKmU	Siteler için kodu yazan model; "aynı mor site" sorununu yönlendirmeyle çözme
+KURULU-KANIT	ChatGPT	model		ad=_inv_winget.txt	1	DdrRps4Jgf7	Arka plan ağaç görselleri üretimi
+KURULU-KANIT	rederive	skill		ad=~/.claude/plugins/cache\rederive\rederive	1	De1mAq9oaDP	Her kod tabanını ilk ilkelerden yeniden türetmek için problem sorduran skill (Claude Code, Codex, Copilot, opencode vb.)
+KURULU-KANIT	GSAP ScrollTrigger	kütüphane		ad=envanter.tsv:CC:plugin-skill	1	De64R5emX-i	Scroll animasyonu
+KURULU-KANIT	TauricResearch/TradingAgents	repo	github.com/TauricResearch/TradingAgents	repo-url:tauricresearch/tradingagents	1	De7MoxyH1-M	12 AI ajanlı ticaret firması (analist, bull/bear araştırmacı, trader, risk, yönetici); Grok ile çalışır; 112k yıldız
+KURULU-KANIT	Unity	uygulama		ad=~/.claude/plugins/cache\knowledge-work-plugins\unity	1	De86cK0ihyb	Playground ile gerçek 3D oyun için ortaklık
+KURULU-KANIT	OpenClaw	araç		ad=~/.claude/skills/openclaw	1	De9Ih2LiSI7	Ortak belleğe bağlanan ajan
+KURULU-KANIT	Cascadeur	uygulama	Cascadeur.com	ad=_inv_winget.txt	1	Deyz8T1T-No	Fizik tabanlı 3D animasyon yazılımı
+KURULU-KANIT	threejs-skills	skill	CloudAI-X/threejs-skills	ad=~/.claude/skills/threejs-skills	1	De00hFSk-hv	Three.js 3D sahne, ışık, parçacık skill'i
+KURULU-KANIT	design-dna	skill	zanwei/design-dna	ad=envanter.tsv:ikisi:skill	1	De00hFSk-hv	Herhangi bir sitenin tasarım stilini tersine çözüp kopyalayan skill (tipografi, renk, layout)
+KURULU-KANIT	Jakeschincariol/founder-skill	repo	Jakeschincariol/founder-skill	ad=C:/AI/indirilen/Jakeschincariol__founder-skill	1	De2-09Cjnyx	Offer Master girdisi (?)
+KURULU-KANIT	Postiz	repo	gitroomhq/postiz-app	ad=~/.claude/plugins/cache\knowledge-work-plugins\postiz	1	De9L9avinkn	Ajan destekli sosyal medya zamanlama/yayın platformu (AGPL-3.0, self-host veya bulut)
+KURULU-KANIT	Taste	skill		ad=~/.claude/skills/taste	2	De9mZYXCGeB	Tasarım ve görsel
+KURULU-KANIT	Archify	plugin		ad=~/.claude/skills/archify	2	De9mZYXCGeB	Tasarım ve görsel (?)
+KURULU-KANIT	REA (Reverse Engineer Anything)	repo	https://github.com/morluto/rea	repo-url:morluto/rea	3	DeFGs1_sk3Y	Uygulama ve native binary'leri decompile edip ajana MCP/CLI ile veren araç; npm install --global rea-agents && rea setup (MIT)
+KURULU-KANIT	Null Motion	repo	github.com/blixvip/NullMotion	repo-url:blixvip/nullmotion	1	DeVDuqACQMi	Bitmiş reklamı kare senkron sade siyah-beyaz plan dökümüyle gösterir, mp4 export, uzun videodan dikey klip
+KURULU-KANIT	Agentation	kütüphane		ad=~/.claude/skills/agentation	1	De8dmNxNmmH	Sayfada öğeye tıklayıp not yazınca seçici, sınıf, konum çıkaran React araç çubuğu; çıktı Claude Code/Codex/Cursor'a yapıştırılır, MCP sunucusu da var
+KURULU-KANIT	mattpocock/skills	repo	https://github.com/mattpocock/skills	repo-url:mattpocock/skills	1	DfDxAq4oIYM	Matt Pocock'un skill reposu (~296 bin yıldız): grill-me, plan, bilet, taze ajanla inşa, plana karşı doğrulama akışı
+KURULU-KANIT	grill me	skill		ad=~/.claude/skills/grill-me	1	DfDxAq4oIYM	Claude fikir netleşene kadar soru sorar
+KURULU-KANIT	Founder (jakeschincariol/founder-skill)	skill	https://github.com/jakeschincariol/founder-skill (?)	repo-url:jakeschincariol/founder-skill	1	De0ApLlyud6	11 ücretsiz Claude skill: yönetim kurulu, CFO, pazarlama direktörü, 100 simüle alıcı paneliyle iş fikrini lansman öncesi test eder
+KURULU-KANIT	NVIDIA OpenShell	repo	npx skills add NVIDIA/OpenShell	ad=C:/AI/indirilen/NVIDIA__OpenShell	1	De1oJR3Ea4F	Rust ile yazılmış, ajanlar için çekirdek seviyesi sandbox çalışma ortamı; sırları ve sınırsız ağı ajandan gizler (Apache-2.0, ~18k yıldız)
+KURULU-KANIT	Lemo-Opuscar	skill	https://github.com/lemomo-ai/lemo-opuscar.git	repo-url:lemomo-ai/lemo-opuscar	1	De33ShTESM_	Kodla kısa film yapan Claude Code skill'i: 51 film stili, kamera/stok görüntü yok (MIT, ~4.8k yıldız)
+KURULU-KANIT	heygen-com/hyperframes	repo	github.com/heygen-com/hyperframes	repo-url:heygen-com/hyperframes	1	De4I7V2mUps	Prompttan bitmiş video üretimi
+KURULU-KANIT	nateherkai/scroll-craft	skill	github.com/nateherkai/scroll-craft	repo-url:nateherkai/scroll-craft	1	De4I7V2mUps	Akıcı interaktif siteler kurar, yerleşim sorunlarını düzeltir
+KURULU-KANIT	expo/skills	skill	github.com/expo/skills	repo-url:expo/skills	1	De4I7V2mUps	Mobil uygulama kurma skill'leri
+KURULU-KANIT	googleworkspace/cli	araç	github.com/googleworkspace/cli	ad=envanter.tsv:CC:cli	1	De4I7V2mUps	Gmail, Drive, Calendar için tek komut satırı aracı
+KURULU-KANIT	design.md	skill	http://skills.sh/google-labs-code/design.md	ad=~/.claude/skills/design-md	1	De4e4TmkvmH	Google Labs tasarım md formatı
+KURULU-KANIT	stop-slop	skill	http://skills.sh/hardikpandya/stop-slop	ad=~/.claude/skills/stop-slop	1	De4e4TmkvmH	Yapay zeka yazı kalıplarını azaltma
+KURULU-KANIT	frontend-slides	skill	http://skills.sh/zarazhangrui/frontend-slides	ad=~/.claude/skills/frontend-slides	1	De4e4TmkvmH	Slayt üretim skill'i
+KURULU-KANIT	LangGraph	kütüphane		ad=~/.claude/skills/langgraph	1	De68AiWSiMp	Ajan çerçevesi
+KURULU-KANIT	Langfuse	araç		ad=~/.claude/skills/langfuse	1	De68AiWSiMp	Gözlemlenebilirlik
+KURULU-KANIT	claude-seo (AgriciDaniel)	skill	https://github.com/AgriciDaniel/claude-seo	repo-url:agricidaniel/claude-seo	1	De7ClqFAC3T	26 alt skill + 19 alt ajanlı SEO denetimi (teknik, E-E-A-T, schema, GEO/AEO); 10-15 dk'da eylem planı (MIT, ~20k yıldız)
+KURULU-KANIT	K-Dense-AI/scientific-agent-skills	skill	K-Dense-AI/scientific-agent-skills	ad=C:/AI/indirilen/K-Dense-AI__scientific-agent-skills	1	De95NHOuo-x	PubMed dahil 18 akademik kaynaktan makale bulur, kaynakça kontrol eder
+KURULU-KANIT	Claude SEO	skill		ad=~/.claude/plugins/cache\agricidaniel-claude-seo\claude-seo	1	DeR-SLBxBPe	SEO paketi, skill ve alt ajanlar (~18k yıldız)
+KURULU-KANIT	cal.diy	repo	github.com/calcom/cal.diy	repo-url:calcom/cal.diy	1	DezCrecDDSm	Calendly alternatifi
+KURULU-KANIT	gstack	repo	https://github.com/garrytan/gstack.git	repo-url:garrytan/gstack	1	DfA-nQWiPKz	Garry Tan skill seti
+KURULU-KANIT	ai-job-search	repo	https://github.com/ai-job-search-dev/ai-job-search	repo-url:ai-job-search-dev/ai-job-search	1	DfAdjJnIapp	Claude Code iş başvuru çatısı: ilanı puanlar, CV ve ön yazı hazırlar, mülakat çalıştırır (~66k yıldız)
+KURULU-KANIT	Headroom	repo	github.com/headroomlabs-ai/headroom	repo-url:headroomlabs-ai/headroom	1	DfAdjJnIapp	Araç çıktısı, log, JSON, RAG parçalarını modele gitmeden sıkıştırır (JSON'da %60-95 az jeton)
+KURULU-KANIT	JuliusBrussee/caveman	plugin	JuliusBrussee/caveman	ad=C:/AI/indirilen/JuliusBrussee__caveman	1	DfDAxN1Rex-	Jeton tasarrufu
+KURULU-KANIT	Graphify-Labs/graphify	skill	Graphify-Labs/graphify	ad=C:/AI/indirilen/Graphify-Labs__graphify	1	DfDAxN1Rex-	Bilgi grafiği
+KURULU-KANIT	nextlevelbuilder/ui-ux-pro-max-skill	skill	nextlevelbuilder/ui-ux-pro-max-skill	ad=C:/AI/indirilen/nextlevelbuilder__ui-ux-pro-max-skill	1	DfDAxN1Rex-	UI/UX
+KURULU-KANIT	multica-ai/andrej-karpathy-skills	skill	multica-ai/andrej-karpathy-skills (?)	ad=C:/AI/indirilen/multica-ai__andrej-karpathy-skills	1	DfDAxN1Rex-	Karpathy ilkeleri
+KURULU-KANIT	affaan-m/ECC	repo	affaan-m/Ecc	ad=C:/AI/indirilen/affaan-m__ECC	1	DfDAxN1Rex-	Skill/ajan seti
+KURULU-KANIT	morluto/rea	repo	morluto/rea	ad=C:/AI/indirilen/morluto__rea	1	DfDAxN1Rex-	Listede 1. (400k+ yıldız)
