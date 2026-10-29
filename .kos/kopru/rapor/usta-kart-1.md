@@ -41,3 +41,10 @@
 - 10 ret kartı + hakemde çıkan 15 eski ret (paket/tasarım) Haiku high ile yeniden üretildi (25 kart, 5 üretici). usta.jsonl 400.
 - Hakem (bağımsız Haiku alt ajan, 40 kart, UTF-8 dosya): 1. koşu 25/40 (%62; 10 yenilenen kart hepsi geçti, 15 ret eski kartlar); 2. koşu 38/40 = %95 ≥ %87 KAPI GEÇTİ. Kalan ret: davila7-productivity-paket (genel), davila7-sports-paket (lig kapsamı kaynakta yok).
 - Not: claude -p hakem 300 sn zaman aşımı; hakem --istem ile alt ajana verildi. Maliyet $ ölçülemedi; ~8 alt ajan ≈ 0,4M Haiku jetonu. Push yok.
+
+# TUR 15 (29 Eki)
+- 2 ret karti (davila7-productivity-paket, davila7-sports-paket) Haiku high ile yeniden uretildi (alt ajan; kaynakta olmayan iddia yasagi eklendi, yeniden hakeme sokulmadi).
+- Sonraki 100 kartsiz kalem (hazirla --g 10 --n 100) 10 Haiku alt ajanla uretildi, usta.jsonl 527. Kalan kartsiz/eski: 6348 (say).
+- Hakem 40 rastgele yeni kart (seed 15, liste hakem15-adlar.json): 1. kosu 10/40 GECERSIZ (hakem kaynagi 4000 karakterde kesik gordu); 2. kosu tam kaynak parcalariyla 4 bagimsiz Haiku hakem: 33/40 = %82 < %87 KAPI TUTMADI. Retler: github, number-details, engineering:code-review, mukul975-zero-trust-paket, open-gstack-browser, pinecone-query, n8n-expression-syntax (token_ipucu/tuzak'ta kaynakta olmayan ya da yaniltici iddia; paket karti yalniz dosya yonlendirmesi).
+- Duzeltilmedi (tur siniri). Sonraki tur: 7 ret + token_ipucu'nda 'kaynakta yok' disi kaynaksiz iddia ureten kartlara dogrulama adimi; sonra kalan kalem.
+- Maliyet $ olculemedi; 10 uretici ~0,2M, 4 hakem ~0,5M Haiku jeton. Push yok.
