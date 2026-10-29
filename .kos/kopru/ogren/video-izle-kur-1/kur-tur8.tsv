@@ -10,3 +10,8 @@ prompts.chat	kuruldu	npm install ok + prisma generate ok (DATABASE_URL yer tutuc
 AirLLM	basarisiz	uv pip: project.toml` under: [tool.uv.extra-build-dependencies] pathtools = ["imp"] or `uv pip install imp` into the environment and re-run with `--no-build-isolation`.	C:\Projeler\araclar\video-izle-kur-1\AirLLM\src
 Hindsight	calisiyor	uv pip -e hindsight-api-slim + hindsight-clients/python ok; exe: hindsight-api/admin/worker/local-mcp; import hindsight_client ok (--help olculmedi)	C:\Projelerraclarideo-izle-kur-1\Hindsight\src
 Magpie	calisiyor	go1.27.3 (tasinabilir) go build ok; magpie.exe --help: komut listesi (tray, panel ...)	C:\Projelerraclarideo-izle-kur-1\Magpie\src
+tcl-lsp	basarisiz	cargo build: zaman asimi 1500s	C:\Projeler\araclar\video-izle-kur-1\tcl-lsp\src
+Prime_Agent	calisiyor	cargo build ok; pa-perf.exe --help: help of the given subcommand(s) Options: -h, --help Print help -V, --version Print version	C:\Projeler\araclar\video-izle-kur-1\Prime_Agent\src
+Jcode	basarisiz	cargo build: :\Users\pc\.rustup\toolchains\stable-x86_64-pc-windows-gnu\bin\rustc.exe' -vV` (never executed) Caused by: %1 geçerli bir Win32 uygulaması değil. (os error 193)	C:\Projeler\araclar\video-izle-kur-1\Jcode\src
+Fallow	basarisiz	cargo build: ound in any search path note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace warning: build failed, waiting for other jobs to finish...	C:\Projeler\araclar\video-izle-kur-1\Fallow\src
+PhotoCraft	calisiyor	cargo build ok; photocraft-cli.exe --help: help of the given subcommand(s) Options: -h, --help Print help -V, --version Print version	C:\Projeler\araclar\video-izle-kur-1\PhotoCraft\src
