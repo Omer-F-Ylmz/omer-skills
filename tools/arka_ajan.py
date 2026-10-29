@@ -61,6 +61,16 @@ def on_brief(gorev):
         return ""
 
 
+def is_olayi_yaz(isim, j, r, kod, sn):
+    """KARAR-30: biten arka iş → beyin 'is' olayı (koçluk döngüsü koc_t bunu bekler); beyin hatası işi bozmaz."""
+    try:
+        sys.path.insert(0, os.path.dirname(BU))
+        import beyin_dusun
+        ok = kod in (0, "sonuc-sonrasi-kapatildi") and not r.get("is_error")
+        beyin_dusun.is_olayi(isim, j.get("model", "sonnet"), r.get("total_cost_usd") or 0, sn / 60, ok, r)
+    except Exception:
+        pass
+
 def girdi(j, isim):
     g = geri_oku(j["gorev"], isim)
     b = on_brief(j["gorev"])
@@ -123,6 +133,7 @@ def kos(isim):
             u = r.get("usage", {})
             g = u.get("input_tokens", 0) + u.get("cache_read_input_tokens", 0) + u.get("cache_creation_input_tokens", 0)
             json.dump({"session_id": r.get("session_id"), "temiz": kod in (0, "sonuc-sonrasi-kapatildi") and not r.get("is_error"), "girdi": g, "tarih": time.strftime("%Y-%m-%d %H:%M")}, open(otf, "w", encoding="utf-8"))
+            is_olayi_yaz(isim, j, r, kod, time.time() - bas)
         except Exception as e:
             open(log, "a", encoding="utf-8").write(f"oturum kaydi yok: {e}\n")
     except Exception as e:

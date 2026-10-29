@@ -1,0 +1,10 @@
+# KARAR-30 (30 Eki) - rapor
+Araclar: okuyucu alt ajan (m10 arastirma), gh, arka.py, pytest, ucretsiz_motor+OmniRoute (m2), ucretsiz_havuz (m4), video_derin (m8). Kaynaklar: ek-kaynak-sinif.tsv, docs/kalan-27eki.md, paket-2b raporu, ters-2.md.
+1 KISMEN: kalici duzen docs/claude-ai-yukleme.md'ye yazildi (aile paketine ekle -> yeniden uret -> REPLACE). b-kopya 82 ad hepsi zaten pakette, silinmedi. Kayit sayisi yerelden okunamaz (synced bos) -> Omer UI sayisi gerek. Yukleme sirasi (wt paket2, zip_denetle TEMIZ 14/14): 1) dist/paket-2/kendi/grup-01 (13 zip, replace) 2) dist/paket-2/ucuncu-taraf/grup-01/ucuncu-taraf-ek-paket.zip. Yeni kayit +2.
+3 KABUL: graphify-desktop.zip yuklendi, kapandi (SIRA).
+5 KABUL: ters-2 d12 11 hedef (>=10), parcacik-three, js rea_kanit gecici dizin; test_ters_kapi_kos 11 gecti; ters-2.md.
+6 KABUL: kalan ucretli claude -p adimi yok: token-2 BITTI d6 (devir), video-764-4 d3 Sonnet ile bitmis (751/764); kalan 13 IG 'embed yok' (araci degil kaynak sorunu), ucretsiz modelle yeniden denenmedi.
+7 KABUL: WER %2,44 (Omer), kapandi.
+9 KISMEN: uv tool headroom-ai 0.42.0 (guncel). Test proxy 0.42.0 health+/v1/compress OK. Canli proxy :6768 Headroom Desktop runtime 0.39.0, bu oturum kullaniyor -> yeniden baslatma DUR (oturum kopar); oturum bitince desktop uygulamasindan guncelle.
+10 KABUL/DUR: memvid-claude-mem = memvid/memvid (Apache-2.0, LICENSE dogrulandi, 17k yildiz) + thedotmack/claude-mem (kurulu); kaynak ek-kaynak-sinif.tsv #13 + kalan-27eki.md:15. Kuruldu: C:/AI/memvid-venv (memvid-sdk), put/commit/find smoke GECTI, usta karti usta.jsonl'a eklendi. send_later: dis repo YOK (Desktop yerlesik zamanlayici; devir-2026-10-24-1555, devir-28eki-1655); kanitsiz eslesme yazilmadi, kurulacak sey yok.
+11 KABUL: kok neden: arka_ajan.kos biten isi beyne 'is' olayi yazmiyordu (is_olayi yalniz ajan_sira'da; arka isler 28 Eki 15:27'den beri arka_ajan'dan) -> koc_t ilerlemedi. Duzeltme arka_ajan.is_olayi_yaz (test kirmizi->yesil) + arka_bekci.kocluk_durgun (canli veride alarm verdi: 53 is). Testler 65 gecti.

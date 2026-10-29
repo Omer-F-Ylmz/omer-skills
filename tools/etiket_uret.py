@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 KART = Path(__file__).resolve().parents[1] / "docs/arac-kart/kart.jsonl"
-PAKET = 10
+PAKET = 5
 ISTEM = ("Each line is a tool/skill/agent: 'name :: description'. For each, write 8-12 search keywords/synonyms that a user might use "
          "to ask for it, mixing ENGLISH and TURKISH. Concrete task words, no tool names, no generic words like 'tool' or 'skill'. "
          "Return ONLY a JSON array: [{\"i\":0,\"t\":\"kw1, kw2, ...\"}, ...]\n\n")
@@ -34,7 +34,7 @@ def doldur(kartlar, uretici, paket=PAKET, tavan=20):
 def havuz_uretici(paket):
     import ucretsiz_havuz as uh
     m, _, _ = uh.cagir("kolay", ISTEM + "\n".join(f"{i}. {k['ad']} :: {k.get('ne', '')[:160]}" for i, k in enumerate(paket)),
-                       max_tokens=6000, etiket="kart-etiket")
+                       max_tokens=1400, etiket="kart-etiket")
     s = {}
     try:
         liste = json.loads(re.search(r"\[.*\]", m, re.S).group(0)) if m else []

@@ -105,6 +105,28 @@ def ram_kapi(max_bekle=240):
         time.sleep(1)
 
 
+RAM_KES, VRAM_KES, ES_MAX = 89.0, 80.0, 7  # KARAR-30 m8: sert kesme eşikleri, işçi üst sınırı
+KESIK = threading.Event()
+
+
+def kesme_gerekli(ram, vram):
+    return ram >= RAM_KES or vram >= VRAM_KES
+
+
+def es_sinirla(n):
+    return max(1, min(n, ES_MAX))
+
+
+def kesme_izle(dur):
+    """İki ardışık örnekte (2 sn arayla) eşik aşılırsa KESIK'i kurar: kuyruktaki videolar başlamaz, çalışanlar biter."""
+    ard = 0
+    while not dur.wait(2):
+        ard = ard + 1 if kesme_gerekli(psutil.virtual_memory().percent, gpu_olc()[1]) else 0
+        if ard >= 2 and not KESIK.is_set():
+            KESIK.set()
+            print(f"KESILDI ram={psutil.virtual_memory().percent:.1f} vram={gpu_olc()[1]:.1f}", flush=True)
+
+
 def kod_of(u):
     m = re.search(r"(?:reel|p|tv|shorts)/([\w-]+)|[?&]v=([\w-]+)|youtu\.be/([\w-]+)", u)
     return next((g for g in m.groups() if g), re.sub(r"\W+", "_", u)[-24:]) if m else re.sub(r"\W+", "_", u)[-24:]
@@ -600,7 +622,7 @@ def main():
     if "--en" in a:
         i = a.index("--en"); en = int(a[i + 1]); del a[i:i + 2]
     if "--es" in a:  # eşzamanlı video işçisi; GPU döküm sırası ASR_KILIT ile tek kalır
-        i = a.index("--es"); es = int(a[i + 1]); del a[i:i + 2]
+        i = a.index("--es"); es = es_sinirla(int(a[i + 1])); del a[i:i + 2]
     if a and a[0] == "--liste":
         urls = re.findall(r"https?://\S+", Path(a[1]).read_text(encoding="utf-8"))
         urls = [u.split("\t")[0] for u in dict.fromkeys(urls)]
@@ -609,12 +631,15 @@ def main():
     # yapılmış ve atlanacaklar baştan elenir: --en yalnız yeni işleri sayar
     urls = [u for u in urls if not (CIKTI / f"{kod_of(u)}.json").exists() and kod_of(u) not in atla_kodlari()][:en]
     ozet, sayac = Counter(), 0
+    dur = threading.Event()
+    threading.Thread(target=kesme_izle, args=(dur,), daemon=True).start()
     with ThreadPoolExecutor(es) as ex:
-        for durum in ex.map(lambda u: calis(u, es), urls):
+        for durum in ex.map(lambda u: "kesildi" if KESIK.is_set() else calis(u, es), urls):
             ozet[durum.split(":")[0]] += 1
             sayac += 1
             if sayac % 50 == 0:  # her 50 işlemde özet
                 print(f"OZET islenen={sayac} {dict(ozet)}", flush=True)
+    dur.set()
     print(f"BITIS islenen={sayac} {dict(ozet)}", flush=True)  # gözetmen (toplu_gozetmen.py) temiz bitişi bundan anlar
 
 

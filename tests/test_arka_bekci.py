@@ -79,3 +79,16 @@ def test_aski_uyarisi_bir_kez(monkeypatch, tmp_path):
         assert "askıda" in (tmp_path / "beyin-alarm.txt").read_text(encoding="utf-8")
     finally:
         subprocess.run(["taskkill", "/F", "/PID", str(e["pid"])], capture_output=True, creationflags=0x08000000)
+
+
+def test_kocluk_durgun_biten_is_olayi_yoksa_alarm(monkeypatch, tmp_path):
+    m = _bekci(monkeypatch, tmp_path)
+    (tmp_path / "arka").mkdir()
+    (tmp_path / "beyin-durum.json").write_text('{"koc_t": 1000.0}', encoding="utf-8")
+    log = tmp_path / "arka" / "is-1.log"
+    log.write_text("BASLADI\nBITTI 02:00 kod 0\n", encoding="utf-8")
+    import os
+    os.utime(log, (100000, 100000))
+    assert m.kocluk_durgun(simdi=200000) == 1
+    assert m.kocluk_durgun(simdi=200000) == 0  # aynı koc_t için bir kez uyar
+    assert "koc_t" in (tmp_path / "beyin-alarm.txt").read_text(encoding="utf-8")

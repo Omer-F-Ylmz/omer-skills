@@ -97,6 +97,24 @@ def yeniden_baslat(ad, e):
     return r.returncode == 0, (r.stdout + r.stderr).strip()[:120]
 
 
+def kocluk_durgun(simdi=None):
+    """KARAR-30: koçluk döngüsü koc_t ilerlemiyor ama arka işler bitiyor → 'is' olayı yazılmıyor demektir; koc_t başına bir kez uyarır."""
+    simdi = simdi or time.time()
+    try:
+        koc_t = float(json.loads((KOP / "beyin-durum.json").read_text(encoding="utf-8")).get("koc_t", 0))
+    except (OSError, ValueError):
+        return 0
+    if simdi - koc_t < 3600:
+        return 0
+    biten = [g for g in (KOP / "arka").glob("*.log") if g.stat().st_mtime > koc_t + 3600
+             and "BITTI" in g.read_text(encoding="utf-8", errors="replace")]
+    etiket = f"koc_t {int(koc_t)} ilerlemiyor"
+    if not biten or (ALARM.exists() and etiket in ALARM.read_text(encoding="utf-8", errors="replace")):
+        return 0
+    alarm(f"koçluk durgun: {etiket}, {len(biten)} arka iş bitti ama 'is' olayı yok (arka_ajan.is_olayi_yaz)")
+    return 1
+
+
 def tara(simdi=None, aski_dk=ASKI_DK):
     """Her 'calisiyor' kaydı denetler; olay listesi döner: (ad, 'bitti'|'oldu'|'yeniden'|'askida')."""
     simdi = simdi or time.time()
@@ -139,6 +157,7 @@ def tara(simdi=None, aski_dk=ASKI_DK):
     for ad, e in k.items():
         taze[ad] = e
     yaz(taze)
+    kocluk_durgun()
     return olaylar
 
 

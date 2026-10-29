@@ -89,3 +89,15 @@ def test_isci_hedef_ram_yukselince_yarilanir_dusunce_geri_gelir():  # RAM-BEKCI-
     assert video_derin.isci_hedef(90, 1) == 0
     assert video_derin.isci_hedef(86, 1) == 1  # tek işçi yarıya inmez
     assert video_derin.isci_hedef(70, 4) == 4
+
+
+def test_kesme_gerekli_esikler():
+    """KARAR-30 m8: RAM >= %89 ya da VRAM >= %80 → yeni video başlatma (4-7 işçi sert kesme)."""
+    import video_derin as vd
+    assert vd.kesme_gerekli(89.0, 10.0) and vd.kesme_gerekli(50.0, 80.0)
+    assert not vd.kesme_gerekli(88.9, 79.9)
+
+
+def test_es_ust_siniri_7():
+    import video_derin as vd
+    assert [vd.es_sinirla(n) for n in (1, 4, 7, 12)] == [1, 4, 7, 7]
