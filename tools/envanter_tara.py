@@ -335,6 +335,52 @@ def sistem_satirlari():
     return out
 
 
+TMP = KOK / ".kos/kopru/tmp"
+# tarama çıktısı satır anahtarı -> (tür, etiket); gizli/kişisel anahtarlar (ANAHTAR-ADLARI, VERI, MASAUSTU...) bilerek yok
+TARAMA = {"UYGULAMA": ("uygulama", "uygulama kurulu"), "HF": ("model", "huggingface yerel model"),
+          "NPM-G": ("arac", "npm global cli"), "CHROME-EK": ("eklenti", "chrome eklenti"), "OPERA-EK": ("eklenti", "opera eklenti"),
+          "EDGE-EK": ("eklenti", "edge eklenti"), "STEAM": ("varlik", "steam oyun"), "EPIC": ("varlik", "epic oyun"),
+          "GH-REPO": ("klon", "github repo"), "BLENDER-EK": ("eklenti", "blender eklenti"), "OBSIDIAN-EK": ("eklenti", "obsidian eklenti"),
+          "CC-MARKET": ("baglayici", "claude code marketplace")}
+
+
+def tarama_satirlari():
+    """her_sey.txt + kor_nokta.txt (her_sey_tara.py / kor_nokta.py çıktısı) ve MCP envanteri (mcp_adlar.py) -> dizin satırları."""
+    out = []
+    for ad in ("her_sey.txt", "kor_nokta.txt"):
+        try:
+            satirlar = (TMP / ad).read_text(encoding="utf-8").splitlines()
+        except OSError:
+            continue
+        for i, s in enumerate(satirlar):
+            if s.startswith("UYGULAMA ") and i + 1 < len(satirlar):  # liste bir sonraki satırda
+                s = "UYGULAMA " + satirlar[i + 1]
+            m = re.match(r"([A-Z][A-Z-]+)(?: \d+)? (.*)", s)
+            if not m:
+                continue
+            k, g = m.groups()
+            if k == "COMFY":
+                c = re.match(r"(\S+) \d+ \[(.*)\]", g)
+                if c:
+                    out += [("model", x.strip(" '")[:60], f"comfyui:{c.group(1)}/{x.strip(chr(39) + ' ')}", "comfyui " + c.group(1), "model comfyui yerel") for x in c.group(2).split(",") if x.strip(" '")]
+            elif k in TARAMA:
+                t, e = TARAMA[k]
+                for x in g.split(" | "):
+                    x = x.strip()
+                    if x and not x.startswith("__MSG"):
+                        out.append((t, x[:60], f"{k.lower()}:{x[:60]}", e, e))
+            elif k == "KLASOR" and g.startswith(str(Path.home() / ".local/bin")):
+                out += [("arac", x.strip()[:60], "~/.local/bin/" + x.strip(), "kullanıcı cli", "cli yerel") for x in g.split(" : ", 1)[-1].split(" | ") if x.strip()]
+    mc = calis([sys.executable, "-I", "-S", str(TMP / "mcp_adlar.py")], 30)
+    for s in mc.splitlines():
+        m = re.match(r"(USER-MCP|PROJE-MCP|PLUGIN-MCP)(?: \d+)? \[(.*)\]", s)
+        if m:
+            out += [("mcp", x.strip(" '\""), f"mcp:{m.group(1).lower()}:{x.strip(chr(39) + ' ')}", m.group(1).lower() + " sunucusu", "mcp") for x in m.group(2).split(", ") if x.strip(" '\"")]
+        elif re.match(r"(notion|slack|linear|atlassian): bağlı değil", s):
+            out.append(("baglayici", s.split(":")[0], "baglayici:" + s.split(":")[0], s[:120], "baglayici mcp bagli-degil"))
+    return out
+
+
 def dizin_guncelle(tam=False):
     """Artımlı: dosya mtime'ı değişmeyen kaynağın satırları önbellekten gelir. Tekilleştirme: aynı yol/URL tek satır."""
     DIZIN.mkdir(parents=True, exist_ok=True)
@@ -364,7 +410,7 @@ def dizin_guncelle(tam=False):
         rows = onb["_dizin"][1]
         yeni["_dizin"] = onb["_dizin"]
     else:
-        rows = [list(x) for x in proje_satirlari() + klon_satirlari() + sistem_satirlari()]
+        rows = [list(x) for x in proje_satirlari() + klon_satirlari() + sistem_satirlari() + tarama_satirlari()]
         yeni["_dizin"] = [ts, rows]
     satirlar += rows
     gor, son = set(), []
