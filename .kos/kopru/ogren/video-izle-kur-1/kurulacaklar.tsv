@@ -1,0 +1,119 @@
+kalem	tür	kaynak	köken	kurulum_yolu	güvenlik	eski_kanıt
+Replica	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+MoneyPrinterTurbo	repo	harry0703/MoneyPrinterTurbo	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: skill degil, 200MB Docker uygulamasi + ucretli API akisi | EK7 29Eki 13:36:
+Brag	skill	latent-spaces/brag	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	BEKLE (SS HIGH 9, gitleaks 0)	ELE: Hyperframes+uv+ffmpeg bagimliligi kurulu degil, lansman videosu akisi yok (
+PentAGI	repo	vxcontrol/pentagi	envanter	docker compose; yalnız 127.0.0.1, port dışa kapalı, yalnız kendi hedeflerimize; kullan-kapat; CVE-2026-14784 düzeltmesi çıkınca güncelle	SS HIGH 170/408 · gitleaks 11 · semgrep 148	ELE: otonom saldiri ajani, izin kapsami genis, kazanc yok | EK7 29Eki 13:36: 18i
+Grill Me	skill	RobMitt/grill-me-skill	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	kuruldu	
+Hypit	repo	hypit-ai/hypit	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+prompts.chat	mcp	f/prompts.chat	envanter	claude mcp add (CC) + Desktop MCP yapılandırması	tarama yok	
+Postiz	repo	gitroomhq/postiz-app	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: AGPL-3.0 (ağ kopyaleft, kullanım koşulu) + skill değil, sosyal hesap token'
+Academic Research Skills	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Prime Agent	arac	PrimeIntellect-ai/prime-agent	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+ScrapeGraphAI	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Munder Difflin	repo	HarnessMD/munder-difflin	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: 266MB çoklu ajan ofisi uygulaması, bizde karşılığı var (ordu/ajan); gitleak
+Generate	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Google Maps Scraper Kit	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Xtool	repo	xtool-org/xtool	envanter	WSL2 içinde; Apple ID girişi Ömer'e bırakılır	SS HIGH 57/186 · gitleaks 0 · semgrep 14	ELE: iOS/Swift derleme araç zinciri, Windows+CC iş akışımızda yok; SS HIGH 57, g
+AirLLM	repo	lyogavin/airllm	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: SkillSpector 600 sn ZAMAN AŞIMI (tarama eksik); GPU'ya bağlı büyük model çı
+/linkedin-roast	skill	yogibagus/linkedin-roaster	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	tarama yok	
+CareerOps	repo	TelivityAI/careerops	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Security Audit (Cloudflare)	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+RE Walkthrough Pro	skill	charlesdove977/re-walkthrough-pro	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip) · videodaki komut: npx re-walkthrough-pro install	BEKLE (SS HIGH 1, gitleaks 0)	
+build-ai-agents-free	repo	Moh4696/build-ai-agents-free	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+V3Code	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Gropector	repo	erendevelops/gropector	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Age of Reach	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+TRADER	repo	timercrack/trader	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+GODMODE	arac		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+mixamo-llm-mocap	repo	squall01337/mixamo-llm-mocap	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); 3D animasyon,
+Diffusion Studio Editor	repo	diffusionstudio/editor	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: video editörü kütüphanesi, kazanç yok; SkillSpector ZAMAN AŞIMI (tarama eks
+Flick	skill	metafizzy/flickity	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	tarama yok	
+DramaClaw	repo	dramaclaw/dramaclaw	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: lisans 'other' (MIT/Apache değil, koşul belirsiz → kurulmaz); dizi üretimi,
+social agents (meta agent pipeline)	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+TradingAgents	repo	TauricResearch/TradingAgents	envanter	uv venv + pip; LLM anahtarı ücretsiz Groq/OpenRouter/NVIDIA/Mistral; borsa-botu notu	SS HIGH 45/137 · gitleaks 2 · semgrep 12	ELE: finans alanı dışı, ücretli LLM API akışı; SS HIGH 45, gl 2, semgrep 12; biz
+ARES	arac	sweetsoftware/Ares	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Company Brain	repo	supermemoryai/company-brain	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE (Slack botu + ücretli supermemory API) | EK7 29Eki 13:36: 18in 18i kurulur (
+Mantis	repo	mantisbt/mantisbt	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+CROWD (isimsiz simülasyon aracı)	arac	mirofish.ai	envanter	repo/URL bulunacak (web ara) → sonra türüne göre · videodaki komut: Docker Build	tarama yok	
+Sullivan	arac	yok	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+UnoRouter	arac	unorouter/unorouter	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE: AGPL-3.0 + OmniRoute zaten var; tarama ZAMAN AŞIMI (eksik) | EK7 29Eki 13:3
+PYNK	skill	ralbuque/Pynkaro	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	SKILL.md yok	ELE: lisans yok (license-gate: kurulmaz); animasyonlu metin, kazanç yok; tarama 
+HTML Anything	repo	nexu-io/html-anything	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Interactive Assets Skill	skill	yok	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Reicon	arac	https://reicon.dev/	envanter	repo/URL bulunacak (web ara) → sonra türüne göre · videodaki komut: npm package için kurulur	tarama yok	
+CTA Strategist	skill	yok	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Orca	repo	stablyai/orca	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Magpie	arac	yetone/magpie	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	SS HIGH 124/534 · gitleaks 140 · semgrep 220	
+logo-design-skill	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Apple Design Skill	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Ootto	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+GSAP ScrollTrigger	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+matpococ/skills	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+3D Asset Server	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+OpenQodex	arac	openqodex/openqodex	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+FreeToken	repo	FlashML-org/FreeToken	envanter	"install.sh YOK; ayrı venv'e `uv pip install ""freetoken[accel]""` (~2 GiB, GPU ≤%80, kullan-kapat)"	SS HIGH 45/238 · gitleaks 1 · semgrep 23	ELE (GPU çekirdek önbelleği; yerelde kazanç yok, install.sh dış betik indirir) |
+Claude Commercial	skill	opaiiva/claude-commercial-ops-skills	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	BEKLE (SS HIGH 2, gitleaks 0)	
+Fallow	arac	fallow-rs/fallow	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Everything Claude Code	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Dock	arac		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+The Premium UI Kit	arac	spaceui.one	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Hindsight	arac	vectorize-io/hindsight	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE (ağır servis; hafıza mekanizması UYARLA notu: retain/recall/reflect ayrımı) 
+Agentation	mcp	benjitaylor/agentation	envanter	claude mcp add (CC) + Desktop MCP yapılandırması	tarama yok	
+I Have ADHD	skill	ayghri/i-have-adhd	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip) · videodaki komut: Claude Code'da iki plugin komutu ile kurulur, ardından /i-have-adhd yazılır	BEKLE (SS HIGH 151, gitleaks 0)	
+Cloudroom	arac	davidondrej/cloudroom-core	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Claude at Director	skill	yok	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Improve System (Build Partner)	skill	yok	envanter	repo/URL bulunacak (web ara) → sonra türüne göre · videodaki komut: Install the Build Partner plugin inside Claude	tarama yok	
+Dray	arac	CenturyLinkLabs/dray	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Vendeo Instagram skill paketi	skill	GitHub	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Answer Me with HTML	skill	QingYunA/answer-me-with-html	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	tarama yok	ELE: 'proaktif ve cömertçe' tetik = her yanita sayfa uretimi (token+davranis), b
+Task-CoEvolve	repo	Agent4Science-UTokyo/Task-CoEvolve	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	ELE (lisans kapısı: lisanssız repo kurulmaz) | EK7 29Eki 13:36: 18in 18i kurulur
+Açık kaynak ElevenLabs alternatifi (adı belirtilmemiş)	arac	GitHub	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+MCPTune (mcptoon)	arac		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+ReelMimic	repo	edenfunf/reelmimic	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+LLM Wiki skill	skill	sdyckjq-lab/llm-wiki-skill	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	tarama yok	
+Slop Monster	skill	ItsssssJack/SlopMonster	envanter	video_izle_kur_1_skill_kur.py (klon → SkillSpector+gitleaks → ~/.claude/skills + dist zip)	BEKLE (SS HIGH 5, gitleaks 0)	
+Dioramas	repo	github.com/blendi-remade/dioramas	envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+auto-handoff	repo	alexknowshtml/claude-auto-handoff	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat) · videodaki komut: /plugin enable	tarama yok	
+Auto Content Skills	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Google Maps lead scraper	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Anthropic KnowledgeWork plugins	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+PhotoCraft	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+iFix AI	repo	abirmusa92-code/https-github.com-ifixai-ai-iFixAi	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+AllWords	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+HEIST	repo	snapframework/heist	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Blender MCP	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+tcl-lsp	repo	bitwisecook/tcl-lsp	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Pit Crew / Fuel Saver / Dashboard	arac		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+LINEAR (hairline)	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Anthropic Sales Skills	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Magic UI	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Reverse Engineering Skill Router Pack	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+self-improve system (Build Partner plugin)	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Cloudflare güvenlik denetim skill'i	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Free Claude Code	repo	Alishahryar1/free-claude-code	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+LinkedIn roast skill	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Jcode	arac		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+LTX 2.3	arac		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+claude-video (watch skill)	skill		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+map3d	repo	cartesiancs/map3d	envanter	klon → tarama → README kurulum (uv/npm/docker; ağır servis kullan-kapat)	tarama yok	
+Everything Claude Code (ECC)	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Magic MCP Server	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Gbrain	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Everything (Everything Claude Code)	repo		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Meta resmi MCP	mcp		envanter	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+prompt.chat	kutuphane	https://www.youtube.com/shorts/I7JDztrqcD8	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Higgsfield MCP	mcp	https://www.instagram.com/reel/DaLGdlHuOKh/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+TradingView	site	https://www.instagram.com/reel/Db_Tk2Ds_Zr/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+social agents deposu	repo	https://www.instagram.com/reel/Dd-lBUpgXs8/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+meta agent pipeline skill	skill	https://www.instagram.com/reel/Dd-lBUpgXs8/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+ARES OSINT	repo	https://www.instagram.com/reel/Dd1WZCgBcZa/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Lovart Interactive Assets Skill	skill	https://www.instagram.com/reel/DdoNju9tIz3/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+TrueForge agent harness	repo	https://www.instagram.com/reel/DdRPipxzXNf/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Claude Code skill	skill	https://www.instagram.com/reel/DebbJ1bt7JE/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+GSAP	kutuphane	https://www.instagram.com/reel/DebtKK3DrMQ/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Guitar Repos	repo	https://www.instagram.com/reel/DejfecRNhPL/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Cloudflare Security Audit	skill	https://www.instagram.com/reel/DeJxR3-hR5b/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Cloudflare security skill	skill	https://www.instagram.com/reel/DejYGatj_ex/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+Vendeo	repo	https://www.instagram.com/reel/DekEc0pI_QP/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+LLM Wiki	skill	https://www.instagram.com/reel/Den67YgOX8C/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	
+photocraft-cli	cli	https://www.instagram.com/reel/Depp1ISlWgX/	v2 (1 video)	repo/URL bulunacak (web ara) → sonra türüne göre	tarama yok	

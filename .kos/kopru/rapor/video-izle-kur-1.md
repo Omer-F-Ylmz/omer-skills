@@ -19,4 +19,10 @@ relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 - v2 araç çıkarma 238/238 "model-yok" çıkmıştı; havuz gerçek çağrıyla denendi (gemini çalışıyor, EK 8) → yeniden arka görevde (v2arac-tur3.log, 16 ok/0 hata). Tur 1 çıkarma da yeniden (cikar-tur3.log, 12 ok).
 - Yeni: `video_izle_kur_1_skill_kur.py` (klon → SkillSpector + gitleaks → ~/.claude/skills + dist zip + zip_denetle). Parti 1 (11 repolu skill) arka görevde → `skill-kur.tsv`.
 - Slop Monster: SS 5 YÜKSEK = AE1 "analysis-evasion", SKILL.md 72/73/86/110'daki `DESLOP_WRITER=x tools/cleanse.sh` satırları; betiklerde ağ/sudo/indirme yok → yanlış alarm, `!` ön ekiyle kurulacak.
-- SIRA: parti 1 sonucu → BEKLE satırlarını tek tek incele → arac_kart yenile --ekle + usta kartı (CRW, Voice DNA, parti 1) → guvenlik-4.md (tarama bitince) → parti 2 (araç/repo). Yeni linklere hazır DEĞİL.
+- (tur 3 SIRA, eski) parti 1 sonucu → BEKLE satırlarını tek tek incele → arac_kart yenile --ekle + usta kartı (CRW, Voice DNA, parti 1) → guvenlik-4.md (tarama bitince) → parti 2 (araç/repo). Yeni linklere hazır DEĞİL.
+
+# Tur 4 (29 Eki 16:10) · ARA KAYIT — kurulum yok (Ömer: en sona)
+- Arka görevler canlıydı (tara 15:30, v2arac 15:31, skill-kur 15:32 başlamış). Derin izleme yeniden koşuldu (derin-tur4.log): 261 eksikten 251'inin derin çıktısı var (ölçüldü), 10'u indirilemedi (IG 400) → `rapor/chrome-video-listesi.md` (url + neden).
+- skill-kur parti 1: Grill Me kuruldu; 19 skill BEKLE (SS HIGH: SlopMonster 5, answer-me 43, i-have-adhd 151, re-walkthrough 1, brag 9, claude-commercial 2/skill); PYNK'te SKILL.md yok. Yeni parti başlatılmadı.
+- Güvenlik taraması: PentAGI, Magpie, Open WebUI, Xtool, TradingAgents, FreeToken bitti; tarama MoneyPrinterTurbo'dan sürüyor. guvenlik-4.md alt ajanla yazılıyor.
+- Kurulacaklar son tablosu: `ogren/video-izle-kur-1/kurulacaklar.tsv` (`video_izle_kur_1_tablo.py`, yeniden koşulabilir): 118 kalem = envanter 102 + v2 çıkarmasından 16 yeni (v2 178/238 satır işlendi, sürüyor); 68 kalemin repo adresi yok → `repo-aday.tsv` (gh search, aday doğrulanmamış).
