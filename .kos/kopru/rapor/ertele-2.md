@@ -27,3 +27,11 @@ relatedTo: [ertele-1]
 - TUR 3 devam (14:30, kanıt tmp/ertele5/usage-FH.txt, context-H2.txt): Git Bash `/context`'i yol yapıyor → H/F2 ilk ölçüm geçersiz, PowerShell'den yeniden. /context H (F + budgetFraction 0,0001, red yok) 106,7k, Skills 30,5k = F → kalan 2892 plugin skill ADLARI tabanı, oran kırpması etkisiz.
 - Gerçek API girdisi (kancalı, haiku, tek tur, sırayla): A 190,7k · F2 164,3k · H 165,1k · G (H + 285 ajan reddi) 142,9k. KAPI TUTMADI (≤60k uzak); ~/.claude'a hiçbir şey uygulanmadı; 20/20 bulma + canlı /komut testi tavan ($0,80, ölçüm ≈$0,60) nedeniyle koşulmadı.
 - En iyi kaldırmasız aday: F (skillOverrides dizin/tam ad anahtarı) −26k. Kalan engel plugin skill adları (~30k) + ajan whenToUse (~34k): yollar plugin disable (kural dışı) ya da ajan/plugin açıklamalarını kaynakta kısaltma.
+
+# TUR 4 (kanıt .kos/kopru/rapor/ertele-2-rea.md, tmp/ertele5/kod2-9.txt, ayar-N.json)
+- Tersine okuma: ToolSearch erteleme yalnız araç şeması; skill/ajan listesi attachment, ertelenecek ayar/env binary'de yok.
+- F/F2/G/H GEÇERSİZ: `user-invocable-only` skill'i Skill aracı reddediyor (oGe, errorCode 7) — çağrılabilirlik kuralını çiğner.
+- Aday N (F2 anahtarları `name-only`, Skill aracı açık): gerçek API girdisi 190,5k = A 190,7k → tasarruf yok; adlar tabanı + ajan satırları kalıyor.
+- Ajan: özel/plugin ajan için ad-yalnız modu yok (`whenToUseLean` yalnız yerleşik); plugin ajan açıklaması 237k kr, kaynak düzenleme cache güncellemesinde ezilir.
+- KAPI TUTMADI; ~/.claude'a hiçbir şey uygulanmadı. Kaldırmasız ve çağrılabilir kalan aday A'yı geçmiyor. Desktop önerisi: aynı sonuç (skill listesi Desktop'ta da attachment, ayar yok).
+- Kalan tek gerçek yol (Ömer kararı gerekir): plugin başına skill/ajan sayısını kaynakta azaltmak ya da kullanılmayan plugin'leri disable — ikisi de mevcut kuralla çelişiyor.
