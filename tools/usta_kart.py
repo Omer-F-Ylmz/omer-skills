@@ -23,7 +23,8 @@ SURE = int(os.environ.get("USTA_SURE", "540"))  # dongu üst süre (sn)
 ISTEM = """Sen araç dokümanı damıtıcısın. Aşağıdaki {n} kalemin HER biri için YALNIZ verilen kaynak metne dayanarak Türkçe ustalık kartı yaz.
 Uydurma yok: kaynakta olmayan şeyi yazma; bilgi yetmiyorsa kısa ve genel kal.
 Çıktı: YALNIZ geçerli JSON dizisi, kalem sırasıyla, her eleman:
-{{"ad":"<aynen>","kullanim":["en iyi kullanım 1","2","3"],"tuzak":"en sık hata/tuzak (1 cümle)","token_ipucu":"jeton tasarrufu ipucu (1 cümle)","kombin":["birlikte kullanılan araç adları, en çok 3"],"ornek":"kaynakta AYNEN geçen bir komut/çağrı; yoksa boş string"}}
+{{"ad":"<aynen>","kullanim":["en iyi kullanım 1","2","3"],"tuzak":"en sık hata/tuzak (1 cümle)","token_ipucu":"jeton tasarrufu ipucu (1 cümle)","kombin":["birlikte kullanılan araç adları, en çok 3"],"ornek":"kaynakta AYNEN geçen bir komut/çağrı; yoksa boş string","kanit_tuzak":"tuzak iddiasının dayandığı kaynaktan BİREBİR alıntı (≤120 kr); yoksa boş string","kanit_token":"token_ipucu iddiasının kaynaktan BİREBİR alıntısı (≤120 kr); yoksa boş string"}}
+Kanıt kuralı: tuzak ve token_ipucu yalnız kaynakta doğrudan yazan bilgiyi söylesin; kanıt alanı kaynaktan kopyalanmış olmalı. Alıntı gösteremediğin iddiayı yazma: tuzak/token_ipucu için "Kaynakta belirtilmemiş." yaz ve kanıtı boş bırak.
 Kural: kaynakta olmayan komut, bayrak, CLI, API adı ya da parametre YAZMA (uydurma örnek en sık hatadır); kombin yalnız kaynakta adı geçen araçlar, yoksa boş liste; kaynak başka bir şeyden söz ediyorsa kısa ve genel kal.
 Her metin ≤140 karakter.
 
@@ -322,8 +323,12 @@ def isle(grup_n):
             src = kaynak(k, 10**6)
             o = str(e.get("ornek") or "").strip()
             ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
-            out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": temiz(e["tuzak"])[:220],
-                        "token_ipucu": temiz(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in ko[:3]],
+            nsrc = " ".join(src.split()).lower()
+            def kanitli(alan, kan):
+                v = temiz(e[alan])[:220]; q = " ".join(str(e.get(kan) or "").split()).lower()
+                return v if v.startswith("Kaynakta belirtilmemiş") or (len(q) >= 12 and q in nsrc) else "Kaynakta belirtilmemiş."
+            out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": [temiz(x)[:200] for x in e["kullanim"][:3]], "tuzak": kanitli("tuzak", "kanit_tuzak"),
+                        "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [str(x)[:60] for x in ko[:3]],
                         "ornek": (o if o and o in src else ("" if k["ad"].endswith("-paket") else f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
     (d / "haiku.jsonl").write_text("\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n", encoding="utf-8")
     print("kart", len(out))

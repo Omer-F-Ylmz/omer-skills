@@ -48,3 +48,9 @@
 - Hakem 40 rastgele yeni kart (seed 15, liste hakem15-adlar.json): 1. kosu 10/40 GECERSIZ (hakem kaynagi 4000 karakterde kesik gordu); 2. kosu tam kaynak parcalariyla 4 bagimsiz Haiku hakem: 33/40 = %82 < %87 KAPI TUTMADI. Retler: github, number-details, engineering:code-review, mukul975-zero-trust-paket, open-gstack-browser, pinecone-query, n8n-expression-syntax (token_ipucu/tuzak'ta kaynakta olmayan ya da yaniltici iddia; paket karti yalniz dosya yonlendirmesi).
 - Duzeltilmedi (tur siniri). Sonraki tur: 7 ret + token_ipucu'nda 'kaynakta yok' disi kaynaksiz iddia ureten kartlara dogrulama adimi; sonra kalan kalem.
 - Maliyet $ olculemedi; 10 uretici ~0,2M, 4 hakem ~0,5M Haiku jeton. Push yok.
+
+# TUR 16 (29 Eki)
+- Kaynak-kanit kapisi eklendi (usta_kart.py): istem kanit_tuzak/kanit_token ister; isle() kaynakta birebir bulunmayan tuzak/token_ipucu'nu "Kaynakta belirtilmemis." yapar. 9 ret karti (tur 15'in 7'si + productivity/sports) yeniden uretildi.
+- Sonraki 120 kalem 5 Haiku uretici ile uretildi; usta.jsonl 651. Kalan kartsiz ~6228. Kanitli token_ipucu 28/120 (92'sinde kanit yok -> "belirtilmemis").
+- Hakem (4 bagimsiz Haiku, tam kaynak parcalari; 40 yeni + 9 yeniden uretilen = 49): 41/49 = %84 < %98 KAPI TUTMADI. Retler: supabase-postgres-best-practices, sentry-instrument-logging, setup-gbrain, ship, n8n-expression-syntax, spec, mukul975-zero-trust-paket, davila7-productivity-paket. Kok: kullanim satirlarinda kosul dusurme/genel paket yonlendirmesi; kanit kapisi yalniz tuzak/token'i kapsiyor, kullanim ve ornek'i degil.
+- Sonraki tur: kanit kapisini kullanim+ornek'e genislet (kosullu iddialarda kosulu alintiya bagla), paket kartlarini kart yerine "paket yonlendirmesi" isaretle; 8 reti duzelt; sonra olcekle. Maliyet $ olculemedi (~13 Haiku ajan, ~1,4M jeton). Push yok.
