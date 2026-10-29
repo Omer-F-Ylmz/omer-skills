@@ -144,6 +144,9 @@ def node_tanim(tanim, yeni):
 
 def guncel_node():
     """WinGet Links'te node.exe yok (portable paket PATH'e surum klasoruyle girer): en yeni surum klasoru."""
+    kurulu = r"C:\Program Files\nodejs\node.exe"
+    if os.path.exists(kurulu):
+        return kurulu
     adaylar = glob.glob(os.path.join(os.environ["LOCALAPPDATA"], "Microsoft", "WinGet", "Packages",
                                      "OpenJS.NodeJS*", "node-v*-win-x64", "node.exe"))
     if not adaylar:

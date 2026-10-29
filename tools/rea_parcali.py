@@ -6,7 +6,7 @@ import argparse, json, os, subprocess, sys, time
 import psutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-NODE = r"C:/Users/pc/AppData/Local/Microsoft/WinGet/Packages/OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe/node-v24.19.0-win-x64/node.exe"
+NODE = r"C:/Program Files/nodejs/node.exe"
 DIST = NODE.replace("node.exe", "node_modules/rea-agents/dist")
 ISCI = os.path.join(HERE, "rea_parcali_isci.mjs")
 NOWIN = 0x08000000

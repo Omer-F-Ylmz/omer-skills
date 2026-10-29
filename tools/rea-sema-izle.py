@@ -3,7 +3,7 @@ Kullanım: pythonw -I tools/rea-sema-izle.py [--zorla]"""
 import json, os, subprocess, sys, time
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PAKET = r"C:/Users/pc/AppData/Local/Microsoft/WinGet/Packages/OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe/node-v24.19.0-win-x64/node_modules/rea-agents/package.json"
+PAKET = r"C:/Users/pc/AppData/Roaming/npm/node_modules/rea-agents/package.json"
 SURUM = os.path.join(KOK, ".kos", "kopru", "rea-surum.txt")
 SON = os.path.join(KOK, ".kos", "kopru", "rea-sema-son.txt")
 

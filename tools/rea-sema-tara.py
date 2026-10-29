@@ -3,7 +3,7 @@ Denetim: araç şeması ≤32 KB, geçerli JSON Schema (draft-07), not:{} yok, t
 ad ≤64, ad tekrarı yok. Çıkış 0 = temiz. REA her güncellendiğinde koşar."""
 import json, os, subprocess, sys
 
-NODE = r"C:/Users/pc/AppData/Local/Microsoft/WinGet/Packages/OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe/node-v24.19.0-win-x64/node.exe"
+NODE = r"C:/Program Files/nodejs/node.exe"
 REA = NODE.replace("node.exe", "node_modules/rea-agents/scripts/rea.mjs")
 SINIR = 32 * 1024
 

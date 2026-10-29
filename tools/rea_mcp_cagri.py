@@ -4,7 +4,7 @@ arac argümanlarında {CDP} ve {TARGET} yer tutucuları doldurulur. Tepe RAM (RE
 import json, os, subprocess, sys, tempfile, threading, time, urllib.request
 import psutil
 
-NODE = r"C:/Users/pc/AppData/Local/Microsoft/WinGet/Packages/OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe/node-v24.19.0-win-x64/node.exe"
+NODE = r"C:/Program Files/nodejs/node.exe"
 REA = NODE.replace("node.exe", "node_modules/rea-agents/scripts/rea.mjs")
 CHROME = r"C:/Program Files/Google/Chrome/Application/chrome.exe"
 NOWIN = 0x08000000

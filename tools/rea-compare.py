@@ -1,6 +1,6 @@
 import json, subprocess, os, sys, threading
 W = r"C:\Projeler\omer-skills\tools\rea-mcp-compact.mjs"
-NODE = r"C:/Users/pc/AppData/Local/Microsoft/WinGet/Packages/OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe/node-v24.19.0-win-x64/node.exe"
+NODE = r"C:/Program Files/nodejs/node.exe"
 env = {k: v for k, v in os.environ.items() if not k.startswith("REA_MCP")}
 p = subprocess.Popen([NODE, W], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, env=env, creationflags=0x08000000)
 _t = threading.Timer(60, p.kill); _t.daemon = True; _t.start()

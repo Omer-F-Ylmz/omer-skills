@@ -5,7 +5,7 @@ const cp = require('child_process');
 const path = require('path');
 const readline = require('readline');
 
-const NODE_KOK = path.dirname(process.execPath);
+const NODE_KOK = path.join(process.env.APPDATA, 'npm');
 const betik = path.join(NODE_KOK, 'node_modules', 'rea-agents', 'scripts', 'rea.mjs');
 const ch = cp.spawn(process.execPath, [betik, 'mcp'], { stdio: ['pipe', 'pipe', 'inherit'], windowsHide: true });
 

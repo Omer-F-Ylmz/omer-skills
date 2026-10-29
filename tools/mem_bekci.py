@@ -11,7 +11,7 @@ H = os.path.expanduser("~")
 LOG = os.path.join(H, ".claude-mem", "logs", "mem-bekci.log")
 KOK = r"C:\Projeler\omer-skills"
 NODE_ADAY = [
-    r"C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64\node.exe",
+    r"C:\Program Files\nodejs\node.exe",
     r"C:\Program Files\nodejs\node.exe",
 ]
 

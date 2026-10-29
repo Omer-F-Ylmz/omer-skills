@@ -124,8 +124,7 @@ def yukle(yol):
 
 
 # --spawner node icin: sunucu adi -> global paketin giris dosyasi
-NPM_PREFIX = (r"C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages"
-              r"\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.19.0-win-x64")
+NPM_PREFIX = r"C:\Users\pc\AppData\Roaming\npm"
 NODE_GIRIS = {
     "puppeteer":    [r"node_modules\puppeteer-mcp-server\dist\index.js"],
     # RAM-1 (fa71473): yerel kurulum C:\AI\mcp\<ad>, tools/mcp-launch/<ad>.cmd ile ayni giris
