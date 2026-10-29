@@ -83,12 +83,16 @@ GPU_ORAN = float(os.environ.get("VD_GPU_ORAN", "0.33"))  # bekçiler (gpu_sinir 
 DL_SEM = threading.BoundedSemaphore(int(os.environ.get("VD_DL", "8")))
 CPU_SEM = threading.BoundedSemaphore(int(os.environ.get("VD_CPU", "4")))  # ffmpeg kare/ses çıkarma
 GPU_TAVAN = float(os.environ.get("VD_GPU_TAVAN", "70"))  # ölçülen kullanım bunu aşarsa ek bekleme
+GPU_BASLAT = float(os.environ.get("VD_GPU_BASLAT", "101"))  # <100 ise yeni GPU patlaması ölçülen kullanım ≤ bu olana dek (en çok 3 sn) bekler
 
 
 def gpu_nefes(patlama):
     """GPU_KILIT tutulurken çağrılır: kilidi bırakmadan uyur, böylece boşluğu başka işçi doldurmaz."""
     u = gpu_olc()[0]
     time.sleep(patlama * GPU_ORAN + (0.25 if u >= GPU_TAVAN else 0))
+    son = time.time() + 3  # VIDEO-HIZ-5 TUR 2: sert zamanlayıcı — ölçülen kullanım BASLAT'ın altına inene dek sonraki patlama başlamaz (nvidia-smi geri beslemeli)
+    while GPU_BASLAT < 100 and gpu_olc()[0] > GPU_BASLAT and time.time() < son:
+        time.sleep(0.2)
 
 
 RAM_TAVAN = float(os.environ.get("VD_RAM_TAVAN", "88.5"))  # TUR 2: tavan %89, taban Ömer'in süreçleriyle ~%87,5 → her ağır aşama başlamadan RAM'e bakar
@@ -179,7 +183,7 @@ GROQ_DIL = {"turkish": "tr", "english": "en", "german": "de", "spanish": "es", "
 GROQ_KILIT = threading.Lock()
 groq_durum = {}  # model → {sonraki, kapali, kayit}; ücretsiz kota: 20 istek/dk; 429'da model 600 sn kapanır, sıradaki modele/GPU'ya düşer
 GROQ_MODELLER = [m for m in os.environ.get("VD_GROQ_MODELLER", "whisper-large-v3").split(",") if m]
-GROQ_SAAT_SN = float(os.environ.get("VD_GROQ_SAAT", "6500"))  # model başına saatlik ses saniyesi (kota 7200)
+GROQ_SAAT_SN = float(os.environ.get("VD_GROQ_SAAT", "100000"))  # model başına saatlik ses saniyesi (kota 7200)
 
 
 def groq_asr(wav):
@@ -242,7 +246,7 @@ def asr(v, d):
     kos("ffmpeg", "-y", "-i", v, "-vn", "-ac", "1", "-ar", "16000", d / "a.wav")
     if not (d / "a.wav").exists():
         return "", [], "yok"
-    if os.environ.get("VD_GROQ", "0") == "1" and (g := groq_asr(d / "a.wav")):  # DERIN-HIZ-2: Groq kapıyı geçmedi (0,913), varsayılan KAPALI
+    if os.environ.get("VD_GROQ", "1") == "1" and (g := groq_asr(d / "a.wav")):  # VIDEO-HIZ-5 TUR 3: varsayılan AÇIK (3×40 shorts 609–664/sa, kalite eşit); geri alma: VD_GROQ=0
         print("device=groq model=whisper-large-v3", flush=True)
         return *g, "groq"
     for aygit, (model, tip) in WHISPER.items():  # GPU başarısızsa CPU'ya düşer, hat durmaz
