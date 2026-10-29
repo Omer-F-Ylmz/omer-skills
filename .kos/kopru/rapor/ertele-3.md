@@ -4,7 +4,7 @@ status: active
 tags: [ertele-3, gizli-ajan, ajan-getir, katalog, context-dokum]
 relatedTo: [ertele-2, ertele-1]
 ---
-# TUR 5 (kanıt tmp/ertele10/; ara kayıt, ölçüm sürüyor)
+# TUR 5 (kanıt tmp/ertele10/; eski 3 setin n=12 yeniden ölçümü 600 sn arka plan sınırında durduruldu, sonuç yok — ölçülemedi)
 - `ara` = BM25 + Cloudflare bge-m3 gömme (RRF), 10 648 tanım dosyası bir kez gömüldü (~/.claude/ertele-gomme.npy, 2 dk 45 sn, sorgu başına 1 gömme). Kök neden bulundu: 1 896 tanımın açıklaması YAML blok (`description: >`) olduğundan dizine yalnız `>` düşüyordu → ayrıştırıcı düzeltildi, boş 1 896→179.
 - 30 YENİ kör skill (seed 31, haiku tarif31.jsonl) birleşik `ara` (n=12 + 4 kart): tüm çıktı 20/30, ilk 8 11/30 (tur4 yöntemi 4/30). KAPI ≥%98 TUTMADI → deny Skill önerilmez; madde 2–4 (canlı seçim, Token Optimizer, -p tarama) bu turda yapılmadı. Sonraki: skill gövdesinden çok parçalı gömme + ajan 60 tarif.
 - Kör 30 skill (tur4 seti) yalnız-gömme sırası: düzeltmeden önce ilk-8 15/30 → sonra 19/30; ilk-20 23/30. İngilizce yeniden yazma (llama-3.3 HyDE) ek kazanç vermedi (ilk-8 21/30). BM25 tek başına ilk-8 0/30.
