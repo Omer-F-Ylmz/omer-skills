@@ -2,7 +2,9 @@
 python tools/ertele_katalog.py kur            → ~/.claude/ertele-dizin.json (skill + ajan adı → tanım dosyası; hiçbir dosya taşınmaz/silinmez)
 python tools/ertele_katalog.py ara "<iş>"     → arac_ara kartları + kartsız tanımlarda anahtar sözcük isabeti (ad · tür · tek satır)
 python tools/ertele_katalog.py tam <ad>       → tanımın tam metni (skill: SKILL.md, ajan: .md)"""
+import collections
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -86,6 +88,17 @@ def _ozel_sira(gorev, d, mudur, n=4):
     return sorted(oz, key=lambda a: -sum(k in _katla(a + " " + d[a]["acik"]) for k in kok))[:n]
 
 
+def _bm25(gorev, d):
+    """ERTELE-3: alt-dizi sayımı yerine Türkçe katlamalı 5 harflik kök BM25 (gündelik tarif → nadir, ayırt edici kök ağır basar)."""
+    kel = lambda s: [w[:5] for w in re.findall(r"[a-z0-9]{3,}", _katla(s))]
+    docs = {ad: kel(ad.replace(":", " ").replace("-", " ") + " " + v["acik"]) for ad, v in d.items()}
+    df = collections.Counter(w for t in docs.values() for w in set(t))
+    N, ort = len(docs), sum(map(len, docs.values())) / max(len(docs), 1)
+    q = set(kel(gorev))
+    return {ad: sum(math.log(1 + (N - df[w] + .5) / (df[w] + .5)) * t.count(w) * 2.2 / (t.count(w) + 1.2 * (.25 + .75 * len(t) / ort))
+                    for w in q if w in t) for ad, t in docs.items()}
+
+
 def ara(gorev, n=8):
     import arac_ara as aa
     d = _dizin()
@@ -96,9 +109,7 @@ def ara(gorev, n=8):
         or aa.ara(gorev)["kartlar"][:n]
     o += [f"{k['ad']} · {k.get('tur', '?')} · {(k.get('ne_yapar') or k.get('aciklama') or '')[:110]}" for k in kartlar]
     gor = {k["ad"] for k in kartlar} | set(mudur)
-    sozcuk = [s for s in re.findall(r"\w{4,}", gorev.lower())]
-    puan = sorted(((sum(s in (ad + " " + v["acik"]).lower() for s in sozcuk), ad, v) for ad, v in _dizin().items() if ad not in gor),
-                  key=lambda x: -x[0])
+    puan = sorted(((p, ad, d[ad]) for ad, p in _bm25(gorev, d).items() if ad not in gor), key=lambda x: -x[0])
     o += [f"{ad} · {v['tur']} · {v['acik'][:110]}" for p, ad, v in puan[:n] if p > 0]
     return "\n".join(o) + "\n(tam metin: python tools/ertele_katalog.py tam <ad>)"
 
