@@ -1,0 +1,102 @@
+kalem	birlesen	tur_sinif	repo	eslesme	kanit	not
+Replica		plugin	Jakeschincariol/replica-skill	KURULU	plugin replica-skill@replica-skill (kurulu-mu.txt)	
+MoneyPrinterTurbo		docker	harry0703/MoneyPrinterTurbo	eslesti	envanter kaynak	agir servis; sinif tahmin
+Brag		skill	latent-spaces/brag	KURULU	~/.claude/skills/brag	
+PentAGI		docker	vxcontrol/pentagi	eslesti	envanter kaynak	
+Grill Me		skill	RobMitt/grill-me-skill	KURULU	~/.claude/skills/grill-me	
+Hypit		python	hypit-ai/hypit	eslesti	envanter kaynak	sinif tahmin
+prompts.chat	prompt.chat	mcp	f/prompts.chat	eslesti	repo adi kalemde; short I7JDztrqcD8	
+Postiz		docker	gitroomhq/postiz-app	eslesti	envanter kaynak	sosyal hesap API anahtarlari gerekir
+Academic Research Skills		skill	Imbad0202/academic-research-skills	aday	ad birebir, 54490 yildiz	video metni dogrulanmadi
+Prime Agent		python	PrimeIntellect-ai/prime-agent	eslesti	envanter kaynak	sinif tahmin
+ScrapeGraphAI		python	ScrapeGraphAI/scrapegraph-ai	aday	resmi repo adi (gh rate limit, dogrulanmadi)	aday listesinde yok
+Munder Difflin		node	HarnessMD/munder-difflin	eslesti	envanter kaynak	sinif tahmin
+Generate		bulunamadi		bulunamadi	kalem jenerik	video metninde repo yok
+Google Maps Scraper Kit	Google Maps lead scraper	docker	Mahanaicoach/google-maps-scraper-kit	aday	ad birebir 2040 yildiz	lead scraper satiri birlesti
+Xtool		site/hesap	xtool-org/xtool	eslesti	envanter kaynak	WSL2 + Apple ID gerekir (hesap)
+AirLLM		python	lyogavin/airllm	eslesti	envanter kaynak	GPU
+/linkedin-roast	LinkedIn roast skill	skill	yogibagus/linkedin-roaster	eslesti	envanter kaynak	alternatif alexyc9381/linkedin-roast-skill
+CareerOps		python	TelivityAI/careerops	eslesti	envanter kaynak	sinif tahmin
+Security Audit (Cloudflare)	Cloudflare guvenlik denetim skill; Cloudflare Security Audit; Cloudflare security skill	skill	Sander-Felippe/security-audit-extended	aday	gh: Cloudflare audit workflow skill, 0 yildiz	diger aday harshadk99/flareguard, tingwei161803/cloudflare-security-skill; skills/cloudflare farkli arac
+RE Walkthrough Pro		skill	charlesdove977/re-walkthrough-pro	KURULU	~/.claude/skills/re-walkthrough-pro	Higgsfield MCP ile birlikte anilir
+Reverse Engineering Skill Router Pack		skill		bulunamadi	repo yok	
+build-ai-agents-free		python	Moh4696/build-ai-agents-free	eslesti	envanter kaynak	sinif tahmin
+V3Code		mcp	HeavenFYouMissed/V3Code	aday	ad birebir, 2 yildiz	zayif
+Gropector		python	erendevelops/gropector	eslesti	envanter kaynak	sinif tahmin
+Age of Reach		python	Panniantong/Agent-Reach	KURULU	pip agent-reach v1.5.0 (kurulu-ek.txt); video: Claude internet erisimi, 71k yildiz	ad Agent Reach
+TRADER		python	timercrack/trader	eslesti	envanter kaynak	sinif tahmin
+GODMODE		site/hesap	elder-plinius/G0DM0D3	aday	v2: tek HTML dosyasi, 50+ model ucretsiz; DbmBOHXSnpR "called Godmode"	smol-ai/GodMode (Electron) reddedildi; API anahtari gerekebilir
+mixamo-llm-mocap		python	squall01337/mixamo-llm-mocap	eslesti	envanter kaynak	sinif tahmin
+Diffusion Studio Editor		node	diffusionstudio/editor	eslesti	envanter kaynak	
+Flick		bulunamadi		bulunamadi	DcQytKYAXjb: Comment FLICK link; Remotion tabanli /Flick	metafizzy/flickity reddedildi (carousel kutuphanesi)
+DramaClaw		python	dramaclaw/dramaclaw	eslesti	envanter kaynak	skills/dramaclaw-workflows var ama ayni kaynak dogrulanmadi
+social agents	social agents (meta agent pipeline); social agents deposu; meta agent pipeline skill	skill		bulunamadi	ig Dd-lBUpgXs8; repo linki yok	
+TradingAgents		python	TauricResearch/TradingAgents	eslesti	envanter kaynak	LLM anahtari
+ARES OSINT	ARES; ARES OSINT	python		bulunamadi	ig Dd1WZCgBcZa: ARES threat intelligence; repo linki yok	sweetsoftware/Ares (botnet C2) ve lmw-dev/ares-osint-telemetry reddedildi
+Company Brain		node	supermemoryai/company-brain	eslesti	envanter kaynak	sinif tahmin
+Mantis		skill		bulunamadi	Dd4j_vmKAP-: Google open-sourced Mantis, 16 skill; link DM ile	mantisbt/mantisbt reddedildi (bug tracker); Google repo gh rate limit yuzunden bulunamadi
+CROWD	CROWD (isimsiz simulasyon araci)	docker	666ghj/MiroFish	KURULU	klon:666ghj__MiroFish (kurulu-mu.txt); kaynak mirofish.ai	video komutu Docker Build
+Sullivan		bulunamadi		bulunamadi	DdF6PqhPP5B: called Sullivan, refuses to work unless profit	Superhen/Automated-Job-Resume reddedildi
+UnoRouter		site/hesap	unorouter/unorouter	aday	v2 DdGyEJjCYU4: Cline + UnoRouter ucretsiz modeller	repo unorouter.com vitrini (Next.js); hizmet hesap/API ister
+PYNK		skill	ralbuque/Pynkaro	eslesti	envanter kaynak	
+HTML Anything		node	nexu-io/html-anything	eslesti	envanter kaynak	
+Interactive Assets Skill	Lovart Interactive Assets Skill	skill		bulunamadi	ig DdoNju9tIz3; repo yok	Lovart ticari site olabilir
+Reicon		node	dqev/reicon	eslesti	kaynak reicon.dev; ad birebir	npm paketi
+CTA Strategist		skill		bulunamadi	repo yok	
+Orca		node	stablyai/orca	eslesti	envanter kaynak	
+Magpie		rust	yetone/magpie	eslesti	envanter kaynak	sinif tahmin
+logo-design-skill		skill	kaankiziltug/logo-design-skill	eslesti	ad birebir, 5173 yildiz	
+Apple Design Skill		skill	dickwu/apple-design-skill	KURULU	~/.claude/skills/apple-design	
+Ootto		mcp	Ootto-AI/claude-content-skills	aday	ad yakin, 320 yildiz	
+GSAP ScrollTrigger	GSAP	skill	greensock/gsap-skills	KURULU	marketplaces/gsap-skills; skills/gsap, gsap-scrolltrigger-storytelling	
+matpococ/skills		skill	matpococ/skills	eslesti	kalem repo yolu	
+3D Asset Server		mcp		bulunamadi	aday Denathar/3D-assets 0 yildiz zayif	
+OpenQodex		node	openqodex/openqodex	eslesti	envanter kaynak	
+FreeToken		python	FlashML-org/FreeToken	eslesti	envanter kaynak	~2 GiB, GPU
+Claude Commercial		skill	opaiiva/claude-commercial-ops-skills	eslesti	envanter kaynak	
+Fallow		rust	fallow-rs/fallow	eslesti	envanter kaynak	where fallow: yok
+Everything Claude Code	Everything Claude Code x3; ECC; Everything	plugin	affaan-m/everything-claude-code	KURULU	marketplaces/everything-claude-code ve ecc	upstream sahibi dizinden; gh dogrulamasi yok
+Dock		site/hesap		bulunamadi	v2: DOCK yorumu, ticari SaaS, ucretsiz plan	sickcodes/Docker-OSX reddedildi
+The Premium UI Kit		site/hesap	spaceui.one	eslesti	kaynak site spaceui.one	ucretli/hesap olabilir
+Hindsight		python	vectorize-io/hindsight	eslesti	envanter kaynak	servis
+Agentation		mcp	benjitaylor/agentation	eslesti	envanter kaynak	
+I Have ADHD		skill	ayghri/i-have-adhd	KURULU	~/.claude/skills/i-have-adhd	
+Cloudroom		node	davidondrej/cloudroom-core	eslesti	envanter kaynak	sinif tahmin
+Claude at Director		skill		bulunamadi	repo yok	
+Build Partner	Improve System (Build Partner); self-improve system (Build Partner plugin); Build Partner plugin; self-improve system	plugin	sahil11129/Build-Partner	KURULU	klon:sahil11129__Build-Partner (kurulu-mu.txt); ig DeW8haPoXTs	plugin olarak degil klon; kurulum dogrulanmali
+Dray		bulunamadi		bulunamadi	DekCMGfFn4K: Dray is the Chrome extension I built	CenturyLinkLabs/dray (docker is akisi) reddedildi
+Vendeo	Vendeo; Vendeo Instagram skill paketi	skill		bulunamadi	ig DekEc0pI_QP; kaynak GitHub (bos)	RomainLLC/vendeo-chain (blockchain) reddedildi
+Answer Me with HTML		skill	QingYunA/answer-me-with-html	KURULU	~/.claude/skills/answer-me-with-html	
+Task-CoEvolve		python	Agent4Science-UTokyo/Task-CoEvolve	eslesti	envanter kaynak	
+Acik kaynak ElevenLabs alternatifi		python		bulunamadi	adi belirtilmemis	Voicebox kurulu (jamiepine) olabilir
+MCPTune (mcptoon)		node		KURULU	where mcptoon: C:\Users\pc\.local\bin\mcptoon.exe; skills/mcptoon	
+ReelMimic		python	edenfunf/reelmimic	eslesti	envanter kaynak	
+LLM Wiki	LLM Wiki skill	skill	sdyckjq-lab/llm-wiki-skill	KURULU	~/.claude/skills/llm-wiki	
+Slop Monster		skill	ItsssssJack/SlopMonster	KURULU	~/.claude/skills/slopmonster	
+Dioramas		node	blendi-remade/dioramas	eslesti	kaynak github.com/blendi-remade/dioramas	
+auto-handoff		plugin	alexknowshtml/claude-auto-handoff	eslesti	envanter kaynak; /plugin komutu	
+Auto Content Skills		skill	stanceautomag/stance-auto-content-skills	aday	ad yakin, 3 yildiz	zayif
+Anthropic KnowledgeWork plugins	Anthropic Sales Skills	plugin	anthropics/knowledge-work-plugins	KURULU	marketplaces/knowledge-work-plugins	sales plugin bu repoda
+PhotoCraft	photocraft-cli	node	storytold/photocraft	aday	ad birebir, 74680 yildiz; ig Depp1ISlWgX	mcp+cli
+iFix AI		python	ifixai-ai/iFixAi	aday	envanter kaynak bozuk (abirmusa92-code/https-github.com-ifixai-ai-iFixAi)	
+AllWords		skill	lmammino/allwords	aday	aday, 10 yildiz	zayif
+HEIST		skill		bulunamadi	DeQaB59uBpu: crew of Claude agents HEIST; link DM ile	snapframework/heist reddedildi (Haskell sablon)
+Blender MCP		mcp	ahujasid/blender-mcp	aday	gh: ahujasid/mcp-for-blender 32686 yildiz; marketplace blender-agent-skills farkli	MCP; Blender kurulu olmali
+tcl-lsp	bitwisecook/tcl-lsp	python	bitwisecook/tcl-lsp	eslesti	v2 kaynak github.com/bitwisecook/tcl-lsp	
+Pit Crew / Fuel Saver / Dashboard		plugin		bulunamadi	repo yok	
+LINEAR (hairline)		skill		bulunamadi	repo yok	
+Magic UI		node	magicuidesign/magicui	aday	gh 22949 yildiz ad birebir	
+Free Claude Code		python	Alishahryar1/free-claude-code	eslesti	envanter kaynak	
+Jcode		rust	1jehuang/jcode	eslesti	DaLUGUbMp4K: acik kaynak Rust Jcode; fork readme 1jehuang/jcode	
+LTX 2.3		python	Lightricks/LTX-2	aday	gh LTX-2 resmi, 9956 yildiz	GPU/VRAM; james-see/ltx-video-mac macos-only alternatif
+claude-video	claude-video (watch skill)	plugin	claude-video	KURULU	marketplaces/claude-video; ig DY8EtIPtKLC	owner dogrulanmadi
+ffmpeg		python		KURULU	where ffmpeg: C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe	sistem binari
+map3d		node	cartesiancs/map3d	eslesti	envanter kaynak	
+Magic MCP Server		mcp	21st-dev/magic-mcp	aday	gh 6304 yildiz, v0 in Claude Code	marketplaces/21st-dev var, ayni mi dogrulanmadi; hesap/API key
+Gbrain		skill	garrytan/gbrain	aday	gh 31326 yildiz; skills setup-gbrain/sync-gbrain kurulu	CLI kurulu degil; kismi
+Meta resmi MCP		mcp		bulunamadi	repo yok	pipeboard-co/meta-ads-mcp resmi degil; Meta hesap gerekir
+Higgsfield MCP		mcp		aday	RE Walkthrough ig: Higgsfield MCP her sahneyi olusturuyor; npm @higgsfield/cli kurulu	repo yok; ucretli hesap (Higgsfield)
+TradingView	TradingView (site)	mcp	tradesdontlie/tradingview-mcp	KURULU	klon:tradesdontlie__tradingview-mcp (kurulu-mu.txt)	site hesap gerekir
+TrueForge agent harness		python	truefoundry/trueforge	KURULU	klon:truefoundry__trueforge (kurulu-mu.txt)	
+Claude Code skill		skill		bulunamadi	jenerik kalem	virgiliojr94/book-to-skill reddedildi
+Guitar Repos		bulunamadi		bulunamadi	ig DejfecRNhPL; repo yok	

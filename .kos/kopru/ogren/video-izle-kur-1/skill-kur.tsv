@@ -22,3 +22,42 @@ Claude Commercial	opaiiva/claude-commercial-ops-skills	gestao-indicacoes	BEKLE: 
 Claude Commercial	opaiiva/claude-commercial-ops-skills	rotina-closer	BEKLE: guvenlik bulgusu (karar Omer)	2	7	0	
 Claude Commercial	opaiiva/claude-commercial-ops-skills	yes-scripts	BEKLE: guvenlik bulgusu (karar Omer)	2	7	0	
 PYNK	ralbuque/Pynkaro		SKILL.md yok	15	28	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	llm-wiki	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	baoyu-url-to-markdown	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	youtube-transcript	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	llm-wiki-upgrade	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	docx	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	pdf	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	pptx	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	xlsx	BEKLE: guvenlik bulgusu (karar Omer)	96	215	0	
+linkedin-roast	yogibagus/linkedin-roaster		SKILL.md yok	4	26	0	
+auto-handoff	alexknowshtml/claude-auto-handoff		SKILL.md yok	4	7	0	
+Slop Monster	ItsssssJack/SlopMonster	slopmonster	kuruldu	5	11	0	temiz
+Answer Me HTML	QingYunA/answer-me-with-html	answer-me-with-html	kuruldu	43	163	2	SORUN: answer-me-with-html.zip: description XML/açılı ayraç içeriyor (claude.ai reddede
+I Have ADHD	ayghri/i-have-adhd	i-have-adhd	kuruldu	151	436	0	temiz
+I Have ADHD	ayghri/i-have-adhd	i-have-adhd	zaten kurulu	151	436	0	
+RE Walkthrough Pro	charlesdove977/re-walkthrough-pro	re-walkthrough-pro	kuruldu	1	16	0	temiz
+Brag	latent-spaces/brag	brag	kuruldu	9	39	0	SORUN: brag.zip: 289 dosya > 200 (claude.ai 'too many files' ile reddeder)
+Brag	latent-spaces/brag	brag-slim	kuruldu	9	39	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	abrir-todos-leads	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	auditor-reunioes	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	auditoria-leads-agendados	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	auditoria-leads-travados	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	auditoria-tarefas	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	closer-followup	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	closer-objecao	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	closer-pos	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	closer-prep	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	fechamento-github	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	gerente-daily	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	gestao-indicacoes	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	rotina-closer	kuruldu	2	7	0	temiz
+Claude Commercial	opaiiva/claude-commercial-ops-skills	yes-scripts	kuruldu	2	7	0	temiz
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	llm-wiki	kuruldu	96	215	0	SORUN: llm-wiki.zip: görünmez Unicode (sıfır genişlik/etiket) 3 dosyada (ör. llm-wiki/p
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	baoyu-url-to-markdown	zaten kurulu	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	youtube-transcript	kuruldu	96	215	0	temiz
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	llm-wiki-upgrade	kuruldu	96	215	0	temiz
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	docx	zaten kurulu	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	pdf	zaten kurulu	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	pptx	zaten kurulu	96	215	0	
+LLM Wiki	sdyckjq-lab/llm-wiki-skill	xlsx	zaten kurulu	96	215	0	
