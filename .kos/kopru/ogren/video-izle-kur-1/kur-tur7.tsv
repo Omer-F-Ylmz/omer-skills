@@ -1,0 +1,4 @@
+kalem	durum	kanit	yol
+iFix_AI	calisiyor	ifixai --help: 'Usage: ifixai [OPTIONS] COMMAND [ARGS]'; import ifixai ok 	C:\Projeler\araclar\video-izle-kur-1\iFix_AI\src\.venv
+TradingAgents	calisiyor	tradingagents --help: 'Usage: tradingagents [OPTIONS] COMMAND [ARGS]...' (py3.12 venv) 	C:\Projeler\araclar\video-izle-kur-1\TradingAgents\src\.venv
+Free_Claude_Code	calisiyor	fcc-server basladi, GET 127.0.0.1:8082/health=200 (kapatildi). uv 0.12.12<0.13.6 ve py3.14.10 yok: --no-config --python-version 3.14.10 ile kuruldu (py3.14.7) 	C:\Projeler\araclar\video-izle-kur-1\Free_Claude_Code\src\.venv

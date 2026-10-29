@@ -1,0 +1,6 @@
+﻿kalem	durum	kanit	yol
+Dioramas	calisiyor	npm run build ok; vite dev 127.0.0.1:5190 GET / -> 200	C:/Projeler/araclar/video-izle-kur-1/Dioramas/src
+map3d	calisiyor	npm run build ok (tsc+vite); vite dev 127.0.0.1:5191 GET / -> 200	C:/Projeler/araclar/video-izle-kur-1/map3d/src
+HTML_Anything	calisiyor	npx pnpm install+next build ok; next start 127.0.0.1:3123 GET /api/templates -> 200 (templates json), / -> 200	C:/Projeler/araclar/video-izle-kur-1/HTML_Anything/src
+Agentation	calisiyor	pnpm install+build ok (package dist + mcp dist); agentation-mcp server 127.0.0.1:4747 GET /health -> 200 {"status":"ok"}; sonra kapatildi	C:/Projeler/araclar/video-izle-kur-1/Agentation/src
+Company_Brain	calisiyor	npm run build (wrangler dry-run) ok; vitest 34/34 test gecti, 2 dosya yuklenemedi (cloudflare: protokol, @repo alias); wrangler dev LLM anahtari/hesap gerekir	C:/Projeler/araclar/video-izle-kur-1/Company_Brain/src
