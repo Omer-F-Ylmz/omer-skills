@@ -11,3 +11,17 @@
 - Hakem (bağımsız Haiku alt ajan, 20 rastgele kart): 20/20 = %100 ≥ %92. Sınır: 5 kartta Read kaynağı kesti, o kısımlar doğrulanamadı; 15 kart tam doğrulandı.
 - Maliyet: $ ölçülemedi; alt ajan jetonu 13 üretici ≈ 590k + hakem; kart başı ≈ 6k Haiku jetonu. Haiku medium ön denemesi yapılmadı (kısa kaynak ayrımı eklenmedi).
 - Yedek: usta-haiku/_arsiv/tur7, usta.jsonl.bak. Push yok.
+
+# TUR 9 (29 Eki)
+- 100 yeni kart, usta.jsonl 300. hazirla: kaynak 6000'lik parçalara bölünüp hepsi veriliyor (--uzun: kaynağı >6000 olan mevcut 94 kartı yeniden üretmek için; bu turda koşulmadı), kısa kaynaklılar başa sıralanıyor.
+- Haiku medium denemesi: yalnız 1 grup (8 kart, kaynak ≤1500, g0); hakem örnekleminde 1 kart düştü (gmod-addon-maker-paket: genel). 8 kartlık örnek karar için yetersiz.
+- Hakem (bağımsız Haiku alt ajan, 20 kart, tam kaynak): 18/20 = %90 < %92 KAPI GEÇMEDİ. Red: davila7-gmod-addon-maker-paket (genel, medium), hairline-create (kaynakla çelişen satır, high).
+- Boş ornek 43, boş kombin 43 (kaynakta yok → uydurma yok).
+- Maliyet: $ ölçülemedi; 13 üretici ≈ 0,9M Haiku jetonu (ortalama 70k/grup) → kart başı ≈ 9k jeton (parçalı kaynak okuma yüzünden tur 8'den yüksek); hakem ≈ 123k.
+- Sıradaki: iki red kartı Sonnet medium ile yeniden üret + yeniden ölç; sonra --uzun.
+
+# TUR 10 (29 Eki)
+- 2 red kart (gmod-addon-maker-paket, hairline-create) Haiku high ile yeniden üretildi (hairline 2 parça kaynakla); --uzun ile 6000'i aşan 94 kart parçalı kaynakla yeniden üretildi. usta.jsonl 300 (yedek usta.jsonl.bak). Üretici: 13 Haiku high alt ajan.
+- Hakem (bağımsız Haiku, 40 kart, tam kaynak): 35/40 = %88 < %92 KAPI GEÇMEDİ. Yeniden üretilen 26 kartta 24/26 (%92; 2 red kart ikisi de geçti; 2 red: 1 kart "en sık hata" iddiası kaynakta yok, 1 "özet kullanıcıya seçtirilmez"); eski 14 kartta 11/14 (%79: 3 red, genel/tekrar ve token_ipucu çelişkisi).
+- Maliyet: $ ölçülemedi; 13 üretici ≈ 1,1M Haiku jetonu (94+2 kart → ≈11k/kart), hakem 259k.
+- Sıradaki: reddedilen 5 kartı yeniden üret; eski (parçalı kaynaksız üretilmiş) kartlardaki genel kartlar için --zayif benzeri "genel" süzgeç; sonra yeni 40'lık hakem. Push yok.
