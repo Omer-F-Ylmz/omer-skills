@@ -61,3 +61,4 @@ relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 - ReelMimic çalışıyor (npm run doctor: All required items present), Reicon çalışıyor (build ok), Munder Difflin npm gyp hatası.
 - 23:55 Node: çalışıyor Reicon, Diffusion Studio Editor, OpenQodex, ReelMimic; kuruldu Hypit (build betiği yok), prompts.chat (prisma DATABASE_URL yer tutucuyla); başarısız Munder Difflin + Orca (node-gyp yerel modül: MSVC C++ derleyici yok). Rust 5 (MinGW ile) + Magpie (Go) + Hindsight/AirLLM arka planda; sonuç kur-tur8.tsv'ye düşüyor.
 - KALAN (TUR 9): Rust/Magpie/Hindsight/AirLLM sonucunu oku; Munder/Orca için VS Build Tools C++ (Ömer onayı: büyük kurulum); Cloudroom (Linux-only, curl|sudo bash → WSL); build-ai-agents-free + TRADER import; FreeToken WSL; 3 Docker (PentAGI 127.0.0.1); araç usta kartları.
+- Hindsight çalışıyor (import ok, 4 exe); AirLLM başarısız (pathtools bağımlılığı py3.12'de imp ister → TUR 9: py3.10 venv ya da --no-build-isolation).

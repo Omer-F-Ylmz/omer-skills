@@ -7,3 +7,5 @@ Hypit	kuruldu	install ok; build betigi yok	C:\Projeler\araclar\video-izle-kur-1\
 OpenQodex	calisiyor	install+build ok: re about direct eval and bundling here: [4mhttps://esbuild.github.io/link/direct-eval[0m	C:\Projeler\araclar\video-izle-kur-1\OpenQodex\src
 Orca	basarisiz	pnpm install: ws-registry install: gyp ERR! not ok native/windows-security install: Failed native/windows-registry install: Failed ELIFECYCLE Command failed with exit code 1.	C:\Projeler\araclar\video-izle-kur-1\Orca\src
 prompts.chat	kuruldu	npm install ok + prisma generate ok (DATABASE_URL yer tutucu; kok neden PrismaConfigEnvError); calistirma Postgres ister	C:\Projelerraclarideo-izle-kur-1\prompts.chat\src
+AirLLM	basarisiz	uv pip: project.toml` under: [tool.uv.extra-build-dependencies] pathtools = ["imp"] or `uv pip install imp` into the environment and re-run with `--no-build-isolation`.	C:\Projeler\araclar\video-izle-kur-1\AirLLM\src
+Hindsight	calisiyor	uv pip -e hindsight-api-slim + hindsight-clients/python ok; exe: hindsight-api/admin/worker/local-mcp; import hindsight_client ok (--help olculmedi)	C:\Projelerraclarideo-izle-kur-1\Hindsight\src
