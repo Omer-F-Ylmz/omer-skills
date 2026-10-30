@@ -4,6 +4,11 @@ status: active
 tags: [ertele-3, gizli-ajan, ajan-getir, katalog, context-dokum]
 relatedTo: [ertele-2, ertele-1]
 ---
+# TUR 6 (açıklama taşıma, kapı kök nedeni; kanıt tmp/ertele6/secim*.jsonl)
+- KÖK NEDEN: 10 ajan testinin 1,2,7. maddeleri settings.json'da zaten reddedilen octo:personas ajanlarını bekliyordu (devops-troubleshooter, incident-responder, exec-communicator, ux-researcher) → üst sınır 7/10. A2 7/7 ulaşılabilir, B2 6/7. Ayrıca aynı A ayarı 2/10 ile 7/10 arasında oynadı → tek koşu gürültü.
+- Düzeltme: secim2.py (3 madde görünür ajanlarla: instrumentation-advisor, cockroachdb-dba, silent-failure-hunter), her kol 2 koşu, sırayla. Sapma: `--help` bayrağı tanınmadığından uygulama 602 dosyaya koştu (yedek 602/602 temiz, işaret 0).
+- Sonuç (secim2, haiku, sırayla; ajan/10 · skill/20 · açılış): A3 9·19·180,6k · A4 9·16·179,3k · B3 9·19·166,8k · B4 9·19·178,3k. B kalite ≥ A (56/60 vs 53/60) → KAPI (B ≥ A) TUTTU, B yeniden uygulandı (602 dosya, --geri hazır). Açılış ort. A 180,0k → B 172,6k (−7,4k; aynı kolda ±11k gürültü, kesin değil).
+- %98 iki kolda da tutmadı, ortak iki kaçak: madde 7 silent-failure-hunter → iki kol da pr-review-toolkit:code-reviewer; madde 21 'youtube-transcript' kurulu skill ama beklenen kümede yok (test hatası; sayılırsa skill 20/20, toplam 29/30 %96,7). Açık: SessionStart --kanca kancası settings.json'a eklenmedi (plugin güncellemesinde taşıma ezilir, zararsız); ≤60k hedefi bu yolla erişilemez.
 # TUR 5 (kanıt tmp/ertele10/; eski 3 setin n=12 yeniden ölçümü 600 sn arka plan sınırında durduruldu, sonuç yok — ölçülemedi)
 - `ara` = BM25 + Cloudflare bge-m3 gömme (RRF), 10 648 tanım dosyası bir kez gömüldü (~/.claude/ertele-gomme.npy, 2 dk 45 sn, sorgu başına 1 gömme). Kök neden bulundu: 1 896 tanımın açıklaması YAML blok (`description: >`) olduğundan dizine yalnız `>` düşüyordu → ayrıştırıcı düzeltildi, boş 1 896→179.
 - 30 YENİ kör skill (seed 31, haiku tarif31.jsonl) birleşik `ara` (n=12 + 4 kart): tüm çıktı 20/30, ilk 8 11/30 (tur4 yöntemi 4/30). KAPI ≥%98 TUTMADI → deny Skill önerilmez; madde 2–4 (canlı seçim, Token Optimizer, -p tarama) bu turda yapılmadı. Sonraki: skill gövdesinden çok parçalı gömme + ajan 60 tarif.
