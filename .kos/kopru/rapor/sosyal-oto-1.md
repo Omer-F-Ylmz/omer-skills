@@ -54,3 +54,13 @@ relatedTo: [SOSYAL-OTO-1]
 - SolidCraft: video-d0.mp4 (37 sn, gerçek hareket) nemotron 75 (<80). Gemma kolu 429 → üçlü hakem TAMAMLANMADI, hazir\ boş. Kendi kare kontrolü: kanca+altyazı okunaklı, hareket gerçek; kusur: "FREE + OPEN SOURCE" bandı parçanın tam ortasını kapatıyor, ilk kare imleç yok.
 - SurgePix: giriş gerektirir → elendi (yön 1). FreePainter: freepainter.org çözümlenmiyor (ERR_NAME_NOT_RESOLVED), senaryosu yazılmadı. 2. ve 3. video yok.
 - Sonraki: band konumunu alta/üste al (model ortası boş kalsın), gemma kotası açılınca uclu.py, ≥80 ise temizle.py hazirla; ardından konu-kuyrugu.json'dan girişsiz 2 araç için senaryo.
+
+## TUR 7 (30 Eki) DUR
+- hat.py: Band A grubunda y=660 (parca ortasi bos), Kanca 104->88pt. SolidCraft kayitli video yeniden render: kare kontrolu temiz (kanca kenara taşmıyor, band modeli kapatmıyor, hareket gercek). nemotron 75 (<80, hakem "hareket az/altyazi senkron" diyor), gemma HTTP 429 (kota) -> uclu hakem yine TAMAMLANMADI, hazir\ bos.
+- 2. ve 3. video (girissiz arac senaryosu) yapilmadi. Sonraki: gemma kotasi acilinca uclu.py; nemotron esigi icin kayit.py'de daha uzun/cesitli etkilesim (parametre degistirme).
+
+## TUR 8 (30 Eki) TUR BITTI — eşik 70, Desktop yönü
+- Önizleme (Ömer izleyecek, yükleme YOK): Desktop\Claude ile yapılanlar\sosyal-onizleme\ → puan75-solidcraft.mp4, puan72-surgepix.mp4, puan68-freepainter.mp4 (puan = nemotron tek hakem; üçlü hakem gemma 429 yüzünden yok).
+- ≥70 → out/a/hazir/1030-solidcraft, 1030-surgepix (video.mp4+meta; temizle.py silme yaptığı için elle kopya). FreePainter 68 <70, hazir'e girmedi.
+- Uyarı: SurgePix aracı giriş istiyor (tur 6'da elenmişti) — içeriği Ömer onaylamadan yayınlanmasın; SurgePix/FreePainter videoları statik ekran görüntüsü tabanlı (gerçek ekran kaydı yalnız SolidCraft).
+- Instagram adı (Chrome değil headless Playwright, instagram.com/<ad> "Profile isn't available" = müsait; hesap AÇILMADI): @freeaidrop ve @freeaidrops DOLU. Müsait sırayla: 1) freeaidrop.daily 2) thefreeaidrop 3) getfreeaidrop (freeaidrop.co da müsait). Not: "kaldırılmış hesap" da aynı sayfayı verir; açarken son kez doğrula.
