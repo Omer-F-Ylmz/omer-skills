@@ -12,9 +12,9 @@ shot((r) => {
     e.style.cssText = `position:absolute;left:200px;top:${250 + i * 200}px;font-size:130px;font-weight:700;color:#fb923c`;
     els.push(e); r.append(e);
   });
-  fox = document.createElement("div");
-  fox.textContent = "🦊";
-  fox.style.cssText = "position:absolute;top:700px;font-size:200px;line-height:1";
+  fox = document.createElement("img");
+  fox.src = "assets/tilki.png";
+  fox.style.cssText = "position:absolute;top:820px;height:240px";
   r.append(fox);
 }, (t) => {
   els.forEach((e, i) => {

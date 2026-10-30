@@ -5,9 +5,9 @@ import { shot, ease } from "./shot.js";
 let fox, title;
 shot((r) => {
   r.style.cssText = "width:1920px;height:1080px;background:linear-gradient(135deg,#ff8a3d,#c2410c);position:relative";
-  fox = document.createElement("div");
-  fox.textContent = "🦊";
-  fox.style.cssText = "position:absolute;left:760px;top:260px;font-size:400px;line-height:1";
+  fox = document.createElement("img");
+  fox.src = "assets/tilki-mutlu.png";
+  fox.style.cssText = "position:absolute;left:660px;top:120px;height:600px";
   title = document.createElement("div");
   title.textContent = "Meet Tilki";
   title.style.cssText = "position:absolute;left:0;width:1920px;top:760px;text-align:center;font-size:150px;font-weight:800;color:#fff";
