@@ -13,6 +13,7 @@ VIDEO HATTI KURALI (Ömer 21 Eki): üretim (görüntü/video/ses/kurgu) tamamen 
 1. `ac` — ComfyUI 127.0.0.1:8188'de açılır (Blender açıksa 9876 dolu → 2; ikisi birlikte koşmaz).
 2. `uret --is <iş> --prompt "..." --cikti C:\Users\pc\Desktop\<Proje>\... [--adet ≤4] [--tohum N] [--referans a.png ...]`
    `buyut <png> --kat 2|4` · `arkaplan <png>` (ComfyUI gerekmez).
+   Alternatif büyütme (yalnız CC): `python tools/upscale.py <girdi> <çıktı> [digital-art-4x|high-fidelity-4x]` (Upscayl, 1352x455→5408x1820 5,4 sn; kenar keskinliği bicubic 149,5 → high-fidelity 194,4 · digital-art 854,2; afiş/illüstrasyon digital-art, foto high-fidelity).
 3. `kapat` — yalnız durum dosyasındaki PID ile kapatır, port boşalana dek (≤15 sn) bekler.
 
 İş yarıda kalsa da 3 çalıştırılır; sunucu açık bırakılmaz.

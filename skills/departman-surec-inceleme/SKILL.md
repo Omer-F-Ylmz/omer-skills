@@ -11,7 +11,7 @@ Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>`
 
 ## Adımlar
 1. **Sadelik** — en kısa doğru çözüm `ponytail`; fazlalık avı `ponytail-review`, sadeleştirme `code-simplification`.
-2. **Review** — diff için `code-review`; kapsamlı PR `pr-review-toolkit`; istek `requesting-code-review`.
+2. **Review** — diff için `code-review`; kapsamlı PR `pr-review-toolkit`; istek `requesting-code-review`. Kural motoru (yalnız CC, anahtar gerekmez): `ocr delegate preview --from A --to B`, sonra `ocr delegate rule <dosya...>` kural gruplarını verir; diff'i bu kurallara göre incele (npm `@alibaba-group/open-code-review`, Apache-2.0).
 3. **Yorum** — alınan yorumu doğrulayarak uygula `receiving-code-review`.
 4. **Doğrulama** — kanıt `verification-before-completion`; üretime hazır mı `production-readiness-review`.
 5. **Devir** — güvenlik → `departman-guvenlik`; commit/yayın → `departman-surec-git-yayin`.
