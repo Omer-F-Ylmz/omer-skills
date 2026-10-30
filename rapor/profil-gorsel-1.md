@@ -1,7 +1,8 @@
-# PROFIL-GORSEL-1 tur5 — TUR BITTI (hakem ≥8 sağlanmadı)
-Çıktı: Desktop\Claude ile yapılanlar\sosyal-oto\marka\{free-ai-drop,curiosity-well}\v4\ (isaret-1600, profil, afiş, shorts şablon+boş, _kucuk-boyut); v1-v3 duruyor. Çakışma testi: marka\cakisma-testi-v4.json (kesişim yok, kart marjı 60/60). Araç: tools/profil_gorsel_v4.py (PIL vektör, 2x süper örnekleme).
-Yöntem: AI raster bırakıldı (tur4 slop) → özgün vektör işaretler. FAD: kalın geometrik 'D' + counter'da düşen piksel/sönen iz. CW: tam kareye linocut ışın + anahtar deliği (18 ışın, çekirdek); banner/shorts'ta daire maskesi. Afişte bulanık levha kalktı, daire x≥527; shorts tek logo, alt şerit metin.
-Atlanan (neden): yerel Qwen/Z-Image turbo (RAM: boş ~8 GB, önceki turda acil fren), Upscayl kurulu değil (link-30eki-17 raporu yok); vektör çıktı zaten keskin, 2x→geri ölçek uygulanmadı. vtracer gerekmedi.
-Hakem (bağımsız okuyucu, düzeltme SONRASI, Ömer ölçeği): FAD profil 5,5 · afiş 5 · shorts 5; CW profil 7 · afiş 6,5 · shorts 6. İlk puan (düzeltme öncesi) A 4,7 / B 6,3. jev kullanılmadı.
-Kalan kusurlar: FAD D jenerik + neon/meteor zemin klişesi, counter'daki dikdörtgenler anlamsız; yağmur çizgileri afiş/shorts yazısını kesiyor; CW afiş zemin çamurlu gradyan + 2 satır başlık; ışınlar düzensiz, 'kuyu' bağı zayıf; her iki shorts'ta alt 1/3 boş.
-Sonraki tur: FAD'i damla/ok formuna çevir, yağmuru yazı bölgesinde sil, düz mor zemin; CW zemini saf lacivert, yıldız %70 az, başlık tek satır, ışınları simetrik + kuyu ağzı çemberi; shorts b-roll kutusunu uzat.
+# PROFIL-GORSEL-1 tur6 (v5) — TUR BITTI (hakem ≥8 sağlanmadı)
+Çıktı: Desktop\Claude ile yapılanlar\sosyal-oto\marka\{free-ai-drop,curiosity-well}\v5\ (isaret, profil, afiş, shorts şablon+boş, _kucuk-boyut); çakışma testi marka\cakisma-testi-v5.json. Araç: tools/profil_gorsel_v5.py.
+Yapılan (Desktop yönü): FAD: merdiven dikdörtgenleri + meteor yağmuru silindi; düz derin mor zemin + tek ince üst ışık; D içinde indirme oku oyuğu (tek siluet); afiş logo+metin tek blok ortada (güvenli alan 1546 sınırı, +%20 mümkün olmadı); Shorts yağmursuz, b-roll kutusu 603-726px, alt yazı y≤1643 (<1670).
+CW: 24 eşit simetrik ışın, merkezde kuyu ağzı çemberi + içinde anahtar deliği, tek çember; saf lacivert, yıldız ~%70 az; afişte tek satır başlık, logoyla dikey ortalı; Shorts metni ortalı.
+Ölçüm: kesişim yok, kart marjı 60/60, satır merkez sapması ≤1px.
+Hakem (bağımsız ajan, düzeltme sonrası, Ömer ölçeği): FAD profil 6 · afiş 4,5 · shorts 5; CW profil 6,5 · afiş 5 · shorts 5,5. jev: ajan oturumunda araç yüklenemedi → jev puanı YOK (zorunluydu, ölçülemedi).
+Kalan kusurlar: FAD ok ikonu jenerik; afişler boş/küçük amblem; CW afişte yıldızlar yazıya biniyor; CW 48px'te anahtar deliği küçük; Shorts dikey denge (üst 260 boş, alt ~280 ölü).
+Sonraki: afişte yıldız/ışık yazı bölgesinden dışlansın, amblem büyüsün (güvenli yükseklik içinde); jev'i ana oturumdan çağır; FAD'e özgün fikir (damla+D) gerekebilir — vektörle tavan ~6-7.
