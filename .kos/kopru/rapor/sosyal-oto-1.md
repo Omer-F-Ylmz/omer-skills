@@ -64,3 +64,7 @@ relatedTo: [SOSYAL-OTO-1]
 - ≥70 → out/a/hazir/1030-solidcraft, 1030-surgepix (video.mp4+meta; temizle.py silme yaptığı için elle kopya). FreePainter 68 <70, hazir'e girmedi.
 - Uyarı: SurgePix aracı giriş istiyor (tur 6'da elenmişti) — içeriği Ömer onaylamadan yayınlanmasın; SurgePix/FreePainter videoları statik ekran görüntüsü tabanlı (gerçek ekran kaydı yalnız SolidCraft).
 - Instagram adı (Chrome değil headless Playwright, instagram.com/<ad> "Profile isn't available" = müsait; hesap AÇILMADI): @freeaidrop ve @freeaidrops DOLU. Müsait sırayla: 1) freeaidrop.daily 2) thefreeaidrop 3) getfreeaidrop (freeaidrop.co da müsait). Not: "kaldırılmış hesap" da aynı sayfayı verir; açarken son kez doğrula.
+## TUR 9 (30 Eki) ses — 5/7 motor
+- Yeni: Dia 5/6 (heyecanli2 her denemede sessiz çöküyor, rc=1), XTTS-v2 6/6 (CPML lisansı ticari kullanıma kapalı → kanal için yalnız değerlendirme), OmniVoice mutlu2 yeniden üretildi (WER 0,00). WER (large-v3, CPU/int8; GPU koşusu sessiz rc=1): Dia 0–0,05, XTTS 0–0,05.
+- NeuTTS: neuphonic/neutts-nano ve -air GATED (403) → Ömer HF hesabından erişim istemeli. Voicebox yapılmadı (çağrı tavanı).
+- en-iyi-3\ klasörüne Dia + XTTS mutlu1 eklendi (kulak seçimi Ömer'de). Venv: C:\AI\venv-dia, venv-xtts, venv-neu.
