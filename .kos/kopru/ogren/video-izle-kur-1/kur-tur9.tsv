@@ -1,0 +1,5 @@
+kalem	durum	kanit	yol
+AirLLM	calisiyor	uv venv py3.10 (.venv310) + uv pip -e air_llm ok; import airllm ok, AutoModel var (model indirme/inference olculmedi)	C:\Projelerraclarideo-izle-kur-1\AirLLM\src
+Cloudroom	calisiyor	WSL cargo build --locked ok; exe: target/release/cloudroom ; --help: om-cli thread, automation (loop), mac, secret, files, preview, computer-use, feedback. Add --help to any of them. Other threads, projects, and settings live on the user's Mac: see the room-cli skill. 	WSL ~/vik9/cloudroom/core
+Munder_Difflin	basarisiz	MSVC ile npm install: r gyp ERR! node-gyp -v v10.2.0-electron.1 npm error gyp ERR! not ok npm error A complete log of this run can be found in: C:\Users\pc\AppData\Local\npm-cache\_logs\2026-10-30T05_27_18_612Z-debug-0.log	C:\Projeler\araclar\video-izle-kur-1\Munder_Difflin\src
+FreeToken	basarisiz	WSL pip freetoken[accel] rc=1:  subprocess to install build dependencies did not run successfully. │ exit code: 1 ╰─> See above for output. note: This error originates from a subprocess, and is likely not a problem with pip. 	WSL ~/vik9/freetoken-venv

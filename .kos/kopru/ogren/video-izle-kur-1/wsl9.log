@@ -1,0 +1,3 @@
+Cloudroom calisiyor WSL cargo build --locked ok; exe: target/release/cloudroom ; --help: om-cli thread, automation (loop), mac, secret, files, preview, computer-use, feedback. Add --help to any of them. Other threads, projects, and settings live on the user's Mac: see the room-cli skill. 
+FreeToken basarisiz WSL pip freetoken[accel] rc=1:  subprocess to install build dependencies did not run successfully. │ exit code: 1 ╰─> See above for output. note: This error originates from a subprocess, and is likely not a problem with pip. 
+BITTI
