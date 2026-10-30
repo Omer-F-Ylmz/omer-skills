@@ -812,3 +812,4 @@
 {"ad": "amj1994/scrollhaus-free", "karar": "KLONLANDI iç kullanım (lisans dosyası yok; Ömer 28 Eki 16:12 kararı: lisans yüzünden alınmamış her şey alınır; dağıtılmaz) -> C:/Projeler/omer-kutuphaneler/ic-kullanim", "tarih": "2026-10-28", "parti": "tamamla-28"}
 {"ad": "rea-agents@6.8.0", "karar": "GUNCELLENDI 6.7.0->6.8.0; setup claude_code+codex+gemini_cli (Ömer terminali 18:08), MCP 229 araç doğrulandı; Ghidra 12.1.4, JDK 21, JADX-MCP 0.7.1 kurulu", "tarih": "2026-10-30", "parti": "rea-guncel"}
 {"ad": "openfilm@0.2.7", "karar": "KURULDU skill (global) + CLI npx; look/render/Studio headless doğrulandı, kanıt tilki-film.mp4 12 sn", "tarih": "2026-10-30", "parti": "openfilm-kur-1"}
+{"ad": "ucretsiz-web-ai", "karar": "KURULDU skill; Wan/upscaler/bg-remover ölçüldü; Qwen video girişsiz DEĞİL", "tarih": "2026-10-30", "parti": "qwen-toolfk-1"}

@@ -6949,3 +6949,4 @@ zoom-automation	skill	CC		Automate Zoom meeting creation, management, recordings
 zustand-store-ts	skill	CC		Create Zustand stores with TypeScript, subscribeWithSelector middleware, and proper state/action separation.	Use when building React state management, creating global stores, or implementing reacti...			claude.ai	~/.claude/skills
 threejs-spiral-gallery	uygulama					frontend			envanter.json (kurulu değil?)
 openfilm	cli	CC	0.2.7	Video=web sayfası: film.html+window.film, look/render, Studio			kullanım:2026-10-30	Desktop/claude.ai	npx -y openfilm@latest; skills add openfilm/openfilm
+ucretsiz-web-ai	skill	CC	1	Girişsiz web AI: Wan2.2 i2v, upscaler, ToolFK görsel düzenleyici			kullanım:2026-10-30	CC+Desktop	skills/ucretsiz-web-ai
