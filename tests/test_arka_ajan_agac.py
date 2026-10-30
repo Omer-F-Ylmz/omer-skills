@@ -22,6 +22,7 @@ def _sahte(tmp_path):
     py = tmp_path / "sahte.py"
     py.write_text(
         "import subprocess, sys, time\n"
+        "sys.stdin.read()\n"  # girdi pipe tamponunu aşarsa kos() yazarken bloklanır
         "subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(120)'])\n"
         "import json; print(json.dumps({'type': 'result', 'is_error': False, 'session_id': 's1', 'usage': {'input_tokens': 5}}, separators=(',', ':')), flush=True)\n"
         "time.sleep(120)\n", encoding="utf-8")
@@ -53,6 +54,23 @@ def test_bayat_kilit_eski_olur(tmp_path, monkeypatch):
     (tmp_path / "b.kilit").write_text("999999")
     m.kos("b")
     assert (tmp_path / "b.kilit-eski").exists() and (tmp_path / "b.log").exists()
+
+
+def test_bg_bekleme_tavani_zaman_asimina_esit(tmp_path, monkeypatch):
+    m = _yukle(tmp_path, monkeypatch)
+    monkeypatch.delenv("CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS", raising=False)
+    py = tmp_path / "env.py"
+    py.write_text(
+        "import os, json\n"
+        f"open(r'{tmp_path / 'env.txt'}', 'w').write(os.environ.get('CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS', ''))\n"
+        "print(json.dumps({'type': 'result', 'is_error': False, 'session_id': 's', 'usage': {'input_tokens': 5}}, separators=(',', ':')), flush=True)\n",
+        encoding="utf-8")
+    cmd = tmp_path / "env.cmd"
+    cmd.write_text(f'@"{sys.executable}" "{py}" %*\r\n', encoding="utf-8")
+    m.CLAUDE = str(cmd)
+    (tmp_path / "e.json").write_text(json.dumps({"cwd": str(tmp_path), "gorev": "x", "timeout_sn": 7200}), encoding="utf-8")
+    m.kos("e")
+    assert (tmp_path / "env.txt").read_text() == "7200000"
 
 
 def test_hafif_bayrak_varsayilan_bos_secenek_dolu(tmp_path, monkeypatch):

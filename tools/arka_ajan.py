@@ -104,6 +104,8 @@ def kos(isim):
     if devam: argv += ["--resume", devam]
     argv += hafif_bayrak(j, isim)
     env = dict(os.environ); env.pop("CLAUDE_CODE_EFFORT_LEVEL", None)
+    # claude -p arka alt ajanları 10 dk sonra öldürüyor; tavanı iş zaman aşımına eşitle
+    env.setdefault("CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS", str(int(j.get("timeout_sn", 5400)) * 1000))
     t0 = time.strftime("%H:%M")
     metin = girdi(j, isim).encode("utf-8")
     try:
