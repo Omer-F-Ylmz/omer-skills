@@ -1,8 +1,6 @@
-# PROFIL-GORSEL-1 tur6 (v5) — TUR BITTI (hakem ≥8 sağlanmadı)
-Çıktı: Desktop\Claude ile yapılanlar\sosyal-oto\marka\{free-ai-drop,curiosity-well}\v5\ (isaret, profil, afiş, shorts şablon+boş, _kucuk-boyut); çakışma testi marka\cakisma-testi-v5.json. Araç: tools/profil_gorsel_v5.py.
-Yapılan (Desktop yönü): FAD: merdiven dikdörtgenleri + meteor yağmuru silindi; düz derin mor zemin + tek ince üst ışık; D içinde indirme oku oyuğu (tek siluet); afiş logo+metin tek blok ortada (güvenli alan 1546 sınırı, +%20 mümkün olmadı); Shorts yağmursuz, b-roll kutusu 603-726px, alt yazı y≤1643 (<1670).
-CW: 24 eşit simetrik ışın, merkezde kuyu ağzı çemberi + içinde anahtar deliği, tek çember; saf lacivert, yıldız ~%70 az; afişte tek satır başlık, logoyla dikey ortalı; Shorts metni ortalı.
-Ölçüm: kesişim yok, kart marjı 60/60, satır merkez sapması ≤1px.
-Hakem (bağımsız ajan, düzeltme sonrası, Ömer ölçeği): FAD profil 6 · afiş 4,5 · shorts 5; CW profil 6,5 · afiş 5 · shorts 5,5. jev: ajan oturumunda araç yüklenemedi → jev puanı YOK (zorunluydu, ölçülemedi).
-Kalan kusurlar: FAD ok ikonu jenerik; afişler boş/küçük amblem; CW afişte yıldızlar yazıya biniyor; CW 48px'te anahtar deliği küçük; Shorts dikey denge (üst 260 boş, alt ~280 ölü).
-Sonraki: afişte yıldız/ışık yazı bölgesinden dışlansın, amblem büyüsün (güvenli yükseklik içinde); jev'i ana oturumdan çağır; FAD'e özgün fikir (damla+D) gerekebilir — vektörle tavan ~6-7.
+# PROFIL-GORSEL-1 tur7 (v6) — TUR BITTI (hakem ≥8 sağlanmadı; 7 turdur tavan ~4,5-7 → DUR)
+Çıktı: Desktop\Claude ile yapılanlar\sosyal-oto\marka\{free-ai-drop,curiosity-well}\v6\ ; çakışma testi marka\cakisma-testi-v6.json. Araç: tools/profil_gorsel_v6.py (v5 üstüne afiş düzeltmesi).
+Yapılan: afiş bloğu YouTube güvenli alana (1546x423) sığdırıldı (blok 1487x400; v5'te 560/440 yüksekti); CW afişte yazı bölgesi yıldızsız (yumuşak maske).
+Hakem (bağımsız ajan, Ömer ölçeği): FAD profil 6,5 · afiş 5 · shorts 5,5; CW profil 7 · afiş 6 · shorts 5,5. jev: bu oturumda araç yok → jev puanı YOK.
+Kalan kusurlar: afiş/shorts zeminleri boş; iki marka aynı shorts iskeleti; alt başlık 110px'te zayıf; FAD ok ikonu klişe, CW sunburst klişe; B-roll kutusu soluk, alt ~280px ölü.
+Karar gerekli (Ömer): vektör+PIL tavanı ~6-7. ≥8 için gerçek illüstrasyon/görsel doku (Cloudflare flux / ComfyUI turbo; yerel RAM yüzünden kapalı) ya da Figma/Stitch ile elle tasarım gerekir.
