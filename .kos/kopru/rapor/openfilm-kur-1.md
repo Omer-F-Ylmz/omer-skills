@@ -1,0 +1,11 @@
+OPENFILM-KUR-1 BITTI (30 Eki)
+- Kurulum: `npx skills add openfilm/openfilm -g -y` → ~/.agents/skills/openfilm, Claude Code'a symlink (PromptScript hedefi global kurulumu desteklemiyor, önemsiz). CLI `npx -y openfilm@latest --version` = 0.2.7, `doctor` temiz (ffmpeg 9.0.1, h264_nvenc); Chromium headless 114 MB indi. İzin reddi yok.
+- Kullanım kanıtı: sosyal-onizleme/openfilm-test/tilki-film (3 sayfa, tilki teması, İngilizce): `look` 12 kare iki karışık sırada aynı-t ✓; `render` tilki-film.mp4 = 12,000 sn, 1920x1080, 30 fps, 3,3 MB, 23 sn.
+- `look` uyarısı: s2'de koşan tilki kare dışından girip çıkıyor (kasıtlı).
+- Studio: OPENFILM_NO_BROWSER=1 ile açıldı (Opera açılmadı), playwright headless ekran görüntüsü studio.png: 3 klip timeline'da, önizleme açık. Sunucu iş bitince kapalı (4747 dinlemiyor).
+- Kayıt: usta kartı (docs/usta-kart/usta.jsonl), kayit.jsonl, envanter.tsv satırı; sosyal-oto-1 ve ai-influencer-1 devam_notu'na 'OpenFilm video ajanı' bağlantısı. Katalog/arac-ara ve 2. beyin indeksi kendi sync'lerinde güncellenir (burada elle çalıştırılmadı).
+- Ölçülemedi: `get` (ses/müzik/görsel), servis anahtarı Studio'da bağlı değil; sabah Ömer: Studio Settings → Providers.
+- Ölçülmedi: RAM/VRAM sayısı (yalnız ffmpeg nvenc 23 sn kısa render). Lisans MIT (görev metni), gitleaks klonu önceden 0.
+- Hakem puanı verilmedi: bu araç kurulum işi, film kalitesi hedef değil. Push yok.
+- DESKTOP 19:45 turu: s2 tilki alt şeride (y=820) alındı, metinle çakışma yok (look 4-8.5 görüldü); emoji yerine maskot v4 PNG (assets/tilki*.png); Studio Providers: Google+Groq+fal.ai+Brave bağlı (anahtar env'den, değer basılmadı); `get tts` Google/Puck 3,6 sn, mix -18,2 LUFS, peak -1,4 dBTP; render 12 sn 4,8 MB; studio.png yeniden. 36(J): katalog_yenile + arac_kart yenile koşuldu, arac_ara openfilm 4 satır döndü. Ölçülmedi: görsel/video `get` (fal ücretli), topla.py başka oturumun silinen dosyasında düştü (envanter satırı önceden vardı). Obsidian kaydı bu turda elle yazılmadı.
+- DESKTOP 20:42 turu: s3 emoji yerine maskot v4 (tilki-mutlu.png, look 2.5 görüldü), render 12,000 sn 5,4 MB (not: `render <dosya.mp4>` aralık sanılır, düz `render`); envanter/topla.py artık düşmüyor (koşuldu), envanter'de 2 openfilm satırı; Obsidian 30-araclar/OpenFilm.md yazıldı. Studio kapalı, push yok.

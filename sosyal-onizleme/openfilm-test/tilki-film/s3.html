@@ -6,8 +6,13 @@ let box, sub;
 shot((r) => {
   r.style.cssText = "width:1920px;height:1080px;background:linear-gradient(135deg,#c2410c,#ff8a3d);position:relative";
   box = document.createElement("div");
-  box.textContent = "Tilki 🦊";
-  box.style.cssText = "position:absolute;left:0;width:1920px;top:380px;text-align:center;font-size:240px;font-weight:800;color:#fff";
+  box.style.cssText = "position:absolute;left:0;width:1920px;top:300px;display:flex;justify-content:center;align-items:center;gap:40px;font-size:240px;font-weight:800;color:#fff";
+  const t = document.createElement("span");
+  t.textContent = "Tilki";
+  const m = document.createElement("img");
+  m.src = "assets/tilki-mutlu.png";
+  m.style.cssText = "height:340px";
+  box.append(t, m);
   sub = document.createElement("div");
   sub.textContent = "Made with OpenFilm";
   sub.style.cssText = "position:absolute;left:0;width:1920px;top:700px;text-align:center;font-size:70px;color:#fff3e6";
