@@ -1,0 +1,2 @@
+tcl-lsp	calisiyor	WSL rustup stable cargo build -p tcl-cli rc=0; tcl --help: Unified Tcl toolchain CLI (dis/asm ...)	WSL ~/vik9/tcl-lsp/target/release/tcl
+FreeToken	basarisiz	kok neden: torch 2.11.0+cu130 CUDA 13 ister, apt nvcc 12.4 uyumsuz -> cuda-toolkit-13-0 kuruluyor (wsl13.sh)	WSL ~/vik9/freetoken-venv
