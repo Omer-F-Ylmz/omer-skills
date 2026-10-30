@@ -18,8 +18,9 @@ relatedTo: [POSTIZ-KUR-1, SOSYAL-OTO-1]
 - Aynı video 6 hesaba aynı gün = koordineli ağ riski → düşük hacimle başla, kesim/sıra çeşitlemesi (hat.py zaten tohumlu), AI etiketi; önce tek hesap uçtan uca.
 - YouTube kotası kaynaklar çelişkili (araştırma: videos.insert günde 100 çağrı, 2026-10-15 doküman; roast: eski 1600 birim) → Google konsolunda kota sayfasından doğrulanmadı.
 - Testing modunda token 7 günde düşer → `kontrol` oturum düşmesini logluyor/2. beyne yazıyor.
-- Yedek: DB/token dış yedek YOK (açık iş).
-- Lisans: Postiz lisansı OKUNMADI (kuralı gereği rapora koşul yazılmalı) — açık iş.
+- Yedek: `tools/postiz/yedek.sh` → `C:\Users\pc\postiz-yedek\db-*.sql.gz` + env (ölçüldü: 18 KB dump; zamanlı çalıştırma henüz yok).
+- Lisans: Postiz AGPL-3.0 (GitHub API). Kendi sunucuda kişisel kullanım serbest; değiştirip ağdan hizmet sunarsak kaynak açma koşulu doğar — biz değiştirmiyoruz.
+- Tur2: Docker servisi hâlâ Stopped (Start-Service reddedildi, admin yok) → WSL docker.io yolu sürüyor; `PostizBaslat` ile 6/6 konteyner kalktı. `/posts` gövdesi sahte integration ile sınandı: şema geçti, "Integration not found" 400 (gerçek hesapla sınanmadı). `test_yayinci.py` 3/3 yeşil.
 
 ## Yapılmadı (neden)
 - YouTube/IG/TikTok geliştirici uygulamaları ve OAuth: Ömer tıklaması gerekir → `tools/postiz/OMER-TIKLA.md` (adımlar + TikTok denetim metni).
