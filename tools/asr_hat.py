@@ -1,4 +1,4 @@
-"""ASR hattı: ücretsiz API'ler sırayla, yerel large-v3-turbo yalnız kota/ağ hatasında yedek.
+"""ASR hattı: ücretsiz API'ler sırayla, yerel large-v3 yalnız kota/ağ hatasında yedek.
 
 Sıra (wer_hakem.py leave-one-out ölçümü, fark gürültü içinde): groq → gemini → yerel. Groq verbose_json segment avg_logprob'u
 30 sn'lik pencere başına sabit geliyor (güven eşiği ayırt etmez), bu yüzden eşikli oylama yok; hata → sıradaki kaynak.
@@ -15,7 +15,7 @@ def yerel(wav):
     import video_derin as vd  # CUDA DLL PATH'i süreçte kurulur
     from faster_whisper import WhisperModel
 
-    seg, _ = WhisperModel("large-v3-turbo", device="cuda", compute_type=vd.WHISPER["cuda"][1]).transcribe(str(wav), language="tr", vad_filter=True)
+    seg, _ = WhisperModel("large-v3", device="cuda", compute_type=vd.WHISPER["cuda"][1]).transcribe(str(wav), language="tr", vad_filter=True)
     return " ".join(s.text for s in seg)
 
 
