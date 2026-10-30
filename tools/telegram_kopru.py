@@ -64,6 +64,11 @@ def ozet():
          "Karar bekleyen: " + (", ".join(f"{a}:{n}" for a, n in d["karar"].items()) or "yok"),
          "Son bitişler:"]
     s += ["- " + o for o in [o for o in d["olaylar"] if "BITTI" in o.upper() or "bitti" in o][-3:]] or ["- yok"]
+    try:
+        import sosyal_olcum
+        s.append(sosyal_olcum.ozet())
+    except Exception as e:
+        s.append(f"SOSYAL: okunamadı ({type(e).__name__})")
     return "\n".join(s)[:3500]
 
 
