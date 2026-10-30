@@ -12,6 +12,7 @@ DIZ = Path.home() / "Desktop" / "Claude ile yapılanlar" / "sosyal-oto" / "buyum
 HESAP, OLCUM, AGIRLIK = DIZ / "hesaplar.json", DIZ / "olcum.jsonl", DIZ / "agirlik.json"
 URL = {"yt": "https://www.youtube.com/{}/shorts"}
 SAAT = 3600
+MARKA = {"a": "free-ai-drop", "b": "curiosity-well"}  # hat.py grup -> hesaplar.json marka
 
 
 def _yt_dlp(url, n=15):
@@ -52,6 +53,10 @@ def olc_hesap(platform, kimlik):
     if platform in ("tt", "ig"):
         return _web(platform, kimlik)
     d, hata = _yt_dlp(URL[platform].format(kimlik))
+    if hata and "shorts tab" in hata:  # henüz Shorts yok: takipçi için videolar sekmesi
+        d, hata = _yt_dlp(URL[platform].format(kimlik).replace("/shorts", "/videos"))
+    if hata and "does not have a" in hata:  # kanal var ama henüz video yok
+        return {"takipci": None, "videolar": []}, None
     if hata:
         return None, hata
     v = [{"id": e.get("id"), "baslik": e.get("title") or "", "izlenme": e.get("view_count"), "begeni": e.get("like_count"),
@@ -121,12 +126,24 @@ def agirlik_hesapla(olcumler, etiket):
     return sonuc
 
 
+def kanca_tip(hook):
+    """Kanca metninden tip: soru / liste (sayı ile başlar) / uyari (stop, never, don't) / iddia."""
+    h = (hook or "").strip().lower()
+    if h.endswith("?"):
+        return "soru"
+    if re.match(r"\d", h):
+        return "liste"
+    if re.match(r"(stop|never|don't|dont|quit|avoid)\b", h):
+        return "uyari"
+    return "iddia"
+
+
 def _etiketler():
     e = {}
     for m in (DIZ.parent / "out").glob("*/*/meta.json"):
         j = json.loads(m.read_text(encoding="utf-8"))
         for marka_id in (j.get("yayin_id") or {}).values():
-            e[(j.get("marka", j.get("grup")), marka_id)] = j
+            e[(MARKA.get(j.get("grup"), j.get("grup")), marka_id)] = j
     return e
 
 
@@ -148,11 +165,11 @@ def ozet():
             j = json.loads(s); son[(j["marka"], j["plat"])] = j
     if not son:
         return "SOSYAL: ölçüm yok"
-    return "SOSYAL " + " · ".join(f"{m}/{p}: {j['takipci']} takip, {sum(v['izlenme'] or 0 for v in j['videolar'])} izl, {time.strftime('%d %b', time.localtime(j['ts']))}"
+    return "SOSYAL " + " · ".join(f"{m}/{p}: {'?' if j['takipci'] is None else j['takipci']} takip, {sum(v['izlenme'] or 0 for v in j['videolar'])} izl, {time.strftime('%d %b', time.localtime(j['ts']))}"
                                   for (m, p), j in sorted(son.items()))
 
 
 if __name__ == "__main__":
-    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stdout and sys.stdout.reconfigure(encoding="utf-8")  # pythonw: stdout yok
     k = sys.argv[1] if len(sys.argv) > 1 else "olc"
     sys.exit({"olc": olc, "kural": kural, "ozet": lambda: print(ozet()) or 0}[k]())

@@ -23,4 +23,5 @@ w = s.agirlik_hesapla(olcum, et)["m"]
 # medyan=100: d oran 4 -> x1.5, a oran 1 -> x1.1 ; soru = 1*1.5*1.1; e oran 0.1 -> x0.3
 assert abs(w["kanca_tip:soru"] - 1.65) < 1e-9 and abs(w["kanca_tip:liste"] - 0.3) < 1e-9, w
 assert s.agirlik_hesapla(olcum[:1], et) == {}  # <3 video: karar yok
+assert [s.kanca_tip(h) for h in ("Ever tried this?", "5 free AI tools", "Stop paying for X", "This tool is free", "", None)] == ["soru", "liste", "uyari", "iddia", "iddia", "iddia"]
 print("OK")

@@ -101,5 +101,5 @@ def main(n=10):
 
 
 if __name__ == "__main__":
-    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stdout and sys.stdout.reconfigure(encoding="utf-8")  # pythonw: stdout yok
     main(int(sys.argv[sys.argv.index("--n") + 1]) if "--n" in sys.argv else 10)
