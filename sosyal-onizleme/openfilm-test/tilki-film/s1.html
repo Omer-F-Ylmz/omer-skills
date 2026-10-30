@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"></head><body>
+<script type="module">
+import { shot, ease } from "./shot.js";
+let fox, title;
+shot((r) => {
+  r.style.cssText = "width:1920px;height:1080px;background:linear-gradient(135deg,#ff8a3d,#c2410c);position:relative";
+  fox = document.createElement("div");
+  fox.textContent = "🦊";
+  fox.style.cssText = "position:absolute;left:760px;top:260px;font-size:400px;line-height:1";
+  title = document.createElement("div");
+  title.textContent = "Meet Tilki";
+  title.style.cssText = "position:absolute;left:0;width:1920px;top:760px;text-align:center;font-size:150px;font-weight:800;color:#fff";
+  r.append(fox, title);
+}, (t) => {
+  fox.style.transform = `scale(${0.4 + 0.6 * ease(t / 1.2)}) rotate(${Math.sin(t * 3) * 6}deg)`;
+  fox.style.opacity = ease(t / 0.8);
+  title.style.opacity = ease((t - 0.8) / 0.8);
+  title.style.transform = `translateY(${(1 - ease((t - 0.8) / 0.8)) * 60}px)`;
+}, 4);
+</script></body></html>

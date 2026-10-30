@@ -6948,3 +6948,4 @@ zoom	skill	CC		Review Zoom meetings, calls, recordings, and transcripts.	Use to 
 zoom-automation	skill	CC		Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube MCP (Composio). Always search tools first for current schema				claude.ai	~/.claude/skills
 zustand-store-ts	skill	CC		Create Zustand stores with TypeScript, subscribeWithSelector middleware, and proper state/action separation.	Use when building React state management, creating global stores, or implementing reacti...			claude.ai	~/.claude/skills
 threejs-spiral-gallery	uygulama					frontend			envanter.json (kurulu değil?)
+openfilm	cli	CC	0.2.7	Video=web sayfası: film.html+window.film, look/render, Studio			kullanım:2026-10-30	Desktop/claude.ai	npx -y openfilm@latest; skills add openfilm/openfilm

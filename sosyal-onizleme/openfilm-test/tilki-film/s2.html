@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"></head><body>
+<script type="module">
+import { shot, ease } from "./shot.js";
+const words = ["Curious.", "Quick.", "Always one step ahead."];
+let els = [], fox;
+shot((r) => {
+  r.style.cssText = "width:1920px;height:1080px;background:#1c1917;position:relative";
+  words.forEach((w, i) => {
+    const e = document.createElement("div");
+    e.textContent = w;
+    e.style.cssText = `position:absolute;left:200px;top:${250 + i * 200}px;font-size:130px;font-weight:700;color:#fb923c`;
+    els.push(e); r.append(e);
+  });
+  fox = document.createElement("div");
+  fox.textContent = "🦊";
+  fox.style.cssText = "position:absolute;top:700px;font-size:200px;line-height:1";
+  r.append(fox);
+}, (t) => {
+  els.forEach((e, i) => {
+    const p = ease((t - i * 1.2) / 0.6);
+    e.style.opacity = p;
+    e.style.transform = `translateX(${(1 - p) * -120}px)`;
+  });
+  fox.style.left = `${-250 + (t / 4.5) * 2300}px`;
+}, 4.5);
+</script></body></html>
