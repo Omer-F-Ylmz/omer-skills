@@ -6952,3 +6952,30 @@ zoom	skill	CC		Review Zoom meetings, calls, recordings, and transcripts.	Use to 
 zoom-automation	skill	CC		Automate Zoom meeting creation, management, recordings, webinars, and participant tracking via Rube MCP (Composio). Always search tools first for current schema				claude.ai	~/.claude/skills
 zustand-store-ts	skill	CC		Create Zustand stores with TypeScript, subscribeWithSelector middleware, and proper state/action separation.	Use when building React state management, creating global stores, or implementing reacti...			claude.ai	~/.claude/skills
 threejs-spiral-gallery	uygulama					frontend			envanter.json (kurulu değil?)
+prime-agent	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Prime_Agent\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+hypit	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; C:\Projeler\araclar\video-izle-kur-1\Hypit\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+build-ai-agents-free	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; C:\Projeler\araclar\video-izle-kur-1\build-ai-agents-free			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur6.tsv
+ifix-ai	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\iFix_AI\src\.venv			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7.tsv
+reelmimic	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projelerraclarideo-izle-kur-1\ReelMimic\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+scrapegraphai	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\ScrapeGraphAI			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur6.tsv
+free-claude-code	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Free_Claude_Code\src\.venv			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7.tsv
+blender mcp	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Blender_MCP			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur6.tsv
+airllm	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projelerraclarideo-izle-kur-1\AirLLM\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur9.tsv
+tradingagents	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\TradingAgents\src\.venv			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7.tsv
+trader	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; C:\Projeler\araclar\video-izle-kur-1\TRADER			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur6.tsv
+hindsight	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projelerraclarideo-izle-kur-1\Hindsight\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+dramaclaw	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projelerraclarideo-izle-kur-1\DramaClaw			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur6.tsv
+html-anything	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/Projeler/araclar/video-izle-kur-1/HTML_Anything/src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7b.tsv
+reicon	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Reicon\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+company-brain	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/Projeler/araclar/video-izle-kur-1/Company_Brain/src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7b.tsv
+openqodex	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\OpenQodex\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+cloudroom	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; WSL ~/vik9/cloudroom/core			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur9.tsv
+munder-difflin	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Munder_Difflin\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur10.tsv
+orca	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Orca\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur10.tsv
+diffusion-studio-editor	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Diffusion_Studio_Editor\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+dioramas	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/Projeler/araclar/video-izle-kur-1/Dioramas/src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7b.tsv
+map3d	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/Projeler/araclar/video-izle-kur-1/map3d/src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur7b.tsv
+photocraft	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\PhotoCraft\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+fallow	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projeler\araclar\video-izle-kur-1\Fallow\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur10.tsv
+magpie	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:\Projelerraclarideo-izle-kur-1\Magpie\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
+prompts.chat	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; C:\Projelerraclarideo-izle-kur-1\prompts.chat\src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur8.tsv
