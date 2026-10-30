@@ -6950,3 +6950,4 @@ zustand-store-ts	skill	CC		Create Zustand stores with TypeScript, subscribeWithS
 threejs-spiral-gallery	uygulama					frontend			envanter.json (kurulu değil?)
 openfilm	cli	CC	0.2.7	Video=web sayfası: film.html+window.film, look/render, Studio			kullanım:2026-10-30	Desktop/claude.ai	npx -y openfilm@latest; skills add openfilm/openfilm
 ucretsiz-web-ai	skill	CC	1	Girişsiz web AI: Wan2.2 i2v, upscaler, ToolFK görsel düzenleyici			kullanım:2026-10-30	CC+Desktop	skills/ucretsiz-web-ai
+trellis2-yerel	yontem	CC	1	Yerel TRELLIS.2 ComfyUI-Trellis2 FP8: tek gorselden GLB (yaka 675 sn, VRAM 7,9 GB); tilki cokuyor			kullanim:2026-10-30	CC	.kos/kopru/rapor/trellis2-yerel.md
