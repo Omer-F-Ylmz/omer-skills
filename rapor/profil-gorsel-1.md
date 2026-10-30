@@ -1,9 +1,7 @@
-# PROFIL-GORSEL-1 tur4 — TUR BITTI (hakem ≥8 sağlanmadı)
-Çıktı: Desktop\Claude ile yapılanlar\sosyal-oto\marka\{free-ai-drop,curiosity-well}\v3\ (isaret-1600, profil, afiş, shorts şablon+boş, _kucuk-boyut, aday/ 8'er bulut adayı); v1/v2 duruyor. Çakışma testi: marka\cakisma-testi-v3.json (tüm kesişim listeleri boş).
-Bulut sırası: Cloudflare flux-1-schnell ÇALIŞTI (8+8 aday, ücretsiz; seed parametresi reddediliyor, prompt'a varyasyon eki); NVIDIA zaman aşımı; HF 410 Gone; fal 403 'User is locked: TOP_UP'; Higgsfield denenmedi.
-Seçim: FAD aday 03 (damla + yıldız ışık kaynağı, arka plan alfa ile kesildi, parlama eklendi); CW aday 06 (aşağıdan yukarı kuyu, altın çekirdek, daire kırpma + halka). vtracer ile vektörleme YAPILMADI (raster kesim kullanıldı).
-Hakem (bağımsız okuyucu ajan, Ömer ölçeği, düzeltme ÖNCESİ): FAD profil 6,5 · afiş 6 · shorts 5,5 · genel 6; CW 6 · 5 · 5,5 · genel 5,5. Düzeltme sonrası yeniden puanlanmadı.
-Hakem sonrası düzeltilen: afişte işaret güvenli alana çekildi/küçültüldü, CW daire-metin çakışması kalktı, bulanık levha yumuşatıldı, shorts'ta b-roll alanında yinelenen logo kaldırıldı, CW profilde işaret büyütüldü.
-Kalan kusurlar: FAD sembolü klişe (damla+kıvılcım), 48px'te iç yıldız kayboluyor; CW kuyu görseli AI-slop (ışık mantığı, çamurlu tuğla), 48px'te göz/lens gibi; shorts kart sağ/sol marj asimetrisi (60/150); 8 aday + tek sağlayıcı yeterli çeşitlilik vermedi.
-Sonraki tur: ComfyUI/RAM boşken ya da NVIDIA/HF yeniden dene; CW'yi radyal ışıklı vektör/gravür stilinde yeniden üret; FAD'e özgün form + kalın kontur; shorts'u ortala; yeniden puanlat.
-Araçlar: tools/profil_bulut.py, tools/profil_gorsel_v3.py. Test/CI yok.
+# PROFIL-GORSEL-1 tur5 — TUR BITTI (hakem ≥8 sağlanmadı)
+Çıktı: Desktop\Claude ile yapılanlar\sosyal-oto\marka\{free-ai-drop,curiosity-well}\v4\ (isaret-1600, profil, afiş, shorts şablon+boş, _kucuk-boyut); v1-v3 duruyor. Çakışma testi: marka\cakisma-testi-v4.json (kesişim yok, kart marjı 60/60). Araç: tools/profil_gorsel_v4.py (PIL vektör, 2x süper örnekleme).
+Yöntem: AI raster bırakıldı (tur4 slop) → özgün vektör işaretler. FAD: kalın geometrik 'D' + counter'da düşen piksel/sönen iz. CW: tam kareye linocut ışın + anahtar deliği (18 ışın, çekirdek); banner/shorts'ta daire maskesi. Afişte bulanık levha kalktı, daire x≥527; shorts tek logo, alt şerit metin.
+Atlanan (neden): yerel Qwen/Z-Image turbo (RAM: boş ~8 GB, önceki turda acil fren), Upscayl kurulu değil (link-30eki-17 raporu yok); vektör çıktı zaten keskin, 2x→geri ölçek uygulanmadı. vtracer gerekmedi.
+Hakem (bağımsız okuyucu, düzeltme SONRASI, Ömer ölçeği): FAD profil 5,5 · afiş 5 · shorts 5; CW profil 7 · afiş 6,5 · shorts 6. İlk puan (düzeltme öncesi) A 4,7 / B 6,3. jev kullanılmadı.
+Kalan kusurlar: FAD D jenerik + neon/meteor zemin klişesi, counter'daki dikdörtgenler anlamsız; yağmur çizgileri afiş/shorts yazısını kesiyor; CW afiş zemin çamurlu gradyan + 2 satır başlık; ışınlar düzensiz, 'kuyu' bağı zayıf; her iki shorts'ta alt 1/3 boş.
+Sonraki tur: FAD'i damla/ok formuna çevir, yağmuru yazı bölgesinde sil, düz mor zemin; CW zemini saf lacivert, yıldız %70 az, başlık tek satır, ışınları simetrik + kuyu ağzı çemberi; shorts b-roll kutusunu uzat.
