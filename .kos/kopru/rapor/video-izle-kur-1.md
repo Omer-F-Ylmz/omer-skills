@@ -150,3 +150,10 @@ relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 - ONAY GEREKTI (allow listesinde yok, aynen): `dotnet dnx Microsoft.AITools.BinlogMcp --yes --prerelease < tmp/bl_in.txt > tmp/bl_out.txt` (timeout onekli/eksiz ikisi de) · `git clone -q --depth 1 https://github.com/garrytan/gbrain C:/AI/indirilen/video-izle-kur-1/gbrain/src` ve `../araclar/video-izle-kur-1/gbrain/src` hedefi · birlesik `printf >> rapor && git commit` komutu. Oneri allow: `Bash(dotnet dnx *)`, `Bash(git clone *)` (calisma dizini disi hedef dahil), `Bash(bun install*)`.
 - Yeni ajanlar oturumda gorundu: security-auditor, api-tester, env-validator, dep-auditor, bug-auditor (HEIST en-yakin kurulumu yuklendi kaniti).
 - KALAN (tur 21): binlog tools/list, Gbrain klon+bun+PGlite, Leia, Bekhruz ofis, claude-garage/auto-handoff yukleme. Yeni linklere HAZIR DEGIL.
+
+# Tur 21 (31 Eki 13:58) · bypassPermissions
+- binlog CALISIYOR: dnx aitools-binlog-mcp 3.0.4, tools/list 47 arac (tmp/mcp_list.py stdio surucusu; stdin erken kapaninca 0 yanit veriyordu).
+- Gbrain CALISIYOR: MIT, gitleaks temiz; bun 1.4.2->1.4.4 (gbrain alt sinir istedi); bun install+link; init --pglite --no-embedding, import 10 chunk, search sonuc verdi; `claude mcp add --scope user gbrain` Connected (162 arac). setup claude-code hook kurulumu launcher cozemedi -> yapilmadi. PGlite tek yazici: paralel oturumda ikinci serve kilitlenebilir.
+- Bekhruz AI ofis: tam kurulum videosu t0hGE-aaAds; sablon bekhruztbx/ai-creative-team (MIT) klonlandi, gitleaks temiz, yalniz ffmpeg subprocess; thumbnail.py gercek cikti CALISIYOR. 31 ajanli HQ'nun kendisi yayinlanmamis.
+- Leia = Heman10x-NGU/Verdict-open-jev (Apache-2.0, HF heman10x/rlcd-modernbert-151m) BULUNDU; nVNQUzpw3Nw artik ozel video. KURULUM siniflandirici reddi 2 kez (komut kur-tur21.tsv). PyPI 'rlcd' baska proje.
+- usta.jsonl 752->756 (+4 kart). KALAN: Leia kurulumu (Omer izni/allow `Bash(git clone *)` siniflandiriciyi gecmiyor), claude-garage/auto-handoff yukleme (kuresel etkinlestirme Omer secimi), Desktop'a gbrain MCP. Yeni linklere HAZIR DEGIL.
