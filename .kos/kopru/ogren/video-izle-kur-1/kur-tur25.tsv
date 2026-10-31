@@ -1,0 +1,14 @@
+ad	durum	kanit
+Ollama	calisiyor	onceden kurulu (ana-liste eslesmedi): `ollama --version` -> client 0.40.6, exit 0
+Claude Code Router	kuruldu-anahtar-bekliyor	onceden kurulu %APPDATA%/npm/ccr: `ccr -v` exit 0 "No available models. Configure at least one provider" -> saglayici anahtari gerek
+codex-plugin-cc	calisiyor	onceden kurulu: codex@openai-codex enabledPlugins=true, cache/openai-codex/codex (agents/commands/hooks/skills)
+Stripe Agent Toolkit	kuruldu-anahtar-bekliyor	onceden kurulu: stripe@stripe enabledPlugins=true; STRIPE anahtari gerek
+security-audit skill	calisiyor	birebir ayni kurulu: cloudflare/security-audit-skill MIT gitleaks 0; `diff -rq` ~/.claude/skills/security-audit exit 0 fark yok
+diagram-design	kuruldu	cathrynlavery/diagram-design MIT gitleaks 0; ~/.claude/skills/diagram-design; `python scripts/verify-geometry.py example-architecture-containment-dark.html` -> 0 finding, exit 0
+social-media-skills	kuruldu	charlie947/social-media-skills MIT gitleaks 0; 17 skill ~/.claude/skills (ad cakismasi 0); `bash validate-skills.sh` Passed 87 Failed 0, exit 0
+Gemini CLI	kuruldu-anahtar-bekliyor	npm i -g @google/gemini-cli exit 0; `gemini --version` 0.66.0 exit 0; Google girisi/GEMINI_API_KEY gerek
+opencode	kuruldu	npm i -g opencode-ai exit 0; `opencode --version` 1.19.5 exit 0 (install-script onayi verilmedi, CLI calisiyor)
+Cline	kuruldu	npm i -g cline exit 0; `cline --version` 3.0.74 exit 0
+Repomix	calisiyor	npm i -g repomix exit 0; `repomix --version` 1.18.1 exit 0
+Aider	kuruldu-anahtar-bekliyor	uv tool install aider-chat --python 3.12 exit 0; `aider --version` 0.86.2 exit 0; LLM anahtari gerek
+scrapling	calisiyor	uv tool install "scrapling[shell]" exit 0 (yalin kurulum click eksik exit 1 -> [shell] extra kok neden); `scrapling --help` exit 0
