@@ -257,8 +257,11 @@ def dongu(hedef, is_):
 
 def hakem(n):
     U = list(oku_usta().values())
+    if "--yeni" in sys.argv:  # tur 31: yalniz son birlestirilen (alintili) kartlar
+        U = [c for c in U if isinstance(c.get("tarih"), int) and c["tarih"] >= int(sys.argv[sys.argv.index("--yeni") + 1])]
+    random.seed(int(os.environ.get("USTA_SEED", "31")))
     ornek = random.sample(U, min(n, len(U)))
-    K = {k["ad"]: k for k in kartlar()}
+    K ={k["ad"]: k for k in kartlar()}
     par = "\n".join(f"[{i}] {c['ad']} | kaynak: {kaynak(K[c['ad']])}\n kart: {json.dumps({x: c[x] for x in ALANLAR}, ensure_ascii=False)}" for i, c in enumerate(ornek))
     ist = ("Hakemsin. Her kart için: kaynak metne göre DOĞRU (uydurma/yanlış yok) ve YARARLI (somut, genel geçer değil) mi? "
            'YALNIZ JSON dizisi: [{"i":0,"dogru":true,"yararli":true,"neden":"≤10 kelime"}...]\n\n' + par)
@@ -287,6 +290,8 @@ def hazirla(grup_n, n=50):
         S = [k for k in kartlar() if k["ad"] in ad]
     elif "--paket" in sys.argv:  # tur 13: tur 12 paket kartlari alt skill kaynagiyla
         S = [k for k in kartlar() if k["ad"] in U and k["ad"].endswith("-paket") and U[k["ad"]].get("tarih", 0) >= 1793275200][:n]
+    elif "--alintisiz" in sys.argv:  # tur 31: alinti yolu (tur 26) oncesi uretilmis, kaynak-yetersiz olmayan kartlar
+        S = [k for k in kartlar() if k["ad"] in U and isinstance(U[k["ad"]].get("tarih"), int) and U[k["ad"]]["tarih"] < 1793425000 and not U[k["ad"]].get("kaynak_yetersiz")][:n]
     elif "--eski" in sys.argv:  # parçalı kaynak öncesi (tur 5-8) üretilmiş kartlar
         S = [k for k in kartlar() if k["ad"] in U and U[k["ad"]].get("tarih", 0) < 1793263800][:n]
     elif "--uzun" in sys.argv:  # kaynağı 6000'i aşan mevcut kartları parçalı kaynakla yeniden üret
@@ -344,7 +349,9 @@ def isle(grup_n):
                 if mutlak_var(v, nsrc):
                     return "Kaynakta belirtilmemiş."
                 q = " ".join(str(e.get(kan) or "").split()).lower()
-                return v if v.startswith("Kaynakta belirtilmemiş") else (temiz(" ".join(str(e.get(kan)).split()))[:220] if len(q) >= 12 and q in nsrc else "Kaynakta belirtilmemiş.")
+                if v.startswith("Kaynakta belirtilmemiş"):
+                    return "Kaynakta belirtilmemiş."
+                return (temiz(" ".join(str(e.get(kan)).split()))[:220] if len(q) >= 12 and q in nsrc else "Kaynakta belirtilmemiş.")
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": kul(e, nsrc), "tuzak": kanitli("tuzak", "kanit_tuzak"),
                         "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [] if k["ad"].endswith("-paket") else [str(x)[:60] for x in ko[:3]],
                         "ornek": (o if o and o in src else ("" if k["ad"].endswith("-paket") else f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
