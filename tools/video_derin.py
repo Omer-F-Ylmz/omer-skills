@@ -140,7 +140,7 @@ def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cooki
 
 
 def indir(url, d):
-    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360][protocol^=http]+ba/w[height>=360]/best", "-S", "lang", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
+    r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360][protocol^=http]+(ba[format_note*=original]/ba)/w[height>=360]/best", "-S", "lang", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",) and not re.match(r"v\.f\d", p.name)), None)  # birleştirme düştüyse v.f229.mp4 gibi yalnız-video parçası seçilmez (ASR "yok" kök nedeni)
     return v, r.stderr[-200:]
 
@@ -336,8 +336,27 @@ def ocr_motor():
     return _ocr
 
 
+YAZI_ESIK = int(os.environ.get("VD_YAZI", "0"))  # HIZ-4 yazı ön sınıflandırıcı: yazı benzeri blok sayısı bunun altındaki kare OCR'ye girmez (0 = kapalı)
+
+
+def yazi_blok(k):
+    import cv2
+    g = cv2.imread(str(k), cv2.IMREAD_GRAYSCALE)
+    if g is None:
+        return 999
+    e = cv2.morphologyEx(g, cv2.MORPH_GRADIENT, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3)))
+    _, b = cv2.threshold(e, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    b = cv2.morphologyEx(b, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_RECT, (9, 1)))
+    n, _, st, _ = cv2.connectedComponentsWithStats(b)
+    return sum(1 for x, y, w, h, a in st[1:] if 18 <= w <= 400 and 6 <= h <= 60 and w >= 1.8 * h and a >= 0.3 * w * h)
+
+
 def ocr(ks):
     gorulen, out = set(), []
+    if YAZI_ESIK:
+        yazili = [k for k in ks if yazi_blok(k) >= YAZI_ESIK]
+        print(f"yazi_kapi {len(yazili)}/{len(ks)}", flush=True)
+        ks = yazili
     for i, k in enumerate(ks):
         try:
             with OCR_KILIT, GPU_KILIT:  # OCR ve ASR GPU'yu sırayla kullanır; patlama sonrası nefes (bekçi %78 eşiği)
