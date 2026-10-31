@@ -57,3 +57,9 @@ Yapılmayan: skill (64), paket, repo, MCP, plugin kurulumu ve usta kartı (bu tu
 - Kopyalandı (~/.claude/skills, üzerine yazma yok): addyosmani 20 yeni skill, drawio-skill, book-to-skill, better-icons; emilkowalski/stop-slop/landing-page-design zaten vardı.
 - tsv: 7 satır KURULU-KANIT (508 → 501 KURULACAK). Yedek `.yedek-tur5`.
 - Yapılmadı: offer-master, instagram-agent-skill, mattpocock, gamedev (74), ffmpeg-skill, video-shotcraft (200 MB), day-trader (finans), tsv'ye işlenmedi; ad/URL'si boş ~45 skill satırı; plugin/MCP/paket/repo. SkillSpector/semgrep koşulmadı. Hakem puanı yok.
+
+## TUR 6 (31 Eki, kısmi)
+- Skill: instagram-agent-skill (13 ig-*), offer-master-skill (8 offer-*) MIT, gitleaks 0, ~/.claude/skills'e kopyalandı (21 yeni); mattpocock/skills (MIT, gitleaks 0) zaten kuruluydu (31 skill adı mevcut, 0 kopya); Teach skill = mevcut.
+- Plugin: 11 satır installed_plugins.json ile kanıtlandı (Adobe, Anthropic skills, knowledge-work-plugins ve 5 alan eklentisi, ECC).
+- tsv: 14 satır KURULU-KANIT; 501 → 487 KURULACAK. Kalan plugin satırlarının çoğu ad/URL'siz (Hermes, GSD, BMad, PPT Master vb.): aday araştırması gerekiyor.
+- Yapılmadı: MCP/paket/repo, semgrep, hakem puanı, usta kartı. Harcama sınırı nedeniyle durdu.

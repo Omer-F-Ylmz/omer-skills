@@ -358,7 +358,7 @@ KURULACAK	Google AI Studio	araç			1	De2dznqAs9V	Prompttan 3D site üreten ortam
 KURULACAK	Exa	MCP			1	De37CTGo4Km	AI arama motoru, derin araştırma
 KURULACAK	Brand24	araç			1	De37CTGo4Km	Marka bahsi ve rakip izleme
 KURULACAK	Ghidra / jadx / apktool / tshark / binwalk / sqlite3 / asar	araç			1	De4B-SgiU5i	leanrea'nın ajana çağırttığı gerçek ters mühendislik araçları
-KURULACAK	Adobe for Claude	plugin			1	De4TRPhD_vE	Claude içinde 80+ Adobe aracı (PDF birleştir, karart, foto yeniden boyutlandır)
+KURULU-KANIT	Adobe for Claude	plugin		tur6: installed_plugins.json adobe-for-creativity@claude-plugins-official	1	De4TRPhD_vE	Claude içinde 80+ Adobe aracı (PDF birleştir, karart, foto yeniden boyutlandır)
 KURULACAK	AppFlowy	uygulama			2	De4rkL4MSDz	Notion alternatifi, yerel modellerle çalışır
 KURULACAK	OpenWhispr	uygulama			1	De4rkL4MSDz	Wispr Flow alternatifi, her uygulamada sesle yazma
 KURULACAK	OpenProject	uygulama			1	De4rkL4MSDz	Asana alternatifi (Gantt, zaman takibi)
@@ -426,7 +426,7 @@ KURULACAK	Blender gerçekçilik kontrol skill'i	skill			1	De38b1OomBx	Uzun rende
 KURULACAK	ffmpeg-skill	skill	kajisho5/ffmpeg-skill; npx ffmpeg-skill		1	De3v2qwj7fo	42 yerel FFmpeg aracı + MCP sunucusu: kesim, altyazı, 9:16, ses normalizasyonu, MIT
 KURULACAK	DeerFlow	repo			1	De4DkBqDH-R	ByteDance'in uzun süreli çok ajanlı araştırma/kod yazma ajanı
 KURULACAK	Higgsfield Content Factory	araç			1	De4uoo1xmDw	Tek cümleden Claude kodlu animasyonla video üretir, 3 gün deneme
-KURULACAK	instagram-agent-skill	skill	github.com/Jakeschincariol/instagram-agent-skill (?)		1	De5mVjhuWEK	Instagram hesabı için 13 Claude skill'i (reel, viral araştırma, profil analizi), MIT
+KURULU-KANIT	instagram-agent-skill	skill	github.com/Jakeschincariol/instagram-agent-skill (?)	tur6: ~/.claude/skills/ig-* (13), MIT, gitleaks 0	1	De5mVjhuWEK	Instagram hesabı için 13 Claude skill'i (reel, viral araştırma, profil analizi), MIT
 KURULACAK	video-shotcraft	skill	github.com/Vincentwei1021/video-shotcraft		1	De6jpQyDAhc	Ürün tanıtım videosu: sayfa yakalama, 150 çekim reçetesi, Remotion animasyon, FFmpeg
 KURULACAK	LLM-engineer-handbook	repo	SylphAI-Inc/LLM-engineer-handbook		1	De7ueOMSVHF	LLM yaşam döngüsü araçları kürasyonu
 KURULACAK	Unsloth	kütüphane			1	De7ueOMSVHF	Hızlı ince ayar
@@ -558,7 +558,7 @@ KURULACAK	RGB MoCap	repo	github.com/toyxyz/toyxyz_rgbmocap		1	DfBOLz3ClL6	Videod
 KURULACAK	Orbit Agents	uygulama	orbitagents.xyz		1	DfCRr86jGEK	AI ajanlar için hafıza katmanı, 3D bilgi grafı ve ajan işletim sistemi; tek MCP ile bağlanır
 KURULACAK	MotionSites	skill			2	DfCxRQ8uRli	700+ web sitesi tasarımından öğrenip sinematik animasyonlu site üreten açık kaynak skill
 KURULACAK	Reverse Anything Agent (?)	plugin			1	DfDvhU7opmg	Top 30 listesinin 1. sırası (?)
-KURULACAK	Skills by Anthropic	plugin			2	DfDvhU7opmg	Top 30 listesi
+KURULU-KANIT	Skills by Anthropic	plugin		tur6: installed_plugins.json anthropic-agent-skills marketplace kurulu	2	DfDvhU7opmg	Top 30 listesi
 KURULACAK	Archify (Archerfire?) (?)	plugin			1	DfDvhU7opmg	Top 30 listesi
 KURULACAK	PPT Master	plugin			1	DfDvhU7opmg	Top 30 listesi
 KURULACAK	GSD	plugin			1	DfDvhU7opmg	Top 30 listesi
@@ -664,7 +664,7 @@ KURULACAK	AuK	model	Tencent Hunyuan AuK		1	DdxYLVrEkdr	Tek talimatla ses üretme
 KURULU-KANIT	Hugging Face Spaces	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DdxYLVrEkdr	AuK demosu kurulumsuz denenebilir
 KURULACAK	oh-my-opencode-slim	plugin			1	De1awnxH44d	OpenCode için çoklu ajan orkestrasyonu (Orchestrator, Explorer, Fixer, Oracle, Designer, Council); modeller karıştırılır
 KURULU-KANIT	meow.codes	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1awnxH44d	oh-my-opencode-slim marketplace sayfası (?)
-KURULACAK	Offer Master	skill	https://github.com/Liamrjohnston/offer-master-skill.git		1	De2-09Cjnyx	18 teklif skill'ini birleştirip satış teklifini düzelten skill; kör testte düz Claude 4.6'ya karşı 8.0
+KURULU-KANIT	Offer Master	skill	https://github.com/Liamrjohnston/offer-master-skill.git	tur6: ~/.claude/skills/offer-* (8), MIT, gitleaks 0	1	De2-09Cjnyx	18 teklif skill'ini birleştirip satış teklifini düzelten skill; kör testte düz Claude 4.6'ya karşı 8.0
 KURULACAK	coreyhaines31/marketingskills	repo	coreyhaines31/marketingskills		2	De2-09Cjnyx	Offer Master'a girdi olan pazarlama skill'leri
 KURULACAK	wondelai/skills	repo	wondelai/skills		1	De2-09Cjnyx	Offer Master girdisi skill deposu
 KURULACAK	getagentseal/founder-playbook	repo	getagentseal/founder-playbook		1	De2-09Cjnyx	Offer Master girdisi
@@ -676,7 +676,7 @@ KURULACAK	BaoCut	uygulama	github.com/jimLiu/baocut		1	De2TJpwjJWX	Düzenlenebili
 KURULACAK	headcount	repo	cbrock84/headcount		1	De2yzLsHIcw	16 departman 172 skill; her departman ayrı kurulan plugin (Claude Code, ChatGPT, Codex)
 KURULACAK	/advisor	yöntem	/advisor		1	De3Gaq0TiUj	Claude Code komutu: ucuz model işi yapar, zor kararlarda Opus'a danışır; limit tasarrufu
 KURULACAK	Trading OS mimarisi	yöntem			1	De3y3DGEyXD	Veri, araştırma/AI, strateji, backtest, risk, yürütme, izleme katmanlı Docker dağıtımlı trading sistemi taslağı; somut repo adı yok
-KURULACAK	Anthropic Claude plugin'leri	plugin			1	De4GsI7N9Wl	Anthropic'in açık kaynak rol bazlı plugin'leri (sales, marketing, finance, legal, product, support, data); 11 ilk, 18'e çıkmış; Cowork ve Claude Code
+KURULU-KANIT	Anthropic Claude plugin'leri	plugin		tur6: installed_plugins.json knowledge-work-plugins marketplace kurulu (installed_plugins.json)	1	De4GsI7N9Wl	Anthropic'in açık kaynak rol bazlı plugin'leri (sales, marketing, finance, legal, product, support, data); 11 ilk, 18'e çıkmış; Cowork ve Claude Code
 KURULACAK	Openverse API	araç			1	De4XVvXPTWY	5 milyon+ ses efektine ajan erişimi (arama/indirme)
 KURULACAK	Real SFX	araç			1	De4XVvXPTWY	Timeline'ı çözüp doğru karede ses efekti ekleyen araç
 KURULACAK	earshot	araç			1	De4XVvXPTWY	Kodla yeni ses efekti veya ses kiti üreten araç
@@ -686,7 +686,7 @@ KURULACAK	Claude trading desk skill'leri	yöntem			1	De7CBz-q42H	Scanner, chart 
 KURULACAK	3D animasyon video skill'i	skill			1	De7NZWcodjP	Fikirden görsel promptları, zaman damgalı video promptu, seslendirme ve kurguyla 3D animasyon video; skill dosyası DM'de
 KURULACAK	Recordly	repo	webadderallorg/Recordly (?)		1	De88VHnzFRS	Ekran kaydına zoom, imleç yumuşatma, tık sıçraması, arka plan çerçevesi ekleyen açık kaynak araç (Mac/Win/Linux)
 KURULACAK	Codex ses modu / Codex TUI	araç			1	De8cK67ACOB	OpenAI Codex terminal güncellemesi: sesle paralel işler, tek ekranda iş listesi, uzaktan kontrol, fork
-KURULACAK	ECC	plugin			1	De9mZYXCGeB	Kod plugin'i
+KURULU-KANIT	ECC	plugin		tur6: installed_plugins.json ecc@ecc	1	De9mZYXCGeB	Kod plugin'i
 KURULACAK	Google Opal	araç			1	DeKYdKRzlhT	Kodsuz AI iş akışı kurma
 KURULU-KANIT	Google Pomelli	SİTE	labs.google/pomelli	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeKYdKRzlhT	Web sitesi linkinden sosyal içerik kiti üretir
 KURULACAK	Personal Agent Proxy	repo			1	De_rcg0zSq4	Bağlantıları bir kez kuran, ajan başına izin veren, eylemleri kaydeden açık kaynak self-host erişim katmanı (MCP)
@@ -712,12 +712,12 @@ KURULACAK	Candle	araç			1	DfD4q2sDyNN	Kronos çevresinde dürüst skorlama labo
 KURULACAK	Hermes Apollo	skill			1	De_Dtr8FED7	Hermes ile Jarvis gibi konuşma; sayfa kurar, not açar, hatırlar, Search Console ile SEO boşluklarını bulur
 KURULACAK	Hermes Quicksilver	araç			1	Dezr14Jm0IV	Hermes güncellemesi: soğuk başlangıç 4.3sn'den 0.9sn'ye, fleet routing (tek gateway arkasında ayrı model/hafıza/skill'li çoklu ajan), kalıcı arka plan işleri
 KURULACAK	Konut kulesi kat seçimli site konsepti	yöntem			1	DfC25-KtwRq	Kat seçince kameranın içeri uçtuğu emlak sitesi bölümü (tasarım referansı; Mich - Software Developer)
-KURULACAK	Anthropic Knowledge Work Marketplace	plugin			1	DbukLdmuB2x	Claude Code'da resmi pazaryeri: marketing, sales, legal, productivity, finance eklentileri
-KURULACAK	Claude marketing plugin	plugin			1	DbukLdmuB2x	Marka sesiyle yazar, kampanya planlar, kanal performansı çeker
-KURULACAK	Claude sales plugin	plugin			1	DbukLdmuB2x	Aday araştırır, outreach yazar, görüşme hazırlığı yapar
-KURULACAK	Claude legal plugin	plugin			1	DbukLdmuB2x	Sözleşme/NDA okuyup riskli maddeleri işaretler
-KURULACAK	Claude productivity plugin	plugin			1	DbukLdmuB2x	Takvim, görev, sohbetleri tarar
-KURULACAK	Claude finance plugin	plugin			1	DbukLdmuB2x	Defter tutma, ay sonu rakamları
+KURULU-KANIT	Anthropic Knowledge Work Marketplace	plugin		tur6: installed_plugins.json knowledge-work-plugins marketplace kurulu	1	DbukLdmuB2x	Claude Code'da resmi pazaryeri: marketing, sales, legal, productivity, finance eklentileri
+KURULU-KANIT	Claude marketing plugin	plugin		tur6: installed_plugins.json marketing@knowledge-work-plugins	1	DbukLdmuB2x	Marka sesiyle yazar, kampanya planlar, kanal performansı çeker
+KURULU-KANIT	Claude sales plugin	plugin		tur6: installed_plugins.json sales@knowledge-work-plugins	1	DbukLdmuB2x	Aday araştırır, outreach yazar, görüşme hazırlığı yapar
+KURULU-KANIT	Claude legal plugin	plugin		tur6: installed_plugins.json legal@knowledge-work-plugins	1	DbukLdmuB2x	Sözleşme/NDA okuyup riskli maddeleri işaretler
+KURULU-KANIT	Claude productivity plugin	plugin		tur6: installed_plugins.json productivity@knowledge-work-plugins	1	DbukLdmuB2x	Takvim, görev, sohbetleri tarar
+KURULU-KANIT	Claude finance plugin	plugin		tur6: installed_plugins.json finance@knowledge-work-plugins	1	DbukLdmuB2x	Defter tutma, ay sonu rakamları
 KURULU-KANIT	bleibtgleich.dev	SİTE	https://bleibtgleich.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: designer/developer
 KURULU-KANIT	danilodemarco.com	SİTE	https://danilodemarco.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: görsel ve tipografi tasarımcısı
 KURULU-KANIT	niccolomiranda.com	SİTE	https://niccolomiranda.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: dijital art director/developer
@@ -749,9 +749,9 @@ KURULACAK	Hermes + Obsidian	yöntem			1	De8e0bWBKGV	Obsidian kasasını Hermes'e
 KURULACAK	Agent OS	araç			1	De8e0bWBKGV	Hermes'i bağlayan ajan işletim sistemi paneli
 KURULU-KANIT	aiprofitboardroom.com	SİTE	AIprofitboardroom.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8e0bWBKGV	Julian Goldie topluluk sitesi (?)
 KURULU-KANIT	Book to Skill (virgiliojr94/book-to-skill)	skill	virgiliojr94/book-to-skill	 | tur5: book-to-skill ~/.claude/skills; MIT	1	De95NHOuo-x	PDF kitap/makaleyi bölüm bölüm Claude skill'ine çevirir
-KURULACAK	Teach skill (mattpocock)	skill			1	De95NHOuo-x	Neden öğrendiğini sorar, kaynaklardan kısa ders üretir, quiz geçmeden ilerletmez
+KURULU-KANIT	Teach skill (mattpocock)	skill		tur6: ~/.claude/skills/teach (mattpocock MIT)	1	De95NHOuo-x	Neden öğrendiğini sorar, kaynaklardan kısa ders üretir, quiz geçmeden ilerletmez
 KURULACAK	Render CV	araç	rendercv.com (?)		1	De95NHOuo-x	Türkçe/İngilizce düzgün PDF CV üretir
-KURULACAK	Anthropic 11 Claude plugin	plugin			1	DeL-w7yxAS9	Satış, pazarlama, finans, hukuk, ürün vb. her iş rolü için; HubSpot, Notion, Slack bağlar
+KURULU-KANIT	Anthropic 11 Claude plugin	plugin		tur6: installed_plugins.json knowledge-work-plugins kurulu	1	DeL-w7yxAS9	Satış, pazarlama, finans, hukuk, ürün vb. her iş rolü için; HubSpot, Notion, Slack bağlar
 KURULACAK	AI Marketing Claude	skill			1	DeR-SLBxBPe	15 pazarlama skill'i paralel alt ajanlarla (~2.7k yıldız)
 KURULACAK	Rimac Nevera	yöntem			1	DeW9zMmNWgK	Yalnız araba reklam görseli, araç yok
 KURULACAK	OpenWhispr	repo	github.com/OpenWhispr/openwhispr		1	De_0D2tEa9y	WisprFlow alternatifi, her uygulamaya dikte
