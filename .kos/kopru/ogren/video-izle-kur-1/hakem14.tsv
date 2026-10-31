@@ -1,0 +1,40 @@
+Jcode	80	Somut komutlar ve tuzaklar var, ancak bazı doğrulamalar eksik	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Fallow	85	Somut komutlar ve araçlar arası kombinasyonlar var, ancak bazı iddialar doğrulanamadı.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Munder_Difflin	85	Somut komutlar ve tuzaklar var, ancak bazı iddialar doğrulanamadı.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Orca	82	Somut komutlar ve tuzaklar var, ancak bazı özellikleri doğrulanamadı.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Cloudroom	82	Somut örnek ve araç kombinasyonu var, ancak bazı özellikler denenmedi.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Replica (replica-skill)	82	Somut komutlar ve tuzaklar var, ancak Playwright kombinasyonu denenmedi	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+build-ai-agents-free	82	Somut örnek ve araçlar arası kombinasyon içeriyor, ancak bazı iddialar doğrulanamadı.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+TRADER (timercrack/trader)	82	Somut örnek ve araç kombinasyonu var, ancak kurulum ve strateji mantığı eksik	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+CROWD (MiroFish klonu 666ghj/MiroFish)	85	Spesifik versiyon bağımlılıkları, kritik tuzak uyarısı ve gerçekçi kurulum kombinasyonlarıyla oldukça teknik ve uygulanabilir bir usta kartı.	gemini/gemini-3.1-flash-lite
+Age of Reach (Agent Reach, pip agent-reach)	85	Spesifik tuzaklar (yt-dlp/bilibili, pruned skill) ve teknik darboğazlar (Jina, tmp dosya yönetimi) verilmiş, pratik bir 'usta' özeti oluşturulmuş.	gemini/gemini-3.1-flash-lite
+Claude Commercial (opaiiva/claude-commercial-ops-skills, 14 skill)	85	Somut teknik tuzaklar ve operasyonel iş akışları içeriyor; 'BEKLE' güvenlik uyarısı ve 'abrir-todos-leads' gibi spesifik darboğaz tespitleri puanı yükseltiyor.	gemini/gemini-3.1-flash-lite
+Everything Claude Code (ECC, affaan-m)	80	Somut komutlar ve tuzaklar var, ancak doğrulanamayan kısımlar mevcut	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Build Partner (klon sahil11129/Build-Partner)	40	Kart içerik olarak zayıf, somut tuzaklar ve araçlar arası kombin eksik	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+MCPTune / mcptoon	82	Somut komutlar ve tuzaklar var, ancak token tasarrufu rakamları doğrulanmadı	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Anthropic KnowledgeWork plugins (knowledge-work-plugins, sales plugin)	82	Somut tuzaklar ve araçlar arası kombin içeriyor	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+tcl-lsp (bitwisecook/tcl-lsp, tcl CLI)	88	Windows/WSL kısıtlamaları, AGPL lisans uyarısı ve pratik CLI örnekleriyle somut teknik derinlik içeriyor; test edilmemiş varsayımlar puan kırdı.	gemini/gemini-3.1-flash-lite
+claude-video (/watch skill)	90	Somut komutlar ve tuzaklar var, ancak bazı ayrıntılar eksik	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+ffmpeg	85	Somut örnek ve tuzaklar içeriyor ancak doğrulanamayan bazı iddialar var	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+TrueForge agent harness (truefoundry/trueforge)	60	Somut tuzaklar ve araçlar arası kombinasyonlar mevcut ancak eksiklikler ve doğrulanamayan iddialar var	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+FreeToken (FlashML-org/FreeToken, pip freetoken 0.1.1)	85	Spesifik bağımlılık hataları (python3.14-dev) ve sürüm çakışmaları (cuda 12.4 vs 13.0) ile donanım/ortam kısıtlamalarını somutlaştıran, uygulanabilir bir kılavuz.	gemini/gemini-3.1-flash-lite
+Google Maps Scraper Kit (gosom/google-maps-scraper, docker)	85	Sürüm sabitleme, hata kodları ve somut docker tuzaklarıyla teknik derinlik yüksek; ancak 'dogrulanamadi' kısmı çalışmanın tam kanıtlanmadığını gösteriyor.	gemini/gemini-3.1-flash-lite
+Academic Research Skills (academic-paper, academic-paper-reviewer, academic-pipeline, sr-screener)	85	Araçlar arası somut kombinasyonlar, çalışma mantığı tuzakları ve operasyonel mod detayları ile yetkin bir usta kartı ancak test edilmemiş varsayımlar içeriyor.	gemini/gemini-3.1-flash-lite
+Security Audit (Cloudflare) = security-audit-extended	90	Usta kartı somut tuzakları ve araçları içeriyor	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+logo-design	85	Somut araçlar ve komutlar içeriyor, ancak bazı eksiklikler var.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Mantis (19 mantis-* skill, Google Mantis guvenlik inceleme seti)	85	Komutlar, somut tuzaklar (state_root çakışması, --auto_relocate_state), araç kombinasyonları (security-audit-extended, docker) ve RAM kullanımıyla ilgili operasyonel uyarıları içeren eksiksiz bir rehber.	gemini/gemini-3.1-flash-lite
+MoneyPrinterTurbo (harry0703/MoneyPrinterTurbo)	85	Detaylı tuzak ve kombin bilgisi var, ancak kurulum başarısızlığı (docker) 'usta' kartı için 'çalışan bir örnek' eksikliği yaratıyor.	gemini/gemini-3.1-flash-lite
+PentAGI (vxcontrol/pentagi)	85	Spesifik dosya yolları, docker tuzakları, port konfigürasyonu ve sürüm doğrulaması gibi somut teknik detaylar içeriyor; 'usta kartı' kriterlerini başarıyla karşılıyor.	gemini/gemini-3.1-flash-lite
+CareerOps (TelivityAI/careerops)	82	Somut komutlar ve araçlar var, ancak eksik doğrulamalar ve okunmamış dosyalar bulunuyor.	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Gropector (erendevelops/gropector)	42	Kartın çoğu kısmı genel bilgi ve kopyala-yapıştır README özeti	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+mixamo-llm-mocap (squall01337/mixamo-llm-mocap)	82	Somut komutlar ve araçlar arası kombinler içeriyor	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Task-CoEvolve (Agent4Science-UTokyo/Task-CoEvolve)	85	Somut tuzaklar ve çalışan örnek içeriyor	cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast
+Postiz (gitroomhq/postiz-app, AGPL-3.0)	85	Somut Docker yapılandırması, lisans riski uyarısı, MCP/CLI entegrasyonu ve gerçekçi tuzaklarla pratik ve teknik açıdan oldukça kapsamlı bir rehber.	gemini/gemini-3.1-flash-lite
+xtool (xtool-org/xtool, MIT)	75	Somut hata kodları/dosya yolları eksik, ancak araç komut seti ve kombinasyon önerileri oldukça pratik ve doğrudan uygulanabilir.	gemini/gemini-3.1-flash-lite
+GODMODE (elder-plinius/G0DM0D3, AGPL-3.0)	82	Ollama entegrasyonu, telemetri uyarısı ve Electron karışıklığı gibi somut tuzakları içermesi sayesinde teknik derinliği yüksek bir 'usta kartı'.	gemini/gemini-3.1-flash-lite
+UnoRouter (unorouter/unorouter, AGPL-3.0)	82	Somut kurulum adımları, tuzaklar (Cline iddiası), ve araç kombinasyonu içeriyor. Kapsamlı ve doğrulanabilir, sadece genel bilgi değil.	gemini/gemini-3.1-flash-lite
+The Premium UI Kit (Space UI, spaceui.one)	65	Kombinasyon fikri iyi ancak somut kurulum komutları, hata kodları ve test edilebilir bir CLI örneği eksik; usta seviyesinde teknik derinlik yetersiz.	gemini/gemini-3.1-flash-lite
+Magic MCP Server -> 21st MCP (21st-dev/magic-mcp, ISC)	85	Somut komutlar, özel hata mesajları (ai_subscription_required) ve Playwright/Claude Code kombinasyonlarıyla pratik ve uygulanabilir bir usta kartı.	gemini/gemini-3.1-flash-lite
+Meta resmi MCP (Meta Ads MCP Server)	55	Araç kurulumu ve yapılandırması belirsiz; 'ölçülemedi' ifadeleri teknik bir usta kartı için yetersiz ve eylemsiz kalıyor.	gemini/gemini-3.1-flash-lite
+Higgsfield MCP / CLI (higgsfield-ai/cli, npm @higgsfield/cli 1.2.2)	85	Tuzak ve kombin detayları gerçekçi; 404 durumu şeffaf belirtilmiş. Sadece canlı bir üretim örneği (CLI çıktısı dahil) eksik.	gemini/gemini-3.1-flash-lite
+TradingView MCP (tradesdontlie/tradingview-mcp, lisans NOASSERTION)	85	Somut komutlar, CDP bağımlılığı gibi teknik tuzaklar ve pratik Claude/JQ kombinasyonları ile yüksek teknik derinlik sağladığı için puanı hak ediyor.	gemini/gemini-3.1-flash-lite
