@@ -26,9 +26,18 @@ Uydurma yok: kaynakta olmayan şeyi yazma; bilgi yetmiyorsa kısa ve genel kal.
 {{"ad":"<aynen>","kullanim":["en iyi kullanım 1","2","3"],"tuzak":"en sık hata/tuzak (1 cümle)","token_ipucu":"jeton tasarrufu ipucu (1 cümle)","kombin":["birlikte kullanılan araç adları, en çok 3"],"ornek":"kaynakta AYNEN geçen bir komut/çağrı; yoksa boş string","kanit_tuzak":"tuzak iddiasının dayandığı kaynaktan BİREBİR alıntı (≤120 kr); yoksa boş string","kanit_token":"token_ipucu iddiasının kaynaktan BİREBİR alıntısı (≤120 kr); yoksa boş string","kanit_kullanim":["kullanim[0] iddiasının kaynaktan BİREBİR alıntısı (≤120 kr)","kullanim[1] için","kullanim[2] için"]}}
 Kanıt kuralı: kullanim maddeleri, tuzak ve token_ipucu yalnız kaynakta doğrudan yazan bilgiyi söylesin; kanıt alanı kaynaktan kopyalanmış olmalı. Koşullu iddiada (yalnız X ise, ...-da) koşul alıntının içinde olmalı, koşulu düşürme. Paket/koleksiyon kaynağında alt skill adlarını say, tek tek iş iddiası uydurma. Alıntı gösteremediğin iddiayı yazma (kullanim maddesi için de): tuzak/token_ipucu için "Kaynakta belirtilmemiş." yaz ve kanıtı boş bırak.
 Kural: kaynakta olmayan komut, bayrak, CLI, API adı ya da parametre YAZMA (uydurma örnek en sık hatadır); kombin yalnız kaynakta adı geçen araçlar, yoksa boş liste; kaynak başka bir şeyden söz ediyorsa kısa ve genel kal.
+Mutlaklaştırma yasağı: kaynak aynı sözcüğü kullanmıyorsa yalnız/yalnızca/sadece/tek/hep/asla/her zaman/daima/hiçbir/mutlaka sözcüklerini yazma.
 Her metin ≤140 karakter.
 
 {kalemler}"""
+
+
+MUTLAK = re.compile(r"\b(yaln[ıi]z(ca)?|sadece|tek|hep|asla|her zaman|daima|hi[çc]bir|mutlaka)\b", re.I)
+
+
+def mutlak_var(v, nsrc):
+    """İddia metni kaynakta geçmeyen mutlaklaştırma sözcüğü içeriyor mu."""
+    return any(m.group(0).lower() not in nsrc for m in MUTLAK.finditer(v))
 
 
 def norm(s):
@@ -328,10 +337,13 @@ def isle(grup_n):
                 e = dict(e, kanit_kullanim=[], kanit_tuzak="", kanit_token="")
             def kul(e, nsrc):
                 kq = e.get("kanit_kullanim") if isinstance(e.get("kanit_kullanim"), list) else []
-                r = [temiz(" ".join(str(q).split()))[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc]
+                r = [temiz(" ".join(str(q).split()))[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc and not mutlak_var(str(x), nsrc)]
                 return r or ["Kaynakta belirtilmemiş."]
             def kanitli(alan, kan):
-                v = temiz(e[alan])[:220]; q = " ".join(str(e.get(kan) or "").split()).lower()
+                v = temiz(e[alan])[:220]
+                if mutlak_var(v, nsrc):
+                    return "Kaynakta belirtilmemiş."
+                q = " ".join(str(e.get(kan) or "").split()).lower()
                 return v if v.startswith("Kaynakta belirtilmemiş") else (temiz(" ".join(str(e.get(kan)).split()))[:220] if len(q) >= 12 and q in nsrc else "Kaynakta belirtilmemiş.")
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": kul(e, nsrc), "tuzak": kanitli("tuzak", "kanit_tuzak"),
                         "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [] if k["ad"].endswith("-paket") else [str(x)[:60] for x in ko[:3]],
