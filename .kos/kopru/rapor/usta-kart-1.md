@@ -109,3 +109,8 @@
 - 40 kart (5 onceki ret + 35 rastgele, seed 26) yeniden uretildi; tam kaynakli 3 bagimsiz Haiku hakem: dogru 38/40 = %95, yararli 36/40. KAPI (%98) tutmadi. Iki ret ikisi de paket kombin (alt skill adi kaynakta gecti ama kombin degil) -> kombin paketlerde bosaltildi, yeniden hakem yapilmadi.
 - token_ipucu 35/40 'Kaynakta belirtilmemis' (kaynakta yok; durust eksik). Kalan 710 kart eski (serbest metin) uretimli; alinti yoluna gecis yeniden uretim ister (~11k Haiku jeton/kart).
 - Dosyalar: tmp/hakem26/s0-2.json. Push yok.
+
+# TUR 27 (31 Eki)
+- Tam kaynakli bagimsiz hakem (4 Haiku, 60 kart = tur-26 ayni 40 + yeni 20, seed 27): dogru 57/60 = %95; dogru+yararli 54/60 = %90. KAPI (%98) TUTMADI.
+- Ret (6): dogru=false: cognitive-accessibility:review (ad kaynakta yok), mukul975-red-team-paket (ad yetki ifadesi kaynakta yok), hyperframes:figma (tuzak 'token yoksa' kosulunu dusuruyor). Yararsiz: davila7-sports-paket, davila7-ai-research-paket-1, agentshield-paket (paket kartlari: kaynak alt skill icerigi vermiyor).
+- Siradaki: 3 dogruluk retini yeniden uret; paket kartlarinda yararsizlik kaynak sinirli -> 'kaynak-yetersiz' isaretle. 710 eski karti toplu yeniden uretmeye gecis icin kapi gecmedi; Desktop karari gerek. Dosyalar: tmp/hakem27/s0-3.json. Push yok.
