@@ -1,0 +1,8 @@
+TokenEconomizer -- omer-f-ylmz/omer-skills (claude)
+  repository   C:\Projeler\omer-skills, identified by its origin remote (github.com/omer-f-ylmz/omer-skills)
+  state        C:\Users\pc\.tokeneconomizer\repos\omer-skills-e74a8cf425\claude
+  config       microskills=envfacts+distiller toolprune=auto loopguard=nudge repomap=off mode=auto shadow=False
+  sessions     1 folded, 223.3k effective tokens, plugin overhead 0 (0.0%)
+  microskills  0 fact(s) injected at session start (1 sessions learned from)
+  toolprune    1 sessions (1 prompts) observed, catalog: probe+observed; proposed tools: -; applied: -
+  loopguard    envelope not learned yet (0 ended-green turns); 0 redirect(s), 0 still-stuck notice(s) over 1 turns
