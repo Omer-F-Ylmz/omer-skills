@@ -16,6 +16,7 @@ import time
 from pathlib import Path
 
 KOK = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # -I ile de kategori_tara içe alınabilsin
 ONBELLEK = KOK / ".kos" / "kopru" / "tara-onbellek"
 ALTIN = KOK / ".kos" / "kopru" / "altin-ornek"
 GUN7 = 7 * 86400
@@ -184,7 +185,8 @@ VARLIK = {".glsl", ".frag", ".vert", ".blend", ".gltf", ".glb", ".lottie", ".hdr
 VARLIK_AD = re.compile(r"shader|logo|hero|anim|scene|sahne|component|bilesen|design[-_ ]?system|tokens", re.I)
 EL = chr(92)
 SINONIM = {"video": "ffmpeg whisper remotion", "logo": "pixeljury brand", "gorsel": "pixeljury", "blender": "bpy 3d", "borsa": "trading algoritmik",
-           "kripto": "trading algoritmik", "scroll": "gsap hero-video", "arka": "hero-video"}
+           "kripto": "trading algoritmik", "scroll": "gsap hero-video", "arka": "hero-video",
+           "kurulum": "kur install indir", "otomasyon": "bot workflow zamanlayici", "arastirma": "research scrape crawl search"}
 
 
 def ozet_md(metin):
@@ -253,7 +255,8 @@ def dosya_kaynaklari():
     obs = MASA / "Obsidian"
     if obs.exists():
         ekle([f for f in sorted(obs.rglob("*.md")) if not ATLA & set(f.parts) and not f.name.startswith("gorev-")][:4000], lambda f: md_satir("yontem", f, "2.beyin obsidian", obs))
-    return r
+    import kategori_tara  # K36-GENISLET-1: kategori 14-27 (artan, mtime önbellekli)
+    return r + kategori_tara.dosya_kaynaklari()
 
 
 def proje_satirlari():
@@ -410,7 +413,8 @@ def dizin_guncelle(tam=False):
         rows = onb["_dizin"][1]
         yeni["_dizin"] = onb["_dizin"]
     else:
-        rows = [list(x) for x in proje_satirlari() + klon_satirlari() + sistem_satirlari() + tarama_satirlari()]
+        import kategori_tara
+        rows = [list(x) for x in proje_satirlari() + klon_satirlari() + sistem_satirlari() + tarama_satirlari() + kategori_tara.sistem_satirlari()]
         yeni["_dizin"] = [ts, rows]
     satirlar += rows
     gor, son = set(), []
@@ -453,8 +457,10 @@ def kaynak_ara(is_, en=15, kuyruk=0, tur=None):
         if z:
             puan.setdefault(r[0], []).append((z, r))
     ak = {duz(a[0]) for a in altin(is_)}  # altın örnekte geçen kaynaklar öne çıkar
+    import kategori_tara
+    sb = kategori_tara.bonus_fonksiyonu(is_)  # sirali.tsv: seçim puanı + iş türünün SEÇİM HARİTASI kategorileri
     for t, v in puan.items():
-        puan[t] = [(z + (3 if any(a and a in duz(r[1]) for a in ak) else 0), r) for z, r in v]
+        puan[t] = [(z + (3 if any(a and a in duz(r[1]) for a in ak) else 0) + sb(r), r) for z, r in v]
     for v in puan.values():
         v.sort(key=lambda t: -t[0])
     # aynı kaynağın varyantları (omer-logo-2, kart/inceleme çifti) tek satırda toplanır: yer açar, hiçbiri kaybolmaz
@@ -507,13 +513,16 @@ def birlestir(is_, satir, brief=False):
         g = "ALTIN" if {"ALTIN!", "altin"} & turler else (sorted(turler)[0])
         gruplar.setdefault(g, []).append(a if g == "aile" else f"{a} · {'/'.join(sorted(turler))} · {ne}")
     aile = gruplar.pop("aile", [])  # yalnız ad: 8'i bir satırda (jeton ucuz, satır sayısı şişmez)
-    kay = kaynak_ara(is_, 15, 70)
+    aile_n, aile = len(aile), aile[:8]  # K36: özet jetonu 1.500-2.500 için 48 ad
+    kay = kaynak_ara(is_, 12, 12)
     bos = max(satir - 4 - 2 * len(gruplar) - len(aile) // 8 - 2 - (len(kay) + 1 + 50 if kay else 0), 20)  # kaynaklar bölümü payı gövdeden düşer (jeton artmasın)
     if brief:
         bos = 3 * len(gruplar)
         aile = []
     tavan = max(bos // max(len(gruplar), 1), 3 if brief else 4)  # grup başına adil pay; kısa gruplardan artan pay uzun gruplara
     kullan = {g: min(len(v), tavan) for g, v in gruplar.items()}
+    if "ALTIN" in kullan:  # altın örnek = geçmişte işe yarayan gerçek seçim: kırpılmaz
+        kullan["ALTIN"] = len(gruplar["ALTIN"])
     artan = bos - sum(kullan.values())
     for g in sorted(gruplar, key=lambda x: -len(gruplar[x])):
         ek = min(len(gruplar[g]) - kullan[g], max(artan, 0))
@@ -526,15 +535,17 @@ def birlestir(is_, satir, brief=False):
         if len(gruplar[g]) > kullan[g]:
             cikti.append(f"... +{len(gruplar[g]) - kullan[g]}")
     if aile:
-        cikti.append(f"## aile ({len(aile)}) — departman müdürleri + iş türü aileleri, yalnız ad")
+        cikti.append(f"## aile ({aile_n}, ilk {len(aile)}) — departman müdürleri + iş türü aileleri, yalnız ad")
         cikti += [" · ".join(aile[i:i + 8]) for i in range(0, len(aile), 8)]
     kes = cikti
     ust = [f"## kaynaklar ({len(kay)}; tam küme: python tools/envanter_tara.py --kaynak \"<iş>\" --hepsi)"] + kay if kay else []
-    return [f"# aday kümesi: {is_} (seçim ana oturumda; eksik varsa ekle)"] + kes + ust + ["## çok yönlüler (her zaman)", " · ".join(COK_YONLU)]
+    import kategori_tara  # K36-GENISLET-1: 27 kategori haritası (SEÇİM HARİTASI önce)
+    kat = [] if brief else kategori_tara.kategori_ozeti(is_)
+    return [f"# aday kümesi: {is_} (seçim ana oturumda; eksik varsa ekle)"] + kes + ust + kat + ["## çok yönlüler (her zaman)", " · ".join(COK_YONLU)]
 
 
 def main(a):
-    satir = 130
+    satir = 100
     brief = "--brief" in a
     if "--satir" in a:
         i = a.index("--satir")
@@ -543,6 +554,8 @@ def main(a):
     yenile = "--yenile" in a
     if "--dizin" in a:  # artımlı dizin güncelleme (günlük görev); --tam: sıfırdan
         son = dizin_guncelle("--tam" in a)
+        import kategori_tara
+        kategori_tara.sirala()  # K36: gece görevi (omer-kaynak-dizin) --dizin koşunca sirali.tsv de yenilenir
         sayi = {}
         for r in son:
             sayi[r[0]] = sayi.get(r[0], 0) + 1

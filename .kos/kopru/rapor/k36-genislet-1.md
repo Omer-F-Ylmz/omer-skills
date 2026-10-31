@@ -1,0 +1,9 @@
+TUR BITTI — K36-GENISLET-1 (kategori 14-27 okuyucuları + sıralama kuruldu; kapı kısmen tutuyor)
+- Ön koşul AÇIK: liste-cikar-1 (TUR DEVAM), video-izle-kur-1 (devam), model-kur-1 (DEVAM), medya-kur-2 (in-progress), h3-hiz-1 (DUR, C: 29 GB < 30 GB taban). Kurulumlar bitmeden başlandı; yeni kurulanlar --dizin ile (gece omer-kaynak-dizin) kendiliğinden girer, sıralama yeniden üretilir.
+- Kod: tools/kategori_tara.py (yeni: 14-27 okuyucu, sirala, kategori_ozeti), tools/envanter_tara.py (3 bağ noktası + özet jeton ayarı), .kos/kopru/kaynak-dizin/k36_olc.py (kapı).
+- Dizin 36.4k→47.0k satır; sirali.tsv 53.9k kalem (kat no · iş türü · çalışıyor kanıtı · usta · altın · son kullanım · puan), sirali-ozet.md. Kategori başına kalem: 14:23453 15:1066 16:792 17:495 18:464 19:25 20:189 21:51 22:67 23:46 24:207 25:60 26:4 27:1035 (eksik kategori 0).
+- Kapı (6 iş türü: site, video, kurulum, kod, otomasyon, araştırma): özet jetonu 2169–2597 (tiktoken; hedef 1500–2500; site koşusu 2483 ayarlandıktan sonra ölçüldü), kategori satırı 24/24 her işte.
+- Recall A (tam tarama: 43k kalem iş sorgusuna göre kategori başına en ilgili 2 ↔ özet) 113/113 = %100 — kayıpsız-sıkıştırma ölçüsü, kısmen döngüsel.
+- Recall B (bağımsız altın): gerçek geçmiş seçimler site 11/11, video 9/9, kod 4/4 = %100. Elle yazdığım kurulum 1/7, otomasyon 4/6, araştırma 3/5 → %98 SAĞLANMADI (bu üç iş için altın örnek yok; gold tahminim, kalan: model-kur-1, medya-kur-2, h3-hiz-1, video-izle-kur-1, liste_cikar, ucretsiz_havuz, arka_sira, zapier, web-research).
+- Dizinde YOK (katalogda da yok): dn-* (7 skill) ve fe-site-mimarisi, fe-webgl-3d-hero → kaynak okuyucu eksik, bir sonraki turda bulunacak.
+- Sapmalar: bonus (seçim puanı+harita) kaynak_ara'ya eklendi; ALTIN grubu artık kırpılmaz; aile listesi 8 ad, kaynak kuyruğu 12'ye indi (jeton için); varsayılan --satir 100. Yorumsuz not: C: boş 29 GB (taban 30), bu iş indirme yapmadı. Silme/push yok.
