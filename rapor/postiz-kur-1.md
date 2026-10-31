@@ -20,9 +20,10 @@ relatedTo: [POSTIZ-KUR-1, SOSYAL-OTO-1]
 - Testing modunda token 7 günde düşer → `kontrol` oturum düşmesini logluyor/2. beyne yazıyor.
 - Yedek: `tools/postiz/yedek.sh` → `C:\Users\pc\postiz-yedek\db-*.sql.gz` + env (ölçüldü: 18 KB dump; zamanlı çalıştırma henüz yok).
 - Lisans: Postiz AGPL-3.0 (GitHub API). Kendi sunucuda kişisel kullanım serbest; değiştirip ağdan hizmet sunarsak kaynak açma koşulu doğar — biz değiştirmiyoruz.
-- Tur2: Docker servisi hâlâ Stopped (Start-Service reddedildi, admin yok) → WSL docker.io yolu sürüyor; `PostizBaslat` ile 6/6 konteyner kalktı. `/posts` gövdesi sahte integration ile sınandı: şema geçti, "Integration not found" 400 (gerçek hesapla sınanmadı). `test_yayinci.py` 3/3 yeşil.
+- Tur3 (OAuth'suz uçtan uca, ölçüldü): Docker servisi Stopped (admin yok) → WSL docker.io; konteynerler `restart=no` kalmıştı → `baslat.vbs` artık `docker compose up -d` da koşuyor (RAM %68 ölçüldü). DB'ye 2 SAHTE entegrasyon (youtube+tiktok, TEST etiketli) eklendi: `esle` doğru eşledi; `yayinci.yayin` taslak → upload 201 + `/posts` 200, liste `state: DRAFT`, ayarlar (yt private, tt SELF_ONLY+video_made_with_ai) doğru; `--zamanla` → `QUEUE` ET 12:00 slotu. Tüm test postları `DELETE /posts/group` ile silindi (0 kalan), sahte entegrasyonlar `deletedAt` ile soft-delete, `hesap-esle.json` `{}`'e sıfırlandı. Hiçbir platforma gönderi gitmedi. `test_yayinci.py` 3/3. Yedek ölçüldü: db-20261031-0603 19 KB.
 
 ## Yapılmadı (neden)
 - YouTube/IG/TikTok geliştirici uygulamaları ve OAuth: Ömer tıklaması gerekir → `tools/postiz/OMER-TIKLA.md` (adımlar + TikTok denetim metni).
 - (4) platform başına gizli/taslak test gönderisi: bağlı hesap yok → YAPILMADI. (5) hakem ≥8/10: puanlanacak çıktı yok → ALINMADI.
-- Commit yok. Sonraki oturum: Ömer tıklamaları → `yayinci.py esle` → `calistir --kuru` → taslak → hakem; lisans + yedek.
+- Günlük yedek görevi (`PostizYedek`) kaydı sınıflandırıcı tarafından reddedildi → Ömer: `OMER-TIKLA.md` madde 6 komutu. Gerçek hesapla post gövdesi yine sınanmadı (sahte kayıtla yalnız Postiz'in kabulü).
+- Sonraki oturum: Ömer tıklamaları → `yayinci.py esle` → `calistir --kuru` → taslak → hakem; lisans + yedek.

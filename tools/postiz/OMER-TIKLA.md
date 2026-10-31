@@ -34,5 +34,8 @@ cloudflared kurulu. Seçenek A: ngrok ücretsiz statik domain (hesap aç → "Do
 ## 5. Sonra
 `python -I tools/postiz/yayinci.py esle` (hesapları gruba eşler) → `yayinci.py calistir --kuru` → `yayinci.py calistir` (taslak). Herkese açık yayın yalnız `--zamanla` ile ve Ömer onayından sonra.
 
+## 6. Günlük yedek görevi (PowerShell, tek satır; otomatik kayıt reddedildi)
+`Register-ScheduledTask -TaskName PostizYedek -Action (New-ScheduledTaskAction -Execute wsl.exe -Argument '-d Ubuntu -u root -e bash /mnt/c/Projeler/omer-skills/tools/postiz/yedek.sh') -Trigger (New-ScheduledTaskTrigger -Daily -At 04:30)`
+
 ## TikTok denetim başvurusu metni (taslak)
 Uygulama: kendi sahibi olduğumuz iki TikTok hesabına, kendi ürettiğimiz kısa videoları (yapay zekâ ile üretilmiş, AI etiketli) yönetim panelimizden yüklemek için Content Posting API kullanır. Üçüncü kişi hesabı yok; yalnız hesap sahibi giriş yapar, kullanıcı verisi saklanmaz (yalnız erişim jetonu yerel sunucuda). Her gönderide başlık, gizlilik seçimi ve yapay zekâ bildirimi gösterilir; kullanıcı onayı olmadan yayın yapılmaz (ilk aşama taslak/inbox). Tahmini hacim: hesap başına günde 3 video. Demo videosu: Postiz'de hesap bağlama → video yükleme → gizlilik seçimi → taslak oluşturma ekran kaydı (bu kayıt alınmadı).
