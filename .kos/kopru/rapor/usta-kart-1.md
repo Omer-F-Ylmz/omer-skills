@@ -114,3 +114,10 @@
 - Tam kaynakli bagimsiz hakem (4 Haiku, 60 kart = tur-26 ayni 40 + yeni 20, seed 27): dogru 57/60 = %95; dogru+yararli 54/60 = %90. KAPI (%98) TUTMADI.
 - Ret (6): dogru=false: cognitive-accessibility:review (ad kaynakta yok), mukul975-red-team-paket (ad yetki ifadesi kaynakta yok), hyperframes:figma (tuzak 'token yoksa' kosulunu dusuruyor). Yararsiz: davila7-sports-paket, davila7-ai-research-paket-1, agentshield-paket (paket kartlari: kaynak alt skill icerigi vermiyor).
 - Siradaki: 3 dogruluk retini yeniden uret; paket kartlarinda yararsizlik kaynak sinirli -> 'kaynak-yetersiz' isaretle. 710 eski karti toplu yeniden uretmeye gecis icin kapi gecmedi; Desktop karari gerek. Dosyalar: tmp/hakem27/s0-3.json. Push yok.
+
+# TUR 28 (31 Eki) - kaynak-yetersiz + yeniden uretim
+- Desktop 09:30 karari uygulandi: 104 -paket karti `kaynak_yetersiz:true` isaretlendi (silme yok, kapi olcumunden cikarildi); 3 dogruluk reti (cognitive-accessibility:review, mukul975-red-team-paket, hyperframes:figma) Haiku high ile yeniden uretildi.
+- Paket-disi 60 kart (seed 28, tam kaynak, 4 bagimsiz Haiku hakem): dogru 57/60 = %95; dogru+yararli 55/60 = %92. KAPI (%98) TUTMADI -> 710 eski karti toplu yeniden uretime gecilmedi.
+- Ret (5): dogru=false: context-save ('yalniz' kaynakla celisir), glass-dark-ui ('yalniz token' kisiti kaynakta yok), ffmpeg (kaynak yalniz baslik; komut/surum iddiasi kaynaksiz). Yararsiz: context7-mcp, rea-agents (kaynak yalniz baslik).
+- Kok neden: 3/5 ret kesik/baslik-ustu kaynaktan; 'yalniz' gibi mutlaklastirma kaynakta olmayan kisit ekliyor. Oneri: kaynagi <400 karakter olan kartlari da kaynak-yetersiz isaretle, kalan alintilarda mutlaklastirma sozcuklerini (yalniz/hep/asla) alinti disinda reddet; sonra yeni seedle olc.
+- Dosyalar: tmp/hakem28/. Push yok.
