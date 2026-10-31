@@ -370,3 +370,20 @@ Kategori başına eşleşen kalem:
 - journal@2389-research · 1
 - marketing@knowledge-work-plugins · 1
 - trace@2389-research · 1
+
+
+## Tür × durum (31 Eki, 4 elle eklenen kaçak dahil; toplam = durumlar toplamı = 17106)
+
+| tür | BULUNAMADI-ARANIYOR | CALISIYOR | KAYITLI | KAYITSIZ | KURULMADI-SIRADA | KURULU-KANITSIZ | toplam |
+|---|---|---|---|---|---|---|---|
+| arac | 100 | 69 | 0 | 0 | 5436 | 862 | 6467 |
+| kutuphane | 14 | 4 | 7 | 901 | 0 | 75 | 1001 |
+| prompt | 0 | 1 | 0 | 473 | 0 | 14 | 488 |
+| site-ilham | 0 | 0 | 40 | 654 | 0 | 11 | 705 |
+| site-ucretsiz | 0 | 0 | 35 | 939 | 0 | 17 | 991 |
+| ui-kutuphane | 0 | 2 | 9 | 137 | 0 | 6 | 154 |
+| varlik | 29 | 0 | 16 | 3697 | 0 | 57 | 3799 |
+| yontem | 0 | 1 | 0 | 3369 | 0 | 131 | 3501 |
+| TOPLAM | 143 | 77 | 107 | 10170 | 5436 | 1173 | 17106 |
+
+Özellik/yapılış: ücretsiz havuz (haiku son çare) ile arka planda sürüyor (rapor/liste-ozellik.log, tools/liste_ozellik.py kaldığı yerden).

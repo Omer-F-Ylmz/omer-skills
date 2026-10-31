@@ -66,7 +66,8 @@ def main():
     def is_(p):
         istem = ISTEM + "\n\n".join(f"### {r['kalem']} (tur {r['tur']}, durum {r['durum']})\nBIZDE: {r['bizde_nerede'] or 'yok'}\n{baglam(r['kalem'], r['kaynak_video_idleri'].split(','), dos)}" for r in p)
         try:
-            met = re.sub(r"^```\w*|```$", "", H._haiku(istem).strip(), flags=re.M).strip()
+            y, _, _ = H.cagir("kolay", istem, max_tokens=3500, zaman=120, etiket="liste-ozellik", haiku_tavan=400)
+            met = re.sub(r"^```\w*|```$", "", (y or "").strip(), flags=re.M).strip()
             arr = json.loads(met[met.index("["):met.rindex("]") + 1])
         except Exception as e:
             print("hata", p[0]["kalem"], str(e)[:80], flush=True)

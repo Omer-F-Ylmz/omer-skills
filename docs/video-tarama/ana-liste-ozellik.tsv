@@ -332,3 +332,1071 @@ GitHub	1nzxcq61Ffw: Render.com kaydında GitHub, GitLab, 'BigPockets' (ASR bozuk
 gittrend.io	OpenWA (DZ3PUfYlK6z): WhatsApp'ı ücretsiz, kendi sunucunda çalışan API ağ geçidine çeviriyor; Twilio'ya açık kaynak alternatifi; çoklu oturum, oturum ve webhook yönetimi paneli; Docker veya tek adım kurulum	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
 gittrend.io	httpSMS (Da5-vksijqk): Android telefonu SMS API ağ geçidine çeviriyor; gelen mesajlar webhook'a iletiliyor; uçtan uca şifreleme, hız sınırlama (rate limit) ve mesaj süresi (expiration) özellikleri var	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
 gittrend.io	Website downloader (Dah3WsUj-xq): bir sitenin kodunu, görsellerini, JavaScript ve CSS dosyalarını indirip bağlantıları çevrimdışı çalışacak şekilde yeniden yazıyor; HTTrack'e ücretsiz alternatif olarak tanıtılıyor	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+DeepSeek	AI API Key	yok	
+DeepSeek	ücretsiz erişim	yok	
+DeepSeek	80+ AI modeli	yok	
+DESIGN.md	tasarım	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/design-md
+DESIGN.md	 Claude Code	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/design-md
+DESIGN.md	Vercel	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/design-md
+Google	ücretsiz logo oluşturma	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Google	logo tasarım	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+META	yapay zeka	yok	
+META	reklam metni	yok	
+Microsoft	yapay zeka	yok	
+Microsoft	OpenAI	yok	
+Kimi	AI API Key	yok	
+Kimi	Ücretsiz	yok	
+Supabase	Veritabanı	var	docs/envanter/envanter.tsv; supabase@yerel-kurulum7:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/supabase
+Supabase	Bulut Tabanlı	var	docs/envanter/envanter.tsv; supabase@yerel-kurulum7:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/supabase
+Facebook	Sosyal Medya	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/facebook
+Facebook	Ücretsiz	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/facebook
+Claude Max	AI Yardımcı	var	kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Claude Max	Gelişmiş	var	kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Linear	Proje Yönetim Aracı	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; mcp-needs-auth-cache (yetki bekliyor):docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Linear	Bulut Tabanlı	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; mcp-needs-auth-cache (yetki bekliyor):docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Apify	13 ajan	var	docs/envanter/envanter.tsv; agent-skills@addy-agent-skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izl
+Apify	sifirdan kurulum	var	docs/envanter/envanter.tsv; agent-skills@addy-agent-skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izl
+Apify	APIFY_ToKEN	var	docs/envanter/envanter.tsv; agent-skills@addy-agent-skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izl
+Apify	FAL_KEY	var	docs/envanter/envanter.tsv; agent-skills@addy-agent-skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izl
+Cowork	AI skills	yok	
+Cowork	prompt optimizer	yok	
+Cowork	Claude Cowork	yok	
+Photoshop	grafik uygulaması	yok	
+Photoshop	Affinity	yok	
+Photoshop	Canva	yok	
+Stripe Agent Toolkit	3D parkour animasyonu	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Stripe Agent Toolkit	AI	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Stripe Agent Toolkit	Cascadeur	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Cloud Code	Token kullanımını azaltmak için 18 ipucu (alıntı: '23 dakikada 18 İpucu')	yok	
+Cloud Code	Alıntıya göre komutlara doğru ve dikkatli başlanınca token kullanımı %80-90 azalıyor (iddia, ölçüm yok)	yok	
+Cloud Code	Basit komutlarla ilerleme	yok	
+Node	Alıntıya göre token maliyetini %61 azaltma iddiası (Tencent Agent Memory)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+Node	Kısa vadeli bağlam katmanlaması: alt katman araç çıktıları, orta katman jsonl özetleri, üst katman kısa Mermaid haritası; hata anında alt katmanlara düğüm ID'siyle dönülüyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+Node	Uzun vadeli kişiselleştirme: L1 Atom (atomik gerçekler) - L2 Senaryo - Persona	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+Node	Alıntıda 'quickly install and start in minutes' ifadesi var	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+Qwen	Görseli katmanlara ayırır (arka plan, nesneler, farklı elemanlar)	yok	
+Qwen	Her katman ayrı ayrı düzenlenebilir ('Photoshop'ta tasarlamışsın gibi')	yok	
+Qwen	Açık kaynak ve ücretsiz (alıntıya göre)	yok	
+Qwen	Alıntıdaki model adı: Qwen-Image-Layered; 'Decompose' ile saniyeler içinde katmanlara ayırma	yok	
+Tailwind CSS	CSS tasarım çatısı (alıntıda 'tasarım çatısı')	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/tailwindcss
+Tailwind CSS	Vite ile birlikte kullanılıyor	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/tailwindcss
+Tailwind CSS	GSAP animasyon kütüphanesiyle birlikte kullanılıyor	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/tailwindcss
+AI Agent	Yeni başlayan için önerilen yol: önce AI agent değil otomasyon öğrenmek	yok	
+AI Agent	Küçük kurulumlarla satılabilecek, hazır iş akışına dayalı otomasyonlara odaklanmak	yok	
+AI Agent	Önce hangi sorunun hızlıca çözülebileceğine ve neyin müşteriye satılabileceğine bakmak	yok	
+AI Agent	n8n öğrenme sırası: trigger ve node mantığı, ardından HTTP Request ve API	yok	
+RAG	Gemini embedding modeli kullanılıyor	yok	
+RAG	Video'ya göre bu model metin, görsel, video ve sesi aynı şekilde vektörlüyor	yok	
+RAG	Diğer embedding modelleri de mevcut (videoda adı geçmiyor)	yok	
+SEO	Systems Architect promptu: portföy, SaaS veya e-ticaret sitesi için teknik blueprint; sitemap, 3 dönüşüm yolu, veri mimarisi, API yüzeyi, en az 30 UI bileşeni, sayfa blueprintleri, teknoloji yığını, performans hedefleri, SEO çerçevesi	var	docs/envanter/envanter.tsv
+SEO	Figma Make için yapılandırılmış teknik spesifikasyon formatı	var	docs/envanter/envanter.tsv
+SEO	Conversion Copy Architect promptu: marka tonu, hedef kitle ve birincil hedefe göre tam site metni yazdırmak	var	docs/envanter/envanter.tsv
+SEO	GEO: ürünü ChatGPT, Claude, Gemini ve Perplexity'ye tanıtmak için site entegrasyonu; tek prompt ile Claude Code veya Codex'e yaptırılıyor	var	docs/envanter/envanter.tsv
+Subagent	Keşif ve kod okuma işini alt ajanlara yaptırıp ana bağlama yalnızca gerekli veriyi aktarmak	yok	
+Subagent	Video'ya göre subagent'lar Opus ile çalıştırılırsa Fable'ın ek haftalık limitinden yemiyor	yok	
+Subagent	Fable'ın ek limiti toplam haftalık limitin yarısı kadar	yok	
+Subagent	Alt ajan kullanımı yaklaşık 150.000 token bağlam avantajı sağlıyor (videodaki tahmini)	yok	
+Vibe Coding	Aynı anda çok sayıda agent'ı farklı yerlere salıp sonuçları toplayarak production benzeri sorunları bulmak	yok	
+Vibe Coding	Vibe coding ile bu tür sorunların bulunmasının zor olduğu belirtiliyor	yok	
+Vibe Coding	7 ücretsiz Claude Code alternatifi tek Antigravity IDE penceresinden kullanılıyor: Antigravity IDE, OpenCode, Kilo Code, OpenRouter, Kiro CLI, GitHub Copilot, Freebuff	yok	
+Vibe Coding	Bir araç ücretsiz limitine ulaşınca bir sonrakine geçip işe devam etmek	yok	
+Twitter	Transkriptte yalnızca bağlantılar geçiyor: Twitter, Instagram, Patreon, seri oynatma listesi ve ekipman bağlantıları (kullanım bilgisi yok)	yok	
+Anthropic	Konuşmacı, Anthropic'in Opus seviyesi modelleri kısıtlarken Fable'ı herkese sunduğunu söylüyor (konuşmacının iddiası, doğrulanmamış)	yok	
+Apache-2.0	Transkriptte Apache-2.0 lisansı açıkça geçmiyor; aşağıdakiler açık kaynak olarak anılıyor, lisansları alıntıda doğrulanmadı	yok	
+Apache-2.0	Dia (Nari Labs): açık kaynak ses üretimi; öfke, mutluluk, kahkaha ve iç çekme gibi duygu ifadeleri	yok	
+Apache-2.0	Claude for Legal: 12 pratik alanı eklentisi, 20+ bağlayıcı (Westlaw, DocuSign, Box vb.), açık kaynak olarak anılıyor	yok	
+Apache-2.0	Evolution Go: kendi barındırdığın ücretsiz WhatsApp API; REST ile mesaj gönderme/alma, WebHook ya da WebSocket ile olaylar	yok	
+Apple	Transkriptte Apple, kayıt yöntemi olarak geçiyor (Google, Apple veya e-posta ile devam)	yok	
+Apple	Antigravity indirme sayfasında 'Download for Apple Silicon' seçeneği ve macOS minimum gereksinimleri görünüyor	yok	
+CLAUDE.md	Hatalardan ders çıkarma: Claude aynı hatayı iki kez yaparsa bunu CLAUDE.md'ye kural olarak ekle	var	docs/envanter/envanter.tsv
+CLAUDE.md	Ders kuralı kısa tutulmalı; transkriptte 'maksimum 15 kelime' geçiyor (metin bozuk okunuyor)	var	docs/envanter/envanter.tsv
+CLAUDE.md	API isteklerinde daima try/catch kullan	var	docs/envanter/envanter.tsv
+CLAUDE.md	Tarih formatı her zaman ISO 8601 olsun	var	docs/envanter/envanter.tsv
+CLAUDE.md	Sorun limit değil, bağlam (context) problemidir	var	docs/envanter/envanter.tsv
+CLAUDE.md	Ağır prompt ile verilen ekstrede model 7 gizli sorunun hiçbirini söylemedi; kısa brifle iki denemede de 7'sini buldu	var	docs/envanter/envanter.tsv
+CLAUDE.md	Uzun prompt, şişmiş CLAUDE.md/AGENTS.md ve gereksiz skill'ler sonucu bozuyor (konuşmacı Anthropic ve OpenAI rehberlerine ve ETH Zürih ölçümüne atıf yapıyor)	var	docs/envanter/envanter.tsv
+mattpocock/skills	Kendini 'small, composable skills for real engineering. Not vibe coding.' diye tanımlıyor	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+mattpocock/skills	/grill-me: kod yazmadan önce kullanıcıyı ayrıntılı sorgular, yanlış anlaşılmayı önler	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+mattpocock/skills	TDD workflow: önce test, sonra kod	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+mattpocock/skills	Git guardrails: güvenli commit ve PR alışkanlıkları	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+mattpocock/skills	Caveman skill: token maliyetini %75'e kadar düşürdüğü iddia ediliyor	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+mattpocock/skills	Yıldız: videoda 220 binden fazla deniyor, başka videoda 249k yazıyor	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+TradingView	TradingView Desktop'u debug modunda başlatma gerekiyor	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/
+TradingView	Claude Code, MCP köprüsü üzerinden grafiğe erişiyor	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/
+TradingView	Doğal dil komutuyla grafiğe seviye çizdirme (videoda SPX örneği)	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/
+TradingView	Pine Script göstergesi üretme (videoda özel Open Interest momentum göstergesi, 11 dakika)	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/
+TradingView	Video 2'de macOS indirme linki ve GitHub reposundaki prompt'un Claude Code'a yapıştırılması anlatılıyor	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/
+prompt	Kullanılan skill'i paylaşma niyeti anlatılıyor	yok	
+prompt	Agent'a bir adres verip skill'i indirmesini ve kendini eklemesini isteme yöntemi anlatılıyor	yok	
+prompt	Video 2'de uzun prompt yazmadan, skill ve cloud yetenekleriyle web sitesi yapıldığı anlatılıyor	yok	
+prompt	Video 2'de kaydırmaya bağlı görsel geçişler ve sayfa konumunu gösteren bir navigasyon anlatılıyor	yok	
+LLM	Mr.pynk videosu: tek satır prompt yazmadan AI reklam üretimi anlatılıyor	yok	
+LLM	Ürün fotoğrafı ve logo sürükleyip bırakma ile başlanıyor	yok	
+LLM	LLM çalıştırılınca 3D animasyonlar otomatik üretiliyor	yok	
+LLM	Bir hero shot seçilip birden çok kampanya çekimi üretiliyor	yok	
+LLM	Animator çalıştırılarak görseller video görüntüsüne çevriliyor	yok	
+LLM	Obsidian videosu: 'Hermes LLM Wiki' notu, Shorts/LongForm/Travel gibi fazlara ayrılmış proje notları gösteriliyor. Transkript bozuk, ayrıntılar okunamıyor.	yok	
+Claude Code Setup	Anthropic'in resmi, ücretsiz plugin'i olduğu söyleniyor	var	docs/envanter/envanter.tsv; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/claude-plugins-
+Claude Code Setup	Claude Code ekibi tarafından yapıldığı söyleniyor	var	docs/envanter/envanter.tsv; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/claude-plugins-
+Claude Code Setup	Kodbase'i tarayıp projeye uygun hook, skill, subagent ve MCP server önerir	var	docs/envanter/envanter.tsv; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/claude-plugins-
+Claude Code Setup	Kurulum tek seferlik, çalıştırma tek komutla yapılıyor	var	docs/envanter/envanter.tsv; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/claude-plugins-
+Claude Cowork	Claude Code'un basitleştirilmiş hali olarak anlatılıyor, bazı özellikler çıkarılmış	yok	
+Claude Cowork	Pazarlama gibi kodlama dışı işler için hedefleniyor	yok	
+Claude Cowork	Claude uygulamasından kullanılıyor	yok	
+Claude Cowork	Fable'da normal limitin yarısı kadar tüketim (iki kat kullanım), ayın 5'ine kadar	yok	
+npx skills	npx skills add <repo> --skill <ad> ile yetenek kurulumu	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+npx skills	anthropics/skills içinde frontend-design, theme-factory, figma, brand-guidelines	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+npx skills	mattpocock/skills: /grill-me, TDD iş akışı, git guardrails, caveman skill (token maliyetini %75'e kadar düşürdüğü iddia ediliyor)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+Zapier	Zapier MCP (sponsorlu tanıtımda geçiyor)	var	docs/envanter/envanter.tsv; plugin zapier@knowledge-work-plugins:docs\katalog\yetenek.tsv; zapier@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Zapier	Trigger, ChatGPT adımı, Google Docs, Google Drive ve Gmail adımlarından oluşan iş akışı	var	docs/envanter/envanter.tsv; plugin zapier@knowledge-work-plugins:docs\katalog\yetenek.tsv; zapier@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Zapier	Aynı bölümde n8n ve LangGraph da otomasyon/ajan araçları olarak anılıyor	var	docs/envanter/envanter.tsv; plugin zapier@knowledge-work-plugins:docs\katalog\yetenek.tsv; zapier@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Sonnet 4	Claude Code oturumunda Sonnet 4.6 model olarak seçili görünüyor	yok	
+Sonnet 4	Claude Pro aboneliğiyle kullanılıyor	yok	
+Sonnet 4	Accept edits modu ekranda görünüyor	yok	
+Sonnet 4	Claude Code v2.1.81 ve v2.1.89 sürümleri ekranlarda görünüyor	yok	
+JSON	7 ücretsiz Claude Code alternatifinin incelemesi	yok	
+JSON	Antigravity CLI kurulumu (Windows CMD ve macOS)	yok	
+JSON	Sağlayıcı bağlama ekranı (Connect provider, Favorite)	yok	
+JSON	Global yapılandırma için JSON dosyası (metinde 'Json for global config' geçiyor)	yok	
+Pinterest	Ürün sitesinin URL'sini girince ürün fotoğraflarını tek tıkla kazıyıp projeye alma	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Pinterest	İlham/referans görselleri toplama	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Pinterest	Referansları LLM ile analiz etme	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Pinterest	Yerleşik prompt mühendisiyle referans stiline uygun görsel üretim promptları yazma	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Pinterest	Görsel üretimi için fal AI bağlantısı (nano banana)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+arXiv	Ajan skill listesinde 'arxiv' ve 'research-paper' skill'leri yer alıyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+arXiv	Agent Swarm içinde 'arXiv Researcher' ajan rolü olarak geçiyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+21st.dev	Tek komutla tam profesyonel, animasyonlu web sitesi üretme (transkript iddiası)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+21st.dev	Framer Motion ile animasyon ekleme	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+21st.dev	UI UX Pro Max skill'i ile tasarım desteği	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+AGPL-3.0	Transkriptte AGPL-3.0 lisanslı Shannon Lite: web uygulamaları ve API'ler için otonom, white-box AI pentest aracı	yok	
+AGPL-3.0	Kaynak kodu analiz edip saldırı vektörlerini belirleme ve gerçek exploit çalıştırarak açıkları kanıtlama (iddia)	yok	
+AGPL-3.0	Transkriptte ~33.4k yıldız ve 3.3k fork görünüyor	yok	
+AGPL-3.0	Fincept Terminal'in de AGPL-3.0 ile ticari lisans seçeneği olduğu belirtiliyor	yok	
+AGPL-3.0	httpSMS'in de AGPL-3.0 lisanslı olduğu repo sayfasında geçiyor	yok	
+MIT	Videolarda 'MIT' kurum olarak geçiyor (MIT grad, MITxOnline Catalog, MIT Learn dashboard ekran metni; OCR bozuk)	yok	
+MIT	Lisans veya araç olarak tanımı alıntıda yok	yok	
+MIT License	career-ops reposu: MIT license, Claude Code ile 14 skill modu, Go dashboard, PDF üretimi, toplu işleme	yok	
+MIT License	career-ops: 32.5k yıldız, 6.4k fork (ekran metni)	yok	
+MIT License	Auto Browser: lisans MIT, MCP etiketi (ekran metni)	yok	
+MIT License	Auto Browser: ajan tarayıcıyı kontrol eder, hareketler ekranda görülür	yok	
+NVIDIA	build.nvidia.com: 80+ AI modeli ücretsiz (video iddiası)	yok	
+NVIDIA	Alıntıdaki modeller: Kimi, MiniMax, GLM, DeepSeek, OpenAI modelleri	yok	
+NVIDIA	Kredi kartı istemiyor; Generate ile anında API anahtarı	yok	
+NVIDIA	Anahtar Claude Code ve Cursor'a eklenebiliyor (video)	yok	
+NVIDIA	'generous limits' ifadesi var; sayısal limit yok	yok	
+NVIDIA	0i65 videosu: Claude Opus 5 ve Kimi K3 ücretsiz, kredi kartsız, tarayıcıdan (başlık iddiası)	yok	
+OpenAI	NVIDIA kataloğunda OpenAI modelleri listeleniyor (video)	var	kurulu-tara.json pip
+OpenAI	0i65 videosu: Claude Opus 5 ve Kimi K3 ücretsiz, kredi kartsız, tarayıcıdan (başlık iddiası)	var	kurulu-tara.json pip
+OpenAI	Yerel GPU gerekmediği iddia ediliyor (video)	var	kurulu-tara.json pip
+SKILL.md	5 satırlık kısa brif, 56 satırlık ağır prompttan daha iyi sonuç verdi (5LLLxHxkCnI: 6 test, Claude Opus 5.5 ve GPT-6 Astra)	yok	
+SKILL.md	Ağır promptta 7 gizli sorunun hiçbiri söylenmedi; kısa brifte iki denemede de 7'si bulundu	yok	
+SKILL.md	Yapı: skills/<ad>/SKILL.md; her yetenek kaynak ve lisans yazar (7XhX8P0ebEU)	yok	
+SKILL.md	Örnek yetenek adları: youtube-analiz, icerik-denetimi, kaynak-dogrulama	yok	
+SKILL.md	Videodaki 6 favori skill: cost-reducer, n8n, researcher, scalability, auth-and-secrets (ekran metni)	yok	
+Postgre	Transkriptte MCP sunucusu olarak anılıyor (GitHub ile birlikte: 'MCP Servers (GitHub, Postgres)')	yok	
+Postgre	Bir CRM projesinde çalışma zamanı veritabanı olarak kullanılıyor ('runtime ... Postgres')	yok	
+REA	morluto/rea: agent'larla her şeyi tersine mühendislik yapma ('Reverse engineer anything with agents')	var	ogren/video-izle-kur-1/envanter.tsv
+REA	Uygulama davranışından native binary'lere kadar iniyor ('from app behaviour down to native binaries')	var	ogren/video-izle-kur-1/envanter.tsv
+REA	GitHub'da 370.7k yıldız (videoda belirtilen)	var	ogren/video-izle-kur-1/envanter.tsv
+Agency Agents	270 uzman agent, 17 bölüm (division)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Agency Agents	Her agent kendi kişiliği, iş akışı ve başarı metrikleriyle yazılmış	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Agency Agents	Örnekler: Core Web Vitals bilen frontend geliştirici, PPC strateji uzmanının yanındaki reklam kreatif stratejisti	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Agency Agents	msitarzewski/agency-agents: 139.604 yıldız, 22.798 fork, MIT lisanslı (videoda belirtilen)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Agency Agents	Claude Code'a doğrudan bağlanıyor; macOS, Windows ve Linux için tek tıkla kuran masaüstü uygulaması var	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+AGENTS.md	Talimat dosyası olarak AGENTS.md; tablo satırında Claude Code, Cursor, Codex CLI ve GitHub Copilot arasında ortak (Shared) kullanılıyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/agents-md
+AGENTS.md	Videoya göre uzun CLAUDE.md ve AGENTS.md dosyaları ile gereksiz skill'ler sonucu bozuyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/agents-md
+AGENTS.md	Kısa brif, ağır ve uzun promptlara göre daha iyi sonuç verdi (videodaki kendi denemesi: 7 gizli sorunun 7'si kısa brifle bulundu, ağır promptla hiçbiri bulunmadı)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/agents-md
+AGENTS.md	Anthropic ve OpenAI rehberleri ile ETH Zürih ölçümüne atıf yapılıyor (ayrıntı transkriptte yok)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/agents-md
+skill	Kullanılan skill, avenox.io/codex.md adresinde paylaşılıyor (videoda belirtilen)	var	~/.claude/skills; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/skill
+skill	Çok-ajanlı mimari: pahalı model (Fable/Mythos) mimar, araştırma ve kod işi ucuz sub-agent'lara (Codex/Opus) veriliyor	var	~/.claude/skills; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/skill
+skill	Hub, agent'ları tek bir context mimarisinde birleştiriyor	var	~/.claude/skills; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/skill
+skill	Kod tabanı mimarisini haritalama, token tasarrufu ve kod-review akışı gösteriliyor	var	~/.claude/skills; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/skill
+skill	Diğer video: Design DNA, Frontend Design, Taste Skill ve Scrollcraft skill'leri birlikte kullanılıyor	var	~/.claude/skills; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/skill
+Veo	video üretimi	yok	
+Prompt Engineering	yapay zeka eğitimi	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/prompt-engineering
+browser-use	web automation	var	docs/envanter/envanter.tsv; plugin browser-use@knowledge-work-plugins:docs\katalog\yetenek.tsv; browser-use@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Google Calendar	takvim entegrasyonu	var	docs/envanter/envanter.tsv; plugin operations@knowledge-work-plugins:docs\katalog\yetenek.tsv; plugin claude-for-financial-advisors@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:do
+Google Sheets	veri işleme	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/google-sheets
+sqlite	OpenWA: SQLite/PostgreSQL veritabanı motoru, yerel/S3 depolama ve Memory/Redis önbellek katmanları uygulama kodu değiştirilmeden takas edilebiliyor (pluggable)	yok	
+sqlite	Kurulum betiği (ikinci video): env dosyalarını güvenli anahtarlarla üretiyor, bağımlılıkları kuruyor, Prisma migrasyonlarını çalıştırıyor, SQLite'ı sıfır kurulumla yapılandırıyor	yok	
+Google Maps	İşletme kartında Genel Bakış, Menü, Yorumlar, Hakkında, Sipariş ve Teslimat/Gel-al bölümleri görünüyor (ekran metni)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Google Maps	Video, Google Maps'te web sitesi olmayan yerel işletme bulmayı anlatıyor	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+shadcn/ui	origin kit.dev: tailwind ve shadcn/ui üzerine kurulu atomik primitifler, 100+ mikro etkileşim, premium buton tasarımları (video)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+App Store	9 aşamalı App Store yayın süreci (video)	yok	
+App Store	Apple Developer hesabı: normal ücret 99 dolar; mobilden kayıt daha ucuz (video)	yok	
+App Store	App Store Connect'te uygulama oluşturma; Bundle ID biçimi com.kullanici.uygulama (video)	yok	
+App Store	React Native ile tek kod tabanından hem Android hem iOS; Mac olmadan iOS geliştirme iddiası (video)	yok	
+Playwright MCP	Erişilebilirlik ağacı (accessibility tree) tabanlı girdi; piksel/görüntü tabanlı değil	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Playwright MCP	Görüntü modeli gerektirmez; LLM'e yapılandırılmış veri verir	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Playwright MCP	İçerik sayfalarında gezinme, form doldurma, buton tıklama, dinamik içerik kazıma	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Playwright MCP	Deterministik araç uygulaması	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Amazon	Yapay zeka altyapısını kullanarak müşterilerinin ne zaman alışveriş yapacağını öngörebiliyor (CqOTUYBIUl2)	yok	
+Amazon	AWS platformunu yapay zeka üretimi için sunuyor (CqOTUYBIUl2)	yok	
+Amazon	Tinyfish MCP ile Amazon'daki ürün ilanlarını canlı tarayıp yapılandırılmış özet çıkarabiliyor (DXb0NNTj8g1)	yok	
+anthropic-skills	reverse-skill: AI destekli güvenlik ve tersine mühendislik iş akışları (Dc3UbnBCR9I)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+anthropic-skills	dev-pair: bir AI kodu yazar, başka bir AI inceler (Dc3UbnBCR9I)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+anthropic-skills	claude-api: Claude API ile geliştirme için özel skill (Dc3UbnBCR9I)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+anthropic-skills	gen-pptx: HTML slayt destelerini dönüştürür (alıntı kesik) (Dc3UbnBCR9I)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+anthropic-skills	mattpocock/skills: 17 markdown dosyası; /grill-me gibi hazır komutlar içerir (DcRlYhYMHwZ)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+Context7	Güncel, sürüme özgü kod dokümantasyonu çeker (Dbs-uI9sY2w)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+Context7	Eski eğitim verisi ve var olmayan (uydurma) API sorunlarını azaltır (Dbs-uI9sY2w)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+Context7	Dört MCP setinin biri; Perplexity, Firecrawl ve Playwright ile birlikte anılıyor (Dbs-uI9sY2w)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+Agent Reach	Claude Code gibi agent'lara 15 kanaldan canlı internet okuma/arama yeteneği kazandırır	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Agent Reach	YouTube transkriptleri, Reddit thread'leri, Twitter, RSS ve Bilibili, Xiaohongshu, Instagram gibi platformları kapsar (alıntıda '10+ diğer' platform da geçiyor)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Agent Reach	Resmi ücretli API gerektirmediği, ücretsiz ve açık kaynak olduğu belirtiliyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Agent Reach	Komut satırı arayüzü (CLI) olarak tanımlanıyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Agent Reach	Orkestratör: araçları kurar, sağlık kontrolü yapar ve istekleri en iyi kullanılabilir açık kaynak araca yönlendirir	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Agent Reach	Alıntıda GitHub'da 62.683 yıldız (Şubat 2026 çıkışından sonraki beş ay) yazıyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Skill Creator	Kullanıcının kendi Claude skill'lerini oluşturmasını sağlar ('Build your own Claude skills')	var	docs/envanter/envanter.tsv; skill-creator@claude-plugins-official:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/skill-creator
+Open SEO	SEO işlerini yönetme	yok	
+Reels	video içerik yönetimi	var	docs/envanter/envanter.tsv; reels@claude-code-mods:docs\katalog\yetenek.tsv
+Motion.dev	animasyon ve etkileşim yönetimi	var	~/.claude/skills; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-ku
+pypi	Python paket yönetimi	yok	
+Fable 5	Video iddiası: Opus 4.8 ve Fable 5 blog/dokümanında, modellerin ilginç veya eğlenceli bulduğu görevde daha iyi, sıkıcı görevde performansın çok düştüğü yazıyor (videonun kendi iddiası, doğrulanmadı)	yok	
+Llama	Pinokio 3.8: in-app Newsfeed, in-app Publisher Info, yükseltilmiş Discover sayfası	yok	
+Llama	Pinokio 3.8 TTS: Orpheus; alıntıda 'built on the Llama-...' ifadesi var (metin kesik)	yok	
+Llama	Wan2.1 video: NVIDIA'ya özel Gradio UI, 5GB+ VRAM, 12 saniyeye kadar video (alıntıda)	yok	
+Mistral	TradingAgents v0.3.1: NVIDIA, Kimi, Groq, Mistral, Bedrock ve her OpenAI-uyumlu uç nokta destekleniyor (alıntı)	yok	
+Mistral	Tek uç noktadan 90+ sağlayıcı (Mistral dahil) erişimi, OpenCode plugin tanıtımında (alıntı)	yok	
+Opus 4.8	Video iddiası: Claude Opus 5 ve Kimi K3'e kredi kartı olmadan, tarayıcı üzerinden erişim (başlık/açıklama)	yok	
+Opus 4.8	Fable 5 videosu, Opus 4.8 ve Fable 5 blogunda model davranışı verisi olduğunu iddia ediyor	yok	
+Adobe	Enhance Speech (podcast.adobe.com/enhance, AdobePodcast BETA): amatör ses kaydını profesyonel düzenleme	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; plugin adobe-for-creativity@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Adobe	Higgsfield: Premiere Pro / After Effects içinde prompt yazarak sahne değiştirme, green screen ve masking yerine	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; plugin adobe-for-creativity@knowledge-work-plugins:docs\katalog\yetenek.tsv
+diagram-design	ara	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kurulu-skill:~/.claude/skills/diagr
+diagram-design	kod/doküman	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kurulu-skill:~/.claude/skills/diagr
+diagram-design	graphify query	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kurulu-skill:~/.claude/skills/diagr
+Find Skills	ara	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+Find Skills	kod/doküman	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+Find Skills	graphify query	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+Groq	ara	var	docs/envanter/envanter.tsv; docs/kurulumlar/adaylar/groq.md:2:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv
+Groq	kod/doküman	var	docs/envanter/envanter.tsv; docs/kurulumlar/adaylar/groq.md:2:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv
+Groq	graphify query	var	docs/envanter/envanter.tsv; docs/kurulumlar/adaylar/groq.md:2:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv
+Premiere Pro	video düzenleme	var	yontem:.kos\kopru\kaynak-dizin\dizin.tsv
+Strix	güvenlik testi	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter
+ECC	28 özel subagent, 119 skill, 60 slash komut (alıntıda '34 r...' ile kesiliyor)	var	docs/envanter/envanter.tsv
+ECC	Hook'lar: sessionstart/stop, pre-compact vb.; hafıza kalıcılığı, stratejik compaction önerisi, pattern extraction	var	docs/envanter/envanter.tsv
+ECC	GitHub, Vercel, Railway ve diğerleri için hazır MCP config'leri	var	docs/envanter/envanter.tsv
+ECC	AgentShield: Claude Code yapılandırmasını tarayan güvenlik tarayıcısı (102 kural, 1282 test); injection riski, secret sızıntısı, yanlış yapılandırma	var	docs/envanter/envanter.tsv
+ECC	Dashboard: Tkinter masaüstü GUI (python3 ecc_dashboard.py)	var	docs/envanter/envanter.tsv
+ECC	Videoda iddia: Anthropic hackathon'unda yapılmış, neredeyse 200.000 yıldız	var	docs/envanter/envanter.tsv
+Framer	İlk bileşen (adı alıntıda net değil): dinamik mesh animasyonu, fizik tabanlı hareket, ayarlanabilir çekim gücü, ızgara aralığı, etkileşim yarıçapı, isteğe bağlı imleç izi, özel renk, canvas ile yüksek performanslı render	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+Framer	Draggable Sticker: görsel yükleme, piksel cinsinden genişlik/yükseklik, WebGL kıvrılma (peel-off) efekti, hıza bağlı 3D tilt (maks 45°), açılıp kapanan parlama (sheen), yükselme (elevation) kontrolü, bırakınca yerine oturma animasyonu	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+Framer	Text Hover (alıntıda 'Heah Text Hover' / 'Nesh Text Hover' olarak bozuk): imleçle mesh sürükleme, yay geri dönüşü ve sönümleme, güç ayarı, açılıp kapanan kromatik renk ayrımı, yazı tipi/ağırlık/boyut kontrolü, WebGL2 ızgara, cihaz piksel oranına duyarlı render	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+Framer	Bileşenler Framer-native ve React uyumlu; MCP iş akışları için uygun olduğu belirtiliyor	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv
+OpenMontage	Videoda: açık kaynaklı, agentic video üretim sistemi; 12 üretim pipeline'ı, 100+ araç, 700+ agent skill ve üretim bilgisi dosyası	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; klon:.kos\kopru\kaynak-dizin\dizin.tsv; docs/kurulumlar/ig-41/karar-a.tsv:139:docs\katalog\yetenek.tsv; kaynak-kutuphane/en
+OpenMontage	Araştırma, yazım ve kurgu adımlarını otomatik yapması; storyboard, hikâye ve senaryo üretmesi	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; klon:.kos\kopru\kaynak-dizin\dizin.tsv; docs/kurulumlar/ig-41/karar-a.tsv:139:docs\katalog\yetenek.tsv; kaynak-kutuphane/en
+OpenMontage	Düz dille (plain language) istemle profesyonel video üretimi	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; klon:.kos\kopru\kaynak-dizin\dizin.tsv; docs/kurulumlar/ig-41/karar-a.tsv:139:docs\katalog\yetenek.tsv; kaynak-kutuphane/en
+OpenMontage	Repo sayfası: 'The first open-source, agentic video production system'; Python; lisans AGPL-3.0; 169 pull request	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; klon:.kos\kopru\kaynak-dizin\dizin.tsv; docs/kurulumlar/ig-41/karar-a.tsv:139:docs\katalog\yetenek.tsv; kaynak-kutuphane/en
+OpenMontage	Videoda iddia: 52.511 yıldız (+1292 bugün)	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; klon:.kos\kopru\kaynak-dizin\dizin.tsv; docs/kurulumlar/ig-41/karar-a.tsv:139:docs\katalog\yetenek.tsv; kaynak-kutuphane/en
+PostgreSQL	Alıntıda: bir iki dakika içinde PostgreSQL ayağa kaldırılabiliyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/postgresql
+PostgreSQL	MSSQL de aynı şekilde ayağa kaldırılabiliyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/postgresql
+PostgreSQL	Docker imajı olan yapay zeka modeli de aynı ekrandan çalıştırılabiliyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/postgresql
+PostgreSQL	Veritabanları ve modeller bilgisayarda container olarak çalışıyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/postgresql
+Claude Pro	Pro planı aylık 20 dolar olarak anılıyor (Claude for Small Business videosu)	var	kaynak-kutuphane/site:docs/kaynak-kutuphane/site/claude.ai.md
+Claude Pro	Arayüzde 'Sonnet 4.6-Claude Pro' etiketi ve Claude Code v2.1.81 görünüyor	var	kaynak-kutuphane/site:docs/kaynak-kutuphane/site/claude.ai.md
+Claude Pro	Claude Code yerel kurulum ve PATH ayarı gösteriliyor	var	kaynak-kutuphane/site:docs/kaynak-kutuphane/site/claude.ai.md
+HubSpot	Claude for Small Business paketinde HubSpot bağlantısı var (Pro planına dahil, 15 iş akışı)	var	docs/envanter/envanter.tsv; plugin hubspot-sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/hubspot
+HubSpot	Anthropic Marketing eklentisi tek kurulumla 6 komut veriyor; HubSpot, Slack, Canva, Klaviyo'ya bağlanıyor	var	docs/envanter/envanter.tsv; plugin hubspot-sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/hubspot
+HubSpot	/monday-brief: nakit, satış hattı, yeni lead, geciken görevler ve haftanın 3 önceliği	var	docs/envanter/envanter.tsv; plugin hubspot-sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/hubspot
+Java	Java, C#'a benzer şekilde sanal makine (VM) üzerinde çalışır: kod ara dile derlenir, çalışma anında VM makine koduna çevirir	var	kurulu-tara.json PATH:C:\Program Files\Amazon Corretto\jdk21.0.13_0\bin
+Java	C++ ise hedef platform için doğrudan makine kodu üretir (native)	var	kurulu-tara.json PATH:C:\Program Files\Amazon Corretto\jdk21.0.13_0\bin
+Nano Banana Pro	Gemini tabanlı görsel üretimi; arayüzde 'Show Thinking (Nano Banana Pro)' görünüyor	yok	
+Nano Banana Pro	Referans görselin saç stilini koruyarak yüz/portre üretimi (yan profil, siyah balıkçı yaka)	yok	
+Nano Banana Pro	Kling AI ile birlikte kullanım: beyaz fonda ürün fotoğrafından patlamış (exploded) görünüm üretimi	yok	
+Minecraft	Claude'un Minecraft'ı 20 dakikada yeniden ürettiği iddia ediliyor	yok	
+Minecraft	Biyomlar, mağaralar, cevherler ve tam gün/gece döngüsü dahil olduğu belirtiliyor	yok	
+Minecraft	Arka plan olarak shader ve dokularla zenginleştirilmiş ada tarzı bir Minecraft haritası kullanılıyor (DZfph notu)	yok	
+Artifact	Claude kurs müfredatında 'Creating with artifacts' modülü var (DV9oZ)	yok	
+Artifact	Claude Desktop kenar çubuğunda 'Artifacts' bölümü ve 'Remixed artifact' listesi görünüyor (DZ_jV)	yok	
+GPT Image	GPT Image 2, Higgsfield platformunda 24 saat boyunca ücretsiz/sınırsız erişimde listelenmiş (DbEBJ)	yok	
+GPT Image	Aynı listede Seedance 2.0, Kling 3.0 ve Nano Banana Pro da var (DbEBJ)	yok	
+i-have-adhd	Claude'un yanıtı bir sonraki adımla açması	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+i-have-adhd	Numaralı talimat kullanması	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+i-have-adhd	Gereksiz dolguyu (uzun ve dağınık cevapları) kesmesi	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+i-have-adhd	Yaklaşık 9.4k GitHub yıldızı (Ddcd7 notu)	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+SQL	SQL injection: girdi dogrulamasi olmazsa kotu niyetli girdi sorguyu degistirebilir (DZs19rMRKMu)	yok	
+SQL	Rate limiting: istek siniri yoksa API'ye DoS saldirisi yapilabilir (DZs19rMRKMu)	yok	
+SQL	SQL Joins, SQL statement execution, B-Tree vs LSM-Tree, sharding, read replica, PostgreSQL (DcDfnzsM2wL)	yok	
+Unity	Unity, Unreal ve Frostbite gibi oyun motorlari C++ ile yazilmis (18c3MTX0PK0)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; unity@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Unity	iClone Video MoCap ciktilari Unity, Unreal Engine ve Blender tarafinda kullanilabilir sekilde listelenmis (-6G3FbbQ7Uw)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; unity@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Unity	map3d: GLB olarak disa aktarim; Unity, Blender, AR ve drone icin hazir (DYKniA9s1JK)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; unity@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Framer Motion	Web sitelerine animasyon eklemek icin kullanilan kutuphane (DX3iYGwM6Di, DXb_hOdDRan)	var	docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv; kurulu-skill:~/.claude/skills/motion
+Framer Motion	21st.dev ile birlikte kullanilir; 21st.dev'den alinan komut tam bir site uretir (DXb_hOdDRan)	var	docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv; kurulu-skill:~/.claude/skills/motion
+react-bits	Animasyonlu bilesen kutuphanesi: animasyonlar, imlecler, butonlar ve benzeri bilesenler (DZmuKk7hzoY)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+react-bits	Bilesenlerin kodu anlik kopyalanabilir; giris gerekmez (DZmuKk7hzoY)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+react-bits	GitHub reposu: github.com/DavidHDev/react-bits (Da3O00jpo3R)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Apple Silicon	GGUF modelleri llama.cpp ile Apple silicon uzerinde Metal destegiyle calisir (Dd1jV3AgDiG)	yok	
+Apple Silicon	Antigravity macOS indirmesinde 'Download for Apple Silicon' ayri secenek olarak listelenmis; Intel (x64) icin ayri indirme var (9VSs2glPECM)	yok	
+VoiceStudio	Açık kaynak; videoya göre neredeyse tek geliştirici yazmış, 36.000+ GitHub yıldızı	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	5-15 saniyelik ses kaydıyla sesi klonlama ve verilen metni o sesle okuma	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	Kitapları sesli kitaba çevirme	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	Yüzen mikrofon düğmesiyle konuşmayı yazıya dökme	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	Kimin konuştuğunu belirten transkript üretme	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	Videoları başka dillere dublajlama (videoda 646 dil)	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	Masaüstü uygulama; videoya göre hesap ve bulut gerektirmez, düz CPU'da çalışır ama yavaştır	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+VoiceStudio	Videodaki karşılaştırmaya göre ElevenLabs ücretsiz planında ses klonlama yok	var	ogren/video-izle-kur-1/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envant
+Vue	Videolarda 'React/Vue/Angular' geçen Frontend Developer ajanı tanımı (UI, pixel-perfect, performans optimizasyonu)	var	kaynak-dizin/dizin.tsv
+Vue	1. video: 144 uzman ajan, 12 bölüm, MIT lisans, 10.000+ satır kişilik/süreç/kod örneği	var	kaynak-dizin/dizin.tsv
+Vue	2. video: 116k yıldız, 232+ ücretsiz uzman ajan, MIT lisans, 'The Agency' kadrosu	var	kaynak-dizin/dizin.tsv
+Claude Opus	Videoda 'Claude Opus 5' ve 'Kimi K3' için ücretsiz erişim iddiası: kredi kartı yok, 30 gün deneme, 6 saatte bir kota yenilenmesi	yok	
+Claude Opus	Tarayıcı içinde çalışır, yerel GPU gerekmez (iddia)	yok	
+Claude Opus	Videodaki ücretsiz katman listesi: Claude Sonnet 4.5 (birincil), hafif bir MiniMax modeli	yok	
+The Shift	ai.theshift kanalının kısa AI/teknoloji haber klipleri	yok	
+The Shift	Alıntıdaki örnekler: otonom park sistemi, saz çalan Türk robotu, Roborock Saros Z70 kollu robot süpürge	yok	
+iPhone	Telefonla 1080p / 30 fps kayıt ayarı	yok	
+syntax.ai	Instagram gönderisinde 'ücretsiz API anahtarları' vaadi; linkler için 'API' yorumu isteniyor	yok	
+syntax.ai	Gönderi Google AI Studio ve Gemini API anahtarı linkleri olduğunu iddia ediyor	yok	
+syntax.ai	Videolarda OnePlus 15 Sandstorm Edition ve iOS 19 konseptleri var; videolar bunların resmi duyuru olmadığını belirtiyor	yok	
+hooks	Claude Code Setup plugin'i: kod tabanını tarayıp hook, skill, subagent ve MCP sunucusu önerir	yok	
+hooks	Videoda Anthropic'in resmi ücretsiz plugin'i olduğu söyleniyor	yok	
+C++	Oyun geliştirme bağlamında C++ öğretimi	yok	
+C++	Dil temellerini kısaca kapsar; yeni başlayan da takip edebileceği anlatılıyor	yok	
+Ubuntu	Antigravity Linux minimum gereksinimleri arasında glibc >= 2.28 (metinde Fedora 34, RHEL 8 ile birlikte)	yok	
+Ubuntu	Metinde Ubuntu 20 ve Debian 10 örnek olarak anılıyor	yok	
+Vite	Proje tech stack örneği: React 19 + Vite 7 (JSX, TypeScript yok)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/vite
+Vite	Tailwind CSS v3, GSAP 3 + ScrollTrigger, Lucide React kullanılıyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/vite
+Vite	İkinci videoda: Vite + vanilla JS + Tailwind CSS, GSAP core (ScrollTrigger gerekmez), Deploy: Vercel	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/vite
+Mobbin	Dünyanın en büyük mobil ve web tasarım referans kütüphanesi olarak tanıtılıyor (sayfa metni)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/mobbin.com.md
+Mobbin	Tasarım ilhamı kaynağı olarak anılıyor (alıntıda 4. sırada; ayrıca 7 tasarım aracı listesinde 3. sırada)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/mobbin.com.md
+COMFYUI	Videoda '3D Parkour Animation With AI - Full Workflow' başlığı geçiyor; alıntı bozuk, adım ayrıntısı yok	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+COMFYUI	Yerel akışlar ile yaratıcı kontrol (alıntı: 'Yerel akışlar · yaratıcı kontrol')	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+COMFYUI	Kendi sunucuda barındırılabilir (alıntı: 'Kendi kendine barındırılan')	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+COMFYUI	GPU gerektirir ve öğrenme eğrisi daha diktir (alıntı: 'Takas bedeli: GPU + daha dik bir öğrenme eğrisi')	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+Docker Compose	n8n'i Docker container olarak, Docker Compose seçenekleriyle çalıştırma (alıntı: n8n self-host)	var	kurulu-tara.json PATH:C:\Program Files\Docker\Docker\resources\bin
+Docker Compose	Docker Compose dosyalarını olduğu gibi deploy etme (alıntı: Openship)	var	kurulu-tara.json PATH:C:\Program Files\Docker\Docker\resources\bin
+Docker Compose	Otomatik Let's Encrypt SSL, sınırsız domain, zamanlanmış yedekler, canlı build logları (alıntı: Openship)	var	kurulu-tara.json PATH:C:\Program Files\Docker\Docker\resources\bin
+Docker Compose	Standart Docker container'ları olduğu için sağlayıcılar arasında taşınabilirlik (alıntı: Openship)	var	kurulu-tara.json PATH:C:\Program Files\Docker\Docker\resources\bin
+Docker Compose	Podman rootless modunda socket'in çalışıyor olması gerekir (alıntı)	var	kurulu-tara.json PATH:C:\Program Files\Docker\Docker\resources\bin
+Jev	Ollaya: yerel karar modellerini çalıştırır; modelleri Ollama gibi model adıyla çeker (alıntı)	var	docs/envanter/envanter.tsv
+Jev	Tek binary: 'ollaya serve' daemon'u çalıştırır; run, pull, list, ps, show, rm, cp, stop, create komutları Ollama gibi çalışır (alıntı)	var	docs/envanter/envanter.tsv
+Jev	TypeSafe uyumlu: POST /v1/systemone, POST /v1/decisions ve GET /v1/models wire-identical (alıntı)	var	docs/envanter/envanter.tsv
+Jev	Resmi SDK değiştirilmeden çalışır; ortam değişkeni TYPESAFE_BA... (alıntı kesik)	var	docs/envanter/envanter.tsv
+Jev	Önerilen model winnow:e4b: tipli kararlarda 0.722 doğruluk, TypeSafe Jev'in 0.738'i karşısında; CPU'da yanıt süresi 89ms (alıntı kesik)	var	docs/envanter/envanter.tsv
+Jev	Lead üretimi kullanım örneği (Treg; 320 kişiyi ~1 sent'e eleme iddiası, video anlatımı)	var	docs/envanter/envanter.tsv
+pdf	Otomatik filtreleri geçen, ilana göre özelleştirilmiş PDF özgeçmiş üretimi (career-ops)	var	docs/envanter/envanter.tsv
+pdf	14 skill modu, Go dashboard, PDF üretimi, toplu işleme (career-ops)	var	docs/envanter/envanter.tsv
+pdf	Claude Code'da yetenek seçimi: Excel, marketing, pdf, sales, CEO, figma, mockup; 'more' ile yetenek araştırılıp eklenebiliyor	var	docs/envanter/envanter.tsv
+pdf	MIT lisanslı; alıntıdaki sayılar 32.5k yıldız ve 6.4k fork	var	docs/envanter/envanter.tsv
+uv	'uv sync' ile bağımlılık kurulumu (alıntıda yerel geliştirme komutu)	yok	
+uv	Yerel geliştirmede Python 3.11+ ve uv gerekir; Docker dışı çalıştırmada Python 3.11-3.12, uv ve ffmpeg gerekir (alıntı)	yok	
+uv	Repolarda uv.lock ve pyproject.toml bulunur (TradingAgents alıntısı)	yok	
+uv	Repo Postgres, Redis, Celery veya Ray gerektirmez; durum SQLite ve dosya sisteminde tutulur (alıntı)	yok	
+GitHub Actions	Workflow'lar 'on' tetikleyicileriyle olay güdümlü çalışır; 'jobs' ile paralel görev grupları kurulur	yok	
+GitHub Actions	ci-pr: her pull request'i izole bir GKE namespace'ine deploy edip staging doğrulaması yapar	yok	
+GitHub Actions	ci-main: main'e merge olunca çalışır	yok	
+GitHub Actions	Helm chart, Kustomize build, Kubernetes manifest ve Terraform yapılandırmalarını ayrı ayrı doğrulayan workflow'lar var	yok	
+GitHub Actions	cleanup workflow: merge sonrası PR namespace'lerini siler	yok	
+GitHub Actions	Helm chart, raw manifest'lere göre values.yaml ile yapılandırılabilen templated bir deploy alternatifi sunar	yok	
+Grok Bot	Iddia: 350 bot ile otonom trading yapılabiliyor (Dclzie_O8Qu)	yok	
+Grok Bot	Bot rolleri: piyasa tarama, kurulum arama, haber/duyarlılık analizi, risk yönetimi; üst bot 'Commander' olarak ekranda geçiyor	yok	
+Grok Bot	TradingView'e bağlantı: 'Connect grok bot to trading view' başlığı	yok	
+Grok Bot	Ekip örneği: Scout (Google Maps'ten lead bulup outreach), Dawn (müşteri onboarding), Frank (ödenmemiş fatura takibi)	yok	
+Grok Bot	Botlar bulut bilgisayarda ortak çalışır; dizüstü kapalıyken de devam eder (iddia)	yok	
+Homebrew	Claude Code kurulum yöntemleri: Native Install (önerilen), Homebrew, WinGet	yok	
+Homebrew	macOS/Linux/WSL: curl -fsSL https://claude.ai/install.sh	yok	
+Homebrew	Windows PowerShell: irm https://claude.ai/install.ps1 | iex	yok	
+Homebrew	Windows CMD için install.cmd dosyası; transkript bozuk, tam komut yazılı değil	yok	
+Homebrew	Hata notu: '&&' geçersiz ifade hatası ve 'irm tanınmadı' hatası, CMD'de olunduğunu gösterir; prompt'ta 'PS' yoksa CMD'dir	yok	
+Runway	Transkriptte Runway ücretli olarak anılıyor: 'You don't need to pay for Higgsfield or Runway AI anymore' (DYUgRHeid_A)	yok	
+Runway	Veo 2 videosunda 'Runway'den iyi' denmiş (iddia, DJRbJA0Myhm)	yok	
+Runway	ViMax ekran yazısında 'Runway + Midjourney + HeyGen' yerine geçtiği iddia ediliyor (DYCll4ROMoa)	yok	
+Seedance 1.0	Transkript 'Claude Code + Higgsfield Seedance 2.0' diyor; 1.0 sürümü geçmiyor	yok	
+Seedance 1.0	15 Seedance 2.0 skill'i; stiller arasında Cinematic var, liste kesik	yok	
+Seedance 1.0	Üretilen video süresi: 4-15 saniye	yok	
+Seedance 1.0	Claude doğru skill'i seçer ve üretime hazır prompt'u yazar	yok	
+Claude Opus 4.1	Alıntıda: Claude Opus 5 ve Kimi K3'e kredi kartı olmadan, tarayıcı üzerinden ücretsiz erişim iddiası	yok	
+Claude Opus 4.1	Alıntıda: 7 ücretsiz Claude Code alternatifi (Antigravity IDE, OpenCode, Kilo Code, OpenRouter, Kiro CLI, GitHub Copilot, Freebuff)	yok	
+Claude Opus 4.1	Alıntıda: bir aracın ücretsiz limiti dolunca diğerine geçip işe devam etme	yok	
+GLM	NVIDIA build.nvidia.com üzerinden 80+ model, kredi kartı gerekmeden ücretsiz API anahtarı (alıntı)	yok	
+GLM	Modeller: Kimi, MiniMax, GLM, DeepSeek, OpenAI (alıntı)	yok	
+GLM	Oluşan anahtar Claude Code, Cursor gibi araçlara bağlanabiliyor (alıntı)	yok	
+GLM	Ücretsiz modellere sistem prompt'u eklenerek çıktı kalitesini artırma önerisi (AHqd07eSfX8 alıntısı)	yok	
+WebSocket	Asiline: video kareleri renkli metin karakterlerine çevrilip WebSocket ile yayınlanıyor (alıntı)	yok	
+WebSocket	Tarayıcı karakterleri JavaScript ile yeniden çizerek ~360p 30fps görünüm veriyor (alıntı)	yok	
+WebSocket	Video elementi veya mp4 kullanılmıyor (alıntı)	yok	
+Agent-Memory	Tencent Agent Memory: kalıcı ve yerel hafıza (alıntı)	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin agentmemory@agentmemory:docs\katalog\yetenek.tsv; agentmemory@agentmemory:docs\katalog\yetenek.tsv
+Agent-Memory	Token harcamasını %61 azaltma iddiası (alıntı)	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin agentmemory@agentmemory:docs\katalog\yetenek.tsv; agentmemory@agentmemory:docs\katalog\yetenek.tsv
+Agent-Memory	Oturumlar arasında bağlamın sıfırdan başlamaması (alıntı)	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin agentmemory@agentmemory:docs\katalog\yetenek.tsv; agentmemory@agentmemory:docs\katalog\yetenek.tsv
+Agent-Memory	Açık kaynak ekip belleği: Chat Memory, Skills, LLM-Wiki, Code-Graph; herhangi bir framework'teki ajana takılabiliyor (alıntı)	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin agentmemory@agentmemory:docs\katalog\yetenek.tsv; agentmemory@agentmemory:docs\katalog\yetenek.tsv
+pnpm	Videoda pnpm ile başlayan bir kurulum satırı geçiyor (metin bozuk)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv
+pnpm	Bileşeni kopyalayıp projeye yapıştırma yaklaşımı (videoda: 'Just copy the component you like, paste it into hero.jsx')	var	site:.kos\kopru\kaynak-dizin\dizin.tsv
+Spline	Dinamik, şık ve farklı tasarımlar için (videoda app.spline.design)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/
+Spline	'Spline Scene' bileşeni: 3D sahnelerle UI'ı canlandırma ('Bring your UI to life with beautiful 3D scenes')	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/
+AAPL	Borsa ticker ekranında hisse sembolü olarak geçiyor	yok	
+MiniMax	NVIDIA build.nvidia.com üzerinde ücretsiz API anahtarıyla erişim iddiası (80+ model, MiniMax dahil)	yok	
+MiniMax	Kiro CLI ücretsiz katmanında MiniMax M2.1 (videoda)	yok	
+MiniMax	TradingAgents'ta MiniMax-China sağlayıcısı, anahtar MINIMAX_CN_API_KEY ortam değişkeninde (endpoint metni bozuk)	yok	
+skill.sh	Proje kapsamındaki skill'ler .agents/skills/ içinde, kullanıcı geneli kurulumlar ~/.agents/skills/ içinde durur	yok	
+skill.sh	Codex'te skill'ler /prompts komutları yerine kullanılır; /skills menüsünden açılır	yok	
+skill.sh	Yeni kurulan skill görünmezse aracın yeniden başlatılması gerekir	yok	
+skill.sh	Skill'e opsiyonel argüman verilerek belirli bir alana odaklanılır (ekranda '/polish checkout-form' ve 'audit header' örnekleri var)	yok	
+Bun	Açık kaynak, kendi sunucunda barındırılan (self-hosted) CMS: görsel editör, içerik motoru ve yayıncı tek Bun sunucusunda çalışır	var	docs/envanter/envanter.tsv
+Bun	Kullanıcı rolleri, eklentiler ve gerçek veritabanı; ücretli eklenti gerekmediği söyleniyor	var	docs/envanter/envanter.tsv
+Bun	Çıktı temiz statik sayfa; kaynak kodu view-source ile okunabilir	var	docs/envanter/envanter.tsv
+Bun	Site tarif edilince statik sayfa üretilip barındırılabiliyor	var	docs/envanter/envanter.tsv
+Claude Design	Prompt ile animasyonlu web siteleri, mobil uygulama prototipleri, UI konseptleri, motion graphics ve sunumlar üretilir	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; design@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Claude Design	Etkileşimli bir canvas üzerinde tasarım, prompt'larla adım adım iyileştirilir	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; design@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Claude Design	Açık kaynak ve ücretsiz olduğu iddia ediliyor; ChatGPT API, Claude API ve yerel modellerle çalışabiliyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; design@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Last30days	Açık kaynak, ücretsiz bir Claude skill'i	var	docs/envanter/envanter.tsv; last30days@last30days-skill:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/last30days
+Last30days	Bir konu verilir; Reddit, X, YouTube, TikTok, Hacker News, Polymarket ve web aynı anda taranır	var	docs/envanter/envanter.tsv; last30days@last30days-skill:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/last30days
+Last30days	Sonuçlar gerçek etkileşime göre sıralanır (upvote, izlenme, Polymarket'teki para)	var	docs/envanter/envanter.tsv; last30days@last30days-skill:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/last30days
+Last30days	Amaç: son 30 günde insanların gerçekten ne konuştuğunu görmek	var	docs/envanter/envanter.tsv; last30days@last30days-skill:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/last30days
+Seedance	Image to Video	yok	
+Seedance	Basic prompt ile calistirma	yok	
+Seedance	Karakterlerin donusturulebilmesi	yok	
+Seedance 2.5	Higgsfield uzerinde 33 gun sinirsiz erisim (videodaki iddia)	yok	
+Seedance 2.5	30 saniye kesintisiz tek cekim	yok	
+Seedance 2.5	Bir sahneye 50 gorsel/video referans yuklenebilmesi	yok	
+Seedance 2.5	Videoyla ayni anda ses uretimi	yok	
+Seedance 2.5	Oyuncusuz, kamerasiz reklam filmi uretimi (videodaki ornek)	yok	
+ui-ux-pro-max-skill	UI stilleri, renk paletleri, font eslestirmeleri, grafik tipleri ve UX rehberleri iceren aranabilir veritabani	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/ui-ux-pro-max-skill
+ui-ux-pro-max-skill	Claude Code, Windsurf, Antigravity, GitHub Copilot, Kiro, Codex, Qoder destegi	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/ui-ux-pro-max-skill
+ui-ux-pro-max-skill	Skill'ler: banner-design, brand, design-system, design, slides, ui-styling	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/ui-ux-pro-max-skill
+ui-ux-pro-max-skill	$uipro komutu	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/ui-ux-pro-max-skill
+Electron	Web uygulamasi ve yerel masaustu uygulamasi olarak macOS, Windows ve Linux'ta calisma (gittrend.io videosu)	yok	
+Electron	Otomatik guncelleme GitHub Releases uzerinden	yok	
+Google Docs	Zapier'da Google Docs adımıyla metinden belge oluşturma ('create document from text')	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/google-docs
+Google Docs	Belgeyi Google Drive'a Docs ID ile ekleme adımı	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/google-docs
+Google Docs	Gmail adımıyla belge bağlantısını e-postaya ekleme	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/google-docs
+GPT-6 Astra	5 satırlık kısa brif, 56 satırlık ağır prompta göre genelde daha iyi sonuç verdi	yok	
+GPT-6 Astra	Ağır promptla verilen ekstrede model 7 gizli sorunun hiçbirini söylemedi; kısa brifte iki denemede yedisini buldu	yok	
+GPT-6 Astra	Robot kontrolünde Fable 5.1'e göre başarı oranı 2.4x, maliyet 2.3x daha düşük (video iddiası)	yok	
+Kubernetes	Docker + Kubernetes + gVisor/Kata/Firecracker ile izolasyon desteği (OpenSandbox tanıtımı, DcBuc3XuVif)	yok	
+Kubernetes	Kubernetes-ready probe'lar (DZ3PUfYlK6z)	yok	
+MCP server	Chrome DevTools MCP: tarayıcı hata ayıklama ve otomasyon (sayfa açma, öğe okuma, tıklama, ekran görüntüsü)	yok	
+MCP server	Playwright MCP: erişilebilirlik snapshot'ı ile tarayıcı etkileşimi, ekran görüntüsü zorunlu değil	yok	
+MCP server	Higgsfield MCP server ile video üretimi (DaLGdlHuOKh)	yok	
+Playwright CLI	Tarayıcı açıp üretilen arayüzün ekran görüntüsünü alma (DbyJNRdPyCj)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+Playwright CLI	Hata ve bozuk çıktıyı kullanıcıya gelmeden yakalama	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+Playwright CLI	CLI+SKILLS olarak sunulur; MCP'ye göre daha az token kullandığı iddia ediliyor (DX8i0U3vTA1)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv; cc-kopru izinli:docs\katalog\yetenek.tsv
+React Native	Tek kod tabanıyla hem Android hem iOS uygulaması	yok	
+React Native	Mac olmadan iOS için uygulama geliştirilebildiği belirtiliyor	yok	
+React Native	Apple Developer hesabı: bireysel veya şirket adına, web veya mobilden üyelik; mobilden daha ucuz, normalde 99 dolar	yok	
+React Native	App Store Connect'te uygulama oluşturma adımı	yok	
+Google AI Studio	Google AI Studio'dan ücretsiz API anahtarı alınır	yok	
+Google AI Studio	Anahtar Cline eklentisine yapıştırılır	yok	
+Google AI Studio	VS Code: Microsoft'un ücretsiz, açık kaynak kod editörü	yok	
+andrej-karpathy-skills	Tek bir CLAUDE.md dosyası	var	docs/envanter/envanter.tsv; andrej-karpathy-skills@karpathy-skills:docs\katalog\yetenek.tsv
+andrej-karpathy-skills	Dört ilke	var	docs/envanter/envanter.tsv; andrej-karpathy-skills@karpathy-skills:docs\katalog\yetenek.tsv
+andrej-karpathy-skills	Aşırı inşa etmeyi (overbuilding) durdurur	var	docs/envanter/envanter.tsv; andrej-karpathy-skills@karpathy-skills:docs\katalog\yetenek.tsv
+andrej-karpathy-skills	Claude'un söylenildiği gibi davranmasını sağlar	var	docs/envanter/envanter.tsv; andrej-karpathy-skills@karpathy-skills:docs\katalog\yetenek.tsv
+Chromium	RunSetup sayfası ile yerel bağımlılıklar ve giriş oturumları	yok	
+Chromium	Playwright giriş oturumlarını profiles/<hesap>/<platform> altında saklar	yok	
+Chromium	Sıraya alınmış videoları TikTok, Instagram ve YouTube'a gönderir	yok	
+Chromium	Son TikTok videolarını indirir (yt-dlp, isteğe bağlı)	yok	
+Chromium	FFmpeg tabanlı video benzersizleştirme; isteğe bağlı kullanıcı logosu bindirmesi	yok	
+Chromium	Cron ifadesi, günlük saat veya anlık gönderim ile zamanlama	yok	
+Chromium	Gereksinimler: Node.js 18+, npm, Playwright Chromium, PATH'te FFmpeg ve ffprobe	yok	
+claude plugin	Plugin; hazır skill'leri ve uygulama bağlantılarını paketler	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude plugin	Resmi pazarlama plugin'i: marka sesinde yazar	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude plugin	Beş resmi plugin: pazarlama, satış, hukuk, verimlilik, finans	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude plugin	Finans plugin'i: muhasebe ve ay sonu rakamları	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude plugin	Everything Claude Code: ücretsiz, açık kaynak, Claude Code/Cursor/Codex'e eklenen sistem (transkript)	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude-skill	Prompt sonuna 'Ultrathink' yazmak daha derin muhakeme sağlar (iddia)	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude-skill	Alt ajan (sub agents) kullanımı görevleri daha hızlı çözer (iddia)	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude-skill	/init ile .md dosyası oluşturma	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude-skill	Apple tasarım dili skill'i: tipografi, boşluk, hizalama, renk incelemesi	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude-skill	Belgesel üretici skill'i: tek satır komutla üretim promptlarını yazar	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+claude-skill	'Skill'lerle maliyeti %98 düşürme' iddiası	var	kurulu-tara.json PATH:C:\Users\pc\.local\bin
+Manychat	Instagram DM inbox için AI ajanı (Manychat + OpenAI entegrasyonu)	yok	
+Manychat	Instagram DM üzerinden chatbot	yok	
+NVIDIA NIM	Ücretsiz API anahtarı ile erişim	var	docs/envanter/envanter.tsv; docs/kurulumlar/adaylar/nvidia-nim.md:2:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/enva
+NVIDIA NIM	DeepSeek, Kimi ve GLM gibi modellere erişim (alıntıya göre)	var	docs/envanter/envanter.tsv; docs/kurulumlar/adaylar/nvidia-nim.md:2:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/enva
+NVIDIA NIM	Claude Code'un terminal arayüzünü, arka planda farklı modelleri kullanacak şekilde çalıştırma	var	docs/envanter/envanter.tsv; docs/kurulumlar/adaylar/nvidia-nim.md:2:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/enva
+OpenHands	Görevleri anlayıp kod yazabilen, hata düzeltebilen ve tam özellikler geliştirebilen AI yazılım ajanı	yok	
+OpenHands	Mimari bileşenler (alıntı ekran görüntüsünde): OpenHands Cloud, Virtual Machine, AgentServer, Integrations Hub, Automations, Authentication & Team Management, User's Laptop	yok	
+OpenHands	Alıntıdaki GitHub verisi: 76565 yıldız, 9734 fork	yok	
+Opus 4.7	Alıntıdaki bir kullanıcı paylaşımında, tek bir istemle bir Pokémon tarzı savaş uygulaması yaptırıldığı ve oyunun %90 oranında çöktüğü, arayüzün kötü olduğu iddia ediliyor (tek anekdot, doğrulanmamış).	yok	
+MCP (Model Context Protocol)	Claude'un diğer uygulamalarla konuşmasını tanımlayan standart	yok	
+MCP (Model Context Protocol)	Bir araç MCP ile bağlanınca Claude o aracın komutlarını önceden bilmek zorunda kalmaz	yok	
+MCP (Model Context Protocol)	Anthropic kendi marketplace'ini açtı; hazır sunucular dakikalar içinde bağlanıyor	yok	
+MCP (Model Context Protocol)	Notion, GitHub, Slack, Stripe gibi araçlar tek sohbetten erişilebilir	yok	
+Aider	Terminalde çalışan AI pair programming aracı	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Aider	Basit talimatları gerçek kod değişikliğine çevirir	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Aider	Her dosyayı elle düzenlemeden kod değişikliği yapar	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Aider	Alıntıda yıldız sayısı 46K+ ve https://aider.chat/ adresi geçiyor	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+DaVinci Resolve	Ücretsiz sürümde tam editör ve AI destekli B-roll araçları (alıntıda $0 yazıyor)	yok	
+DaVinci Resolve	Claude üzerinden timeline düzenleme, renk düzeltme ve render ayarı prompt ile yapılabiliyor	yok	
+DaVinci Resolve	MixKit, DaVinci Resolve, Premiere Pro, After Effects ve Final Cut için ücretsiz video şablonları sunuyor	yok	
+Flux	Açık kaynak AI modeli olarak anılıyor; alıntıda Stable Diffusion ile birlikte geçiyor	yok	
+Flux	Pinokio üzerinden tek tıkla kurulup yerelde çalıştırılabiliyor (alıntıda hem Pinokio hem Pinocchio yazılmış)	yok	
+Flux	Yerel çalıştırmada internet gerekmediği ve gizlilik sağladığı belirtiliyor	yok	
+Flux	Open Generative AI alıntısında 200+ model arasında Flux, Kling, Veo, Sora, Midjourney geçiyor	yok	
+Google Cloud	Claude, Google Cloud'un Vertex AI'si üzerinden kullanılabiliyor	yok	
+Google Cloud	Alıntıda Google Cloud Project ID ve Region seçimi geçiyor	yok	
+Google Cloud	Alıntıda 'Claude with Google Cloud's Vertex AI' ve 'Building with Claude on Google Cloud' dersleri geçiyor	yok	
+GrillMe	Matt Pocock'un kişisel Claude Skills reposu; disiplinli mühendislik iş akışlarını içerir	var	tablo13.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane
+GrillMe	Videoda geçen skill'ler: /grill-me, /tdd, /diagnose, /triage, /improve-codebase-architecture	var	tablo13.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane
+GrillMe	Videoya göre prompt değil, yeniden kullanılabilir AI mühendislik sistemleri	var	tablo13.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane
+Karpathy skill	Videoda '40 Claude repo' listesinde 'Kapathi Skills' adıyla geçiyor; özelliği ayrıca anlatılmıyor	var	andrej-karpathy-skills@karpathy-skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Kiro	Ücretsiz tarifte CloudSonnet 4.5, Qen3, CoderNext, DeepSeq 3.2 ve Minimax M2.1 modelleri sunuyor (videodaki yazım)	yok	
+Kiro	Model listesinin sürekli değişebileceği belirtiliyor	yok	
+PhotoCraft	Adobe Photoshop'un açık kaynak alternatifi (görsel düzenleme)	var	tablo13.tsv; docs/kurulumlar/ig-41/karar-a.tsv:3:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.ts
+PhotoCraft	Seri içinde VectorCraft (Illustrator), FilmCraft (Premiere Pro), LightCraft (Lightroom), PdfCraft (Acrobat Pro benzeri) ve After Effects, InDesign benzeri uygulamalar yer alıyor	var	tablo13.tsv; docs/kurulumlar/ig-41/karar-a.tsv:3:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.ts
+PhotoCraft	Abonelik zorunluluğu yok; Windows, macOS ve Linux için ücretsiz	var	tablo13.tsv; docs/kurulumlar/ig-41/karar-a.tsv:3:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.ts
+PhotoCraft	Bazılarının tarayıcı üzerinden çalışan sürümleri var	var	tablo13.tsv; docs/kurulumlar/ig-41/karar-a.tsv:3:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.ts
+PhotoCraft	Native, açık kaynak uygulamalar; Rust ile yazıldığı belirtiliyor	var	tablo13.tsv; docs/kurulumlar/ig-41/karar-a.tsv:3:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.ts
+PhotoCraft	Videoda Claude Opus 5.5 ile birebir kopyalandığı anlatılıyor	var	tablo13.tsv; docs/kurulumlar/ig-41/karar-a.tsv:3:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.ts
+Redis	OpenWA (WhatsApp API ağ geçidi) önbellek katmanı olarak Memory veya Redis seçeneği sunuyor	var	kurulu-tara.json pip
+Redis	Veritabanı (SQLite/PostgreSQL), depolama (Local/S3) ve önbellek katmanları yapılandırmayla değiştirilebiliyor; uygulama kodu değişmiyor	var	kurulu-tara.json pip
+Redis	Videoda bellek içi kayıt yerine kalıcı checkpointer (metinde 'redis checkpointer' geçiyor, kısmen bozuk) kullanıp yeniden başlatmalarda hafızanın korunması anlatılıyor	var	kurulu-tara.json pip
+Connector	Claude'a bağlanabilen araçlar (connectors) üzerinden Claude'un uygulamalarınızdaki verileri okuyup yazabilmesi	yok	
+Connector	Connector yönetimi ekranı (Manage connectors)	yok	
+Connector	Web ve masaüstü eklentileri (desktop extensions) kategorileri	yok	
+Connector	Örnek bağlantılar videoda: Canva, Asana, Cloudflare	yok	
+CUDA	llama.cpp'yi NVIDIA GPU için CUDA desteğiyle derleme	yok	
+CUDA	Mac'te Metal desteği varsayılan olarak açık	yok	
+CUDA	Hugging Face CLI ile model ağırlıklarını indirme	yok	
+CUDA	Unsloth'un 2-bit dinamik kuantizasyonu: videoya göre 1.51 TB modeli 239 GB'a indiriyor, %82 doğruluk korunduğu iddia ediliyor	yok	
+Fable 5.1	Robocurve karşılaştırmasında Claude Fable 5.1 ve Fable 5 modelleri, GPT-6 Astra ile aynı robot kol (YAM) üzerinde test edildi	yok	
+Fable 5.1	Bowl görevi (kırmızı bloğu kaseye koyma): Fable 5.1 20 denemede 8 başarı, Fable 5 20 denemede 1 başarı	yok	
+Fable 5.1	Puzzle görevi (mavi yapbozu yuvaya yerleştirme): Fable 5.1 20 denemede 2 başarı, Astra da 2 başarı	yok	
+Fable 5.1	Videoda CloudX Law adlı yetenekte Fable 5.1'in plan hazırlaması, GPT-6 Astra'nın planın açıklarını sorgulaması anlatılıyor	yok	
+Intercom	Stripe, PostHog, Intercom ve Canny verilerini Claude'a tek seferde verme	var	docs/envanter/envanter.tsv; plugin intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv; intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Intercom	Müşteri segmentasyonu: son 30 gündeki müşterileri Power Users / At-Risk / Churned olarak ayırma	var	docs/envanter/envanter.tsv; plugin intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv; intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Intercom	Her segment için ortak davranış, en riskli 10 müşteri ve bu hafta yapılacak 3 kurtarma adımı	var	docs/envanter/envanter.tsv; plugin intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv; intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Intercom	Çıktı: JSON + tek sayfa Markdown rapor	var	docs/envanter/envanter.tsv; plugin intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv; intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Intercom	Codebase audit: PII işleme, güvenlik açıkları ve performans darboğazlarını P0-P3 önceliğiyle listeleme	var	docs/envanter/envanter.tsv; plugin intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv; intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Intercom	Beş prompt sistemi: müşteri segmentasyonu, codebase audit, feature prioritization, pricing & paywall, haftalık üretim	var	docs/envanter/envanter.tsv; plugin intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv; intercom@knowledge-work-plugins:docs\katalog\yetenek.tsv
+PowerShell	nvm-windows ile Node sürüm yönetimi	yok	
+PowerShell	Git Bash kurulumu; kurulumda Windows Terminal profili seçeneği var	yok	
+PowerShell	Transkriptte ikinci alternatif OpenCode: terminalde Claude Code'a benzer çalışır, açık kaynaktır	yok	
+Shopify	Videoda Shopify, 'Websites' kategorisinde Replit ve Emergent ile birlikte listeleniyor	var	docs/envanter/envanter.tsv; plugin small-business@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/shopify
+Shopify	Mağaza işletme için altı prompt'un DM'den paylaşılacağı iddiası (kopya yazarı, destek asistanı, reklam alıcısı)	var	docs/envanter/envanter.tsv; plugin small-business@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/shopify
+Swift	Slash komutları: /plan, /code-review, /build-fix, /refactor-clean, /quality-gate, /security-scan, /sessions, /multi-plan, /multi-execute; eski /tdd ve /eval yalnızca opt-in legacy-command-shims klasöründe	yok	
+Swift	Dil paketleri: TypeScript, Python, Go, Swift, PHP, HarmonyOS/ArkTS	yok	
+Swift	Hooks: tool kullanımı, session start/stop, pre-compact gibi olaylarda otomasyon	yok	
+Swift	Bellek, stratejik compact ve pattern extraction önerileri	yok	
+Swift	Hazır MCP yapılandırmaları: GitHub, Supabase, Vercel, Railway ve diğerleri (metin bozuk)	yok	
+Swift	AgentShield: Claude Code yapılandırmasını injection, secret sızıntısı ve yanlış yapılandırma için tarar (102 kural, 1282 test)	yok	
+Swift	Tkinter masaüstü dashboard: python3 ecc_dashboard.py	yok	
+Webflow	Claude for Small Business: bordro, fatura, pazarlama, işe alım, muhasebe dahil 15 iş akışı tek sohbet penceresinden	yok	
+Webflow	/plan-payroll: QuickBooks kontrolü, PayPal mutabakatı, 30 günlük tahmin, vadesi geçmiş faturalar için hatırlatma e-postası kuyruğu	yok	
+Webflow	/monday-brief: nakit, pipeline, lead ve öncelikler özeti	yok	
+Webflow	Bağlanan uygulamalar: QuickBooks, PayPal, HubSpot, Canva, DocuSign, Gmail, Slack, Stripe, Square, Webflow	yok	
+Webflow	Gönderme, yayınlama veya ödeme öncesi kullanıcı onayı	yok	
+scrapling	Web scraping aracı/kütüphanesi (CLI + Python kütüphanesi, alıntı: 'CLI+PythonLibrary')	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+scrapling	Bot tespitini aştığı iddia ediliyor (alıntıda doğrulanmamış)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+scrapling	Claude Code, Codex veya başka bir AI ajanına bağlanabiliyor (alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+scrapling	Agent Skill olarak paketli (alıntı: 'Agent Skill')	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+scrapling	Testler geçiyor ('Tests passing', alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+scrapling	'744k/month' yazıyor, ölçüt belirtilmemiş (alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Understand Anything	Kod tabanını (ve doküman/bilgi tabanını) etkileşimli bilgi grafiğine dönüştürür (alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; understand-anything@understand-anything:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Understand Anything	Çok ajanlı (multi-agent) boru hattı kullanır (alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; understand-anything@understand-anything:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Understand Anything	Her dosya için bilgi grafiği üretir ve etkileşimli panel verir (alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; understand-anything@understand-anything:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Understand Anything	Özellikler (alıntı): guided tour, semantic search, diff impact, layer view, soru sorma	var	ogren/video-izle-kur-1/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; understand-anything@understand-anything:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Understand Anything	Claude Code, Codex, Cursor, Copilot, Gemini ile çalıştığı söyleniyor (alıntı)	var	ogren/video-izle-kur-1/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; understand-anything@understand-anything:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Understand Anything	Yıldız sayısı alıntılarda tutarsız: 46.5k ve yaklaşık 80.000 yazıyor	var	ogren/video-izle-kur-1/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; understand-anything@understand-anything:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Puppeteer	Alıntıda Puppeteer, Lightpanda'nın CDP (port 9222) üzerinden bağlandığı istemci olarak geçiyor (alıntı: 'Works with Playwright, Puppeteer & Chromedp')	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/pptr.dev.md; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\
+Puppeteer	Lightpanda: Zig ile sıfırdan yazılmış, Chromium fork değil (alıntı)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/pptr.dev.md; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\
+Puppeteer	Chrome'dan 11x hızlı, 9x az bellek iddiası (alıntı, ölçüm yöntemi yok)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/pptr.dev.md; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\
+Puppeteer	Tek satır Docker kurulumu (alıntı)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/pptr.dev.md; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\
+Puppeteer	Windows'ta native binary yok, WSL gerekiyor (alıntı)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/pptr.dev.md; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\
+Puppeteer	AGPL-3.0 lisans, 11.8k yıldız (alıntı)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/pptr.dev.md; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\
+ScrollTrigger	GSAP 3 eklentisi; kaydırmaya bağlı animasyonlar için (alıntı: 'GSAP 3 + ScrollTrigger for animations')	yok	
+ScrollTrigger	Diğer alıntıya göre ScrollTrigger gerekmez, GSAP core ile scroll geçişi yapılabilir (çelişkili)	yok	
+ScrollTrigger	Shiney.ai alıntısında yığın: React 19, Vite 7 (JSX), Tailwind CSS v3, Lucide React, React Router DOM v7	yok	
+Chrome DevTools MCP	Claude siteyi gerçek bir tarayıcıda açar	var	docs/envanter/envanter.tsv; chrome-devtools-mcp@chrome-devtools-plugins:docs\katalog\yetenek.tsv
+Chrome DevTools MCP	Neyin yanlış olduğunu kontrol eder ve kendi kendine düzeltir	var	docs/envanter/envanter.tsv; chrome-devtools-mcp@chrome-devtools-plugins:docs\katalog\yetenek.tsv
+Chrome DevTools MCP	Claude'un kör inşa etmesini engeller; ne yaptığını görebilir	var	docs/envanter/envanter.tsv; chrome-devtools-mcp@chrome-devtools-plugins:docs\katalog\yetenek.tsv
+Chrome DevTools MCP	Claude'un tarayıcıyı kontrol edip etkileşim kurmasını sağlar	var	docs/envanter/envanter.tsv; chrome-devtools-mcp@chrome-devtools-plugins:docs\katalog\yetenek.tsv
+Claude HUD	Token harcamasını görünür kılar	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; claude-hud@claude-hud:docs\katalog\yetenek.tsv; plugin-pazar:~\.claude\plugins\marketplaces/claude-hud
+Claude HUD	Harcamanın nereye yanacağını önceden gösterir	var	docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; claude-hud@claude-hud:docs\katalog\yetenek.tsv; plugin-pazar:~\.claude\plugins\marketplaces/claude-hud
+Code Review	Beş AI ajanı kodu paralel olarak inceler	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; code-review@claude-code-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Code Review	Kodu farklı açılardan tarayıp bug'ları yakalar	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; code-review@claude-code-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Code Review	Güvenlik açıklarını tespit eder ve önlerini almaya yardımcı olur	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; code-review@claude-code-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+freellmapi	34 ücretsiz LLM sağlayıcısını tek OpenAI uyumlu URL arkasında toplar	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+freellmapi	635 endpoint sunar (Groq, Gemini, Mistral, Cerebras dahil)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+freellmapi	Ücretsiz katman limiti dolunca otomatik rotasyon yapar	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+freellmapi	Yerelde tek komutla çalışır	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+freellmapi	Ayda yaklaşık 7.4 milyar ücretsiz token iddia edilir	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+freellmapi	Claude Code'u birçok ücretsiz modele bağlar	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+freellmapi	Claude limiti bitince sıradaki modele geçer ve bağlamı koruyarak not bırakır	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+BTC	Kripto panosu: en büyük varlıklar, 7 günlük sparkline'lar, BTC/ETH dominansı	yok	
+BTC	Listelenmiş herhangi bir coin için tam OHLCV grafiği	yok	
+BTC	Ekran metninde BTC satırı: fiyat 64,392.18, değişim -%0.9, YTD +%42.3	yok	
+Claude Sonnet 4.5	Kiro ücretsiz katmanında erişilebilir; 'birincil premium model' olarak tanımlanıyor	yok	
+Claude Sonnet 4.5	Google/GitHub sosyal girişi veya AWS BuilderID ile kayıt olan ücretsiz kullanıcılar erişiyor	yok	
+Claude Sonnet 4.5	Kiro IDE ve Kiro CLI'da kullanılabiliyor	yok	
+Claude Sonnet 4.5	Ücretsiz katmanda hız limitleri var	yok	
+Claude Sonnet 4.5	Ücretsiz katman istekleri ABD altyapısında sunuluyor	yok	
+Claude Sonnet 4.5	Claude Sonnet 5 ve Opus 5 gibi üst modeller ücretsiz katmanda yer almıyor gibi (metin kısmen bozuk)	yok	
+csv	Prompt kalıplarında müşteri verisi CSV'si [CSV'yi yapıştır] yer tutucusuna yapıştırılarak işleniyor	yok	
+csv	Satın alma tutarı ve zamana göre segmentleme CSV girdisiyle yapılıyor	yok	
+csv	Google Maps'ten agent-browser ile çekilen lead verisi CSV çıktısı olarak isteniyor (email, telefon, skor)	yok	
+Haiku	Sınıflandırmada (intent, sentiment gibi kategoriler) Sonnet ile aynı etiketleri verir; alıntı dörtte bir sürede bittiğini söylüyor	yok	
+Haiku	Alan çıkarmada (fiş, e-posta) model boyutu önemsiz; maliyet Sonnet'in kesri	yok	
+Haiku	Model kimliği haiku-4-5; girdi fiyatı 1M token başına $0.80 (slayt)	yok	
+Haiku	Yönlendirme (routing), ilk geçiş özetleri ve toplu soru-cevap için kullanılıyor	yok	
+Haiku	Goal/Outcomes döngüsünde bağımsız denetçi (hakem) model olarak kullanılıyor	yok	
+NVDA	TradingAgents çerçevesi NVDA için karar üretiyor: propagate('NVDA', '2026-09-01') bir karar döndürüyor	yok	
+NVDA	Yapılandırmada deep_think_llm ve quick_think_llm ile iki ayrı model seçilebiliyor (model adları alıntıda bozuk)	yok	
+NVDA	max_debate_rounds ayarı var (örnekte 2)	yok	
+NVDA	Desteklenen sağlayıcılar: openai, google, anthropic, xai, deepseek, groq, ollama, openai_compatible (metin kısmen bozuk)	yok	
+NVDA	Filings panelinde NVDA için 8-K kaydı var (29 Nis 2024, yeni ürün/iş)	yok	
+Genjutsu	AThevon/genjutsu olarak anılıyor	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Genjutsu	Video, Genjutsu'ya Higgsfield üzerinden erişim verildiğini söylüyor	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Genjutsu	Metinde Award-winning UI, Modern layout, Creative direction, Visual polish, Premium animation başlıkları geçiyor	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Google Flow	Frames to video modu	yok	
+Google Flow	Başlangıç ve bitiş karesi (start/end frame) ile iki görselden animasyon üretimi	yok	
+Google Flow	Metinde Veo ya da model adı geçmiyor	yok	
+Google Search Console	Web sitesini Google Search Console'a gönderme	yok	
+Google Search Console	XML sitemap gönderme	yok	
+Google Search Console	Sayfaları hedef anahtar kelimeler için optimize etme	yok	
+Google Search Console	Meta title ve meta description	yok	
+Google Search Console	Branchel: ChatGPT, Gemini ve diğer AI'larda marka görünürlüğünü tek panelden izleme; hangi sorgularda görünüldüğü, rakiplerin önde olduğu sorgular ve AI'nın markayı nasıl konumlandırdığı	yok	
+markitdown	Microsoft aracı	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/enva
+markitdown	PDF, Word, Excel ve PowerPoint dosyalarını Markdown'a çevirir	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/enva
+markitdown	CLI ve Python kütüphanesi (Python API)	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/enva
+markitdown	Yerelde çalışır, veri dışarı gitmez (PRIVATE)	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/enva
+markitdown	RAG ve LLM girdileri için uygun, gereksiz içeriği temizler	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/enva
+markitdown	Videoda 7.3K yıldız yazıyor	var	ogren/video-izle-kur-1/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; uv tool:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/enva
+PHP	Ücretsiz barındırma panelinde cPanel	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\PHP.PHP.8.5_Microsoft.Winget.Source_8wekyb3d8bbwe
+PHP	PHP sürüm seçimi (PHP Version Selection)	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\PHP.PHP.8.5_Microsoft.Winget.Source_8wekyb3d8bbwe
+PHP	Sınırsız e-posta hesabı (Unlimited Email Accounts) ve bant genişliği ifadeleri	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\PHP.PHP.8.5_Microsoft.Winget.Source_8wekyb3d8bbwe
+PHP	Metinde barındırma sağlayıcısı adı geçmiyor	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Microsoft\WinGet\Packages\PHP.PHP.8.5_Microsoft.Winget.Source_8wekyb3d8bbwe
+Research agent	Her gece 02:00'de rakip web sitelerini, Google yorumlarını ve Maps kayıtlarını tarar	yok	
+Research agent	Kendi sitesini sayfa sayfa rakiplerle karşılaştırır	yok	
+Research agent	Kendisinde sayfası olmayan 6 aramayı bulur	yok	
+Research agent	Strateji ajanı her aramanın hacmini kontrol edip en iyisini seçer	yok	
+Research agent	Yazım ajanı işletmenin gerçek bilgileri ve marka sesiyle sayfayı yazar; çalıştığı ilçeleri ve müşteri sorularının yanıtlarını ekler	yok	
+Research agent	Sabah 07:00'de işlem biter, ertesi gece tekrarlanır	yok	
+Sora	Shuttempt Pro, OpenAI'nin en yeni video modeli Sora'ya en iyi erişimi sağlıyor (videodaki ifade)	yok	
+Sora	480p'de 20 saniyeye kadar uzun üretim alınabiliyor	yok	
+Sora	LTX 2.3: açık kaynak, ücretsiz, kendi bilgisayarda çalışır; yazıdan ve görselden video; 4K'ya kadar (videodaki iddia)	yok	
+Sora	Open Generative AI: ücretsiz açık kaynak görsel/video üretici; 13K+ GitHub yıldızı (paylaşımdaki iddia)	yok	
+Task Observer	Nasıl çalıştığını izler ve tarzını öğrenir	var	docs/envanter/envanter.tsv; task-observer@one-skill-to-rule-them-all:docs\katalog\yetenek.tsv; claude.ai senkron:docs\katalog\yetenek.tsv
+Task Observer	Arka planda diğer yeteneklerini (skill) otomatik olarak geliştirir	var	docs/envanter/envanter.tsv; task-observer@one-skill-to-rule-them-all:docs\katalog\yetenek.tsv; claude.ai senkron:docs\katalog\yetenek.tsv
+Task Observer	Bir meta skill olarak, zaten çalışan skill'leri iyileştirir	var	docs/envanter/envanter.tsv; task-observer@one-skill-to-rule-them-all:docs\katalog\yetenek.tsv; claude.ai senkron:docs\katalog\yetenek.tsv
+Terminal	codebase-memory-mcp: projenin tamamını okuyup harita çıkarır	var	docs/envanter/envanter.tsv
+Terminal	Agent, değişiklik yapmadan önce bu haritaya bakar; hangi yerlere dokunulacağını ve neyin bozulabileceğini inceler	var	docs/envanter/envanter.tsv
+Terminal	Kurulum otomatik olarak Claude Code'a bir MCP sunucusu ekler	var	docs/envanter/envanter.tsv
+Web Design Guidelines	Web Design Guidelines Skill olarak anılıyor (bunyamin.dev transkripti)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/web-design-guidelines; agent-skills@addy-agent-skills:docs\katalog\yetenek.tsv
+Web Design Guidelines	Aynı listede shadcn MCP, Magic MCP (21st dev) ve Chrome DevTools MCP da geçiyor; bunlar ayrı kalemler	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/web-design-guidelines; agent-skills@addy-agent-skills:docs\katalog\yetenek.tsv
+WeChat	Alıntıda 'WeChat' adına rastlanmıyor; metin HKUDS/ViMax (MIT lisanslı, agentic video generation) sayfasına ait	yok	
+WeChat	Videoda 'dört aracı tek araca indiriyor' deniyor; metinde REPLACE Runway+, Midjourney+HeyGen yazıları geçiyor	yok	
+Lottie	Design DNA (zanwei/design-dna): tasarım tersine mühendisliği, layout analizi, tipografi, renk paleti, UI stili kopyalama	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+Lottie	Motion Design (lottiefiles/motion-design-skill): Lottie animasyon, AI motion workflow, etkileşimli durumlar, timeline ve keyframe, SVG animasyon	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+Lottie	Genjutsu (AThevon/genjutsu): ödüllü UI, modern layout, yaratıcı yön, görsel cila, premium animasyon	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+public-apis	1.706 ücretsiz API, 51 kategori (nocodealex videosu); almu_yousef videosunda '1.400+' yazıyor	yok	
+public-apis	MIT lisansı	yok	
+public-apis	★ 466.531 (video tarihinde)	yok	
+bestapps.ai	Kronos (shiyu-coder/Kronos): 5 dakikalık zaman serisi (XSHG_5min_600977.csv), lookback ve pred_len parametreleri, predict çağrısı	yok	
+bestapps.ai	Jev trading bot: BTC, ETH, SOL, DOGE, BNB için Hyperliquid üzerinde; dry run modu gerçek piyasa, sahte dolumlarla	yok	
+bestapps.ai	Premium UI Kit (yorumda 'UI' ile talep)	yok	
+Agent OS	Ücretsiz ve açık kaynak, GitHub'da yayında	yok	
+Agent OS	Otonom döngüler: sürekli çalışıp yaklaşımını iyileştiren döngüler	yok	
+Agent OS	Kendini geliştiren (self-improving) iddiası	yok	
+Agent OS	Build/kodlama ve görev otomasyonu	yok	
+Agent OS	Omarchy, ücretsiz AI ajan işletim sistemi olarak tanıtılıyor (alıntı kesik)	yok	
+Binance	OpenAlice GitHub deposunda 'feat(uta): add Binance broker preset' commit'i (gittrend.io videosu)	yok	
+Binance	Geçmiş mum (historical candles) verisi	yok	
+Binance	Sembol arama (symbol search)	yok	
+Binance	Tam piyasa tarama (full-market screen; metin kesik)	yok	
+Binance	Cloud9 videosunda Binance etiketli, RSI/bant ifadeli strateji kodu gösteriliyor (ekran metni bozuk)	yok	
+Bloomberg	TradingAgents: çok ajanlı, LLM tabanlı alım-satım çerçevesi	yok	
+Bloomberg	Temel analiz ajanı: finansal metrik, iç değer, kırmızı bayrak	yok	
+Bloomberg	Duygu ajanı: StockTwits ve Reddit verisi	yok	
+Bloomberg	Bullish/Bearish araştırmacı ajanlarının tartışması	yok	
+Bloomberg	Trader ajanı ve risk yönetimi	yok	
+Bloomberg	OpenBB: piyasa, temel ve alternatif verileri tek yerde toplayan açık veri platformu, Bloomberg terminalinin açık karşılığı olarak konumlanıyor	yok	
+Bloomberg	OpenBB için ekranda GitHub yıldızı 73.071 görünüyor	yok	
+Bolt	Cursor, Manus, Bolt, Lovable gibi araçların ~6.500 satır sistem promptu public GitHub deposunda (sızıntı iddiası)	yok	
+Bolt	DeepSite V2: ücretsiz, açık kaynak AI web kodlayıcı	yok	
+Bolt	Hugging Face üzerinde barındırılıyor	yok	
+Bolt	DeepSeek R1 reasoning modeliyle çalışıyor	yok	
+Bolt	Açıklama yazarak uygulama ve site üretme	yok	
+Bolt	Mevcut site linkini yapıştırıp sitede tıklanan bölümü düzenleme	yok	
+Calendly	Tarih/saat seçim popup'ı içeren 30 dakikalık görüşme zamanlama butonu	var	docs/envanter/envanter.tsv; plugin sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/calendly
+Calendly	Calendly kullanıcı adıyla URL ayarı	var	docs/envanter/envanter.tsv; plugin sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/calendly
+Calendly	Popup yerine doğrudan link yedeği	var	docs/envanter/envanter.tsv; plugin sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/calendly
+Calendly	react-calendly kendi tip tanımlarını taşıyor (ayrı @types paketi gerekmeyebilir)	var	docs/envanter/envanter.tsv; plugin sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/calendly
+Calendly	Cal.com: ücretsiz, sınırsız etkinlik türü; Calendly ücretsiz planında 1 etkinlik türü	var	docs/envanter/envanter.tsv; plugin sales@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/calendly
+Devin	Vicoa'nın yerleşik ACP ajan kataloğunda listeleniyor (Amp, Auggie, Cline, Devin, FactoryDroid, goose vb. ile birlikte)	yok	
+Emergent	Metin prompt'undan tam uygulama üretimi ve dağıtılabilir çıktı (alıntıya göre dakikalar içinde)	var	docs/envanter/envanter.tsv; plugin small-business@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Emergent	Hazır şablonlardan (ör. Moltbot) tek tıkla kurulum, ardından Preview paneli	var	docs/envanter/envanter.tsv; plugin small-business@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Google Gemini	Google iPro (alıntıda böyle yazıyor): 5 saatte bir yenilenen, haftalık limite kadar süren daha yüksek kota	yok	
+Google Gemini	Jio ile 18 ay ücretsiz Google iPro aboneliği (Google Gemini teklifi)	yok	
+Granola	Toplantı notu aracı (Otter.ai alternatifi olarak sıralanıyor)	var	docs/envanter/envanter.tsv; plugin brand-voice@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; docs/kurulumlar/ig-41/karar-birlesik.tsv:197:docs\katalog\yet
+Granola	'24 şey' listesinde Claude'a kurulması önerilen eklentiler arasında (#17)	var	docs/envanter/envanter.tsv; plugin brand-voice@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; docs/kurulumlar/ig-41/karar-birlesik.tsv:197:docs\katalog\yet
+Astra	Header ve footer'ı tema (Astra) kontrol eder; ortadaki içerik Elementor ile tasarlanır	yok	
+Astra	Özelleştirici üzerinden logo değiştirilebilir ve boyutu ayarlanabilir	yok	
+Astra	Site başlığı ve alt başlık (tagline) özelleştirici üzerinden düzenlenir	yok	
+career-ops	GitHub'da santifer/career-ops deposu (videoda 31K+ yıldız olarak geçiyor)	var	tablo13.tsv; .claude/igkur/karar.tsv:16:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak
+career-ops	Videoda kurucusu santifer olarak anılıyor	var	tablo13.tsv; .claude/igkur/karar.tsv:16:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak
+Chatwoot	Destek (support) gelen kutusunun arkasına AI yardımcı/ajan eklenebilir	yok	
+Chatwoot	Gece geç saatte gelen potansiyel müşteri mesajlarına anında yanıt verir (videoda 2 sabahı örneği)	yok	
+Chatwoot	Videoda Intercom'un (aylık $139) ücretsiz alternatifi olarak sunuluyor	yok	
+claude-plugins-official	Claude Code'a Telegram ve Discord kanalları eklenerek telefondan görev verilebilir (videoda: hata düzeltme, refaktör, dağıtım)	var	~/.claude/plugins/cache; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-p
+claude-plugins-official	Yalnızca izin listesindeki (allowlist) kullanıcı ID'leri bota mesaj atabilir	var	~/.claude/plugins/cache; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-p
+claude-plugins-official	Telefondan tam dosya sistemi, git ve MCP erişimi sağlandığı belirtiliyor	var	~/.claude/plugins/cache; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-p
+claude-plugins-official	macOS'ta iMessage kanalı da geçiyor (sıfır yapılandırma olarak anılıyor)	var	~/.claude/plugins/cache; claude-code-setup@claude-plugins-official:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-p
+Composio	Araç entegrasyon platformu (videoda 'Tool integration platform' olarak tanımlanıyor)	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Composio	Jev / typesafe-mcp: herhangi bir MCP istemcisine bağlanabilen, tip güvenli araç (videoda 'Connects to any MCP client, fully type-safe')	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Composio	Jev, modelin seçenekleri tartarak karar vermesi için araç seti olarak sunuluyor	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Ahrefs	tür: araç	var	docs/envanter/envanter.tsv; plugin marketing@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Ahrefs	durum: KURULU-KANITSIZ	var	docs/envanter/envanter.tsv; plugin marketing@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Ahrefs	Alıntıda Ahrefs'e özgü özellik geçmiyor	var	docs/envanter/envanter.tsv; plugin marketing@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Ahrefs	Ücretsiz alternatif olarak OpenSEO anılıyor: Ahrefs ve Semrush'a açık kaynak alternatif (anahtar kelime, rank takibi, backlink, site denetimi)	var	docs/envanter/envanter.tsv; plugin marketing@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Ahrefs	Claude Code gibi ajanlar SEO verisini doğrudan kullanır (metin bozuk)	var	docs/envanter/envanter.tsv; plugin marketing@knowledge-work-plugins:docs\katalog\yetenek.tsv
+AI Studio	tür: araç	yok	
+AI Studio	durum: KURULMADI-SIRADA	yok	
+AI Studio	DESIGN.md ile başlanır	yok	
+AI Studio	Generate, Modify, Preview	yok	
+AI Studio	Export: Figma, Jules, zip, Code to Clipboard	yok	
+AI Studio	MCP ile Stitch tasarımı içe aktarılıp denetlenir	yok	
+AI Studio	Token sistemi (tokens.ts + tailwind.config) kurulur	yok	
+AI Studio	Paylaşılan bileşenler kurulur (FadingVideo, AnimatedSection, WordReveal)	yok	
+AI Studio	Yedi araçtan biri; çoğu ücretsiz başlıyor (video: NotebookLM, AI Studio, Flow, Stitch, Opal, Lyria, Pomelli)	yok	
+animos	tür: araç	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	durum: KURULMADI-SIRADA	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	Tasarımları hareketli showcase olarak dışa aktarır (MP4)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	Şablon seçimi, görsel/video ekleme, ayar değiştirme	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	Tarayıcıda çalışır; kurulum gerektirmez	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	Motion Token Generator	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	Figma tasarımlarına hareket ekleme (video açıklaması)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+animos	BETA	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/site:docs/
+Asana	tür: araç	var	docs/envanter/envanter.tsv; plugin operations@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/asana
+Asana	durum: KURULU-KANITSIZ	var	docs/envanter/envanter.tsv; plugin operations@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/asana
+Asana	Görev otomatikleştirme için kullanılan araçlar listesinde (burakcakir.ai videosu)	var	docs/envanter/envanter.tsv; plugin operations@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/asana
+Asana	Asana.com: ekip projelerini yönetme (liste başlığı)	var	docs/envanter/envanter.tsv; plugin operations@knowledge-work-plugins:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/asana
+Minimal.gallery	El seçimi web siteleri	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/minimal.gallery.
+Minimal.gallery	Temiz ve minimal site ilhamı	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/minimal.gallery.
+Minimal.gallery	Kategoriler: Portfolio, Startup, Onepage, E-commerce, Fashion, SAAS, Finance, Type foundry, Non-profit	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/minimal.gallery.
+Minimal.gallery	E-posta ile haftalık özet (haftada bir, abonelikten çıkış serbest)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/minimal.gallery.
+Motionsites.ai	Animasyon odaklı landing page'ler	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-
+Motionsites.ai	400+ prompt, premium animasyonlu siteler için	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-
+Motionsites.ai	Landing page kodunu tamamen kopyalama (tenfoldmarc videosu)	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-
+Motionsites.ai	Prompt'u AI kod editörüne yapıştırıp site üretme	var	ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/envanter.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-
+Polymarket	TradingAgents v0.3.1: FRED ve Polymarket veri sağlayıcıları	yok	
+Polymarket	Polymarket paper trading, gerçek piyasa verisiyle canlı (2026-03-03)	yok	
+Polymarket	Çözülmüş piyasalar arka plan işlemeyle yönetiliyor	yok	
+Polymarket	OpenClaw skill listesinde 'polymarket' skill'i geçiyor	yok	
+GPT 5.6	Arapça videoda model seçicide GPT 5.6 listeleniyor	yok	
+GPT 5.6	TradingAgents changelog: GPT-5.6 ve GLM-5.3 modelleri destekleniyor	yok	
+GPT 5.6	Türkçe videoda 'GPT 5.6 haftaya gelecek' deniyor (tarih ve erişim teyitsiz)	yok	
+Backtesting	Çoklu venue, enstrüman ve strateji aynı anda backtest	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	Tarihsel quote tick, trade tick, bar, order book ve özel veri; nanosaniye çözünürlük	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	Araştırma ve canlı dağıtımda aynı strateji kodu	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	Rust çekirdek, mimalloc allocator	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	Herhangi bir REST API için modüler adaptörler	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	Time in force: IOC, FOK, GTC, GTD, DAY; post-only, reduce-only, iceberg; OCO, OUO, OTO	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	Bileşenleri cache ve message bus ile sıfırdan kurma	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+Backtesting	TradingAgents: küresel piyasa ve kripto backtest (meow.codes videosu)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/backtesting
+serena	Kod sembollerini anlama (Claude'a kod anlayışı kazandırır)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+serena	Referansları takip etme	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+serena	Düzenlemeleri grep tahmini yerine hassas yapma	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv
+Stitch	Düz metinle (ör. 'I need a travel app for booking flights') UI tasarımı	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Stitch	El çizimi veya tel kafes (wireframe) yükleyerek tasarım	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Stitch	Tek seferde 10'dan fazla tasarım seçeneği üretme	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Stitch	Metinle düzenleme isteme (ör. 'Make the buttons blue', 'Add a search bar')	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Stitch	Ücretsiz (Google'ın aracı olarak anlatılıyor)	var	docs/envanter/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+vLLM	Araç paketinde vLLM pod'larını dağıtma ve ölçekleme ('Deploy & scale vLLM pods effortlessly')	yok	
+vLLM	Birleşik LLM API (OneAPI tarzı; 'Switch models seamlessly', GPT-4o dahil)	yok	
+vLLM	Terminal arayüzü (TUI) ve web arayüzü	yok	
+zsh	Claude Code'un native kurulumu: ~/.local/bin/claude konumuna kurulur (Version 2.1.89 gösterilmiş)	yok	
+zsh	PATH uyarısı: ~/.local/bin PATH'te değilse kurulum notu çıkıyor	yok	
+zsh	Skill kurulumu: npm install -g re-walkthrough-pro, ardından re-walkthrough-pro install; ~/.claude/skills/re-walkthrough-pro/ altına kurulur	yok	
+anime.js	Tek kütüphaneyle web'de her şeyi animasyonlama ('Animate anything on the web with a single library')	var	omer-kutuphaneler:docs\katalog\yetenek.tsv
+anime.js	Hafif ve esnek	var	omer-kutuphaneler:docs\katalog\yetenek.tsv
+anime.js	Az kurulumla temiz UI animasyonları	var	omer-kutuphaneler:docs\katalog\yetenek.tsv
+anime.js	Vektör animasyonları için kullanılıyor	var	omer-kutuphaneler:docs\katalog\yetenek.tsv
+Git Worktree	Paralel çalışma: farklı projenin bölümlerinde birden fazla oturum/agent	var	docs/envanter/envanter.tsv
+Git Worktree	İzole Git çalışma ağacı ile farklı sonuçları karşılaştırma ve kazananı birleştirme (Orca, transkriptte)	var	docs/envanter/envanter.tsv
+Git Worktree	Video, Git Worktree veya Agent Teams ile işi 3-5 kat hızlandırma iddiasında	var	docs/envanter/envanter.tsv
+Glassmorphism	Yerleşik stil rehberi kütüphanesi, etiketlerle (glassmorphism, brutalist, retro vb.)	yok	
+Glassmorphism	Etiket ve bulanık (fuzzy) eşleşme ile stil seçimi	yok	
+Glassmorphism	CSS custom property (değişken) üretimi	yok	
+Glassmorphism	MCP uyumlu herhangi bir agent'tan erişim	yok	
+Glassmorphism	React + Tailwind veya HTML+CSS'e kod dışa aktarma	yok	
+Glassmorphism	JSON tabanlı, insan okunabilir ve diff alınabilir tasarım dosyası	yok	
+OAuth	API anahtarı kopyalamadan 'Sign In' ile araç bağlama	var	docs/envanter/envanter.tsv
+OAuth	Agent'lar Anthropic sunucularında çalışıyor (video iddiası)	var	docs/envanter/envanter.tsv
+OAuth	Sağlayıcı bazlı OAuth girişleri (transkriptte openai OAuth, openrouter, copilot)	var	docs/envanter/envanter.tsv
+OAuth	MCP sunucu bağlantıları (transkriptte todoist, canvas gibi)	var	docs/envanter/envanter.tsv
+Second Brain	Obsidian kasası (vault) klasörünü Claude Code çalışma alanı yapma	var	~/.claude/skills; kurulu-skill:~/.claude/skills/second-brain
+Second Brain	3 seviye entegrasyon: düz klasör → yönlendiriciler + dosya ağacı → bağlam işle birlikte birikir	var	~/.claude/skills; kurulu-skill:~/.claude/skills/second-brain
+Second Brain	Obsidian bilgi grafiği (knowledge graph) ile hafıza	var	~/.claude/skills; kurulu-skill:~/.claude/skills/second-brain
+Second Brain	Gbrain (video DZWwhJ5P6iW): notları saklamak yerine düşünen bir beyin, token tasarrufu iddiası	var	~/.claude/skills; kurulu-skill:~/.claude/skills/second-brain
+Skiper UI	hero bölümleri, kartlar, fiyatlandırma sayfaları ve çok sayıda hazır bileşen	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Skiper UI	shadcn/ui üzerine kurulu bloklar (3. alıntı)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Airbnb	Higgsfield MCP linki Claude'a özel bağlayıcı (custom connector) olarak eklenir	yok	
+Airbnb	Airbnb'den fotoğrafı bol bir ev seçilip fotoğraflar Claude'a eklenir	yok	
+Airbnb	Tek komutla oda oda sinematik tanıtım videosu üretilir (kamera, ışık, müzik dahil)	yok	
+Frontend Developer	The Agency (agency-agents) reposunda Engineering bölümünde bir ajan rolü	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/frontend-developer
+Frontend Developer	Her ajanın kendine özgü kişiliği ve süreci var (alıntı)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/frontend-developer
+Frontend Developer	Claude Code'a doğrudan takılır; masaüstü uygulaması tek tıkla ekip kurar (alıntı)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/frontend-developer
+Kimi K3	2.8 trilyon parametre (alıntı)	yok	
+Kimi K3	1 milyon token bağlam penceresi	yok	
+Kimi K3	Yerel çok modlu (native multimodal) yapı	yok	
+Kimi K3	Arena frontend liderlik tablosunda 1. olduğu ve Claude Opus'u geçtiği iddiası (alıntı)	yok	
+Kimi K3	GitHub kimi-k3 deposu alıntısı: 2.78T parametreli model, tek CPU'da 8.24 GB RAM ile çalışıyor	yok	
+Kimi K3	Tam ağırlıkların açık kaynak olacağı tarih: 27 Temmuz (alıntı iddiası)	yok	
+Transformer	Yalnızca attention mekanizmalarına dayanan yeni ve basit bir ağ mimarisi	yok	
+Transformer	Çeviri görevinde önceki en iyi sonuçları, ensemble'ları dahil, 2 BLEU'dan fazla geçiyor	yok	
+Transformer	Yeni en iyi BLEU skoru 41.8; 8 GPU ile 3.5 gün eğitim (alıntıdaki rakamlar)	yok	
+Transformer	Daha paralelleştirilebilir ve eğitim maliyetinin küçük bir kısmıyla eğitilebiliyor (alıntıda: 'more parallelizable', 'a small fraction of the training cost')	yok	
+Webhook	Self-host n8n'de webhook URL'lerine dışarıdan erişilemeyebilir; localhost varsayılan olarak yalnız yerel bilgisayardan erişilir	yok	
+Webhook	İki çözüm yöntemi: ngrok ile geçici internete açma ve Render.com üzerinde barındırma	yok	
+Claude in Chrome	Claude Code içinden /chrome komutuyla açılan Claude in Chrome (Beta) ayarları	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/claude-in-chrome
+Claude Project	Bağlamı saklayan çalışma alanı: ses rehberi, hedef kitle notları ve iyi performans gösteren gönderiler bir kez yüklenir	yok	
+Claude Project	Kurallar proje talimatlarında (instructions) tutulur; her sohbette tekrar yazılmaz	yok	
+Claude Project	Video alıntısında, Social Media Examiner (Nisan 2026) verisine atfen Proje içinde planlamanın aylık süreyi ~20 saatten ~3 saate indirdiği iddia ediliyor	yok	
+Claude Project	Kurulumun bir öğleden sonra sürdüğü belirtiliyor	yok	
+Cloud	Yeni boş sohbet açmak yerine proje oluşturup gerçek bağlamla çalışma	yok	
+Cloud	Projeye ürün detayları, pazarlama takvimi ve geçmişte iyi çalışmış reklam metinleri gibi belgeleri ekleme	yok	
+Cloud	Video, NVIDIA build API anahtarını alıp Cloud'a bağlamayı anlatıyor; videodaki 126 model ve ücretsiz kullanım iddiası doğrulanmadı	yok	
+MiroFish	Farklı yaş, meslek, bütçe ve profillerde AI müşterilerden oluşan sanal kitle üretiyor (Dd9z3yFvDkH)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+MiroFish	Landing page veya ürün lansmanını binlerce yapay müşteriyle simüle ediyor (Dd9z3yFvDkH)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+MiroFish	Ekranda görünen etiketler: multi-agent-simulation, knowledge-graph, agent-memory, public-opinion-analysis, financial-forecasting, social-prediction, swarm-intelligence, Python3 (DdeiU6Nuh2y)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+MiroFish	Ekran metni 'A Simple and Universal Swarm Intelligence Engine, Predicting' ifadesini ve RELATES_, CONTRADICTED_BY, CITED_BY gibi ilişki etiketlerini gösteriyor (DdeiU6Nuh2y)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+motion-graphics	Motion-graphics videolarını kod olarak üretiyor: model WebGL ve JavaScript yazıyor (Dd_2M8njh_2)	var	docs/envanter/envanter.tsv
+motion-graphics	Tarayıcı her kareyi render ediyor, ffmpeg MP4 çıkarıyor (Dd_2M8njh_2)	var	docs/envanter/envanter.tsv
+motion-graphics	Claude, Cursor veya herhangi bir modelle ücretsiz yapılabileceği iddia ediliyor (Dd_2M8njh_2)	var	docs/envanter/envanter.tsv
+motion-graphics	jayantcreates.ai videosunda '14 Claude skills' listesinde '89motion-graphics' adıyla geçiyor (Dd1zrTggHCW)	var	docs/envanter/envanter.tsv
+Pi	10 repo listesinde 'pi' olarak geçiyor (DZAIWs0ib0n)	yok	
+Pi	Vicoa videosunda (Dd8czNclQ-T) yerleşik desteklenen kodlama ajanları arasında 'Pi' ve 'OhMyPi' sayılıyor	yok	
+Railway	Geliştirici araçları/altyapı listesinde 'Railway | 90A' olarak geçiyor (DdGj15rkj_o). 90A'nın anlamı transkriptte tanımlı değil.	yok	
+Scientific Agent Skills	160+ skill içerir; AI ajanını güçlü bir araştırma asistanına dönüştürdüğü iddia ediliyor (Dc3pMkakrid)	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Scientific Agent Skills	7 repo listesinde yer alıyor (Dc3pMkakrid)	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Scientific Agent Skills	10 repo listesinde 'AI-powered research' olarak geçiyor (Dcl0nk9ibZE)	var	ogren/video-izle-kur-1/kur-tur26.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv
+Anthropic Cybersecurity Skills	Alıntıya göre +754 siber güvenlik becerisi içerir	var	kaynak-dizin/dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/anthropic-cybersecurity-skills
+Anthropic Cybersecurity Skills	mukul975/GitHub Repository üzerinden sunuluyor	var	kaynak-dizin/dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/anthropic-cybersecurity-skills
+Anthropic Cybersecurity Skills	Alıntıda geçen kategori parçaları: threat hunting (hipotez odaklı, LOTL), cloud forensics, malware reverse engineering, web (OWASP Top10/SQLi), network (firewall kuralları, segmentasyon), threat intel (STIX/TAXII, MISP)	var	kaynak-dizin/dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; plugin-pazar:~\.claude\plugins\marketplaces/anthropic-cybersecurity-skills
+Trendshift	GitHub depo sıralaması: #1 Repository Of The Day / Week / Month (alıntı)	yok	
+Trendshift	Örnek: AI JobSearch — MIT lisanslı, Claude Code tabanlı iş başvuru çerçevesi (DbevzliuW5v)	yok	
+Trendshift	Örnek: OpenCodeReview — Apache-2.0, npm v1.12.2, Windows desteği, tüm PR'ları inceleme (DdUyzJoTvEY)	yok	
+Trendshift	Dd3t8ixmPHo alıntısında 8 repo listesi: ARTEMIS, Jevgrep, Atlas, Mobile MCP, Open SEO, Stagehand ve diğerleri	yok	
+X (Twitter)	Reddit ve X'te tekrar eden soruları bulmak (alıntı: 'look for repeated questions')	yok	
+X (Twitter)	Fikri önce doğrulamak (alıntı: 'validate the idea first')	yok	
+X (Twitter)	Yapay zeka araçlarıyla hızlı üretim (Claude, Cursor ve diğerleri)	yok	
+X (Twitter)	Sorunları çözümlere çevirmek; basit rehber ve şablonlar üretmek	yok	
+Aceternity UI	Hazır UI bileşenleri, bloklar ve şablonlar (Hero, About, Labs, Pricing parçaları alıntıda)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Aceternity UI	Efekt bileşenleri: Wavy Background, Aurora Background, Spotlight (alıntı)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Aceternity UI	Ücretli 'All-Access' erişimi alıntıda ('get access to all templates')	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Aceternity UI	21st.dev, Magic UI ile birlikte anılıyor (Dd0LDZfRfVv)	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+FilmCraft	Adobe Premiere Pro alternatifi olarak konumlandırılmış açık kaynak uygulama (ArtCraft ekibi; transkriptte 'Altcraft' olarak geçiyor)	yok	
+FilmCraft	Yedi uygulama setinin parçası: PhotoCraft, VectorCraft, FilmCraft, LightCraft, PrintCraft, PdfCraft, EffectCra(ft)	yok	
+FilmCraft	Rust ile yerel (native) geliştirildi	yok	
+FilmCraft	Windows, macOS ve Linux için ücretsiz; bazı sürümleri tarayıcıda çalışıyor	yok	
+FilmCraft	Erken geliştirme aşamasında; Adobe orijinalinin tüm özelliklerini hatasız karşılamıyor	yok	
+Godot	Kaynak videoda Godot doğrudan işlenmiyor; video Hermes Agent için resmi Meshy eklentisini anlatıyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Godot	Tek cümleyle 3D model üretimi (örnek istem: 'Godot için low-poly hazine sandığı')	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Godot	Hermes Desktop'ta modeller sohbette görünüyor; rigged karakterler sohbette animasyonlu	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Godot	Galeri her model ve istemi saklıyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Godot	Mesajlaşma uygulamalarında kısa önizleme videosu gönderiliyor	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Godot	Bir 3D araç listesinde (Blender, Unreal, Unity, Godot, Maya, Rhino, ComfyUI) Godot'un yanında 'install' düğmesi görünüyor (metin bozuk)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+Google Ad	Google Ads, Google AI'a entegre edildi (CsyufqCIHQD)	yok	
+Google Ad	Ürün görsellerini yapay zekayla çeşitlendirme	yok	
+Google Ad	Görsel çözünürlüğünü artırma	yok	
+Google Ad	Metin yazarak arka planı silme ve yeni fotoğraf üretme	yok	
+Google Ad	Yapay zeka sohbet botu ile fikir, slogan ve içerik üretme	yok	
+Google Ad	Reklam videolarına yazı efekti ve voiceover ekleme; farklı platformlar için boyutlandırma	yok	
+Google Ad	Google reklamının görünümünü yapay zekayla tasarlama	yok	
+Google Ad	social agents reposu (Dd-lBUpgXs8): Meta, Google, TikTok gibi reklam platformlarına bağlanan açık kaynak repo; 'meta agent pipeline' skill'i reklamı oluşturup otonom başlatabiliyor (videonun iddiası)	yok	
+GPT 5.5	2n84xa99FRY: yazar, kullandığı skill ile iki yüksek kaliteli god-file ve senior/staff seviyesinde danışmanlık kalitesi anlatıyor	yok	
+GPT 5.5	2n84xa99FRY: dört ajanın bağımsız olarak aynı sonuca (concept sprawl riski) varması vurgulanıyor	yok	
+GPT 5.5	7XhX8P0ebEU: üç ajan, bir bekçi ve bir dağıtıcıdan oluşan, kullanıcı başında olmadan çalışan döngü	yok	
+GPT 5.5	7XhX8P0ebEU: Telefondan bota link atılınca ajan uyanıyor, iddiaları doğruluyor, yazıya değer mi karar veriyor	yok	
+GPT 5.5	7XhX8P0ebEU: Prompt gerekmiyor; yayın düğmesi kullanıcıda kalıyor	yok	
+GPT 5.5	DXo3f4Hj1J9: GPT-5.5'in ilk üç gündeki kullanım örnekleri (tanıtım, bülten)	yok	
+Jira	Proje planlama: görev, sprint ve yol haritası (Dd6Nj25AudW)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/jira
+Jira	Claude ile Jira/Confluence üzerinde issue, doküman ve proje takibi; bağlantı 'Atlassian Rovo' üzerinden listelenmiş (DdRd0SNkrW-)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/jira
+Jira	Confluence: ekip bilgi tabanı ve wiki (Dd6Nj25AudW)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/jira
+Jira	DbukLdmuB2x videosunda Slack ve diğer bağlayıcılarla araştırma iş akışı anlatılıyor; Jira'ya ait kesin bilgi metinde bozuk	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/jira
+PostHog	Analitik, AI observability, session replay, flags ve experiments içeren geliştirici araçları (video açıklaması)	yok	
+PostHog	Mixpanel alternatifi olarak analitik (swap listesi)	yok	
+PostHog	Stripe, PostHog ve Intercom verileri Claude'a tek seferde verilebiliyor	yok	
+Projects	Claude kurs müfredatında 'Introduction to projects' dersi	yok	
+Projects	'Organizing your work and knowledge' dersi	yok	
+Projects	'Creating with artifacts' dersi	yok	
+Projects	Claude Desktop kenar çubuğunda Projects, Artifacts ve Customize bölümleri	yok	
+python3	python3 komutuyla betik çalıştırma	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Programs\Python\Python312
+python3	--workers parametresiyle paralel üretim	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Programs\Python\Python312
+python3	Var olan dosyaları atlayarak tekrar çalıştırmayı güvenli kılma	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Programs\Python\Python312
+python3	Telegram chat id bulma betiği (telegram_oku.py --chat-id-bul)	var	kurulu-tara.json PATH:C:\Users\pc\AppData\Local\Programs\Python\Python312
+Repomix	Tüm repoyu tek yapıştırılabilir dosyaya çevirir	var	ogren/video-izle-kur-1/envanter.tsv; docs/video-tarama/kayit.jsonl:109:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-
+Repomix	GitHub'da ★28.097 (video verisi)	var	ogren/video-izle-kur-1/envanter.tsv; docs/video-tarama/kayit.jsonl:109:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-
+Repomix	Memory kategorisinde, repoyu her oturumda yeniden okutmayı azaltır (Graphify, claude-mem ile birlikte)	var	ogren/video-izle-kur-1/envanter.tsv; docs/video-tarama/kayit.jsonl:109:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-
+SkillsCLI	npx skills add ile agent skill kurulumu	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+SkillsCLI	-g / global ile tüm projelere kurulum	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+SkillsCLI	npx skills update ile güncelleme	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+SkillsCLI	Humanizer skill'i kurulum örneği (video metni bozuk)	var	docs/envanter/envanter.tsv; envanter.json (kurulu değil?):docs\katalog\yetenek.tsv
+Taste	Claude'a görsel göz verir: palet, tipografi, hiyerarşi	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/taste; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Taste	Yüksek performanslı siteleri arar, işe yarayanı alır (metin 'and then' ifadesinde kesik)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/taste; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Taste	Her skill tek kurulum komutuyla eklenir (komut metinde yok)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/taste; site:.kos\kopru\kaynak-dizin\dizin.tsv
+TradingAgents	Çok ajanlı LLM finansal işlem çerçevesi; araştırma, analiz ve karar ayrı katmanlarda	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1
+TradingAgents	Apache-2.0 lisansı	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1
+TradingAgents	v0.4.0: FRED makro, sosyal duyarlılık ve karar-günlüğü belleğinde look-ahead/point-in-time düzeltmeleri; net karar sinyalleri; çalışan CLI checkpoint devamı; trader fiyat temellendirmesi; GPT-5.6 ve GLM-5.3 modelleri	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1
+TradingAgents	v0.3.1: Alpha Vantage look-ahead düzeltmesi, graph-router çökme güvenliği, graph-şekil-farkında checkpoint devamı	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1
+v0	Metinde v0 tanımlanmıyor; 'Claude veya v0 ile oluşturulmuş proje' ifadesi geçiyor	yok	
+v0	DESIGN.md örnekleri Cursor, Claude Code, Codex, v0 veya Lovable içinde kullanılabilir ('Website for vibe coders' videosu)	yok	
+WebSearch	Ajan tanımında araç olarak listelenir: Read, Write, WebSearch, WebFetch, Bash	yok	
+WebSearch	Videoda Google ve Palantir sayfaları için WebSearch sorguları gösteriliyor (sorgu metni kesik)	yok	
+Awesome Claude Skills	Claude skill listelerinden biri olarak anılır	yok	
+Awesome Claude Skills	GitHub yıldız sayısına göre sıralanan skill'ler arasında yer alır (Dd4-QQgO-Hx videosu)	yok	
+Awesome Claude Skills	'Claude repos' listesinde yer alır (DdO1UioAHAS ve DdZQ5SaDxDV videoları)	yok	
+LaTeX	Araştırma yazımı akışı: RESEARCH → WRITE → REVIEW → REVISE → FINALIZE	yok	
+LaTeX	Kaynakça ve atıf: APA, IEEE, MLA, Chicago; 'accurate citations' ve referans kontrolü	yok	
+LaTeX	Çıktı: LATEX, PDF, DOCX; 'Journal Submission Ready' ve 'Conference Paper Ready' hedefleri	yok	
+LaTeX	AI Job Search alıntısında: CV ve ön yazıyı LaTeX'te üretme, ikinci bir AI ajanın eleştirisi	yok	
+Ootto	Claude'a özel bağlayıcı (connector) olarak eklenen, web sitesi üzerinden marka sesi öğrenen reel/gönderi aracı	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane
+Ootto	Tek istemle reel üretimi: hook, senaryo, görseller, ses ve altyazı	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane
+Ootto	Instagram'a doğrudan gönderim	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane
+Ootto	'Done for you' modu: haftada 7 reel e-postayla gelir; onaylanmadan hiçbir şey yayınlanmaz	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/tablo13.tsv; kaynak-kutuphane
+Open WebUI	Günlük sohbeti yerelde çalıştırma (Open WebUI + Ollama)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Open WebUI	Otomasyon için ActivePieces	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Open WebUI	Veri ve akışın kullanıcının kendi sunucusunda kalması	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Open WebUI	Alıntıda: Handy (ücretsiz, açık kaynak, çevrimdışı konuşmadan metne) Wispr Flow yerine öneriliyor	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Open WebUI	Pinokio alıntısında: açık kaynak yapay zeka modellerini yerelde çalıştıran uygulama; uygulamada model arayıp kurma	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Opus 5	Video iddiası: sızdırılmış bir Opus 5 sistem promptu alıntısı; 'Opus 3.5 davranış paketi' olarak sunuluyor (doğrulanmamış)	yok	
+Opus 5	Prime Agent (Prime Intellect) açık kaynak kodlama harness'i: kendini çalışma anında, hatalara göre yeniden yazan RLM tabanlı çerçeve	yok	
+Opus 5	Video iddiası: Opus 5 tek başına ARC-AGI-3'te %30, harness ile %95,5; insan tabanı %95,4	yok	
+Opus 5	Videonun kendi notu: insan tabanının 0,1 puan üstü istatistiksel gürültü	yok	
+Penpot	Açık kaynak Figma alternatifi: tasarla, prototiple, ekiple işbirliği yap	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; docs/kurulumlar/ig-41/karar-a.tsv:41:docs\katalog\yetenek.tsv
+Penpot	Vektör düzenleme; düğüm tabanlı tasarım; parametre ayarlayarak yıkıcı olmayan (non-destructive) düzenleme	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; docs/kurulumlar/ig-41/karar-a.tsv:41:docs\katalog\yetenek.tsv
+Penpot	Sayfalar, Inspect, Prototype, Share; Auto layout, bileşenler, tasarım sistemi, içerik kırpma	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; docs/kurulumlar/ig-41/karar-a.tsv:41:docs\katalog\yetenek.tsv
+Penpot	Videoda Adobe Illustrator, Inkscape, Sketch alternatifi olarak da anılıyor	var	docs/envanter/envanter.tsv; ~/.claude.json:docs\katalog\yetenek.tsv; docs/kurulumlar/ig-41/karar-a.tsv:41:docs\katalog\yetenek.tsv
+awesome-design-md	DESIGN.md dosyalarından oluşan, popüler marka tasarım sistemlerinin analizlerini içeren koleksiyon	var	docs/envanter/envanter.tsv; docs/kurulumlar/ig-41/karar-a.tsv:18:docs\katalog\yetenek.tsv
+awesome-design-md	Düz metin formatında; AI modelleri doğrudan okuyabiliyor	var	docs/envanter/envanter.tsv; docs/kurulumlar/ig-41/karar-a.tsv:18:docs\katalog\yetenek.tsv
+awesome-design-md	Sayfada MIT lisansı yazıyor	var	docs/envanter/envanter.tsv; docs/kurulumlar/ig-41/karar-a.tsv:18:docs\katalog\yetenek.tsv
+awesome-design-md	Videoda repo ~112.225 yıldız olarak geçiyor	var	docs/envanter/envanter.tsv; docs/kurulumlar/ig-41/karar-a.tsv:18:docs\katalog\yetenek.tsv
+Claude 3.5 Sonnet	Videoda Sonnet, varsayılan kodlama ve geliştirme işleri için öneriliyor	yok	
+Claude 3.5 Sonnet	Videoda Opus, derin mimari planlama ve sistem tasarımı için öneriliyor	yok	
+Claude 3.5 Sonnet	Videoda 3.5 Sonnet, talimatları harfiyen izleyen eski model nesli olarak anılıyor	yok	
+FastAPI	Videodaki platformun backend'i FastAPI Async ile yazılmış (kullanım bilgisi; FastAPI'nin kendi özellikleri alıntıda yok)	yok	
+FastAPI	Platform Python 3.12+ engine, React 19 + Vite frontend kullanıyor	yok	
+FastAPI	Videoda MIT lisansı geçiyor	yok	
+FastAPI	Videodaki platform MITRE ATT&CK kapsamı ve Zero-Trust Enclave özelliklerini belirtiyor	yok	
+lenis	Smooth scroll kütüphanesi; prompt'ta GSAP ScrollTrigger ile birlikte kullanılıyor	var	docs/envanter/envanter.tsv; omer-kutuphaneler:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+lenis	Kaynak: github.com/darkroomengineering/lenis (fifbuilds videosu)	var	docs/envanter/envanter.tsv; omer-kutuphaneler:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+lenis	Next.js App Router + TypeScript + Tailwind CSS ile responsive site yapımında kullanılıyor	var	docs/envanter/envanter.tsv; omer-kutuphaneler:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+lenis	Scroll ile sürülen (scroll-scrubbed) hero video kullanılıyor	var	docs/envanter/envanter.tsv; omer-kutuphaneler:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/kutuphane-haritasi.tsv
+EURUSD	MARKETS: kripto, hisse, forex ve endeksleri izler	yok	
+EURUSD	SCAN: trend, momentum, hacim, kırılım ve volatiliteyi tarar	yok	
+EURUSD	ALERTS: önemli bir değişimde bildirim verir	yok	
+EURUSD	ANALYZE: kurulumu parçalara ayırıp ne olduğunu açıklar	yok	
+EURUSD	TRADE PLAN: işlemleri net bir plana dönüştürür	yok	
+Inter	Claude Code ile premium animasyonlu web sitesi, fikirden canlı siteye	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Inter	Impeccable: tasarım dilini komutlara çeviren skill seti	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Inter	Taste Skill: AI araçlarının frontend kodunu iyileştiren skill koleksiyonu	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Inter	Jenerik çıktıdan kaçınma hedefi: mor gradyan, jenerik kopya, kart üstüne kart	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+Jarvis	Arka planda çalışır ve dikkat gerektiğinde kullanıcıyı bilgilendirir	yok	
+Jarvis	Kullanıcı istemeden görevleri kendiliğinden başlatır	yok	
+Jarvis	Kontrol odası: oturumlar, skill'ler, kanban ve sohbet hattı (NousResearch agent)	yok	
+Jarvis	Gerçek zamanlı sesli sohbet, wake word ve briefing	yok	
+/timeline	Zaman çizelgesi (timeline) diyagram türü, komut olarak çağrılır	yok	
+/timeline	Diyagram türleri arasında yer alır (Canvas, Layers, Roadmap, Kanban ile birlikte)	yok	
+/compact	Uzun oturumda konuşmayı yoğun bir checkpoint'e çevirir	var	docs/envanter/envanter.tsv
+/compact	Aktif geçmişi en fazla %85 küçültür (videoda 'HISTORY REDUCED 85%')	var	docs/envanter/envanter.tsv
+/compact	Bağlam paneli: 493.5K/1.0M jeton kullanımı ve ~17,200 jetonluk geçmiş gösterilir	var	docs/envanter/envanter.tsv
+/compact	Token tasarrufu için 18 ipucu arasında yer alır	var	docs/envanter/envanter.tsv
+stop-slop	Yazılan metinden yapay zeka izlerini siliyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/stop-slop
+stop-slop	Boş kalıp cümleleri temizliyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/stop-slop
+stop-slop	Yazının kullanıcının kendi yazısı gibi görünmesini sağlıyor (ozgur.akanay)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/stop-slop
+stop-slop	Claude skill listesinde yer alıyor (dr.safa_sadaghiyanfam ekran görüntüsü)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/stop-slop
+Unreal	Oyun motoru; Unity ve Frostbite ile birlikte C++ ile yazılmış (C++ videosu)	yok	
+Unreal	Ebs & Flow'un animasyonlarını Unreal Engine'e gerçek zamanlı aktarmak için Live Link entegrasyonu geliştiriliyor; Epic'ten destek alındığı belirtiliyor (Ebs & Flow videosu)	yok	
+Unreal	Unreal Engine karakterleri, rig tanıma için desteklenen kaynaklar arasında (Ebs & Flow videosu)	yok	
+Veo 3	Google'ın video üretim modeli (nick_saraev)	yok	
+Veo 3	Google'ın Opal aracında kullanılan modellerden biri (nick_saraev)	yok	
+Xcode	Native iOS uygulaması oluşturma ve çalıştırma (onurhuseyinkocak.ai)	yok	
+Xcode	iPhone Simulator üzerinde uygulama test etme (onurhuseyinkocak.ai)	yok	
+Xcode	Ücretsiz kullanılabildiği belirtiliyor (onurhuseyinkocak.ai)	yok	
+SwiftUI	FreeBuff ile doğal dilde uygulama geliştirme	yok	
+SwiftUI	Supabase ile database/backend ve Auth (login, signup)	yok	
+SwiftUI	GitHub ile proje ve sürüm takibi	yok	
+Refero	2,000+ design file: gerçek ürün sitelerinin renk, font ve boşluk değerleri	yok	
+Refero	DESIGN.md örnekleri AI agent'lar için; Cursor, Claude Code, Codex veya Lovable'da kullanılabiliyor	yok	
+Refero	Stiller: Minimal Design, Clean SaaS, Editorial Type, Soft Gradients, Spacious Minimal, Experimental Type, High Contrast, Premium Design	yok	
+GitHub Trending	Scrapling: web scraping; bot tespitini aşma iddiası; Claude Code, Codex veya AI agent'a bağlanabilir; '1600 kat hızlı' iddiası video iddiası	yok	
+GitHub Trending	Munder Difflin: 'Agent harness to run an office of your clones'; mevcut abonelikler üzerinden çalışır	yok	
+GitHub Trending	OpenHuman (tinyhumansai): GitHub Trending'de #1 Repository of the Day (ekran metni)	yok	
+Hacker News	13 ajan iddiası; üç ajan, bir bekçi, bir dağıtıcı ile sıfırdan döngü kurulumu	yok	
+Hacker News	Telefondan bota link atıldığında ajan uyanır, iddiaları doğrular, yazıya değer mi karar verir; prompt yok	yok	
+Hacker News	Superpowers: brainstorm, spec, plan, test, review içeren tam geliştirme iş akışı	yok	
+Hacker News	Awesome Claude Code: Claude Code ekosisteminin ana indeksi	yok	
+Hacker News	last30days: açık kaynak, ücretsiz Claude skill; Reddit, X, YouTube, TikTok, Hacker News, Polymarket ve web'i tarar; gerçek upvote, izlenme ve Polymarket verisine göre sıralar	yok	
+Cal.com	Açık kaynak zamanlama aracı	yok	
+Cal.com	Temiz, nötr arayüz	yok	
+Cal.com	Geliştirici odaklı sadelik	yok	
+Cal.com	Sınırsız etkinlik türü, ücretsiz	yok	
+claude-seo	GEO-öncelikli SEO skill'i	var	docs/envanter/envanter.tsv; claude-seo@agricidaniel-claude-seo:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv
+claude-seo	AI çağı için tasarlanmış	var	docs/envanter/envanter.tsv; claude-seo@agricidaniel-claude-seo:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv
+claude-seo	GitHub'da +4.5k (videodaki sayı)	var	docs/envanter/envanter.tsv; claude-seo@agricidaniel-claude-seo:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv
+Clickup	Tasks, Dailys, Docs ve List görünümleri	var	docs/envanter/envanter.tsv; plugin product-management@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Clickup	Communications kanalı	var	docs/envanter/envanter.tsv; plugin product-management@knowledge-work-plugins:docs\katalog\yetenek.tsv
+Clickup	Claude/KIOS ile ClickUp ve Slack okunabiliyor (videoda söylenen)	var	docs/envanter/envanter.tsv; plugin product-management@knowledge-work-plugins:docs\katalog\yetenek.tsv
+codebase-memory-mcp	Yüksek performanslı kod zekâsı MCP sunucusu	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+codebase-memory-mcp	158 dil	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+codebase-memory-mcp	Sorgularda %99 daha az token (videodaki iddia)	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+codebase-memory-mcp	Tek statik binary, sıfır bağımlılık	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+codebase-memory-mcp	Saniyeler içinde indeksleme	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; ~/.claude.json:docs\katalog\yetenek.tsv
+docx	Kaynakça stilleri: APA, IEEE, MLA, Chicago	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/docx
+docx	Dışa aktarım: LaTeX, PDF, DOCX	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/docx
+docx	Akış: Research → Write → Review → Revise → Finalize	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/docx
+docx	Hakem geri bildirimi ve atıf kontrolü	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/docx
+Figma MCP	Claude tasarımları anlayıp çalışan web sitesine dönüştürür (Figma MCP + Playwright)	var	docs/envanter/envanter.tsv
+Figma MCP	Playwright ile Claude kendi çıktısının ekran görüntüsünü alıp kontrol eder	var	docs/envanter/envanter.tsv
+Firebase	httpSMS kurulumunda 1. adım: Firebase kurulumu	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/firebase
+Firebase	Güvenlik kontrol listesinde yanlış yapılandırılmış Firebase, açık DB izinleri ve istemci tarafı güvenlik kontrolleri geçiyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/firebase
+Google Colab	Ücretsiz GPU sunuyor (videoda Colab, Kaggle, Hugging Face ve Google AI Studio ile birlikte anılıyor)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/colab.research.google.com.md
+Google Colab	Ücretsiz Google Colab üzerinde sıfırdan GPT tarzı transformer (LLM) eğitimi 1 günde yapılabiliyor (repo üzerinden)	var	site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/site:docs/kaynak-kutuphane/site/colab.research.google.com.md
+Hand Off	Codex + Claude Code kullanımı için paylaşılan skill (avenox.io/codex.md)	var	docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/handoff
+Hand Off	Çok-ajanlı mimari	var	docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/handoff
+Hand Off	Token tasarrufu yöntemleri	var	docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/handoff
+Hand Off	Kendini geliştiren sistem	var	docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/handoff
+Hand Off	Gerçek bir kod-review akışı	var	docs/envanter/envanter.tsv; kurulu-skill:~/.claude/skills/handoff
+Product Hunt	OpenHuman (mahanaicoach): GitHub'da trending #1 ve Product Hunt'ta öne çıktığı söyleniyor	yok	
+Product Hunt	Yapay Zeka Klonları Ofisi (ati_dev_ig): Product Hunt '#5 Product of the Day' rozeti gösteriliyor	yok	
+Magic UI	Koyu mod (dark-mode) için cilalı bileşenler (by.flowww)	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/en
+Magic UI	Ücretsiz UI kütüphaneleri listesinde yer alıyor (kevin.snippet: '50+ Free UI libraries')	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/en
+Magic UI	Landing page için uygun; animasyonlu metin öğelerinden söz ediliyor (aaronbuilds.ai, alıntı kesik)	var	tablo13.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/en
+transitions.dev	Hazır UI animasyonları: menüler, modallar, düğmeler (adrien.ninet)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+transitions.dev	Kopyala-yapıştır UI geçişleri: menüler, modallar, sayı pop-in'leri, başarı işaretleri (4 site videosu)	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+transitions.dev	Claude Code için skill olarak da sunuluyor; agent 27+ geçişi açıklama gerekmeden bilir	var	kaynak-dizin/dizin.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv
+@claudetipsandtricks	Rol verme: görevden önce 'Act as a senior copywriter' gibi bir persona tanımlamak (Tip #1)	yok	
+@claudetipsandtricks	Örnek yapıştırma: istenen çıktının örneğini verip 'write more like this' demek	yok	
+@claudetipsandtricks	Zor görevlerde 'think step by step' eklemek (Tip #4)	yok	
+@claudetipsandtricks	Claude Code Channels: çalışan Claude Code oturumunu Telegram veya Discord'a bağlamak (02/07)	yok	
+Bitcoin	Bitcoin'in 2010'dan bu yana artışını gösteren infografik konusu (burakcakir.ai)	yok	
+Bitcoin	Ekranı tam kaplayan, motion (hareketli) animasyonlu infografik talebi (burakcakir.ai)	yok	
+Bitcoin	Başlık olarak 'Bitcoin 4 yıl sonra nerede olacak?' (tahiryildiz)	yok	
+llama.cpp	Videoda GLM-5.2 (744B parametre, 1M bağlam penceresi) yerelde çalıştırılıyor; Mac Studio örneği var	yok	
+llama.cpp	Toplam sistem RAM gereksinimi: 1-bit 223GB, 2-bit 245GB, 4-bit 475GB, 8-bit 810GB	yok	
+llama.cpp	Mac'te Metal desteği varsayılan açık, ek bayrak gerekmiyor; NVIDIA için CUDA derleme bayrağı var	yok	
+llama.cpp	ProjectN.O.M.A, Ollama yerine OpenAI API uyumlu llama.cpp'yi kullanabiliyor (DavMnS4M1ql)	yok	
+OpenAI Codex	API key gerektirmeyen AI coding agent (video açıklamasına göre)	var	docs/envanter/envanter.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+Read	Claude Code'da dosya okuma aracı; parametre: file_path	yok	
+Read	Alt ajan araç listesinde Read, WebFetch, TodoWrite, WebSearch, mcp__ide__getDiagnostics geçiyor (metin kısmen bozuk)	yok	
+Safari	Transkriptte Safari aracına dair özellik bilgisi yok; yalnız Claude Code ile yapılan bir site tanıtımında 'Chrome ve Safari'da temiz' ifadesi geçiyor	yok	
+security-audit skill	Tam repo güvenlik denetimi yapan skill (video açıklamasında Cloudflare Security Audit Skill olarak geçiyor)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+security-audit skill	Altı adım: [1/6] Recon·girdileri eşle; [3/6] Validate·taze verifier; [6/6] Report·confirmed / needs_validation / rejected	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+security-audit skill	Çıktı dosyası: findings.json	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:docs/envanter/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv
+Zed	Repo'da 'zed' install hedefi görünüyor ('feat: add zed install target' commit'i, EverythingCloudCode repo listesinde)	yok	
+CrewAI	Rol oynayan, otonom AI ajanlarını orkestre eden framework	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kurulu-skill:~/.claude/skills/crewai
+CrewAI	Ajanların birlikte çalışıp karmaşık görevleri çözmesi	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kurulu-skill:~/.claude/skills/crewai
+CrewAI	Ajanların birlikte planlayıp görevleri yürütmesi ('ajanlar için takım yöneticisi' olarak tanımlanıyor)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kurulu-skill:~/.claude/skills/crewai
+CrewAI	Metinde 53.320 yıldız ve 7.459 fork yazıyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kaynak-kutuphane/envanter:docs/envanter/arac-ajan-ozellik.tsv; kurulu-skill:~/.claude/skills/crewai
+Behance	Yaratıcı portföyler (Creative portfolios) için platform	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+MotionSites	600+ hazır prompt kütüphanesi	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/e
+MotionSites	Premium animasyonlu siteler için prompt'lar	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/e
+MotionSites	Metne göre 3D site üretimi: displacement, materyal kurulumu ve canvas etrafındaki düzen (Google AI Studio ile çalıştırıldığı belirtiliyor)	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/e
+MotionSites	Videoda 'iki dakikada tarayıcıda 3D site' denmiş	var	ogren/video-izle-kur-1/envanter.tsv; kaynak-kutuphane/envanter:.kos/kopru/ogren/video-izle-kur-1/envanter.tsv; site:.kos\kopru\kaynak-dizin\dizin.tsv; kaynak-kutuphane/envanter:docs/kaynak-kutuphane/e
+Prompt Motion	Opus 5.5 ile üretilmiş 200+ motion graphic galerisi	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+Prompt Motion	Her örneğin yanında kullanılan prompt veya skill gösteriliyor	var	kaynak-kutuphane/envanter:docs/kaynak-kutuphane/site-katalog-tur4.tsv
+/plugin	Videoda 6 ajan/eklenti anlatılıyor: Superpowers (planlama, test yazma, kendi işini gözden geçirme), frontend tasarım, kod inceleme (hatalar, kurallar, geçmiş analizi), güvenlik taraması (yayından önce kod tabanı), hafıza (oturumlar arası)	yok	
+/plugin	Tek plugin içinde 23 yetenek; CEO, mühendis müdürü, yayın müdürü ve kalite kontrolcü rolleri birlikte çalışıyor (alıntıda 'Gary Tain' olarak geçiyor)	yok	
+/plugin	Alıntıda 'Superpowers 127 bin yıldız' ve 'frontend 277 bin kurulum' sayıları var; bağımsız doğrulanmadı	yok	
+/review	gstack eklentisi (alıntıda 'Installing gstack', 'By Garry Tan (CEO, Y Combinator)', '20K+ stars'): 6 skill, 24 komut	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/review
+/review	Komutlar arasında /plan-ceo-review, /plan-eng-review, /plan-design-review, /review, /qa, /ship	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/review
+/review	Aynı alıntıda security-guidance v2.1.0 (By Anthropic, official) kurulumu da geçiyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/review
+agent-browser	Ajanın web sitelerini kullanmasını sağlayan skill (alıntı: 'agent-browser - lets the agent use websites')	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+agent-browser	Google Maps'ten niş+şehir için veri çekme, web sitesi ve yorumlara göre filtreleme, kişiselleştirilmiş cold email yazma	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+agent-browser	Çıktı: email, telefon, skor içeren CSV	var	docs/envanter/envanter.tsv; yontem:.kos\kopru\kaynak-dizin\dizin.tsv; arac:.kos\kopru\kaynak-dizin\dizin.tsv; baglayici:.kos\kopru\kaynak-dizin\dizin.tsv; npm -g:docs\katalog\yetenek.tsv
+Anatomy	Teknik bir konuyu metin yerine oynanabilir interaktif makine olarak anlatır	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/anatomy
+Anatomy	İzometrik figürleri SVG olarak çizer; isteğe bağlı WebGL shader; bağımsız HTML sayfası veya React bileşeni olarak çıkar	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/anatomy
+Anatomy	MIT lisanslı, ücretsiz, açık kaynak (alıntıya göre)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/anatomy
+Brainstorming	Superpowers paketinden; alıntıda 'the most-starred repo' olarak anılıyor	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/brainstorming
+Brainstorming	Fikri plana dönüştürme: 'Use the @brainstorming skill to help me plan a SaaS' örneği	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/brainstorming
+Brainstorming	SKILL.md evrensel formatı; agentic skill destekleyen herhangi bir AI kodlama asistanında çalışır (alıntıya göre)	var	docs/envanter/envanter.tsv; ~/.claude/skills:docs\katalog\yetenek.tsv; kurulu-skill:~/.claude/skills/brainstorming
