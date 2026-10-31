@@ -68,3 +68,31 @@
 - Bagimsiz hakem (4 Haiku, seed 19, 40 rastgele kart, kaynak ilk 6000 kr): 26/40 = %65 < %98 KAPI TUTMADI. Ret 14: sentry-svelte-sdk, gemini-omni-flash-api (ikisi elle yamandi), swift-concurrency, baoyu-cover-image, canary, mukul975-threat-intelligence-paket, baoyu-image-gen, 3d-metal-material, n8n-mcp-skills, mukul975-data-protection-paket, premiere-mcp-paket, auditor-reunioes, horizontal-scroll-scenes, sentry-python-sdk.
 - Kok siniflari: (a) sayi/olcu uydurma (6 boyut, 13 bolum, 0,1 ms, DPR ms), (b) kosul dusurme (tek/yalniz), (c) kaynak hakemde kesik oldugu icin dogrulanamayan (~5 ret: "kesik" notu) -> hakem gurultusu. Dize eslesmesi sayi/olcu ve nicelik sozcuklerini yakalamiyor.
 - Sonraki tur: kapiya sayi/olcu denetimi (kartta gecen her rakam kaynakta olmali), hakemi tam kaynakla kos, 12 reti yeniden uret. Maliyet $ olculemedi (~4 Haiku hakem ~220k jeton). Push yok.
+
+# TUR 20 (30 Eki, devam)
+- Tam kaynakli hakem (tmp/hakem19b): 35/40 = %87,5. Tur 19'daki %65 dususu hakemin kaynagi 6000 kr'de kesmesindendi. Kalan 5 gercek ret elle yamandi: premiere-mcp-paket ("tek alt skill" kosul dusurme), auditor-reunioes (kaynaksiz "bizde yok"), freeflow-paket (changelog), canary (baseline'siz iddia), closer-followup (uydurma token_ipucu).
+- Yamali 5 kart yeniden hakeme sokulmadi; %98 kapi olculmedi. Sonraki tur: ayni 40 + yeni 40 kart tam kaynakla bagimsiz hakem. Maliyet $ olculemedi. Push yok.
+
+# TUR 21 (31 Eki)
+- Tam kaynakli bagimsiz hakem (8 Haiku, 80 kart = tur 20'deki 40 + yeni rastgele 40, seed 21): 73/80 = %91,25 < %98 KAPI TUTMADI. Ret 7: sentry-svelte-sdk, gemini-omni-flash-api, 3d-metal-material, mukul975-identity-access-management-paket, arka_oto, agentation, memvid-cli.
+- Kok neden: (a) kosul dusurme (sentry sürüm esigi, ABD eyaletleri), (b) olcunun hangi yuzeye ait oldugu, (c) kaynak disi bilgi (lisans/kurulum notu, kisa kaynak), (d) kaynaktan olmayan kombin. 7'si elle yamandi (commit'te); yamali 7 yeniden hakeme girmedi, maliyet olculemedi. Ilk 2 ret tur 19'da da yamali cikmisti -> yama kaliciligi zayif.
+- Sonraki: yamali 7 + yeni 80 kart hakem; kapiya sayi/esik/kosul dizesi denetimi (kullanim/tuzak'taki her rakam ve sürüm esigi kaynakta) ekle. Push yok.
+
+# TUR 22 (31 Eki)
+- Sayi denetimi (tmp/sayi_denetim.py, kartta gecen her rakam kaynakta): 656 kartta 22 supheli, cogu bicim farki/yerel olcum; 2 gercek yama (grill-me kesik kaynak, deslop-shared-libs).
+- Tam kaynakli bagimsiz hakem (5 Haiku, 49 kart = 9 yamali + yeni 40, seed 22): 39/49 = %79,6 < %98 KAPI TUTMADI. Yeni 40: 34/40 = %85. Yamali 9: 5/9 (agentation, memvid-cli, arka_oto, grill-me hala ret; kaynagi tek satir/kesik kartlar).
+- Ret: arka_oto, agentation, memvid-cli, grill-me, find-bugs, davila7-open-banking-io-paket, lightning-energy-skill-vfx, convex-migrate, mukul975-devsecops-paket, app-store-screenshots.
+- Kok neden: (a) kesik/tek satir kaynakta uretilen kartlar kaynak disi doldurma yapiyor (4 ret), (b) kaynakta olmayan kombin/ipucu/sira (find-bugs, lightning, convex-migrate, app-store-screenshots), (c) kaynakla celisen tuzak. Elle yama her turda yeni ret cikariyor -> yama yolu tukendi.
+- Ikinci yol (sonraki tur): uretimi kaynak kisa/kesik kalemlerde 'Kaynakta belirtilmemis' kuralina zorla; kapiya kombin/ad-gecme denetimi (kombin ogesi kaynakta gecmeli, gecmeyen dogrulanamadi'ya) ekle; 10 ret bu iki kuralla yeniden uret, sonra yeni 40 kart. Maliyet: 5 Haiku hakem ~372k jeton. Push yok.
+
+# TUR 23 (31 Eki)
+- Kod: tools/usta_kart.py isle(): kaynak <400 kr ise hicbir iddia kabul edilmez ('Kaynakta belirtilmemis'); kombin kaynakta gecmeli (zaten vardi). 10 tur-22 reti bu hatla yeniden uretildi.
+- Tam kaynakli bagimsiz hakem (5 Haiku, 50 kart = 10 yeniden uretilen + yeni 40, seed 23): dogru 46/50 = %92, dogru+yararli 43/50 = %86. KAPI (%98) TUTMADI.
+- Yeniden uretilen 10: 7 gecti; arka_oto, memvid-cli, grill-me dogru ama yararsiz (kaynak tek satir; dogru icerik yok) -> bu kartlar kaynak olmayinca yararli olamaz, kapidan cikarilip 'kaynak-yetersiz' sayilmali.
+- Yeni 40: 36/40 = %90. Ret: rea-agents (kaynak yalniz baslik, sayilar uydurma), _gstack-command (kaynakta olmayan kural), agentation-self-driving (ss/sunucu/kombin/jeton uydurma), n8n-mcp-tools-expert (kosul dusurme).
+- Sonraki: 4 reti yeniden uret; kaynak-yetersiz kartlari (<400 kr) isaretle; yeni 40 + 4 ile hakem. Maliyet: hakem ~386k + uretim ~139k Haiku jeton. Push yok.
+
+# TUR 24 (31 Eki)
+- Tam kaynakli bagimsiz hakem (4 Haiku, 44 kart = 4 yeniden uretilen + yeni 40, seed 24, kaynak<400 kr 7 kart disarida: arka_oto, grill-me, rea-agents, openfilm, ffmpeg, memvid-cli, logo-design): dogru 42/44 = %95,5; dogru+yararli 41/44 = %93. KAPI (%98) TUTMADI.
+- Ret: ub-mode (tuzak'ta kaynakta olmayan lisans/kural iddiasi), n8n-workflow-patterns (SplitInBatches $('Node').all() kosulu degismis: kaynak dongu SONRASI diyor). Yararsiz: rea-agents (kaynak yalniz baslik). Onceki 4 ret: 3'u gecti.
+- Sonraki: 2 reti yeniden uret, kaynak-yetersiz 7 karti kapidan cikar (isaretle), yeni 40 (seed 25) ile hakem. Push yok. Dosyalar: tmp/hakem24/s0-3.json.
