@@ -51,3 +51,9 @@ Yapılan:
 - Güncel dağılım: KURULU-KANIT 445 · KURULACAK 508 · AYNI-AİLE 1 · BULUNAMADI 1.
 
 Yapılmayan: skill (64), paket, repo, MCP, plugin kurulumu ve usta kartı (bu tur bütçesi); sonraki tur skill → paket → repo → MCP sırasıyla devam. Çoğu skill satırında ad/URL boş, tek tek aday araştırması gerekiyor.
+
+## TUR 5 (31 Eki, skill, kısmi)
+- Lisans kapısı (gh api): MIT/Apache → elayadesign/ai-design-skills, better-icons, stop-slop, emilkowalski/skills, addyosmani/agent-skills, drawio-skill, book-to-skill, mattpocock/skills, offer-master, instagram-agent-skill (klon C:/AI/indirilen/skills-tur5, gitleaks 0). Lisanssız → kurulmadı: vercel-labs/agent-skills, ComposioHQ/awesome-claude-skills. 404: apk-reverse, rossark-motion-skill.
+- Kopyalandı (~/.claude/skills, üzerine yazma yok): addyosmani 20 yeni skill, drawio-skill, book-to-skill, better-icons; emilkowalski/stop-slop/landing-page-design zaten vardı.
+- tsv: 7 satır KURULU-KANIT (508 → 501 KURULACAK). Yedek `.yedek-tur5`.
+- Yapılmadı: offer-master, instagram-agent-skill, mattpocock, gamedev (74), ffmpeg-skill, video-shotcraft (200 MB), day-trader (finans), tsv'ye işlenmedi; ad/URL'si boş ~45 skill satırı; plugin/MCP/paket/repo. SkillSpector/semgrep koşulmadı. Hakem puanı yok.

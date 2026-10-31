@@ -271,7 +271,7 @@ KURULACAK	21st MCP	MCP			1	DfDPssIKX9F	10.000+ React/Tailwind UI bileşeni arama
 KURULACAK	TradingView MCP	MCP			1	DfEvh09DBat	Claude'un TradingView'ı yönetip grafik çizme, Pine Script, backtest, replay, tarama yapmasını sağlar
 KURULU-KANIT	TradingView	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfEvh09DBat	Grafik ve Pine Script platformu
 KURULACAK	LLM Council (Karpathy)	repo			1	s7Iaq5lGkY0	Soruyu birden çok modele sorar, çapraz değerlendirir, başkan model karar verir; videoda tek Claude'a 5 danışman rolü verme versiyonu anlatılıyor
-KURULACAK	elayadesign/ai-design-skills (designer skill)	skill	github.com/elayadesign/ai-design-skills		1	De-blYnCBbn	"Landing page için 14 soru soran, sabit sayfa sırası ve copy kuralları olan, ""elevate/seamless"" gibi AI klişelerini yasaklayan açık kaynak tasarımcı skill'i"
+KURULU-KANIT	elayadesign/ai-design-skills (designer skill)	skill	github.com/elayadesign/ai-design-skills	 | tur5: ai-design-skills MIT; landing-page-design skill zaten ~/.claude/skills	1	De-blYnCBbn	"Landing page için 14 soru soran, sabit sayfa sırası ve copy kuralları olan, ""elevate/seamless"" gibi AI klişelerini yasaklayan açık kaynak tasarımcı skill'i"
 KURULU-KANIT	Design Engineer Tools	SİTE	https://designengineer.tools	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Web odaklı design engineer'lar için araç/site/kaynak kütüphanesi (ilham, AI kod, bileşen, yardımcı, video, organizasyon)
 KURULU-KANIT	60fps	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	İlham kategorisinde listelenen site (?)
 KURULU-KANIT	Awwwards	SİTE	awwwards.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DeTqN3uEidC	Ödüllü web sitesi vitrini
@@ -387,8 +387,8 @@ KURULACAK	Claude Code SEO / faceless video skill	skill			1	De_HC6vAxy-	Hermes i�
 KURULACAK	Awesome Opus 5.5 Videos	repo			1	Dee1BaaH71-	418 viral Opus 5.5 video ve prompt koleksiyonu
 KURULACAK	addyosmani/agent-skills	repo			1	Dej0ddaASU6	Addy Osmani'nin 24 mühendislik iş akışı skill'i (planlama, test, debug, güvenlik, performans, review, shipping)
 KURULACAK	pbakaus/impeccable	skill	npx impeccable install		1	Dem91ptkrhe	24 komutlu tasarım dili skill'i (polish, audit, animate)
-KURULACAK	better-auth/better-icons	skill	npx skills add better-auth/better-icons		1	Dem91ptkrhe	Gerçek ikon kütüphanelerinden SVG çeken skill+MCP
-KURULACAK	hardikpandya/stop-slop	skill			1	Dem91ptkrhe	AI klişesini silen skill
+KURULU-KANIT	better-auth/better-icons	skill	npx skills add better-auth/better-icons	 | tur5: better-auth/better-icons MIT; klon C:/AI/indirilen/skills-tur5; gitleaks 0	1	Dem91ptkrhe	Gerçek ikon kütüphanelerinden SVG çeken skill+MCP
+KURULU-KANIT	hardikpandya/stop-slop	skill		 | tur5: stop-slop ~/.claude/skills zaten; hardikpandya MIT	1	Dem91ptkrhe	AI klişesini silen skill
 KURULU-KANIT	The Design Stack prompts	SİTE	thedesignstack.com/prompts	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Derh5Bzgan2	Premium etkileşim animasyonları için hazır prompt koleksiyonu (marquee, kart istifi, imleç itme, kumaş vb.)
 KURULACAK	Cinematic Product Studio	araç			1	DeyDEFlCBsL	Blender eklentisi, ışık ve animasyon
 KURULACAK	Flux Forms	araç			1	DeyDEFlCBsL	Blender eklentisi, sıvı şekiller
@@ -459,7 +459,7 @@ KURULACAK	ReelMimic	repo	github.com/edenfunf/reelmimic		1	DeyOj96CRXH	Referans v
 KURULACAK	mlx-whisper	kütüphane	pip3 install mlx-whisper		1	Dez9ehLmdNZ	Kelime zamanlı transkript (Mac)
 KURULACAK	Homebrew	araç			1	Dez9ehLmdNZ	Mac paket yöneticisi
 KURULACAK	VideoSOS 2	uygulama			1	DezMk9EjKjT	Masaüstü video stüdyosu, 1000+ model (OpenRouter/fal/Runware), MCP sunucusu, MIT, Windows
-KURULACAK	emilkowalski/skills	skill	npx skills@latest add emilkowalski/skills		1	DeziqhPRtkz	Animasyon ve cila kuralları
+KURULU-KANIT	emilkowalski/skills	skill	npx skills@latest add emilkowalski/skills	 | tur5: 16 skill ~/.claude/skills (animate, emil-design-eng...); MIT	1	DeziqhPRtkz	Animasyon ve cila kuralları
 KURULACAK	shadcn skill	skill	npx skills add shadcn/ui		1	DeziqhPRtkz	Gerçek shadcn/ui bileşenleriyle üretim
 KURULACAK	Toolcraft	repo	toolcraft.sh		1	DfARM2vgdBV	Claude Code ile özel tasarım araçları üreten başlangıç kiti ve UI kütüphanesi
 KURULACAK	WhisperX	repo	github.com/m-bain/whisperX		1	DfAq1txAF-p	Kelime düzeyi hizalama ve konuşmacı ayrıştırma, 70x gerçek zaman
@@ -536,7 +536,7 @@ KURULACAK	chief-of-staff	skill			1	De6oEmiMblJ	Tek hedefle arka planda ajan ekib
 KURULU-KANIT	mesh3d.gallery	SİTE	mesh3d.gallery	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De84m_VEk6F	Etkileşimli Three.js deneyimleri vitrini (574 deneyim)
 KURULU-KANIT	Designeer	SİTE	designeer.xyz	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De84m_VEk6F	Arayüz işçiliği, bileşen kütüphaneleri, AI araçları kataloğu
 KURULU-KANIT	Snakepool	SİTE	snakepool.org	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De84m_VEk6F	Web sitesi ilham kütüphanesi (günlük güncel)
-KURULACAK	Agent Skills (addyosmani)	skill	addyosmani/agent-skills		1	De92kC5ob3a	Üretim kalitesinde mühendislik alışkanlıkları
+KURULU-KANIT	Agent Skills (addyosmani)	skill	addyosmani/agent-skills	 | tur5: addyosmani 25 skill: 20 yeni ~/.claude/skills; MIT; gitleaks 0	1	De92kC5ob3a	Üretim kalitesinde mühendislik alışkanlıkları
 KURULACAK	3DCodeVerse (ilabai/3dcodeverse)	model	huggingface.co/datasets/ilabai/3dcodeverse		1	De9HFdBTE68	2 milyon Blender/tarayıcı 3D/CAD/shader kod örneği (prompt+kod+render) içeren ~1TB veri seti
 KURULU-KANIT	ReactVibe	SİTE	reactvibe.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De9m92FhliN	Kopyala-yapıştır hazır React bölümleri, hareketli bileşenler, arka planlar
 KURULU-KANIT	Designely Studio	SİTE	designely.studio	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeKEMIPtQiq	Görsel etkileşim, 3D ve efekt ekleyip kodu dışa aktaran tasarım canvas aracı
@@ -723,7 +723,7 @@ KURULU-KANIT	danilodemarco.com	SİTE	https://danilodemarco.com	 | tur4: katalog 
 KURULU-KANIT	niccolomiranda.com	SİTE	https://niccolomiranda.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: dijital art director/developer
 KURULU-KANIT	thibaut.cool	SİTE	https://www.thibaut.cool	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: 3D ve motion
 KURULU-KANIT	2xa.studio	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dd08uX3ocwk	Portfolyo referansı: web stüdyosu (?)
-KURULACAK	Draw.io Skill (agents365-ai/drawio-skill)	skill	agents365-ai.github.io/drawio-skill		1	De14ifUEh-N	Claude ile draw.io diyagramı üreten skill
+KURULU-KANIT	Draw.io Skill (agents365-ai/drawio-skill)	skill	agents365-ai.github.io/drawio-skill	 | tur5: drawio-skill ~/.claude/skills; MIT	1	De14ifUEh-N	Claude ile draw.io diyagramı üreten skill
 KURULACAK	Draw.io	uygulama	Draw.io		1	De14ifUEh-N	Diyagram aracı
 KURULACAK	agent_reach/channels	repo			1	De14ifUEh-N	Agent Reach kanal modülü ekranda görünüyor (?)
 KURULACAK	Replit Design	araç			1	De2BSJgx9RA	Düz İngilizce tarif ve marka varlıklarıyla landing page/ürün sayfası üreten tasarım ajanı
@@ -748,7 +748,7 @@ KURULACAK	artillerytrades/ai-wrong	repo			1	De8BW-1Rsqr	Ekranda geçiyor (?)
 KURULACAK	Hermes + Obsidian	yöntem			1	De8e0bWBKGV	Obsidian kasasını Hermes'e bağlayarak notları ajan hafızası yapma; kasa araması, sesli asistan, notlardan içerik
 KURULACAK	Agent OS	araç			1	De8e0bWBKGV	Hermes'i bağlayan ajan işletim sistemi paneli
 KURULU-KANIT	aiprofitboardroom.com	SİTE	AIprofitboardroom.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8e0bWBKGV	Julian Goldie topluluk sitesi (?)
-KURULACAK	Book to Skill (virgiliojr94/book-to-skill)	skill	virgiliojr94/book-to-skill		1	De95NHOuo-x	PDF kitap/makaleyi bölüm bölüm Claude skill'ine çevirir
+KURULU-KANIT	Book to Skill (virgiliojr94/book-to-skill)	skill	virgiliojr94/book-to-skill	 | tur5: book-to-skill ~/.claude/skills; MIT	1	De95NHOuo-x	PDF kitap/makaleyi bölüm bölüm Claude skill'ine çevirir
 KURULACAK	Teach skill (mattpocock)	skill			1	De95NHOuo-x	Neden öğrendiğini sorar, kaynaklardan kısa ders üretir, quiz geçmeden ilerletmez
 KURULACAK	Render CV	araç	rendercv.com (?)		1	De95NHOuo-x	Türkçe/İngilizce düzgün PDF CV üretir
 KURULACAK	Anthropic 11 Claude plugin	plugin			1	DeL-w7yxAS9	Satış, pazarlama, finans, hukuk, ürün vb. her iş rolü için; HubSpot, Notion, Slack bağlar
