@@ -13,10 +13,10 @@ def kos(istem, ayar, ek):
         json.dump(ayar, f)
     t = time.time()
     try:
-      r = subprocess.run(["claude", "--model", m.model(), *ab.BAYRAK, "--settings", f.name, *ek], input=istem, capture_output=True,
-                       text=True, encoding="utf-8", cwd=ab.KOK, timeout=1200, creationflags=0x08000000, env=m.env_kur(dict(os.environ)))
+      r = subprocess.run(["claude", "--model", m.model(), *ab.BAYRAK, "--setting-sources", "project", "--settings", f.name, *ek], input=istem, capture_output=True,
+                       text=True, encoding="utf-8", cwd=ab.KOK, timeout=int(os.environ.get("G5_TIMEOUT", 300)), creationflags=0x08000000, env=m.env_kur(dict(os.environ)))
     except subprocess.TimeoutExpired:
-        return {"hata": "zaman-asimi-1200sn"}
+        return {"hata": "zaman-asimi-300sn"}
     try:
         d = json.loads(r.stdout)
     except json.JSONDecodeError:
