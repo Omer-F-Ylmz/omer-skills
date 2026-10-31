@@ -24,3 +24,19 @@ Sonraki: GPU'yu bos birakip ayni 10 linki tekrar kos; asili ASR'ye zaman asimi (
 TUR 4 (28 Eki 18:50): KAPI GECMEDI (10 link, GPU bos, hata 0, takilma 0). ASR link basina 180 sn zaman asimli alt surec (.kos/kopru/ogren/h3_kos.py); 0_3A0uAkBZ0 batch=4'te 180 sn'de asildi, batch=1 ile 60 sn'de bitti. Saat/link 20-68 sn (ort ~40), VRAM 2,0 -> ~2,5 GB (olcum anlik).
 - Benzerlik >=0,96: 5/10 (-o8h 0,960, 18c3 0,966, 5G7 0,977, 5LL 0,966, a4r 0,972). Altinda: JfmA 0,959, 2x-a 0,943, 9Iti 0,888, 0i65 0,831, 0_3A 0,591 (sirali yol, 765/875 kelime). Link/komut ortusmesi 10/10 %100 (ayri olculdu, h3_karsi.py).
 - Varsayilan yapilmadi; ortusme tamam ama 5 link benzerlikte esik altinda. Sonraki: dusenlerin kaynagini (altyazi mi ASR mi) json'a yaz, 0_3A/0i65/9Iti eski ciktisinin kendi referans kalitesini kontrol et.
+
+## TUR 5 (kismi)
+- Kod: video_derin.py asr() artik (dil, seg, kaynak) doner; json "asr":{kaynak: altyazi|groq|asr-batched|asr-sirali, kelime_sn}; VD_ASR_BATCH varsayilan 2; h3_kos.py 2->1.
+- Kosu BLOKE: tur4 ile ayni linkler (0_3A0uAkBZ0, 0i65C2vzjpw) 180 sn zaman asimi (batch2 ve batch1); indirme 5 sn, nvidia-smi 2,3/12 GB, vram-dolu yok. Tek link venv-ocr python ile 100 sn cikti/dizin uretmedi; takilma noktasi (altyazi/whisper yukleme/OCR) bulunamadi.
+- Yapilmadi: (2) kaynak karsilastirma/secim kurali, (3) referans yeniden uretimi, (5) 10 link kosusu; varsayilan yapilmadi, commit yok.
+
+## TUR 5b (30 Eki)
+- Takilma tek linkte tekrarlanmadi: 0_3A tek kosu 31-48 sn. Toplu kosuda -o8h ve 5LL 2x180 sn zaman asimi, digerleri 35-152 sn (RAM %62-69, VRAM bos); kok neden kanitlanmadi. Kayitli tek sey: YouTube altyazi 429 (yt-dlp, -o8h) ve ayni linkte aralikli indirme 403; altyazi.getir en kotu 2x60 sn bekler.
+- 8/10 bitti, hata 0 degil (2 zaman asimi). Benzerlik >=0,96: 5/8 (18c3 0,988 · 5G7 0,995 · a4r 0,980 · JfmA 0,969 · 2x-a 0,974); 0_3A/0i65/9Iti ~0,01.
+- 0,01 nedeni: eski referans baska ses dilinde (0_3A: referans Almanca, yeni Ingilizce; 0i65: referans Arapca, yeni Ingilizce) = cok dilli ses izi, yt-dlp hangisini secti degisiyor. Kalite sorunu degil, ses izi secimi. Cozum adayi: orijinal ses izini sabitle (denenmedi).
+- Kaynak alani calisiyor (groq 4 / asr-batched 4). Referans yeniden uretimi, 10 link tam kosu ve varsayilan yapma YAPILMADI; commit yok. Kapi GECMEDI.
+
+## TUR 5c (31 Eki)
+- Kok neden olculdu: eski referans 0_3A/0i65/9Iti baska ses izinden (Almanca/Arapca dublaj). `ba[format_note*=original]` sabitlemesiyle uc link de orijinal Ingilizce geldi (h3_t8ref); eski referansla benzerlik 0,01 = referans hatasi, kalite degil. Yeni referans (h3_ref3) vs t8ref: 0_3A 0,972 · 0i65 1,000; 9Iti yeni ref dosyasi uretilmedi.
+- Kaynak alani + h3_kos.py H3_BATCH env eklendi. Seçim kurali (2) kodlanmadi: altyazi zaten sagliklysa ASR'den once seciliyor; iki yolu birden kosmak hizi bozar.
+- YAPILMADI: sirali large-v3 referans (h3_ref4 baslamadi, alt surec oturumla olmus), 10 link tam kosu, varsayilan yapma. Bütçe doldu. Kapi GECMEDI, push/varsayilan yok.
