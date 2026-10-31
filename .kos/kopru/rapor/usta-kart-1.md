@@ -121,3 +121,10 @@
 - Ret (5): dogru=false: context-save ('yalniz' kaynakla celisir), glass-dark-ui ('yalniz token' kisiti kaynakta yok), ffmpeg (kaynak yalniz baslik; komut/surum iddiasi kaynaksiz). Yararsiz: context7-mcp, rea-agents (kaynak yalniz baslik).
 - Kok neden: 3/5 ret kesik/baslik-ustu kaynaktan; 'yalniz' gibi mutlaklastirma kaynakta olmayan kisit ekliyor. Oneri: kaynagi <400 karakter olan kartlari da kaynak-yetersiz isaretle, kalan alintilarda mutlaklastirma sozcuklerini (yalniz/hep/asla) alinti disinda reddet; sonra yeni seedle olc.
 - Dosyalar: tmp/hakem28/. Push yok.
+
+# TUR 29 (31 Eki)
+- Desktop 09:55 karari: kaynak<400 karakter 7 kart daha kaynak_yetersiz isaretlendi (toplam 111); context-save + glass-dark-ui alinti yoluyla Haiku high ile yeniden uretildi (ffmpeg yetersiz isaretli).
+- Yeni seed 29, 40 paket-disi kart, tam kaynak, 4 bagimsiz Haiku hakem: dogru+yararli 35/40 = %87,5. KAPI (%98) TUTMADI -> 710 eski kart toplu yeniden uretilmedi.
+- Ret (5): blue-cloudy-clean-modern (tek katman vs layered), plan-tune (token_ipucu kaynakta yok), framed-tech-dark-border-gradient (token_ipucu uydurma), yes-scripts (timeout sure), build-hybrid-game-assets (jeton azaltir iddiasi). 4/5 token_ipucu/serbest metin: ornek eski serbest-metin uretimli kartlardan.
+- Kok neden: orneklem eski (alintisiz) kartlardan; alinti yolundaki kartlar tur 26-28de %95. Oneri: kapi olcumunu yalniz alinti yolu kartlarda yap, eski kartlari parti parti alinti yoluyla yeniden uret (Desktop karari).
+- Dosyalar: tmp/hakem29/. Push yok.
