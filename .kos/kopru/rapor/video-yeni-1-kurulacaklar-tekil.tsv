@@ -3,7 +3,7 @@ KURULACAK	System Design Primer	repo	github.com/donnemartin/system-design-primer 
 KURULU-KANIT	Kokonut UI	SİTE	kokonutui.com	yalniz-katalog | tur2: klon var C:/AI/indirilen/kokonut-labs__kokonutui, projeye eklenmedi | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	De_J0aOl9SJ	Tailwind, Motion ve shadcn ile açık kaynak parlak kart/widget bileşenleri; shadcn MCP desteği
 KURULACAK	shadcn/ui	kütüphane	npx shadcn add	benzer:C:/AI/indirilen/shadcn-ui__ui | tur2: klon var indirilen/shadcn-ui__ui (remote shadcn-ui/ui), kütüphane projeye eklenir	1	De_J0aOl9SJ	Skiper/Kokonut gibi kütüphanelerin kurulum altyapısı olan bileşen sistemi
 KURULACAK	GitDiagram	araç		benzer:~/.claude/skills/diagram | tur2: skills/diagram gstack diyagram skill'i, GitDiagram değil	1	DfCHfMxR8yq	Repoyu görsel diyagrama çevirir, dosya bağlantılarını gösterir
-KURULACAK	Anime.js	kütüphane	animejs.com (?)	yalniz-katalog | tur2: yerelde yok	1	DdQkBgtxYe2	Web'de her şeyi animasyonlayan kütüphane; scroll gözlemci, stagger, SVG araçları
+KURULU-KANIT	Anime.js	kütüphane	animejs.com (?)	yalniz-katalog | tur2: yerelde yok | tur7: scratch tmp/paket-tur7 kurulum + import OK (animejs 4.5.0 MIT)	1	DdQkBgtxYe2	Web'de her şeyi animasyonlayan kütüphane; scroll gözlemci, stagger, SVG araçları
 KURULU-KANIT	Firecrawl	MCP		benzer:envanter.tsv:CC:cli | tur2: firecrawl CLI kurulu (npm firecrawl.cmd) + skills/firecrawl-scraper; MCP mcpServers'ta yok | tur3: firecrawl CLI 1.26.22 + npm firecrawl-mcp 3.36.0 (MIT) araclar/kutuphane-deneme; MCP global eklenmedi; FIRECRAWL_API_KEY yok = hesap-en-sona	1	De-NlsAtzUn	Claude'a site kazıma, marka varlığı çekme, rakip araştırma yeteneği verir
 KURULACAK	research-agent	skill	.claude/skills/research-agent/SKILL.md	benzer:~/.claude/skills/research | tur2: skills/research = trading faz-1 skill'i, başka araç	1	De1p5PkkRxk	Konudan kaynak toplayıp özet çıkarır
 KURULU-KANIT	Scientific Skills	skill		benzer:~/.claude/skills/claude-scientific-skills | tur2: skills/claude-scientific-skills SKILL.md source=K-Dense-AI/claude-scientific-skills (598B kısa skill)	1	De3S2C3P7yb	Claude'u bilim insanına çeviren skill (repo OCR'da yok)
@@ -157,12 +157,12 @@ KURULU-KANIT	Minimal Gallery	SİTE	minimal.gallery	 | tur4: katalog satiri docs/
 KURULU-KANIT	GetLayers	SİTE	getlayers.ai/templates	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_8WxEmaa5	Sürükleyici site şablonları
 KURULACAK	Claude Skills 6 set (Automation Master, Data Analysis, Research Agent, Content Writer, Social Media, Design)	skill	mkdir -p ~/.claude/skills/...		1	Deb8CA6oDno	Tekrarlayan görev otomasyonu için altı skill (De1p5PkkRxk ile benzer set)
 KURULACAK	Rive	kütüphane			1	DehjgOtDn77	Uygulama içi tepki veren animasyon
-KURULACAK	Satori	kütüphane			1	DehjgOtDn77	Kodu başlık kartlarına çevirir
+RET	Satori	kütüphane		 | tur7: satori MPL-2.0 (MIT/Apache degil; sart: degistirilen MPL dosyalari acik kalir)	1	DehjgOtDn77	Kodu başlık kartlarına çevirir
 KURULACAK	REA	repo	github.com/moruto/rea (?)		1	DejuQStmPny	Tersine mühendislik (?)
 KURULACAK	Onyx (?)	repo	github.com/senlindesign/ (?)		1	DejuQStmPny	Bilgi kaynaklarına bağlı self-hosted AI sohbet (?)
 KURULU-KANIT	Magic UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DevhIPGmRzm	Animasyonlu hazır bileşenler
 KURULU-KANIT	Aceternity UI	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DevhIPGmRzm	Dikkat çekici animasyonlu arayüz bileşenleri
-KURULACAK	Radix UI	kütüphane			1	DevhIPGmRzm	Erişilebilir UI primitifleri
+KURULU-KANIT	Radix UI	kütüphane		 | tur7: scratch tmp/paket-tur7 kurulum + import OK (radix-ui 1.8.1 MIT)	1	DevhIPGmRzm	Erişilebilir UI primitifleri
 KURULACAK	AI trading ekibi (7 ajan)	yöntem			1	Dewvyk2E2Je	Araştırma, strateji, kod, backtest, doğrulama, risk, icra ajanlarıyla algo trading hattı (somut repo yok)
 KURULU-KANIT	MotionSites.ai	SİTE	MotionSites.ai	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dez5CGMkq5K	600+ premium animasyonlu site promptu; Cursor/AI builder'a yapıştırılır
 KURULU-KANIT	Bencho (?)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezEkQ2NNSu	Etkileşimli UI bileşenleri ve ses/animasyon kütüphanesi (?)
@@ -200,7 +200,7 @@ KURULU-KANIT	Freefaces gallery	SİTE	https://www.freefaces.gallery/	 | tur4: kat
 KURULACAK	The Modern Visionary interaktif web siteleri	yöntem			1	DfEIoQjtkMB	İşletmeler için interaktif (dövme/The Ink Experience tarzı) siteler; adım adım rehber + şablon yorumla veriliyor
 KURULACAK	ShaderGradient	repo	github.com/ruucm/shadergradient		1	DYNW3X7J2TH	React'te hareketli gradyanlar (şekil, renk, hareket özelleştirilebilir)
 KURULACAK	liquid-logo	repo	github.com/paper-design/liquid-logo		1	DYNW3X7J2TH	Her şeye metal/krom sıvı görünüm verir
-KURULACAK	three	kütüphane	npm install three @types/three @react-three/fiber		1	DYNW3X7J2TH	3D kütüphane kurulum komutu
+KURULU-KANIT	three	kütüphane	npm install three @types/three @react-three/fiber	 | tur7: scratch tmp/paket-tur7 kurulum + import OK (three 0.187.0 MIT)	1	DYNW3X7J2TH	3D kütüphane kurulum komutu
 KURULACAK	Cursor	uygulama			2	DYNW3X7J2TH	Vibe coding için anılan kod editörü
 KURULACAK	ASO 20 madde kontrol listesi	yöntem			1	Dc6jk1-DhMN	App Store arama sıralaması için 20 alanlık kontrol listesi (anahtar kelime, alt başlık, dil, görseller, yorum vb.)
 KURULACAK	SeeCut	repo	github.com/yeje-cpu/seecut		1	Dd56RIYHZ5_	Kendi kurgusunu izleyip düzelten AI video kurgu skill'i (coding agent için), konuşmacı klibini hareketli grafikli kısa videoya çevirir
@@ -267,7 +267,7 @@ KURULACAK	MiniMax H3 (?)	model			1	DfCrknOAoua	Openjutsu'da video üretimi için
 KURULACAK	SAM 3.1	model			1	DfCrknOAoua	İnsanları takip etmek için
 KURULACAK	Qwen3-VL 8B	model			1	DfCrknOAoua	Görüntü ve plan betimlemesi için
 KURULACAK	isitsecure	MCP			1	DfDPssIKX9F	Uygulamayı A-F güvenlik notuyla tarar, düzeltmeleri sade dille verir (Claude Code'da MCP)
-KURULACAK	21st MCP	MCP			1	DfDPssIKX9F	10.000+ React/Tailwind UI bileşeni arama
+KURULU-KANIT	21st MCP	MCP		 | tur7: claude mcp list: 21st connected	1	DfDPssIKX9F	10.000+ React/Tailwind UI bileşeni arama
 KURULACAK	TradingView MCP	MCP			1	DfEvh09DBat	Claude'un TradingView'ı yönetip grafik çizme, Pine Script, backtest, replay, tarama yapmasını sağlar
 KURULU-KANIT	TradingView	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfEvh09DBat	Grafik ve Pine Script platformu
 KURULACAK	LLM Council (Karpathy)	repo			1	s7Iaq5lGkY0	Soruyu birden çok modele sorar, çapraz değerlendirir, başkan model karar verir; videoda tek Claude'a 5 danışman rolü verme versiyonu anlatılıyor
@@ -298,7 +298,7 @@ KURULACAK	Zed	araç			1	DeTqN3uEidC	Kod editörü
 KURULU-KANIT	Component Gallery	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	UI bileşen galerisi
 KURULU-KANIT	Fancy Components	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DeTqN3uEidC	Bileşen kütüphanesi
 KURULACAK	Motion Primitives	kütüphane			1	DeTqN3uEidC	Animasyon bileşen kütüphanesi
-KURULACAK	NumberFlow	kütüphane			1	DeTqN3uEidC	Animasyonlu sayı bileşeni
+KURULU-KANIT	NumberFlow	kütüphane		 | tur7: scratch tmp/paket-tur7 kurulum + import OK (@number-flow/react 0.6.2 MIT)	1	DeTqN3uEidC	Animasyonlu sayı bileşeni
 KURULACAK	Cursify	kütüphane			1	DeTqN3uEidC	İmleç efekt/bileşen kütüphanesi (?)
 KURULACAK	Color.review	araç	color.review		1	DeTqN3uEidC	Renk kontrast/erişilebilirlik inceleme aracı
 KURULACAK	OKLCH Color Picker	araç			1	DeTqN3uEidC	OKLCH renk seçici
@@ -340,7 +340,7 @@ KURULU-KANIT	NicelyDone	SİTE	nicelydone.club	 | tur4: katalog satiri docs/kayna
 KURULACAK	st-tech/ppf-contact-solver	repo	https://github.com/st-tech/ppf-contact-solver		1	DYuY_-7Oqk4	ZOZO'nun açık kaynak kumaş/halat/yumuşak cisim fizik motoru, Blender eklentisi ve JupyterLab arayüzü var
 KURULACAK	oooscoos/benzi	repo	github.com/oooscoos/benzi		1	Dd5RAFqyPjh	Tree-sitter ile derleyici düzeyinde sembol/çağrı haritası çıkaran, dosya okumak yerine sorgulayan AI kod ajanı (VS Code eklentisi, 10 dil)
 KURULACAK	Aider	araç			1	Dd5RAFqyPjh	Karşılaştırmada imza haritalayan kod ajanı
-KURULACAK	tree-sitter	kütüphane			1	Dd5RAFqyPjh	Benzi'nin parser katmanı
+KURULU-KANIT	tree-sitter	kütüphane		 | tur7: scratch tmp/paket-tur7 kurulum + import OK (tree-sitter pip MIT)	1	Dd5RAFqyPjh	Benzi'nin parser katmanı
 KURULACAK	Voice Builder / Humanizer / Anti-Slop / Voiceprint	skill			1	De-iVbFiVsO	LinkedIn için Claude skill'leri (ses ve AI-kokusunu silme)
 KURULACAK	Idea Validator / Post Strategist / Trend Fit / Last 30 Days / Niche Research / Content Matrix	skill			1	De-iVbFiVsO	LinkedIn fikir/araştırma skill'leri
 KURULACAK	Post Writer / Hook Generator / Score for LinkedIn / Post Scorer / Remove AI Slop	skill			1	De-iVbFiVsO	LinkedIn yazım ve puanlama skill'leri
@@ -355,7 +355,7 @@ KURULACAK	Business Skills	skill			1	De1rAYuAHln	Büyüme planı ve strateji çer
 KURULACAK	AI Hormozi Skill	skill			1	De1rAYuAHln	Hormozi'nin 2000+ videosundan çıkarılmış playbook
 KURULACAK	Self-improving trading bot mimarisi	yöntem			1	De2EFbZjBHi	Araştırma ajanı, backtest, doğrulama ve sürüm kontrollü kendini geliştirme döngüsü; MetaTrader5/TradingView/Python (repo adı verilmedi)
 KURULACAK	Google AI Studio	araç			1	De2dznqAs9V	Prompttan 3D site üreten ortam
-KURULACAK	Exa	MCP			1	De37CTGo4Km	AI arama motoru, derin araştırma
+KURULU-KANIT	Exa	MCP		 | tur7: claude mcp list: plugin:exa:exa kurulu, auth bekliyor (Omer girisi)	1	De37CTGo4Km	AI arama motoru, derin araştırma
 KURULACAK	Brand24	araç			1	De37CTGo4Km	Marka bahsi ve rakip izleme
 KURULACAK	Ghidra / jadx / apktool / tshark / binwalk / sqlite3 / asar	araç			1	De4B-SgiU5i	leanrea'nın ajana çağırttığı gerçek ters mühendislik araçları
 KURULU-KANIT	Adobe for Claude	plugin		tur6: installed_plugins.json adobe-for-creativity@claude-plugins-official	1	De4TRPhD_vE	Claude içinde 80+ Adobe aracı (PDF birleştir, karart, foto yeniden boyutlandır)
@@ -397,7 +397,7 @@ KURULU-KANIT	Kombai Gallery	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane
 KURULU-KANIT	Same.dev	SİTE	Same.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfAoV4Wz1ez	Canlı site URL'sini yerleşim ve animasyonla klonlar
 KURULACAK	Webflow AI	araç			1	DfAoV4Wz1ez	Bölüm ve responsive yerleşim üretir
 KURULACAK	Claude Opus 5.5	model			1	DfCAdgyR22H	BMW M5 3B scroll sitesi için kullanılan model
-KURULACAK	REA	MCP	npx rea-agents setup		2	DfCtGNgiWeb	Uygulama/web/APK'yı koda kadar izleyen ters mühendislik MCP'si
+KURULU-KANIT	REA	MCP	npx rea-agents setup	 | tur7: claude mcp list: rea (rea-agents@6.8.0) connected	2	DfCtGNgiWeb	Uygulama/web/APK'yı koda kadar izleyen ters mühendislik MCP'si
 KURULU-KANIT	UImaxxing	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfFDa-rJpqo	Hazır ürün UI bileşenleri
 KURULACAK	Halaska UI	kütüphane			1	DfFDa-rJpqo	shadcn/ui üzerine kurulu ekran, desen ve bileşenler
 KURULACAK	beUI	kütüphane			1	DfFDa-rJpqo	React/Next.js animasyonlu bileşenler, playground
@@ -417,7 +417,7 @@ KURULACAK	Atomic Chat	uygulama			1	Dd6P9YOB06z	Yerel AI model uygulaması (ekran
 KURULACAK	Yüzsüz YouTube kanalı iş akışı (Claude senaryo, ChatGPT storyboard)	yöntem			1	Ddjb_KjkneS	Başarılı kanalı tersine mühendislik, Claude ile belgesel senaryo, ChatGPT ile storyboard, AI görsel/ses
 KURULACAK	Harness2	repo			1	De-ozuJiHjm	Ajan koşum takımını (prompt/araç) özyinelemeli görev iyileştirmesiyle kendiliğinden geliştiren çerçeve; uv pip install -e .
 KURULACAK	Blockbench	uygulama			1	De0cO6lCUrG	Minecraft modlama için ücretsiz 3D model/doku/animasyon uygulaması
-KURULACAK	blockbench-mcp-plugin	MCP	github.com/jasonjgardner/blockbench-mcp-plugin		1	De0cO6lCUrG	Claude'un Blockbench içinde model, doku ve animasyon kurmasını sağlar
+RET	blockbench-mcp-plugin	MCP	github.com/jasonjgardner/blockbench-mcp-plugin	 | tur7: RET: blockbench-mcp-plugin GPL-3.0 (MIT/Apache degil, sart: kopyaleft)	1	De0cO6lCUrG	Claude'un Blockbench içinde model, doku ve animasyon kurmasını sağlar
 KURULACAK	Skill referans dosyası içindekiler listesi yöntemi	yöntem			1	De1KvZjCqWm	100 satırı aşan referans dosyalarının başına içindekiler ekleyip SKILL.md'den tek seviye bağlama
 KURULU-KANIT	Spline (Community)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1tiaNNapd	3D tasarım topluluğu; Remix + Export bağlantısıyla 3D sahne siteye gömülür
 KURULACAK	Unreal MCP	MCP			1	De2FuK0ouNW	AI asistanı Unreal Engine'e bağlar, görselden 3D ortam kurar
@@ -432,7 +432,7 @@ KURULACAK	LLM-engineer-handbook	repo	SylphAI-Inc/LLM-engineer-handbook		1	De7ueO
 KURULACAK	Unsloth	kütüphane			1	De7ueOMSVHF	Hızlı ince ayar
 KURULACAK	vLLM	kütüphane			1	De7ueOMSVHF	Yüksek verimli model sunumu
 KURULACAK	TensorRT-LLM	kütüphane			1	De7ueOMSVHF	Nvidia model sunum motoru
-KURULACAK	DSPy	kütüphane			1	De7ueOMSVHF	Prompt otomatik optimizasyonu
+KURULU-KANIT	DSPy	kütüphane		 | tur7: scratch tmp/paket-tur7 kurulum + import OK (dspy 3.4.1 MIT)	1	De7ueOMSVHF	Prompt otomatik optimizasyonu
 KURULACAK	AutoGen	kütüphane			1	De7ueOMSVHF	Ajan orkestrasyon çerçevesi
 KURULACAK	Herald OS (LukeTheDev)	uygulama			1	De8XXXOIIZN	Hermes Agent için konuşulan masaüstü işletim sistemi
 KURULACAK	Hermes Gadget	araç			1	De8XXXOIIZN	ESP32 ekranlı basarak konuş cihazı, tarayıcıdan flash
@@ -471,7 +471,7 @@ KURULACAK	Awesome Claude Code	repo			1	DfCuqy9s9xq	Liste deposu
 KURULACAK	Repomix	araç			1	DfCuqy9s9xq	Repoyu tek dosyaya paketler
 KURULACAK	Beads	araç			1	DfCuqy9s9xq	Ajan görev takibi
 KURULACAK	Vibe-kanban	araç			1	DfCuqy9s9xq	Ajan kanban
-KURULACAK	GitHub MCP	MCP			1	DfCuqy9s9xq	GitHub erişimi
+KURULU-KANIT	GitHub MCP	MCP		 | tur7: claude mcp list: github connected	1	DfCuqy9s9xq	GitHub erişimi
 KURULACAK	CC Switch	araç			1	DfCuqy9s9xq	Sağlayıcı geçişi
 KURULACAK	RTK	araç			1	DfCuqy9s9xq	Komut çıktısını sıkıştırır
 KURULACAK	AI üretimi site düzeltme örnekleri	yöntem			1	DfDdhEih-2s	Yalnız OCR: Lotus, Crest, Emberine, Yohalou gibi örnek site tasarımları; araç adı yok
@@ -523,7 +523,7 @@ KURULU-KANIT	Hyper3D	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-k
 KURULACAK	Rodin Gen 2.5	model			1	Ddn_GQns8hC	Hyper3D'nin 12K doku üreten 3D üretim modeli
 KURULACAK	VS Code	uygulama			1	De1SyIcCDTB	Ücretsiz kod editörü
 KURULACAK	Filee	repo	github.com/KnifeLemon/Filee		1	De2GSWNgtiV	255 formatı çevrimdışı dönüştüren dosya dönüştürücü, CLI: filee convert photo.heic --to jpg, klasör izleme
-KURULACAK	Figma Design Partner (Figma MCP)	MCP			1	De2kpfnCFeH	Claude'un gerçek Figma dosyalarını okuyup düzenlemesi
+KURULU-KANIT	Figma Design Partner (Figma MCP)	MCP		 | tur7: claude mcp list: figma connected	1	De2kpfnCFeH	Claude'un gerçek Figma dosyalarını okuyup düzenlemesi
 KURULACAK	GPT Image	model			1	De2kpfnCFeH	Görsel üretimi
 KURULACAK	Python (veri analizi)	araç			1	De2kpfnCFeH	Veriyi okuyup PDF üretme
 KURULACAK	Wan2GP	repo	github.com/deepbeepmeep/Wan2GP		1	De39wVMAQlT	Kendi bilgisayarında çalışan ücretsiz açık kaynak video üretim uygulaması
@@ -608,7 +608,7 @@ KURULU-KANIT	ascension.pegassi.be	SİTE		 | tur4: katalog satiri docs/kaynak-kut
 KURULU-KANIT	landonorris.com	SİTE	Landonorris.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Split-letter kinetik başlık örneği
 KURULU-KANIT	signal-a.studio	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Split-letter kinetik başlık örneği
 KURULU-KANIT	getlayers.ai	SİTE	getlayers.ai/templates	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De64R5emX-i	Boş sayfadan başlamama; şablon kaynağı
-KURULACAK	Lenis	kütüphane			1	De64R5emX-i	Inertial smooth scroll
+KURULU-KANIT	Lenis	kütüphane		 | tur7: scratch tmp/paket-tur7 kurulum + import OK (lenis 1.3.27 MIT)	1	De64R5emX-i	Inertial smooth scroll
 KURULACAK	day-trader-skill (Jake Schincariol)	skill			1	De6XYNozQDh	11 skill: grafik tarama, haber, giriş/stop/hedef, Time Machine 10.000 tekrar, kongre işlemleri (MIT, kağıt ticaret)
 KURULU-KANIT	Animaster Library	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De78haLIIrT	200+ animasyonlu bileşen, 100+ portfolyo site (?)
 KURULU-KANIT	designprompts.dev	SİTE	prompts.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De78haLIIrT	Monochrome, SaaS, Bauhaus vb. web tasarım stili promptları, ücretsiz tek tık kopya (?)

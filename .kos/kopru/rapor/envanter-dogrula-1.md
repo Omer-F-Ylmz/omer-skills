@@ -63,3 +63,8 @@ Yapılmayan: skill (64), paket, repo, MCP, plugin kurulumu ve usta kartı (bu tu
 - Plugin: 11 satır installed_plugins.json ile kanıtlandı (Adobe, Anthropic skills, knowledge-work-plugins ve 5 alan eklentisi, ECC).
 - tsv: 14 satır KURULU-KANIT; 501 → 487 KURULACAK. Kalan plugin satırlarının çoğu ad/URL'siz (Hermes, GSD, BMad, PPT Master vb.): aday araştırması gerekiyor.
 - Yapılmadı: MCP/paket/repo, semgrep, hakem puanı, usta kartı. Harcama sınırı nedeniyle durdu.
+
+## TUR 7 (31 Eki, kısmi)
+- MCP: `claude mcp list` ile 21st, rea (6.8.0), github, figma bağlı; exa eklenti kurulu (auth Ömer'de) → 5 KURULU-KANIT. blockbench-mcp-plugin GPL-3.0 → RET (şart: kopyaleft). Lisans MIT: Perplexity, ScrapeGraph, PostHog, Glif, davinci-resolve-mcp; kurulmadı (API anahtarı/hesap ya da Resolve uygulaması gerekir) → sabah Ömer listesi.
+- Paket: animejs, three, radix-ui, @number-flow/react, lenis (npm) + tree-sitter, dspy (pip) scratch `tmp/paket-tur7`'e kuruldu, import OK → 7 KURULU-KANIT. satori MPL-2.0 → RET (şart: değiştirilen MPL dosyaları açık).
+- tsv: 487 → 473 KURULACAK (KURULU-KANIT 478, RET 2). Yedek `.yedek-tur7`. semgrep/hakem/usta kartı yapılmadı; gitleaks bu turda koşulmadı (yalnız resmi paket kayıtları).
