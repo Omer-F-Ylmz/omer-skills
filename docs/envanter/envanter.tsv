@@ -7005,3 +7005,10 @@ vendeo	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; C:/Users/pc/.claude/skills/ootto-*			
 linear (hairline)	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/Users/pc/.claude/skills/hairline-create; dist/video-izle-kur-1/hairline-create.zip (yeniden uretildi)			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur17a.tsv
 /linkedin-roast	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur15.tsv
 reverse engineering skill router pack (zhaoxuya520/reverse-skill)	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; ~/.claude/skills/reverse-skill-router/SKILL.md; dist/video-izle-kur-1/reverse-skill-router.zip			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur17-reverse-skill.tsv
+ares osint	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/Projeler/araclar/video-izle-kur-1/ares			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur19-main.tsv
+dray	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; C:/Projeler/araclar/video-izle-kur-1/dray-plugin/src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur19-bul.tsv
+gbrain	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/AI/indirilen/video-izle-kur-1/gbrain			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur21.tsv
+heist	arac	CC	1	VIDEO-IZLE-KUR-1 en-yakin-kuruldu; C:/Projeler/araclar/video-izle-kur-1/claude-code-agents/src			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur19-bul.tsv
+binlog mcp	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; dotnet dnx Microsoft.AITools.BinlogMcp --yes --prerelease			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur21.tsv
+bekhruz ai ofis (ai-creative-team)	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/AI/indirilen/video-izle-kur-1/ai-creative-team			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur21.tsv
+tokeneconomizer	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/AI/indirilen/video-izle-kur-1/TokenEconomizer			kurulum:2026-10-30	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur22.tsv
