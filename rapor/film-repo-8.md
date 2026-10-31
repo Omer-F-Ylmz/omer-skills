@@ -16,3 +16,7 @@ claude.ai: dist/film8-<skill>.zip ×6, hepsi zip_denetle TEMİZ (≤146 dosya). 
 ## Sapmalar
 areas 1000 sınırı için aile paketi yapılmadı (6 ayrı zip). mg-styles-15 1.1 GB. İkinci beyin kaydı yapılmadı. #5/#6 kesinleşmedi; sebintel post başlığı/yorumlarından doğrulanmalı.
 Kalıplar: tools/film-kaliplari.md
+## Kalan işler (31 Eki)
+(a) #6 hâlâ BULUNAMADI: gh search repos/code 5 sorgu (18 prompt/54 örnek varyantları) 0 ilgili sonuç; 14 klonda rg 0 eşleşme (en yakın: huashu-motion "54 prompt-gallery filmi" + 142 film — "18 prompt" yok). sebintel post yorumları erişilemedi (IG girişi gerekir) → sabah Ömer listesi.
+(b) #5 kararı: ikisi farklı iş. vocaloid-style-mv-pipeline (234★ MIT): ücretsiz, Canvas2D+Playwright+ffmpeg, söz/lyric MV, API yok. motion-graphics-music-video-skill (191★ MIT): Fal AI ~$30 + ~3M token, görsel/karakter üretimi, 7 örnek. İlk gönderi metni elde yok → "lyric MV" ise vocaloid, "karakterli/ücretli" ise motion-graphics; ikisi de kurulu, karar gerekmedi.
+(c) 6 kurulu skill: gitleaks 0 sızıntı (6/6); semgrep p/security-audit 5 bulgu: cinetic kit.py SHA1 ×2 (WARNING, kriptografik değil varsayımı kodda doğrulanmadı), vocaloid fetch_fonts.py urllib ×2 (WARNING), render_final.mjs child_process ×1 (ERROR; yerel ffmpeg çağrısı, okunmadı). Diğer 4 skill temiz. Çıktı tmp/film8-semgrep.json. Lisans: MIT. Test/CI yok (skill dosyaları).
