@@ -103,3 +103,9 @@
 - Kok neden (tur 22-25 ortak): her taze orneklemde %10-12 ret; yama her turda yeni ret cikariyor, yakinsamiyor. kanit_* alintisi kaynakta gecince kabul ediliyor ama iddia alintiyi asiyor (tuzak/kombin/token_ipucu serbest metin).
 - Ikinci yol (Omer karari gerek, kod degisikligi buyuk): (a) tuzak/token_ipucu/kombin alanlarini serbest metin yerine kaynaktan birebir alinti olarak sakla (uretim degil cikarim), ya da (b) uretimi Sonnet medium'a tasi (maliyet ~3-4x). Oneri (a): %98 yalniz alinti-tabanli kartla ulasilabilir.
 - Push yok.
+
+# TUR 26 (31 Eki) - alinti yolu
+- Karar (Desktop 08:45): isle() artik kullanim/tuzak/token_ipucu'yu uretilen metin degil kaynakta dogrulanmis birebir alinti olarak yazar; kaynakta yoksa 'Kaynakta belirtilmemis'. -paket kartlarinda kombin bos.
+- 40 kart (5 onceki ret + 35 rastgele, seed 26) yeniden uretildi; tam kaynakli 3 bagimsiz Haiku hakem: dogru 38/40 = %95, yararli 36/40. KAPI (%98) tutmadi. Iki ret ikisi de paket kombin (alt skill adi kaynakta gecti ama kombin degil) -> kombin paketlerde bosaltildi, yeniden hakem yapilmadi.
+- token_ipucu 35/40 'Kaynakta belirtilmemis' (kaynakta yok; durust eksik). Kalan 710 kart eski (serbest metin) uretimli; alinti yoluna gecis yeniden uretim ister (~11k Haiku jeton/kart).
+- Dosyalar: tmp/hakem26/s0-2.json. Push yok.

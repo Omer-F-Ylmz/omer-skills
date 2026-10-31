@@ -328,13 +328,13 @@ def isle(grup_n):
                 e = dict(e, kanit_kullanim=[], kanit_tuzak="", kanit_token="")
             def kul(e, nsrc):
                 kq = e.get("kanit_kullanim") if isinstance(e.get("kanit_kullanim"), list) else []
-                r = [temiz(x)[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc]
+                r = [temiz(" ".join(str(q).split()))[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc]
                 return r or ["Kaynakta belirtilmemiş."]
             def kanitli(alan, kan):
                 v = temiz(e[alan])[:220]; q = " ".join(str(e.get(kan) or "").split()).lower()
-                return v if v.startswith("Kaynakta belirtilmemiş") or (len(q) >= 12 and q in nsrc) else "Kaynakta belirtilmemiş."
+                return v if v.startswith("Kaynakta belirtilmemiş") else (temiz(" ".join(str(e.get(kan)).split()))[:220] if len(q) >= 12 and q in nsrc else "Kaynakta belirtilmemiş.")
             out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": kul(e, nsrc), "tuzak": kanitli("tuzak", "kanit_tuzak"),
-                        "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [str(x)[:60] for x in ko[:3]],
+                        "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [] if k["ad"].endswith("-paket") else [str(x)[:60] for x in ko[:3]],
                         "ornek": (o if o and o in src else ("" if k["ad"].endswith("-paket") else f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
     (d / "haiku.jsonl").write_text("\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n", encoding="utf-8")
     print("kart", len(out))
