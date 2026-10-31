@@ -4,6 +4,9 @@ status: active
 tags: [ertele-3, gizli-ajan, ajan-getir, katalog, context-dokum]
 relatedTo: [ertele-2, ertele-1]
 ---
+# TUR 7 (eski 3 setin birleşik `ara` ölçümü; parça başı 4 tarif, hepsi <8 sn; kanıt tmp/ertele10/parca.py, parca.jsonl)
+- Sonuç (tüm çıktıda / ilk 8): ertele7/tarif (ajan) 29/30 · 29/30 · ertele7/tarif2 (ajan) 30/30 · 29/30 · ertele9/tarif (tur4 kör skill seti) 3/30 · 0/30. Ajan setleri %98 kapısını geçiyor (59/60); skill setinde kapı TUTMADI (3/30; tur5'te aynı sette yalnız-gömme 19/30 idi, birleşik `ara` çıktısı bunu yansıtmıyor — nedeni bu turda araştırılmadı). Yeni 30 skill (tarif31) 20/30 değişmedi.
+- Kapı (açılış ≤150k + isabet A'dan yüksek): skill isabeti tutmadı, deny Skill önerilmez. Yeni iyileştirme denenmedi.
 # TUR 6 (açıklama taşıma, kapı kök nedeni; kanıt tmp/ertele6/secim*.jsonl)
 - KÖK NEDEN: 10 ajan testinin 1,2,7. maddeleri settings.json'da zaten reddedilen octo:personas ajanlarını bekliyordu (devops-troubleshooter, incident-responder, exec-communicator, ux-researcher) → üst sınır 7/10. A2 7/7 ulaşılabilir, B2 6/7. Ayrıca aynı A ayarı 2/10 ile 7/10 arasında oynadı → tek koşu gürültü.
 - Düzeltme: secim2.py (3 madde görünür ajanlarla: instrumentation-advisor, cockroachdb-dba, silent-failure-hunter), her kol 2 koşu, sırayla. Sapma: `--help` bayrağı tanınmadığından uygulama 602 dosyaya koştu (yedek 602/602 temiz, işaret 0).
