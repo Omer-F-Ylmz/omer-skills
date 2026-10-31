@@ -68,3 +68,8 @@ Yapılmayan: skill (64), paket, repo, MCP, plugin kurulumu ve usta kartı (bu tu
 - MCP: `claude mcp list` ile 21st, rea (6.8.0), github, figma bağlı; exa eklenti kurulu (auth Ömer'de) → 5 KURULU-KANIT. blockbench-mcp-plugin GPL-3.0 → RET (şart: kopyaleft). Lisans MIT: Perplexity, ScrapeGraph, PostHog, Glif, davinci-resolve-mcp; kurulmadı (API anahtarı/hesap ya da Resolve uygulaması gerekir) → sabah Ömer listesi.
 - Paket: animejs, three, radix-ui, @number-flow/react, lenis (npm) + tree-sitter, dspy (pip) scratch `tmp/paket-tur7`'e kuruldu, import OK → 7 KURULU-KANIT. satori MPL-2.0 → RET (şart: değiştirilen MPL dosyaları açık).
 - tsv: 487 → 473 KURULACAK (KURULU-KANIT 478, RET 2). Yedek `.yedek-tur7`. semgrep/hakem/usta kartı yapılmadı; gitleaks bu turda koşulmadı (yalnız resmi paket kayıtları).
+
+## TUR 8 (31 Eki, kısmi)
+- Repo: 45 repo lisans kapısından geçti (gh api); MIT/Apache + <300 MB olan 15 repo shallow klonlandı (C:/AI/indirilen/repo-tur8), gitleaks 0 → 15 KURULU-KANIT. ComfyUI, Fooocus (GPL-3.0), Upscayl (AGPL-3.0) → RET (kopyaleft). 473 → 455 KURULACAK.
+- Lisanssız/NOASSERTION/404 olanlar (System Design Primer, developer-roadmap, awesome-python, task-master, openpose, easymocap, liquid-logo, seecut vb.) kurulmadı; büyük MIT/Apache (continue 870 MB, OpenDevin 570 MB, mediapipe 610 MB) >300 MB sınırı nedeniyle atlandı.
+- Yapılmadı: repo kalan ~47 URL'li satır, skill/plugin/MCP/paket boş ad satırları, semgrep, hakem puanı, usta kartı. Yedek `.yedek-tur8`.

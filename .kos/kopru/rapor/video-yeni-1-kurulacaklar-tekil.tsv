@@ -8,14 +8,14 @@ KURULU-KANIT	Firecrawl	MCP		benzer:envanter.tsv:CC:cli | tur2: firecrawl CLI kur
 KURULACAK	research-agent	skill	.claude/skills/research-agent/SKILL.md	benzer:~/.claude/skills/research | tur2: skills/research = trading faz-1 skill'i, başka araç	1	De1p5PkkRxk	Konudan kaynak toplayıp özet çıkarır
 KURULU-KANIT	Scientific Skills	skill		benzer:~/.claude/skills/claude-scientific-skills | tur2: skills/claude-scientific-skills SKILL.md source=K-Dense-AI/claude-scientific-skills (598B kısa skill)	1	De3S2C3P7yb	Claude'u bilim insanına çeviren skill (repo OCR'da yok)
 KURULACAK	Vercel agent skills	skill	vercel-labs/agent-skills (?)	benzer:~/.claude/plugins/cache\addy-agent-skills\agent-skills | tur2: addy-agent-skills farklı repo; vercel-labs/agent-skills klonu yok	1	De3S2C3P7yb	Vercel'in React uygulama resmi skill koleksiyonu
-KURULACAK	oh-my-claudecode	repo	github.com/Yeachan-Heo/oh-my-claudecode (?)	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: yol obra/superpowers'a çözülüyor, Yeachan-Heo/oh-my-claudecode değil	1	De6cCG2hCuS	Claude Code için 19 ajanlı takım orkestrasyonu, model yönlendirme (40k+ yıldız)
+KURULU-KANIT	oh-my-claudecode	repo	github.com/Yeachan-Heo/oh-my-claudecode (?)	benzer:~/.claude/plugins/cache\temp_git_1791614177355_dt7lhc\tests\claude-code | tur2: yol obra/superpowers'a çözülüyor, Yeachan-Heo/oh-my-claudecode değil | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De6cCG2hCuS	Claude Code için 19 ajanlı takım orkestrasyonu, model yönlendirme (40k+ yıldız)
 KURULU-KANIT	Remotion	kütüphane		benzer:~/.claude/skills/remotion-docs | tur2: skills/remotion-docs + remotion-* skill'leri kurulu; remotion paketi projeye eklenmedi | tur3: npm remotion 4.0.539 araclar/kutuphane-deneme require ok; lisans: Remotion License (sirket >3 kisi ucretli)	2	DehjgOtDn77	Kodla düzenlenebilir video
 KURULACAK	Motion Canvas	kütüphane		benzer:C:/AI/indirilen/motion-canvas__examples | tur2: klon var indirilen/motion-canvas__motion-canvas, kurulu değil	1	DehjgOtDn77	Açıklayıcı video ve diyagram animasyonu
 KURULU-KANIT	React Three Fiber	kütüphane		benzer:~/.claude/skills/threejs-react-three-fiber | tur2: skills/threejs-react-three-fiber kurulu; R3F paketi proje bağımlılığı | tur3: npm @react-three/fiber 9.8.2 (MIT) + three araclar/kutuphane-deneme require ok	1	DehjgOtDn77	Three.js sahnelerini React'ta kurar
 KURULU-KANIT	Scrapling	repo	github.com/D4Vinci/Scrapling (?)	benzer:~/.claude/skills/Scrapling-Skill | tur2: skills/Scrapling-Skill (scrapling-official, scrapling.readthedocs) kurulu; Python paketi sınanmadı | tur3: pip scrapling 0.5 (BSD-3) import + Selector css ok	1	DejuQStmPny	Web kazıma
 KURULU-KANIT	diagram-design	skill	github.com/cathynlaveny/diagram-design (?)	benzer:~/.claude/skills/diagram-design-paket | tur2: skills/diagram-design-paket kurulu; cathynlaveny kaynağı doğrulanamadı | tur3: skills/diagram-design-paket; cathynlaveny/diagram-design GitHub 404, kaynak dogrulanamadi	1	DejuQStmPny	Etkileşimli teknik çizimler
 KURULACAK	n8n Agent Builder Skill	skill		benzer:~/.claude/skills/agent_builder | tur2: skills/agent_builder = trading ajanı, n8n değil	1	De-Th5KAOY8	Claude ile tek istemde n8n iş akışı ve AI ajanı kurar (topluluk skill paketi)
-KURULACAK	liquid-glass-js	repo	github.com/dashersw/liquid-glass-js	yalniz-katalog | tur2: yerelde yok	1	DYNW3X7J2TH	Apple Liquid Glass esintili efektler
+KURULU-KANIT	liquid-glass-js	repo	github.com/dashersw/liquid-glass-js	yalniz-katalog | tur2: yerelde yok | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	DYNW3X7J2TH	Apple Liquid Glass esintili efektler
 KURULU-KANIT	Hyperframes (HeyGen)	skill		benzer:~/.claude/plugins/cache\hyperframes\hyperframes | tur2: plugins/cache+marketplaces/hyperframes, known_marketplaces repo=heygen-com/hyperframes	1	De2dMErAprH	Claude ve kodla hareketli grafik, animasyonlu yazı, geçiş üretir
 KURULU-KANIT	SkillSpector (NVIDIA) (?)	repo		benzer:_inv_uv.txt | tur2: skillspector.exe ~/.local/bin, çalışıyor (API anahtarsız analizörler atlanıyor)	1	De3VPoaTUVn	Skill'i kurmadan önce 68 zafiyet deseni/17 kategoride tarar (statik hızlı mod + LLM derin mod); skill klasörü, SKILL.md, repo veya zip
 KURULU-KANIT	NVIDIA NIM	SİTE		yalniz-katalog | tur2: site/hesap, kurulu değil | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De4qvI2zaCe	DeepSeek, GLM, Qwen, MiniMax gibi ~80 modele dakikada 40 istek ücretsiz erişim
@@ -55,7 +55,7 @@ KURULU-KANIT	Open Montage	plugin		benzer:envanter.tsv:ikisi:skill | tur2: dist/l
 KURULU-KANIT	Diagram Design	plugin		benzer:~/.claude/skills/diagram-design-paket | tur2: skills/diagram-design-paket kurulu; kaynak doğrulanamadı | tur3: skills/diagram-design-paket; kaynak dogrulanamadi (repo 404)	1	DfDvhU7opmg	Top 30 listesi
 KURULU-KANIT	Higgsfield MCP	MCP	mcp.higgsfield.ai	benzer:envanter.tsv:claude.ai:baglayici | tur2: mcpServers.higgsfield url mcp.higgsfield.ai/mcp	1	o4iY8QEeKmU	Claude'a foto/video/3D model üretimi yetisi veren MCP (sponsorlu)
 KURULU-KANIT	Scrapling	kütüphane		benzer:~/.claude/skills/Scrapling-Skill | tur2: skills/Scrapling-Skill kurulu; Python paketi sınanmadı | tur3: pip scrapling 0.5 (BSD-3) import + Selector css ok	1	De10iPOiB6V	Kaynak site değişince kendini uyarlayan scraper
-KURULACAK	ComfyUI	repo	github.com/Comfy-Org/ComfyUI	yalniz-katalog | tur2: where comfyui boş	1	Den39fYxLsI	Görsel iş akışı ile yerel AI görsel/video üretimi
+RET	ComfyUI	repo	github.com/Comfy-Org/ComfyUI	yalniz-katalog | tur2: where comfyui boş | tur8: GPL-3.0 kopyaleft	1	Den39fYxLsI	Görsel iş akışı ile yerel AI görsel/video üretimi
 KURULACAK	Perplexity MCP	MCP	ppl-ai/modelcontextprotocol	yalniz-katalog | tur2: mcpServers'ta perplexity yok	1	DfE8f4ogMa7	Gerçek zamanlı web araştırması
 KURULU-KANIT	Firecrawl MCP	MCP	firecrawl-mcp-server	yalniz-katalog | tur2: firecrawl CLI kurulu; firecrawl-mcp-server mcpServers'ta yok | tur3: npm firecrawl-mcp 3.36.0 (MIT) araclar/kutuphane-deneme require ok; global kayit yok; FIRECRAWL_API_KEY yok = hesap-en-sona	1	DfE8f4ogMa7	Web sitesi tarama/içerik yükleme
 BULUNAMADI	Kitchen	kütüphane		"benzer:~/.claude/plugins/cache\2389-research\test-kitchen | tur2: ad videoda yalnız ""Kitchen""; test-kitchen (2389) ile eşleşme kanıtlanamaz"	1	Dew3i03gGAi	Kopyala-yapıştır hazır kodlu, çok detaylı premium UI bileşen kütüphanesi (kaset çalar, basılı tutarak silme, fiş yazdıran ödeme ekranı); link DM'de, videoda yok
@@ -83,7 +83,7 @@ KURULACAK	Free Programming Books	repo	github.com/EbookFoundation/free-programmin
 KURULACAK	Developer Roadmap	repo	github.com/kamranahmedse/developer-roadmap (?)		1	DdzOasRCJ9h	Teknoloji kariyerleri için görsel öğrenme yol haritaları
 KURULACAK	Coding Interview University	repo	github.com/jwasham/coding-interview-university (?)		1	DdzOasRCJ9h	Algoritma, veri yapıları ve CS temelleri için mülakat çalışma planı
 KURULACAK	Awesome Python	repo	github.com/vinta/awesome-python (?)		1	DdzOasRCJ9h	Python kütüphane, framework ve araçlarının derlenmiş listesi
-KURULACAK	Project Based Learning	repo	github.com/practical-tutorials/project-based-learning (?)		1	DdzOasRCJ9h	Proje yaparak öğrenmeyi sağlayan öğretici listesi (aciklama kesik, 10. repo)
+KURULU-KANIT	Project Based Learning	repo	github.com/practical-tutorials/project-based-learning (?)	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	DdzOasRCJ9h	Proje yaparak öğrenmeyi sağlayan öğretici listesi (aciklama kesik, 10. repo)
 KURULACAK	Figma animasyon (Neu Web Studio)	yöntem			1	De9cw29tBSr	"Figma'da premium site animasyonu öğretme vaadi; yalnız ""SKILLS yorumla"" çağrısı, somut araç yok"
 KURULU-KANIT	Skiper UI	SİTE	skiper-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Sık görülmeyen animasyonlu React/shadcn bileşenleri; npx shadcn add @skiper-ui/... ile kurulur
 KURULU-KANIT	Cult UI	SİTE	cult-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De_J0aOl9SJ	Farklı tatlı shadcn blokları ve bileşenleri
@@ -96,7 +96,7 @@ KURULU-KANIT	Orginkit.dev (?)	SİTE	orginkit.dev (?)	 | tur4: katalog satiri doc
 KURULACAK	Explain GitHub (?)	araç			1	DfCHfMxR8yq	GitHub URL'sini değiştirip repo hakkında sohbet ederek açıklama alma
 KURULACAK	GitReverse	araç			1	DfCHfMxR8yq	Repoyu yapılandırılmış prompta çeviren tersine mühendislik aracı (GitHub yerine GitReverse yazılır)
 KURULACAK	GitIngest	araç			1	DfCHfMxR8yq	Proje özeti, klasör yapısı ve dosya içeriğini tek temiz belgeye toplar
-KURULACAK	Claude-Code-Game-Studios	repo	github.com/Donchitos/Claude-Code-Game-Studios		1	DfE6PckgQUf	Claude Code'u 49 ajan ve 72 workflow skill ile oyun stüdyosuna çevirir (MIT, ~28.6k yıldız)
+KURULU-KANIT	Claude-Code-Game-Studios	repo	github.com/Donchitos/Claude-Code-Game-Studios	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	DfE6PckgQUf	Claude Code'u 49 ajan ve 72 workflow skill ile oyun stüdyosuna çevirir (MIT, ~28.6k yıldız)
 KURULACAK	GBrain	araç			2	DbzttxfNxjK	Şirket bilgi tabanı (Garry Tan'ın GBrain'i, bkz. De1fLVOkpiu); videoda şirket OS'inin temeli olarak geçer
 KURULACAK	Hermes Agent	araç			1	DbzttxfNxjK	27+ ajanı yöneten delegator/conductor harness olarak kullanılıyor
 KURULACAK	VisualARP (?)	uygulama			1	DbzttxfNxjK	"Çok ajanlı şirket işletim sistemi görünümü (adı ""VisualARP"" olarak transkriptte); repo ""Founder"" yorumuyla veriliyor"
@@ -106,8 +106,8 @@ KURULU-KANIT	Manus.im	SİTE	manus.im	 | tur4: katalog satiri docs/kaynak-kutupha
 KURULU-KANIT	BKLit	SİTE	BKLit.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DdQkBgtxYe2	Bar grafik, ısı haritası gibi veri görselleştirme bileşenleri
 KURULACAK	Perplexity	MCP			1	De-NlsAtzUn	Claude'a gerçek zamanlı araştırma erişimi veren konektör
 KURULACAK	PostHog	MCP			1	De-NlsAtzUn	Claude'un site kullanıcı davranışı, kayıt ve hataları görmesini sağlar
-KURULACAK	Fooocus	repo	github.com/lllyasviel/Fooocus (?)		1	De18V-pAezC	Yerel görsel üretimi, ücretli araçlara alternatif
-KURULACAK	Upscayl	repo	github.com/upscayl/upscayl (?)		1	De18V-pAezC	Bulanık görselleri netleştiren upscale aracı
+RET	Fooocus	repo	github.com/lllyasviel/Fooocus (?)	 | tur8: GPL-3.0 kopyaleft	1	De18V-pAezC	Yerel görsel üretimi, ücretli araçlara alternatif
+RET	Upscayl	repo	github.com/upscayl/upscayl (?)	 | tur8: AGPL-3.0 kopyaleft	1	De18V-pAezC	Bulanık görselleri netleştiren upscale aracı
 KURULACAK	Letta	repo			1	De1fLVOkpiu	Oturumlar arası hatırlayan stateful ajanlar
 KURULACAK	Zep/Graphiti	repo			1	De1fLVOkpiu	Zaman damgalı (temporal) bilgi grafiği hafızası
 KURULACAK	Sylph	repo			1	De1fLVOkpiu	NaoLabs (YC) açık kaynak DIY Claude Code+git şirket beyni (?)
@@ -130,20 +130,20 @@ KURULU-KANIT	glass3d.dev	SİTE	glass3d.dev	 | tur4: katalog satiri docs/kaynak-k
 KURULU-KANIT	createwithswift.com	SİTE	createwithswift.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8i5P9Ddtl	Swift/SwiftUI öğreticileri
 KURULU-KANIT	junaidjamel.com	SİTE	junaidjamel.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De8i5P9Ddtl	Yayıncının kendi sitesi
 KURULACAK	Zagitta/gpu-unlock	repo	github.com/Zagitta/gpu-unlock (?)		1	De95_e3Ntp_	RTX 30 serisinde FP16/BF16 Tensor Core hızını yaklaşık 1.8x artıran yazılım unlock
-KURULACAK	claude-cookbooks	repo	github.com/anthropics/claude-cookbooks		1	De9SUccyZF-	Anthropic örnek tarifler
-KURULACAK	claude-quickstarts	repo	github.com/anthropics/claude-quickstarts		1	De9SUccyZF-	Anthropic hızlı başlangıç projeleri
+KURULU-KANIT	claude-cookbooks	repo	github.com/anthropics/claude-cookbooks	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De9SUccyZF-	Anthropic örnek tarifler
+KURULU-KANIT	claude-quickstarts	repo	github.com/anthropics/claude-quickstarts	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De9SUccyZF-	Anthropic hızlı başlangıç projeleri
 KURULACAK	claude-desktop-extensions	repo	github.com/anthropics/claude-desktop-extensions		1	De9SUccyZF-	Claude Desktop uzantıları
 KURULACAK	awesome-claude-code	repo	github.com/hesreallyhim/awesome-claude-code		1	De9SUccyZF-	Claude Code kaynak listesi
-KURULACAK	SuperClaude Framework	repo	github.com/SuperClaude-Org/SuperClaude_Framework		1	De9SUccyZF-	Claude Code framework'ü
+KURULU-KANIT	SuperClaude Framework	repo	github.com/SuperClaude-Org/SuperClaude_Framework	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De9SUccyZF-	Claude Code framework'ü
 KURULACAK	claude-task-master	repo	github.com/eyaltoledano/claude-task-master		1	De9SUccyZF-	Görev yönetimi
 KURULACAK	claude-engineer	repo	github.com/Doriandarko/claude-engineer		1	De9SUccyZF-	Claude tabanlı mühendis ajanı
 KURULACAK	claude-swarm	repo	github.com/parallaxsys/claude-swarm		1	De9SUccyZF-	Claude çoklu ajan sürüsü
 KURULACAK	claude-dev-tools	repo	github.com/zebbern/claude-dev-tools		1	De9SUccyZF-	Claude geliştirici araçları
-KURULACAK	mcp-compass	repo	github.com/liuyoshio/mcp-compass		1	De9SUccyZF-	MCP sunucu keşfi
-KURULACAK	mcp-installer	repo	github.com/anaisbetts/mcp-installer		1	De9SUccyZF-	MCP kurulumu
+KURULU-KANIT	mcp-compass	repo	github.com/liuyoshio/mcp-compass	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De9SUccyZF-	MCP sunucu keşfi
+KURULU-KANIT	mcp-installer	repo	github.com/anaisbetts/mcp-installer	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De9SUccyZF-	MCP kurulumu
 KURULACAK	mcphub	repo	github.com/idosal/mcphub		1	De9SUccyZF-	MCP merkezi
 KURULACAK	continue	repo	github.com/continuedev/continue		1	De9SUccyZF-	Açık kaynak kod asistanı
-KURULACAK	open-interpreter	repo	github.com/OpenInterpreter/open-interpreter		1	De9SUccyZF-	Kodu yerelde çalıştıran ajan
+KURULU-KANIT	open-interpreter	repo	github.com/OpenInterpreter/open-interpreter	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De9SUccyZF-	Kodu yerelde çalıştıran ajan
 KURULACAK	OpenDevin	repo	github.com/OpenDevin/OpenDevin		1	De9SUccyZF-	Açık kaynak Devin benzeri ajan
 KURULACAK	Reel Kit (tek klasör)	yöntem			1	De9nXY4zTP1	Claude Code ile kodla reel üretimi: senaryo, seslendirme, animasyon, render; 4 stil (print, 3D, toybox, talking head) (KIT yorumuyla veriliyor)
 KURULACAK	Alan's Way	repo	github alans-way		1	DeHXkHSlNKK	Hermes Agent üstüne Telegram'dan yönetilen, bulutta çalışan 10 botlu ekip
@@ -166,7 +166,7 @@ KURULU-KANIT	Radix UI	kütüphane		 | tur7: scratch tmp/paket-tur7 kurulum + imp
 KURULACAK	AI trading ekibi (7 ajan)	yöntem			1	Dewvyk2E2Je	Araştırma, strateji, kod, backtest, doğrulama, risk, icra ajanlarıyla algo trading hattı (somut repo yok)
 KURULU-KANIT	MotionSites.ai	SİTE	MotionSites.ai	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	Dez5CGMkq5K	600+ premium animasyonlu site promptu; Cursor/AI builder'a yapıştırılır
 KURULU-KANIT	Bencho (?)	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezEkQ2NNSu	Etkileşimli UI bileşenleri ve ses/animasyon kütüphanesi (?)
-KURULACAK	Concord MCP	repo	github.com/Get-Concord-AI/concord-mcp		1	DezX4yhCQzy	Claude Code, Codex, Cursor gibi ajanların birbiriyle konuşup işi bölmesi (MIT, yerel)
+KURULU-KANIT	Concord MCP	repo	github.com/Get-Concord-AI/concord-mcp	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	DezX4yhCQzy	Claude Code, Codex, Cursor gibi ajanların birbiriyle konuşup işi bölmesi (MIT, yerel)
 KURULU-KANIT	gittrend.io	SİTE	gittrend.io	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DezX4yhCQzy	Trend açık kaynak projeler sitesi
 KURULU-KANIT	skiper-ui.com	SİTE	skiper-ui.com	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	DfACBy9Bt6z	Premium animasyonlu yaratıcı bileşenler
 KURULU-KANIT	React Bits	SİTE	reactbits.dev	 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	2	DfAj-cJubzn	Canlı ayarlanıp dışa aktarılan animasyonlu arka plan, doku, bileşen
@@ -177,7 +177,7 @@ KURULACAK	Swishy AI	uygulama			3	DfAj-cJubzn	Ne animasyonlanacağını yazarak �
 KURULACAK	12 Claude müşteri bulma skill'i	skill			1	DfBySgVNV4H	12 ajan oylamasıyla ödeme yapacak müşteri bulur (CLIENT yorumuyla veriliyor)
 KURULACAK	NotebookLM + Claude Code repo	repo			1	DfCqFtxoN0y	Notebook LM yeteneklerini (podcast, slayt, YouTube) Claude Code'a veren repo; repo adı videoda verilmiyor
 KURULACAK	Ripping (getripping) (?)	plugin			1	DfDD57jAQ44	Instagram otopilotu için Claude eklentisi: fikir bulma, senaryo, düzenleme, paylaşım
-KURULACAK	Artemis	repo	github.com/google/artemis		1	DfEo0zLDAKl	Google'ın Android telefonu Claude Code/Codex ile kontrol eden açık kaynak aracı (MCP sunucusu)
+KURULU-KANIT	Artemis	repo	github.com/google/artemis	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	DfEo0zLDAKl	Google'ın Android telefonu Claude Code/Codex ile kontrol eden açık kaynak aracı (MCP sunucusu)
 KURULACAK	Claude Code + Antigravity ile arsa videosu	yöntem			1	qs-DetJr2nQ	Parsel sorgudan uydu görüntüsü çizip arsa etrafında dönen drone tarzı video üretme
 KURULU-KANIT	Skill-creator (Anthropic)	skill		 | tur4: ~/.claude/skills/skill-creator/SKILL.md (create/improve skills, ayni arac)	1	De-Th5KAOY8	Anthropic'in ücretsiz skill üretici aracı; videodaki skill'lerin üçü bununla yapılıyor
 KURULU-KANIT	frontend-design (resmi Anthropic skill)	skill		 | tur4: ~/.claude/skills/frontend-design/SKILL.md	1	De-Th5KAOY8	Claude'un 'AI şablonu' görünümünü bırakıp cesur font ve gerçek yerleşimli premium site yapmasını sağlar
@@ -213,11 +213,11 @@ KURULACAK	Top 9 Free AI Tools Trending on GitHub	yöntem			1	De0LtiLO3TA	Liste y
 KURULACAK	Claude + Google Maps lead/redesign iş akışı	yöntem			1	De18lkBjl_G	Eski sitesi olan yerel işletmeleri Google Maps'ten bulur, yeni site + canlı önizleme linki üretip iletir; repo adı verilmiyor
 KURULACAK	MediaPipe	repo	github.com/google-ai-edge/mediapipe		1	De1frq7ifup	Kameradan gerçek zamanlı vücut/el/yüz takibi
 KURULACAK	OpenPose	repo	github.com/CMU-Perceptual-Computing-Lab/openpose		1	De1frq7ifup	Görüntü/videodan insan pozu iskeleti çıkarma
-KURULACAK	MMPose / RTMPose	repo	github.com/open-mmlab/mmpose		1	De1frq7ifup	Hızlı poz tahmin modelleri ve araçları (OpenMMLab)
+KURULU-KANIT	MMPose / RTMPose	repo	github.com/open-mmlab/mmpose	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De1frq7ifup	Hızlı poz tahmin modelleri ve araçları (OpenMMLab)
 KURULACAK	VideoPose3D	repo	github.com/facebookresearch/VideoPose3D		1	De1frq7ifup	Videodan 3B poz çıkarma
 KURULACAK	EasyMocap	repo	github.com/zju3dv/EasyMocap		1	De1frq7ifup	Hareket yakalama (mocap)
-KURULACAK	4D-Humans	repo	github.com/shubham-goel/4D-Humans		1	De1frq7ifup	Videodan 3B insan yeniden oluşturma
-KURULACAK	WHAM	repo	github.com/yohanshin/WHAM		1	De1frq7ifup	3B insan hareketi kestirimi
+KURULU-KANIT	4D-Humans	repo	github.com/shubham-goel/4D-Humans	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De1frq7ifup	Videodan 3B insan yeniden oluşturma
+KURULU-KANIT	WHAM	repo	github.com/yohanshin/WHAM	 | tur8: lisans MIT/Apache, shallow klon C:/AI/indirilen/repo-tur8, gitleaks 0	1	De1frq7ifup	3B insan hareketi kestirimi
 KURULACAK	tfjs-models pose-detection	repo	github.com/tensorflow/tfjs-models/tree/master/pose-detection		1	De1frq7ifup	Tarayıcıda TensorFlow.js poz algılama
 KURULACAK	awesome-opus5-5-videos (yihui-dew)	repo	github.com/yihui-dew/awesome-opus5-5-videos (?)		1	De1qf_Fk-Xn	Claude Opus 5.5 ile yapılan viral videoların 703 istemi, 418'i canlı yeniden üretimle
 KURULU-KANIT	Skillry	SİTE		 | tur4: katalog satiri docs/kaynak-kutuphane/site-katalog-tur4.tsv	1	De1qf_Fk-Xn	418 videonun canlı yeniden yapımını yan yana gösteren site
