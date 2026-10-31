@@ -324,6 +324,8 @@ def isle(grup_n):
             o = str(e.get("ornek") or "").strip()
             ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
             nsrc = " ".join(src.split()).lower()
+            if len(nsrc) < 400:  # kesik/tek satirlik kaynak: kanit uretilemez, hicbir iddia kabul edilmez
+                e = dict(e, kanit_kullanim=[], kanit_tuzak="", kanit_token="")
             def kul(e, nsrc):
                 kq = e.get("kanit_kullanim") if isinstance(e.get("kanit_kullanim"), list) else []
                 r = [temiz(x)[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc]
