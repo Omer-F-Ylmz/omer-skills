@@ -105,3 +105,12 @@ relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 - Build Partner gerçek repo austinmarchese/buildpartner-plugin (MIT, gitleaks temiz); kancalar token yoksa çıkıyor, skill içeriği hesapla API'den → hesap, sabah Ömer (kur-tur14.tsv). Kartı yeniden yazılacak.
 - Docker tur14 (Sonnet, kur-tur14-docker.tsv): MoneyPrinterTurbo ÇALIŞIYOR — kök neden Dockerfile varsayılanı DOCKER_BUILD_MIRROR=china + PIP_USE_OFFICIAL=0 (aliyun/tuna) + UV_HTTP_TIMEOUT 60 → default/1/300 (Dockerfile.orig yedek); build ok (mpt14.log), 127.0.0.1:8501 Streamlit 200, :8080/docs 200. PentAGI ÇALIŞIYOR (LLM anahtarsız): https://127.0.0.1:8443/ 200 web UI, tüm portlar 127.0.0.1; imaj `latest` 2026-10-22 (son sürüm 2.2.0 > 2.1.0), imajdan sürüm doğrulanamadı, CVE düzeltmesinin 2.2.0'da olduğu kontrol edilmedi. İkisi compose down; Docker Desktop durduruldu, RAM ≤%72, C: ~90 GB.
 - SIRA (tur 15): tablo13 yeniden (tur14 tsv'leri dahil) · Build Partner/Gropector/TrueForge kartı yeniden · daha sert hakem (Ömer ölçeği) · CareerOps/Gropector/mixamo/Task-CoEvolve giriş noktası (sınıflayıcı reddi → sabah Ömer) · LTX 2.3, Magic UI, auto-handoff 'kalan'. Yeni linklere HAZIR DEĞİL.
+
+# Tur 15 (31 Eki 06:30) · ARA KAYIT
+- tablo13 yeniden (tur14+15 dahil, 101): çalışıyor 31 · kuruldu 16 · önceden kurulu 12 · zaten 2 · hesap 11 · bulunamadı 21 · başarısız 4 · izin 1 · platform-macOS 1 · kod-gerekli 1 · YOK 1; 'kalan' 0; usta kartı 72/101 (+6 tur15, usta.jsonl geçerli JSON).
+- Magic UI ÇALIŞIYOR: npm @magicuidesign/mcp 2.0.0, MCP tools/call listRegistryItems marquee → 5 sonuç; `claude mcp add magicui -s user` Connected. Desktop config'e eklenmedi.
+- LTX 2.3 kuruldu: PyPI ltx-core 1.0.0 ayrı venv import ok (torch CPU); ağırlık en küçük 43 GiB (>15 GB) → sabah Ömer. gitleaks 3 = yanlış alarm (anahtar adı 'weight_scale_2').
+- /linkedin-roast: doğru repo alexyc9381/linkedin-roast-skill (MIT); orijinal frontmatter YAML bozuk → tırnaklandı, ~/.claude/skills/linkedin-roast. Desktop zip yok.
+- auto-handoff: validate geçti; `claude --plugin-dir` ile yükleme sınıflayıcıca REDDEDİLDİ → sabah Ömer. PYNK = Swift macOS uygulaması (Package.swift:6-7), Windows'ta derlenmez.
+- SABAH ÖMER (ek): auto-handoff yükleme izni · LTX-2.3 43 GiB ağırlık. Yeni linklere HAZIR DEĞİL (bulunamadı 21 / başarısız 4 / kart 72/101).
+- SIRA (tur 16): Build Partner/Gropector/TrueForge kartı yeniden · kart eksik 29 · sert hakem · linkedin-roast zip · Magic UI Desktop config.
