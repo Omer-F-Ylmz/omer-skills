@@ -1,5 +1,8 @@
 # TUR 12: NİHAİ 36(J) — kurulan her kalem envanter.tsv + kayit.jsonl'de mi; eksikleri ekler (--yaz)
 import csv, json, sys, re
+from datetime import date
+sys.stdout.reconfigure(encoding="utf-8")  # PYTHONUTF8 yoksa cp1252 konsolda ad basarken çöküyordu
+BUGUN = date.today().isoformat()
 from pathlib import Path
 K = Path(r"C:\Projeler\omer-skills")
 D = K / ".kos/kopru/ogren/video-izle-kur-1"
@@ -34,7 +37,7 @@ if "--yaz" in sys.argv:
         for ad, dur, yer, kaynak, e, k in eksik:
             tur = "skill" if dur.startswith("skill") else "arac"
             if not e:
-                fe.write(("\t".join([ad.lower().replace("_", "-"), tur, "CC", "1", f"VIDEO-IZLE-KUR-1 {dur}; {yer}"[:200], "", "", "kurulum:2026-10-30", "CC", f".kos/kopru/ogren/video-izle-kur-1/{kaynak}"]) + "\n").encode("utf-8"))
+                fe.write(("\t".join([ad.lower().replace("_", "-"), tur, "CC", "1", f"VIDEO-IZLE-KUR-1 {dur}; {yer}"[:200], "", "", f"kurulum:{BUGUN}", "CC", f".kos/kopru/ogren/video-izle-kur-1/{kaynak}"]) + "\n").encode("utf-8"))
             if not k:
-                fk.write((json.dumps({"ad": ad.lower().replace("_", "-"), "karar": f"KURULDU {dur}", "tarih": "2026-10-30", "parti": "video-izle-kur-1"}, ensure_ascii=False) + "\n").encode("utf-8"))
+                fk.write((json.dumps({"ad": ad.lower().replace("_", "-"), "karar": f"KURULDU {dur}", "tarih": BUGUN, "parti": "video-izle-kur-1"}, ensure_ascii=False) + "\n").encode("utf-8"))
     print("YAZILDI")
