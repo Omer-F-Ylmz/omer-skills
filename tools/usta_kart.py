@@ -50,6 +50,8 @@ def oku_usta():
         for l in USTA.read_text(encoding="utf-8").splitlines():
             if l.strip():
                 k = json.loads(l); d[k["ad"]] = k
+                if isinstance(k.get("tarih"), str):  # bazı hatlar ISO tarih yazıyor
+                    k["tarih"] = int(time.mktime(time.strptime(k["tarih"][:10], "%Y-%m-%d")))
     return d
 
 
