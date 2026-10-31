@@ -1,0 +1,3 @@
+ad	durum	kanit
+Leia (Verdict-open-jev)	calisiyor	Apache-2.0, gitleaks 0; uv venv 3.12 + torch 2.15 cpu + pip -e; artifacts 1.5G (calibrator.json HF main hash uyusmaz, manifest eski); tmp/leia_dene.py 3/3 dogru (mcp .53 skill .68 app .39), yukleme 9.5sn; README API eski: Choice id zorunlu, sonuc selected_id
+Pit Crew / Fuel Saver / Dashboard	siniflandirici-reddi	yeniden klon 71c21d4 gitleaks 0, marketplace.json 3 plugin; reddedilen komut: claude plugin marketplace add "C:/AI/indirilen/video-izle-kur-1/claude-garage" && claude plugin install {fuel-saver,pit-crew,dashboard}@claude-garage --scope local (cwd garage-deneme, kuresel degil)
