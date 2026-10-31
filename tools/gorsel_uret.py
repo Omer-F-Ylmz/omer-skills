@@ -26,7 +26,7 @@ DURUM = Path(tempfile.gettempdir()) / "gorsel-oturum.json"
 COMFY = Path(r"C:\AI\ComfyUI")
 REMBG = Path(r"C:\AI\rembg\.venv\Scripts\rembg.exe")
 AKISLAR = Path(__file__).resolve().parent / "gorsel" / "akislar"
-HOST, PORT, BLENDER_PORT = "127.0.0.1", 8188, 9876
+HOST, PORT, BLENDER_PORT = "127.0.0.1", int(os.environ.get("GORSEL_PORT") or 8188), 9876  # GORSEL_PORT: 8188 hayalet dinleyiciyle takılırsa
 SUNUCU = f"http://{HOST}:{PORT}"
 ACILIS_SN, BEKLE_SN = 180, 600
 ALTYAPI = {"node.exe", "bun.exe", "claude.exe", "uv.exe", "uvx.exe", "dotnet.exe", "python.exe", "pythonw.exe",
@@ -40,6 +40,10 @@ MODELLER = {
     "zimage": {"ram_gb": 4.4, "akis": "zimage.json", "lisans": "Apache-2.0 (Tongyi-MAI/Z-Image-Turbo · Comfy-Org/z_image_turbo)",
                "dosyalar": ["diffusion_models/z_image_turbo_fp8_e4m3fn.safetensors", "text_encoders/qwen_3_4b_fp8_mixed.safetensors",
                             "vae/ae.safetensors"]},
+    # TURBO yolu: Z-Image Turbo GGUF Q4_K_M + Qwen3-4B GGUF Q4_K_M (ComfyUI-GGUF); düşük RAM. Qwen-Image-2.1-Turbo
+    # lisansı Qwen Research (ticari yasak) → kurulmadı.
+    "turbo": {"ram_gb": 3.5, "akis": "turbo.json", "lisans": "Apache-2.0 (Tongyi-MAI/Z-Image-Turbo · unsloth/Z-Image-Turbo-GGUF · unsloth/Qwen3-4B-GGUF)",
+              "dosyalar": ["unet/z-image-turbo-Q4_K_M.gguf", "text_encoders/Qwen3-4B-Q4_K_M.gguf", "vae/ae.safetensors"]},
     "klein": {"ram_gb": 4.5, "akis": "klein.json", "lisans": "Apache-2.0 (black-forest-labs/FLUX.2-klein-4B · Comfy-Org/flux2-klein-4B)",
               "dosyalar": ["diffusion_models/flux-2-klein-4b.safetensors", "text_encoders/qwen_3_4b_fp8_mixed.safetensors",
                            "vae/flux2-vae.safetensors"]},
@@ -64,6 +68,14 @@ def dinleyenler(port):
     cikti += subprocess.run(["netstat", "-ano", "-p", "TCPv6"], capture_output=True, text=True, errors="replace").stdout
     return [(p[1], int(p[4])) for p in (s.split() for s in cikti.splitlines())
             if len(p) == 5 and p[0] == "TCP" and p[1].endswith(f":{port}") and p[2].endswith(":0")]
+
+
+def http_acik():
+    try:
+        urllib.request.urlopen(f"{SUNUCU}/system_stats", timeout=2).close()
+        return True
+    except OSError:
+        return False
 
 
 def pid_canli(pid):
@@ -128,14 +140,14 @@ def ac():
         print(f"DUR: {m}")
         return 2
     komut = [str(COMFY / ".venv" / "Scripts" / "python.exe"), "main.py", "--listen", HOST, "--port", str(PORT),
-             "--disable-auto-launch", "--cache-ram"]
+             "--disable-auto-launch", "--cache-ram", "--disable-smart-memory", "--reserve-vram", "3"] + os.environ.get("COMFY_EK", "").split()  # TURBO: tepe RAM ≤%89 · VRAM ≤%80; COMFY_EK = deney bayrakları
     with open(DURUM.with_suffix(".log"), "w", encoding="utf-8") as log:
         pid = subprocess.Popen(komut, cwd=COMFY, stdout=log, stderr=subprocess.STDOUT,
                                creationflags=subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP).pid  # Ekran kuralı: pencere yok
     gk.al("gorsel_uret", pid)  # kilit ComfyUI süreciyle yaşar; süreç ölürse kendiliğinden düşer
     for _ in range(ACILIS_SN):
         time.sleep(1)
-        d = dinleyenler(PORT)
+        d = dinleyenler(PORT) or ([(f"{HOST}:{PORT}", pid)] if http_acik() else [])  # netstat bu makinede dinleyen soketi göstermiyor
         if any(adres.rsplit(":", 1)[0] != HOST for adres, _ in d):
             oldur(pid)
             gk.birak("gorsel_uret")

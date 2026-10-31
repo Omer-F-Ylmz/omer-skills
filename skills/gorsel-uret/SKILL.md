@@ -23,7 +23,8 @@ VIDEO HATTI KURALI (Ömer 21 Eki): üretim (görüntü/video/ses/kurgu) tamamen 
 |----|-------|-------|
 | urun · foto · doku | zimage (Z-Image Turbo fp8) | fotogerçekçilik |
 | metinli · duzenle | klein (FLUX.2 klein 4B) | metin doğru ("TELVE"), referansla düzenleme |
-`--model` ile elle seçilebilir; `--referans` yalnız `duzenle` işinde.
+| düşük RAM · hızlı foto/logo | turbo (Z-Image-Turbo GGUF Q4_K_M, Apache-2.0) | ölçüm: 1024² ~20 sn, tepe RAM %82–84 · VRAM %50 (boş RAM ≥13 GB iken); boş RAM ~8 GB ise soğuk yüklemede acil fren riski |
+`--model` ile elle seçilebilir; `GORSEL_PORT` ile port değişir (8188'de PID 0 hayalet dinleyici kalırsa); `COMFY_EK` ile `ac`'a deney bayrağı eklenir; `--referans` yalnız `duzenle` işinde.
 Prompt her zaman İngilizce yazılır (Türkçe prompt Z-Image'da konudan sapar: "beyaz fonda seramik fincan" → ahşap masada kavanoz); görselin İÇİNE yazılacak metin (ör. "Türk Kahvesi") tırnak içinde aynen kalır.
 
 ## İstem kalıpları (VIDEO-IHZ-2)
