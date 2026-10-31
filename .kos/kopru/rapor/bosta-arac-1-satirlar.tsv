@@ -1,0 +1,1458 @@
+skill	.trash	Gereksiz dosya ve kalıntıları temizleyerek disk alanını yönetmek.
+skill	3d-cloth-material	Kumaş nesneler için gerçekçi doku ve yüzey oluşturmak.
+skill	3d-falling-leaves	Sahneye dinamik düşen yaprak efekti eklemek.
+skill	3d-four-seasons	Dört mevsim döngüsünü içeren sahne ortamı tasarlamak.
+skill	3d-high-poly-models	Karmaşık geometriye sahip detaylı 3D modelleri optimize etmek.
+skill	3d-high-resolution-textures	Görsel sahneler için yüksek çözünürlüklü doku haritaları üretmek.
+skill	3d-metal-material	Metal yüzeylere uygun ışık yansıma ve doku atamak.
+skill	3d-orbit-inspect-demo	Nesneleri incelemek için interaktif yörünge kamerası kurmak.
+skill	3d-paper-material	Kağıt dokusuna sahip 3D materyaller tasarlamak.
+skill	3d-retina-resolution	Ekran çözünürlüğüne uygun net görsel çıktılar almak.
+skill	3d-sky-background	Sahne arkasına dinamik gökyüzü arka planı yerleştirmek.
+skill	3d-sky-rays	Güneş ışığını simüle eden hacimsel ışık efektleri eklemek.
+skill	3d-ultra-realistic-water	Ultra gerçekçi su yüzeyi ve yansımaları oluşturmak.
+skill	3d-underwater-god-rays	Su altı sahneleri için ışık hüzmesi efekti eklemek.
+skill	3d-virtual-tour	Mekanlar için etkileşimli 3D sanal tur oluşturmak.
+skill	3d-wood-lighting-scorecard	Ahşap yüzeylerin ışıkla etkileşimini analiz edip puanlamak.
+skill	3d-wood-material	Ahşap mobilya ve yüzeyler için gerçekçi kaplama eklemek.
+skill	9router-paket	Yönlendirici ağ trafiğini optimize eden paket yönetimi yapmak.
+skill	add-mouse-driven-orbit	Fare ile kontrol edilebilir 3D görüntüleme sistemi eklemek.
+skill	add-new-model	Sisteme yeni ve optimize edilmiş 3D modeller eklemek.
+skill	add-shader-cursor-trail	İmleç hareketine göre dinamik iz efekti oluşturmak.
+skill	agency-grid-layout-minimal	Minimalist estetik için ızgara tabanlı düzenler kurmak.
+skill	agents-md	Yapay zeka ajanlarının çalışma mantığını dokümante etmek.
+skill	agents-sdk	Ajan tabanlı yazılımlar geliştirmek için SDK kullanımı.
+skill	agentshield-paket	Ajan sistemlerinin güvenliğini denetlemek ve yapılandırmak.
+skill	ajan-getir	Gerekli ajan modüllerini merkezi depodan çağırmak.
+skill	ambient-section-particles	Sahneye atmosferik hareketli parçacık efektleri eklemek.
+skill	anatomy	Biyolojik veya mekanik yapıların iç detaylarını incelemek.
+skill	animasyon-atolyesi	Karmaşık animasyon projelerini yönetmek ve düzenlemek.
+skill	animate	Statik öğelere akıcı hareket kabiliyeti kazandırmak.
+skill	animate-expo	Expo framework projeleri için animasyon geliştirmek.
+skill	animation-on-scroll	Kullanıcı sayfayı kaydırdıkça tetiklenen animasyonlar eklemek.
+skill	animation-performance	Animasyon kare hızını ve sistem yükünü iyileştirmek.
+skill	animation-systems	Karmaşık animasyon tetikleme ve oynatma sistemleri kurmak.
+skill	animation-vocabulary	Animasyon terminolojisini standartlaştırmak ve belgeleri yönetmek.
+skill	app-store-screenshots	Uygulama mağazası için yüksek kaliteli tanıtım görselleri hazırlamak.
+skill	apple-design	Apple arayüz tasarım kurallarına uygun görsel geliştirmek.
+skill	archify	Mimari proje dosyalarını sistemli biçimde düzenlemek.
+skill	archify-review	Mimari tasarımların teknik uygunluğunu gözden geçirmek.
+skill	architect	Yazılım mimarisi şemasını tasarlamak ve yapılandırmak.
+skill	article-prompts-to-skills	Makale içeriğinden otomatik yetenek tanımlayıcıları oluşturmak.
+skill	ask-sonner	Sonner kütüphanesi ile etkileşimli bildirimler tetiklemek.
+skill	atmosphere-background	Sahneye uygun atmosferik arka plan sesi/görseli eklemek.
+skill	audit	Proje kod tabanını güvenlik ve performans açısından denetlemek.
+skill	audit-ai-design-slop	Yapay zeka tarafından üretilen anlamsız tasarımları tespit etmek.
+skill	audit-reference-originality	Tasarımın referans kaynağına göre özgünlüğünü doğrulamak.
+skill	audit-verify-explain-grade-5	Beşinci seviye öğrenim çıktılarının doğruluğunu denetlemek.
+skill	aura-asset-images	Aura projesi için gerekli varlık görsellerini hazırlamak.
+skill	author-game-levels	Oyun seviyelerini tasarlamak ve oyun akışını kurmak.
+skill	autoclip-paket	Dosyaları otomatik olarak kırpma ve paketleme işlemleri.
+skill	autoplan	autoplan|Karmaşık yazılım projelerinde geliştirme aşamalarını ve görev dağılımını otomatik planlama.
+skill	awesome-rehber	awesome-rehber|Yeni başlayanlar için teknoloji yığınında derlenmiş en iyi kaynakları sunma.
+skill	background-grid-webgl	background-grid-webgl|Web projelerinde performanslı ve interaktif 3D arka plan ızgarası oluşturma.
+skill	baoyu-article-illustrator	baoyu-article-illustrator|Teknik makaleleri görselleştirmek için özel illüstrasyonlar ve grafikler tasarlama.
+skill	baoyu-comic	baoyu-comic|Karmaşık süreçleri veya hikayeleri basit çizgi roman şablonuyla anlatma.
+skill	baoyu-compress-image	baoyu-compress-image|Web sitesi görsellerini kalite kaybı olmadan optimize ederek boyutlarını düşürme.
+skill	baoyu-cover-image	baoyu-cover-image|Blog yazıları veya sosyal medya için etkileyici kapak görselleri oluşturma.
+skill	baoyu-diagram	baoyu-diagram|Sistem mimarisi veya iş akışlarını net diyagramlar ile görselleştirme.
+skill	baoyu-format-markdown	baoyu-format-markdown|Düzensiz metin içeriklerini profesyonel ve okunabilir Markdown formatına dönüştürme.
+skill	baoyu-image-gen	baoyu-image-gen|Yapay zeka ile projeye özgü özel tasarım öğeleri ve ikon üretme.
+skill	baoyu-infographic	baoyu-infographic|İstatistikleri veya verileri kolay anlaşılır infografik tasarımlarına dönüştürme.
+skill	baoyu-markdown-to-html	baoyu-markdown-to-html|Markdown dokümanlarını kurumsal web standartlarına uygun HTML dosyalarına çevirme.
+skill	baoyu-slide-deck	baoyu-slide-deck|Sunum dosyalarını yapılandırılmış içeriklerle hızlı bir şekilde hazırlama.
+skill	baoyu-translate	baoyu-translate|Çok dilli dokümantasyon projelerinde içerikleri doğru ve doğal dilde çevirme.
+skill	baoyu-url-to-markdown	baoyu-url-to-markdown|Web sayfalarındaki içeriği temizleyip okunabilir Markdown formatına aktarma.
+skill	baoyu-wechat-summary	baoyu-wechat-summary|Uzun WeChat yazışmalarını veya makalelerini kısa özetler haline getirme.
+skill	baoyu-xhs-images	baoyu-xhs-images|Xiaohongshu tarzı dikkat çekici ve estetik görsel içerikler oluşturma.
+skill	baoyu-youtube-transcript	baoyu-youtube-transcript|YouTube videolarının transkriptlerini alıp analiz edilebilir özetlere dönüştürme.
+skill	baseline-ui	baseline-ui|Web arayüzlerinde tutarlı bir hizalama ve temel bileşen tasarımı sağlama.
+skill	basin	basin|Kullanıcı geri bildirimlerini toplamak için basit ve güvenli form uç noktaları.
+skill	beam-glow-states	beam-glow-states|Arayüz öğelerine etkileşim sırasında estetik ışık ve parlama efektleri ekleme.
+skill	beautiful-shadows	beautiful-shadows|Modern web tasarımlarında derinlik hissi veren yumuşak gölge efektleri uygulama.
+skill	benchmark	benchmark|Yazılım kodunun performansını ölçerek darboğazları tespit edip raporlama.
+skill	benchmark-models	benchmark-models|Farklı yapay zeka modellerinin yanıt süresini ve doğruluğunu karşılaştırma.
+skill	blog-writing-guide	blog-writing-guide|Blog içeriklerini SEO uyumlu ve okuyucu odaklı yapılandırma rehberi oluşturma.
+skill	blue-cloudy-clean-modern	blue-cloudy-clean-modern|Minimalist ve modern web siteleri için temiz mavi tema tasarımı.
+skill	blue-laser-clean-glass-layout	blue-laser-clean-glass-layout|Yüksek teknoloji hissi veren cam dokulu modern arayüzler geliştirme.
+skill	book-serif-index	book-serif-index|Kitap veya uzun dokümanlar için klasik serif tipografi içeren indeksler.
+skill	break-ui	break-ui|Kullanıcı arayüzünde hataları veya kırılmaları simüle ederek test etme.
+skill	bright-green-tech-system-webgl	bright-green-tech-system-webgl|Siber güvenlik veya veri görselleştirme panelleri için yeşil tema.
+skill	browse	browse|İnternette güncel verileri araştırarak geliştirme sürecinde bilgi toplama.
+skill	browser-use-paket	browser-use-paket|Tarayıcı otomasyonu ile web sitesi testlerini ve veri çekme işlemlerini yönetme.
+skill	browser-video-recording	browser-video-recording|Web tabanlı uygulamalarda kullanıcı akışlarını videoya kaydederek hata ayıklama.
+skill	build-daily-inspiration-sites	build-daily-inspiration-sites|İlham verici günlük içerik sunan modern web siteleri oluşturma.
+skill	build-game-audio-feedback	build-game-audio-feedback|Oyun içi aksiyonlara göre tetiklenen sesli geri bildirim sistemleri kodlama.
+skill	build-game-camera-controls	build-game-camera-controls|Karakter odaklı veya serbest gezilebilir oyun kamera sistemleri geliştirme.
+skill	build-game-changelog	build-game-changelog|Oyun güncellemelerini oyunculara profesyonel bir log dosyasıyla sunma.
+skill	build-game-inventory	build-game-inventory|Oyun içi eşya yönetimi ve envanter veritabanı sistemleri kurma.
+skill	build-game-map-editor	build-game-map-editor|Oyun dünyası için özelleştirilebilir harita ve seviye düzenleyici aracı.
+skill	build-game-monster-system	build-game-monster-system|Yapay zeka tabanlı düşman davranışı ve saldırı sistemleri kurgulama.
+skill	build-hybrid-game-assets	build-hybrid-game-assets|Mobil ve web oyunları için optimize edilmiş hibrit varlıklar geliştirme.
+skill	build-interactive-particle-trail	build-interactive-particle-trail|Karakter veya nesne hareketlerinde etkileşimli görsel iz efektleri ekleme.
+skill	build-isometric-arpg	build-isometric-arpg|İzometrik bakış açısına sahip aksiyon rol yapma oyunları geliştirme.
+skill	build-mobile-threejs-games	build-mobile-threejs-games|Mobil cihazlar için optimize edilmiş yüksek performanslı Three.js oyunları yapma.
+skill	build-rigged-game-assets	build-rigged-game-assets|Animasyonlar için kemik yapısı tanımlanmış 3D oyun karakterleri oluşturma.
+skill	build-threejs-enemy-systems	build-threejs-enemy-systems|Three.js sahnelerinde düşmanların hareket ve algılama mantığını kurma.
+skill	build-threejs-scroll-worlds	build-threejs-scroll-worlds|Sayfa kaydırma hareketiyle tetiklenen 3D dünyalar ve animasyonlar geliştirme.
+skill	build-vesperfall-review-assets	build-vesperfall-review-assets|Oyun inceleme içerikleri için görsel varlıklar ve veri tabloları hazırlama.
+skill	build-wireframe-scan-reveal	"build-wireframe-scan-reveal|Web projelerinde ""tarama"" efektli modern arayüz geçişleri kurgulama."
+skill	calisma-protokolu	calisma-protokolu|Ekip içi geliştirme standartlarını ve kuralları içeren çalışma dokümanı hazırlama.
+skill	canary	Yeni güncellemeleri kontrollü şekilde kademeli olarak canlıya dağıtmak.
+skill	careful	Hata payını azaltmak için kritik kod değişikliklerini dikkatle incelemek.
+skill	check	Kodun belirlenen kalite standartlarına uygunluğunu doğrulama testlerini çalıştırmak.
+skill	chinese-novelist-skill	Karmaşık karakter gelişimleri ve derin edebi metinler kurgulamak.
+skill	cinematic-gsap-lenis-motion-system	GSAP ve Lenis kullanarak sinematik web animasyonları oluşturmak.
+skill	cinematic-scroll-storytelling	Kaydırma hareketine dayalı etkileşimli dijital hikaye anlatıcılığı yapmak.
+skill	claude-settings-audit	Claude yapılandırma ayarlarını güvenlik ve performans açısından düzenli denetlemek.
+skill	clean-minimal-beige-light-mode	Arayüzü göz yormayan, minimalist, bej tonlarında ışık moduna çevirmek.
+skill	cloudflare	Cloudflare ağ ayarlarını ve DNS yapılandırmalarını merkezi olarak yönetmek.
+skill	cloudflare-email-service	Cloudflare altyapısı üzerinden güvenli ve ölçeklenebilir e-posta gönderimi sağlamak.
+skill	cloudflare-one	Kurumsal ağ güvenliğini Cloudflare One çözümleriyle sıfır güven modeline geçirmek.
+skill	cloudflare-one-migrations	Mevcut ağ altyapısını Cloudflare One mimarisine sorunsuz şekilde taşımak.
+skill	cobejs	Küresel verileri etkileşimli 3D küre üzerinde görselleştirmek için kullanmak.
+skill	code-review	Yazılan kod bloklarını mantık, stil ve güvenlik açsından detaylı incelemek.
+skill	code-simplifier	Karmaşık ve gereksiz kod yapılarını daha basit, okunabilir hale getirmek.
+skill	codex	Geniş kod kütüphanelerini hızlıca indekslemek ve anlamsal arama yapmak.
+skill	codex-gpt-image-2-5-flare	Görsel tasarımları Claude kullanarak doğrudan kodlanabilir arayüzlere dönüştürmek.
+skill	commit	Değişiklikleri standartlara uygun ve açıklayıcı mesajlarla repoya işlemek.
+skill	company-logos	Kurumsal kimlik için marka logolarını web sitesine dinamik eklemek.
+skill	connect-chrome	Chrome tarayıcı oturumlarını geliştirme ortamıyla senkronize şekilde yönetmek.
+skill	container-lines	Docker konteyner günlüklerini ve çalışma süreçlerini anlık izlemek.
+skill	context-restore	Önceki çalışma oturumunu tüm değişkenler ve durumla geri yüklemek.
+skill	context-save	Çalışma oturumunun mevcut durumunu veritabanı veya diskte saklamak.
+skill	context7-cli	Context7 CLI komutlarıyla hızlı sistem etkileşimi ve operasyon yapmak.
+skill	context7-mcp	Context7 MCP sunucusu ile veri erişim protokollerini standartlaştırmak.
+skill	convex	Convex veritabanı şemasını kurmak ve temel veri modellerini tanımlamak.
+skill	convex-add	Projenin Convex bağımlılıklarını güvenli ve güncel bir şekilde eklemek.
+skill	convex-advisor	Convex veritabanı mimarisi üzerine en iyi pratikleri uygulamak.
+skill	convex-agent	Veri odaklı işlemleri otomatize eden akıllı bir Convex ajanı kurmak.
+skill	convex-auth	Kullanıcı kimlik doğrulama sistemlerini Convex ile entegre etmek.
+skill	convex-authz	Convex veritabanında rol tabanlı erişim ve yetkilendirme katmanı kurmak.
+skill	convex-backup	Convex veritabanı tablolarının düzenli yedeklerini otomatik olarak almak.
+skill	convex-billing	Convex kullanımına bağlı maliyetleri optimize etmek ve faturalandırmayı yönetmek.
+skill	convex-cost	Convex tabanlı uygulamalarda operasyonel maliyet analizi yapmak.
+skill	convex-create-component	Convex mimarisi için yeniden kullanılabilir modüler bileşenler tasarlamak.
+skill	convex-crons	Zamanlanmış arka plan görevlerini Convex ile yönetip çalıştırmak.
+skill	convex-deploy-guard	Canlı ortama dağıtım öncesi Convex şema hatalarını kontrol etmek.
+skill	convex-design	Convex veritabanı şemalarını modern tasarım prensiplerine göre yapılandırmak.
+skill	convex-docs	Convex platformunun teknik belgelerini projenin ihtiyaçlarına göre uyarlamak.
+skill	convex-domains	Convex destekli uygulamalar için özel alan adı tanımlamak.
+skill	convex-env	Çevresel değişkenleri güvenli şekilde Convex ortamına tanımlayıp yönetmek.
+skill	convex-expert	Karmaşık Convex veritabanı sorunlarını çözümlemek ve iyileştirme önermek.
+skill	convex-explain-app	Convex uygulama mimarisini teknik dokümanlar üzerinden açıklamak.
+skill	convex-improve-convex-plugin	Mevcut Convex eklentilerini yeni özelliklerle geliştirip iyileştirmek.
+skill	convex-insights	Convex veritabanı performansını analiz ederek kritik içgörüler sunmak.
+skill	convex-launch-readiness	Uygulamanın Convex ile yayına hazır olma durumunu denetlemek.
+skill	convex-migrate	Eski veritabanı yapısını Convex mimarisine sorunsuz şekilde taşımak.
+skill	convex-migrate-rehearse	Convex veritabanı göç işlemlerini gerçek verilerle önceden simüle etmek.
+skill	convex-monitor	Convex sistem sağlığını sürekli izleyip hata uyarıları üretmek.
+skill	convex-optimize	Convex veritabanı sorgu ve işlem hızlarını optimize etmek.
+skill	convex-quickstart	Convex projelerine hızlı başlangıç ve konfigürasyon dosyası oluşturma.
+skill	convex-reviewer	Convex kod tabanını inceleyip standartlara uygunluk denetimi yapma.
+skill	convex-seed	Geliştirme aşamasında test verilerini veritabanına otomatik ekleme.
+skill	convex-self-heal	Convex hatalarını analiz edip otomatik düzeltme önerileri getirme.
+skill	convex-sentinel	Convex veritabanı işlemlerini izleyip güvenlik ve performans denetimi.
+skill	convex-suggest	Convex veritabanı şeması veya sorgu optimizasyonu önerileri sunma.
+skill	convex-test	Convex projelerinde birim ve entegrasyon testlerini çalıştırma.
+skill	convex-verify	Veritabanı şeması ve kod uyumluluğunu doğrulama.
+skill	corner-diagonals	UI bileşenlerinde köşe çapraz geçiş animasyonları oluşturma.
+skill	corner-lasers	UI arayüzünde ışın tabanlı görsel efekt tasarımı oluşturma.
+skill	create-branch	Git üzerinde yeni özellik geliştirme dalı açma.
+skill	create-design-md	Proje dokümantasyonu için yapısal tasarım dosyası oluşturma.
+skill	create-game-vfx	Oyun motorları için parçacık ve görsel efekt tasarlama.
+skill	cso	Operasyonel süreçleri optimize eden merkezi sistem organizasyonu.
+skill	css-alpha-masking	Web arayüzünde öğelere alfa maske katmanı uygulama.
+skill	css-border-gradient	Kenarlıklar için degrade renk geçişleri tanımlama.
+skill	daily-circle	Ekip içi günlük toplantı ve durum özeti raporu.
+skill	daily-ui-inspiration-capture	Günlük arayüz tasarımlarından ilham verici öğeler kaydetme.
+skill	dark-blue-contrasting-clean	Koyu mavi tonlarında temiz kontrastlı arayüz düzeni oluşturma.
+skill	dark-glass-clean-layout	Şeffaf cam görünümlü modern arayüz tasarımı uygulama.
+skill	davila7-ai-maestro-paket	AI Maestro sistemlerini yapılandırma ve yönetme paketi.
+skill	davila7-ai-research-paket-1	Akademik düzeyde AI araştırma veri seti analizi.
+skill	davila7-ai-research-paket-2	İleri seviye AI model deneyleri ve simülasyonları.
+skill	davila7-analytics-paket	Veri odaklı iş analitiği ve raporlama süreçleri.
+skill	davila7-business-marketing-paket	Dijital pazarlama kampanyaları stratejisi ve optimizasyonu.
+skill	davila7-career-paket	Profesyonel kariyer planlama ve yetenek yönetimi.
+skill	davila7-creative-design-paket	Yaratıcı görsel tasarım ve tipografi düzenlemeleri.
+skill	davila7-curviate-paket	Veri setlerini eğrisel desenlerle görselleştirme analizi.
+skill	davila7-database-paket	İlişkisel veritabanı tasarımı ve SQL sorgu yönetimi.
+skill	davila7-design-to-code-paket	Tasarım taslaklarını hızlıca çalışan kod bloklarına dönüştürme.
+skill	davila7-development-paket-1	Web uygulamaları için temel geliştirme ve entegrasyon.
+skill	davila7-development-paket-2	İleri seviye uygulama geliştirme ve mimari yapılandırma.
+skill	davila7-document-processing-paket	Otomatik doküman tarama ve içerik metne dönüştürme.
+skill	davila7-doordash-paket	Yemek teslimat sistemi entegrasyon ve lojistik yönetimi.
+skill	davila7-enterprise-communication-paket	Kurumsal iletişim kanallarını ve araçlarını optimize etme.
+skill	davila7-git-paket	Git komut dizilerini otomatikleştirme ve depo yönetimi.
+skill	davila7-gmod-addon-maker-paket	Garry’s Mod için özel eklenti geliştirme ve düzenleme.
+skill	davila7-marketing-paket	Pazarlama metinleri oluşturma ve hedef kitle analizi.
+skill	davila7-media-paket	Dijital medya içerik yönetimi ve optimizasyonu.
+skill	davila7-open-banking-io-paket	Açık bankacılık API entegrasyonları ve veri akışı.
+skill	davila7-operations-paket	İş operasyonlarını ve günlük görevleri yönetme.
+skill	davila7-pocketbase-paket	PocketBase üzerinde hızlı backend ve veri servisi.
+skill	davila7-productivity-paket	Görev yönetimi ve kişisel verimlilik artırma araçları.
+skill	davila7-railway-paket	Railway üzerinde bulut platformu dağıtım ve yönetimi.
+skill	davila7-scientific-paket-1	Temel bilimsel veri hesaplama ve modelleme.
+skill	davila7-scientific-paket-2	İleri düzey bilimsel araştırma ve analiz simülasyonu.
+skill	davila7-security-paket	Siber güvenlik açıklarını tarama ve koruma önlemleri.
+skill	davila7-sentry-paket	Uygulama hata izleme ve Sentry raporlama entegrasyonu.
+skill	davila7-sports-paket	Spor müsabakaları verilerini takip etme ve analizleme.
+skill	davila7-utilities-paket	Genel amaçlı sistem araçları ve yardımcı scriptler.
+skill	davila7-video-paket	Video dosyalarını otomatik işleyip düzenlemek için kullanılır.
+skill	davila7-web-data-paket	Web sitelerinden veri kazıyıp yapılandırılmış veri üretmek için kullanılır.
+skill	davila7-web-development-paket	Modern web projeleri için hızlı prototip ve bileşen geliştirmek.
+skill	davila7-workflow-automation-paket	İş süreçlerini otomatize edip verimliliği artırmak için kullanılır.
+skill	debug	Karmaşık kod tabanlarındaki hataları sistematik olarak tespit eder.
+skill	deploy-app	Uygulamaları bulut sunuculara hatasız ve hızlıca yayınlamak.
+skill	design-action-combat	Oyun içi savaş mekaniklerini tasarlamak ve dengelemek için.
+skill	design-consultation	Profesyonel tasarım süreçlerinde stratejik danışmanlık hizmeti sunmak.
+skill	design-first-ui-prompting	UI tasarımına yönelik etkili ve tutarlı istemler hazırlamak.
+skill	design-game-encounters	Oyunlarda oyuncuyu zorlayan karşılaşmalar tasarlamak için kullanılır.
+skill	design-html	Hızlı ve semantik HTML yapıları prototipleyip oluşturmak için.
+skill	design-review	Tasarım kararlarını teknik ve görsel açıdan detaylı incelemek.
+skill	design-shotgun	Hızlı tasarım kararları almak için kullanılan iterasyon aracı.
+skill	deslop-shared-libs	Paylaşımlı kütüphaneleri optimize edip geliştirmek için kullanılır.
+skill	develop	Yazılım projelerinde standart kod yazma ve geliştirme süreci.
+skill	devex-review	Geliştirici deneyimini iyileştirmek için süreçleri analiz etmek.
+skill	diagram	Sistem mimarisini görselleştirmek ve şemalar oluşturmak için.
+skill	diagram-design-paket	Diyagram odaklı teknik tasarım dokümanları hazırlamak için kullanılır.
+skill	dither-background	Web arayüzlerine arka plan dither efektleri eklemek için.
+skill	dither-laser-dark-mode	Karanlık mod tasarımlarında lazer temalı görsel estetik sağlamak.
+skill	django-access-review	Django projelerinde güvenlik ve erişim yetkilerini denetlemek için.
+skill	django-perf-review	Django uygulamalarının performans darboğazlarını analiz edip optimize etmek.
+skill	doc-coauthoring	Teknik dokümanları ekip ile birlikte eşzamanlı hazırlamak.
+skill	document	Yazılım ve süreçler için kapsamlı teknik dokümantasyon oluşturmak.
+skill	document-api-endpoint	API uç noktalarını standartlara uygun şekilde belgelendirmek.
+skill	document-generate	Otomatik olarak teknik doküman ve kullanım kılavuzu oluşturmak.
+skill	document-release	Yazılım sürüm notlarını ve dokümanlarını güncelleyip yayınlamak.
+skill	documentary-brutalist-agency	Brütalist tarzda ajans portfolyo sitesi içeriklerini yönetmek.
+skill	durable-objects	Dağıtık sistemlerde kalıcı durum nesnelerini yönetmek için kullanılır.
+skill	editorial-portfolio-chapters	Portfolyo bölümlerini editoryal bir akışla düzenlemek için kullanılır.
+skill	editorial-service-booking	Hizmet rezervasyon sistemleri için editoryal yönetim sağlar.
+skill	editorial-tech	Teknik içerikleri editoryal standartlara göre düzenlemek için kullanılır.
+skill	elevenlabs-tts	Yazılı metinleri doğal insan sesine dönüştürmek için kullanılır.
+skill	emil-design-eng	Mühendislik odaklı tasarım süreçlerini entegre etmek için kullanılır.
+skill	eval-plan	Projelerin başarı kriterlerini değerlendirme planı hazırlamak.
+skill	excalidraw	El çizimi tarzında teknik diyagramlar oluşturmak için kullanılır.
+skill	excalidraw-diagram-skill	Eğitsel ve teknik diyagramları görselleştirerek sunmak.
+skill	falling-leaves	Görsel arayüzlere yaprak düşme animasyonları eklemek için.
+skill	fastapi-python	Hızlı ve ölçeklenebilir Python API servisleri geliştirmek.
+skill	fatura-kutusu	Gelen faturaları dijitalleştirip sınıflandırmak için kullanılır.
+skill	find-animation-opportunities	Arayüzlerde animasyon eklenebilecek uygun noktaları belirlemek.
+skill	find-bugs	Kod içerisinde gizli kalmış hataları otomatik taramak.
+skill	find-docs	Proje dosyaları içinde hızlı ve kesin doküman bulmak.
+skill	fire-paper-loader	Kağıt benzeri doku yüklemeleriyle görsel arayüzler tasarlamak.
+skill	fire-smoke-skill-vfx	Görsel efekt projelerinde duman simülasyonları oluşturmak için.
+skill	fixing-accessibility	Web arayüzlerini erişilebilirlik standartlarına uygun hale getirmek.
+skill	fixing-metadata	Dosya ve proje meta verilerini standartlara göre düzeltmek.
+skill	fixing-motion-performance	Arayüz animasyonlarının performansını optimize edip akıcılık sağlamak.
+skill	formulate-abstractions	Karmaşık iş mantığını soyutlayıp modellemek için kullanılır.
+skill	framed-grid-layout	Dinamik ve düzenli ızgara tabanlı arayüz yapıları oluşturmak.
+skill	framed-tech-dark-border-gradient	Koyu temalı teknik dokümanlarda şık kenarlık oluşturma.
+skill	freeflow-paket	Serbest akışlı yazılım paketlerini hızlıca yapılandırma ve yönetme.
+skill	freeze	Bağımlılıkları belirli bir sürümde sabitleyerek projeyi kararlı tutma.
+skill	frontend-slides-paket	Web tabanlı etkileşimli sunum slaytları oluşturma ve tasarlama.
+skill	funky-purple-container-tech	Teknik paneller için mor renkli estetik kutu tasarlama.
+skill	game-dev-combat-animation	Oyun karakterlerinin savaş animasyonlarını kare kare işleme.
+skill	game-dev-combat-skill-polish	Savaş yeteneklerinin görsel efektlerini ve vuruş hissini iyileştirme.
+skill	gemini-api-dev	Gemini API kullanarak akıllı sohbet botları geliştirme.
+skill	gemini-live-api-dev	Gerçek zamanlı sesli Gemini API entegrasyonlarını test etme.
+skill	gemini-omni-flash-api	Gemini Omni Flash API ile hızlı veri işleme.
+skill	generate-reference-inspired-brand-worlds	Referanslardan ilham alarak özgün marka dünyaları tasarlama.
+skill	geo-optimizer-skill	Coğrafi verileri işleyip harita tabanlı sistemleri optimize etme.
+skill	gh-review-requests	GitHub üzerindeki açık inceleme isteklerini listeleme ve yönetme.
+skill	gha-security-review	GitHub Actions iş akışlarındaki güvenlik açıklarını otomatik tarama.
+skill	glass-dark-mode-clock	Koyu modda şık ve modern bir saat bileşeni yapma.
+skill	glass-dark-ui	Koyu mod kullanıcı arayüzleri için cam efekti uygulama.
+skill	globe-gl	WebGL ile etkileşimli 3D küre verisi görselleştirme.
+skill	globe-particles	Küre üzerinde parçacık efektli animasyonlar oluşturma.
+skill	gooey-blob-system	Akışkan ve organik hareket eden blob şekilleri tasarlama.
+skill	gsap	Karmaşık web animasyonlarını GSAP kütüphanesiyle pürüzsüzleştirme.
+skill	gsap-scrolltrigger-storytelling	Kaydırma tetikleyicileriyle hikaye odaklı web animasyonları kurgulama.
+skill	gsd-paket	GSD (Geliştirici Standartları) paketlerini projelere entegre etme.
+skill	gstack	Teknoloji yığınlarını (stack) otomatik kurulumla hazırlama.
+skill	gstack-upgrade	Mevcut teknoloji yığınlarını en yeni sürümlere yükseltme.
+skill	guard	Kod tabanındaki güvenlik ve kural ihlallerini izleme.
+skill	hairline-create	Çok ince, hassas tasarımlı kenarlık çizgileri oluşturma.
+skill	health	Sistem ve uygulama bileşenlerinin sağlık durumunu izleme.
+skill	herdr	Sürü tabanlı veri yapılarını yönetmek için araç kullanma.
+skill	herdr-paket	Herdr tabanlı veri işleme paketlerini yapılandırma.
+skill	herdr-pre-release-audit	Herdr projelerinin yayın öncesi güvenlik ve uyumluluk denetimi.
+skill	herdr-throwaway-repro	Hızlı hata ayıklama için geçici yeniden üretim ortamları oluşturma.
+skill	hetzner-deploy	Uygulamaları Hetzner bulut altyapısına hızlıca konuşlandırma.
+skill	high-contrast-skeuomorphic-clean	Erişilebilirlik odaklı temiz, skeuomorfik arayüz tasarımları oluşturma.
+skill	horizontal-scroll-scenes	Yatay kaydırma ile anlatılan sahneli web sayfaları hazırlama.
+skill	html-to-interaction-prompts	HTML içeriğini etkileşimli istemlere dönüştürerek web bileşeni üretme.
+skill	hyperframes-studio	Hyperframes stüdyo ortamında gelişmiş görsel içerik geliştirme.
+skill	ice-frost-skill-vfx	Buz ve donma temalı görsel efektler tasarlama.
+skill	illustration-bold-pop	Dikkat çekici ve cesur pop-art illüstrasyonlar oluşturma.
+skill	illustration-flat	Modern ve minimalist düz stil illüstrasyonlar tasarlama.
+skill	illustration-flat-with-black	Siyah çizgilerle vurgulanmış, düz stil illüstrasyonlar çizme.
+skill	illustration-framed-panel	Çerçeveli panel estetiğinde illüstrasyon çalışmaları yapma.
+skill	illustration-grainy-gouache	Gouache boya dokulu, grenli sanatsal illüstrasyonlar üretme.
+skill	illustration-halftone-line	Yarı tonlu çizgilerle nostaljik illüstrasyonlar tasarlama.
+skill	illustration-ink-sketch	Elde çizilmiş hissi veren mürekkepli illüstrasyonlar oluşturma.
+skill	illustration-isometric-mono	İzometrik ve monokromatik teknik çizimler hazırlama.
+skill	illustration-line-interior	İç mekan tasarımlarını minimal çizgilerle illüstrasyona dökme.
+skill	illustration-one-line	Tek bir çizgiyi hiç koparmadan karakter çizimleri yapma.
+skill	illustration-outlined-cartoon	Çizgi film tarzında kalın dış hatlı illüstrasyonlar oluşturma.
+skill	illustration-teal-spot	Teal rengi ağırlıklı minimalist ve modern illüstrasyonlar yapma.
+skill	illustration-two-colour-brush	İki renkli fırça darbeleriyle sanatsal illüstrasyonlar oluşturma.
+skill	illustration-vintage-emblem	illustration-vintage-emblem|Retro tarza sahip logo veya marka amblemi tasarlamak için kullanılır.
+skill	image-first-grid-layout	image-first-grid-layout|Görsel ağırlıklı modern ve düzenli bir ızgara yapısı oluşturmak için kullanılır.
+skill	img2threejs	img2threejs|İki boyutlu bir resmi üç boyutlu etkileşimli bir modele dönüştürür.
+skill	implement-fog-of-war	implement-fog-of-war|Oyunlarda keşfedilmemiş bölgeleri gizlemek için sis efekti eklemek için kullanılır.
+skill	improve-animations	improve-animations|Mevcut kullanıcı arayüzü geçişlerini daha akıcı ve estetik hale getirmek.
+skill	improve-ui	improve-ui|Kullanıcı deneyimini artırmak için görsel arayüz öğelerini optimize etmek için kullanılır.
+skill	infinite-canvas-paket	infinite-canvas-paket|Sınırsız bir çalışma alanı üzerinde çizim veya not alma aracıdır.
+skill	interfaces-better-paket	interfaces-better-paket|Uygulama arayüzlerini daha kullanıcı dostu ve erişilebilir hale getirmek için kullanılır.
+skill	investigate	investigate|Belirli bir hata veya performans sorununun kök nedenini analiz etmek.
+skill	ios-clean	ios-clean|iOS projesindeki gereksiz dosyaları ve derleme kalıntılarını tamamen temizlemek.
+skill	ios-design-review	ios-design-review|iOS arayüz tasarımlarını Apple'ın tasarım yönergelerine uygunluk açısından denetlemek.
+skill	ios-fix	ios-fix|iOS uygulamalarındaki spesifik hata ve çökme sorunlarını gidermek için kullanılır.
+skill	ios-qa	ios-qa|iOS uygulamasının kalite standartlarına ve kullanıcı senaryolarına uygunluğunu test etmek.
+skill	ios-sync	ios-sync|Yerel iOS kod tabanını uzaktaki depo ile sorunsuz senkronize etmek.
+skill	iterate-pr	iterate-pr|Gönderilen bir çekme isteğini geri bildirimlere göre hızla güncellemek.
+skill	iterate-until-verified	iterate-until-verified|Belirli bir test senaryosu geçene kadar kodu otomatik olarak iyileştirmek.
+skill	k2	k2|K-dizi yapıları ile büyük veri kümelerini hızlıca indekslemek ve sorgulamak.
+skill	kdense-scientific-paket-1	kdense-scientific-paket-1|Yoğun bilimsel hesaplamalar ve karmaşık veri analizi süreçlerini yönetmek.
+skill	kdense-scientific-paket-2	kdense-scientific-paket-2|İleri seviye matematiksel modelleme ve simülasyonları gerçekleştirmek için kullanılır.
+skill	land-and-deploy	land-and-deploy|Projeyi canlı ortama hazırlamak ve dağıtım sürecini yönetmek için kullanılır.
+skill	landing-page	landing-page|Ürün veya hizmet için yüksek dönüşüm odaklı bir giriş sayfası oluşturmak.
+skill	landing-page-design	landing-page-design|Giriş sayfasının görsel düzenini ve kullanıcı akışını tasarlamak için kullanılır.
+skill	landing-report	landing-report|Giriş sayfası ziyaretçi analizi ve performans metriklerini raporlamak için kullanılır.
+skill	learn	learn|Yeni bir kütüphane veya teknoloji dokümantasyonunu hızla analiz edip öğrenmek.
+skill	learned	learned|Önceki görevlerden edinilen tecrübeleri not edip gelecekteki projelerde uygulamak.
+skill	light-mode-paper-technical	light-mode-paper-technical|Teknik belgeler için göz yormayan, kağıt temalı aydınlık mod tasarımı.
+skill	lightning-energy-skill-vfx	lightning-energy-skill-vfx|Dijital arayüzlere dinamik ve etkileyici yıldırım görsel efektleri eklemek.
+skill	liquid-metal-border	liquid-metal-border|Arayüz bileşenlerine hareketli ve akışkan metalik kenarlık efektleri eklemek.
+skill	loopy-paket	loopy-paket|Tekrarlayan görevleri otomatize etmek için döngüsel iş akışları oluşturmak.
+skill	make-pdf	make-pdf|HTML içeriklerini düzenli ve profesyonel görünümlü PDF dosyalarına dönüştürmek.
+skill	marquee-loop	marquee-loop|Metin veya görselleri kayan bir şerit şeklinde sürekli döndürmek.
+skill	masked-reveal	masked-reveal|Görselleri maskeleyerek estetik bir şekilde kademeli olarak göstermek.
+skill	matterjs	matterjs|Web projelerine gerçekçi fizik tabanlı animasyonlar ve etkileşimler eklemek.
+skill	mesh-gradient-dark-blue-clean	mesh-gradient-dark-blue-clean|Modern ve şık, koyu mavi tonlarında geçişli arka planlar oluşturmak.
+skill	mobile-android-design	mobile-android-design|Android platformuna özel estetik ve işlevsel arayüz tasarımları oluşturmak.
+skill	mobile-native	mobile-native|Yerel mobil uygulama bileşenlerini platforma özel performansla geliştirmek.
+skill	model-sec	model-sec|Yapay zeka modellerini saldırılara karşı korumak ve açıklarını denetlemek.
+skill	moli-cdp-server	moli-cdp-server|Müşteri verilerini merkezi bir platformda toplamak ve senkronize etmek.
+skill	moli-webfetch	moli-webfetch|Belirli web sayfalarından otomatik ve yapılandırılmış veri çekmek için kullanılır.
+skill	moli-websearch	moli-websearch|İnternet üzerinde hedefe yönelik hızlı ve akıllı arama yapmak.
+skill	moneyprinter-paket	moneyprinter-paket|Otomatik içerik üretim süreçleri ile gelir getiren varlıklar oluşturmak.
+skill	monthly-review	monthly-review|Aylık proje ilerlemesini ve hedefleri analiz eden bir özet raporu.
+skill	morning-plan	morning-plan|Güne başlarken öncelikli görevleri belirleyip zaman çizelgesi oluşturmak.
+skill	motion-os	motion-os|İşletim sistemi genelinde akıcı ve tutarlı hareket animasyonları yönetmek.
+skill	motion-studio	motion-studio|Karmaşık hareketli grafik tasarımları ve animasyon dizileri oluşturmak.
+skill	mukul975-ai-security-paket	mukul975-ai-security-paket|Yapay zeka sistemlerini kötü amaçlı manipülasyonlara karşı güvence altına almak.
+skill	mukul975-api-security-paket	mukul975-api-security-paket|API uç noktalarını yetkisiz erişim ve siber saldırılardan korumak.
+skill	mukul975-application-security-paket	mukul975-application-security-paket|Uygulama genelinde güvenlik açıklarını tespit edip yamalar uygulamak.
+skill	mukul975-blockchain-security-paket	mukul975-blockchain-security-paket|Blok zinciri tabanlı protokolleri akıllı sözleşme açıklarına karşı denetlemek.
+skill	mukul975-cloud-security-paket	mukul975-cloud-security-paket|Bulut altyapısı konfigürasyonlarını güvenlik standartlarına uygun hale getirmek.
+skill	mukul975-compliance-governance-paket	Kurumsal uyumluluk standartlarını raporlama ve denetim süreçlerini yönetme.
+skill	mukul975-container-security-paket	Konteyner imajlarındaki güvenlik açıklarını ve yapılandırma hatalarını tarama.
+skill	mukul975-cryptography-paket	Kriptografik anahtarların güvenli oluşturulması ve şifreleme algoritmalarını doğrulama.
+skill	mukul975-data-protection-paket	Kişisel verilerin işlenmesinde KVKK uyumluluğu ve veri maskeleme işlemleri.
+skill	mukul975-deception-technology-paket	Sistemde sahte tuzak kaynaklar oluşturarak saldırganları tespit etme ve yanıltma.
+skill	mukul975-devsecops-paket	Yazılım geliştirme sürecine otomatik güvenlik kontrollerini entegre etme.
+skill	mukul975-digital-forensics-paket	Siber olay sonrası dijital kanıtları toplama ve adli analiz gerçekleştirme.
+skill	mukul975-endpoint-security-paket	Uç nokta cihazlarının zararlı yazılım ve yetkisiz erişime karşı korunması.
+skill	mukul975-firmware-analysis-paket	Gömülü sistem imajlarını ayrıştırarak donanım yazılımındaki güvenlik zafiyetlerini bulma.
+skill	mukul975-firmware-security-paket	Firmware güncellemelerindeki güvenlik açıklarını tespit etme ve imza doğrulama.
+skill	mukul975-governance-risk-compliance-paket	Kurumsal risk analizi süreçlerini yönetme ve mevzuat uyumunu raporlama.
+skill	mukul975-hardware-firmware-security-paket	Donanım bileşenleri ile firmware arasındaki güvenlik açıklarını kapsamlı inceleme.
+skill	mukul975-identity-access-management-paket	Kullanıcı erişim yetkilerini merkezi ve güvenli bir yapıda yönetme.
+skill	mukul975-identity-and-access-management-paket	Kurumsal kimlik doğrulama sistemlerinde rol tabanlı erişim politikaları uygulama.
+skill	mukul975-identity-security-paket	Kimlik sahteciliğine karşı MFA ve biyometrik doğrulama sistemlerini kurma.
+skill	mukul975-incident-response-paket	Siber saldırı anında müdahale planlarını devreye alma ve kayıtları inceleme.
+skill	mukul975-malware-analysis-paket	Ele geçirilen zararlı yazılımın kodunu statik ve dinamik analiz etme.
+skill	mukul975-mobile-security-paket	Mobil uygulamalardaki güvensiz API çağrılarını ve veri sızıntılarını denetleme.
+skill	mukul975-network-security-paket	Ağ trafiğindeki şüpheli paketleri tespit ederek güvenlik duvarı kuralları oluşturma.
+skill	mukul975-offensive-security-paket	Sistem zayıflıklarını istismar ederek savunma mekanizmalarını test etme.
+skill	mukul975-ot-ics-security-paket	Endüstriyel kontrol sistemlerindeki (ICS) protokol ve cihaz güvenliğini sağlama.
+skill	mukul975-ot-security-paket	Operasyonel teknoloji ağlarında yetkisiz erişimi engelleme ve izleme.
+skill	mukul975-penetration-testing-paket	Web ve ağ altyapılarına kontrollü sızma testleri gerçekleştirme.
+skill	mukul975-phishing-defense-paket	Oltalama e-postalarını analiz edip kullanıcılar için simülasyon eğitimleri hazırlama.
+skill	mukul975-privacy-compliance-paket	Veri işleme süreçlerinde gizlilik politikalarının yasal mevzuata uygunluğunu denetleme.
+skill	mukul975-purple-team-paket	Mavi ve kırmızı takımların iş birliğiyle savunma stratejilerini eş zamanlı test etme.
+skill	mukul975-ransomware-defense-paket	Fidye yazılımı faaliyetlerini izleme, engelleme ve kurtarma planları oluşturma.
+skill	mukul975-red-team-paket	Sisteme sızma senaryoları simüle ederek savunma direncini raporlama.
+skill	mukul975-red-teaming-paket	İleri seviye hedefli saldırı simülasyonları ile sızma girişimlerini test etme.
+skill	mukul975-security-operations-paket	Güvenlik operasyon merkezinde günlük olayları izleme ve yönetme.
+skill	mukul975-soc-operations-paket	SOC süreçlerinde olay önceliklendirme ve hızlı müdahale döngüsü yönetimi.
+skill	mukul975-social-engineering-defense-paket	Sosyal mühendislik saldırı yöntemlerine karşı personel farkındalık testleri hazırlama.
+skill	mukul975-supply-chain-security-paket	Yazılım tedarik zincirindeki bileşenlerin güvenlik doğruluğunu ve bütünlüğünü sağlama.
+skill	mukul975-threat-detection-paket	Ağ trafiğinde anormal davranışları belirleyerek siber tehditleri anlık tespit etme.
+skill	mukul975-threat-hunting-paket	Sisteme sızmış ancak tespit edilememiş saldırganları proaktif olarak arama.
+skill	mukul975-threat-intelligence-paket	Güncel siber tehdit verilerini toplayıp kurumsal savunma sistemlerine aktarma.
+skill	mukul975-vulnerability-management-paket	Sistemdeki yazılım açıklarını tarayıp risk derecesine göre yamalama yönetimi.
+skill	mukul975-web-application-security-paket	Web uygulamalarındaki SQL enjeksiyon ve XSS açıklarını tespit etme.
+skill	mukul975-wireless-security-paket	Kablosuz ağlardaki şifreleme zafiyetlerini ve yetkisiz erişim noktalarını denetleme.
+skill	mukul975-zero-trust-architecture-paket	Sıfır güven politikası ile ağ içerisindeki her kullanıcıyı sürekli doğrulama.
+skill	mukul975-zero-trust-paket	Ağ segmentasyonunu sıfır güven prensiplerine göre yeniden yapılandırma.
+skill	n8n-agents	Otomasyon iş akışları ile çoklu servisler arası veri transferi yönetimi.
+skill	n8n-binary-and-data	Dosya işleme süreçlerinde veri dönüştürme ve API entegrasyonu sağlama.
+skill	n8n-code-javascript	Karmaşık iş akışlarında özel JavaScript fonksiyonları ile veri manipülasyonu.
+skill	n8n-code-python	İş akışlarına özel Python betikleri ekleyerek veri işleme kapasitesini artırma.
+skill	n8n-code-tool	Otomasyon senaryolarında özelleştirilmiş kod blokları ile veri işleme.
+skill	n8n-error-handling	Hatalı iş akışlarını yakalayıp otomatik hata bildirimleri ve loglama.
+skill	n8n-expression-syntax	Dinamik veri alanlarını işlemek için karmaşık ifade sözdizimlerini uygulama.
+skill	n8n-mcp-tools-expert	MCP araçlarının entegrasyonuyla yapay zeka destekli teknik destek sağlama.
+skill	n8n-multi-instance	n8n üzerinde farklı servis örneklerini birbirine bağlayarak ölçeklenebilir iş akışı.
+skill	n8n-node-configuration	n8n düğüm yapılandırması hata ayıklama ve parametre optimizasyonu.
+skill	n8n-self-hosting	N8n altyapısını Docker konteynerlerinde güvenli şekilde barındırma.
+skill	n8n-subworkflows	Karmaşık n8n iş akışlarını modüler alt süreçlere bölme.
+skill	n8n-validation-expert	N8n iş akışı verilerini şema doğrulamasıyla hatasız işleme.
+skill	n8n-workflow-patterns	Tekrarlayan n8n süreçleri için en iyi tasarım modellerini uygulama.
+skill	nested-container-clean-agency	İç içe geçmiş konteyner yapılarındaki atık verileri temizleme.
+skill	nested-container-frames	Konteyner çerçeveleri arası veri aktarımı ve senkronizasyon yönetimi.
+skill	netlify-access-control	Netlify sitelerinde rol tabanlı erişim ve koruma ayarları.
+skill	netlify-agent-runner	Netlify ortamında otomatize edilmiş iş akışı komutlarını çalıştırma.
+skill	netlify-ai-gateway	Netlify üzerinden yapay zeka modellerine güvenli erişim sağlama.
+skill	netlify-blobs	Netlify ortamında yapılandırılmamış veri depolama ve yönetimi.
+skill	netlify-caching	Netlify dağıtımlarında statik içerik önbellekleme stratejileri oluşturma.
+skill	netlify-config	Netlify yapılandırma dosyalarını optimize etme ve güncelleme.
+skill	netlify-database	Netlify üzerinde sunucusuz veritabanı bağlantılarını yapılandırma.
+skill	netlify-deploy	Netlify projelerinin üretim ortamına dağıtım süreçlerini yönetme.
+skill	netlify-edge-functions	Netlify kenar ağında hızlı içerik işleme fonksiyonları yazma.
+skill	netlify-forms	Netlify üzerinden gelen form verilerini toplama ve işleme.
+skill	netlify-frameworks	Modern web frameworklerini Netlify platformuna uygun kurma.
+skill	netlify-functions	Netlify üzerinde sunucusuz backend mantığı geliştirmek.
+skill	netlify-identity	Netlify sitelerinde kullanıcı kimlik doğrulama sistemlerini entegre etme.
+skill	netlify-image-cdn	Görselleri Netlify ağında otomatik yeniden boyutlandırma ve optimize etme.
+skill	netlify-mcp-servers	Netlify MCP sunucuları ile sistemler arası bağlantı kurma.
+skill	never-get-hacked	Siber güvenlik açıklarına karşı altyapı zafiyet taraması yapma.
+skill	nextjs-on-cloudflare	Next.js projelerini Cloudflare Workers üzerinde optimize ederek yayınlama.
+skill	no-ai-design-slop	Yapay zeka üretimi olmayan özgün görsel tasarım standartları oluşturma.
+skill	number-details	Numara tabanlı veri setlerinde istatistiksel analiz ve doğrulama.
+skill	office-hours	Ekip toplantılarında teknik danışmanlık ve mentorluk sağlama.
+skill	onboarding	Yeni ekip üyelerinin projeye teknik adaptasyon sürecini hızlandırma.
+skill	ootto-content-paket	Ootto platformu içerik paketlerini yapılandırma ve yönetme.
+skill	open-gstack-browser	GStack tarayıcı ortamında otomasyon testlerini çalıştırma.
+skill	openclaw-win-paket	Windows paket yönetimi ve yapılandırma süreçlerini otomatikleştirme.
+skill	operational-enterprise-ai	Kurumsal yapay zeka operasyonlarını ölçeklenebilir şekilde kurma.
+skill	optimize-threejs-games	Three.js oyunlarında render performansını ve FPS değerlerini artırma.
+skill	optimize-web-animations	Web animasyonlarının işlemci yükünü minimize ederek akıcılık sağlama.
+skill	orange-clean-paper-saas	SaaS projelerinde temiz kod ve sürdürülebilir mimari kurma.
+skill	pair-agent	Karmaşık kod tabanlarında eşli programlama ile hata ayıklama.
+skill	paper-cinder-transition	Kağıt temelli belgelerin dijital sistemlere geçişini yönetme.
+skill	performance-profiling	Uygulama çalışma zamanı darboğazlarını tespit etme ve giderme.
+skill	pia-generation	Pia standartlarına uygun yapay zeka veri üretimi yapma.
+skill	pick-ui-library	Projeye özel en uygun arayüz kütüphanesini seçip entegre etme.
+skill	pinecone-assistant	Pinecone veritabanı yönetiminde akıllı asistan desteği alma.
+skill	pinecone-cli	Komut satırı üzerinden Pinecone indekslerini yönetme ve güncelleme.
+skill	pinecone-docs	Pinecone veritabanı dokümantasyonunu projelere entegre etme.
+skill	pinecone-full-text-search	Pinecone indekslerinde vektörel arama yerine tam metin arama.
+skill	pinecone-help	Pinecone veritabanı hatalarında teknik destek ve çözüm üretme.
+skill	pinecone-mcp	Pinecone ve MCP kullanarak sistemler arası vektör veri aktarımı.
+skill	pinecone-n8n	Pinecone ile n8n arasında akıllı veri senkronizasyonu kurma.
+skill	pinecone-query	Vektör veritabanı üzerinde karmaşık benzerlik sorguları çalıştırma.
+skill	pinecone-quickstart	Pinecone projelerini hızlıca ayağa kaldırıp temel kurulumu yapma.
+skill	plan-ceo-review	CEO düzeyindeki teknik incelemeleri raporlayıp sunuma hazırlama.
+skill	plan-design-review	Mimari kararların teknik tasarım aşamasında gözden geçirilmesi.
+skill	plan-devex-review	Geliştirici deneyimi süreçlerinin iyileştirilmesi için planlama yapılması.
+skill	plan-eng-review	Mühendislik standartlarının ve kod kalitesinin denetlenmesi.
+skill	plan-kur	Kurumsal süreçlerin ve iş akışlarının planlanması.
+skill	plan-tune	Performans artışı için sistem parametrelerinin ayarlanması.
+skill	pointer-trail-emitter	Kod takibi sırasında izlenen yolların görselleştirilmesi.
+skill	policy-monitor	Güvenlik ve uyumluluk politikalarının gerçek zamanlı izlenmesi.
+skill	pr-link-issue	Çekme isteği ile ilgili hata kaydının ilişkilendirilmesi.
+skill	pr-writer	Otomatik çekme isteği açıklaması ve dokümantasyonu yazımı.
+skill	prd-yaz	Ürün gereksinim dokümanlarının taslaklarının hazırlanması.
+skill	premiere-mcp-paket	Premiere Pro projeleri için MCP paket entegrasyonu.
+skill	presentation-creator	Sunum içeriğinin taslak yapısının oluşturulması.
+skill	pricing-page	SaaS ürünleri için fiyatlandırma sayfası stratejisi oluşturma.
+skill	product-proof-saas	SaaS ürünlerinin işlevselliğinin uçtan uca kanıtlanması.
+skill	progressive-blur	Görsel öğelere aşamalı bulanıklık efekti uygulama.
+skill	project-memory	Geçmiş proje kararlarının hafıza kaydının tutulması.
+skill	prompt-master	Karmaşık görevler için etkili istemlerin tasarımı.
+skill	prompt-optimizer	LLM yanıtlarını iyileştirmek için istemlerin optimize edilmesi.
+skill	prototype	Fikirlerin hızlı bir şekilde çalışabilir prototipe dönüştürülmesi.
+skill	publish-project-to-github	Tamamlanan projelerin GitHub üzerinde yayınlanması süreci.
+skill	qa	Genel yazılım kalite güvence testlerinin gerçekleştirilmesi.
+skill	qa-only	Sadece kritik hata testlerinin izole çalıştırılması.
+skill	qmd-paket	Quarto dokümanları için özel paket yönetiminin yapılması.
+skill	quarterly-review	Üç aylık performans ve proje değerlendirmesi yapılması.
+skill	reel-plan	Sosyal medya videoları için içerik planı oluşturma.
+skill	reel-taste	Video içeriklerinin izleyici kitlesine uygunluğunun analizi.
+skill	refine	Mevcut kodun temizlenerek daha okunur hale getirilmesi.
+skill	remotion-best-practices	Remotion video prodüksiyonu için en iyi pratiklerin uygulanması.
+skill	remotion-captions	Videolara otomatik altyazı ekleme ve zamanlama.
+skill	remotion-create	Remotion ile yeni video projesi şablonu oluşturma.
+skill	remotion-docs	Remotion projeleri için teknik dokümantasyon yazımı.
+skill	remotion-interactivity	Video içeriğine tıklanabilir interaktif öğeler ekleme.
+skill	remotion-maps	Harita verilerinin video animasyonuna dönüştürülmesi.
+skill	remotion-markup	Videoların görsel düzeni için özel işaretleme dili.
+skill	remotion-multimedia	Çoklu medya kaynaklarını video projesine entegre etme.
+skill	remotion-render	Videoların bulut ortamında yüksek kalitede render alınması.
+skill	remotion-saas	SaaS tabanlı video otomasyon servislerinin yapılandırılması.
+skill	remotion-studio	Remotion projeleri için geliştirme ortamı ayarları.
+skill	remotion-upgrade	Eski Remotion sürümünün güncel sürüme yükseltilmesi.
+skill	resemble-detect-paket	Ses benzerliği tespit sistemlerinin yapılandırılması.
+skill	retro	Proje sprint sonu değerlendirme toplantısı düzenleme.
+skill	reveal-hover-effect	Kullanıcı arayüzüne etkileşimli hover efektleri ekleme.
+skill	review	Kod değişikliklerinin ekip tarafından gözden geçirilmesi.
+skill	review-animations	Kullanıcı arayüzü animasyonlarının performans ve estetik incelemesi.
+skill	roblox-game-development-lifecycle	Roblox oyun geliştirme süreçlerinin uçtan uca yönetimi.
+skill	sandbox-migrate-to-next	Eski sandbox projelerinin Next.js yapısına taşınması.
+skill	sandbox-next	Next.js projeleri için hızlı sandbox ortamı kurma.
+skill	sandbox-stable	Kararlı çalışma ortamı oluşturma ve konfigürasyon.
+skill	scope	Proje kapsamının sınırlarının belirlenmesi ve takibi.
+skill	scrape	İnternet üzerindeki verilerin yapılandırılmış şekilde çekilmesi.
+skill	Scrapling-Skill	Eski web sitesinden dinamik veri çekme
+skill	scroll-progress-timeline	Sayfa kaydırma ilerlemesini görsel çizgiyle gösterme
+skill	scroll-scrubbed-visual-sequence	Kaydırma ile video karelerini kare kare oynatma
+skill	scroll-scrubbed-word-reveal	Kaydırırken kelimeleri tek tek ortaya çıkarma
+skill	scroll-world-storytelling	Kaydırma tabanlı interaktif hikaye anlatımı yapma
+skill	second-brain	Kişisel notları ve bağlantıları ağ yapısında yönetme
+skill	secret-serialization	Hassas verileri şifreleyerek güvenli serileştirme
+skill	security-audit	Kod tabanında güvenlik açıklarını otomatik tarama
+skill	security-review	Pull request'te güvenlik kod incelemesi yapma
+skill	sentry-android-sdk	Android uygulamada çökme raporlarını Sentry'ye gönderme
+skill	sentry-browser-sdk	Tarayıcı hatalarını Sentry ile izleme
+skill	sentry-cloudflare-sdk	Cloudflare Workers hatalarını Sentry'ye entegre etme
+skill	sentry-cocoa-sdk	iOS/macOS uygulamada hata takibi kurma
+skill	sentry-create-alert	Sentry'de hata eşiği aşıldığında uyarı oluşturma
+skill	sentry-debug-issue	Sentry'deki hata detaylarını kök neden analizi
+skill	sentry-dotnet-sdk	.NET uygulamasında hata ve performans izleme
+skill	sentry-elixir-sdk	Elixir uygulamasında hata yakalama ve raporlama
+skill	sentry-fix-issues	Sentry'deki tekrar eden hataları toplu düzeltme
+skill	sentry-fix-stack-traces	Yığın izlerini okunabilir hale getirme
+skill	sentry-flutter-sdk	Flutter uygulamada hata ve performans izleme
+skill	sentry-get-started	Yeni projede Sentry kurulumu hızlı başlangıç
+skill	sentry-go-sdk	Go uygulamasında hata izleme entegrasyonu
+skill	sentry-instrument	Koda Sentry performans izleme enstrümantasyonu ekleme
+skill	sentry-instrument-logging	Uygulama loglarını Sentry'ye otomatik aktarma
+skill	sentry-instrumentation-guide	Dil/framework için enstrümantasyon rehberi oluşturma
+skill	sentry-nestjs-sdk	NestJS backend'de hata ve performans izleme
+skill	sentry-nextjs-sdk	Next.js uygulamada tam Sentry entegrasyonu
+skill	sentry-node-sdk	Node.js backend'de hata performans izleme
+skill	sentry-otel-exporter-setup	OpenTelemetry verilerini Sentry'ye aktarma kurulumu
+skill	sentry-php-sdk	PHP uygulamada hata ve performans takibi
+skill	sentry-python-sdk	Python uygulamada hata performans izleme kurma
+skill	sentry-react-native-sdk	React Native mobil uygulamada hata takibi
+skill	sentry-react-router-framework-sdk	React Router framework'te Sentry entegrasyonu
+skill	sentry-react-sdk	React uygulamada hata ve performans izleme
+skill	sentry-ruby-sdk	Ruby/Rails uygulamada hata performans izleme
+skill	sentry-sdk-setup	Yeni SDK projesinde Sentry temel kurulumu
+skill	sentry-sdk-skill-creator	Özel Sentry SDK becerisi oluşturma
+skill	sentry-sdk-upgrade	Mevcut Sentry SDK sürümünü güncelleme
+skill	sentry-setup-ai-monitoring	AI model performansını Sentry ile izleme
+skill	sentry-setup-releases	Sürüm takibi ve hata bağlama kurulumu
+skill	sentry-snapshots-cocoa	iOS/macOS çökme anlık görüntülerini analiz etme
+skill	sentry-svelte-sdk	Svelte uygulamada hata performans izleme
+skill	sentry-tanstack-start-sdk	TanStack Start framework'te Sentry kurulumu
+skill	seo-expert	Web sitesi arama motoru optimizasyonu analizi
+skill	setup-browser-cookies	Tarayıcı çerezlerini test ortamında ayarlama
+skill	setup-deploy	Uygulamayı üretim sunucusuna dağıtma otomasyonu
+skill	setup-gbrain	Geliştirme ortamında ikinci beyin kurulumu
+skill	shaders-cursor-ripples	İmleç izleyen su damlasi shader efekti
+skill	ship	Projeyi paketleyip dağıtıma hazırlama
+skill	ship-web-games	Web tabanlı oyunları derleyip yayına alma
+skill	skeuomorphic-ui	Yeni arayüz bileşeni tasarlarken skeumorfik görsel referans oluşturmak
+skill	skill-scanner	Proje içindeki beceri tanımlarını tarayıp kataloglamak
+skill	skill-writer	Yeni bir beceri (skill) tanımı yazıp şablon oluşturmak
+skill	skillify	Mevcut becerileri paketleyip dağıtıma hazır hale getirmek
+skill	solar-duotone-bold	Koyu temalı arayüzlerde çift tonlu ikon seti uygulamak
+skill	spec	Teknik özellik belgesi (spec) yazıp doğrulama listesi oluşturmak
+skill	split-layout-technical	Teknik dokümanda yan yana bölme düzeni uygulamak
+skill	sred-project-organizer	Proje dosya yapısını standart şablona göre yeniden organize etmek
+skill	sred-work-summary	Haftalık çalışma özetini otomatik rapor formatında üretmek
+skill	staggered-word-reveal	Metin animasyonunda kelime kelime gecikmeli görünüm efekti vermek
+skill	star-history-paket	GitHub deposu için yıldız geçmişi grafiği oluşturmak
+skill	stitched-full-page-capture	Tam sayfa ekran görüntüsü alıp birleştirip dışa aktarmak
+skill	stop-slop	Kod tabanından gereksiz/tekrar eden parçaları temizlemek
+skill	supabase	Supabase veritabanı şemasını ve politikalarını yönetmek
+skill	supabase-postgres-best-practices	PostgreSQL performans en iyi uygulamalarını denetlemek
+skill	superdesign-paket	Tasarım sistemi bileşenlerini Superdesign paketiyle hızlıca kurmak
+skill	superpowers-zh-paket	Çince kaynaklı Superpowers becerilerini projeye entegre etmek
+skill	swift-concurrency	Swift eşzamanlılık (async/await) yapılarını güvenli uygulama
+skill	swift-concurrency-pro	İleri seviye Swift aktör/aktör izolasyon desenleri kurmak
+skill	swiftui-expert-skill	SwiftUI özel bileşen ve animasyon mimarisi tasarlamak
+skill	swiftui-pro	Profesyonel SwiftUI uygulama iskeleti ve navigasyon kurmak
+skill	sync	İki depoyu veya dizini çift yönlü senkronize etmek
+skill	sync-gbrain	Yerel bilgi tabanını uzak sunucuyla eşitlemek
+skill	synced	Gerçek zamanlı veri akışını çoklu istemciye yaymak
+skill	tailwindcss	TailwindCSS yardımcı sınıflarıyla hızlı stil prototipi yapmak
+skill	tasarim-katalog	Tasarım bileşen kataloğunu canlı önizlemeyle yayınlamak
+skill	tdd-guard-paket	Test odaklı geliştirme koruma kurallarını projeye eklemek
+skill	tech-green-dark-mode-modern	Koyu modda yeşil vurgulu modern tema uygulamak
+skill	technical-wireframe-info-layout	Teknik bilgi düzenini tel kafes (wireframe) şablonuyla çizmek
+skill	teklif-kutusu	Ürün/hizmet için teklif hesaplama kutusu oluşturmak
+skill	test	Birim/entegrasyon testlerini yazıp çalıştırmak
+skill	test-audit	Mevcut test paketini denetleyip eksikleri raporlamak
+skill	test-playable-web-games	Tarayıcı tabanlı oynanabilir web oyunu test etmek
+skill	thinking-orbs	Düşünce sürecini görselleştiren orb animasyonu eklemek
+skill	threejs	Three.js ile 3D sahne ve temel render kurmak
+skill	threejs-atmosphere-aerial-perspective	Hava perspektifi ve atmosferik derinlik efekti vermek
+skill	threejs-bloom	Işık bloom (parlama) son işleme efekti uygulamak
+skill	threejs-camera-direction	Kamera yönlü hareket ve kontrol mantığı yazmak
+skill	threejs-exposure-color-grading	Expozür ve renk derecelendirme işlem hattı kurmak
+skill	threejs-image-pipeline	Görüntü işleme hattı (pipeline) bileşenlerini zincirlemek
+skill	threejs-landscape	Prosedürel arazi ve manzara geometrisi üretmek
+skill	threejs-parallax-occlusion-mapping	Parallaks ve gölgeli oklüzyon haritalama uygulamak
+skill	threejs-precipitation-surfaces	Yağmur/kar yüzey etkileri ve birikim simülasyonu yapmak
+skill	threejs-procedural-animation	Prosedürel animasyon zaman çizelgesi ve interpolasyonu
+skill	threejs-procedural-architecture	Bina ve mimari formları prosedürel olarak üretmek
+skill	threejs-procedural-fields	Alan (field) tabanlı prosedürel desen ve gürültü üretmek
+skill	threejs-procedural-geometry	Geometriyi prosedürel algoritmalarla çalışma anında yaratmak
+skill	threejs-procedural-materials	Malzeme (material) şeyderlerini prosedürel tanımlamak
+skill	threejs-procedural-planets	Gezegen yüzeyleri ve atmosferleri prosedürel modellemek
+skill	threejs-procedural-vegetation	Bitki ve bitki örtüsü prosedürel dağılım algoritması kurmak
+skill	threejs-procedural-vfx	threejs-procedural-vfx: Prosedürel patlama/partikel efektleri oluşturma
+skill	threejs-raymarched-space-effects	threejs-raymarched-space-effects: Shader tabanlı uzay/galaksi arka planları render etme
+skill	threejs-screen-space-ambient-occlusion	threejs-screen-space-ambient-occlusion: SSAO ile sahnedeki derinlik/gölge detayını artırma
+skill	threejs-shadow-systems	threejs-shadow-systems: Çoklu ışık kaynağı için optimize gölge haritaları kurma
+skill	threejs-skill-router	threejs-skill-router: Three.js yeteneklerini proje gereksinimine göre yönlendirme
+skill	threejs-spectral-ocean	threejs-spectral-ocean: Gerçekçi okyanus yüzey simülasyonu (Fourier spektral) yapma
+skill	threejs-temporal-surfaces	threejs-temporal-surfaces: Zamanla evrilen yüzey animasyonları (erozyon/büyüme) oluşturma
+skill	threejs-towers	threejs-towers: Prosedürel kule/bina geometrisi üretme
+skill	threejs-visual-validation	threejs-visual-validation: WebGL render çıktısını referans görsel ile piksel karşılaştırma
+skill	threejs-volumetric-clouds	threejs-volumetric-clouds: Hacimsel bulut renderı (raymarching) ile atmosfer efekti
+skill	threejs-water-optics	threejs-water-optics: Su kırılma/yanşıma (Fresnel, Caustics) simülasyonu
+skill	threejs-weather	threejs-weather: Yağmur/kar/fırtına hava durumu parçacık sistemleri
+skill	triage	triage: Gelen hata raporlarını öncelik/sıklık/büyüklüğe göre sınıflandırma
+skill	triage-frontend-issues	triage-frontend-issues: UI hatalarını tarayıcı/boyut/bileşene göre filtreleme
+skill	tune-enemy-ai	tune-enemy-ai: Düşman davranış parametrelerini oyun dengelemesi için ayarlama
+skill	turnstile-spin	turnstile-spin: Cloudflare Turnstile captcha doğrulama akışını test etme
+skill	typing-exclusion-worker	typing-exclusion-worker: TypeScript derlemesinden test/dosya hariç tutma kuralları
+skill	ui-skills-root	ui-skills-root: UI beceri şablonlarını merkezi kayıt ve keşif için indeksleme
+skill	ui-ux-pro-max	ui-ux-pro-max: Erişilebilirlik/performans odaklı bileşen kütüphanesi denetleme
+skill	unfreeze	unfreeze: Donmuş bağımlılık grafiğini çözümleyip sürüm çakışmasını giderme
+skill	unicorn-studio	unicorn-studio: Unicorn Studio exportlarını Three.js sahnesine entegre etme
+skill	unlazy	unlazy: Lazy-load modüllerini eager yüklemeye çevirip başlatma gecikmesini azaltma
+skill	unsplash-asset-images	unsplash-asset-images: Unsplash'tan lisanslı görsel arayıp proje varlıkları olarak ekleme
+skill	use-case-triage	use-case-triage: Özellik isteklerini kullanıcı değeri/maliyet matrisine göre sıralama
+skill	using-n8n-mcp-skills	using-n8n-mcp-skills: n8n iş akışlarını MCP becerileriyle otomatize etme
+skill	vantajs	vantajs: Vanta.js efektlerini React/Vue bileşenine gömme
+skill	vibesec-skill	vibesec-skill: Kod tabanında güvenlik açığı (XSS/CSRF) taraması yapma
+skill	video-to-superprompt	video-to-superprompt: Videodan sahne açıklaması üretip prompt zinciri oluşturma
+skill	video-to-website	video-to-website: Video tasarımını HTML/CSS/JS şablonuna dönüştürme
+skill	vite	vite: Vite yapılandırmasını (plugin/alias/chunk) projeye özgü optimize etme
+skill	voicestudio	voicestudio: Ses klonlama/TTS modellerini API ile entegre etme
+skill	voicestudio-maintainer	voicestudio-maintainer: VoiceStudio model/pipeline güncellemelerini yönetme
+skill	water-crystal-skill-vfx	water-crystal-skil-vfx: Su kristali/buz shader efektleri (refraction/dispersion) yazma
+skill	web-perf	web-perf: Core Web Vitals (LCP/CLS/INP) metriklerini ölçüp darboğaz bulma
+skill	web-technique-to-skill	web-technique-to-skill: Web tekniğini (ör. scroll-snap) yeniden kullanılabilir beceriye çevirme
+skill	webgl-3d-object	webgl-3d-object: GLTF/GLB modelini yükleyip malzeme/animasyon kontrolü ekleme
+skill	webgl-landing-steering	webgl-landing-steering: Landing sayfası 3D sahnesinde kamera/parallax kontrolü
+skill	webgl-laser	webgl-laser: Laser ışını şeridi (volumetric beam) shader'ı yazma
+skill	weekly-review	weekly-review: Haftalık commit/PR/issue özetini otomatik raporlama
+skill	workers-best-practices	workers-best-practices: Cloudflare Workers kodunu edge/limitlere uygun refactor etme
+skill	workflow-progress-screenshots	workflow-progress-screenshots: CI adımlarından ekran görüntüsü alıp rapora ekleme
+skill	workflow-score-to-target	workflow-score-to-target: İş akışı metriklerini hedef KPI skoruna eşleme
+skill	workflow-ship-change	workflow-ship-change: Değişikliği canlıya çıkarma (deploy/rollback) işlem hattı
+skill	workflow-threads-manager	workflow-threads-manager: Paralel iş akışı thread'lerini senkronize/izleme
+skill	wpf-rule-mvvm-constraints	wpf-rule-mvvm-constraints: WPF MVVM kural ihlallerini (code-behind vb.) tarama
+skill	wrangler	wrangler: Cloudflare Workers/KV/D1 yerel geliştirme ve deploy
+skill	write-like-meng-on-x	write-like-meng-on-x: Meng To stilinde kısa/punchy tweet/LinkedIn yazısı üretme
+skill	write-swift	write-swift: Swift kodunu (SwiftUI/Combine) modern yapılarla yazma
+skill	writing-commit-messages	writing-commit-messages: Conventional Commits standardına uygun mesaj yazma
+skill	x-bookmark-quote-posts	x-bookmark-quote-posts: X yer imlerindeki alıntı tweet'leri toplup arşivleme
+skill	_gstack-command	Kod tabanında `gstack` komut zincirlerini otomatik keşfet ve çalıştır
+agent	ajn-ajan-arena	Çok ajanlı simülasyon arenasında rekabetçi stratejileri test et
+agent	ajn-ajan-bellek-tasarimi	Ajanlar arası paylaşımlı bellek mimarisini tasarla ve doğrula
+agent	ajn-ajan-orkestrasyon	Birden fazla ajanı merkezi orkestratör ile koordine et
+agent	ajn-ajan-tanimi-yazar	Yeni ajan tanımını şablondan üret ve kaydet
+agent	ajn-basliksiz-isci-havuzu	Başlıksız işçi havuzunda görev dağıtımını denge ve izle
+agent	ajn-cc-otomasyon-oneri	Claude Code otomasyon önerilerini kod tabanından çıkar ve sınıflandır
+agent	ajn-claude-api-gelistirici	Claude API istemci wrapper'ını geliştir ve test et
+agent	ajn-codex-claude-koprusu	Codex ile Claude arasında kod/prompt köprüsünü kur
+agent	ajn-hook-yazar	Git hook betiklerini standart şablondan üret ve yerleştir
+agent	ajn-mcp-kurulum-denetci	MCP kurulumunu doğrula ve eksik bağımlılıkları raporla
+agent	ajn-mcp-sunucu-yazar	Yeni MCP sunucusu iskeletini oluştur ve yapılandır
+agent	ajn-migrasyon-model	Veri modeli migrasyon senaryolarını simüle et ve doğrula
+agent	ajn-ogrenilen-ders	Proje sürecinden öğrenilen dersleri kaydet ve etiketle
+agent	ajn-plugin-iskelet	Yeni eklenti için minimum iskelet kodunu üret
+agent	ajn-prompt-denetci	Prompt şablonlarını sözdizimi ve güvenlik açısından denetle
+agent	ajn-skill-test	Ajan/beceri birim testlerini otomatik çalıştır ve raporla
+agent	ara-arac-degerlendirme	Aday araçları kriterlere göre puanla ve sırala
+agent	ara-celiskili-kaynak-uzlastirma	Çelişkili kaynakları karşılaştır ve uzlaşı önerisi üret
+agent	ara-defuddle-sayfa-cikarim	Web sayfasından ana içeriği çıkar ve temizle
+agent	ara-dokuman-indeksle	Proje dokümanlarını indeksle ve arama motoruna besle
+agent	ara-dosya-sorusturmaci	Şüpheli dosya içeriğini statik analiz ile incele
+agent	ara-graphify-sorgu	Graphify sorgusu ile kod grafını sorgula ve filtrele
+agent	ara-kanit-toplayici	Hata analizine kanıt dosyalarını topla ve bağla
+agent	ara-kutuphane-dokuman	Kütüphane dokümanlarını çekip yerel önbelleğe yaz
+agent	ara-kutuphane-secimi	Kullanım senaryosuna göre en uygun kütüphaneyi seç
+agent	ara-lisans-kontrol	Bağımlılık lisanslarını tarayıp uyumluluğu raporla
+agent	ara-ogrenme-plani	Yeni teknoloji öğrenme planını hedefe göre oluştur
+agent	ara-platform-okuma	Platform belgelerini okup özet çıkar
+agent	ara-repo-karsilastirma	İki repoyu yapı/bağımlılık açısından karşılaştır
+agent	ara-teknoloji-secimi	Teknoloji seçimi için kriter matrisi oluştur ve değerlendir
+agent	ara-trend-analizi	GitHub/forum trendlerini toplayıp özetle
+agent	ara-web-kazima	Belirli siteyi kazıyıp yapılandırılmış veri üret
+agent	ara-yeni-arac-kurulum-arastirma	Yeni aracı kurulum öncesi izole ortamda test et
+agent	ara-youtube-ozet	YouTube videosunu izleyip teknik özet çıkar
+agent	be-bellek-sizintisi-avcisi	Bellek sızıntısını profil verisiyle tespit et ve kaynağını işaretle
+agent	be-buyuk-dosya-yukleme	Büyük dosya yükleme akışını parçalara böl ve doğrula
+agent	be-cift-kayit-defteri	İki kayıt defterini senkronize et ve çakışmaları çöz
+agent	be-coklu-kiraci-veri	Çok kiracılı veri izolasyonunu test et ve doğrula
+agent	be-dayaniklilik-kaliplari	Dayanıklılık kalıplarını (retry, circuit breaker) uygula ve test et
+agent	be-dosya-yukleme	Dosya yükleme işlemlerini doğrula ve ilerlemeyi raporla
+agent	be-emir-eslestirme	Gelen emirleri şemayla eşleştir ve geçersizleri reddet
+agent	be-hata-turu-hiyerarsisi	Hata türlerini hiyerarşiye göre sınıflandır ve eşle
+agent	be-hiz-sinirlayici	API isteği hız sınırlayıcısını yapılandır ve test et
+agent	be-is-calma-zamanlayici	İş duraklatma/zamanlama mantığını doğrula ve simüle et
+agent	be-mesaj-guvenilirligi	Mesaj teslim garantisini (ACK/retry) test et
+agent	be-onbellek-gecersizlestirme	Önbellek geçersiz kılma stratejilerini doğrula ve ölç
+agent	be-saga-telafi	Saga işlemde başarısız adımı telafi edip geri al
+agent	be-sidekiq-isler	Sidekiq iş kuyruğunu izle ve performans metrikleri topla
+agent	be-yatay-olcekleme	Yatay ölçekleme tetikleyicilerini yapılandır ve test et
+agent	bl-animasyon-anahtar	Blender'da karmaşık karakter animasyonu için anahtar kareleri otomatik oluştur
+agent	bl-dokuya-pisirme	Blender sahnelerini fotorealistik çıktı için ışık haritalarına pisir
+agent	bl-geometri-dugumleri	Prosedürel geometri ağaçları için düğüm tabanlı modelleme otomatikleştir
+agent	bl-glb-disa-aktar	Oyun motoru entegrasyonu için GLB formatında optimize dışa aktar
+agent	bl-gorsel-ani-kontrol	Render öncesi gölge, ışık sızıntısı ve UV çakışmalarını tespit et
+agent	bl-isik-kurulumu	Ürün görselleştirmesi için üç noktalı ışık kurulumunu saniyelerde oluştur
+agent	bl-kamera-kompozisyon	Sinematik kareler için kamera açısı, odak derinliği ve kompozisyon ayarla
+agent	bl-malzeme-kurucu	PBR malzeme şablonlarını (metalik, cam, plastik) tek tıkla uygula
+agent	bl-mod-modeli-blender	CAD modellerini Blender'da temiz quad topolojiye dönüştür
+agent	bl-modelleme-plani	Karmaşık modelleme projeleri için adım adım yapısal plan üret
+agent	bl-python-betik	Blender Python API ile tekrarlayan modelleme görevlerini betikleştir
+agent	bl-render-ayari	Final render için örnekleme, denoiser ve çıkış ayarlarını optimize et
+agent	bl-rig-iskelet	Humanoid karakterler için otomatik iskelet, ik ve ağırlık boyama
+agent	bl-sahne-temizlik	Sahnedeki kullanılmayan veri bloklarını, malzemeleri ve mesh'leri temizle
+agent	bl-urun-turntable	E-ticaret için 360 derece ürün dönüş animasyonu render et
+agent	bl-uv-acma	Karmaşık organik modellerin UV açılımını en az distorsiyonla otomatikleştir
+agent	db-analitik-sorgu	Büyük veri kümelerinde OLAP sorgularını columnar depolama ile hızlandır
+agent	db-bi-rapor	Yönetim panoları için çok boyutlu veri küplerinden rapor sorguları üret
+agent	db-cassandra	Yüksek yazma hacimli zaman serisi veriler için Cassandra şeması tasarla
+agent	db-clickhouse-sorgu	Analitik iş yüklerinde vektörleştirilmiş sorgu performansını ClickHouse ile artır
+agent	db-cockroachdb	Dağıtık SQL gerektiren uygulamalar için CockroachDB küme mimarisi kur
+agent	db-dynamodb	Tek digit gecikmeli anahtar-değer erişimi için DynamoDB tablo tasarla
+agent	db-efcore-sql-gecis	EF Core'dan ham SQL'e geçişte performans ve tür güvenliği koru
+agent	db-elasticsearch	Tam metin arama ve log analitiği için Elasticsearch eşleme ve sorgu optimizasyonu
+agent	db-flyway	Veritabanı şema sürüm kontrolünü Flyway migration scriptleriyle yönet
+agent	db-indeks-danismani	Yavaş sorgularda eksik, gereksiz veya yanlış indeksleri tespit et
+agent	db-json-sutun	Yarı yapılandırılmamış verilerde JSONB sütunları ve GIN indeksleri kullan
+agent	db-kilitlenme	Üretim veritabanında kilitlenme zincirlerini analiz edip çözüm öner
+agent	db-liquibase	Şema değişikliklerini Liquibase changeset'leriyle veritabanı bağımsız yönet
+agent	db-migration-planlayici	Çoklu ortamda güvenli şema migrasyonu için rollback planı hazırla
+agent	db-mongodb	Esnek şema gerektiren belge tabanlı uygulamalar için MongoDB koleksiyon modelle
+agent	db-mongoose-odm	Node.js uygulamalarında Mongoose şema, middleware ve sorgu yardımcıları kur
+agent	db-neo4j	Graf verilerinde ilişki analitiği için Cypher sorguları ve indeksler yaz
+agent	db-pglite	Kullanıcı tarayıcısında SQLite çalıştıran PGlite ile offline-first uygulama yap
+agent	db-postgres-sisme	PostgreSQL performans sorunlarını pg_stat_statements ve EXPLAIN ile teşhis et
+agent	db-redis-yapi	Önbellek, kuyruk ve rate-limiting için Redis veri yapılarını seç ve ayarla
+agent	db-replika-gecikmesi	Çoklu bölge replication gecikmesini izleyip SLA ihlallerini önle
+agent	db-rls-politika	Çok kiracılı uygulamalarda satır düzeyinde güvenlik politikaları uygula
+agent	db-sema-tasarim	Yeni uygulama için normalize edilmiş, indeksli ve genişletilebilir şema tasarla
+agent	db-sequelize	TypeScript projelerinde Sequelize modelleri, ilişkiler ve migration'ları oluştur
+agent	db-sorgu-optimize	Yavaş SQL sorgularını plan analizi, yeniden yazma ve indeksle hızlandır
+agent	db-sqlite	Kullanıcı ayarları ve yerel önbellek için embed SQLite veritabanı kur
+agent	db-supabase-kurucu	Supabase projesinde auth, realtime, storage ve edge function'ları yapılandır
+agent	db-utf8mb4-karakter	MySQL'de emoji ve evrensel karakter desteği için utf8mb4 geçişi yap
+agent	db-vektor-veritabani	Anlamsal arama ve RAG için vektör indeksleme ve benzerlik sorguları kur
+agent	db-veri-kalitesi	Veri hatalarını (null, duplicate, outlier) otomatik tespit ve raporla
+agent	db-veri-modelleme-nosql	NoSQL belgeleri için erişim desenine göre gömme ve referans stratejisi belirle
+agent	db-veri-tasima	Farklı veritabanları arası sıfır kapalı kalma süresiyle veri taşıma planla
+agent	db-yedekleme-geri-yukleme	Otomatik yedekleme, point-in-time recovery ve restore test prosedürü kur
+agent	db-zaman-damgasi	Zaman serisi verilerde bölümleme, sıkıştırma ve bekletme politikaları uygula
+agent	design-brand-guardian	Marka kimliğini tutarlı tutmak için görsel kuralları denetler.
+agent	design-image-prompt-engineer	Dall-E veya Midjourney için optimize edilmiş görsel promptları yazar.
+agent	design-inclusive-visuals-specialist	Tasarımda kapsayıcılık ve erişilebilirlik standartlarını kontrol eder.
+agent	design-persona-walkthrough	Kullanıcı senaryolarını test ederek empati odaklı geri bildirim sağlar.
+agent	design-ui-designer	Modern UI bileşenlerinin yerleşimi ve estetik uyumunu tasarlar.
+agent	design-ui-finish-gate-reviewer	Tasarım çıktısını teknik gereksinimlere göre son kez onaylar.
+agent	design-ux-architect	Karmaşık kullanıcı yolculuklarını ve bilgi mimarisini düzenler.
+agent	design-ux-researcher	Kullanıcı davranışlarını analiz edip tasarım kararlarını veriye dayandırır.
+agent	design-visual-storyteller	Veri odaklı sunumlar için etkileyici görsel hikayeler kurgular.
+agent	design-whimsy-injector	Arayüzlere yaratıcı ve eğlenceli micro-interaction detayları ekler.
+agent	dil-actix-web	Actix-web projelerinde güvenli ve hızlı HTTP uç noktaları kurar.
+agent	dil-asyncio	Python asenkron döngülerindeki darboğazları tespit edip iyileştirir.
+agent	dil-bash-betik	Karmaşık sistem otomasyonlarını güvenli Bash betiklerine dönüştürür.
+agent	dil-c-sistem	Düşük seviyeli sistem kaynaklarını optimize eden C kodları yazar.
+agent	dil-cli-araci	Terminal tabanlı araçların kullanıcı deneyimini ve CLI yapısını geliştirir.
+agent	dil-clojure	Fonksiyonel veri işleme süreçlerini Clojure ile sadeleştirerek kurgular.
+agent	dil-derleyici-tasarimi	Özel dil veya domain özgü yapıların sözdizimi analizlerini tasarlar.
+agent	dil-flask	Flask uygulamalarını mikroservis mimarisine uygun şekilde yapılandırır.
+agent	dil-go-eszamanlilik	Go projelerindeki kanalları ve goroutine veri yarışlarını çözer.
+agent	dil-go-pprof	Go uygulamalarındaki CPU ve bellek darboğazlarını profilleyip raporlar.
+agent	dil-go	Go projelerindeki bağımlılıkları düzenleyip standartlara uygun kod yazar.
+agent	dil-graphql	GraphQL sorgularını optimize edip N+1 sorunlarını kökten çözer.
+agent	dil-haskell	Haskell ile hatasız ve güçlü tip sistemine sahip algoritmalar yazar.
+agent	dil-java-modern	Modern Java sürümlerinde stream ve lambda kullanımını optimize eder.
+agent	dil-nodejs	Node.js event-loop tıkanıklıklarını gidermek için asenkron yapıları iyileştirir.
+agent	dil-ocaml	OCaml ile yüksek performanslı ve güvenli fonksiyonel modüller oluşturur.
+agent	dil-openapi-sozlesme	OpenAPI sözleşmelerini kod ile senkronize edip API dokümanı üretir.
+agent	dil-python-profil	Python uygulamalarındaki yavaş çalışan fonksiyonları tespit edip hızlandırır.
+agent	dil-python-tip-guvenligi	Python kod tabanındaki tip hatalarını `mypy` ile denetleyip sabitler.
+agent	dil-regex-denetci	Karmaşık metin desenlerini yakalamak için güvenli Regex ifadeleri oluşturur.
+agent	dil-ruby-metaprog	Ruby'nin dinamik özelliklerini kullanarak kod tekrarını azaltan yapılar kurar.
+agent	dil-scala	Scala ile büyük veri işleme süreçlerini tip güvenli kurgular.
+agent	dil-ts-tip-daraltma	TypeScript kodundaki belirsiz tipleri daraltarak çalışma zamanı hatalarını önler.
+agent	dil-uv-proje	Uv aracı ile Python proje bağımlılıklarını hızlı ve güvenli yönetir.
+agent	dil-websocket	WebSocket bağlantılarını gerçek zamanlı ve hatasız yöneten yapılar kurar.
+agent	dil-yapilandirma	Karmaşık uygulama ayarlarını hiyerarşik ve güvenli şekilde yapılandırır.
+agent	dn-aspnet-core	ASP.NET Core uygulamalarında temiz mimari ve katmanları uygular.
+agent	dn-async-denetci	Async/Await bloklarındaki olası kilitlenmeleri (deadlock) tespit edip çözer.
+agent	dn-blazor-bilesen	Blazor bileşenlerinin state yönetimini ve tekrar kullanılabilirliğini sağlar.
+agent	dn-csproj-sadelestir	Karmaşık `.csproj` dosyalarını temizleyip gereksiz referanslardan arındırır.
+agent	dn-di-ve-config	Bağımlılık enjeksiyonunu ve yapılandırma ayarlarını modüler şekilde düzenler.
+agent	dn-dotnet-performans	Dotnet uygulamalarının bellek kullanımını ve performansını optimize eder.
+agent	dn-efcore-migration	Entity Framework Core veritabanı şema güncellemelerini sorunsuz yönetir.
+agent	dn-efcore-modelleme	EF Core modellerini ilişkisel veritabanı en iyi pratiklerine göre tasarlar.
+agent	dn-efcore-seed-veri	EF Core üzerinden geliştirme veritabanlarını tutarlı verilerle doldurur.
+agent	dn-eski-kod-modernize	Eski nesil .NET kodlarını modern sürüm ve kütüphanelere taşır.
+agent	dn-gozlemlenebilirlik	Dağıtık sistemlerdeki izleme (tracing) ve loglama mekanizmalarını kurar.
+agent	dn-identity-auth	ASP.NET Identity ile güvenli kullanıcı kimlik doğrulama sistemleri kurar.
+agent	dn-minimal-api-kurucu	Minimal API yapısında hızlı ve okunabilir uç noktalar oluşturur.
+agent	dn-msbuild-hata-cozucu	MSBuild derleme hatalarını analiz edip proje yapılandırmasını düzeltir.
+agent	dn-msbuild-hiz	MSBuild proje dosyalarını optimize edip derleme hatalarını giderme.
+agent	dn-native-aot	Native AOT derleme hatalarını analiz edip optimizasyonları uygulama.
+agent	dn-nuget-yonetici	NuGet paket bağımlılıklarını güncelleyip sürüm çakışmalarını çözme.
+agent	dn-nullable-gecis	Nullable referans türleri için projedeki nullability uyarılarını giderme.
+agent	dn-openapi-dokuman	OpenAPI spesifikasyonlarını güncel dokümantasyon haline getirme.
+agent	dn-razor-sayfa	Razor sayfalarındaki dinamik içerik ve model bağlamalarını düzenleme.
+agent	dn-signalr-gercek-zamanli	SignalR hub bağlantılarını optimize edip gerçek zamanlı mesajlaşmayı yönetme.
+agent	dn-system-text-json	System.Text.Json serileştirme ayarlarını ve performansını optimize etme.
+agent	dn-webapi-endpoint	WebAPI endpoint rotalarını tanımlayıp istek doğrulama mantığını ekleme.
+agent	dn-xunit-test-yazar	XUnit ile test senaryoları yazıp kod kapsamını artırma.
+agent	dok-adr-yazar	Mimari karar kayıtları (ADR) oluşturup tasarım kararlarını belgeleme.
+agent	dok-api-dokumani	API uç noktaları için Swagger veya Markdown dokümantasyonu hazırlama.
+agent	dok-blog-yazisi	Teknik blog içeriklerini geliştirici odaklı olacak şekilde yazma.
+agent	dok-cevirmen-teknik	Teknik dokümanları yerel dilden diğer dillere çevirme.
+agent	dok-degisiklik-gunlugu	Proje değişikliklerini sürüm notlarına ve günlüklerine işleme.
+agent	dok-destek-yaniti	Müşteri veya ekip için teknik destek taleplerini yanıtlama.
+agent	dok-docx-uretici	Ham metinlerden profesyonel .docx dokümanları oluşturma.
+agent	dok-dokuman-sapmasi	Dokümantasyon ve kod arasındaki tutarsızlıkları bulup raporlama.
+agent	dok-hata-mesaji	Kullanıcı dostu hata mesajlarını anlamlı metinlere dönüştürme.
+agent	dok-icerik-editoru	Teknik içerikleri dilbilgisi ve üslup açısından düzenleme.
+agent	dok-kullanim-kosullari	Hizmet şartlarını yasal gerekliliklere göre oluşturma veya güncelleme.
+agent	dok-markitdown-donusum	Karmaşık dosya formatlarını temiz Markdown'a dönüştürme.
+agent	dok-pdf-uretici	Verileri veya dokümanları kurumsal PDF formatına aktarma.
+agent	dok-pptx-sunum	Teknik verileri sunum slaytları haline getirip özetleme.
+agent	dok-rapor-ozetleyici	Uzun teknik raporları ana hatlarıyla özetleyip sunma.
+agent	dok-rapor-uretici	Veri setlerinden periyodik performans raporları oluşturma.
+agent	dok-runbook	Sistem operasyonları için adım adım işletim prosedürleri yazma.
+agent	dok-sorun-giderme-rehberi	Karmaşık sorunlar için teşhis ve çözüm adımları oluşturma.
+agent	dok-sozlesme-madde	Hukuki dokümanlar için sözleşme maddelerini taslaklaştırma.
+agent	dok-ste100-sade	Karmaşık içerikleri STE100 standartlarına göre basitleştirme.
+agent	dok-tablo-duzenle	Düzensiz metin tablolarını okunaklı formatlara düzenleme.
+agent	dok-teknik-teklif	Teknik projeler için detaylı çözüm teklifleri hazırlama.
+agent	dok-toplanti-notu	Toplantıdaki teknik kararları ve aksiyonları not alma.
+agent	dok-xlsx-tablo	Veri analizleri için yapılandırılmış Excel tabloları oluşturma.
+agent	engineering-ai-data-remediation-engineer	Yapay zeka modellerindeki kirli verileri temizleme ve düzenleme.
+agent	engineering-ai-engineer	Yapay zeka algoritmalarını ve model eğitim süreçlerini iyileştirme.
+agent	engineering-api-platform-engineer	API platformu altyapısını ölçeklenebilir olacak şekilde tasarlama.
+agent	engineering-ats-validator-architect	ATS sistemlerindeki doğrulama mimarisini inceleyip optimize etme.
+agent	engineering-autonomous-optimization-architect	Sistem kaynaklarını otonom optimize edecek mimariyi kurma.
+agent	engineering-backend-architect	Sistem arka uç mimarisini modüler ve performanslı yapılandırma.
+agent	engineering-china-network-engineer	Çin ağ altyapısındaki erişim ve bağlantı sorunlarını giderme.
+agent	engineering-cms-developer	İçerik yönetim sistemlerinin (CMS) performansını ve güvenliğini artırma.
+agent	engineering-code-reviewer	Kod tabanını standartlara uygunluk açısından denetleyip geri bildirim verme.
+agent	engineering-codebase-onboarding-engineer	Yeni geliştiriciler için repo oryantasyon rehberi oluşturma.
+agent	engineering-data-engineer	Büyük veri akışlarını optimize edip veri hatlarını kurma.
+agent	engineering-data-visualization-engineer	Karmaşık verileri anlamlı grafik ve görsel panellere dönüştürme.
+agent	engineering-database-optimizer	Veritabanı sorgularını ve indeksleme stratejilerini optimize etme.
+agent	engineering-database-reliability-engineer	Veritabanı sistemlerinin sürekliliğini ve hata toleransını yönetme.
+agent	engineering-desktop-app-engineer	Masaüstü uygulama mimarisini güncelleyip performans sorunlarını çözme.
+agent	engineering-developer-tooling-engineer	Geliştirici üretkenliğini artıracak araçları tasarlayıp geliştirme.
+agent	engineering-devops-automator	CI/CD süreçlerini otomatikleştirip bulut altyapı dağıtımlarını optimize eder.
+agent	engineering-drupal-performance	Drupal sitelerinde önbellekleme ve sorgu optimizasyonu ile yük süresini kısaltır.
+agent	engineering-drupal-shopping-cart	Drupal e-ticaret sitelerinde sepet işlemleri ve ödeme entegrasyonu yönetimi.
+agent	engineering-email-intelligence-engineer	Kurumsal e-posta sistemlerinde gelen kutusu teslimat oranlarını ve güvenliği iyileştirir.
+agent	engineering-embedded-firmware-engineer	Düşük seviyeli donanım sürücülerinde bellek yönetimi ve enerji verimliliği optimizasyonu.
+agent	engineering-feishu-integration-developer	Feishu/Lark platformunda iş akışı otomasyonu ve bot entegrasyonu geliştirme.
+agent	engineering-filament-optimization-specialist	Filament tabanlı panellerde karmaşık veri tabloları ve kaynak yönetimi optimizasyonu.
+agent	engineering-finops-engineer	Bulut altyapı maliyetlerini analiz edip gereksiz kaynak kullanımını azaltma.
+agent	engineering-frontend-developer	Modern JS kütüphaneleriyle erişilebilir ve performanslı kullanıcı arayüzleri geliştirme.
+agent	engineering-gaussdb-expert	GaussDB veritabanlarında yüksek erişilebilirlik yapılandırması ve sorgu performans iyileştirmesi.
+agent	engineering-git-workflow-master	Karmaşık git geçmişini düzenleme ve dallanma stratejilerini standardize etme.
+agent	engineering-i18n-engineer	Yazılım projelerinde çok dilli destek altyapısı ve yerelleştirme yönetimi.
+agent	engineering-identity-access-engineer	Kurumsal uygulamalarda OAuth/SAML entegrasyonu ve rol tabanlı erişim kontrolü.
+agent	engineering-incident-response-commander	Canlı sistem kesintilerinde hızlı müdahale, kök neden analizi ve kurtarma.
+agent	engineering-iot-fleet-engineer	Dağıtık IoT cihaz filolarının uzaktan güncelleme ve sağlık takibi yönetimi.
+agent	engineering-it-service-manager	BT hizmet masası süreçlerinde olay yönetimi ve SLA uyumluluk denetimi.
+agent	engineering-knowledge-graph-engineer	Veri setlerini graf yapısına dönüştürüp karmaşık ilişkisel sorgular oluşturma.
+agent	engineering-llm-post-training-engineer	LLM modellerinde ince ayar, veri temizleme ve çıktı kalitesi optimizasyonu.
+agent	engineering-minimal-change-engineer	Büyük kod tabanlarında düşük riskli ve izole modüler değişiklikler yapma.
+agent	engineering-mobile-app-builder	React Native/Flutter ile performans odaklı çapraz platform mobil uygulama geliştirme.
+agent	engineering-mobile-release-engineer	Mobil uygulamalarda sürüm yönetimi, mağaza dağıtımı ve otomatik test süreci.
+agent	engineering-multi-agent-systems-architect	Birden fazla AI ajanı arasında koordinasyon, görev dağılımı ve senkronizasyon.
+agent	engineering-network-engineer	Ağ topolojisini optimize etme, güvenlik duvarı kuralları ve trafik analizi.
+agent	engineering-orgscript-engineer	Kurumsal süreç otomasyonu için özel scriptler yazma ve entegrasyon sağlama.
+agent	engineering-payments-billing-engineer	Abonelik tabanlı sistemlerde karmaşık ödeme geçitleri ve faturalandırma mantığı.
+agent	engineering-pdf-engine-architect	Büyük ölçekli dinamik PDF raporları oluşturma ve şablon motoru mimarisi.
+agent	engineering-platform-engineer	Konteyner orkestrasyonu (K8s) kurulumu ve altyapı ölçeklendirme otomasyonu.
+agent	engineering-privacy-engineer	Veri işleme süreçlerinde anonimleştirme ve KVKK/GDPR uyumluluk denetimi.
+agent	engineering-prompt-engineer	AI modelleri için yüksek performanslı ve tutarlı çıktı veren komut tasarımları.
+agent	engineering-rag-pipeline-engineer	RAG mimarisinde vektör veritabanı seçimi, indeksleme ve geri getirme optimizasyonu.
+agent	engineering-rapid-prototyper	Kullanıcı geri bildirimleriyle hızlı MVP prototipleri oluşturma ve test etme.
+agent	engineering-realtime-collaboration-engineer	WebSocket tabanlı canlı veri senkronizasyonu ve çatışma çözümleme mimarisi.
+agent	engineering-rust-refactoring-specialist	Güvenlik kritik bölümlerde Rust ile bellek güvenli kod refactoring işlemi.
+agent	engineering-search-relevance-engineer	Arama motoru algoritmalarında sıralama kriterlerini ve alaka düzeyini iyileştirme.
+agent	engineering-section-508-specialist	Web uygulamalarının Section 508 erişilebilirlik standartlarına tam uyumunu sağlama.
+agent	engineering-senior-developer	Karmaşık yazılım projelerinde teknik borç azaltma ve mimari gözden geçirme.
+agent	engineering-servicenow-developer-mentor	Servicenow platformunda özel uygulama geliştirme ve ekip içi mentorluk.
+agent	engineering-software-architect	Sistem bileşenleri arası etkileşimi planlama ve yüksek ölçeklenebilir mimari tasarımı.
+agent	engineering-solidity-smart-contract-engineer	Blokzincir üzerinde denetlenebilir ve güvenli akıllı sözleşme mantığı geliştirme.
+agent	engineering-sre	Sistemlerin güvenilirliğini izleme, hata bütçesi yönetimi ve kaza önleme.
+agent	engineering-technical-writer	Karmaşık teknik süreçleri dokümante edip kullanıcı kılavuzları haline getirme.
+agent	engineering-universal-document-compiler	Çeşitli formatlardaki dökümanları birleştirip tekil, yapılandırılmış çıktıya dönüştürme.
+agent	engineering-uswds-developer	USWDS tasarım sistemini uygulayarak kamu hizmeti web siteleri geliştirme.
+agent	engineering-video-streaming-engineer	Düşük gecikmeli canlı video yayını mimarisi ve protokol optimizasyonu.
+agent	engineering-voice-ai-integration-engineer	Sesli asistan entegrasyonu, doğal dil işleme ve sesli komut yönetimi.
+agent	engineering-webassembly-engineer	C++ kodlarını tarayıcıda çalıştırmak için WebAssembly modülleri derleme ve optimize etme.
+agent	engineering-wechat-mini-program-developer	WeChat ekosisteminde kullanıcı deneyimi odaklı mini programlar geliştirme.
+agent	engineering-wordpress-performance	WordPress temalarında yüklenme süresini düşürme ve veritabanı sorgularını iyileştirme.
+agent	engineering-wordpress-shopping-cart	WordPress e-ticaret sitelerinde stok takibi ve sepet dönüşüm oranlarını artırma.
+agent	fe-angularjs-bakim	Legacy AngularJS projelerinde güvenlik yamaları ve bağımlılık güncelleme bakımı.
+agent	fe-animasyon-tasarimci	Karmaşık web elementlerine akıcı CSS geçişleri ve animasyonlar eklemek.
+agent	fe-astro	Astro tabanlı statik sitelerin hızını ve SEO performansını optimize etmek.
+agent	fe-bilesen-kutuphanesi	Paylaşımlı UI bileşenlerini modern bir kütüphane yapısı ile birleştirmek.
+agent	fe-bilesen-yazar	Karmaşık iş mantığı içeren yeniden kullanılabilir React bileşenleri kodlamak.
+agent	fe-bos-durum-yazar	Veri bulunamayan ekranlar için kullanıcıyı yönlendiren açıklayıcı boş durumlar tasarlamak.
+agent	fe-cerez-oturum-hata	Kullanıcı oturum yönetimi ve çerez işleme hatalarını kökten çözmek.
+agent	fe-css-hata-bulucu	CSS stil çakışmalarını ve görsel bozulmaları tespit edip hızla gidermek.
+agent	fe-css-konteyner-sorgusu	Konteyner sorguları kullanarak dinamik ve esnek bileşen düzenleri oluşturmak.
+agent	fe-css-mimarisi	Büyük projelerde CSS dosya hiyerarşisini düzenleyip bakımını kolaylaştırmak.
+agent	fe-cursor-efekt	Kullanıcı etkileşimlerini artıran özelleştirilmiş imleç efektleri kodlamak.
+agent	fe-dashboard-duzeni	Veri odaklı paneller için estetik ve işlevsel ızgara düzenleri kurmak.
+agent	fe-donusum-optimize	Kullanıcı davranışını analiz ederek form veya buton dönüşüm oranlarını iyileştirmek.
+agent	fe-eposta-sablonu	E-posta pazarlama süreçleri için uyumlu ve temiz HTML şablonları oluşturmak.
+agent	fe-form-tasarimci	Karmaşık doğrulama kurallarına sahip kullanıcı giriş formları tasarlamak.
+agent	fe-gorsel-optimize	Web görsellerini kalite kaybı olmadan format ve boyut açısından optimize etmek.
+agent	fe-ikon-sistemi	SVG tabanlı tutarlı ve ölçeklenebilir ikon setleri entegre etmek.
+agent	fe-jquery-bakim	Eski jQuery projelerindeki kritik bağımlılıkları güncelleyip güvenliğini artırmak.
+agent	fe-karanlik-mod	Mevcut arayüzlere sistem temasına uygun otomatik karanlık mod desteği eklemek.
+agent	fe-meta-seo-duzeltici	Sayfa başlığı, açıklama ve meta etiketlerini arama motorları için iyileştirmek.
+agent	fe-navigasyon-tasarimci	Kullanıcı deneyimini kolaylaştıran sezgisel menü ve navigasyon yapıları kurmak.
+agent	fe-pwa-cevrimdisi	Tarayıcı önbellekleme ile sitenin çevrimdışı çalışabilmesini sağlamak.
+agent	fe-qwik	Qwik framework kullanarak yüksek performanslı ve hızlı açılan web uygulamaları geliştirmek.
+agent	fe-react-bilesen-inceleme	React bileşenlerinin kod kalitesini, performansını ve erişilebilirliğini denetlemek.
+agent	fe-remix	Remix framework ile sunucu tarafı veri yönetimi ve yönlendirme yapmak.
+agent	fe-responsive-kontrol	Web sayfalarının tüm ekran boyutlarında kusursuz çalışmasını test edip düzeltmek.
+agent	fe-rollup-kutuphane-paketi	Rollup kullanarak bağımsız ve optimize edilmiş npm kütüphane paketleri hazırlamak.
+agent	fe-sanal-liste	Büyük veri listelerini sanal kaydırma ile performanslı bir şekilde render etmek.
+agent	fe-scroll-hikayesi	Kullanıcı kaydırdıkça tetiklenen görsel hikaye anlatımı efektleri eklemek.
+agent	fe-site-mimarisi	Karmaşık web projelerinde klasör ve modül hiyerarşisini yeniden yapılandırmak.
+agent	fe-slayt-kurucu	Veri odaklı sunumlar için etkileşimli ve kaydırılabilir slayt yapıları oluşturmak.
+agent	fe-tailwind-duzenleyici	Tailwind konfigürasyonunu proje standartlarına uygun olarak yeniden düzenlemek.
+agent	fe-tailwind	Hızlı ve tutarlı arayüz geliştirme için Tailwind yardımcı sınıfları uygulamak.
+agent	fe-tasarim-incele	Tasarımcıların hazırladığı ekranların kod ile uyumunu karşılaştırmalı incelemek.
+agent	fe-tasarim-sistemi-kurucu	Marka kimliğine uygun renk, font ve bileşen standartlarını dokümante etmek.
+agent	fe-tasarim-yonu	Kullanıcı arayüzü için tutarlı bir görsel dil ve stil belirlemek.
+agent	fe-tipografi-uzmani	Web projelerinde tipografi hiyerarşisini okunaklılık için optimize etmek.
+agent	fe-ux-metin-yazar	Kullanıcıyı aksiyona teşvik eden net ve anlaşılır metinler yazmak.
+agent	fe-web-font-yukleme	Web fontlarının yüklenme performansını artırarak içerik kaymalarını önlemek.
+agent	fe-webgl-3d-hero	Web GL kullanarak etkileyici 3D grafikler ve hero bölümleri oluşturmak.
+agent	fe-webpack-paketleyici	Webpack yapılandırmasını optimize ederek paket boyutunu ve hızını iyileştirmek.
+agent	fe-webxr	Sanal gerçeklik içeriklerini tarayıcı üzerinden web arayüzüne entegre etmek.
+agent	fe-yazdir-stili	Web sayfaları için temiz ve düzenli yazdırılabilir stil dosyaları hazırlamak.
+agent	git-bisect-rehber	Hata içeren commit’i hızlıca bulmak için sistematik bisection süreci yürütmek.
+agent	git-cakisma-cozucu	Git birleştirme sırasında oluşan dosya çakışmalarını manuel ve güvenli çözmek.
+agent	git-canary-izleme	Yeni dağıtılan özelliklerin stabilizasyonunu canlı ortamda kontrollü izlemek.
+agent	git-ci-boru-hatti	Otomasyon süreçlerindeki darboğazları tespit edip CI boru hattını hızlandırmak.
+agent	git-circleci	CircleCI konfigürasyon dosyalarını hata ve performans açısından denetlemek.
+agent	git-coklu-repo-senkron	Birden fazla bağımlı depoyu senkronize bir şekilde güncellemek ve yayınlamak.
+agent	git-commit-mesaji	Proje standartlarına uygun, açıklayıcı ve anlamlı commit mesajları yazmak.
+agent	git-dal-koruma-kurali	Dallara yanlış kod gönderimini önlemek için koruma kurallarını düzenlemek.
+agent	git-dal-stratejisi	Git dallarının birleştirme stratejisini belirleyip çakışmaları otomatik çözmek.
+agent	git-issue-triyaj	Gelen GitHub issue taleplerini etiketleyip öncelik sırasına koymak.
+agent	git-lfs-buyuk-dosya	Git deposundaki büyük dosyaları LFS ile depolama alanına taşımak.
+agent	git-monorepo-etkilenen	Monorepo içinde değişen koddan etkilenen paketleri tespit edip test etmek.
+agent	git-pr-yoneticisi	Pull request süreçlerini onay mekanizmasına göre otomatik yönetmek.
+agent	git-yayin-oncesi-kontrol	Yayın öncesi tüm testleri ve güvenlik kontrollerini otomatik doğrulamak.
+agent	git-yeniden-kullanilabilir-is-akisi	Tekrarlayan iş akışlarını şablon haline getirip merkezi yönetmek.
+agent	inc-baglasim-uyum	Sistemler arası veri akışının uyumluluğunu ve bütünlüğünü denetlemek.
+agent	inc-derin-hata-ayiklama	Üretim ortamındaki karmaşık hataların kök nedenini adım adım incelemek.
+agent	inc-diff-risk-puani	Kod değişikliklerinin risk seviyesini metriklerle puanlayıp raporlamak.
+agent	inc-dogrulama-oncesi-bitis	Doğrulama aşaması öncesinde kodun tamamlanma kriterlerini otomatik kontrol etmek.
+agent	inc-dongusel-bagimlilik	Kod tabanındaki döngüsel bağımlılıkları tespit edip çözüm önerisi sunmak.
+agent	inc-hata-dedektifi	Hata kayıtlarından yola çıkarak benzer sorunları önceden dedekte etmek.
+agent	inc-karmasiklik-olcum	Kod bloklarının karmaşıklık skorunu hesaplayıp iyileştirme alanlarını raporlamak.
+agent	inc-kod-kokusu	Kod tabanında temiz olmayan yapıları ve kötü kokuları belirlemek.
+agent	inc-mimari-inceleme	Yazılım mimarisinin dokümantasyonla uyumunu ve standartları analiz etmek.
+agent	inc-ocr-coklu-inceleme	Farklı OCR sonuçlarını karşılaştırıp tutarlılığı doğrulama süreçleri.
+agent	inc-ponytail-kod	Kodun küçük ve yönetilebilir parçalara bölünerek refaktör edilmesi.
+agent	inc-refaktor	Kod tabanını modern standartlara göre yeniden düzenleyip iyileştirmek.
+agent	inc-tasarim-kaliplari	Kod içinde uygulanan tasarım kalıplarının doğruluğunu ve verimliliğini incelemek.
+agent	inc-teknik-borc	Projedeki birikmiş teknik borçları listeyip öncelik sırasına koymak.
+agent	inc-test-kalitesi-inceleme	Birim testlerin kapsamını ve hata yakalama kalitesini ölçümlemek.
+agent	inc-uretim-hazirligi	Uygulamayı üretim ortamına geçiş için tüm kriterlere göre hazırlamak.
+agent	ml-deney-izleme	Makine öğrenmesi deneylerinin parametre ve sonuçlarını merkezi kaydetmek.
+agent	ml-dengesiz-sinif	Dengesiz veri setleri için uygun örnekleme ve ağırlıklandırma stratejisi.
+agent	ml-goruntu-isleme	Görüntü işleme modellerinde ön işleme adımlarını optimize etmek.
+agent	ml-hiperparametre-arama	Model başarısını artırmak için en iyi hiperparametre kombinasyonunu bulmak.
+agent	ml-kesifsel-analiz	Veri setindeki örüntüleri ve istatistiksel dağılımları görselleştirerek incelemek.
+agent	ml-langchain	Langchain tabanlı iş akışlarını tasarlayıp zincirleri yapılandırmak.
+agent	ml-llm-degerlendirme	LLM modellerinin çıktı kalitesini farklı metriklerle puanlayıp karşılaştırmak.
+agent	ml-llm-saglayici-yonlendirme	Farklı LLM servis sağlayıcıları arasında yükü dinamik dağıtmak.
+agent	ml-makale-uygulama	Akademik makalelerdeki modelleri kod tabanına hızlıca uyarlamak.
+agent	ml-model-metrik	Eğitilen modellerin doğruluk ve hata metriklerini otomatik hesaplamak.
+agent	ml-nlp	Doğal dil işleme projelerinde metin ön işleme süreçlerini otomatize etmek.
+agent	ml-numpy	Numpy dizileri ile yüksek performanslı sayısal hesaplama işlemlerini yönetmek.
+agent	ml-openai-api	OpenAI API entegrasyonlarında maliyet ve hata takibini yapmak.
+agent	ml-ozellik-muhendisligi	Model başarısı için ham veriden anlamlı öznitelikler üretmek.
+agent	ml-pandas	Pandas veri çerçevelerinde karmaşık dönüşüm ve analizleri otomatize etmek.
+agent	ml-pekistirmeli-ogrenme	Pekiştirmeli öğrenme modelleri için ödül mekanizmasını simüle etmek.
+agent	ml-scikit-learn	Scikit-learn modellerini eğitip hiperparametre optimizasyonlarını yönetmek.
+agent	ml-tahmin-kaymasi-izleme	Zamanla değişen veri dağılımını izleyip model performans kaymasını tespit etmek.
+agent	ml-tensorflow	Tensorflow modellerinin eğitim süreçlerini ve katman yapılarını yönetmek.
+agent	ml-veri-bilimci	Veri analizi projelerinde uçtan uca veri hattını kurmak.
+agent	ml-veri-sizintisi	Eğitim verisi ile test verisi arasındaki sızıntıları tespit etmek.
+agent	ml-yerel-llm-cikarim	Yerel sunucularda LLM modellerinin düşük gecikmeli çıkarımını sağlamak.
+agent	ml-zaman-serisi	Zaman serisi verilerinde mevsimsellik ve trend analizleri yapmak.
+agent	mob-calisma-izni	Mobil uygulamalar için gerekli çalışma ve erişim izinlerini denetlemek.
+agent	mob-derin-baglanti	Mobil uygulamada derin bağlantıların doğruluğunu ve yönlendirmelerini test etmek.
+agent	mob-magaza-ekran-goruntusu	Farklı ekran boyutlarında otomatik mobil uygulama ekran görüntüleri almak.
+agent	mob-push-bildirim	Mobil anlık bildirimlerin zamanlamasını ve içerik doğruluğunu test etmek.
+agent	mob-rn-navigasyon	React Native navigasyon hatası tek seferde çöz
+agent	mob-rn-performans	RN JavaScript bridge darboğazını proflie et
+agent	mob-uygulama-boyutu	Hermes bytecode boyutunu %30 azalt
+agent	mob-yerel-modul-koprusu	Native modül TypeScript tiplerini otomatik eşleştir
+agent	ops-bullmq-kuyruk	BullMQ kuyrukta stall işleri toplu yeniden kuyruğa al
+agent	ops-dagitik-izleme	Dağıtık trace ID'leri servisler arası birleştir
+agent	ops-dagitim-sorun-giderme	Kubernetes pod çökme sebebini loglardan çıkar
+agent	ops-disk-dolu	Disk %95 dolu; en büyük 50 dosyayı bul
+agent	ops-dns-tls-sorun	TLS sertifika zinciri hatasını openssl ile teşhis et
+agent	ops-dosya-tanimlayici-siniri	ulimit -n yetmez; sistem genelini yükselt
+agent	ops-elk-log	ELK'de hata log pattern'ini regex ile filtrele
+agent	ops-felaket-kurtarma	RTO/RPO hedefleriyle yedek testi otomatikleştir
+agent	ops-gitops	Grafana panelinde P95 gecikme uyarısı kur
+agent	ops-grafana-pano	Helm values.yaml ortam bazlı şifreli secret üret
+agent	ops-helm-chart	K8s deployment rolling update stratejisini optimize et
+agent	ops-k8s-is-yuku	Kafka consumer lagını topic bazlı izle
+agent	ops-kafka	Loki loglarda hataburst anomali tespiti kur
+agent	ops-loki-log	AWS/GCP faturalarında anormal artışı tespit et
+agent	ops-maliyet-optimize	MQTT QoS 1 mesaj tekrarlarını idempotent hale getir
+agent	ops-mqtt	NATS JetStream tüketicisi için ACK bekleme süresini milisaniye cinsinden yapılandır.
+agent	ops-nats	Nginx rate limit bypass atak vektörünü engelle
+agent	ops-nginx-ters-vekil	PromQL ile CPU/memory korelasyon uyarısı yaz
+agent	ops-prometheus	Pulumi state kilidini CI/CD'de güvenle serbest bırak
+agent	ops-pulumi	RabbitMQ dead-letter kuyruğunu otomatik yeniden işle
+agent	ops-rabbitmq	Let's Encrypt sertifikasını wildcard için yenile
+agent	ops-sertifika-yenileme	AWS Lambda cold start süresini %40 azalt
+agent	ops-serverless	SNS→SQS DLQ mesajlarını yeniden işleme kuyruğa taşı
+agent	ops-sns-sqs	SSH CA ile kısa ömürlü sertifika dağıt
+agent	ops-ssh-sertlestirme	Systemd servis bağımlılıklarını doğru sırayla başlat
+agent	ops-systemd-birim	Terraform plan çıktısını PR yorumuna otomatik yaz
+agent	ops-terraform	Winget ile CI agent araçlarını toplu kur
+agent	ops-winget-kurulum	JSON loglarda trace_id/spans_id alanlarını zorunlu kıl
+agent	ops-yapisal-log-semasi	OTM ajan iş akışını Mermaid diyagramına çevir
+agent	otm-ajan-is-akisi-kur	REST API OpenAPI şemasından TypeScript client üret
+agent	otm-api-entegrasyon	Slack/Email/Telegram bildirim kanallarını tek yerden yönlendir
+agent	otm-bildirim-yonlendirme	CLI komutlarını Node.js wrapper ile Promise'e sar
+agent	otm-cli-sarmalayici	Bozuk CSV satırlarını schema'ya göre temizle
+agent	otm-csv-temizleyici	Dosya watcher botu ile upload sonrası işleme tetikle
+agent	otm-dosya-isleme-botu	Google Sheets satır değişikliklerini webhook'a aktar
+agent	otm-google-sheets-akis	jq ile nested JSON'u tablo formatına dönüştür
+agent	otm-jq-donusum	IMAP/POP3 mail eklerini S3'e otomatik kaydet
+agent	otm-mail-otomasyon	n8n workflow'unu JSON'dan görsel editöre aktar
+agent	otm-n8n-akis-tasarimi	n8n hata node'larına retry/alert politikası ekle
+agent	otm-n8n-hata-yonetimi	n8n expression editöründe karmaşık mantığı JS'ye çevir
+agent	otm-n8n-ifade-kod	n8n workflow çalışma metriklerini Prometheus'a gönder
+agent	otm-otomasyon-izleme	n8n workflow ile lead verilerini çekip skorlama modelini çalıştır ve CRM'e yaz.
+agent	otm-pazarlama-otomasyonu	Excel Power Query M kodunu SQL'e çevir
+agent	otm-power-query	PowerShell 5.1 uyumlu modül yaz
+agent	otm-powershell-51	Headless Chromium via Puppeteer ile SPA'yı tam yüklendikten sonra PDF olarak kaydet.
+agent	otm-puppeteer	Headless Chrome ile E2E test senaryosu yaz
+agent	otm-sema-dogrulayici	OTM şema dosyalarını JSON Schema ile doğrula
+agent	otm-tarayici-otomasyon	OTM tarayıcı eklentisi kurulumunu otomatikleştir
+agent	otm-tarayici-yardimci-dosya	OTM yardımcı dosya şablonlarını oluştur ve dağıt
+agent	otm-veri-esleme	Kaynak-hedef alan eşleşmelerini kurallarla haritala
+agent	otm-webhook-tasarimci	Webhook uç noktalarını güvenli ve idempotent tasarla
+agent	otm-zamanlanmis-gorev	Zamanlanmış görevleri cron ifadeleriyle güvenilir planla
+agent	oyn-ag-senkronu	Oyun ağ durumunu sunucu-istemci arasında senkronize et
+agent	oyn-dusman-ai	Düşman yapay zekasını davranış ağacıyla programla
+agent	oyn-lua-betik	Lua betiklerini sandbox ortamda güvenli çalıştır
+agent	oyn-mod-birlestirici	Birden fazla modu tek pakette birleştir
+agent	oyn-mod-guvenlik-kontrol	Mod kodlarını zararlı desenlere göre tara
+agent	oyn-mod-onarim	Bozuk mod dosyalarını otomatik onar ve doğrula
+agent	oyn-mod-paketleme	Modları sürümleme ve bağımlılıklarla paketle
+agent	oyn-oyun-denge	Oyun içi ekipman ve yetenek dengesi ayarla
+agent	oyn-oyun-dokuman	Oyun mekanik tasarım belgelerini canlı tut
+agent	oyn-oyun-envanter	Envanter sistemini öğe veriyle veri odaklı kur
+agent	oyn-oyun-motoru-script	Oyun motoru script API'sını modlara aç
+agent	oyn-oyun-ses-geri-bildirim	Ses olaylarını dinamik geri bildirimle eşleştir
+agent	oyn-seviye-tasarim	Seviye geometrisini akış ve tempoya göre tasarla
+agent	oyn-three-oyun-sahne	Three.js sahnesini performanslı render et
+agent	oyn-uyarlanabilir-zorluk	Oyuncu performansına göre zorluğu anlık ayarla
+agent	oyn-yol-bulma	Grid tabanlı yol bulmayı A* ile optimize et
+agent	pln-bagimlilik-haritasi	Proje bağımlılıklarını yönlü graf olarak haritala
+agent	pln-bogucu-incir-gocu	İncek parametrelerini dalga simülasyonuna göre ayarla
+agent	pln-dalga-plani	Çok aşamalı planı bağımlılık sırasına göre sırala
+agent	pln-fikir-olgunlastir	Ham fikri test edilebilir hipotezlere dönüştür
+agent	pln-gorev-bolme	Büyük görevi bağımsız alt görevlere böl
+agent	pln-hedef-planlayici	Hedefleri ölçütlerle SMART formata çevir
+agent	pln-islevsel-olmayan-gereksinim	İşlevsel olmayan gereksinimleri kabul kriteriyle yaz
+agent	pln-kabul-olcutleri	Kabul kriterlerini test edilebilir listeye çevir
+agent	pln-kapsam-kesici	Kapsam kaymasını değişim kontrolüyle engelle
+agent	pln-karar-kaydi	Mimari kararları ADR formatında kaydet
+agent	pln-kullanim-senaryosu	Kullanım senaryolarını Given-When-Then formatında yaz
+agent	pln-mimari-plan	Mimari görünümleri C4 modeliyle belgele
+agent	pln-niyet-netlestirme	Belirsiz niyeti soru-cevapla netleştir
+agent	pln-ozellik-onceliklendirme	Özellikleri değer/maliyet matrisiyle sırala
+agent	pln-prd-yazar	Ürün gereksinim belgesini şablonla üret
+agent	pln-proje-iskelet	Proje iskeletini klasör/yapı şablonuyla kur
+agent	pln-proje-yonetimi	Görevleri Kanban tahtasında duruma göre takip et
+agent	pln-risk-kaydi	Riskleri olasılık/etki matrisiyle önceliklendir
+agent	pln-sistem-tasarimi	Sistem tasarımını bileşen/ağ diyagramıyla açıkla
+agent	pln-sokulebilir-entegrasyon	Eklenti mimarisini arayüz sözleşmesiyle tanımla
+agent	pln-sozde-kod-algoritma	Algoritmayı soyut kodla prototiple
+agent	pln-sparc-asama	SPARC aşamalarını kontrol listesiyle doğrula
+agent	pln-sprint-hikaye	Sprint hikayelerını INVEST kriteriyle yaz
+agent	pln-tahmin-araligi	Tahmini güven aralığıyla P50/P90 ver
+agent	pln-teknik-spec	Teknik spesifikasyonu arayüz/veri şemasıyla yaz
+agent	pln-temiz-mimari-sinir	Temiz mimari sınırlarını bağımlılık kuraliyle zorla
+agent	qa-anlik-goruntu-testi	UI anlık görüntüsünü referansla piksel karşılaştır
+agent	qa-api-test	API sözleşmesini şemayla doğrula ve test et
+agent	qa-ava-test	Otomatik AVA test yazımı ve çalıştırma
+agent	qa-benchmark-regresyon-kapisi	CI performans regresyonu tespiti ve engelleme
+agent	qa-ci-test-duzeni	CI test düzensizliğini yapılandırma ve temizleme
+agent	qa-disaridan-tdd	Dış kaynaklı TDD döngüsü kurulumu
+agent	qa-e2e-playwright	Playwright ile E2E test senaryosu yazma
+agent	qa-entegrasyon-testi	Mikroservis entegrasyon testleri koordine etme
+agent	qa-erisilebilirlik-testi	WCAG erişilebilirlik ihlallerini tarama
+agent	qa-flaky-avci	Flaky testleri izole etme ve düzeltme
+agent	qa-gorsel-qa	Görsel regresyon testleri ile piksel karşılaştırma
+agent	qa-hata-yeniden-uret	Hata yeniden üretme scripti otomatik oluşturma
+agent	qa-jasmine-test	Jasmine test süiti yapılandırma ve koşturma
+agent	qa-manuel-test-plani	Manuel test planı checklist'e dönüştürme
+agent	qa-mobil-qa	Mobil cihazlarda uygulama test otomasyonu
+agent	qa-mutasyon-denetci	Mutasyon testi ile test kalitesi ölçümü
+agent	qa-ozellik-paritesi	Özellik parodyası karşılaştırma testleri
+agent	qa-ozellik-tabanli	Özellik bayraklarına dayalı test seçimi
+agent	qa-performans-yuk-testi	Yük testi senaryosu yazıp k6 ile koşturma
+agent	qa-playwright	Playwright test altyapısı kurulumu
+agent	qa-pytest-fikstur	Pytest fixture mimarisi tasarlama
+agent	qa-sahte-uygulama-avcisi	Sahte/mock uygulamaları tespit ve temizleme
+agent	qa-selenium	Selenium WebDriver test bakımı
+agent	qa-sinir-deger-analizi	Sınır değer analizi ile test vaka üretimi
+agent	qa-test-bosluk-analiz	Test kapsama boşluklarını kod bazında analizi
+agent	qa-test-iskelet-dotnet	.NET test iskeleti (xUnit/NUnit) oluşturma
+agent	qa-test-kokusu	Test koku (code smell) analizi ve raporlama
+agent	qa-test-stratejisi	Proje test stratejisi belgesi hazırlama
+agent	qa-test-verisi	Test veri üretimi ve anonimleştirme
+agent	qa-testcafe	TestCafe altyapısı kurulumu ve test yazımı
+agent	qa-ui-kapsamli	UI kapsamlı test süiti oluşturma
+agent	qa-uzun-suit-kosucu	Uzun süren test sürelerini paralelleştirme
+agent	qa-yuk-testi	Yük ve stres test senaryosu hazırlama
+agent	sec-acik-yonlendirme	Açık yönlendirme (open redirect) zafiyeti tarama
+agent	sec-ai-kod-guvenlik	AI üretilen kod güvenlik analizi
+agent	sec-alt-alan-ele-gecirme	Alt alan ele geçirme (subdomain takeover) kontrolü
+agent	sec-api-guvenlik	API güvenlik açığı (OWASP API Top 10) tarama
+agent	sec-auth0	Auth0 yapılandırma güvenlik denetimi
+agent	sec-bagimlilik-acik	Bağımlılık güvenlik açığı (SCA) tarama
+agent	sec-ci-guvenlik-tarama	CI/CD güvenlik tarama entegrasyonu
+agent	sec-cikis-oncesi-guvenlik	Dağıtım öncesi güvenlik kapısı kontrolleri
+agent	sec-docker-guvenlik	Docker imaj güvenlik açığı tarama
+agent	sec-gitleaks-gecmis	Git geçmişinde gizli bilgi (secret) tarama
+agent	sec-guvenilmeyen-kod-yalitimi	Güvenilmeyen kod yalıtımı (sandbox) stratejisi
+agent	sec-guvenlik-baslik	Güvenlik başlıkları (CSP, HSTS) denetimi
+agent	sec-guvenlik-raporu	Güvenlik değerlendirme raporu oluşturma
+agent	sec-injection-denetci	Enjeksiyon (SQL/NoSQL/LDAP) zafiyeti tarama
+agent	sec-istem-enjeksiyon-savunma	İstemci tarafı enjeksiyon (XSS) savunması
+agent	sec-jwt-denetci	JWT token yapılandırma ve imza denetimi
+agent	sec-jwt-oturum	JWT oturum yönetimi güvenlik analizi
+agent	sec-keycloak	Keycloak yapılandırma güvenlik denetimi
+agent	sec-kvkk-gdpr-kontrol	KVKK/GDPR veri işleme uyumluluk kontrolü
+agent	sec-llm-pii-maskeleme	Kodda PII tespit edip maskeleyerek log güvenliği sağlama
+agent	sec-loglama-gizlilik	Hassas veri içeren logları otomatik temizleyip uyumluluk sağlama
+agent	sec-mfa-kurtarma	MFA kayıp senaryosunda kurtarma akışı tasarlayıp test etme
+agent	sec-owasp-top10	OWASP Top 10 açıklarını kod bazında tarayıp raporlama
+agent	sec-pci-dss-kapsam	PCI DSS kapsamına giren sistemleri belirleyip kontrol listesi oluşturma
+agent	sec-pentest-plani	Hedef sisteme özel sızma testi planı ve senaryoları hazırlama
+agent	sec-sast-kosucu	CI/CD pipeline'a SAST entegre edip otomatik tarama koşturma
+agent	sec-semgrep-kural	Özel Semgrep kuralı yazarak projeye özgü güvenlik açığı bulma
+agent	sec-sifreleme-denetci	Şifreleme algoritmalarını ve anahtar yönetimini denetleyip raporlama
+agent	sec-skill-tedarik-tarama	Tedarik zinciri bağımlılıklarını tarayıp güvenlik riski değerlendirme
+agent	sec-tehdit-modelleme	Sistem için STRIDE tehdit modeli oluşturup risk matrisi çıkarma
+agent	sec-xss-csrf-denetci	XSS/CSRF korumalarını kod seviyesinde doğrulayıp bypass test etme
+agent	sec-yetkilendirme-matrisi	Rol-bazlı yetkilendirme matrisi oluşturarak privilege escalation önleme
+agent	sec-yol-gecisi	API Gateway/Yol geçidi güvenlik politikalarını yapılandırıp test etme
+agent	sec-zero-trust-ag	Zero Trust mimarisi için mikro segmentasyon ve politika tasarlama
+agent	security-ai-generated-code-auditor	AI üretimi kodda hallucination ve güvenlik açığı denetleme
+agent	security-appsec-engineer	Uygulama güvenliği programı stratejisi ve metrikleri tanımlama
+agent	security-architect	Kurumsal güvenlik mimarisi ve defesa derinliği tasarımı yapma
+agent	security-blockchain-security-auditor	Akıllı sözleşme ve blockchain protokol güvenlik denetimi yapma
+agent	security-cloud-security-architect	Bulut altyapısı (AWS/Azure/GCP) güvenlik mimarisi değerlendirme
+agent	security-compliance-auditor	Uyumluluk standardı (ISO/SOC/GDPR) denetimi ve kanıt toplama
+agent	security-incident-responder	Güvenlik ihlali olay müdahale planı ve forensik analiz
+agent	security-penetration-tester	Yetkili sızma testi yürüterek exploitable bulgu kanıtlama
+agent	security-secrets-credential-engineer	Gizli anahtar/credential sızdırma tespiti ve rotasyon otomasyonu
+agent	security-senior-secops	SOC operasyonları için detection rule ve playbook geliştirme
+agent	security-threat-detection-engineer	SIEM/SOAR için tehdit algılama kuralı ve korelasyon yazma
+agent	security-threat-intelligence-analyst	CTI feed'lerden IOC zenginleştirip tehdit avcılığı yapma
+agent	urn-ab-test-istatistik	A/B testi istatistiksel anlamlılık ve örneklem hesaplama
+agent	urn-baslik-yazimi	SEO ve CTR odaklı başlık varyasyonları üretip test etme
+agent	urn-crm	CRM veri modeli ve otomasyon akışları tasarlama
+agent	urn-eposta-metni	Dönüşüm odaklı e-posta dizi metinleri yazıp A/B test etme
+agent	urn-finans-plani	Bütçe, nakit akışı ve KPI içeren finans planı oluşturma
+agent	urn-fiyatlandirma	Ürün/hizmet için fiyatlandırma modeli ve paketleme stratejisi
+agent	urn-google-ads-arama	Google Arama Reklamları kampanya yapısı ve anahtar kelime stratejisi
+agent	urn-grafik-tasarim	Marka kimliğiyle uyumlu grafik tasarım şablonları oluşturma
+agent	urn-icerik-performans	İçerik performans metriklerini analiz edip optimizasyon önerme
+agent	urn-icerik-stratejisi	Hedef kitle ve kanal bazlı içerik stratejisi ve takvimi çıkarma
+agent	urn-is-analizi	İş süreci analizi yapıp otomasyon fırsatları ve ROI hesaplama
+agent	urn-kriz-iletisimi	Kriz senaryosu için iletişim planı ve holding mesajları hazırlama
+agent	urn-kullanici-davranisi	Kullanıcı davranış analitikten segmentasyon ve persona çıkarma
+agent	urn-marka-sesi	Marka ses tonu rehberi ve yazım kuralları belgesi oluşturma
+agent	urn-martech-yigini	Pazarlama teknoloji yığını değerlendirip entegrasyon planı yapma
+agent	urn-mesaj-mimarisi	Kampanya için mesaj hiyerarşisi ve iletişim çatısı kurma
+agent	urn-musteri-saglik-skoru	Müşteri sağlık skoru modeli ve churn erken uyarı sistemi
+agent	urn-sosyal-medya-icerik	Sosyal medya platformlarına özel içerik takvimi ve görsel brief
+agent	urn-sosyal-reklam	Sosyal medya reklam kreafik, hedefleme ve bütçe optimizasyonu
+agent	urn-urun-yoneticisi	Ürün yol haritası, önceliklendirme ve stakeholder yönetimi
+agent	vid-ffmpeg-donusturucu	FFmpeg ile video format/dönüşüm/ölçeklendirme pipeline otomasyonu
+agent	vid-gecis-ve-ritim	Video geçiş efektleri ve ritim düzenlemesi için şablon oluşturma
+agent	vid-hareket-grafigi	Hareket grafiği verisinden animasyon/smooth path üretimi
+agent	vid-hyperframes-kompozisyon	Çoklu video katmanlarını zaman ekseninde senkronize etme
+agent	vid-kare-cikarici	Videodan belirli aralıklarda sabit kareler çıkarma
+agent	vid-kisa-klip-secici	Uzun videodan ilgi çekici 15-60 saniyelik segmentler seçme
+agent	vid-podcast	Podcast kayıtlarından hoparlör ayrımı ve bölümleme yapma
+agent	vid-premiere-akis	Premiere Pro zaman çizelgesi XML/OTIO içe/dışa aktarma
+agent	vid-reel-kanca-merdiveni	Reels/Shorts için kanca dizisi ve bekletme stratejisi oluşturma
+agent	vid-remotion-kurucu	Remotion ile programatik hareketli grafik/video render etme
+agent	vid-renk-uzayi	Video renk uzayı dönüşümü (Rec.709↔P3↔Rec.2020) yönetme
+agent	vid-ses-duzeni	Ses gürültü azaltma, normalize etme ve karıştırma işlemleri
+agent	vid-sosyal-video-bicim	Dikey/yatay/karé oranlara otomatik kırpma ve güvenli alan
+agent	vid-video-brief	Üretim öncesi video brifi ve shot listesi hazırlama
+agent	vid-video-ozetle	Uzun videodan özet, vurgular ve zaman damgaları çıkarma
+agent	vid-video-performans-web	Web için codec/bitrate/çözünürlük optimizasyonu ve HLS/DASH
+agent	vid-video-senaryo	Video konseptten tam senaryo, diyalog ve sahne yazma
+agent	vid-ytdlp-indirme	yt-dlp ile playlist/kanal toplu indirme ve meta veri
+agent	vrm-alt-ajan-dagitim	Paralel alt ajanları görevlere dağıtıp sonuçları birleştirme
+agent	vrm-baglam-butcesi	İşlem başına token bütçesi planlayıp aşırı harcamayı engelleme
+agent	vrm-baglam-kum-havuzu	İzole bağlam havuzlarıyla deneysel dalları güvenli test etme
+agent	vrm-bilgi-tabani-hazirla	Belgelerden vektör indeksli sorgulanabilir bilgi tabanı oluşturma
+agent	vrm-cikti-sikistirma	Büyük model çıktılarını özetleyip token maliyetini düşürme
+agent	vrm-dx-surtunme	Geliştirici deneyimi aksaklıklarını tespit edip çözüm önerme
+agent	vrm-hafiza-arama	Geçmiş oturumlardan anlamlı bilgi ve kararları anlık bulma
+agent	vrm-headroom-geri-cagirma	Token sınırı yaklaşıldığında kritik veriyi öncelikli koruma
+agent	vrm-log-ozetleyici	Uzun hata/işlem loglarından kök neden ve özet çıkarma
+agent	vrm-maliyet-denetci	Model/API çağrı maliyetini gerçek zamanlı izleyip limit koyma
+agent	vrm-ortam-yoneticisi	Proje bağımlılıkları, secret'lar ve runtime ortamlarını yönetme
+agent	vrm-oturum-kaydi	Tam oturum kaydı, yeniden oynatma ve denetim izi
+agent	vrm-plan-limit-izleme	Aylık/günlük plan kota kullanımını izleyip uyarı verme
+agent	vrm-worktree-paralel	Birden fazla git worktree ile paralell özellik geliştirme
+plugin	21st@21st-dev	21st.dev UI bileşen kütüphanesinden üretime hazır kopya alma
+plugin	accessibility-decisions@designer-skills	WCAG 2.2 AA/UYGUNLUK kararlarını otomatik doğrulama
+plugin	accessible-content@designer-skills	İçerik erişilebilirlik denetimi (alt metin, başlık hiyerarşisi)
+plugin	adaptive-interfaces@designer-skills	Farklı cihaz/yeteneklere uyumlu arayüz varyantları üretme
+plugin	adobe-for-creativity@claude-plugins-official	Creative Cloud entegrasyonu ile varlık/şablon senkronizasyonu
+plugin	agent-browser@agent-browser	Tarayıcı otomasyonu ile E2E test ve veri kazıma
+plugin	agent-sdk-dev@claude-code-plugins	Claude Code Agent SDK ile özel ajan geliştirme ve paketleme
+plugin	agent-skills@addy-agent-skills	Yeniden kullanılabilir ajan beceri modülleri yazıp paylaşma
+plugin	ai-alignment-reasoning@designer-skills	AI sistem hizalama risklerini mantıksal çerçevelerde değerlendirme
+plugin	ai-copywriter@ai-copywriter	Marka sesiyle landing page, e-posta, reklam metni yazma
+plugin	aks-skills@azure-skills	AKS küme dağıtımı, ölçekleme ve GitOps yapılandırması
+plugin	andrej-karpathy-skills@karpathy-skills	Karpathy'nin eğitim setleri ve tokenizer araçlarıyla LLM veri kümesi oluştur ve işle.
+plugin	android-skills@android-skills	Gradle/Kotlin ile Android uygulama modülü ve test iskeleti
+plugin	auto-repo-setup@daymade-skills	Yeni depoda CI/CD, lint, lisans şablonlarını anında kurma
+plugin	azure-cost@azure-skills	Azure kaynak maliyetlerini etiket bazlı analiz ve optimize etme
+plugin	azure-kusto-graph-skills@azure-skills	Kusto sorguları ile telemetri/log analitiği panosu oluşturma
+plugin	azure-local-skills@azure-skills	Azure Local/Stack HCI için hybrid dağıtım şablonları
+plugin	azure@azure-skills	Azure kimlik, ağ, depolama temel kaynak sağlama
+plugin	beautiful-article-skills@garden-skills	SEO uyumlu, tipografik olarak dengeli blog makalesi yazma
+plugin	bilibili-source@daymade-skills	Bilibili video/meta verilerini programatik çekme ve arşivleme
+plugin	blender@omer-skills	Blender Python API ile 3D sahne, rig, render otomasyonu
+plugin	cc-arcade@cc-arcade	plugin: cc-arcade@cc-arcade → CLI tabanlı interaktif oyun/prototip oluşturma
+plugin	chrome-devtools-mcp@chrome-devtools-plugins	plugin: chrome-devtools-mcp@chrome-devtools-plugins → Tarayıcı konsol hatalarını otomatik analiz etme
+plugin	claude-ads@ai-marketing-hub-claude-ads	plugin: claude-ads@ai-marketing-hub-claude-ads → Reklam metni varyasyonları üretip A/B testi için hazırlama
+plugin	claude-api@anthropic-agent-skills	plugin: claude-api@anthropic-agent-skills → Anthropic API isteklerini şema doğrulamasıyla yönetme
+plugin	claude-code-setup@claude-plugins-official	plugin: claude-code-setup@claude-plugins-official → Yeni makinede Claude Code kurulumunu otomatikleştirme
+plugin	claude-hud@claude-hud	plugin: claude-hud@claude-hud → Kod düzenleme sırasında gerçek zamanlı metrik gösterimi
+plugin	claude-md-management@claude-plugins-official	plugin: claude-md-management@claude-plugins-official → CLAUDE.md dosyalarını sürüm kontrolüyle senkronize etme
+plugin	claude-mem@thedotmack	plugin: claude-mem@thedotmack → Oturumlar arası kalıcı hafıza anahtar-değer deposu
+plugin	claude-opus-4-5-migration@claude-code-plugins	plugin: claude-opus-4-5-migration@claude-code-plugins → Mevcut kod tabanını Opus 4.5 uyumlu hale getirme
+plugin	cli-anything@cli-anything	plugin: cli-anything@cli-anything → Herhangi bir CLI aracını MCP sunucusuna çevirme
+plugin	cli-demo-generator@daymade-skills	plugin: cli-demo-generator@daymade-skills → CLI aracı için etkileşimli demo videosu oluşturma
+plugin	cloudflare-troubleshooting@daymade-skills	plugin: cloudflare-troubleshooting@daymade-skills → Cloudflare hata kodlarını kök nedenle eşleştirme
+plugin	code-review@claude-code-plugins	plugin: code-review@claude-code-plugins → Pull request değişikliklerini güvenlik odaklı inceleme
+plugin	codex@openai-codex	plugin: codex@openai-codex → OpenAI Codex modelleriyle kod üretimi yönlendirme
+plugin	cognitive-accessibility@designer-skills	plugin: cognitive-accessibility@designer-skills → UI bileşenlerini bilişsel erişilebilirlik standartlarına göre denetleme
+plugin	commit-commands@claude-code-plugins	plugin: commit-commands@claude-code-plugins → Git commit mesajlarını conventional formatta otomatik yazma
+plugin	competitors-analysis@daymade-skills	plugin: competitors-analysis@daymade-skills → Rakip ürün özelliklerini tablo halinde karşılaştırma
+plugin	context-mode@context-mode	plugin: context-mode@context-mode → Büyük kod tabanında ilgili bağlam dosyalarını otomatik seçim
+plugin	core-skills@hyperframes	plugin: core-skills@hyperframes → Temel programlama görevleri için yeniden kullanılabilir beceri şablonları
+plugin	cross-functional-alignment@designer-skills	plugin: cross-functional-alignment@designer-skills → Tasarım-geliştirim ekibi arasında kabul kriterleri eşleştirme
+plugin	csharp-lsp@claude-plugins-official	plugin: csharp-lsp@claude-plugins-official → C# projelerde LSP tabanlı refaktör önerileri alma
+plugin	data-visualization-discipline@daymade-skills	plugin: data-visualization-discipline@daymade-skills → Veri görselleştirme grafiklerini tasarım sistemine uygunluk kontrolü
+plugin	daymade-audio@daymade-skills	plugin: daymade-audio@daymade-skills → Ses dosyalarını metne çevirip özet çıkarma
+plugin	daymade-claude-code@daymade-skills	plugin: daymade-claude-code@daymade-skills → Daymade ekibi için özel Claude Code iş akışları
+plugin	daymade-codex@daymade-skills	plugin: daymade-codex@daymade-skills → Codex modellerini Daymade projelerinde kullanım için yapılandırma
+plugin	daymade-docs@daymade-skills	plugin: daymade-docs@daymade-skills → Proje belgelerini şablonlardan otomatik üretilmesi
+plugin	daymade-financial@daymade-skills	plugin: daymade-financial@daymade-skills → Finansal modelleri kod ile doğrulama ve test etme
+plugin	daymade-macos@daymade-skills	plugin: daymade-macos@daymade-skills → macOS sistem ayarlarını geliştirici profiline göre yapılandırma
+plugin	daymade-skill@daymade-skills	plugin: daymade-skill@daymade-skills → Daymade beceri şablonlarını yeni proje için başlatma
+plugin	debugging-network-issues@daymade-skills	plugin: debugging-network-issues@daymade-skills → Ağ isteklerini yakalayıp hata noktasını izole etme
+plugin	deep-research@daymade-skills	plugin: deep-research@daymade-skills → Konu derinlemesine araştırıp kaynaklı rapor üretme
+plugin	delivery-execution@designer-skills	plugin: delivery-execution@designer-skills → Tasarım teslimatlarını geliştirim sprintlerine dönüştürme
+plugin	design-agent-orchestration@designer-skills	plugin: design-agent-orchestration@designer-skills → Çoklu tasarım ajansını paralel görevlere dağıtma
+plugin	design-mastery@design-mastery	plugin: design-mastery@design-mastery → Tasarım prensiplerini kod tabanına sistematik uygulama
+plugin	design-ops@designer-skills	plugin: design-ops@designer-skills → Tasarım operasyonlarını (token, bileşen) otomatik denetleme
+plugin	design-research@designer-skills	plugin: design-research@designer-skills → Kullanıcı araştırma verilerini içgörü raporuna dönüştürme
+plugin	design-strategy@designer-skills	plugin: design-strategy@designer-skills → Ürün stratejisini tasarım kararlarıyla bağlama
+plugin	design-systems@designer-skills	plugin: design-systems@designer-skills → Tasarım sistemi bileşenlerini kod ile senkronize etme
+plugin	designer-toolkit@designer-skills	plugin: designer-toolkit@designer-skills → Tasarımcı araç setini (renk, tipografi) kodda validasyon
+plugin	differential-review@trailofbits	plugin: differential-review@trailofbits → Güvenlik odaklı diferansiyel kod incelemesi yapma
+plugin	discernment-nudge@anthropic-agent-skills	plugin: discernment-nudge@anthropic-agent-skills → Model kararlarında yanlılık riskini azaltma uyarıları
+plugin	dotnet-aspnetcore@dotnet-agent-skills	plugin: dotnet-aspnetcore@dotnet-agent-skills → ASP.NET Core middleware pipeline'ını analiz etme
+plugin	dotnet-data@dotnet-agent-skills	plugin: dotnet-data@dotnet-agent-skills → Entity Framework sorgularını performans için inceleme
+plugin	dotnet-msbuild@dotnet-agent-skills	plugin: dotnet-msbuild@dotnet-agent-skills → MSBuild proje dosyalarını derleme hatası için analiz
+plugin	dotnet-nuget@dotnet-agent-skills	plugin: dotnet-nuget@dotnet-agent-skills → NuGet paket bağımlılık konfliktlerini çözme
+plugin	dotnet-test@dotnet-agent-skills	plugin: dotnet-test@dotnet-agent-skills → xUnit/NUnit testlerini hata izole ederek çalıştırma
+plugin	douban-skill@daymade-skills	plugin: douban-skill@daymade-skills → Douban verilerini (film/kitap) toplayıp analiz etme
+plugin	download-gemini-images@daymade-skills	plugin: download-gemini-images@daymade-skills → Gemini API ile üretilen görselleri toplu indirme
+plugin	ecc@ecc	plugin: ecc@ecc → Eliptik eğri kriptografisi işlemlerini doğrulama
+plugin	evaluation@designer-skills	plugin: evaluation@designer-skills → Tasarım çıktısını kullanıcı testleriyle ölçüt bazlı değerlendirme
+plugin	example-skills@anthropic-agent-skills	Kod örnekleri arayıp projeye uyarlama
+plugin	excalidraw-use@daymade-skills	Excalidraw şemaları kodla oluşturup düzenleme
+plugin	expo@expo-plugins	Expo mobil uygulaması hata ayıklama ve yapılandırma
+plugin	fable-advisor@fable-advisor	Fable hikaye tabanlı test senaryoları yazma
+plugin	fact-checker@daymade-skills	İddiaların doğruluğunu kaynaklarla karşılaştırıp doğrulama
+plugin	feature-dev@claude-code-plugins	Yeni özellik planlayıp adım adım uygulama
+plugin	feishu-doc-scraper@daymade-skills	Feishu belgelerini çekip markdowna dönüştürme
+plugin	filetree@claude-code-filetree	Proje dosya yapısını görsel ağaç olarak çıkarma
+plugin	flightdeck@claude-flightdeck	Uçuş verilerini analiz edip raporlama
+plugin	foundry-iq-skills@azure-skills	Foundry blok zinciri sözleşmelerini test etme
+plugin	frontend-design@claude-plugins-official	Frontend bileşen tasarım sistemini oluşturma
+plugin	frontend-visual-qa@daymade-skills	UI görsel regresyon testlerini otomatik çalıştırma
+plugin	gemini-history-analyzer@daymade-skills	Gemini sohbet geçmişini analiz edip özetleme
+plugin	ghostty-use@daymade-skills	Ghostty terminal yapılandırmasını optimize etme
+plugin	git-safety-net@daymade-skills	Git commit geçmişini güvenli geri alma
+plugin	github-contributor@daymade-skills	GitHub katkıcılarını analiz edip raporlama
+plugin	github-ops@daymade-skills	GitHub işlemlerini (issue/PR) toplu yönetme
+plugin	github-review-pr@daymade-skills	Pull request kod incelemesini otomatik yapma
+plugin	github-sensitive-data-cleanup@daymade-skills	GitHub depolarından hassas verileri temizleme
+plugin	gsap-skills@gsap-skills	GSAP animasyonları kodlayıp performans optimize etme
+plugin	headroom@headroom-marketplace	Headroom ile başlık davranışını test etme
+plugin	hermoso@hermoso	Hermoso ile UI bileşenleri geliştirme
+plugin	hookify@claude-code-plugins	Git hookları yazarak süreçleri otomatikleştirme
+plugin	hyperframes@hyperframes	Hyperframes ile çerçeve tabanlı UI oluşturma
+plugin	i18n-expert@daymade-skills	Uygulamayı çoklu dile çeviri yönetme
+plugin	ima-copilot@daymade-skills	IMA Copilot ile mobil reklam entegrasyonu
+plugin	image-generation-skills@garden-skills	Yapay zeka ile görsel varlık üretme
+plugin	img@nyldn-plugins	Görsel dosyaları işleyip optimize etme
+plugin	inclusive-interaction@designer-skills	Erişilebilir etkileşim desenleri tasarlama
+plugin	inclusive-personas@designer-skills	Çeşitli kullanıcı kişileri oluşturup test etme
+plugin	interaction-design@designer-skills	Etkileşim tasarımı prensiplerini uygulama
+plugin	interface-design@interface-design	Arayüz tasarım sistemini belgeleme
+plugin	interfaces@interfaces	Arayüz bileşenlerini kataloglayıp paylaşma
+plugin	kimi-use@daymade-skills	Kimi modelini kod yardımıyla kullanma
+plugin	knowledge-base-skills@garden-skills	Bilgi tabanını vektörleştirip sorgulama
+plugin	last30days@last30days-skill	Son 30 günlük aktiviteyi analiz etme
+plugin	leadership-craft@designer-skills	Liderlik becerilerini geliştirme rehberi oluşturma
+plugin	linkedin-agent@linkedin-agent-skill	LinkedIn profili ve ağ analizi yapma
+plugin	llm-eval-harness@daymade-skills	LLM değerlendirme test havuzu kurma
+plugin	llm-icon-finder@daymade-skills	LLM ile ikon arayıp projeye entegre etme
+plugin	llm-wiki-setup@daymade-skills	LLM wiki altyapısını kurup doldurma
+plugin	logo-design@logo-design-skill	Marka için logo tasarımı oluşturma
+plugin	marketing-skills@marketingskills	Pazarlama kampanyası planlayıp içerik üretme
+plugin	marketplace-health-check@daymade-skills	Marketplace eklenti sağlığını kontrol etme
+plugin	mattpocock-skills@mattpocock	TypeScript/Zod şemaları geliştirme
+plugin	mcp-server-dev@claude-plugins-official	MCP sunucusu geliştirip dağıtma
+plugin	measurement-ops@designer-skills	Tasarım ölçümlerini toplayıp raporlama
+plugin	meme-creator@daymade-skills	Mizah içeriği üretip paylaşma
+plugin	mindful-claude@mindful-claude	Farkındalık tabanlı kodlama pratiği uygulama
+plugin	model-interaction-design@designer-skills	Model etkileşim tasarımı prototipleme
+plugin	nano-banana-2@nano-banana-2-plugins	Çoklu dil çeviri raporu oluşturma
+plugin	nateherk-design@nateherk	Kullanıcı arayüzü prototipi tasarlama
+plugin	notify-wecom@daymade-skills	İş akışı bildirimini WeCom’e göndermek
+plugin	obsidian-cli@obsidian-cli-skill	Obsidian notlarını komut satırından yönetmek
+plugin	obsidian@obsidian-skills	Obsidian veritabanını senkronize etmek
+plugin	octo@nyldn-plugins	GitHub deposunu otomatik olarak klonlama
+plugin	open-design@open-design	OpenAI tabanlı tasarım önerisi sağlamak
+plugin	openclaw-model-switch@daymade-skills	Model geçişi için OpenCL ayarlarını değiştirmek
+plugin	openclaw@daymade-skills	Kendi klavuzunu güncelleme işlemi yürütmek
+plugin	operating-cadence@designer-skills	Çevrim içi tasarım süreci takibi
+plugin	org-influence@designer-skills	Topluluk etkileşimini ölçme analizi
+plugin	peer-message@daymade-skills	Mesajlaşma kanallarını izleme ve yönetme
+plugin	people-management@designer-skills	Çalışan performans raporu toplamak
+plugin	phoenix-cti-search@phoenix-security	İş akışı güvenlik taraması başlatmak
+plugin	phoenix-docs-research@phoenix-security	Gelişmiş belgeler arama motoru oluşturmak
+plugin	phoenix-prd-pipeline@phoenix-security	Ürün geliştirme akışı otomatikleştirme
+plugin	phoenix-readiness-reviews@phoenix-security	Hazırlık değerlendirme raporu toplamak
+plugin	phoenix-sast-rules@phoenix-security	SAST kural setini güncelleme
+plugin	phoenix-security-review@phoenix-security	Güvenlik incelemesi otomatik raporu yazmak
+plugin	plugin-dev@claude-plugins-official	Plug-in geliştirme ortamını kurmak
+plugin	ponytail@ponytail	Eğitim seti oluşturmak
+plugin	pr-review-toolkit@claude-code-plugins	Kod inceleme sürecini otomatikleştirmek
+plugin	presentation-skills@garden-skills	Sunum slaytlarını tasarlamak
+plugin	process-design@designer-skills	İş akışı diyagramı oluşturmak
+plugin	product-analysis@daymade-skills	Pazar analizi raporu derlemek
+plugin	program-planning@designer-skills	Proje planlama şablonları oluşturmak
+plugin	prompt-architecture@designer-skills	Sorgu mimarisi geliştirmek
+plugin	prompt-optimizer@daymade-skills	Prompt optimizasyonu testleri yürütmek
+plugin	promptfoo-evaluation@daymade-skills	Prompt değerlendirme raporu üretmek
+plugin	prototyping-testing@designer-skills	Prototip test senaryoları hazırlamak
+plugin	qa-expert@daymade-skills	Kalite garantisi kontrol listesi hazırlamak
+plugin	ralph-wiggum@claude-code-plugins	Kod güvenlik denetimi başlatmak
+plugin	replica-skill@replica-skill	Sesli asistan ile etkileşim komutları oluşturmak
+plugin	repomix-safe-mixer@daymade-skills	Depo karıştırıcıyı güvenli bir şekilde çalıştırmak
+plugin	repomix-unmixer@daymade-skills	Depo karıştırıcıyı geri almak
+plugin	report-with-html@daymade-skills	HTML raporu oluşturmak
+plugin	scrapling-skill@daymade-skills	Web kazıma görevini planlamak
+plugin	security-guidance@claude-code-plugins	Güvenlik yönergeleri kılavuzu oluşturmak
+plugin	sepia@sepia	Sepia filtre uygulaması geliştirmek
+plugin	setup-notifications-via-wecom@daymade-skills	WeCom bildirimi kurulumunu otomatikleştirmek
+plugin	skill-creator@claude-plugins-official	Beceriler oluşturucu aracı yapılandırmak
+plugin	slides-creator@daymade-skills	Sunum slaytları hazırlama sürecini yönetmek
+plugin	stakeholder-comms@designer-skills	Paydaş iletişim planı oluşturmak
+plugin	supabase@yerel-kurulum7	Yerel Supabase ortamını başlatmak
+plugin	superpowers@claude-plugins-official	Geliştirici güçlendirme modülü kurmak
+plugin	system-behavior-shaping@designer-skills	Sistem davranışını şekillendirme scripti yazmak
+plugin	taste-skill@taste-skill	Lezzet değerlendirme raporu oluşturmak
+plugin	tastemaker@codeswithroh	Lezzet yaratıcı kodu paketlemek
+plugin	team-building@designer-skills	Ekip oluşturma aktiviteleri planlamak
+plugin	teams-channel-post-writer@daymade-skills	Teams kanalı mesajı yazma otomasyonu oluşturmak
+plugin	terraform-skill@daymade-skills	Terraform altyapı konfigürasyonu oluşturma
+plugin	tibo-reset-codex@daymade-skills	Kod tabanını sıfırlayıp temizle
+plugin	tunnel-doctor@daymade-skills	Tünel bağlantı hatalarını tanıma
+plugin	twitter-reader@daymade-skills	Twitter akışından veri toplama
+plugin	typesafe@typesafe-ai	Tip güvenli API tasarlama
+plugin	ui-design@designer-skills	UI tasarım prototipi üretme
+plugin	ui-designer@daymade-skills	UI bileşen kütüphanesi oluşturma
+plugin	universal-modder@universal-modder	Kod modifikasyonlarını otomatikleştirme
+plugin	ux-strategy@designer-skills	UX strateji raporu yazma
+plugin	video-comparer@daymade-skills	Video karşılaştırma analizi yapma
+plugin	visual-critique@designer-skills	Görsel elemanları eleştirme
+plugin	web-design-skills@garden-skills	Web sitesi tasarımı hazırlama
+plugin	webcmd@webcmd	Web komut satırı arayüzü oluşturma
+plugin	webgpu-threejs-tsl@webgpu-threejs-tsl	WebGPU Three.js sahnesi oluşturma
+plugin	windows-remote-desktop-connection-doctor@daymade-skills	Windows uzaktan masaüstü bağlantısını denetleme
+plugin	wps-doc-scraper@daymade-skills	WPS belgesi içeriği çekme
+plugin	youtube-downloader@daymade-skills	YouTube videosu indirme
+plugin	youtube-agent@youtube-agent-skill	YouTube otomasyon ajansı görevleri
+plugin	commercial-legal@claude-for-legal	Ticari hukuk belgesi hazırlama
+plugin	privacy-legal@claude-for-legal	Gizlilik hukuku belgeleri oluşturma
+mcp	21st	21. Yıl veri analizi raporu
+mcp	airtable	Airtable tablosunu senkronize etme
+mcp	apify	Apify veri kazıma iş akışı
+mcp	arxiv	ArXiv makalesi özetleme
+mcp	auth0	Auth0 kimlik doğrulama ayarlama
+mcp	brave-search	Brave arama sonuçları toplama
+mcp	canva	Canva grafik tasarımı üretme
+mcp	claude-design	Claude tasarım şablonu oluşturma
+mcp	clickhouse	ClickHouse veri sorgulama
+mcp	code-review	Kod inceleme raporu yazma
+mcp	codebase-memory-mcp	Kod taban bellek yönetimi
+mcp	codegraph	Kod grafiği oluşturma
+mcp	drizzle-docs	Drizzle dokümantasyon üretme
+mcp	excalidraw	Excalidraw çizim oluşturma
+mcp	figma	Figma tasarım dosyası yönetimi
+mcp	github	GitHub repo analizi
+mcp	godot	Godot oyun projesi oluşturma
+mcp	gsc	GSC (Google Search Console) raporları
+mcp	hfspace	Hugging Face model dağıtımı
+mcp	hostinger	Hostinger hosting yapılandırma
+mcp	infinite-canvas	Infinite Canvas veri yönetimi
+mcp	jev	Jev iş akışı otomasyonu
+mcp	markitdown	Markdown belgeler oluşturma
+mcp	mcp-fetch	MCP veri çekme aracı
+mcp	mcp-filesystem	Dosya sistemi yönetimi
+mcp	mcp-git	Git sürüm kontrolü entegrasyonu
+mcp	mcp-memory	Bellek yönetimi modülü
+mcp	mcp-sequential-thinking	Sıralı düşünme iş akışı
+mcp	mcp-time	Zaman izleme aracı
+mcp	mslearn	MSLearn kurs içeriği oluşturma
+mcp	n8n-mcp	n8n workflow otomatikleştirme ve entegrasyon
+mcp	netlify	Netlify deploy/edge function yönetimi
+mcp	premiere-pro	Premiere Pro video düzenleme otomasyonu
+mcp	puppeteer	Tarayıcı otomasyonu ve web scraping
+mcp	qmd	Quarto/Markdown doküman render kontrolü
+mcp	serena	Kod tabanı analizi ve refactoring
+mcp	stitch	Figma-Stitch tasarım-kod senkronizasyonu
+mcp	unity	Unity oyun geliştirme ve buildipeline

@@ -1,0 +1,40 @@
+1	skill	archify-review	Mimari tasarımların teknik uygunluğunu gözden geçirmek.
+2	skill	baoyu-xhs-images	baoyu-xhs-images|Xiaohongshu tarzı dikkat çekici ve estetik görsel içerikler oluşturma.
+3	skill	convex-suggest	Convex veritabanı şeması veya sorgu optimizasyonu önerileri sunma.
+4	skill	davila7-career-paket	Profesyonel kariyer planlama ve yetenek yönetimi.
+5	skill	davila7-curviate-paket	Veri setlerini eğrisel desenlerle görselleştirme analizi.
+6	skill	design-shotgun	Hızlı tasarım kararları almak için kullanılan iterasyon aracı.
+7	skill	mukul975-cloud-security-paket	mukul975-cloud-security-paket|Bulut altyapısı konfigürasyonlarını güvenlik standartlarına uygun hale getirmek.
+8	skill	n8n-subworkflows	Karmaşık n8n iş akışlarını modüler alt süreçlere bölme.
+9	skill	netlify-agent-runner	Netlify ortamında otomatize edilmiş iş akışı komutlarını çalıştırma.
+10	skill	plan-ceo-review	CEO düzeyindeki teknik incelemeleri raporlayıp sunuma hazırlama.
+11	skill	premiere-mcp-paket	Premiere Pro projeleri için MCP paket entegrasyonu.
+12	skill	swiftui-expert-skill	SwiftUI özel bileşen ve animasyon mimarisi tasarlamak
+13	skill	threejs-parallax-occlusion-mapping	Parallaks ve gölgeli oklüzyon haritalama uygulamak
+14	skill	threejs-weather	threejs-weather: Yağmur/kar/fırtına hava durumu parçacık sistemleri
+15	agent	ara-kutuphane-dokuman	Kütüphane dokümanlarını çekip yerel önbelleğe yaz
+16	agent	bl-gorsel-ani-kontrol	Render öncesi gölge, ışık sızıntısı ve UV çakışmalarını tespit et
+17	agent	bl-mod-modeli-blender	CAD modellerini Blender'da temiz quad topolojiye dönüştür
+18	agent	bl-uv-acma	Karmaşık organik modellerin UV açılımını en az distorsiyonla otomatikleştir
+19	agent	dn-openapi-dokuman	OpenAPI spesifikasyonlarını güncel dokümantasyon haline getirme.
+20	agent	engineering-ai-engineer	Yapay zeka algoritmalarını ve model eğitim süreçlerini iyileştirme.
+21	agent	engineering-devops-automator	CI/CD süreçlerini otomatikleştirip bulut altyapı dağıtımlarını optimize eder.
+22	agent	engineering-gaussdb-expert	GaussDB veritabanlarında yüksek erişilebilirlik yapılandırması ve sorgu performans iyileştirmesi.
+23	agent	engineering-it-service-manager	BT hizmet masası süreçlerinde olay yönetimi ve SLA uyumluluk denetimi.
+24	agent	engineering-solidity-smart-contract-engineer	Blokzincir üzerinde denetlenebilir ve güvenli akıllı sözleşme mantığı geliştirme.
+25	agent	fe-dashboard-duzeni	Veri odaklı paneller için estetik ve işlevsel ızgara düzenleri kurmak.
+26	agent	fe-ikon-sistemi	SVG tabanlı tutarlı ve ölçeklenebilir ikon setleri entegre etmek.
+27	agent	ops-mqtt	NATS JetStream consumer acknowledgment timeout ayarla
+28	agent	otm-otomasyon-izleme	Pazarlama lead skorlamasını n8n ile otomatikleştir
+29	agent	otm-powershell-51	Puppeteer ile SPA sayfasını PDF'e render et
+30	agent	pln-bagimlilik-haritasi	Proje bağımlılıklarını yönlü graf olarak haritala
+31	agent	qa-jasmine-test	Jasmine test süiti yapılandırma ve koşturma
+32	agent	qa-mutasyon-denetci	Mutasyon testi ile test kalitesi ölçümü
+33	agent	qa-test-bosluk-analiz	Test kapsama boşluklarını kod bazında analizi
+34	agent	sec-mfa-kurtarma	MFA kayıp senaryosunda kurtarma akışı tasarlayıp test etme
+35	agent	vrm-ortam-yoneticisi	Proje bağımlılıkları, secret'lar ve runtime ortamlarını yönetme
+36	plugin	andrej-karpathy-skills@karpathy-skills	Derin öğrenme modelleri için veri/egzersiz seti hazırlama
+37	plugin	azure-kusto-graph-skills@azure-skills	Kusto sorguları ile telemetri/log analitiği panosu oluşturma
+38	plugin	last30days@last30days-skill	Son 30 günlük aktiviteyi analiz etme
+39	plugin	qa-expert@daymade-skills	Kalite garantisi kontrol listesi hazırlamak
+40	plugin	terraform-skill@daymade-skills	Terraform altyapı konfigürasyonu oluşturma

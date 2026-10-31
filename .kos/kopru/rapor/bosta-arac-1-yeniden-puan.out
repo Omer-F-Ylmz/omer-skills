@@ -1,0 +1,6 @@
+27	agent	ops-mqtt	NATS JetStream tüketicisi için ACK bekleme süresini milisaniye cinsinden yapýlandýr.
+28	agent	otm-otomasyon-izleme	n8n workflow ile lead verilerini çekip skorlama modelini çalýþtýr ve CRM'e yaz.
+29	agent	otm-powershell-51	Headless Chromium via Puppeteer ile SPA'yý tam yüklendikten sonra PDF olarak kaydet.
+36	plugin	andrej-karpathy-skills@karpathy-skills	Karpathy'nin eðitim setleri ve tokenizer araçlarýyla LLM veri kümesi oluþtur ve iþle.
+saglayici: gemini/gemini-3.6-flash log: []
+ucretsiz_karar: {'27': 'YANLIS', '28': 'DOGRU', '29': 'YANLIS', '36': 'DOGRU'}
