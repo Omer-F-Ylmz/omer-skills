@@ -19,3 +19,11 @@ Kabul kapısı (her parça ≥7) bu turda ölçülemedi: kod-çizim set son hake
 2. Ya da Cloudflare kotası 03:00 TR sonrası (bir sonraki gece koşusu) flux-1-schnell ile.
 3. NVIDIA yolunu daha uzun zaman aşımıyla (300 sn) ayrıca denemek mümkün; denenmedi.
 4. Ses insan kulağıyla ölçülmedi; Ömer dinlemeli.
+
+## Tur 4 (31 Eki ~12:00) — TUR BITTI, kök neden bulundu
+- Yerel turbo yolu (GGUF Q4_K_M + `--disable-mmap` + `GORSEL_PORT`) 3 kez açıldı; her seferinde "Requested to load ZImageTEModel_" satırında sunucu öldü. RAM tepesi %71 (sorun RAM değil).
+- Kök neden (`.kos/kopru/vram-siper.log` 11:58-11:59): `tools/vram_siper.py` ComfyUI'yi "tek-gpu-isi vram 71-76%" ile kapattı. Başka bir oturumun `tools/video_derin.py` (PID 616, OCR) ~6,3 GB VRAM tutuyor (taban %51); ComfyUI ikinci GPU işi sayılıp VRAM %70'i geçince en yeni olarak öldürülüyor. Önceki turdaki "takılma / bağlantı koptu" da aynı olabilir (doğrulanmadı).
+- Siper kapatılmadı (NİHAİ 35), video_derin'e dokunulmadı (başka oturumun işi).
+- Bulut yeniden yoklandı: nvidia zaman aşımı, hf 410, fal 403 TOP_UP, cf 429 günlük pay dolu. Hepsi kapalı.
+- Karakter görseli bu turda üretilmedi; kapı ölçülemedi.
+- Sonraki tur koşulu: `video_derin.py` (PID 616) bitince (GPU'da tek iş) `GORSEL_PORT=<yeni> COMFY_EK=--disable-mmap` ile turbo yolu; ya da 03:00 TR sonrası CF flux-1-schnell (seed yok → prompt kalıbı).
