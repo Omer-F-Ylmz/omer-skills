@@ -7012,3 +7012,23 @@ heist	arac	CC	1	VIDEO-IZLE-KUR-1 en-yakin-kuruldu; C:/Projeler/araclar/video-izl
 binlog mcp	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; dotnet dnx Microsoft.AITools.BinlogMcp --yes --prerelease			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur21.tsv
 bekhruz ai ofis (ai-creative-team)	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/AI/indirilen/video-izle-kur-1/ai-creative-team			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur21.tsv
 tokeneconomizer	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; C:/AI/indirilen/video-izle-kur-1/TokenEconomizer			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur22.tsv
+leia (verdict-open-jev)	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur24.tsv
+ollama	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+claude code router	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu-anahtar-bekliyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+codex-plugin-cc	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+stripe agent toolkit	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu-anahtar-bekliyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+security-audit skill	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+diagram-design	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+social-media-skills	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+gemini cli	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu-anahtar-bekliyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+opencode	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+cline	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+repomix	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+aider	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu-anahtar-bekliyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+scrapling	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur25.tsv
+open-seo (every-app/open-seo, mit)	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu-anahtar-bekliyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur26-agir.tsv
+genjutsu	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur26.tsv
+scientific-agent-skills	arac	CC	1	VIDEO-IZLE-KUR-1 kuruldu; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur26.tsv
+anydoc	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur26.tsv
+openai-whisper	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur26.tsv
+playwright mcp	arac	CC	1	VIDEO-IZLE-KUR-1 calisiyor; 			kurulum:2026-10-31	CC	.kos/kopru/ogren/video-izle-kur-1/kur-tur26.tsv
