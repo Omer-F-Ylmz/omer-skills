@@ -1,0 +1,2 @@
+kalem	durum	kanit	yol
+FreeToken	calisiyor	WSL py3.14 venv: import ok torch 2.11.0+cu130 cuda 13.0 is_available=True; python -m freetoken --help (sunucu: --model-path --host --port); model indirilip sunucu açılmadı	WSL ~/vik9/freetoken-venv
