@@ -27,3 +27,10 @@ Kabul kapısı (her parça ≥7) bu turda ölçülemedi: kod-çizim set son hake
 - Bulut yeniden yoklandı: nvidia zaman aşımı, hf 410, fal 403 TOP_UP, cf 429 günlük pay dolu. Hepsi kapalı.
 - Karakter görseli bu turda üretilmedi; kapı ölçülemedi.
 - Sonraki tur koşulu: `video_derin.py` (PID 616) bitince (GPU'da tek iş) `GORSEL_PORT=<yeni> COMFY_EK=--disable-mmap` ile turbo yolu; ya da 03:00 TR sonrası CF flux-1-schnell (seed yok → prompt kalıbı).
+
+## Tur 5 (31 Eki ~14:30) — TUR BITTI, yerel yol çalışıyor ama RAM'i yetim ComfyUI tutuyor
+- video_derin bitti, VRAM boş (2,3/12 GB); `GORSEL_PORT=8231 COMFY_EK=--disable-mmap gorsel_uret.py uret --is foto --model turbo` 1 görseli üretti (89 sn): free-ai-drop `uretim/t1/` — stilize 3D robot-tilki, palet markaya uygun, kök neden (VRAM siper) doğrulandı.
+- Sonraki üretimler VAE aşamasında `RAM 2 GB altına indi` freniyle ölüyor. Sebep: önceki `ac` çağrılarımdan kalan yetim ComfyUI (PID 57156, port 8231 komutu, ~5-7,7 GB RAM) bellekte duruyor, yeni örnek üstüne biniyor. `gorsel_uret.py kapat` onu görmüyor ("oturum yok"); `taskkill /PID 57156` auto-mode sınıflandırıcısınca reddedildi.
+- Hazır: `tools/sunucu_karakter_batch.py` (3 dönüş · 6 ifade · 10 poz, iki marka, sabit tohum + sabit karakter cümlesi = tutarlılık reçetesi).
+- Ömer'in tek adımı: PID 57156'yı kapat (Görev Yöneticisi ya da `taskkill /PID 57156 /T /F`) → sonra `GORSEL_PORT=8231 COMFY_EK=--disable-mmap python tools/gorsel_uret.py ac` + `python tools/sunucu_karakter_batch.py`.
+- Kapı ölçülemedi; ses/klip/hakem adımları üretilen görsellere bağlı.
