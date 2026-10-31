@@ -96,3 +96,10 @@
 - Tam kaynakli bagimsiz hakem (4 Haiku, 44 kart = 4 yeniden uretilen + yeni 40, seed 24, kaynak<400 kr 7 kart disarida: arka_oto, grill-me, rea-agents, openfilm, ffmpeg, memvid-cli, logo-design): dogru 42/44 = %95,5; dogru+yararli 41/44 = %93. KAPI (%98) TUTMADI.
 - Ret: ub-mode (tuzak'ta kaynakta olmayan lisans/kural iddiasi), n8n-workflow-patterns (SplitInBatches $('Node').all() kosulu degismis: kaynak dongu SONRASI diyor). Yararsiz: rea-agents (kaynak yalniz baslik). Onceki 4 ret: 3'u gecti.
 - Sonraki: 2 reti yeniden uret, kaynak-yetersiz 7 karti kapidan cikar (isaretle), yeni 40 (seed 25) ile hakem. Push yok. Dosyalar: tmp/hakem24/s0-3.json.
+
+# TUR 25 (31 Eki)
+- ub-mode ve n8n-workflow-patterns yeniden uretildi (usta 750). Tam kaynakli bagimsiz hakem (3 Haiku, 42 yeni kart, seed 25): dogru 37/42 = %88,1; yararli 40/42. KAPI (%98) TUTMADI (6. tur ust uste).
+- Ret (5): motionsites-web-builder (tuzak/kombin kaynakta yok), mukul975-threat-hunting-paket (tuzak kaynakla celisir), agentshield-paket (kaynak tablo degil; kullanim uymuyor), mukul975-soc-operations-paket (tuzak kaynakta yok), model-sec (istisna dusmus). Yararsiz: agentshield-paket, remotion-saas.
+- Kok neden (tur 22-25 ortak): her taze orneklemde %10-12 ret; yama her turda yeni ret cikariyor, yakinsamiyor. kanit_* alintisi kaynakta gecince kabul ediliyor ama iddia alintiyi asiyor (tuzak/kombin/token_ipucu serbest metin).
+- Ikinci yol (Omer karari gerek, kod degisikligi buyuk): (a) tuzak/token_ipucu/kombin alanlarini serbest metin yerine kaynaktan birebir alinti olarak sakla (uretim degil cikarim), ya da (b) uretimi Sonnet medium'a tasi (maliyet ~3-4x). Oneri (a): %98 yalniz alinti-tabanli kartla ulasilabilir.
+- Push yok.
