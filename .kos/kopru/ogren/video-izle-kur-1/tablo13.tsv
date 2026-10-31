@@ -1,0 +1,102 @@
+kalem	tur	eslesme	durum	usta	kaynak	kanit
+Replica	plugin	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	plugin replica-skill@replica-skill (kurulu-mu.txt)
+MoneyPrinterTurbo	docker	eslesti	docker-sonra	KART-YOK	kur-tur6.tsv	docker servisi; bu parcada kurulmaz
+Brag	skill	KURULU	kuruldu	kart	skill-kur.tsv	brag-slim
+PentAGI	docker	eslesti	docker-sonra	KART-YOK	kur-tur6.tsv	docker servisi; bu parcada kurulmaz
+Grill Me	skill	KURULU	kuruldu	kart	skill-kur.tsv	grill-me
+Hypit	python	eslesti	kuruldu	kart	kur-tur8.tsv	install ok; build betigi yok
+prompts.chat	mcp	eslesti	kuruldu	kart	kur-tur8.tsv	npm install ok + prisma generate ok (DATABASE_URL yer tutucu; kok neden PrismaConfigEnvError); calistirma Postgres ister
+Postiz	docker	eslesti	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+Academic Research Skills	skill	aday	YOK	KART-YOK		
+Prime Agent	python	eslesti	calisiyor	kart	kur-tur8.tsv	cargo build ok; pa-perf.exe --help: help of the given subcommand(s) Options: -h, --help Print help -V, --version Print v
+ScrapeGraphAI	python	aday	calisiyor	kart	kur-tur6.tsv	gitleaks temiz; python -c import scrapegraphai: import ok scrapegraphai
+Munder Difflin	node	eslesti	calisiyor	kart	kur-tur10.tsv	tur11 ClangCL node-pty rebuild ok; Electron pty PTY_OK exit=0
+Generate	bulunamadi	bulunamadi	bulunamadi	kart	kur-tur6.tsv	kanit/not: jenerik kalem, repo yok; arama uyusmadi
+Google Maps Scraper Kit	docker	aday	docker-sonra	KART-YOK	kur-tur6.tsv	docker servisi; bu parcada kurulmaz (gh api: aday dogrulandi, MIT, aciklama Docker/no API keys)
+Xtool	site/hesap	eslesti	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+AirLLM	python	eslesti	calisiyor	kart	kur-tur9.tsv	uv venv py3.10 (.venv310) + uv pip -e air_llm ok; import airllm ok, AutoModel var (model indirme/inference olculmedi)
+/linkedin-roast	skill	eslesti	SKILL.md yok	KART-YOK	skill-kur.tsv	
+CareerOps	python	eslesti	basarisiz	KART-YOK	kur-tur6.tsv	gitleaks temiz; pyproject/setup/requirements yok
+Security Audit (Cloudflare)	skill	aday	YOK	KART-YOK		
+RE Walkthrough Pro	skill	KURULU	kuruldu	kart	skill-kur.tsv	re-walkthrough-pro
+Reverse Engineering Skill Router Pack	skill	bulunamadi	YOK	KART-YOK		
+build-ai-agents-free	python	eslesti	kuruldu	KART-YOK	kur-tur6.tsv	gitleaks temiz; pip install ok (none); import/--help kanitlanamadi: none
+V3Code	mcp	aday	bulunamadi	KART-YOK	kur-tur6.tsv	gh api: AI code editor (2 yildiz, 54MB); mcp kaleminin kaniti uyusmuyor, eslesme kabul edilmedi
+Gropector	python	eslesti	basarisiz	KART-YOK	kur-tur6.tsv	gitleaks temiz; pyproject/setup/requirements yok
+Age of Reach	python	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	pip agent-reach v1.5.0 (kurulu-ek.txt); video: Claude internet erisimi, 71k yildiz
+TRADER	python	eslesti	kuruldu	KART-YOK	kur-tur6.tsv	gitleaks temiz; pip install ok (none); import/--help kanitlanamadi: Traceback (most recent call last):
+GODMODE	site/hesap	aday	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+mixamo-llm-mocap	python	eslesti	basarisiz	KART-YOK	kur-tur6.tsv	gitleaks temiz; pyproject/setup/requirements yok
+Diffusion Studio Editor	node	eslesti	calisiyor	kart	kur-tur8.tsv	install+build ok: ualchunks - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+Flick	bulunamadi	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	"gh search ""Remotion Flick"": uyusan repo yok (remotion-flicker-issue ilgisiz)"
+DramaClaw	python	eslesti	calisiyor	kart	kur-tur6.tsv	"py3.12 venv, uv pip install -e src; python -c ""import novelvideo"": import ok novelvideo (onceki py3.14 numpy build hatas"
+social agents	skill	bulunamadi	YOK	KART-YOK		
+TradingAgents	python	eslesti	calisiyor	kart	kur-tur7.tsv	tradingagents --help: 'Usage: tradingagents [OPTIONS] COMMAND [ARGS]...' (py3.12 venv) 
+ARES OSINT	python	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	gh search: kanitla uyusan repo yok; onceki ret listesi gecerli
+Company Brain	node	eslesti	calisiyor	kart	kur-tur7b.tsv	npm run build (wrangler dry-run) ok; vitest 34/34 test gecti, 2 dosya yuklenemedi (cloudflare: protokol, @repo alias); w
+Mantis	skill	bulunamadi	YOK	KART-YOK		
+CROWD	docker	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	klon:666ghj__MiroFish (kurulu-mu.txt); kaynak mirofish.ai
+Sullivan	bulunamadi	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	kanit metniyle uyusan repo yok
+UnoRouter	site/hesap	aday	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+PYNK	skill	eslesti	SKILL.md yok	KART-YOK	skill-kur.tsv	
+HTML Anything	node	eslesti	calisiyor	kart	kur-tur7b.tsv	npx pnpm install+next build ok; next start 127.0.0.1:3123 GET /api/templates -> 200 (templates json), / -> 200
+Interactive Assets Skill	skill	bulunamadi	YOK	KART-YOK		
+Reicon	node	eslesti	calisiyor	kart	kur-tur8.tsv	install+build ok: ualchunks - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+CTA Strategist	skill	bulunamadi	YOK	KART-YOK		
+Orca	node	eslesti	calisiyor	kart	kur-tur10.tsv	typecheck 3/3 ok; build:cli + build:electron-vite ok; cli --help rc=0: 
+Magpie	rust	eslesti	calisiyor	kart	kur-tur8.tsv	go1.27.3 (tasinabilir) go build ok; magpie.exe --help: komut listesi (tray, panel ...)
+logo-design-skill	skill	eslesti	YOK	KART-YOK		
+Apple Design Skill	skill	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	~/.claude/skills/apple-design
+Ootto	mcp	aday	YOK	kart		
+GSAP ScrollTrigger	skill	KURULU	KURULU-onceden	kart	kurulacaklar-temiz	marketplaces/gsap-skills; skills/gsap, gsap-scrolltrigger-storytelling
+matpococ/skills	skill	eslesti	YOK	kart		
+3D Asset Server	mcp	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	aday 0 yildiz zayif, aciklama uyusmuyor
+OpenQodex	node	eslesti	calisiyor	kart	kur-tur8.tsv	install+build ok: re about direct eval and bundling here: [4mhttps://esbuild.github.io/link/direct-eval[0m
+FreeToken	python	eslesti	basarisiz	KART-YOK	kur-tur12.tsv	kok neden: torch 2.11.0+cu130 CUDA 13 ister, apt nvcc 12.4 uyumsuz -> cuda-toolkit-13-0 kuruluyor (wsl13.sh)
+Claude Commercial	skill	eslesti	kuruldu	KART-YOK	skill-kur.tsv	yes-scripts
+Fallow	rust	eslesti	calisiyor	kart	kur-tur10.tsv	msvc cargo build ok; fallow.exe --help: n a requested semantic query is incomplete -h, --help Print help (see a summary 
+Everything Claude Code	plugin	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	marketplaces/everything-claude-code ve ecc
+Dock	site/hesap	bulunamadi	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+The Premium UI Kit	site/hesap	eslesti	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+Hindsight	python	eslesti	calisiyor	kart	kur-tur8.tsv	uv pip -e hindsight-api-slim + hindsight-clients/python ok; exe: hindsight-api/admin/worker/local-mcp; import hindsight_
+Agentation	mcp	eslesti	calisiyor	kart	kur-tur7b.tsv	"pnpm install+build ok (package dist + mcp dist); agentation-mcp server 127.0.0.1:4747 GET /health -> 200 {""status"":""ok""}"
+I Have ADHD	skill	KURULU	zaten kurulu	kart	skill-kur.tsv	i-have-adhd
+Cloudroom	node	eslesti	calisiyor	kart	kur-tur9.tsv	WSL cargo build --locked ok; exe: target/release/cloudroom ; --help: om-cli thread, automation (loop), mac, secret, file
+Claude at Director	skill	bulunamadi	YOK	KART-YOK		
+Build Partner	plugin	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	klon:sahil11129__Build-Partner (kurulu-mu.txt); ig DeW8haPoXTs
+Dray	bulunamadi	bulunamadi	bulunamadi	kart	kur-tur6.tsv	gh search: Chrome extension eslesmesi yok
+Vendeo	skill	bulunamadi	YOK	KART-YOK		
+Answer Me with HTML	skill	KURULU	KURULU-onceden	kart	kurulacaklar-temiz	~/.claude/skills/answer-me-with-html
+Task-CoEvolve	python	eslesti	basarisiz	KART-YOK	kur-tur6.tsv	gitleaks temiz; pyproject/setup/requirements yok
+Acik kaynak ElevenLabs alternatifi	python	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	adi belirtilmemis
+MCPTune (mcptoon)	node	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	where mcptoon: C:\Users\pc\.local\bin\mcptoon.exe; skills/mcptoon
+ReelMimic	python	eslesti	calisiyor	kart	kur-tur8.tsv	uv pip -r requirements ok; app npm install ok; npm run doctor (venv PATH): All required items present
+LLM Wiki	skill	KURULU	zaten kurulu	kart	skill-kur.tsv	xlsx
+Slop Monster	skill	KURULU	kuruldu	kart	skill-kur.tsv	slopmonster
+Dioramas	node	eslesti	calisiyor	kart	kur-tur7b.tsv	npm run build ok; vite dev 127.0.0.1:5190 GET / -> 200
+auto-handoff	plugin	eslesti	kalan	KART-YOK	kur-tur6.tsv	plugin sinifi, CLI degil; bu parca kapsami disi
+Auto Content Skills	skill	aday	YOK	KART-YOK		
+Anthropic KnowledgeWork plugins	plugin	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	marketplaces/knowledge-work-plugins
+PhotoCraft	node	aday	calisiyor	kart	kur-tur8.tsv	cargo build ok; photocraft-cli.exe --help: help of the given subcommand(s) Options: -h, --help Print help -V, --version 
+iFix AI	python	aday	calisiyor	kart	kur-tur7.tsv	ifixai --help: 'Usage: ifixai [OPTIONS] COMMAND [ARGS]'; import ifixai ok 
+AllWords	skill	aday	YOK	KART-YOK		
+HEIST	skill	bulunamadi	YOK	KART-YOK		
+Blender MCP	mcp	aday	calisiyor	kart	kur-tur6.tsv	gitleaks temiz; mcp-for-blender --help: usage: mcp-for-blender [-h] [--host HOST] [--port PORT]
+tcl-lsp	python	eslesti	calisiyor	KART-YOK	kur-tur12.tsv	WSL rustup stable cargo build -p tcl-cli rc=0; tcl --help: Unified Tcl toolchain CLI (dis/asm ...)
+Pit Crew / Fuel Saver / Dashboard	plugin	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	repo yok
+LINEAR (hairline)	skill	bulunamadi	YOK	KART-YOK		
+Magic UI	node	aday	kalan	KART-YOK	kur-tur6.tsv	gh api dogrulandi (MIT, kopyala-yapistir bilesen kutuphanesi); CLI/kutuphane degil, kurulum anlamsiz
+Free Claude Code	python	eslesti	calisiyor	kart	kur-tur7.tsv	fcc-server basladi, GET 127.0.0.1:8082/health=200 (kapatildi). uv 0.12.12<0.13.6 ve py3.14.10 yok: --no-config --python-
+Jcode	rust	eslesti	calisiyor	kart	kur-tur10.tsv	msvc cargo build ok; jcode.exe --help: erred exposure -h, --help Print help (see a summary with '-h') -V, --version Prin
+LTX 2.3	python	aday	kalan	KART-YOK	kur-tur6.tsv	gh api resmi repo dogrulandi (lisans NOASSERTION); GPU/agirlik indirmesi gerektirir, bu parcada kurulmadi
+claude-video	plugin	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	marketplaces/claude-video; ig DY8EtIPtKLC
+ffmpeg	python	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	where ffmpeg: C:\Users\pc\AppData\Local\Microsoft\WinGet\Links\ffmpeg.exe
+map3d	node	eslesti	calisiyor	kart	kur-tur7b.tsv	npm run build ok (tsc+vite); vite dev 127.0.0.1:5191 GET / -> 200
+Magic MCP Server	mcp	aday	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+Gbrain	skill	aday	YOK	kart		
+Meta resmi MCP	mcp	bulunamadi	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+Higgsfield MCP	mcp	aday	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+TradingView	mcp	KURULU	hesap	KART-YOK	kur-tur6.tsv	hesap/odeme/API anahtari ister, kurulmadi
+TrueForge agent harness	python	KURULU	KURULU-onceden	KART-YOK	kurulacaklar-temiz	klon:truefoundry__trueforge (kurulu-mu.txt)
+Claude Code skill	skill	bulunamadi	YOK	KART-YOK		
+Guitar Repos	bulunamadi	bulunamadi	bulunamadi	KART-YOK	kur-tur6.tsv	repo yok
