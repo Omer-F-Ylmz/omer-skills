@@ -97,3 +97,7 @@ relatedTo: [video-764-1, kurulum-v1, ig-karusel]
 - SABAH ÖMER: (1) indirilen repo kodunu çalıştırma izni (sınıflayıcı reddi: Hypit/prompts.chat/build-ai-agents-free/TRADER kanıtı, CareerOps/Gropector/mixamo/Task-CoEvolve) (2) PentAGI LLM anahtarı (3) hesap gerektiren 10 kalem.
 - SIRA (tur 14): 19 kartı hakeme · FreeToken + 5 md skill + Gmaps usta kartı · 3 zip düzelt (logo-design >200, Mantis/academic-pipeline açılı ayraç) · MoneyPrinterTurbo build yeniden (PIP_USE_OFFICIAL=1) · PentAGI imaj sürümü · Build Partner gerçek repo · tablo13 yeniden.
 - DÜZELTME: MoneyPrinterTurbo ikinci build (PIP_USE_OFFICIAL=1) süre bitmesiyle değil, exit 1 'rpc error Unavailable EOF' (Docker daemon bağlantısı koptu) ile düştü; arka planda build yok (kur-tur13-docker.tsv satırındaki 'sürüyor olabilir' yanlış).
+
+# Tur 14 (31 Eki 05:25) · ARA KAYIT
+- Desktop zip: `zip14.py` → logo-design svg/ (1436 dosya) iç `svg.zip`'e (31 dosya, SKILL.md'ye açma notu), academic-pipeline '->' ve 19 mantis `>-` katlı description tek satıra; eskiler dist/video-izle-kur-1/_arsiv/. zip_denetle: TEMİZ 81 zip, rc 0.
+- Usta kartı tur14 (Sonnet, kaynaktan): 12 kart (FreeToken, Gmaps Scraper Kit, Academic Research Skills, security-audit-extended, logo-design, Mantis, MoneyPrinterTurbo, PentAGI, CareerOps, Gropector, mixamo-llm-mocap, Task-CoEvolve) → usta.jsonl (717, geçerli JSON). Apple Design zaten vardı (usta.jsonl:53); Postiz klonu yok → kart yok.
