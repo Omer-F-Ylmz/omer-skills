@@ -1,6 +1,6 @@
 """D2-KUR-1: kurulum-coz.tsv -> kapılar (ADAY eşleşme, güvenlik) -> kurulum -> kurulum-d2-sonuc.tsv (kaldığı yerden sürer).
 Kullanım: python tools/kurulum_d2.py --faz tohum|kur|model|ikinci|kapsam [--n N] [--sinif SKILL,CLI,PAKET,MODEL] [--is 6]"""
-import csv, io, json, os, re, shutil, subprocess, sys, tempfile, threading, time, urllib.request, urllib.parse
+import csv, io, json, os, re, shutil, subprocess, sys, tempfile, threading, time, urllib.error, urllib.request, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -96,6 +96,17 @@ def llm(istem):
             y = json.loads(urllib.request.urlopen(req, timeout=90).read())["choices"][0]["message"]["content"] or ""
             if y.strip():
                 return y
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and yedek and YEDEK_TAVAN["n"] < YEDEK_TAVAN["max"]:  # :free model geçici kota: bir kez bekle, aynı modeli yeniden dene
+                time.sleep(30)
+                try:
+                    YEDEK_TAVAN["n"] += 1
+                    y = json.loads(urllib.request.urlopen(req, timeout=90).read())["choices"][0]["message"]["content"] or ""
+                    if y.strip():
+                        return y
+                except Exception:
+                    pass
+            continue
         except Exception:
             continue
     return None
@@ -207,7 +218,7 @@ def aday_kapisi(kalem, repo, aciklama):
 NPMBIN = Path.home() / "AppData/Roaming/npm"
 VENVK = Path.home() / ".venvs/ana-liste312"  # yedek venv'ler (3.12 / 3.13), paket başına alt dizin
 ALIAS = {"ripgrep": "rg", "neovim": "nvim", "opentofu": "tofu"}  # repo adı -> exe adı
-WINRE = re.compile(r"win(dows)?[-_.]?(x86_64|amd64|x64|64)|(x86_64|amd64|x64)[-_.]?(pc-)?(win|windows)|win64|windows", re.I)
+WINRE = re.compile(r"(?<![a-z])(win(dows)?[-_.]?(x86_64|amd64|x64|64)|win64|windows)|(x86_64|amd64|x64)[-_.]?(pc-)?(win|windows)(?![a-z])", re.I)  # darwin içindeki "win" eşleşmesin
 ASSET_ATLA = re.compile(r"arm|aarch|sha256|sbom|checksum|\.sig$|\.asc$|\.pem$|\.sha|\.msi$|\.deb$|\.rpm$|\.json$|\.txt$|source|src", re.I)
 
 
