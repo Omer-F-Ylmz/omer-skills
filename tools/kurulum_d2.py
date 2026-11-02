@@ -72,6 +72,12 @@ YEDEK_TAVAN = {"n": 0, "max": 40}  # OmniRoute dışı (yedek zincir) çağrıla
 
 def llm_zincir():
     """OMNIROUTE_KEY varsa OmniRoute; yoksa doğrudan GROQ -> GEMINI -> OPENROUTER (:free model)."""
+    import winreg  # arka süreçte (köprü dışı) kullanıcı env'i gelmeyebilir: HKCU\Environment'tan oku, değer yazdırılmaz
+    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as hk:
+        for n in ("OMNIROUTE_KEY", "GROQ_API_KEY", "GEMINI_API_KEY", "OPENROUTER_API_KEY"):
+            if not os.environ.get(n):
+                try: os.environ[n] = winreg.QueryValueEx(hk, n)[0]
+                except OSError: pass
     e, z = os.environ.get, []
     if e("OMNIROUTE_KEY"):
         z += [("http://127.0.0.1:20128/v1/chat/completions", e("OMNIROUTE_KEY"), m, False) for m in ("ucretsiz-ozet2", "ucretsiz-groq")]
@@ -319,6 +325,10 @@ def gh_cli_kur(d, repo, kalem="", buyuk=0):
         exes = sorted(x.rglob("*.exe"), key=lambda q: (ad.lower() not in q.stem.lower(), len(q.parts)))
         if not exes:
             return "HATA", f"release içinde exe yok: {ass[0]} içeriği: {[q.name for q in list(x.rglob('*'))[:5]]}"
+        if re.search(r"setup|install", exes[0].name, re.I):  # GUI kurulum programı: çalıştırılmaz, ~/.local/bin'e konmaz
+            park = Path(__file__).resolve().parents[1] / ".kos/kopru/park"; park.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(exes[0], park / (exes[0].name + ".kurulum"))
+            return "KURULUM-YOLU-ELLE", f"GUI kurulum programı ({exes[0].name}) park/ içinde; sessiz bayrak doğrulanmadı, çalıştırılmadı; elle kurulur"
         BIN.mkdir(parents=True, exist_ok=True)
         hedef = BIN / exes[0].name
         if hedef.exists(): return "ZATEN", str(hedef)
