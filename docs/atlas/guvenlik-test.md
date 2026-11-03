@@ -6,6 +6,7 @@ Karar kaynağı: `docs/atlas/kart.jsonl` (`karar` · `kosul`); aynı karar `docs
 | Adım | Araç | Komut | Kapı |
 |---|---|---|---|
 | A1 Sır taraması | `gitleaks` · `sec-gitleaks-gecmis` | `gitleaks detect --source . --redact` (geçmiş dahil) | Bulgu 0; varsa döndür + geçmişten temizle |
+| A1b Yayın paketi taraması (ANAHTAR-KALKAN-1) | `.kos/kopru/anahtar-kalkan/paket_tara.py` | `python -I -S paket_tara.py <canlı-url>…` (HTML+JS indirir; sk-/AIza/ghp_/xox/service_role/NEXT_PUBLIC_*SECRET kalıpları, `.env`/`.git`/sourcemap açıklığı) | Bulgu 0; global pre-commit kancası (`~/.git-hooks-global`) ayrıca her commit'i tarar |
 | A2 Statik analiz | `semgrep` · `sec-semgrep-kural` | `semgrep --config auto --error --quiet` | Yüksek 0; yanlış pozitif satır içi gerekçeyle |
 | A3 Bağımlılık | `npm audit` (osv-scanner kurulu değil) | `npm audit --omit=dev --audit-level=high` · kullanılmayan: `npx knip` | Yüksek+kritik 0 |
 | A4 Başlıklar | `sec-guvenlik-baslik` | Önizleme yanıtında CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy | Eksik başlık yok; CSP'de `unsafe-inline` gerekçesiz yok |

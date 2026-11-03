@@ -10,7 +10,7 @@ Araç kataloğu: bu klasördeki `katalog.md` (araç · ne zaman · sıradaki ad�
 Zor iş (≥2 alan, alan dışı ya da aracın adını bilmiyorsan): `<katalog>` eki geldiyse yalnız ondan seç, ek sorgu yok; gelmediyse TEK kez Skill `yetenek-getir` (iş başına ayrı sorgu yok). Rutin tek alanlı işte katalog yok.
 
 ## Adımlar
-1. **Sır taraması** — her commit öncesi `gitleaks` (temiz değilse commit yok). Env değerleri asla yazdırılmaz.
+1. **Sır taraması**, her commit öncesi `gitleaks` (temiz değilse commit yok; global pre-commit kancası `~/.git-hooks-global` zaten tarar). Env değerleri asla yazdırılmaz. Site kapanışında + yayın öncesi: geçmiş dahil `gitleaks git --log-opts=--all` ve yayın paketi taraması `.kos/kopru/anahtar-kalkan/paket_tara.py <canlı-url>…` (ANAHTAR-KALKAN-1). Harcama/anahtar kısıtı: `docs/guvenlik/harcama-kalkani.md`.
 2. **Diff taraması** — değişen kod: `security-review` ya da `0day-scanner`; kural gerekiyorsa `semgrep`.
 3. **Tasarım riski** — auth/RBAC, dış istek, yeni uç nokta: `threat-modeling` (STRIDE); ajan/MCP kodunda `tm-security-review`.
 4. **Uygulama testi** — çalışan uygulama: `strix` (`web-app-penetration-testing`, API için `api-security-testing`); OWASP kapsamı `owasp-top-10-testing`; bulgu düzeltme `fix-security-vulnerabilities-with-strix`.
