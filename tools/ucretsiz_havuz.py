@@ -47,6 +47,11 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("openrouter", "minimax/minimax-m3.1-flash:free", "minimax", "openrouter", 18, 10**6, 900, 100_000, ()),  # KAPALI: :free 22 Eki 2026'da kalktı (404)
        E("openrouter", "nvidia/nemotron-3-ultra-550b-a55b:free", "nvidia", "openrouter", 18, 10**6, 900, 100_000, (H, Y)),
        E("github", "openai/gpt-4.1-mini", "openai", None, 10, 7000, 120, 5500, ()),  # KAPALI (29 Eki yeniden ölçüm): 200 ama gövde düz "OK", JSON değil (gh token ve GITHUB_TOKEN, başlıklar denendi); eski azure uç DNS'te yok
+       # HAVUZ-TAMIR-1 29 Eki: canlı /models ve istekle doğrulanan yeni halkalar
+       E("openrouter", "openrouter/free", "karma", "openrouter", 18, 10**6, 900, 100_000, (Z, H, Y)),
+       E("gemini", "gemini-flash-lite-latest", "google", None, 10, 200_000, 200, 900_000, (Z, H, U)),
+       E("cloudflare", "@cf/openai/gpt-oss-20b", "openai", "cloudflare", 60, 20_000, 150, 20_000, (Z, H)),
+       E("cloudflare", "@cf/qwen/qwen3-30b-a3b-fp8", "alibaba", "cloudflare", 60, 20_000, 150, 20_000, (Z, H, Y)),
        E("omniroute", "cc-ucuz-free", "karma", None, 15, 10**6, 100, 100_000, (Z, H, Y, U)),
        # 20 Eki canlı: mistral 429 (hız sınırı, kendini toparlarsa açılır) · cloudflare 200 · ollama "Free usage limit" 429; sınırlar acilabilir.md'deki belge değerlerinin muhafazakârı; ilk 429'da soğuma devreye girer
        E("mistral", "mistral-small-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z, H, Y, U)),
@@ -55,7 +60,7 @@ ENT = [E("gemini", "gemini-3.1-flash-lite", "google", None, 10, 200_000, 200, 90
        E("mistral", "ministral-3b-latest", "mistral", None, 30, 100_000, 1000, 100_000, (Z,)),
        E("mistral", "codestral-latest", "mistral", None, 30, 100_000, 1000, 100_000, (K, Y)),  # HAVUZ-3: mistral-small/medium 429 (1300), large 403 tier; ministral 200
        E("cloudflare", "@cf/meta/llama-3.3-70b-instruct-fp8-fast", "meta", "cloudflare", 60, 20_000, 150, 20_000, (Z, H, Y)),
-       E("nvidia", "openai/gpt-oss-20b", "openai", "nvidia", 40, 100_000, 1000, 100_000, ()),  # KAPALI 23 Eki: canlı 599 zaman aşımı; HAVUZ-3: 200 (2 sn); llama-3.3 410, nemotron-nano 404, deepseek-v4.1-flash/gemma-4 zaman aşımı
+       E("nvidia", "openai/gpt-oss-20b", "openai", "nvidia", 40, 100_000, 1000, 100_000, (Z,)),  # AÇIK (yalnız ozet, 10 istekte 5/10 zaman aşımı) 29 Eki (HAVUZ-TAMIR-1 canlı 200, 2 sn; max_tokens ≥300 şart, düşünme jetonu); eski: 23 Eki canlı 599 zaman aşımı; HAVUZ-3: 200 (2 sn); llama-3.3 410, nemotron-nano 404, deepseek-v4.1-flash/gemma-4 zaman aşımı
        E("nvidia", "nvidia/nemotron-3-ultra-550b-a55b", "nvidia", "nvidia", 40, 100_000, 1000, 100_000, (Z, H, Y)),  # ORDU d8: 200 (1 sn); nemotron-3-super-120b/nano-3-30b/llama-3.1-nemotron-ultra-253b listede ama 404, 3.5-lightning/3.5-super-vl 200 boş içerik (düşünme jetonu)
        E("nvidia", "nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia", "nvidia", 40, 100_000, 1000, 100_000, (Z, H, Y, K)),  # ORDU d9: 200 dolu içerik (max_tokens 8000; ~300 düşünme jetonu); max_tokens ≤1500 ile boş kalabilir
        E("nvidia", "google/gemma-4-31b-it", "google", "nvidia", 40, 100_000, 1000, 100_000, ()),  # KAPALI: llama-3.3 410, mistral-large/nemotron-70b 404, gemma/deepseek 60 sn zaman aşımı (20 Eki)
@@ -253,18 +258,24 @@ def _sec(tur, tahmin, aile, haric, denenen, rezerv=None, saglayici=None):
 
 
 def _dus(e, h):
-    """Hataya göre soğuma; süre bitince halka bir kez denenir, yine düşerse süre katlanır."""
+    """Hataya göre soğuma. HAVUZ-TAMIR-1: gerçek HTTP kodu durum.json "http"a yazılır (kod, zaman, bekle, gövde başı);
+    404/410/400 = MODEL değiştir (kota değil, yalnız o halka); 429 süresi başlıktan, yoksa 5 dk; 402 = bütçe (sağlayıcı 6 sa);
+    401 = anahtar (sağlayıcı 1 sa); 403 = izin/katman (yalnız o halka)."""
     with KILIT:
         d = _durum(); now = time.time()
-        for k in ("soguma", "ardisik"):
+        for k in ("soguma", "ardisik", "http"):
             d.setdefault(k, {})
         n = d["ardisik"][ad(e)] = d["ardisik"].get(ad(e), 0) + 1
+        d["http"][ad(e)] = [h.kod, int(now), h.bekle, h.mesaj[:120]]
         if h.kod == 429:
             gunluk = SERT.search(h.mesaj) or (h.bekle or 0) > 900
-            sure = 14400 if gunluk else min(h.bekle or 60, 900) * min(n, 4)  # OpenRouter "per-day" 429'u model başına geçici (20 Eki ölçüm): 4 saat değil
-        elif h.kod in (401, 402, 403):
-            d["soguma"]["p:" + e.prov] = now + 3600; _yaz(d); return  # anahtar/izin sorunu: sağlayıcının hepsi
-        elif h.kod in (400, 404, 410):
+            sure = min(h.bekle or 0, 86400) if h.bekle else (14400 if gunluk else 300)
+            sure = max(sure, 30)
+        elif h.kod == 402:
+            d["soguma"]["p:" + e.prov] = now + 21600; _yaz(d); return
+        elif h.kod == 401:
+            d["soguma"]["p:" + e.prov] = now + 3600; _yaz(d); return
+        elif h.kod in (400, 403, 404, 410):
             sure = 3600
         elif h.kod == 413:
             sure = 600
@@ -284,6 +295,26 @@ def _basari(e):
         d = _durum(); d.setdefault("ardisik", {})[ad(e)] = 0; _yaz(d)
 
 
+def _sure(t):
+    """'1h2m3.5s' / '86.4s' / '120' → saniye (tamsayı) | None."""
+    m = re.fullmatch(r"\s*(?:(\d+)h)?(?:(\d+)m(?!s))?(?:([\d.]+)(?:s|ms)?)?\s*", t or "")
+    if not m or not any(m.groups()):
+        return None
+    return int(int(m[1] or 0) * 3600 + int(m[2] or 0) * 60 + float(m[3] or 0)) + 1
+
+
+def _bekle(hd, govde):
+    """Soğuma süresi: Retry-After, yoksa x-ratelimit-reset-*, yoksa gövdede 'try again in …'; hiçbiri yoksa None (çağıran 300 sn kullanır)."""
+    ra = hd.get("retry-after")
+    if ra and ra.isdigit():
+        return int(ra)
+    for k in ("x-ratelimit-reset-requests", "x-ratelimit-reset-tokens", "x-ratelimit-reset"):
+        if (v := _sure(hd.get(k))) is not None:
+            return v
+    m = re.search(r"(?:try again|retry) in ([0-9hms.]+)", govde or "", re.I)
+    return _sure(m[1].rstrip(".")) if m else None
+
+
 def _istek(e, istem, max_tokens, zaman):
     url, kaynak = _url(e.prov), SAG[e.prov][1]
     g = {"model": e.model, "messages": [{"role": "user", "content": istem}], "max_tokens": max_tokens}
@@ -295,8 +326,8 @@ def _istek(e, istem, max_tokens, zaman):
         with urllib.request.urlopen(q, timeout=zaman) as f:
             j = json.load(f)
     except urllib.error.HTTPError as x:
-        ra = x.headers.get("retry-after")
-        raise Hata(x.code, _gizle(x.read()[:300].decode("utf-8", "replace")), int(ra) if ra and ra.isdigit() else None)
+        gv = _gizle(x.read()[:300].decode("utf-8", "replace"))
+        raise Hata(x.code, gv, _bekle(x.headers, gv))
     if j.get("error"):  # "429 ama 200": gövdede hata
         er = j["error"] if isinstance(j["error"], dict) else {"message": j["error"]}
         raise Hata(er["code"] if isinstance(er.get("code"), int) else 502, _gizle(str(er)[:300]))
@@ -325,13 +356,69 @@ def _haiku(istem):
     return j["result"].strip()
 
 
+NIHAI49_UCRETSIZ = {"ozet", "etiket", "sinif", "bicim"}
+NIHAI49_HAIKU = {"kolay"}
+
+
+def _nihai49_katman(tur, zor):
+    """NİHAİ 49 (Ömer 5 Kas 16:16): ücretsiz yalnız en hafif işler, kolay Haiku, gerisi Sonnet. Testlerde ve UCRETSIZ_ESKI=1 ile kapalı."""
+    if os.environ.get("PYTEST_CURRENT_TEST") or os.environ.get("UCRETSIZ_ESKI") == "1":
+        return None
+    kok = tur.split("-")[0]
+    if kok in NIHAI49_UCRETSIZ and not zor:
+        return None
+    return "haiku" if kok in NIHAI49_HAIKU and not zor else "sonnet"
+
+
+def _claude_cagir(model, istem, max_tokens, zaman, dogrula, etiket):
+    c = os.path.expanduser(r"~\.local\bin\claude.exe")
+    cwd = os.path.join(os.environ.get("TEMP", str(KOK)), "nihai49_cwd")
+    os.makedirs(cwd, exist_ok=True)
+    argv = [c, "-p", "--output-format", "text", "--model", model, "--strict-mcp-config",
+            "--disable-slash-commands", "--no-session-persistence", "--setting-sources", "local", "--tools", ""]
+    if model == "sonnet":
+        argv += ["--effort", "high"]
+    elif model == "opus":
+        argv += ["--effort", "medium"]
+    env = {k: v for k, v in os.environ.items() if not k.startswith("ANTHROPIC_API_KEY") and k != "CLAUDE_CODE_EFFORT_LEVEL"}
+    log = []
+    for deneme in range(2):
+        try:
+            r = subprocess.run(argv, input=istem, capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=cwd, env=env,
+                               timeout=max(zaman, 300), creationflags=NW)
+            metin = (r.stdout or "").strip()
+            if len(metin) < 300 and re.search(r"(?i)usage limit|limit reached|resets? (at|in)", metin):
+                log.append(f"claude/{model}:plan-limiti")
+                continue
+            if r.returncode == 0 and metin:
+                ret = dogrula(metin) if dogrula else None
+                if not ret:
+                    return metin, f"claude/{model}", log
+                log.append(f"claude/{model}:dogrula-ret:{ret}")
+            else:
+                log.append(f"claude/{model}:rc{r.returncode}:{(r.stderr or metin)[-120:]}")
+        except Exception as x:
+            log.append(f"claude/{model}:{type(x).__name__}")
+    if model == "sonnet":
+        m2, k2, l2 = _claude_cagir("opus", istem, max_tokens, zaman, dogrula, etiket)
+        return m2, k2, log + ["boss:opus-medium"] + l2
+    return None, f"claude/{model}", log
+
+
 def cagir(tur, istem, *, max_tokens=3000, aile=None, haric_aile=None, dogrula=None, haiku_tavan=0, etiket=None, zaman=90, ertele=None, zor=False, sablon=None, saglayici=None):
     """(metin | None, 'saglayici/model', log). dogrula(metin) -> None | ret nedeni (ret → sıradaki halka, soğuma yok).
     ertele=<iş kimliği>: hiçbir halka (Haiku dahil) yanıtlamazsa iş ertelenen.jsonl'e yazılır, log'a 'ertelendi' düşer.
     AJAN-AKIS-1: iş-akışı çekirdeği (tools/ajan_cekirdek.md) HER çağrıda istemin başına eklenir; zor=True ayrıca zor-iş bölümünü ekler.
     saglayici=<ad>: yalnız o sağlayıcının halkaları (beyin_dusun sıralı dağıtımı).
     sablon=<tür>: egitim-1 damıtma şablonu (tools/ogret/sarmal.py) + ornek-<tür>.md istemin başına eklenir."""
+    katman = _nihai49_katman(tur, zor)
     tur = SINIF_TUR.get(tur, tur)
+    if katman and aile in (None, "anthropic") and haric_aile != "anthropic":  # ECC H7: aile kısıtı Claude katmanına da uygulanır
+        y, kk, lg = _claude_cagir(katman, istem, max_tokens, zaman, dogrula, etiket)
+        if y or not ertele:
+            return y, kk, lg
+        _ertele(ertele, dict(tur=tur, istem=istem, max_tokens=max_tokens, aile=aile, haric_aile=haric_aile, haiku_tavan=haiku_tavan, etiket=etiket, zaman=zaman, zor=zor))
+        return None, kk, lg + ["ertelendi"]
     if not any(tur.split("-")[0] in e.turler for e in ENT):
         raise ValueError(f"bilinmeyen tür {tur!r}; geçerli: {sorted({t for e in ENT for t in e.turler} | set(SINIF_TUR))}")
     ham = istem
@@ -390,27 +477,34 @@ def tekrar():
     """Zamanı gelen ertelenen işleri dener → ertelenen-sonuc.jsonl; olmayanlar yeni zamanla kuyrukta kalır. (biten, kalan)
     shortcut: dogrula (çağrı fonksiyonu) kuyruğa yazılamaz, tekrar doğrulamasız; sonucu tüketen kendi doğrulamasını yapar."""
     ara = ERT.with_suffix(".isleniyor")
+    if ara.exists():  # ECC H9: önceki çökmenin kalıntısı ezilmez, kuyruğa geri eklenir
+        with KILIT, ERT.open("a", encoding="utf-8") as f:
+            f.write(ara.read_text(encoding="utf-8"))
+        ara.unlink()
     try:
         os.replace(ERT, ara)  # atomik devral: bu sırada gelen yeni satırlar yeni ERT'ye yazılır
     except OSError:
         return 0, 0
-    biten, kalan = 0, []
-    for s in ara.read_text(encoding="utf-8").splitlines():
-        if not s.strip():
-            continue
-        i = json.loads(s)
-        if i["hazir"] <= time.time() and not i["id"].startswith("makara:"):  # makara kayıtlarını gece betiği alır
-            y, k, _ = cagir(i["tur"], i["istem"], **{a: i[a] for a in ("max_tokens", "aile", "haric_aile", "haiku_tavan", "etiket", "zaman")})
-            if y:
-                with SONUC.open("a", encoding="utf-8") as f:
-                    f.write(json.dumps({"id": i["id"], "metin": y, "kaynak": k}, ensure_ascii=False) + "\n")
-                biten += 1; continue
-            i["hazir"] = min([v for v in _durum().get("soguma", {}).values() if v > time.time()] or [time.time() + 60])
-        kalan.append(i)
-    ara.unlink()
-    if kalan:
-        with ERT.open("a", encoding="utf-8") as f:
-            f.write("".join(json.dumps(i, ensure_ascii=False) + "\n" for i in kalan))
+    isler = [json.loads(s) for s in ara.read_text(encoding="utf-8").splitlines() if s.strip()]
+    biten, kalan, n = 0, [], 0
+    try:
+        for n, i in enumerate(isler):
+            if i["hazir"] <= time.time() and not i["id"].startswith("makara:"):  # makara kayıtlarını gece betiği alır
+                y, k, _ = cagir(i["tur"], i["istem"], **{a: i[a] for a in ("max_tokens", "aile", "haric_aile", "haiku_tavan", "etiket", "zaman")})
+                if y:
+                    with SONUC.open("a", encoding="utf-8") as f:
+                        f.write(json.dumps({"id": i["id"], "metin": y, "kaynak": k}, ensure_ascii=False) + "\n")
+                    biten += 1; continue
+                i["hazir"] = min([v for v in _durum().get("soguma", {}).values() if v > time.time()] or [time.time() + 60])
+            kalan.append(i)
+    except BaseException:
+        kalan.extend(isler[n:])  # istisnada işlenmemişler (üzerinde patlayan dahil) kaybolmaz
+        raise
+    finally:
+        if kalan:
+            with ERT.open("a", encoding="utf-8") as f:
+                f.write("".join(json.dumps(i, ensure_ascii=False) + "\n" for i in kalan))
+        ara.unlink()
     return biten, len(kalan)
 
 

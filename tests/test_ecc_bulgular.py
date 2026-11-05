@@ -62,12 +62,25 @@ def test_h1_npm_install_prefix_alir(monkeypatch, tmp_path):
 
 
 # === H2 ===
-def test_h2_zaman_asimi_torunu_oldurur():
-    kod = "import subprocess,sys,time; subprocess.Popen([sys.executable,'-c','import time; time.sleep(40)']); time.sleep(90)"
+def _canli(pid):
+    import subprocess
+    return str(pid) in subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/NH"], capture_output=True, text=True).stdout
+
+
+def test_h2_zaman_asimi_torunu_oldurur(tmp_path):
+    pf = str(tmp_path / "pid.txt")
+    torun = tmp_path / "torun.py"
+    torun.write_text(f"import os,time\nopen({pf!r},'w').write(str(os.getpid()))\ntime.sleep(40)\n", encoding="utf-8")
+    kod = ("import subprocess,sys,time,os\n"
+           f"subprocess.Popen([sys.executable,{str(torun)!r}])\n"
+           f"[time.sleep(0.2) for _ in range(100) if not os.path.exists({pf!r})]\n"
+           "time.sleep(90)")
     t0 = time.time()
-    rc, o, e = K.k([sys.executable, "-c", kod], 2)
-    assert time.time() - t0 < 20
-    assert rc == -2 and "TIMEOUT" in e
+    rc, o, e = K.k([sys.executable, "-c", kod], 8)
+    assert rc == -2 and "TIMEOUT" in e and time.time() - t0 < 25
+    pid = int(Path(pf).read_text())
+    time.sleep(0.5)
+    assert not _canli(pid)
 
 
 def test_h2_stdin_devnull_git_istem_kapali():
