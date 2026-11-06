@@ -12,6 +12,9 @@ def norm(s):
     return re.sub(r"[^a-z0-9]", "", (s or "").lower())
 
 
+csv.field_size_limit(10**9)
+
+
 def tsv(p, kol=None):
     with open(p, encoding="utf-8", errors="replace", newline="") as f:
         return [r for r in csv.reader(f, delimiter="\t") if r]
@@ -30,6 +33,15 @@ for d in (HOME / ".claude/skills").iterdir():
     kurulu.setdefault(norm(d.name), ("~/.claude/skills", d.name))
 for d in (HOME / ".claude/plugins/cache").iterdir():
     kurulu.setdefault(norm(d.name), ("~/.claude/plugins/cache", d.name))
+for p in sorted(OK.glob("kur-tur*.tsv")):  # iki sütun biçimi: ad,durum,... ve ad,repo,durum,...
+    for r in tsv(p):
+        d = next((c for c in r[1:3] if re.match(r"calisiyor|kuruldu", c.strip().lower())), "")
+        if d and len(norm(r[0].lstrip("﻿"))) >= 3:
+            calis.setdefault(norm(r[0].lstrip("﻿")), ("ogren/video-izle-kur-1/" + p.name, d))
+KT = OK / "kurulu-tara.json"  # tools/kurulu_tara.py: PATH, pip, uv tool, npm -g, plugin cache, MCP
+for a, src in (json.loads(KT.read_text(encoding="utf-8")).items() if KT.exists() else []):
+    if len(norm(a)) >= 3:
+        kurulu.setdefault(norm(a), ("kurulu-tara.json " + src, a))
 for r in tsv(K / ".kos/kopru/kaynak-dizin/dizin.tsv")[1:]:
     kayit.setdefault(norm(r[1]) if len(r) > 1 else "", ("kaynak-dizin/dizin.tsv", r[0]))
 calis_o = {re.sub(r"[^a-z0-9]", "", k.replace("0", "o").replace("rn", "m").replace("1", "l")): v for k, v in calis.items()}
@@ -50,6 +62,18 @@ tablo = {norm(r[0]): r[3] for r in tsv(OK / "tablo13.tsv")[1:] if len(r) > 3}
 
 def ocr(s):
     return norm(s).replace("0", "o").replace("rn", "m").replace("1", "l")
+
+
+GENEL = re.compile(r"(agenttoolkit|toolkit|mcpserver|server|mcp|cli|skills?|plugin|sdk|js|py)$")
+
+
+GENEL_AD = {"core", "cli", "app", "sdk", "server", "main", "docs", "skills", "plugin", "plugins", "web", "api", "mcp", "tools", "agent", "agents", "code"}
+
+
+def kok(s):
+    while (t := GENEL.sub("", s, count=1)) != s and len(t) >= 4:
+        s = t
+    return s
 
 
 def lev1(a, b):  # Levenshtein <= 1 mi
@@ -102,7 +126,7 @@ def ekle(ad, tur, link, vid):
 
 llm_ids, det_ids = set(), set()
 BASLIK, TRU = {}, {}
-for l in (C / "llm.jsonl").read_text(encoding="utf-8").splitlines():
+for l in [x for fn in ("llm.jsonl", "llm-b.jsonl", "llm-c.jsonl", "llm-d2b.jsonl") if (C / fn).exists() for x in (C / fn).read_text(encoding="utf-8").splitlines() if x.strip()]:
     j = json.loads(l)
     llm_ids.add(j["id"])
     for k in j["kalemler"]:
@@ -156,13 +180,17 @@ for key, e in kal.items():
     yer = ""
     t13 = tablo.get(n) or tablo.get(ana) or ""
     n, ana = ocr(n), ocr(ana)
+    # genel ek/önek atılmış kök de denenir: "Gemini CLI" -> gemini, "Stripe Agent Toolkit" -> stripe
+    aday = [x for x in dict.fromkeys([n, ana, kok(n), kok(ana)]) if len(x) >= 3 and x not in GENEL_AD]
+    c_calis = next((calis_o[x] for x in aday if x in calis_o), None)
+    c_kurulu = next((kurulu_o[x] for x in aday if x in kurulu_o and not (e["ad"][:1] in "./" and kurulu_o[x][0].startswith("kurulu-tara"))), None)
     if key in yok404:
         d, yer = "BULUNAMADI-ARANIYOR", "gh api repos/ 404; gh search yakın ad yok"
-    elif n in calis_o or ana in calis_o:
-        d, (src, kn) = "CALISIYOR", calis_o.get(n) or calis_o[ana]
+    elif c_calis:
+        d, (src, kn) = "CALISIYOR", c_calis
         yer = src
-    elif n in kurulu_o or ana in kurulu_o:
-        d, (src, kn) = "KURULU-KANITSIZ", kurulu_o.get(n) or kurulu_o[ana]
+    elif c_kurulu:
+        d, (src, kn) = "KURULU-KANITSIZ", c_kurulu
         yer = src
     elif t13.startswith("hesap"):
         d, yer = "KURULMADI-HESAP", "tablo13.tsv"

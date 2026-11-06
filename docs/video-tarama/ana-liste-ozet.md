@@ -1,65 +1,66 @@
 # ANA-LISTE özeti (LISTE-CIKAR-1)
 
-- İzlenen (tekil) video: 2889 (derin + derin-2)
-- LLM ile işlenen: 2889 · işlenmeyen: 0
-- Çıkarılan tekil kalem: 17102
+- İzlenen (tekil) video: 3930 (derin + derin-2)
+- LLM ile işlenen: 3063 · işlenmeyen: 867
+- Çıkarılan tekil kalem: 17371
 
 ## Tür başına
 
-- arac: 6467
-- kutuphane: 1001
-- prompt: 488
+- arac: 6655
+- kutuphane: 1017
+- prompt: 489
 - site-ilham: 705
-- site-ucretsiz: 990
-- ui-kutuphane: 154
-- varlik: 3799
-- yontem: 3498
+- site-ucretsiz: 994
+- ui-kutuphane: 158
+- varlik: 3828
+- yontem: 3525
 
 ## Durum başına
 
 - BULUNAMADI-ARANIYOR: 143
-- CALISIYOR: 77
-- KAYITLI: 107
-- KAYITSIZ: 10166
-- KURULMADI-SIRADA: 5436
-- KURULU-KANITSIZ: 1173
+- CALISIYOR: 88
+- KAYITLI: 5912
+- KAYITSIZ: 4331
+- KURULMADI-SIRADA: 5388
+- KURULU-KANITSIZ: 1509
 
 ## Tür × durum
 
 - arac / BULUNAMADI-ARANIYOR: 100
-- arac / CALISIYOR: 69
-- arac / KURULMADI-SIRADA: 5436
-- arac / KURULU-KANITSIZ: 862
+- arac / CALISIYOR: 80
+- arac / KAYITLI: 1
+- arac / KURULMADI-SIRADA: 5388
+- arac / KURULU-KANITSIZ: 1086
 - kutuphane / BULUNAMADI-ARANIYOR: 14
 - kutuphane / CALISIYOR: 4
-- kutuphane / KAYITLI: 7
-- kutuphane / KAYITSIZ: 901
-- kutuphane / KURULU-KANITSIZ: 75
+- kutuphane / KAYITLI: 810
+- kutuphane / KAYITSIZ: 90
+- kutuphane / KURULU-KANITSIZ: 99
 - prompt / CALISIYOR: 1
 - prompt / KAYITSIZ: 473
-- prompt / KURULU-KANITSIZ: 14
-- site-ilham / KAYITLI: 40
-- site-ilham / KAYITSIZ: 654
-- site-ilham / KURULU-KANITSIZ: 11
-- site-ucretsiz / KAYITLI: 35
-- site-ucretsiz / KAYITSIZ: 938
-- site-ucretsiz / KURULU-KANITSIZ: 17
+- prompt / KURULU-KANITSIZ: 15
+- site-ilham / KAYITLI: 667
+- site-ilham / KAYITSIZ: 28
+- site-ilham / KURULU-KANITSIZ: 10
+- site-ucretsiz / KAYITLI: 914
+- site-ucretsiz / KAYITSIZ: 57
+- site-ucretsiz / KURULU-KANITSIZ: 23
 - ui-kutuphane / CALISIYOR: 2
-- ui-kutuphane / KAYITLI: 9
-- ui-kutuphane / KAYITSIZ: 137
-- ui-kutuphane / KURULU-KANITSIZ: 6
+- ui-kutuphane / KAYITLI: 141
+- ui-kutuphane / KAYITSIZ: 7
+- ui-kutuphane / KURULU-KANITSIZ: 8
 - varlik / BULUNAMADI-ARANIYOR: 29
-- varlik / KAYITLI: 16
-- varlik / KAYITSIZ: 3697
-- varlik / KURULU-KANITSIZ: 57
+- varlik / KAYITLI: 3379
+- varlik / KAYITSIZ: 334
+- varlik / KURULU-KANITSIZ: 86
 - yontem / CALISIYOR: 1
-- yontem / KAYITSIZ: 3366
-- yontem / KURULU-KANITSIZ: 131
+- yontem / KAYITSIZ: 3342
+- yontem / KURULU-KANITSIZ: 182
 
 ## Kapsama ve kendi kendine kontrol
 
-- video toplam 2889 = kalemi olan 2865 + içerik-yok (LLM boş/kalem yok) 24 + LLM'den geçmemiş 0 · toplam kontrol: 2889
-- kalem toplamı 17102 = durumların toplamı 17102
+- video toplam 3930 = kalemi olan 3102 + içerik-yok (LLM boş/kalem yok) 40 + LLM'den geçmemiş 867 · toplam kontrol: 4009
+- kalem toplamı 17371 = durumların toplamı 17371
 - repo doğrulama: 1094 repo kontrol edildi, 200: 533, 404: 561 (yakın ad bulunan: 305), hata: 0
 
 ## Sınırlar
@@ -68,11 +69,11 @@
 
 ## Taranan kaynaklar ve 'bizde nerede' eşleşmeleri (NİHAİ 36G)
 
-- kalem 17102 · bizde_nerede dolu 2074 · bu taramada eşleşen 1716 (ad eşitliği, normalize)
+- kalem 17371 · bizde_nerede dolu 16791 · bu taramada eşleşen 16514 (ad eşitliği, normalize)
 
 Kaynak (satır/öğe sayısı):
 
-- dizin:dizin.tsv · 8337
+- dizin:dizin.tsv · 72488
 - envanter:arac-ajan-ozellik.tsv · 290
 - envanter:ek-kaynak-sinif.tsv · 275
 - envanter:envanter.tsv · 189
@@ -80,77 +81,100 @@ Kaynak (satır/öğe sayısı):
 - envanter:kutuphane-haritasi.tsv · 18
 - envanter:site-katalog-tur4.tsv · 225
 - envanter:tablo13.tsv · 101
-- indirilen:indirilen · 12
-- katalog:yetenek.tsv · 7941
+- indirilen:indirilen · 7
+- katalog:yetenek.tsv · 10408
 - kaynak-kutuphane/klon:dizin · 1
 - kaynak-kutuphane/site:dizin · 570
-- kendi-proje:Claude ile yapılanlar · 79
-- klon:araclar · 16
-- kurulu-skill:~/.claude/skills · 2756
-- plugin-pazar:marketplaces · 107
-- uygulama:her_sey.txt · 30
+- kendi-proje:Claude ile yapılanlar · 83
+- klon:araclar · 17
+- kurulu-skill:~/.claude/skills · 7707
+- plugin-pazar:marketplaces · 111
+- uygulama:her_sey.txt · 28
 - uygulama:kor_nokta.txt · 21
 
 Kategori başına eşleşen kalem:
 
-- kaynak-kutuphane/envanter · 1399
-- kurulu-skill · 509
-- ~/.claude/skills · 395
-- site · 256
+- liste · 16486
+- kaynak-kutuphane/envanter · 1666
+- katalog · 1119
+- kurulu-skill · 900
+- ~/.claude/skills · 694
+- skill · 524
+- site · 258
 - kaynak-kutuphane/site · 222
-- yontem · 119
-- baglayici · 106
-- plugin-pazar · 97
-- claude.ai senkron · 58
-- arac · 57
-- npm -g · 55
-- ~/.claude.json · 31
-- klon · 21
-- uygulama · 16
+- kart · 208
+- yontem · 124
+- arac · 119
+- baglayici · 111
+- plugin-pazar · 105
+- npm -g · 70
+- hesap · 46
+- ~/.claude.json · 34
+- claude.ai senkron · 26
+- klon · 22
+- uygulama · 21
+- uv tool · 15
 - cc-kopru izinli · 14
 - plugin small-business@knowledge-work-plugins · 14
 - plugin claude-for-financial-advisors@knowledge-work-plugins · 13
-- uv tool · 11
 - omer-kutuphaneler · 10
-- envanter.json (kurulu değil?) · 9
+- eklenti · 9
 - agent-skills@addy-agent-skills · 8
-- eklenti · 8
 - marketing-skills@marketingskills · 7
+- kota · 7
 - plugin bio-research@knowledge-work-plugins · 6
 - plugin sales@knowledge-work-plugins · 5
 - mcp-needs-auth-cache (yetki bekliyor) · 5
 - hyperframes@hyperframes · 5
+- model · 5
 - plugin product-management@knowledge-work-plugins · 4
 - andrej-karpathy-skills@karpathy-skills · 4
+- betik · 4
+- envanter.json (kurulu değil?) · 4
 - caveman@caveman · 4
 - design@knowledge-work-plugins · 4
+- varlik · 4
 - sales@knowledge-work-plugins · 3
 - claude-seo@agricidaniel-claude-seo · 3
 - omer-skills tools/ · 3
 - humanizer@humanizer · 3
 - claude-blog@agricidaniel-blog · 3
+- context7@context7-marketplace · 3
+- plugin context7@context7-marketplace · 3
 - plugin commercial-legal@claude-for-legal · 3
+- text-to-cad@earthtojake · 3
 - gsap-skills@gsap-skills · 3
 - impeccable@impeccable · 3
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:17 · 3
 - superpowers@claude-plugins-official · 3
+- sentry-mcp@sentry-mcp · 3
 - taste-skill@taste-skill · 3
+- tasarim · 3
+- ai-employees@ai-employees · 2
 - legal@knowledge-work-plugins · 2
 - claude-ads@ai-marketing-hub-claude-ads · 2
 - plugin marketing@knowledge-work-plugins · 2
+- plugin api-anything@api-anything · 2
+- api-anything@api-anything · 2
 - plugin operations@knowledge-work-plugins · 2
+- genjutsu@genjutsu · 2
 - plugin data@knowledge-work-plugins · 2
 - brag@brag · 2
 - chrome-devtools-mcp@chrome-devtools-plugins · 2
 - claude-code-setup@claude-plugins-official · 2
+- claude-content-skills@ootto-content-skills · 2
 - claude-mem@thedotmack · 2
+- gecmis · 2
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:41 · 2
 - ponytail@ponytail · 2
+- plugin openseo@openseo · 2
+- openseo@openseo · 2
 - docs/kurulumlar/ig-41/karar-a.tsv:78 · 2
 - founder-skill@founder-skill · 2
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:31 · 2
 - plugin privacy-legal@claude-for-legal · 2
 - headroom@headroom-marketplace · 2
+- ppt-master@ppt-master · 2
 - .claude/igkur18/karar18.tsv:169 · 2
 - interface-design@interface-design · 2
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:141 · 2
@@ -161,24 +185,25 @@ Kategori başına eşleşen kalem:
 - openclaw@daymade-skills · 2
 - docs/kurulumlar/ig-41/karar-a.tsv:41 · 2
 - postiz@knowledge-work-plugins · 2
+- rea@rea (KAPALI) · 2
 - understand-anything@understand-anything · 2
-- model · 2
 - docs/kurulumlar/ig-41/karar-a.tsv:95 · 2
 - watch@claude-video · 1
-- plugin activecampaign@knowledge-work-plugins · 1
 - activecampaign@knowledge-work-plugins · 1
+- plugin activecampaign@knowledge-work-plugins · 1
 - plugin adobe-for-creativity@knowledge-work-plugins · 1
+- docs/kurulumlar/ig-41/karar-a.tsv:75 · 1
 - agent-usage-guard@agent-usage-guard · 1
 - agent-browser@agent-browser · 1
-- docs/kurulumlar/ig-41/karar-a.tsv:75 · 1
-- plugin agentmemory@agentmemory · 1
 - agentmemory@agentmemory · 1
+- plugin agentmemory@agentmemory · 1
 - agent-radar@claude-code-mods · 1
 - airtable@knowledge-work-plugins · 1
+- animate@animate · 1
 - antislop@anti-slop · 1
 - .claude/igkur18/karar18.tsv:170 · 1
-- plugin apollo@knowledge-work-plugins · 1
 - apollo@knowledge-work-plugins · 1
+- plugin apollo@knowledge-work-plugins · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:2 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:151 · 1
 - autoharness@autoharness · 1
@@ -188,6 +213,7 @@ Kategori başına eşleşen kalem:
 - base44@knowledge-work-plugins · 1
 - blast-radius@claude-code-mods · 1
 - blender@omer-skills · 1
+- blender-agent-skills@blender-agent-skills · 1
 - brand-voice@knowledge-work-plugins · 1
 - browser-use@knowledge-work-plugins · 1
 - plugin browser-use@knowledge-work-plugins · 1
@@ -198,46 +224,51 @@ Kategori başına eşleşen kalem:
 - .claude/igkur/karar.tsv:16 · 1
 - plugin chrome-devtools-mcp@chrome-devtools-plugins · 1
 - claude-hud@claude-hud · 1
+- claude-obsidian@agricidaniel-claude-obsidian · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:128 · 1
 - C:/Projeler/omer-skills-wt/igkur-p3/.claude/igkur/p3/karar.tsv:83 · 1
 - claude-md-management@claude-plugins-official · 1
-- claude-obsidian@agricidaniel-claude-obsidian · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:134 · 1
 - cli-anything@cli-anything · 1
 - C:/Projeler/omer-skills-wt/igkur-p3/.claude/igkur/p3/karar.tsv:139 · 1
 - cockroachdb@knowledge-work-plugins · 1
 - code-review@claude-code-plugins · 1
+- codebase-memory@codebase-memory · 1
 - plugin codeburn@codeburn · 1
 - codeburn@codeburn · 1
 - codex@openai-codex · 1
 - commit-commands@claude-code-plugins · 1
 - context-bar@claude-code-mods · 1
-- plugin context-mode@context-mode · 1
 - context-mode@context-mode · 1
+- plugin context-mode@context-mode · 1
 - docs/kurulumlar/adaylar/cursor.md:2 · 1
 - customer-support@knowledge-work-plugins · 1
 - daloopa@knowledge-work-plugins · 1
+- day-trader-skill@day-trader-skill · 1
 - deep-research@daymade-skills · 1
 - designlang@designlang · 1
-- desktop-commander@knowledge-work-plugins · 1
 - plugin desktop-commander@knowledge-work-plugins · 1
+- desktop-commander@knowledge-work-plugins · 1
 - discernment-nudge@anthropic-agent-skills · 1
 - dropbox@knowledge-work-plugins · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:5 · 1
 - plugin legal@knowledge-work-plugins · 1
 - enterprise-search@knowledge-work-plugins · 1
-- plugin expo@expo-plugins · 1
 - expo@expo-plugins · 1
+- plugin expo@expo-plugins · 1
 - feature-dev@claude-code-plugins · 1
 - figma@knowledge-work-plugins · 1
 - filetree@claude-code-filetree · 1
 - finance@knowledge-work-plugins · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:149 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:156 · 1
+- plugin framefields@framefields-plugins · 1
+- framefields@framefields-plugins · 1
 - frontend-design@claude-plugins-official · 1
+- frontend-slides@frontend-slides · 1
 - docs/kurulumlar/adaylar/google-stitch.md:2 · 1
-- plugin brand-voice@knowledge-work-plugins · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:197 · 1
+- plugin brand-voice@knowledge-work-plugins · 1
 - docs/kurulumlar/adaylar/groq.md:2 · 1
 - plugin customer-support@knowledge-work-plugins · 1
 - hallmark@hallmark · 1
@@ -247,12 +278,16 @@ Kategori başına eşleşen kalem:
 - hookify@claude-code-plugins · 1
 - hostinger@knowledge-work-plugins · 1
 - plugin hubspot-sales@knowledge-work-plugins · 1
-- plugin intercom@knowledge-work-plugins · 1
+- i-have-adhd@i-have-adhd · 1
+- insforge@insforge-official-marketplace · 1
+- instagram-agent@instagram-agent-skill · 1
 - intercom@knowledge-work-plugins · 1
+- plugin intercom@knowledge-work-plugins · 1
 - intuit-quickbooks@knowledge-work-plugins · 1
 - docs/kurulumlar/adaylar/jcode.md:2 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:85 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:74 · 1
+- kepler-gl@kepler-gl · 1
 - landing-page-design@2389-research · 1
 - langfuse@knowledge-work-plugins · 1
 - last30days@last30days-skill · 1
@@ -263,11 +298,10 @@ Kategori başına eşleşen kalem:
 - docs/kurulumlar/ig-41/karar-a.tsv:31 · 1
 - plugin lseg@knowledge-work-plugins · 1
 - lseg@knowledge-work-plugins · 1
-- indirilen · 1
 - mattpocock-skills@mattpocock · 1
 - md-preview@claude-code-mods · 1
-- plugin miro@knowledge-work-plugins · 1
 - miro@knowledge-work-plugins · 1
+- plugin miro@knowledge-work-plugins · 1
 - mission-control@claude-code-mods · 1
 - plugin monday-com@knowledge-work-plugins · 1
 - monday-com@knowledge-work-plugins · 1
@@ -278,21 +312,24 @@ Kategori başına eşleşen kalem:
 - docs/kurulumlar/adaylar/nvidia-nim.md:2 · 1
 - vibe-wise@vibe-wise · 1
 - C:/Users/pc/.claude/ig41-kur-eklenen.json:1 · 1
-- proje · 1
 - kendi-proje · 1
 - obsidian@obsidian-skills · 1
+- proje · 1
 - obsidian-cli@obsidian-cli-skill · 1
 - openai-balance@claude-code-mods · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:116 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:33 · 1
-- npx -y openfilm@latest; skills add openfilm/openfilm · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:139 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:42 · 1
 - docs/kurulumlar/adaylar/openrouter.md:2 · 1
 - openrouter-balance@claude-code-mods · 1
+- plugin openviking-memory@openviking · 1
+- plugin overmind@overmind · 1
+- overmind@overmind · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:179 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:3 · 1
 - docs/kurulumlar/adaylar/pint.md:2 · 1
+- planning-with-files@planning-with-files · 1
 - playwright@claude-plugins-official · 1
 - prayer-times@claude-code-mods · 1
 - productivity@knowledge-work-plugins · 1
@@ -304,41 +341,50 @@ Kategori başına eşleşen kalem:
 - replica-skill@replica-skill · 1
 - docs/video-tarama/kayit.jsonl:109 · 1
 - review-watch@claude-code-mods · 1
-- sp-global@knowledge-work-plugins · 1
+- ruview@ruview · 1
 - plugin sp-global@knowledge-work-plugins · 1
+- sp-global@knowledge-work-plugins · 1
 - plugin sanity-plugin@knowledge-work-plugins · 1
+- scientific-agent-skills@kdense-yerel · 1
 - security-guidance@claude-code-plugins · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:81 · 1
+- plugin sentry-mcp-experimental@sentry-mcp · 1
 - sepia@sepia · 1
 - skill-creator@claude-plugins-official · 1
 - C:/Projeler/omer-skills-wt/igkur-p3/.claude/igkur/p3/karar.tsv:77 · 1
 - slack-mcp@2389-research · 1
 - socialmedia@2389-research · 1
+- social-media-research-skills@social-media-research-skills · 1
 - C:/Projeler/omer-skills-wt/igkur-p3/.claude/igkur/p3/karar.tsv:74 · 1
-- plugin stripe@stripe · 1
+- story-animator@story-animator · 1
 - stripe@stripe · 1
+- plugin stripe@stripe · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:193 · 1
 - supabase@yerel-kurulum7 · 1
 - task-observer@one-skill-to-rule-them-all · 1
+- taskmaster@taskmaster · 1
+- tastemaker@codeswithroh · 1
 - tavily@knowledge-work-plugins · 1
 - tencentdb-agent-memory@tencentdb-agent-memory · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:149 · 1
 - plugin tinyfish@knowledge-work-plugins · 1
 - tinyfish@knowledge-work-plugins · 1
+- tokeneconomizer@tokeneconomizer · 1
 - ui-ux-pro-max@ui-ux-pro-max-skill · 1
 - unity@knowledge-work-plugins · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:147 · 1
 - universal-modder@universal-modder · 1
 - usage-meter@claude-code-mods · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:4 · 1
+- docs/kurulumlar/adaylar/webgpu-claude-skill.md:2 · 1
 - where-am-i@claude-code-mods · 1
 - docs/kurulumlar/adaylar/whisper-flow.md:2 · 1
 - docs/kurulumlar/ig-41/karar-a.tsv:79 · 1
 - xtool@2389-research · 1
 - docs/kurulumlar/adaylar/you-should-know.md:2 · 1
 - .claude/igkur/karar.tsv:14 · 1
-- zapier@knowledge-work-plugins · 1
 - plugin zapier@knowledge-work-plugins · 1
+- zapier@knowledge-work-plugins · 1
 - zoominfo@knowledge-work-plugins · 1
 - plugin zoominfo@knowledge-work-plugins · 1
 - android-skills@android-skills · 1
@@ -348,17 +394,21 @@ Kategori başına eşleşen kalem:
 - prisma@knowledge-work-plugins · 1
 - data@knowledge-work-plugins · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:129 · 1
+- awwwards@juliobsz · 1
 - clickhouse@knowledge-work-plugins · 1
 - interfaces@interfaces · 1
 - uizze@uizze · 1
+- istek · 1
+- kombin · 1
 - plugin render@knowledge-work-plugins · 1
 - render@knowledge-work-plugins · 1
+- 21st@21st-dev · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:36 · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:97 · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:46 · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:79 · 1
 - docs/kurulumlar/ig-41/karar-birlesik.tsv:126 · 1
-- varlik · 1
+- agents/ · 1
 - datadog@knowledge-work-plugins · 1
 - plugin engineering@knowledge-work-plugins · 1
 - octo@nyldn-plugins · 1
@@ -369,21 +419,6 @@ Kategori başına eşleşen kalem:
 - interaction-design@designer-skills · 1
 - journal@2389-research · 1
 - marketing@knowledge-work-plugins · 1
+- kalite · 1
+- ralph-loop@claude-code-plugins · 1
 - trace@2389-research · 1
-
-
-## Tür × durum (31 Eki, 4 elle eklenen kaçak dahil; toplam = durumlar toplamı = 17106)
-
-| tür | BULUNAMADI-ARANIYOR | CALISIYOR | KAYITLI | KAYITSIZ | KURULMADI-SIRADA | KURULU-KANITSIZ | toplam |
-|---|---|---|---|---|---|---|---|
-| arac | 100 | 69 | 0 | 0 | 5436 | 862 | 6467 |
-| kutuphane | 14 | 4 | 7 | 901 | 0 | 75 | 1001 |
-| prompt | 0 | 1 | 0 | 473 | 0 | 14 | 488 |
-| site-ilham | 0 | 0 | 40 | 654 | 0 | 11 | 705 |
-| site-ucretsiz | 0 | 0 | 35 | 939 | 0 | 17 | 991 |
-| ui-kutuphane | 0 | 2 | 9 | 137 | 0 | 6 | 154 |
-| varlik | 29 | 0 | 16 | 3697 | 0 | 57 | 3799 |
-| yontem | 0 | 1 | 0 | 3369 | 0 | 131 | 3501 |
-| TOPLAM | 143 | 77 | 107 | 10170 | 5436 | 1173 | 17106 |
-
-Özellik/yapılış: ücretsiz havuz (haiku son çare) ile arka planda sürüyor (rapor/liste-ozellik.log, tools/liste_ozellik.py kaldığı yerden).
