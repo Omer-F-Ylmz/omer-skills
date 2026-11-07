@@ -1,0 +1,16 @@
+kalem	npm_paketi
+Agent Client	@agentclientprotocol/sdk
+context-inspector	context-inspector
+Agent SDK	@anthropic-ai/claude-agent-sdk
+Angular	@angular/core
+Babel	@babel/core
+Bootstrap	bootstrap
+E2B	e2b
+GraphQL	graphql
+Primer	@primer/react
+ProtoMaps	pmtiles
+Swagger.io <Swagger.io>	swagger-ui
+Tailwind CSS <tailwindcss.com>	tailwindcss
+Three.js <https://threejs.org>	three
+Tailwind CSS (Framework)	tailwindcss
+Three.js (3D Rendering Library)	three

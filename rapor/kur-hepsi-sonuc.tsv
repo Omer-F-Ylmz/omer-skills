@@ -1,0 +1,10 @@
+﻿adim	durum	sure_sn	bosGB	not
+0	DENEME	0	143.9	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal)
+1	DENEME	131	143.9	tools\kurulum_omer2.ps1
+2	ATLANDI	0	143.9	tools\kurulum_gurultu.ps1 yok (GURULTU-KUR-1 henuz uretmedi)
+3	DENEME	3	143.9	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv
+4	DENEME	5	143.9	tools\kurulum_lightpanda.ps1
+5	DENEME	0	143.9	tools\kurulum_guvenlik.ps1
+6	DENEME	12	143.9	Atomic Chat /S (SHA256 dogrulanir)
+6s	DENEME	102	143.9	tools\kurulum_omer2.ps1 -Sistem (winget)
+7	DENEME	0	143.9	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin

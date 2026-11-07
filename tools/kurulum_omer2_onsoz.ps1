@@ -30,6 +30,15 @@ function Kur5Indir($k,$url){ $ad=Split-Path $url -Leaf; $dst=Join-Path $indir $a
   if(Test-Path $dst){Kayit $k INDIR ZATEN $dst;return}
   Kur5Cal $k INDIR "$url -> $dst (exe/msi'yi Omer calistirir)" { New-Item -ItemType Directory -Force $indir | Out-Null; Invoke-WebRequest -Uri $url -OutFile $dst -UseBasicParsing
     if($dst -like '*.zip'){ Expand-Archive $dst -DestinationPath ($dst -replace '\.zip$','') -Force } } }
+function Kur5Rel($k,$repo,$ipucu){ $ghexe=(Get-Command gh.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1).Source
+  if(-not $ghexe){Kayit $k RELEASE HATA "gh.exe yok";return}
+  if($Deneme){Kayit $k RELEASE DENEME "gh release $repo asset~'$ipucu' -> $indir";return}
+  try{ $r=(& $ghexe api "repos/$repo/releases/latest" 2>$null | ConvertFrom-Json); $a=$r.assets | Where-Object { ($ipucu -and $_.name -like "*$ipucu*") -or (-not $ipucu -and $_.name -match '(win|x64|x86_64).*\.(zip|exe|msi)$|\.(exe|msi)$') } | Select-Object -First 1
+    if(-not $a){Kayit $k RELEASE HATA "asset yok: $repo $ipucu";return}
+    $dst=Join-Path $indir $a.name; if(Test-Path $dst){Kayit $k RELEASE ZATEN $dst;return}
+    New-Item -ItemType Directory -Force $indir | Out-Null; Invoke-WebRequest -Uri $a.browser_download_url -OutFile $dst -UseBasicParsing
+    if($dst -like '*.zip'){ Expand-Archive $dst -DestinationPath ($dst -replace '\.zip$','') -Force }
+    Kayit $k RELEASE KURULDU "$($a.name) -> $dst (exe/msi'yi Omer calistirir)" }catch{Kayit $k RELEASE HATA $_.Exception.Message} }
 function Kur5Klon($k,$repo){ $hedef=Join-Path $klonkok ($repo -replace '/','__')
   if(Test-Path $hedef){Kayit $k KLON ZATEN $hedef;return}
   Kur5Cal $k KLON "git clone --depth 1 $repo" { $env:GIT_TERMINAL_PROMPT=0; & $gitexe clone --depth 1 "https://github.com/$repo" $hedef 2>&1 | Out-Null } }
