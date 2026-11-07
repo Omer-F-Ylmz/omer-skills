@@ -1,0 +1,20 @@
+kalem	kaynak	yontem	boyut	lisans	son_guncelleme	sinif	not
+Cloudflare/clef	huggingface.co/Cloudflare/clef (GitHub'da yok)	HF-agirlik	51.21 GiB	Apache-2.0	2026-10-30	OMER-SOR	>2GB
+Cloudflare/clef-flash	huggingface.co/Cloudflare/clef-flash	HF-agirlik	17.77 GiB	Apache-2.0	2026-10-30	OMER-SOR	>2GB
+Tijo2000/clef-decision-demo	github.com/ajmontalbano/clef-decision-demo (Tijo2000 hesabi yok)	KLON	50 KB	MIT	2026-10-30	KLON	sahip adi duzeltildi
+convaiinnovations/laya	huggingface.co/convaiinnovations/laya (GitHub'da yok)	HF-agirlik	2.21 GiB	Apache-2.0	2026-10-03	OMER-SOR	>2GB
+axolotl	github.com/axolotl-ai-cloud/axolotl	KLON	70 MB	Apache-2.0	2026-11-06	KLON	pip kurulumu CUDA/Linux odakli; Windows'ta yalniz klon
+langchain-ai	github.com/langchain-ai/langgraph (TEK repo: video ajan orkestrasyonu baglami)	KLON	520 MB	MIT	2026-11-06	KLON	org -> langgraph
+HKUDS	github.com/HKUDS/LightRAG (TEK repo: V2RIVnGCy74 videosu arac listesinde LightRAG)	KLON	115 MB	MIT	2026-11-05	KLON	org -> LightRAG
+multica-ai/andrej-karpathy-skills	github.com/multica-ai/andrej-karpathy-skills	SKILL	20 KB	YOK (lisanssiz)	2026-04-20	SKILL	lisans yok: engel degil, raporda
+ilabai/3dcodeverse	github.com/gaoypeng/3dcodeverse (ilabai hesabi yok)	KLON	45 MB	Apache-2.0	2026-11-04	KLON	sahip adi duzeltildi
+Heroic Labs (Nakama)	github.com/heroiclabs/nakama	KLON	160 MB	Apache-2.0	2026-11-06	KLON	Go sunucu; derleme/Docker Omer'in
+nano-pdf	pypi.org/project/nano-pdf 0.2.1 (github.com/gavrielc/Nano-PDF)	UV	kucuk	MIT	2025-12-03	UV	
+himalaya	github.com/pimalaya/himalaya v2.2.1 (winget manifesti yok)	INDIR	19 MB	Apache-2.0	2026-11-06	INDIR	skills/himalaya zaten kurulu; bu CLI ikilisi
+skills/manim-video	~/.claude/skills/manim-video (+affaan-m-, nousresearch-)	SKILL	-	-	-	ZATEN	yerel skill dizinleri var
+nanochat	github.com/karpathy/nanochat	KLON	2.5 MB	MIT	2026-09-07	KLON	model indirmez
+storm-research/SKILL	github.com/openwhat007/storm-research (MIT; SevenBaylor kopyasi lisanssiz)	SKILL	kucuk	MIT	2026-06-24	SKILL	
+Paperclip Agents	github.com/paperclipai/paperclip	KLON	480 MB	MIT	2026-11-07	KLON	
+Spacedrive	github.com/spacedriveapp/spacedrive v0.4.3 (winget manifesti yok)	INDIR	86 MB msi	Apache-2.0	2026-11-06	UYGULAMA	uygulama: yorum, Omer msi'yi calistirir
+Typst	winget Typst.Typst (winget-pkgs manifesti dogrulandi)	WINGET	kucuk	Apache-2.0	2026-11-06	WINGET	-Sistem ister
+MegaTTS3 (ses turu adayi)	huggingface.co/ByteDance/MegaTTS3	HF-agirlik	3.98 GiB	Apache-2.0	2025-04-04	OMER-SOR	indirme YOK, yalniz boyut; >2GB
