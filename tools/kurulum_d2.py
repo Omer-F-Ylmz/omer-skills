@@ -1,5 +1,5 @@
 """D2-KUR-1: kurulum-coz.tsv -> kapılar (ADAY eşleşme, güvenlik) -> kurulum -> kurulum-d2-sonuc.tsv (kaldığı yerden sürer).
-Kullanım: python tools/kurulum_d2.py --faz tohum|kur|model|ikinci|kapsam [--n N] [--sinif SKILL,CLI,PAKET,MODEL] [--is 6]"""
+Kullanım: python tools/kurulum_d2.py --faz tohum|kur|model|ikinci|kapsam [--coz tsv] [--n N] [--sinif SKILL,CLI,PAKET,MODEL] [--is 6]"""
 import csv, io, json, os, re, shutil, subprocess, sys, tempfile, threading, time, urllib.error, urllib.request, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from difflib import SequenceMatcher
@@ -28,7 +28,7 @@ TUR2 = "--tur2" in sys.argv  # HATA kalemlerini (büyük repo, zaman aşımı, d
 if TUR2: TKALEM = 600
 KAPI = "--sadece-kapi" in sys.argv  # kapılar (eşleşme+güvenlik) koşar, kurulum yapmaz: KAPI-GECTI
 KALEM = set(sys.argv[sys.argv.index("--kalem") + 1].split("|")) if "--kalem" in sys.argv else set()  # yalnız bu kalemler (| ile ayrık)
-BILINEN = {"--faz", "--n", "--sinif", "--is", "--sadece-kapi", "--kalem", "--tur2"}
+BILINEN = {"--faz", "--n", "--sinif", "--is", "--sadece-kapi", "--kalem", "--tur2", "--coz"}
 
 
 def run(a, t=300, cwd=None, env=None):
@@ -61,7 +61,9 @@ def kok(o):
 
 
 def bitenler():
-    return {r["kalem"] for r in oku(SONUC) if r["durum"] != "KAPI-GECTI"}
+    son = {}
+    for r in oku(SONUC): son[r["kalem"]] = r["durum"]  # son satır karar verir
+    return {k for k, d in son.items() if d != "KAPI-GECTI"}
 
 
 KAPIGECTI = {r["kalem"] for r in oku(SONUC) if r["durum"] == "KAPI-GECTI"}  # başlangıç anındaki kapı-geçenler
@@ -328,13 +330,32 @@ def gh_cli_kur(d, repo, kalem="", buyuk=0):
         if re.search(r"setup|install", exes[0].name, re.I):  # GUI kurulum programı: çalıştırılmaz, ~/.local/bin'e konmaz
             park = Path(__file__).resolve().parents[1] / ".kos/kopru/park"; park.mkdir(parents=True, exist_ok=True)
             shutil.copy2(exes[0], park / (exes[0].name + ".kurulum"))
-            return "KURULUM-YOLU-ELLE", f"GUI kurulum programı ({exes[0].name}) park/ içinde; sessiz bayrak doğrulanmadı, çalıştırılmadı; elle kurulur"
+            return "KURULUM-YOLU-ELLE", f"GUI kurulum programı ({exes[0].name}) park/ içinde; çalıştırılmadı; {kurucu_turu(exes[0])}"
         BIN.mkdir(parents=True, exist_ok=True)
         hedef = BIN / exes[0].name
         if hedef.exists(): return "ZATEN", str(hedef)
         shutil.copy2(exes[0], hedef)
-    ok, n = dogrula(str(hedef))
-    return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), n
+        ok, n = dogrula([str(hedef)])
+        return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), n
+
+
+def kurucu_turu(exe):
+    """Kurulum programının türü (ikili imza) + sessiz komut önerisi; çalıştırmaz. Qt IFW GUI'yi bayraksız açar."""
+    try:
+        with open(exe, "rb") as f:
+            b = f.read(40 * 2**20)
+    except OSError:
+        b = b""
+    if b"QInstaller" in b or b"Qt Installer Framework" in b or b"installerbase" in b:
+        return f"Qt IFW: sessiz kurulum '{exe.name} install --accept-licenses --default-answer --confirm-command' (bayraksız GUI açar)"
+    if b"Inno Setup" in b:
+        return f"Inno Setup: sessiz kurulum '{exe.name} /VERYSILENT /SUPPRESSMSGBOXES /NORESTART'"
+    if b"Nullsoft" in b or b"NSIS" in b:
+        return f"NSIS: sessiz kurulum '{exe.name} /S'"
+    if b"WiX" in b or b"msiexec" in b:
+        return f"MSI/WiX paketleyici: '{exe.name} /quiet /norestart'"
+    return "tür tanınmadı: sessiz bayrak doğrulanmadı; elle kurulur"
+
 
 
 def import_adlari(py, dist):
@@ -553,8 +574,15 @@ def main():
         sys.exit(f"bilinmeyen bayrak; geçerli: {sorted(BILINEN)}")
     arg = lambda s, v=None: a[a.index(s) + 1] if s in a else v
     faz, n, sc, kac = arg("--faz", "kur"), int(arg("--n", 10**9)), set(arg("--sinif", "SKILL,CLI,PAKET,MODEL").split(",")), int(arg("--is", 6))
-    rows = oku(KOK / "kurulum-coz.tsv")
+    coz = Path(arg("--coz", KOK / "kurulum-coz.tsv"))
+    rows = oku(coz)
     bit = bitenler()
+    if "--coz" in a:  # D2C: coz dosyasında DOGRULANDI olup sonuçta BULUNAMADI-2/YANLIS/YOLU-YOK/HATA kalanlar yeniden işlenir
+        rows = [r for r in rows if r["sonuc"] == "DOGRULANDI"]
+        son0 = {r["kalem"]: r["durum"] for r in oku(SONUC)}
+        yeniden = {r["kalem"] for r in rows if son0.get(r["kalem"]) in ("BULUNAMADI-2", "YANLIS-ESLESME", "KURULUM-YOLU-YOK", "HATA")}
+        bit -= yeniden
+        print("coz yeniden işlenecek:", len(yeniden))
     if TUR2:
         son = {r["kalem"]: r for r in oku(SONUC)}
         TEKRAR = re.compile(r"çok büyük|klon|Timeout|zaman aşımı|uv tool|npm|pip:|--version/--help|istisna|release indirilemedi", re.I)
