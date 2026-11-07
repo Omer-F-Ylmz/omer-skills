@@ -1,0 +1,108 @@
+kalem	sinif	sonuc	tur	ayrinti	neden_duzeltme
+Storybook	CLI	KANITSIZ	?		yanlis kayit: SKILL.md frontmatter'siz referans belgesi (skill olarak yuklenmez); frontmatter ekleme ucuncu taraf klonu/plugin cache'i degistirir, dokunulmadi
+Turbo	CLI	KANIT	skill-sarmalayici	SKILL.md frontmatter ok	
+deploy	CLI	KANITSIZ	?		yanlis kayit: SKILL.md frontmatter'siz referans belgesi (skill olarak yuklenmez); frontmatter ekleme ucuncu taraf klonu/plugin cache'i degistirir, dokunulmadi
+offensive-ssrf	SKILL	KANITSIZ	?		yanlis kayit: SKILL.md frontmatter'siz referans belgesi (skill olarak yuklenmez); frontmatter ekleme ucuncu taraf klonu/plugin cache'i degistirir, dokunulmadi
+offensive-xss	SKILL	KANITSIZ	?		yanlis kayit: SKILL.md frontmatter'siz referans belgesi (skill olarak yuklenmez); frontmatter ekleme ucuncu taraf klonu/plugin cache'i degistirir, dokunulmadi
+offensive-xxe	SKILL	KANITSIZ	?		yanlis kayit: SKILL.md frontmatter'siz referans belgesi (skill olarak yuklenmez); frontmatter ekleme ucuncu taraf klonu/plugin cache'i degistirir, dokunulmadi
+openclaw/openclaw	PAKET	KANITSIZ	?		calisma kaniti uretilemedi
+pr-review	SKILL	KANIT	skill	SKILL.md frontmatter ok	
+YOLO	MODEL	KANIT	model-dosya	agirlik: yolov8l.pt	
+AgentRouter	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve agent-router ok	
+Aider-AI/aider	CLI	KANIT	cli	aider.EXE --version exit0: aider.EXE 0.86.2	
+Alembic	PAKET	KANIT	import	ana-liste: import alembic ok	
+Anil-matcha/Open-Generative-AI	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+AutoGen	PAKET	KANIT	import	ana-liste: import autogen ok	
+Bar Replay	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+Blender Python API	PAKET	KANIT	import	bpy-3.13: import bpy ok	
+Caddy	CLI	KANIT	cli	caddy.EXE --version exit0: v2.11.7 h1:yj0Y4fYZGPkSvibBJ1sTWE33xC0fxztVyXEW5iIdUT4=	
+CalculiX	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+Bevy	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+Cordova	CLI	KANIT	cli	cordova.CMD --version exit0: 13.0.0	
+CyberChef	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+Django	PAKET	KANIT	import	ana-liste: import django ok	
+Expo SDK	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve expo ok	
+Fincept-Corporation/FinceptTerminal	CLI	KANITSIZ	?		GUI uygulamasi kurulu; headless calistirma/--version yok (acmak kullanici oturumunu etkiler)
+Fintables	PAKET	KANIT	import	ana-liste: import fintables ok	
+Firebender	CLI	KANIT	cli	firebase.CMD --version exit0: 15.34.2	
+Fusion Connector	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+Google Lighthouse	CLI	KANIT	cli	lighthouse.CMD --version exit0: 13.6.0	
+Gropector	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+Humanize	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve humanize-duration ok	
+Humanizer (blader/humanizer)	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve humanize-duration ok	
+Husky	CLI	KANIT	npm-global-pkg	global husky@9.1.7	
+InMemorySaver	PAKET	KANIT	import	ana-liste: import langgraph ok	
+JSDoc	PAKET	KANIT	npm-pkg	ana-liste-npm: jsdoc@4.0.5	
+Kimi Code CLI	CLI	KANIT	cli	kimi-cli.EXE --version exit0: kimi, version 1.52.0	
+LMDeploy	PAKET	KANIT	import	ana-liste: import lmdeploy ok	
+KronosPredictor	MODEL	KANITSIZ	?		yalniz kod klonu; model agirligi indirilmedi (GB boyutu, ayri indirme gerekir)
+Laravel MCP	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+K-Dense BYOK	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+LocalStack	CLI	KANIT	cli	localstack.EXE --version exit0: LocalStack CLI 2026.8.2	
+Locust	CLI	KANIT	cli	locust.EXE --version exit0: locust 2.47.0 from C:\Users\pc\AppData\Roaming\uv\tools\locust\Lib\sit	
+MISP	CLI	KANIT	import	mispy-3.12: import mispy ok	
+MLX	PAKET	KANIT	import	ana-liste: import mlx ok	
+MITOS	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+MediaPipe PoseLandmarker	PAKET	KANIT	import	ana-liste: import mediapipe ok	
+Memcached	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+MemoryLayer	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+Node.js SDK	PAKET	KANIT	cli	node.EXE --version exit0: v24.22.1	
+Numba	PAKET	KANIT	import	ana-liste: import numba ok	
+ONNX Runtime	PAKET	KANIT	import	ana-liste: import onnxruntime ok	
+OSINTgraph	CLI	KANIT	cli	Osintgraph.EXE --help exit0: [38;5;209m	
+OpenAI Gym	PAKET	KANIT	import	ana-liste: import gymnasium ok	
+OpenMMLab	PAKET	KANIT	import	ana-liste: import mim ok	
+Paddle	PAKET	KANIT	import	ana-liste312-paddle: import paddle ok	
+OpenCLI	CLI	KANIT	cli	openai.EXE --version exit0: openai version 1.47.0	
+Pint	PAKET	KANIT	import	ana-liste: import pint ok	
+OpenTofu	CLI	KANIT	cli	tofu.EXE --version exit0: OpenTofu v1.13.2	
+Poetry	CLI	KANIT	import	poetry-core-3.12: import poetry ok	
+PoseLandmarker	PAKET	KANIT	import	ana-liste: import mediapipe ok	
+PyInstaller	CLI	KANIT	cli	PyInstaller.EXE --version exit0: 6.22.3	
+PostgREST	PAKET	KANIT	cli	postgrest.EXE --version exit0: PostgREST 16.5	
+Qdrant	PAKET	KANIT	import	ana-liste: import qdrant_client ok	
+React Router	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve react-router-dom ok	
+React Three Fiber (R3F)	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve @react-three/fiber ok	
+Renovate	PAKET	KANIT	npm-pkg	ana-liste-npm: renovate@44.203.0	
+SVGOMG	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+Safetensors	PAKET	KANIT	import	ana-liste: import safetensors ok	
+SpeechMA	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+StackForge	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+TasteCode	SKILL	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+TensorBoard	PAKET	KANIT	import	ana-liste: import tensorboard ok	
+Unicorn	PAKET	KANIT	import	ana-liste: import unicorn ok	
+TypeSafe SDK	PAKET	KANIT	npm-ls	npm ls --depth=0 exit0 (bagimliliklar kurulu)	
+ValueCell	CLI	KANITSIZ	?		GUI uygulamasi kurulu; headless calistirma/--version yok (acmak kullanici oturumunu etkiler)
+Wav2Lip	MODEL	KANITSIZ	?		yalniz kod klonu; model agirligi indirilmedi (GB boyutu, ayri indirme gerekir)
+Web arama (yerlesik)	PAKET	KANIT	import	ana-liste: import googlesearch ok	
+Webpack	CLI	KANIT	cli	webpack.CMD --version exit0: [2m──────────────────────────────────────────────────────────────────	
+Vane	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+changelog-generator	CLI	KANIT	npm-global-pkg	global changelog-generator@0.0.4	
+commitlint	PAKET	KANIT	npm-pkg	ana-liste-npm: commitlint@21.2.4	
+docx-writer	PAKET	KANIT	import	ana-liste: import docx ok	
+gosom/google-maps-scraper	CLI	KANIT	cli	gmaps-scraper.EXE --help exit0: usage: gmaps-scraper [-h] [-v] {scrape,batch} ...	
+inlang	PAKET	KANIT	npm-pkg	ana-liste-npm: inlang@0.1.2	
+magnitudedev/magnitude	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+minisign	CLI	KANIT	import	minisign: import minisign ok	
+mkdocs	PAKET	KANIT	import	ana-liste: import mkdocs ok	
+nexu-io/open-design	CLI	KANITSIZ	?		GUI uygulamasi kurulu; headless calistirma/--version yok (acmak kullanici oturumunu etkiler)
+notebooklm-py	PAKET	KANIT	import	ana-liste: import notebooklm ok	
+openpyxl	PAKET	KANIT	import	ana-liste: import openpyxl ok	
+pandas	PAKET	KANIT	import	ana-liste: import pandas ok	
+pgvector	PAKET	KANIT	import	ana-liste: import pgvector ok	
+pdf-extract	CLI	KANIT	npm-global-pkg	global pdf-extract@1.0.11	
+pygame	CLI	KANIT	import	pygame-3.12: import pygame ok	
+rtl-arabic	CLI	KANIT	npm-global-pkg	global rtl-arabic@2.1.1	
+scipy	PAKET	KANIT	import	ana-liste: import scipy ok	
+scroll-stopper	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+shadcn-ui/lint	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+supabase-postgres	PAKET	KANIT	npm-resolve	ana-liste-npm: resolve @supabase/supabase-js ok	
+tamaratran/fast-jev-compaction	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+tiktoken	PAKET	KANIT	import	ana-liste: import tiktoken ok	
+openGym (DuarteSantos8/openGym)	PAKET	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
+torch	PAKET	KANIT	import	ana-liste: import functorch ok	
+toyxyz/toyxyz_rgbmocap	CLI	KANIT	import	toyxyz_RGBMocap-3.12: import mocap ok	
+tj-actions/changed-files	PAKET	KANITSIZ	?		node_modules yok (temizlenmis); npm install + build gerekir
+tinycast (abue-ammar/tinycast)	PAKET	KANITSIZ	?		yalniz kaynak klonu (kurulum betigi yok); calistirilacak paket/bin yok
+typescript-lsp	PAKET	KANIT	npm-pkg	ana-liste-npm: typescript-language-server@6.0.3	
+tui-tester	CLI	KANITSIZ	?		uygulama/monorepo kaynagi: komut/bin yok, build/dev sunucusu baslatmadan calisma kaniti uretilemez
