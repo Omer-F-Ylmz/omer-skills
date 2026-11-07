@@ -1,0 +1,8 @@
+# LISTE-EKSIK-2 (7 Kas) - TUR BITTI (ad kapisi %98 tutmadi)
+
+- Ad kapisi (6279 yeni kalem): onceki %82,1 (yalniz birebir) -> sonra siki %95,5 (birebir+NORM bosluk/noktalama farki 540+PARCA 75+BULANIK 227), TOKEN dahil %97,5; ISARETLI 156 (docs/video-tarama/liste-eksik-ad-teyitsiz.tsv, silinmedi). 100'luk rastgele ornek: seed7 97/99, seed21 94/97, seed33 95/97 (siki/token dahil). >=%98 TUTMADI: kalan 281 kalem kavram/ceviri adi (or. 'IK (Inverse Kinematics)', 'kacis karakterleri (escape)'), kaynak metinde yok.
+- Kok neden: kaynak OCR/ASR bozuk (bosluk yok, harf hatasi). Bulanik diziyle yeniden adlandirma denendi, 672 adayin ornegi OCR cop uretti ('ToY | STORY', 'Joumey', 'ptidge') -> ad degistirilmedi, sinif sutunu yazildi (docs/video-tarama/liste-eksik-ad-kapi.tsv). Arac: tools/liste_ad_hizala.py (rapidfuzz). Yedek: tmp/teyitsiz.yedek-ad2.tsv.
+- Ozellik/yapilis: gercek eksik 22 kalem (Windows buyuk/kucuk harf cakismasi nedeniyle 384 ad baska adin dosyasini paylasiyor, eksik sayilmaz); 22/22 uretildi (model: haiku; ~24 cagri + yeniden deneme, tavan 400). ana-liste 23650 kalem.
+- bizde/kurulum: liste_durum_guncel.py --yaz (kilit tmp/ana-liste.kilit, son degisim 22:35, cakisma yok): 14 kalem durum degisti (11 KURULMADI-SIRADA->KURULU-KANITSIZ, 2 BULUNDU-ADAY->KURULU-KANITSIZ, 1 ->KURULDU). liste_bizde onceki turda tamamdi.
+- Kalemsiz video: DfOnUkLCMZW 7, GRJaKcXZS94 2, w86c1q59QKU 1 kalemli; GKM1pHYY7F8 gerekceli (GPT-6 konu videosu). Kalan 28: 5 konusmali olan elle okundu (sosyal medya klibi, arac/site adi yok), 23'unde konusma 0 karakter -> gerekce dogrulandi.
+- Maliyet: Haiku ~24 cagri (tavan 400). /simplify calistirilmadi: tek 90 satirlik yeni betik, ad degistirmiyor.
