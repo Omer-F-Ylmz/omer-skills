@@ -1,0 +1,173 @@
+AI Breakup Recovery Agent	SKILL	AYIR-KLON-YOK	0 SKILL.md
+0NE API	CLI	AYIR-RELEASE	one-api.exe
+9Router	CLI	AYIR-YOL-YOK	
+AThevon/genjutsu	CLI	AYIR-YOL-YOK	
+AgentCouncil	CLI	AYIR-YOL-YOK	
+AdaL CLI	CLI	AYIR-YOL-YOK	
+AgentLog	PAKET	AYIR-YOL-YOK	
+Agent TARS	CLI	AYIR-YOL-YOK	
+AtomicParsley	CLI	AYIR-RELEASE	AtomicParsleyWindows.zip,AtomicParsleyWindowsX86.zip
+B-Roll Finder	CLI	AYIR-YOL-YOK	
+BFXR	CLI	AYIR-YOL-YOK	
+BlenderGIS	CLI	AYIR-YOL-YOK	
+CLAUDE HQ	SKILL	AYIR-KLON-YOK	0 SKILL.md
+ChatGPT MD	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Claude Flow	SKILL	AYIR-TOPLU	403 SKILL.md
+Claude Toolkit	CLI	AYIR-YOL-YOK	
+Claude Token Monitor	CLI	AYIR-YOL-YOK	
+ComfyUI-HunyuanVideo	PAKET	AYIR-YOL-YOK	
+Claudex Loop	CLI	AYIR-YOL-YOK	
+ComfyUI-HunyuanVideoWrapper	PAKET	AYIR-YOL-YOK	
+Coucou (Louis-CFM/coucou)	CLI	AYIR-YOL-YOK	
+Eigent	CLI	AYIR-RELEASE	Eigent.Setup.1.0.7.exe
+Filetree	CLI	AYIR-YOL-YOK	
+FilaCheck	CLI	AYIR-YOL-YOK	
+FrontierAgent	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Ghostty	CLI	AYIR-YOL-YOK	
+Gradle	CLI	AYIR-YOL-YOK	
+Grok Build	CLI	AYIR-YOL-YOK	
+HIA (Health Insights Agent)	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Hermes voice agent	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Hardflow	CLI	AYIR-YOL-YOK	
+Homebrew (brew)	CLI	AYIR-YOL-YOK	
+LLM Council	CLI	AYIR-YOL-YOK	
+Lago	CLI	AYIR-YOL-YOK	
+LingoForge	CLI	AYIR-YOL-YOK	
+LoopTools	CLI	AYIR-KLON-YOK	kaynak/klon yok
+Luma Agents	SKILL	AYIR-KLON-YOK	0 SKILL.md
+MemZero	PAKET	AYIR-YOL-YOK	
+Mobbin MCP	SKILL	AYIR-KLON-YOK	0 SKILL.md
+NVIDIA Kimodo	CLI	AYIR-YOL-YOK	
+NaiboWang/EasySpider	CLI	AYIR-RELEASE	EasySpider_0.6.5_Windows_x64.7z
+Pocket TTS	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Podman	CLI	AYIR-RELEASE	podman-installer-windows-amd64.msi,podman-installer-windows-arm64.msi,podman-remote-release-darwin_arm64.zip,podman-remote-release-windows_amd64.zip,podman-remote-release-windows_arm64.zip
+Ratatui	CLI	AYIR-YOL-YOK	
+Rector	CLI	AYIR-YOL-YOK	
+Scoop	CLI	AYIR-YOL-YOK	
+Sealos	CLI	AYIR-YOL-YOK	
+SkillClaw	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Slurm	CLI	AYIR-YOL-YOK	
+TARS	CLI	AYIR-YOL-YOK	
+Triton	PAKET	AYIR-YOL-YOK	
+Valkey	CLI	AYIR-YOL-YOK	
+Whisker	CLI	AYIR-YOL-YOK	
+Wifite	CLI	AYIR-YOL-YOK	
+agency-agents (msitarzewski/agency-agents)	CLI	AYIR-YOL-YOK	
+boykopovar/AnyPs5	CLI	AYIR-RELEASE	prx-windows-unpatched-v0.1.4.tar.gz,prx-windows-unpatched-v0.1.4.zip,prx-windows-v0.1.4.tar.gz,prx-windows-v0.1.4.zip,relinker-v0.1.4.exe
+bilawalsidhu/godseyeview	CLI	AYIR-YOL-YOK	
+comfy-reshoot	CLI	AYIR-YOL-YOK	
+codex-computer-use	SKILL	AYIR-KLON-YOK	0 SKILL.md
+dnf	CLI	AYIR-YOL-YOK	
+firecrawl/firecrawl-workflows	CLI	AYIR-YOL-YOK	
+fixai	SKILL	AYIR-KLON-YOK	0 SKILL.md
+gVisor	CLI	AYIR-YOL-YOK	
+harness2-demo	CLI	AYIR-YOL-YOK	
+hbot CLI	CLI	AYIR-YOL-YOK	
+hookify	CLI	AYIR-YOL-YOK	
+helm	CLI	AYIR-RELEASE	helm-v4.3.1-darwin-amd64.tar.gz.asc,helm-v4.3.1-darwin-amd64.tar.gz.sha256.asc,helm-v4.3.1-darwin-amd64.tar.gz.sha256sum.asc,helm-v4.3.1-darwin-arm64.tar.gz.asc,helm-v4.3.1-darwin-arm64.tar.gz.sha256.asc,helm-v4.3.1-darwin-arm64.tar.gz.sha256sum.asc,helm-v4.3.1-windows-amd64.zip.asc,helm-v4.3.1-windows-amd64.zip.sha256.asc
+codspeed	CLI	AYIR-RELEASE	codspeed-aarch64-apple-darwin.sha256.sum,codspeed-runner-aarch64-apple-darwin.tar.gz,codspeed-runner-aarch64-apple-darwin.tar.gz.sha256
+letta-ai/claude-subconscious	SKILL	AYIR-KLON-YOK	0 SKILL.md
+linkedin-automator	CLI	AYIR-YOL-YOK	
+margin-analyzer	CLI	AYIR-YOL-YOK	
+mattgierhart/PRD-driven-context-engineering	CLI	AYIR-YOL-YOK	
+mmBERT-base	PAKET	AYIR-KLON-YOK	kaynak/klon yok
+nvm-windows	CLI	AYIR-RELEASE	nvm-2.0.1-arm64-setup.exe,nvm-2.0.1-arm64-sync.exe,nvm-2.0.1-x64-setup.exe,nvm-2.0.1-x64-sync.exe
+nvm	CLI	AYIR-YOL-YOK	
+oh-my-openagent	SKILL	AYIR-TOPLU	61 SKILL.md
+paru	CLI	AYIR-YOL-YOK	
+oMLX	PAKET	AYIR-YOL-YOK	
+reel-factory	SKILL	AYIR-KLON-YOK	0 SKILL.md
+scrum-sage	CLI	AYIR-YOL-YOK	
+rtmpdump	CLI	AYIR-YOL-YOK	
+storytold/artcraft	CLI	AYIR-RELEASE	ArtCraft_0.41.1_x64-setup.exe,ArtCraft_0.41.1_x64_en-US.msi
+superlite	PAKET	AYIR-YOL-YOK	
+tinyagents	SKILL	AYIR-KLON-YOK	0 SKILL.md
+whatsapp-rust	CLI	AYIR-YOL-YOK	
+youtube-dl	CLI	AYIR-RELEASE	youtube-dl.exe
+Antigravity SDK	PAKET	AYIR-YOL-YOK	
+AI Travel Agent (Local & Cloud)	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Agent Client	CLI	AYIR-YOL-YOK	
+BU Bench	CLI	AYIR-YOL-YOK	
+CLI-Hub	CLI	AYIR-YOL-YOK	
+Chocolatey	CLI	AYIR-RELEASE	chocolatey-2.7.5.0.msi
+Claude Code v2.1.71	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Clawed Code Setup	CLI	AYIR-YOL-YOK	
+Creative-Ad Skill	SKILL	AYIR-KLON-YOK	0 SKILL.md
+DataviewJS	PAKET	AYIR-YOL-YOK	
+Devin CLI	CLI	AYIR-YOL-YOK	
+FilmCraft CLI	CLI	AYIR-RELEASE	filmcraft-0.18.0-windows-arm64-portable.zip,filmcraft-0.18.0-windows-arm64.msi,filmcraft-0.18.0-windows-x64-portable.zip,filmcraft-0.18.0-windows-x64.msi,filmcraft-0.18.0-windows-x86-portable.zip,filmcraft-0.18.0-windows-x86.msi
+Finegrain Image Enhancer	PAKET	AYIR-KLON-YOK	kaynak/klon yok
+Firecrawl MCP	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Firecrawl MCP Server	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Fish Audio	CLI	AYIR-YOL-YOK	
+Flux Kontext	SKILL	AYIR-KLON-YOK	kaynak/klon yok
+GNU make	CLI	AYIR-KLON-YOK	kaynak/klon yok
+Kafka	CLI	AYIR-YOL-YOK	
+Local REST API with MCP	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Marketing Skills for AI Agents	SKILL	AYIR-TOPLU	53 SKILL.md
+Marketing plugin	SKILL	AYIR-TOPLU	252 SKILL.md
+Matt Pocock skills repo	SKILL	AYIR-TOPLU	39 SKILL.md
+Official Marketing Plugin	SKILL	AYIR-TOPLU	252 SKILL.md
+Orchestrator.inc (agent-orchestrator)	CLI	AYIR-RELEASE	agent-orchestrator-darwin-arm64.dmg,agent-orchestrator-darwin-arm64.zip,agent-orchestrator-darwin-x64.dmg,agent-orchestrator-darwin-x64.zip,agent-orchestrator-win32-x64.exe,Agent.Orchestrator-darwin-arm64-0.14.10.zip,Agent.Orchestrator-darwin-x64-0.14.10.zip,Agent.Orchestrator.Setup.0.14.10.exe
+Osaurus	CLI	AYIR-YOL-YOK	
+Poppler	CLI	AYIR-YOL-YOK	
+Post Strategist	SKILL	AYIR-KLON-YOK	0 SKILL.md
+RIFE	CLI	AYIR-YOL-YOK	
+Sales Plugin	SKILL	AYIR-TOPLU	252 SKILL.md
+Sales plugin (Sales Rep)	SKILL	AYIR-TOPLU	252 SKILL.md
+Skill Spectre	SKILL	AYIR-TOPLU	33 SKILL.md
+Stable Diffusion Forge	CLI	AYIR-YOL-YOK	
+Support plugin	SKILL	AYIR-TOPLU	252 SKILL.md
+TARS (Agent TARS)	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Tail	CLI	AYIR-YOL-YOK	
+Teach	SKILL	AYIR-TOPLU	39 SKILL.md
+The Hormozi Brain Toolkit for Claude Code	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Tokens Studio	SKILL	AYIR-KLON-YOK	0 SKILL.md
+TrainLLMFromScratch	CLI	AYIR-YOL-YOK	
+Unet Loader (GGUF)	SKILL	AYIR-KLON-YOK	0 SKILL.md
+Vane (Perplexica)	CLI	AYIR-YOL-YOK	
+Vim	CLI	AYIR-YOL-YOK	
+agent-radar	SKILL	AYIR-KLON-YOK	0 SKILL.md
+agents-sdk-dev	CLI	AYIR-YOL-YOK	
+anthropic-automations-recommender	SKILL	AYIR-TOPLU	33 SKILL.md
+claude-md-management	SKILL	AYIR-TOPLU	33 SKILL.md
+cmake	CLI	AYIR-RELEASE	cmake-4.4.5-windows-arm64.msi,cmake-4.4.5-windows-arm64.zip,cmake-4.4.5-windows-i386.msi,cmake-4.4.5-windows-i386.zip,cmake-4.4.5-windows-x86_64.msi,cmake-4.4.5-windows-x86_64.zip
+code-architect	SKILL	AYIR-TOPLU	33 SKILL.md
+coleschaffer/copywritingskills-rmbc	SKILL	AYIR-TOPLU	42 SKILL.md
+commit-commands	CLI	AYIR-YOL-YOK	
+connect-apps-plugin	SKILL	AYIR-TOPLU	864 SKILL.md
+context-inspector	CLI	AYIR-YOL-YOK	
+copy-editing	SKILL	AYIR-TOPLU	53 SKILL.md
+copywriting	SKILL	AYIR-TOPLU	53 SKILL.md
+crap4clj	PAKET	AYIR-YOL-YOK	
+customer support plugin	SKILL	AYIR-TOPLU	252 SKILL.md
+data plugin	SKILL	AYIR-TOPLU	252 SKILL.md
+docx/pptx/xlsx	PAKET	AYIR-YOL-YOK	
+execute_sql	SKILL	AYIR-KLON-YOK	0 SKILL.md
+feature-dev	SKILL	AYIR-TOPLU	33 SKILL.md
+ffprobe	CLI	AYIR-YOL-YOK	
+gan-evaluator	SKILL	AYIR-TOPLU	1068 SKILL.md
+generate_typescript_types	SKILL	AYIR-KLON-YOK	0 SKILL.md
+geo-crawlers	CLI	AYIR-YOL-YOK	
+get_observations	SKILL	AYIR-TOPLU	44 SKILL.md
+gh (GitHub CLI)	CLI	AYIR-RELEASE	gh_2.103.3_windows_386.msi,gh_2.103.3_windows_386.zip,gh_2.103.3_windows_amd64.msi,gh_2.103.3_windows_amd64.zip,gh_2.103.3_windows_arm64.msi,gh_2.103.3_windows_arm64.zip
+git add	CLI	AYIR-RELEASE	Git-2.56.0.4-64-bit.exe,Git-2.56.0.4-arm64.exe,PortableGit-2.56.0.4-64-bit.7z.exe,PortableGit-2.56.0.4-arm64.7z.exe
+git clone	CLI	AYIR-RELEASE	Git-2.56.0.4-64-bit.exe,Git-2.56.0.4-arm64.exe,PortableGit-2.56.0.4-64-bit.7z.exe,PortableGit-2.56.0.4-arm64.7z.exe
+git commit	CLI	AYIR-RELEASE	Git-2.56.0.4-64-bit.exe,Git-2.56.0.4-arm64.exe,PortableGit-2.56.0.4-64-bit.7z.exe,PortableGit-2.56.0.4-arm64.7z.exe
+go toolchain	CLI	AYIR-YOL-YOK	
+go version -m	CLI	AYIR-YOL-YOK	
+hy-wu-edit	SKILL	AYIR-KLON-YOK	0 SKILL.md
+inbox-alerts-priority	SKILL	AYIR-KLON-YOK	0 SKILL.md
+lark-vc-agent	SKILL	AYIR-TOPLU	37 SKILL.md
+ldid-procursus	CLI	AYIR-RELEASE	ldid_w64_x86_64.exe
+llama-cli	CLI	AYIR-YOL-YOK	
+lln-council	SKILL	AYIR-TOPLU	41 SKILL.md
+marketingskills/skills/seo-audit	SKILL	AYIR-TOPLU	53 SKILL.md
+rustc	CLI	AYIR-YOL-YOK	
+setup-matt-docock-skills	SKILL	AYIR-TOPLU	39 SKILL.md
+ship-learn-next	CLI	AYIR-YOL-YOK	
+skool-platinum	SKILL	AYIR-KLON-YOK	0 SKILL.md
+smtg-ai/claude-squad	SKILL	AYIR-KLON-YOK	0 SKILL.md
+telegram@claude-plugins-official	SKILL	AYIR-TOPLU	33 SKILL.md
+zqxwce/tap/vphone-cli	CLI	AYIR-YOL-YOK	
+Anthropic Marketing plugin	SKILL	AYIR-TOPLU	252 SKILL.md

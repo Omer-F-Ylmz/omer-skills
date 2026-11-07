@@ -1,0 +1,64 @@
+kalem	yontem	durum	hedef	lisans	kanit_not
+0NE API	RELEASE	KURULABILIR	songquanpeng/one-api	MIT	v0.6.10 one-api.exe=35MB (gh releases/latest)
+AtomicParsley	RELEASE	OMER-SOR	wez/atomicparsley	GPL-2.0	AtomicParsleyWindows.zip (<1MB) var; GPL
+Eigent	RELEASE	OMER-SOR	eigent-ai/eigent	Apache-2.0	GUI uygulama Eigent.Setup.1.0.7.exe=1035MB
+NaiboWang/EasySpider	RELEASE	OMER-SOR	NaiboWang/EasySpider	AGPL-3.0	GUI uygulama 7z=361MB; AGPL
+Podman	WINGET	KURULABILIR	RedHat.Podman (winget-pkgs manifest) ; zip podman-remote-release-windows_amd64.zip=30MB	Apache-2.0	v6.1.4; msi=27MB; istemci zip yeterli, makine icin WSL/Hyper-V gerekir
+boykopovar/AnyPs5	RELEASE	OMER-SOR	boykopovar/AnyPs5	GPL-2.0	prx-windows zip=91MB; GPL; PS5 jailbreak araci
+helm	WINGET	KURULABILIR	Helm.Helm (winget-pkgs 4.3.1) ; https://get.helm.sh/helm-v4.3.1-windows-amd64.zip (HTTP 200)	Apache-2.0	GH release'te yalniz .asc var, zip get.helm.sh'ta
+codspeed	YOK	YOK	CodSpeedHQ/codspeed	Apache-2.0	release asset yalniz darwin/linux (windows yok)
+nvm-windows	RELEASE	KURULABILIR	coreybutler/nvm-windows nvm-2.0.1-x64-setup.exe (10MB) ; WINGET CoreyButler.NVMforWindows (manifest 1.2.2)	MIT	v2.0.1; Node PATH'ini degistirir
+storytold/artcraft	RELEASE	OMER-SOR	storytold/artcraft	Apache-2.0	GUI uygulama ArtCraft_0.41.1_x64-setup.exe=40MB
+youtube-dl	RELEASE	KURULABILIR	ytdl-org/youtube-dl youtube-dl.exe (7MB)	Unlicense	son surum 2021.12.17 (eski; yt-dlp tercih)
+Chocolatey	WINGET	OMER-SOR	Chocolatey.Chocolatey (winget-pkgs 2.7.4.0) ; chocolatey-2.7.5.0.msi=6MB	NOASSERTION	sistem paket yoneticisi, yonetici hakki; lisans GH'ta belirsiz
+FilmCraft CLI	RELEASE	OMER-SOR	storytold/filmcraft filmcraft-0.18.0-windows-x64-portable.zip=104MB	Apache-2.0	repo aciklamasi: dogrusal olmayan video editoru (GUI); portable zip var
+Orchestrator.inc (agent-orchestrator)	RELEASE	OMER-SOR	ComposioHQ/agent-orchestrator	Apache-2.0	Electron GUI Setup.0.14.10.exe=183MB
+cmake	WINGET	ZATEN-VAR	Kitware.CMake ; cmake-4.4.5-windows-x86_64.msi=37MB	BSD-3-Clause	yerelde cmake 3.29.2 var; 4.4.5 guncelleme
+gh (GitHub CLI)	WINGET	ZATEN-VAR	GitHub.cli ; gh_2.103.3_windows_amd64.msi=14MB	MIT	yerelde gh 2.100.0 var
+git add	ZATEN-VAR	ZATEN-VAR	git komutu (git-for-windows/git)	NOASSERTION	git 2.49.0.windows.1 yerelde; ayri arac degil
+git clone	ZATEN-VAR	ZATEN-VAR	git komutu (git-for-windows/git)	NOASSERTION	git 2.49.0.windows.1 yerelde; ayri arac degil
+git commit	ZATEN-VAR	ZATEN-VAR	git komutu (git-for-windows/git)	NOASSERTION	git 2.49.0.windows.1 yerelde; ayri arac degil
+ldid-procursus	RELEASE	OMER-SOR	ProcursusTeam/ldid ldid_w64_x86_64.exe=3MB	AGPL-3.0	AGPL
+9Router	NPM	KURULABILIR	npm:9router 0.5.112 (registry 200) ; repo decolua/9router	MIT	npm repository alani bos; aciklama 9Router CLI
+AThevon/genjutsu	SKILL	OMER-SOR	AThevon/genjutsu:skills/ (20 SKILL.md)	NOASSERTION	lisans belirsiz; v4.1.3
+AgentCouncil	KLON	KURULABILIR	zekigalip/AgentCouncil	MIT	18 yildiz, SKILL.md yok; icerik dogrulanmadi
+AdaL CLI	NPM	OMER-SOR	npm:@sylphai/adal-cli (registry 200) ; SylphAI-Inc/adal-cli	yok	repo lisanssiz
+AgentLog	NPM	OMER-SOR	npm:agentlogs (200) ; agentlogs/agentlogs server windows exe=168MB	NOASSERTION	ad belirsiz (agentlogs/agentlog), lisans belirsiz
+Agent TARS	NPM	KURULABILIR	npm:@agent-tars/cli 0.3.1 (200) ; bytedance/UI-TARS-desktop v0.3.1	Apache-2.0	
+B-Roll Finder	SKILL	KURULABILIR	louisedesadeleer/b-roll-finder (kok SKILL.md)	MIT	
+BFXR	YOK	OMER-SOR	increpare/bfxr	yok	release/paket yok, lisanssiz; yalniz kaynak klon
+BlenderGIS	KLON	OMER-SOR	domlysz/BlenderGIS (addon klasoru, release asset yok)	GPL-3.0	GPL
+Claude Toolkit	NPM	OMER-SOR	npm:claude-toolkit 0.18.1 (william-queant) VEYA dwmkerr/claude-toolkit (plugin, 22 SKILL.md)	MIT	iki farkli proje, kaynak belirsiz
+Claude Token Monitor	NPM	KURULABILIR	npm:claude-token-monitor 1.0.0 (200) ; novapizza/claude-token-monitor	MIT	npm paketi repoya baglanmiyor, kaynak dogrulanamadi
+ComfyUI-HunyuanVideo	KLON	OMER-SOR	kijai/ComfyUI-HunyuanVideoWrapper	yok	ComfyUI+GPU gerekir; lisanssiz; resmi Tencent repo ayri
+ComfyUI-HunyuanVideoWrapper	KLON	OMER-SOR	kijai/ComfyUI-HunyuanVideoWrapper	yok	ComfyUI+GPU gerekir; lisanssiz
+Claudex Loop	KLON	OMER-SOR	chaseai-yt/claudex-loop (3370 yildiz)	NOASSERTION	lisans belirsiz
+Coucou (Louis-CFM/coucou)	YOK	YOK	Louis-CFM/coucou	MIT	macOS notch uygulamasi (Coucou.zip=34MB), Windows yok
+Filetree	SKILL	OMER-SOR	nekocode/filetree-skill:skills/filetree	yok	lisanssiz
+FilaCheck	COMPOSER	KURULABILIR	laraveldaily/filacheck v1.2.5 (packagist 200)	MIT	PHP/composer gerekir
+Ghostty	YOK	YOK	ghostty-org/ghostty	MIT	resmi Windows surumu yok
+Gradle	ZIP	KURULABILIR	https://services.gradle.org/distributions/gradle-9.9.0-bin.zip (HTTP 200)	Apache-2.0	winget manifesti bulunamadi
+Grok Build	KLON	KURULABILIR	xai-org/grok-build-plugin-cc (2 SKILL.md)	Apache-2.0	yalniz CC eklentisi; Grok Build CLI'nin kendisi bulunamadi
+Hardflow	RELEASE	OMER-SOR	ugulay/hardflow hardflow-1.23.0.zip=1MB	GPL-3.0	Blender addon; GPL
+Homebrew (brew)	YOK	YOK	Homebrew/brew	BSD-2-Clause	macOS/Linux; Windows yok
+LLM Council	KLON	OMER-SOR	karpathy/llm-council	yok	lisanssiz; alt: tenfoldmarc/llm-council-skill
+Lago	KLON	OMER-SOR	getlago/lago	AGPL-3.0	AGPL; sunucu/docker
+LingoForge	KLON	OMER-SOR	shenfn/LingoForge	yok	3 yildiz, lisanssiz, kaynak belirsiz
+MemZero	PIP	KURULABILIR	pip:mem0ai 2.2.1 (PyPI 200) ; npm:mem0ai 3.3.1	Apache-2.0	mem0ai/mem0
+NVIDIA Kimodo	KLON	KURULABILIR	nv-tlabs/kimodo	Apache-2.0	paket yok; GPU/model gerekir
+Ratatui	CARGO	KURULABILIR	crate ratatui 0.30.2 (static.crates.io 200)	MIT	Rust kutuphanesi (cargo add)
+Rector	COMPOSER	KURULABILIR	rector/rector 2.8.4 (packagist 200)	MIT	PHP/composer gerekir
+Scoop	SCRIPT	OMER-SOR	https://get.scoop.sh (HTTP 200) ; ScoopInstaller/Scoop v0.6.0	NOASSERTION	sistem paket yoneticisi, uzaktan betik
+Sealos	YOK	YOK	labring/sealos v5.1.1	NOASSERTION	asset yalniz linux deb/rpm/tar.gz
+Slurm	YOK	YOK	SchedMD/slurm	NOASSERTION	Linux kume zamanlayici; Windows yok
+TARS	NPM	OMER-SOR	bytedance/UI-TARS-desktop (npm:@agent-tars/cli)	Apache-2.0	ad belirsiz: Agent TARS ile ayni mi
+Triton	PIP	KURULABILIR	pip:triton-windows 3.9.0.post30 (PyPI 200); upstream triton-lang/triton v3.9.0	MIT	resmi triton Windows tekerlegi yok, fork; CUDA/torch gerekir
+Valkey	YOK	YOK	valkey-io/valkey 9.1.3	BSD-3-Clause	sunucu Linux; istemci: pip:valkey 6.2.0
+Whisker	YOK	OMER-SOR	eladshamir/Whisker	MIT	ad belirsiz; bu repo AD saldiri araci, release yok
+Wifite	KLON	OMER-SOR	derv82/wifite	yok	Linux, lisanssiz, saldiri araci
+agency-agents (msitarzewski/agency-agents)	KLON	KURULABILIR	msitarzewski/agency-agents	MIT	167k yildiz; SKILL.md yok (ajan md dosyalari)
+bilawalsidhu/godseyeview	YOK	YOK	bilawalsidhu/godseyeview (gh api 404)	yok	repo yok; KamalDevelopers/GodsEyeView ilgisiz (hobi isletim sistemi)
+comfy-reshoot	KLON	KURULABILIR	Comfy-Org/comfy-reshoot	MIT	ComfyUI gerekir
+dnf	YOK	YOK	rpm-software-management/dnf 4.24.0	GPL-2.0	Linux paket yoneticisi
+firecrawl/firecrawl-workflows	SKILL	KURULABILIR	firecrawl/firecrawl-workflows:skills/ (19 SKILL.md)	ISC	
+gVisor	YOK	YOK	google/gvisor	Apache-2.0	Linux cekirdek sandbox; Windows yok

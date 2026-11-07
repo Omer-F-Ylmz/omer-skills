@@ -1,0 +1,147 @@
+kalem	karar	yontem	hedef	lisans	kanit
+Clean Code	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Cloud Code Setup	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+CodexBar	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Core Web Vitals	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+DaVinci	OMER-SOR	WINGET	BlackmagicDesign.DaVinciResolve	ticari	kaynak yok; >2GB ticari uygulama
+DataFlex	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Final Cut Camera	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Flatpak (paket yÃ¶neticisi)	YOK		flatpak/flatpak	LGPL-2.1	Linux-only sandbox/dagitim; Windows hedefinde calismaz
+Go (programlama dili)	KURULABILIR	WINGET	GoLang.Go	BSD-3-Clause	golang/go push 2026-11-07 resmi dil deposu; winget show OLCULEMEDI (komut asili kaldi)
+Hicksfield	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Hyper-V	OMER-SOR	Windows ozelligi	Enable-WindowsOptionalFeature Microsoft-Hyper-V		sistem ozelligi, yeniden baslatma, WSL2/VM cakisma riski
+HyperFrames Studio	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Interactive Portfolio	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Investor Outreach Agent	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Java	KURULABILIR	WINGET	Microsoft.OpenJDK.21	GPLv2+CE	kaynak yok; JDK ad eslesmesi; winget show OLCULEMEDI
+LLM Wiki	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+LaTeX	OMER-SOR	WINGET	MiKTeX.MiKTeX	LPPL	kaynak yok; buyuk dagitim (MiKTeX/TeX Live), Omer secimi
+LrC	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+MSSQL	OMER-SOR	WINGET	Microsoft.SQLServer.2022.Developer	ticari	kaynak yok; buyuk sunucu kurulumu
+MSVC	OMER-SOR	WINGET	Microsoft.VisualStudio.2022.BuildTools	ticari	kaynak yok; Build Tools >2GB
+MacTeX	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Marketing Psychology	KURULABILIR	SKILL	coreyhaines31/marketingskills:skills/marketing-psychology	MIT	skills/ listesinde marketing-psychology var; kaynak sutunu bos, ad eslesmesi
+Mattpocock	KURULABILIR	SKILL	mattpocock/skills	MIT	gh api: MIT, arsiv degil, "Skills for Real Engineers"; kaynak sutunu bos
+Microsoft Visual C++ Redistributable	KURULABILIR	WINGET	Microsoft.VCRedist.2015+.x64	ticari ucretsiz	kaynak yok; resmi Microsoft redistributable ad eslesmesi; winget show OLCULEMEDI
+Microsoft Visual C++ v14 x64 Redistributable	KURULABILIR	WINGET	Microsoft.VCRedist.2015+.x64	ticari ucretsiz	kaynak yok; resmi Microsoft redistributable ad eslesmesi; winget show OLCULEMEDI
+Month-end close	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+OpenClaw	OMER-SOR	KLON	openclaw/openclaw	MIT	gh api: MIT, "The AI that really does things"; kaynak sutunu bos, ad eslesmesi; kalem UYGULAMA
+PK/PD modeling	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+ParrotOS	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Principle	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Product Photoshoot	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Proxmox	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+REA (Reverse Engineer)	KURULABILIR	NPM	rea-agents	MIT	kaynak sutunu bos; npm rea-agents = morluto/rea (Reverse engineer anything); ad eslesmesi
+RHEL	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Simple Jev	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Swift	OMER-SOR	RELEASE	swiftlang/swift (Windows toolchain)	Apache-2.0	repo 1.4GB; Windows toolchain + VS bagimliligi buyuk (>2GB olasi) -> Omer karar
+Swift Language Support for Visual Studio	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+SwiftPM	OMER-SOR	RELEASE	swiftlang/swift-package-manager (Swift toolchain ile gelir)	Apache-2.0	bagimsiz kurulmaz, Swift toolchain parcasi
+T3 Code	OMER-SOR		pingdotgg/t3code	MIT	kaynak create-t3-app (T3 Stack iskeleti) kalem degil; pingdotgg/t3code var (MIT, aciklama bos), hangisi kastedildi belirsiz
+Texel Density Checker	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+TokenJuice	KURULABILIR	NPM	tokenjuice	MIT	npm view tokenjuice 0.10.0 MIT, vincentkoc/tokenjuice "Token weight loss"
+Toon Boom	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Transcribe	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+TrollStore	YOK		opa334/TrollStore	other	iOS-only; Windows hedefinde anlamsiz
+Type UI Chrome Eklentisi	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+TypeScript	KURULABILIR	NPM	typescript	Apache-2.0	npm view typescript 7.0.2 Apache-2.0; microsoft/TypeScript
+UE Live Link	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+UI Designer	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+VOICE DNA CREATOR	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Void	YOK		voideditor/void	Apache-2.0	isArchived=true (son push 2026-06-02)
+WSL2	OMER-SOR	Windows ozelligi	wsl --install (microsoft/WSL)	MIT	sistem ozelligi, yeniden baslatma gerekir
+Web Interface Guidelines	KURULABILIR	KLON	vercel-labs/web-interface-guidelines	MIT	README: yasayan web arayuz kural listesi; repo 118KB, SKILL degil dokuman
+WebKit	OMER-SOR	KLON	WebKit/WebKit	BSD/LGPL (gh spdx yok)	repo 13GB (>2GB), tarayici motoru kaynagi, kurulabilir urun degil
+WebUI	YOK				gh repo view facebookresearch/WebUI: Could not resolve Repository
+Windsurf	OMER-SOR	WINGET	Codeium.Windsurf	ticari	kaynak yok; masaustu IDE, kapali lisans; winget OLCULEMEDI
+Xiaomi MiMo-V2.6-Pro	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Zig	KURULABILIR	WINGET	zig.zig (ziglang/zig)	MIT	gh aciklama "Moved to Codeberg" (son push 2025-11-27); winget show OLCULEMEDI; kaynak tasindi
+apple-container	YOK		apple/container	Apache-2.0	macOS-only (Apple silicon VM container)
+apple-design	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+prop-firm-stack	YOK				gh repo view artillerytrades/prop-firm-stack: Could not resolve Repository
+bitnet.cpp	KURULABILIR	KLON	microsoft/BitNet	MIT	1-bit LLM inference framework; derleme (cmake/clang) + model gerekir
+brand-identity	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+brand-intake	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+brand-positioning	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+browse	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+building-landing-page	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+business-pulse	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+call-prep	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+canary	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+career-interview	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+careful	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+ccusage	KURULABILIR	NPM	ccusage	MIT	npm view ccusage 20.0.48 MIT (gh license NOASSERTION); README npx ccusage
+ci-cd-and-automation	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+client-onboarding	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+cln-council	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Windows	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+Grafik tasarÄ±m kavramlarÄ± (konsept, animasyon, 3D)	YOK				kalem urun/skill adi degil, genel kavram; kaynak yok
+Ä°Ã§erik Ä°mparatorluÄŸu (strateji, yÃ¶netim)	YOK				kalem urun/skill adi degil, genel kavram; kaynak yok
+Ä°Ã§erik Stratejisi (planlama, analiz)	YOK				kalem urun/skill adi degil, genel kavram; kaynak yok
+Kontekst GeÃ§iÅŸ (iÅŸ akÄ±ÅŸÄ± yÃ¶netimi)	YOK				kalem urun/skill adi degil, genel kavram; kaynak yok
+designlang	KURULABILIR	NPM	designlang	MIT	npm view designlang 13.4.0 MIT, Manavarya09/design-extract: extract any website design system
+docx	KURULABILIR	SKILL	anthropics/skills:skills/docx	Apache-2.0	skills/docx SKILL.md+scripts+LICENSE.txt (Apache 2.0 metni) mevcut
+farion1231/cc-switch	OMER-SOR	RELEASE	https://github.com/farion1231/cc-switch/releases/latest (CC-Switch-v4.0.27-Windows.msi)	MIT	v4.0.27 Windows.msi asset var; masaustu uygulama -> Omer karar
+frontend-architecture	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+fundraising-and-investor-relations	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+gamedesign	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+getagentseal/founder-playbook	KURULABILIR	SKILL	getagentseal/founder-playbook	MIT	README: npx skills add getagentseal/founder-playbook; 15 skill
+go-viral	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+graphics-artist	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+gws	KURULABILIR	NPM	@googleworkspace/cli	Apache-2.0	npm view @googleworkspace/cli Apache-2.0; googleworkspace/cli v0.22.5
+handle-complaint	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+m2.7Code	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+market-analysis	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+media.mjs (modÃ¼l/JS)	YOK				kaynak "media.mjs" repo/paket degil, dosya adi
+morning	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+PDF (dosya biÃ§imi)	KURULABILIR	SKILL	anthropics/skills:skills/pdf	Apache-2.0	skills/pdf LICENSE.txt Apache 2.0 metni; kalem dosya bicimi, esdeger skill
+pitch-deck	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+platform-design	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+public-relations	KURULABILIR	SKILL	coreyhaines31/marketingskills:skills/public-relations	MIT	skills/ listesinde public-relations var; kaynak sutunu bos, ad eslesmesi
+quarterly-review	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+run-campaign	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+saas-idea-validator	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+santa-loop	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+schema (Corey Haines'in marketingskills projesinde kullanÄ±lan kavram)	KURULABILIR	SKILL	coreyhaines31/marketingskills:skills/schema	MIT	skills/ listesinde schema var
+trader-timemachine	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+App-Builder	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+ARES	OMER-SOR				kaynak yok; hafiza: saldiri araci kurulumu classifier engelli, Omer onayi gerekir
+Codebase Memory Graph	KURULABILIR	RELEASE	DeusData/codebase-memory-mcp (releases/latest v0.12.1)	MIT	tek repo: local code intelligence MCP; windows asset adi tam dogrulanmadi; UI varyanti README ile dogrulanmadi
+Codebase Memory UI	KURULABILIR	RELEASE	DeusData/codebase-memory-mcp (releases/latest v0.12.1)	MIT	tek repo: local code intelligence MCP; windows asset adi tam dogrulanmadi; UI varyanti README ile dogrulanmadi
+CodebaseMemory	KURULABILIR	RELEASE	DeusData/codebase-memory-mcp (releases/latest v0.12.1)	MIT	tek repo: local code intelligence MCP; windows asset adi tam dogrulanmadi; UI varyanti README ile dogrulanmadi
+FLOW	KURULABILIR	KLON	AgriciDaniel/flow	CC-BY-4.0 (icerik)	Find-Leverage-Optimize-Win SEO playbook, 72 doc/42 prompt; MIT/Apache degil, icerik CC BY 4.0
+Fast Jev Compaction	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+FluidVoice	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Freebuff	KURULABILIR	NPM	freebuff	MIT	npm view freebuff 0.2.36 MIT; CodebuffAI/freebuff Apache-2.0 "The free coding agent"
+Herdr	KURULABILIR	RELEASE	herdrdev/herdr (v0.9.5 herdr-windows-x86_64.zip)	Apache-2.0	48910 yildiz, windows zip asset var; DIKKAT npm "herdr" farkli paket (ogulcancelik, AGPL, 0.0.0), kullanma
+Hue	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Jev	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Loopy	KURULABILIR	SKILL	Forward-Future/loopy	MIT	README: Loop Library + opsiyonel kurulabilir Loopy skill
+Make Interfaces Feel Better	KURULABILIR	SKILL	jakubkrehel/make-interfaces-feel-better	MIT	README: npx skills add jakubkrehel/make-interfaces-feel-better
+Mintimage	YOK				gh repo view qinxuancai/Mintimage: Could not resolve Repository
+Node.js	KURULABILIR	WINGET	OpenJS.NodeJS.LTS	MIT-benzeri (gh other)	nodejs/node push 2026-11-07; winget show OLCULEMEDI
+O-USERSEARCH	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Omarchy	YOK		basecamp/omarchy	MIT	Arch Linux dagitimi; Windows hedefinde anlamsiz
+OneVOneJev	OMER-SOR	KLON	emrickgarrett/OneVoneJev	LISANSSIZ	ayni urun (1v1 quickscope arena, Three.js) ama lisans yok
+Python	KURULABILIR	WINGET	Python.Python.3.12	PSF (gh other)	python/cpython push 2026-11-07; makinede mevcut (Python312); winget show OLCULEMEDI
+Castle II Environment Pack	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Swagger.io (API Design Framework)	OMER-SOR	NPM	swagger-ui	Apache-2.0	kaynak swagger-api/swagger-ui = dokuman goruntuleyici, API tasarim cercevesi (Editor/Hub) degil; npm swagger-ui Apache-2.0
+Tailwind CSS (Framework)	KURULABILIR	NPM	tailwindcss	MIT	npm view tailwindcss 4.3.5 MIT
+Telegram (Messaging Platform)	OMER-SOR	WINGET	Telegram.TelegramDesktop	GPL-3.0	tdesktop GPL-3.0; masaustu uygulama
+Terraform (Infrastructure as Code)	OMER-SOR	WINGET	Hashicorp.Terraform	BUSL-1.1 (gh NOASSERTION)	hashicorp/terraform lisansi MIT/Apache degil (BUSL)
+Terraform.io (alternatif URL)	OMER-SOR	WINGET	Hashicorp.Terraform	BUSL-1.1 (gh NOASSERTION)	hashicorp/terraform lisansi MIT/Apache degil (BUSL)
+Three.js (3D Rendering Library)	KURULABILIR	NPM	three	MIT	npm view three 0.187.0 MIT
+Ubuntu	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Claude Blog	KURULABILIR	KLON	AgriciDaniel/claude-blog	MIT	"Free, open source blog writer for Claude Code"; makinede blog-* skilleri/claude-blog-brain zaten var, kopya olabilir
+Codegraph	KURULABILIR	NPM	@colbymchenry/codegraph	MIT	npm view MIT; releases codegraph-win32-x64.zip; README Semantic Code Intelligence
+deep-research	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+iClone Video Mocap	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok; macOS/Linux/iOS/ticari uygulama veya model
+Ink (Inkle)	KURULABILIR	RELEASE	inkle/ink releases/latest v1.2.1 inklecate_windows.zip	MIT	inklecate_windows.zip asset var
+morluto/rea	KURULABILIR	NPM	rea-agents	MIT	npm view rea-agents 6.8.0 MIT, repo morluto/rea; README REA reverse engineer with agents
+userinterface.wiki	YOK				kaynak sutunu bos; GitHub arama kotasi tukendi (403), dogrulanacak repo yok
+ai-job-searchfreadme	KURULABILIR	KLON	ai-job-search-dev/ai-job-search	MIT	The job search that runs on your machine
+ClaudeAnimationBasereadme	KURULABILIR	KLON	JohnHeibel/ClaudeAnimationBase	MIT	starter kit hand-painted cartoon animation (p5.js)
+dioramasreadme	KURULABILIR	KLON	blendi-remade/dioramas	MIT	free open-source cinematic interactive dioramas; repo 306MB
+OmniCloudirreadme	KURULABILIR	KLON	dimartarmizi/OmniCloud	MIT	full-stack cloud drive aggregation
+OpenShell-tag	KURULABILIR	KLON	NVIDIA/OpenShell	Apache-2.0	OpenShell safe private runtime for autonomous AI agents
+releases	OMER-SOR	RELEASE	lightpanda-io/browser	AGPL-3.0	headless browser, AGPL -> kural geregi Omer

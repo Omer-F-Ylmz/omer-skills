@@ -1,0 +1,147 @@
+kalem	karar	hedef	yontem	lisans	kanit
+Agent SDK	KURULABILIR	@anthropic-ai/claude-agent-sdk	NPM	SEE LICENSE IN README (Anthropic ticari sartlar)	npm view
+Algorithmic Art	OMER-SOR	anthropics/skills:skills/AD	SKILL	repo NOASSERTION (skill-bazli, kaynak-acik olmayabilir)	gh contents: algorithmic-art,pdf,pptx,xlsx var; lisans belirsiz
+Angular	KURULABILIR	@angular/core	NPM	MIT	npm view
+BMAD	KURULABILIR	bmad-method	NPM	MIT	npm view; repo bmad-code-org/BMAD-METHOD
+BMAD Method	KURULABILIR	bmad-method	NPM	MIT	npm view; repo bmad-code-org/BMAD-METHOD
+Babel	KURULABILIR	@babel/core	NPM	MIT	npm view
+Bootstrap	KURULABILIR	bootstrap	NPM	MIT	npm view 5.3.8
+Brotli	KURULABILIR	brotli	PIP	MIT	gh MIT; pip index brotli 1.2.1
+C-Sharp	KURULABILIR	Microsoft.DotNet.SDK.10	WINGET	MIT	gh dotnet/sdk MIT; winget OLCULEMEDI (takildi)
+CPython	KURULABILIR	Python.Python.3.13	WINGET	PSF (gh other)	gh python/cpython other; winget OLCULEMEDI; py3.12 zaten kurulu
+Chromium	OMER-SOR	chromium/chromium	KLON	BSD-3	kaynak agaci devasa (>2GB); Chrome zaten var
+Cua Driver	KURULABILIR	trycua/cua	KLON	MIT	gh MIT, driver monorepo icinde
+Dart	KURULABILIR	Google.DartSDK	WINGET	BSD-3	gh dart-lang/sdk; winget OLCULEMEDI
+E2B	KURULABILIR	e2b	NPM	MIT	npm view 2.63.0
+Flatpak	YOK				Linux-ozel (flatpak/rpm/nix/omarchy), Windows hedefi degil
+GitHub Spec Kit	KURULABILIR	specify-cli --from git+https://github.com/github/spec-kit.git	UV	MIT	gh github/spec-kit MIT
+Go	KURULABILIR	GoLang.Go	WINGET	BSD-3	gh golang/go; winget OLCULEMEDI
+Go 1.27.1	KURULABILIR	GoLang.Go	WINGET	BSD-3	gh golang/go; winget OLCULEMEDI
+GorillaPod	YOK				repo bulunamadi (gh 404)
+GraphQL	KURULABILIR	graphql	NPM	MIT	npm view 17.1.0
+Graphite	OMER-SOR	graphite-project/graphite-web		Apache-2.0	kalem belirsiz: graphite-web (metrik) mi Graphite stacked-PR CLI mi
+HoRNDIS	YOK				microsoft/HoRNDIS 404; macOS surucusu
+Hyper	YOK				arsiv/terk (hyper, youtubeclone-backend, void deprecated)
+Hyperframe	KURULABILIR	hyperframes	NPM	Apache-2.0	npm view hyperframes; gh heygen-com/hyperframes Apache-2.0 v0.9.20
+JSON Canvas	KURULABILIR	obsidianmd/jsoncanvas	KLON	MIT	gh MIT; spec repo, SKILL klasoru yok
+Jakubantalik/transitions.dev-s	YOK				repo bulunamadi (gh 404)
+Kilo	KURULABILIR	kilocode.Kilo-Code	VSCODE	MIT	marketplace verified publisher kilocode; gh Kilo-Org/kilocode MIT
+Kotlin	KURULABILIR	JetBrains.Kotlin.Compiler	WINGET	Apache-2.0 (gh spdx yok)	winget OLCULEMEDI
+Lua	OMER-SOR	lua/lua		gh lisans yok	mirror, lisans bilgisi yok
+Luau	KURULABILIR	luau-lang/luau (luau-windows.zip)	RELEASE	MIT	release 0.745 asset luau-windows.zip
+MariaDB	OMER-SOR	MariaDB/server		GPL-2.0	GPL
+Maxun	OMER-SOR	getmaxun/maxun		AGPL-3.0	AGPL
+Meta Bind	OMER-SOR	mProjectsCode/obsidian-meta-bind-plugin		GPL-3.0	GPL
+Metro	KURULABILIR	metro	NPM	MIT	npm view 0.88.0
+Mongo	OMER-SOR	mongodb/mongo		SSPL (gh lisans yok)	SSPL
+MySQL	OMER-SOR	mysql/mysql-server		GPL	GPL
+Ninja	KURULABILIR	Ninja-build.Ninja	WINGET	Apache-2.0	gh apache-2.0; winget OLCULEMEDI
+Nix	YOK				Linux-ozel (flatpak/rpm/nix/omarchy), Windows hedefi degil
+Node	KURULABILIR	OpenJS.NodeJS.LTS	WINGET	MIT-benzeri (gh other)	gh nodejs/node; winget OLCULEMEDI; node zaten kurulu
+Node Runtime	KURULABILIR	OpenJS.NodeJS.LTS	WINGET	MIT-benzeri (gh other)	gh nodejs/node; winget OLCULEMEDI; node zaten kurulu
+Node.js 20+	KURULABILIR	OpenJS.NodeJS.LTS	WINGET	MIT-benzeri (gh other)	gh nodejs/node; winget OLCULEMEDI; node zaten kurulu
+Ocis	KURULABILIR	owncloud/ocis	RELEASE	Apache-2.0	gh apache-2.0; sunucu uygulamasi
+OpenHandds	KURULABILIR	openhands	UV	MIT	gh All-Hands-AI/OpenHands MIT; pip index openhands 1.16.0
+OpenManus	YOK				OpenManus tasindi/terk (README: FoundationAgents/OpenManus), son push 2025-06
+PERL	OMER-SOR	Perl/perl5		gh lisans yok (Artistic/GPL)	lisans belirsiz
+PHP	KURULABILIR	PHP.PHP.8.3	WINGET	BSD-3 (gh)	gh php/php-src; winget OLCULEMEDI
+PHP 8.3	KURULABILIR	PHP.PHP.8.3	WINGET	BSD-3 (gh)	gh php/php-src; winget OLCULEMEDI
+Pest	KURULABILIR	composer require pestphp/pest	COMPOSER	MIT	gh MIT
+Pinokio	KURULABILIR	pinokiocomputer/pinokio	RELEASE	MIT	release v8.3.7
+Postgre	KURULABILIR	PostgreSQL.PostgreSQL.17	WINGET	PostgreSQL (gh NOASSERTION)	winget OLCULEMEDI
+Postkog	OMER-SOR	PostHog/posthog		gh lisans yok	kalem yazimi Postkog belirsiz; self-host agir
+Primer	KURULABILIR	@primer/react	NPM	MIT	npm view 38.45.0
+ProtoMaps	KURULABILIR	pmtiles	NPM	BSD-3-Clause	npm view; gh protomaps/PMTiles
+Python 3.10+	KURULABILIR	Python.Python.3.13	WINGET	PSF (gh other)	gh python/cpython other; winget OLCULEMEDI; py3.12 zaten kurulu
+RPM	YOK				Linux-ozel (flatpak/rpm/nix/omarchy), Windows hedefi degil
+Ruflo router	KURULABILIR	ruflo	NPM	MIT	npm view 3.72.2; repo ruvnet/claude-flow
+Rust	KURULABILIR	Rustlang.Rustup	WINGET	Apache-2.0	gh rust-lang/rust; winget OLCULEMEDI
+S3-compatible storage	OMER-SOR	minio/minio		AGPL-3.0	arsiv + AGPL
+Servo	KURULABILIR	servo/servo	RELEASE	MPL-2.0	release v0.7.0 mevcut
+Stan	KURULABILIR	cmdstanpy	PIP	BSD-3 (stan)	pip index cmdstanpy 1.3.2
+Storm	KURULABILIR	knowledge-storm	PIP	MIT	pip index 1.1.1; gh MIT
+Super	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+Swift for Visual Studio	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+System Settings	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+Trojan Horse Detector	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+TypeSafe AI	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+Voice DNA	YOK				arsiv/terk (hyper, youtubeclone-backend, void deprecated)
+WP	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+WSL	KURULABILIR	Microsoft.WSL	WINGET	MIT	gh microsoft/WSL MIT; winget OLCULEMEDI
+Web	OMER-SOR	vercel-labs/web-interface-guidelines	KLON	MIT	kalem Web belirsiz, kaynak yonerge repo
+WebGL	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+WebM	YOK				repo bulunamadi (gh 404)
+Zerodha/Kite	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+animation principles	YOK				kaynak repoda karsilik skill yok
+api-and-interface-design	KURULABILIR	addyosmani/agent-skills:skills/api-and-interface-design	SKILL	MIT	gh contents: skill klasoru var (kaynak swagger yanlisti)
+api-docs	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+artillerytrades/links	YOK				repo bulunamadi (gh 404)
+base64	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+cash-flow-snapshot	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+document	YOK				kaynak repoda karsilik skill yok
+ewm	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+generative tools	YOK				founder-playbook ile eslesme kaniti yok
+grid motion	YOK				kaynak kalemle alakasiz (farkli urun/ad)
+karpathy-guidelines	OMER-SOR	multica-ai/andrej-karpathy-skills	SKILL	gh lisans yok	karpathy/guidelines yok; baska repoda skills/ var, lisanssiz
+media.mjs	YOK				npm media.mjs 404
+pdf	OMER-SOR	anthropics/skills:skills/AD	SKILL	repo NOASSERTION (skill-bazli, kaynak-acik olmayabilir)	gh contents: algorithmic-art,pdf,pptx,xlsx var; lisans belirsiz
+pptx	OMER-SOR	anthropics/skills:skills/AD	SKILL	repo NOASSERTION (skill-bazli, kaynak-acik olmayabilir)	gh contents: algorithmic-art,pdf,pptx,xlsx var; lisans belirsiz
+python3	KURULABILIR	Python.Python.3.13	WINGET	PSF (gh other)	gh python/cpython other; winget OLCULEMEDI; py3.12 zaten kurulu
+schema (coreyhaines31/marketingskills)	KURULABILIR	coreyhaines31/marketingskills:skills/schema	SKILL	MIT	gh contents skills/schema var
+xlsx	OMER-SOR	anthropics/skills:skills/AD	SKILL	repo NOASSERTION (skill-bazli, kaynak-acik olmayabilir)	gh contents: algorithmic-art,pdf,pptx,xlsx var; lisans belirsiz
+Codebase Memory Graph <localhost:9749>	KURULABILIR	DeusData/codebase-memory-mcp	RELEASE	MIT	release v0.12.1 (win asset listesi kesik, mcpb/tar)
+Codebase Memory UI <localhost:9749>	KURULABILIR	DeusData/codebase-memory-mcp	RELEASE	MIT	release v0.12.1 (win asset listesi kesik, mcpb/tar)
+CodebaseMemory <DeusData/codehasememory-mcp>	KURULABILIR	DeusData/codebase-memory-mcp	RELEASE	MIT	release v0.12.1 (win asset listesi kesik, mcpb/tar)
+FLOW <AgriciDaniel/flow>	OMER-SOR	AgriciDaniel/flow		other	playbook/doc deposu, lisans other
+Loopy <Forward-Future/loopy>	KURULABILIR	Forward-Future/loopy	KLON	MIT	gh MIT
+Make Interfaces Feel Better <jakubkrehel/make-interfaces-feel-better>	KURULABILIR	jakubkrehel/make-interfaces-feel-better	KLON	MIT	gh MIT
+Mintimage <qinxuancai/Mintimage.pr.md>	YOK				repo bulunamadi (gh 404)
+Node.js <nodejs.org/en>	KURULABILIR	OpenJS.NodeJS.LTS	WINGET	MIT-benzeri (gh other)	gh nodejs/node; winget OLCULEMEDI; node zaten kurulu
+Omarchy <omarchy.org>	YOK				Linux-ozel (flatpak/rpm/nix/omarchy), Windows hedefi degil
+OneVOneJev <emrickgarrett/OneVoneJev>	OMER-SOR			gh lisans yok	lisanssiz/kucuk demo
+Python <www.python.org>	KURULABILIR	Python.Python.3.13	WINGET	PSF (gh other)	gh python/cpython other; winget OLCULEMEDI; py3.12 zaten kurulu
+Swagger.io <Swagger.io>	KURULABILIR	swagger-ui	NPM	Apache-2.0	npm view 5.34.1
+Tailwind CSS <tailwindcss.com>	KURULABILIR	tailwindcss	NPM	MIT	npm view
+Telegram <https://t.me/+n>	OMER-SOR	telegramdesktop/tdesktop		GPL-3.0	GPL
+Terraform <Terraform.io>	OMER-SOR	hashicorp/terraform		BUSL (gh other)	BUSL
+Terraform.io <Terraform.io>	OMER-SOR	hashicorp/terraform		BUSL (gh other)	BUSL
+Three.js <https://threejs.org>	KURULABILIR	three	NPM	MIT	npm view 0.187.0
+claude-blog <AgriciDaniel/claude-blog>	KURULABILIR	AgriciDaniel/claude-blog	KLON	MIT	gh MIT
+codegraph <https://colbymchenry.github.io/codegraph/>	KURULABILIR	@colbymchenry/codegraph	NPM	MIT	npm view
+ink <80-days.ink>	KURULABILIR	inkle/ink (inklecate_windows.zip)	RELEASE	MIT	release v1.2.1
+morluto/rea <GITHUB.COM/TRENDING.TODAY>	KURULABILIR	morluto/rea	KLON	MIT	gh MIT
+ai-employeesreadme	KURULABILIR	markfulton/ai-employees	KLON	MIT	gh MIT
+Archify	KURULABILIR	tt-a1i/archify	KLON	Apache-2.0	gh apache-2.0
+awesome-gamedev-agent	KURULABILIR	gamedev-skills/awesome-gamedev-agent-skills	KLON	Apache-2.0	gh apache-2.0
+awesome-mcp-	KURULABILIR	punkpeye/awesome-mcp-servers	KLON	MIT	gh MIT (liste)
+baocutreadme	OMER-SOR	JimLiu/baocut		NOASSERTION	lisans belirsiz
+beads	KURULABILIR	@beads/bd	NPM	MIT	npm view; gh gastownhall/beads MIT
+blender-skills	KURULABILIR	EL4CTEO/blender-skills	KLON	MIT	gh MIT
+claude-memREADME	KURULABILIR	thedotmack/claude-mem	KLON	Apache-2.0	gh apache-2.0 (zaten kurulu)
+claude-remotion-skill	KURULABILIR	haidrrrry/claude-remotion-skill	KLON	MIT	gh MIT
+claude-task	KURULABILIR	task-master-ai	NPM	MIT + Commons Clause	npm view lisans MIT WITH Commons-Clause
+ClaudeAnimationBaseFreadme	KURULABILIR	JohnHeibel/ClaudeAnimationBase	KLON	MIT	gh MIT
+Concord MCP	KURULABILIR	Get-Concord-AI/concord-mcp	KLON	MIT	gh MIT
+Council of High Intelligence	KURULABILIR	0xNyk/council-of-high-intelligence	KLON	MIT	gh MIT
+DeepDiagram	OMER-SOR	LingyiChen-AI/DeepDiagram		AGPL-3.0	AGPL
+Dextopreadme	OMER-SOR	NarYuki/Dextop		GPL-3.0	GPL, Android
+DiffSynth-	KURULABILIR	diffsynth	PIP	Apache-2.0	pip index 2.2.0; gh Apache
+Ditto	KURULABILIR	yoheinakajima/ditto	KLON	MIT	gh MIT (son push 2024-10)
+evolution-goreadme	OMER-SOR	evolution-foundation/evolution-go		other	lisans other
+flocireadme	KURULABILIR	floci-io/floci	KLON	MIT	gh MIT
+HTML Anything	KURULABILIR	nexu-io/html-anything	KLON	Apache-2.0	gh apache-2.0
+mcptoonreadme	KURULABILIR	activeing123/mcptoon (mcptoon-0.8.34-win-x64.zip)	RELEASE	Apache-2.0	release v0.8.34 (zaten kurulu)
+OpenChatCut	OMER-SOR	0xsline/OpenChatCut		AGPL-3.0	AGPL
+openshipreadme	KURULABILIR	oblien/openship	KLON	Apache-2.0	gh apache-2.0
+pentest-agentsfreadme	OMER-SOR	H-mmer/pentest-agents		gh lisans yok	lisanssiz + ofansif arac
+plexoreadme	KURULABILIR	anmolkapil/plexo (plexo-1.0.0-rc.15-setup.exe)	RELEASE	MIT	release rc.15
+task-coe	OMER-SOR	Agent4Science-UTokyo/Task-CoEvolve		other	arastirma kodu, lisans other
+youtube-automation-agent	KURULABILIR	darkzOGx/youtube-automation-agent	KLON	MIT	gh MIT
+netflix-clone	OMER-SOR			gh lisans yok	lisanssiz/kucuk demo
+youtube-clone	YOK				arsiv/terk (hyper, youtubeclone-backend, void deprecated)
+AEON	YOK				kaynak bos; yerel skill zaten var (davila7-aeon / backend-architect)
+Adobe Creative Cloud Suite	YOK				ticari kapali yazilim
+Backend Architect	YOK				kaynak bos; yerel skill zaten var (davila7-aeon / backend-architect)
+C# (C-Sharp)	KURULABILIR	Microsoft.DotNet.SDK.10	WINGET	MIT	gh dotnet/sdk MIT; winget OLCULEMEDI (takildi)
+CUDA	OMER-SOR	Nvidia.CUDA	WINGET	NVIDIA EULA	>2 GB, ticari
+CUDA 12.8	OMER-SOR	Nvidia.CUDA	WINGET	NVIDIA EULA	>2 GB, ticari

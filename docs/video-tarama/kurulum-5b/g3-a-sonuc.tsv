@@ -1,0 +1,68 @@
+kalem	ayir_sinif	karar	yontem	hedef	lisans	kanit
+AI Breakup Recovery Agent	AYIR-KLON-YOK	OMER-SOR	KLON	Shubhamsaboo/ai-breakup-recovery-agent	none	gh api 200; 0 SKILL.md; lisanssiz
+CLAUDE HQ	AYIR-KLON-YOK	KURULABILIR	KLON	RoString36222/claude-hq	MIT	gh api 200; ad eslesmesi zayif (1 yildiz; alt bro789/claude-hq)
+ChatGPT MD	AYIR-KLON-YOK	KURULABILIR	KLON	bramses/chatgpt-md	MIT	gh api 200; 1456 yildiz; Obsidian eklentisi
+FrontierAgent	AYIR-KLON-YOK	KURULABILIR	KLON	ApodexAI/FrontierAgent	Apache-2.0	gh api 200; 5433 yildiz
+HIA (Health Insights Agent)	AYIR-KLON-YOK	KURULABILIR	KLON	harshhh28/hia	MIT	gh api 200; 239 yildiz
+Hermes voice agent	AYIR-KLON-YOK	KURULABILIR	KLON	onlockj/hermes-voice-agent	MIT	gh api 200; 4 aday, MIT olan secildi; strusty/hermes-voice-agent lisanssiz
+LoopTools	AYIR-KLON-YOK	OMER-SOR	KLON	HEPcodes/LoopTools	LGPL-3.0	gh api 200; fizik kutuphanesi resmi olmayan ayna; LGPL
+Luma Agents	AYIR-KLON-YOK	KURULABILIR	KLON	lumalabs/luma-agents-cli	Apache-2.0	gh api 200; ayrica luma-agents-python/typescript/go repolari
+Mobbin MCP	AYIR-KLON-YOK	KURULABILIR	KLON	mobbin/mobbin-mcp-server	MIT	gh api 200; resmi
+Pocket TTS	AYIR-KLON-YOK	KURULABILIR	KLON	kyutai-labs/pocket-tts	MIT	gh api 200; 10227 yildiz
+SkillClaw	AYIR-KLON-YOK	KURULABILIR	KLON	AMAP-ML/SkillClaw	MIT	gh api 200; 2747 yildiz
+codex-computer-use	AYIR-KLON-YOK	KURULABILIR	KLON	tmustier/codex-computer-use-mcp	MIT	gh api 200; ad eslesmesi (alt iFurySt/open-computer-use)
+fixai	AYIR-KLON-YOK	YOK				gh search: guvenilir esleme yok (0-2 yildizli bos repolar)
+letta-ai/claude-subconscious	AYIR-KLON-YOK	KURULABILIR	KLON	letta-ai/claude-subconscious	MIT	gh api 200; 2908 yildiz; depo silinmemis (0 SKILL.md = eklenti)
+mmBERT-base	AYIR-KLON-YOK	OMER-SOR	HF-MODEL	jhu-clsp/mmBERT-base	repo none	HF api 200 (fill-mask); GitHub JHU-CLSP/mmBERT lisanssiz; model lisansi dogrulanmadi
+reel-factory	AYIR-KLON-YOK	KURULABILIR	KLON	Shaan-alpha/AI-Reel-Factory	MIT	gh api 200; zayif esleme (3 yildiz)
+tinyagents	AYIR-KLON-YOK	OMER-SOR	KLON	tinyhumansai/tinyagents	GPL-3.0	gh api 200; GPL
+AI Travel Agent (Local & Cloud)	AYIR-KLON-YOK	KURULABILIR	KLON	nirbar1985/ai-travel-agent	MIT	gh api 200
+Claude Code v2.1.71	AYIR-KLON-YOK	OMER-SOR	NPM	anthropics/claude-code	none	gh api 200; lisans none (ozel); npm @anthropic-ai/claude-code, surum sabitleme Omer karari
+Creative-Ad Skill	AYIR-KLON-YOK	KURULABILIR	KLON	hoangngocanh2407/creative-ads-skill-layer	MIT	gh api 200; zayif esleme (0 yildiz)
+Finegrain Image Enhancer	AYIR-KLON-YOK	OMER-SOR	KLON	Mr-brillianter/finegrain-image-enhancer	NOASSERTION	gh api 200; 1 yildiz, lisans belirsiz
+Firecrawl MCP	AYIR-KLON-YOK	KURULABILIR	KLON	firecrawl/firecrawl-mcp-server	MIT	gh api 200; 7770 yildiz; npm firecrawl-mcp da olur
+Firecrawl MCP Server	AYIR-KLON-YOK	KURULABILIR	KLON	firecrawl/firecrawl-mcp-server	MIT	gh api 200; ayni repo
+Flux Kontext	AYIR-KLON-YOK	KURULABILIR	KLON	black-forest-labs/flux	Apache-2.0	gh api 200; resmi cikarim kodu
+GNU make	AYIR-KLON-YOK	YOK				gh: resmi depo yok (Savannah); GitHub'da yalniz klon (Trepan-Debuggers/remake GPL-3.0); winget aranmadi
+Local REST API with MCP	AYIR-KLON-YOK	KURULABILIR	KLON	coddingtonbear/obsidian-local-rest-api	MIT	gh api 200; Obsidian eklentisi
+Post Strategist	AYIR-KLON-YOK	YOK				gh search: esleme yok (0 yildizli rastgele repolar)
+TARS (Agent TARS)	AYIR-KLON-YOK	KURULABILIR	KLON	bytedance/UI-TARS-desktop	Apache-2.0	gh api 200; Agent TARS bu monorepo icinde
+The Hormozi Brain Toolkit for Claude Code	AYIR-KLON-YOK	YOK				gh search: 0 sonuc
+Tokens Studio	AYIR-KLON-YOK	KURULABILIR	KLON	tokens-studio/figma-plugin	MIT	gh api 200; 1629 yildiz
+Unet Loader (GGUF)	AYIR-KLON-YOK	KURULABILIR	KLON	city96/ComfyUI-GGUF	Apache-2.0	gh api 200; ComfyUI dugumu
+agent-radar	AYIR-KLON-YOK	KURULABILIR	KLON	duanyytop/agents-radar	MIT	gh api 200; ad eslesmesi zayif
+execute_sql	AYIR-KLON-YOK	KURULABILIR	KLON	supabase-community/supabase-mcp	Apache-2.0	gh api 200 (supabase/mcp yonlenir); Supabase MCP araci
+generate_typescript_types	AYIR-KLON-YOK	KURULABILIR	KLON	supabase-community/supabase-mcp	Apache-2.0	gh api 200; Supabase MCP araci
+hy-wu-edit	AYIR-KLON-YOK	OMER-SOR	KLON	Tencent-Hunyuan/HY-WU	NOASSERTION	gh api 200; lisans belirsiz
+inbox-alerts-priority	AYIR-KLON-YOK	YOK				gh search: esleme yok
+skool-platinum	AYIR-KLON-YOK	OMER-SOR	SKILL	charlesdove977/skool-platinum-claude-code	NOASSERTION	gh api 200; 1 SKILL.md; lisans belirsiz
+smtg-ai/claude-squad	AYIR-KLON-YOK	OMER-SOR	KLON	smtg-ai/claude-squad	AGPL-3.0	gh api 200; 8744 yildiz; AGPL
+Claude Flow	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	ruvnet/claude-flow (->ruvnet/ruflo)	MIT	SKILL.md=403; git tree sayimi yeniden adlandirilmis
+oh-my-openagent	AYIR-TOPLU	OMER-SOR	SKILL-TOPLU	code-yeongyu/oh-my-openagent	NOASSERTION	SKILL.md=61; git tree sayimi lisans belirsiz
+Marketing Skills for AI Agents	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	coreyhaines31/marketingskills	MIT	SKILL.md=53; git tree sayimi
+copy-editing	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	coreyhaines31/marketingskills	MIT	SKILL.md=53; git tree sayimi
+copywriting	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	coreyhaines31/marketingskills	MIT	SKILL.md=53; git tree sayimi
+marketingskills/skills/seo-audit	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	coreyhaines31/marketingskills	MIT	SKILL.md=53; git tree sayimi
+Marketing plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+Official Marketing Plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+Sales Plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+Sales plugin (Sales Rep)	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+Support plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+customer support plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+data plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+Anthropic Marketing plugin	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/knowledge-work-plugins	Apache-2.0	SKILL.md=252; git tree sayimi
+Matt Pocock skills repo	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	mattpocock/skills	MIT	SKILL.md=39; git tree sayimi
+Teach	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	mattpocock/skills	MIT	SKILL.md=39; git tree sayimi sayi eslesmesi; skill adi depoda dogrulanmadi
+setup-matt-docock-skills	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	mattpocock/skills	MIT	SKILL.md=39; git tree sayimi
+anthropic-automations-recommender	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/claude-plugins-official	Apache-2.0	SKILL.md=40; git tree sayimi ayir sayimi 33, agac 40; ad+sayi eslesmesi
+claude-md-management	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/claude-plugins-official	Apache-2.0	SKILL.md=40; git tree sayimi ayir sayimi 33, agac 40
+code-architect	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/claude-plugins-official	Apache-2.0	SKILL.md=40; git tree sayimi feature-dev eklentisinin ajani
+feature-dev	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/claude-plugins-official	Apache-2.0	SKILL.md=40; git tree sayimi ayir sayimi 33, agac 40
+telegram@claude-plugins-official	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	anthropics/claude-plugins-official	Apache-2.0	SKILL.md=40; git tree sayimi ad kaynagi belirtir
+Skill Spectre	AYIR-TOPLU	OLCULEMEDI				SKILL.md=33; git tree sayimi kaynak repo bulunamadi (gh search ilgisiz sonuc)
+coleschaffer/copywritingskills-rmbc	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	coleschaffer/copywritingskills-rmbc	MIT	SKILL.md=42; git tree sayimi
+connect-apps-plugin	AYIR-TOPLU	OMER-SOR	SKILL-TOPLU	ComposioHQ/awesome-claude-skills	none	SKILL.md=864; git tree sayimi lisans bos; 864 klasorden secim Omer
+gan-evaluator	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	affaan-m/everything-claude-code (->affaan-m/ECC)	MIT	SKILL.md=1068; git tree sayimi
+get_observations	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	thedotmack/claude-mem	Apache-2.0	SKILL.md=44; git tree sayimi
+lark-vc-agent	AYIR-TOPLU	KURULABILIR	SKILL-TOPLU	larksuite/cli	MIT	SKILL.md=37; git tree sayimi
+lln-council	AYIR-TOPLU	OLCULEMEDI				SKILL.md=41; git tree sayimi kaynak repo bulunamadi (llm-council-skill adaylari 1 SKILL.md, sayi tutmuyor)

@@ -1,0 +1,44 @@
+kalem	karar	yontem	hedef	lisans	kanit
+harness2-demo	OMER-SOR	KLON	joesaas/harness2-demo	yok	gh api repo 200, license.spdx_id null
+hbot CLI	OMER-SOR	KLON	campy/Hbot	NOASSERTION	gh api repo 200; son push 2022-03; ipucu eslesmesi belirsiz
+hookify	KURULABILIR	SKILL	anthropics/claude-plugins-official:plugins/hookify	Apache-2.0	gh contents: .claude-plugin,commands,hooks,skills,LICENSE; repo Apache-2.0 (kevinpiac/hookify lisanssiz, tercih edilmedi)
+linkedin-automator	KURULABILIR	KLON	charlesdove977/linkedin-automator	MIT	gh api repo 200 MIT
+margin-analyzer	OMER-SOR	KLON	tuffy-xie/margin-analyzer	yok	gh api repo 200 license null; PyPI margin-analyzer 404
+mattgierhart/PRD-driven-context-engineering	KURULABILIR	KLON	mattgierhart/PRD-driven-context-engineering	MIT	gh api repo 200 MIT
+nvm	KURULABILIR	RELEASE	https://github.com/coreybutler/nvm-windows/releases/download/v2.0.1/nvm-2.0.1-x64-setup.exe	MIT	HTTP 200 asset; latest v2.0.1; winget show zaman asimi OLCULEMEDI
+paru	YOK	YOK	-	GPL-3.0	Morganamilo/paru Arch Linux AUR yardimcisi, Windows yolu yok; GPL
+oMLX	YOK	YOK	-	Apache-2.0	jundot/omlx release varliklari yalniz macosx universal2 whl/dmg (Apple Silicon); PyPI omlx 404; Windows yolu yok
+scrum-sage	KURULABILIR	SKILL	michalparkola/tapestry-skills-for-claude-code:scrum-sage	MIT	gh contents scrum-sage/SKILL.md; repo MIT
+rtmpdump	OMER-SOR	KLON	mstorsjo/rtmpdump	GPL-2.0	gh api repo 200 GPL-2.0; Windows hazir release yok, kaynaktan derleme
+superlite	KURULABILIR	KLON	iha2/superlite	MIT	gh api repo 200 MIT; npm/PyPI superlite 404
+whatsapp-rust	KURULABILIR	KLON	oxidezap/whatsapp-rust	MIT	gh api repo 200 MIT; release v0.7.0 asset yok, cargo derleme gerekir
+Antigravity SDK	YOK	YOK	-	-	ipucu repo yok; gh search rate limit 403 OLCULEMEDI; kurulu envanterde eslesme yok
+Agent Client	KURULABILIR	NPM	@agentclientprotocol/sdk	Apache-2.0	registry.npmjs.org 200 v2.4.0; repo agentclientprotocol/agent-client-protocol Apache-2.0
+BU Bench	OMER-SOR	KLON	browser-use/benchmark	yok	gh api repo 200 license null; BU Bench V2.1; API anahtari/ucretli kosu
+CLI-Hub	KURULABILIR	PIP	cli-anything-hub	MIT	pypi.org 200 v0.4.1 MIT; HKUDS/CLI-Anything Apache-2.0
+Clawed Code Setup	YOK	YOK	-	-	ipucu repo yok; gh search rate limit 403 OLCULEMEDI
+DataviewJS	KURULABILIR	RELEASE	blacksmithgu/obsidian-dataview (release 0.5.70: main.js,manifest.json,styles.css)	MIT	gh releases/latest 0.5.70 assets; Obsidian eklentisi, vault .obsidian/plugins/dataview
+Devin CLI	OMER-SOR	NPM	devin	proprietary (cognition.ai ToS)	npm registry 200 v3000.12.17 'Devin for Terminal'; lisans SEE LICENSE ToS
+Fish Audio	KURULABILIR	PIP	fish-audio-sdk	Apache-2.0	pypi.org 200 v1.4.0 Apache-2.0; ayrica fishaudio/fish-speech NOASSERTION (model, atlandi)
+Kafka	KURULABILIR	RELEASE	https://downloads.apache.org/kafka/4.2.2/	Apache-2.0	HTTP 200 dizin 4.2.2; Java gerekir
+Osaurus	YOK	YOK	-	MIT	osaurus-ai/osaurus macOS uygulamasi, release asset yok, npm osaurus 404; Windows yolu yok
+Poppler	OMER-SOR	RELEASE	https://github.com/oschwartz10612/poppler-windows/releases/download/v26.09.0-0/Release-26.09.0-0.zip	GPL (poppler)	HTTP 200 asset; GPL -> karar Omer
+RIFE	KURULABILIR	RELEASE	https://github.com/nihui/rife-ncnn-vulkan/releases/download/20221029/rife-ncnn-vulkan-20221029-windows.zip	MIT	HTTP 200 asset; hzwer/ECCV2022-RIFE MIT; ayrica PyPI rife-py 1.2.1 MIT
+Stable Diffusion Forge	OMER-SOR	KLON	lllyasviel/stable-diffusion-webui-forge	AGPL-3.0	gh api repo 200 AGPL-3.0; model agirliklari >2 GB
+Tail	YOK	YOK	-	GPL-3.0+	tail zaten kurulu: GNU coreutils 8.32 (Git Bash); ayri kurulum gerekmez
+TrainLLMFromScratch	YOK	YOK	-	-	ipucu repo yok; kurulu envanterde eslesme yok
+Vane (Perplexica)	OMER-SOR	KLON	ItzCrazyKns/Vane	MIT	gh api repo 200 MIT; sunucu uygulamasi (Docker/Node, API anahtari) -> uygulama
+Vim	KURULABILIR	RELEASE	https://github.com/vim/vim-win32-installer/releases/download/v9.2.1302/gvim_9.2.1302_x64.exe	Vim License	HTTP 200 asset v9.2.1302; Vim lisansi (MIT/Apache degil)
+agents-sdk-dev	KURULABILIR	SKILL	anthropics/claude-plugins-official:plugins/agent-sdk-dev	Apache-2.0	gh contents: .claude-plugin,agents,commands,LICENSE; repo Apache-2.0
+commit-commands	KURULABILIR	SKILL	anthropics/claude-plugins-official:plugins/commit-commands	Apache-2.0	gh contents: .claude-plugin,commands,LICENSE; repo Apache-2.0
+context-inspector	KURULABILIR	NPM	context-inspector	MIT	npm registry 200 v0.0.4 MIT 'client library for sending context data to a context inspector server'; esleme olasi, dogrulanmadi
+crap4clj	OMER-SOR	SKILL	unclebob/crap4clj	yok	gh contents: SKILL.md,README.md,deps.edn; license null
+docx/pptx/xlsx	OMER-SOR	SKILL	anthropics/skills:skills/docx | skills/pptx | skills/xlsx	proprietary (skill LICENSE.txt)	gh contents: LICENSE.txt,SKILL.md,scripts her uc klasorde; repo license null
+ffprobe	OMER-SOR	RELEASE	https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip	GPL	HTTP 200 asset (ffprobe.exe paketin icinde); GPL build; winget Gyan.FFmpeg OLCULEMEDI (zaman asimi)
+geo-crawlers	KURULABILIR	SKILL	sickn33/agentic-awesome-skills:skills/geo-crawlers	MIT	raw SKILL.md HTTP 200; LICENSE MIT
+go toolchain	KURULABILIR	RELEASE	https://go.dev/dl/go1.27.3.windows-amd64.msi	BSD-3-Clause	go.dev/dl json 200: go1.27.3.windows-amd64.msi
+go version -m	KURULABILIR	RELEASE	https://go.dev/dl/go1.27.3.windows-amd64.msi	BSD-3-Clause	go toolchain ile gelir (ayri paket yok)
+llama-cli	KURULABILIR	RELEASE	https://github.com/ggml-org/llama.cpp/releases/download/b12189/llama-b12189-bin-win-cpu-x64.zip	MIT	HTTP 200 asset b12189; LICENSE MIT
+rustc	KURULABILIR	RELEASE	https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe	MIT/Apache-2.0	HTTP 200 rustup-init.exe
+ship-learn-next	KURULABILIR	SKILL	michalparkola/tapestry-skills-for-claude-code:ship-learn-next	MIT	gh contents: ship-learn-next dizini var; repo MIT
+zqxwce/tap/vphone-cli	YOK	YOK	-	MIT	brew tap macOS; Lakr233/vphone-cli release VPhone-2.15.2.zip macOS (Apple); Windows yolu yok

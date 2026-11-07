@@ -1,0 +1,118 @@
+kalem	sinif	sonuc	kaynak	puan	yol
+CPM-0.5B	MODEL	YOK		0.2	
+Opus 4.5	MODEL	YOK		0.95	
+Opus 4.6	MODEL	YOK		0.95	
+Opus 4.7	MODEL	YOK		0.95	
+Opus 4.8 High	MODEL	YOK		0.95	
+Opus 4.8 Max	MODEL	YOK		0.95	
+Opus 5	MODEL	YOK		0.95	
+Opus 5 High	MODEL	YOK		0.95	
+Opus 5.5	MODEL	YOK		0.95	
+Perplex	MODEL	YOK		0.9	
+Pika	MODEL	YOK		0.9	
+Pika 2.5	MODEL	YOK		0.9	
+Qwen3.8 Max	MODEL	YOK		0.7	
+R2	MODEL	YOK		0.9	
+Rodin 2.5	MODEL	YOK		0.8	
+SONA	MODEL	YOK		0.7	
+Sonnet 5 Medium	MODEL	YOK		0.95	
+Wan 2.6	MODEL	YOK		0.6	
+Wan 2.7	MODEL	YOK		0.6	
+Wan3.0	MODEL	YOK		0.6	
+ZJU3DV	MODEL	YOK		0.9	
+allstar	MODEL	YOK		0.8	
+gan-generator	MODEL	YOK		0.8	
+gemini-3-flash-grounding	MODEL	YOK		0.9	
+gemini-3-flash-preview	MODEL	YOK		0.9	
+gemini-3-pro-grounding	MODEL	YOK		0.9	
+grok-4.20-beta1	MODEL	YOK		0.9	
+kimi-k3-in-c	MODEL	YOK		0.2	
+o1-mini	MODEL	YOK		0.9	
+xai/grok-imagine-video/extend-video	MODEL	YOK		0.9	
+Meta Pixel	SKILL	YOK		0.8	
+MiniMax Agent	SKILL	YOK		0.7	
+Moises	SKILL	YOK		0.8	
+Notion AI	SKILL	YOK		0.8	
+Notebook LLM	SKILL	YOK		0.7	
+OpenAI operator	SKILL	YOK		0.9	
+PackyCode	SKILL	YOK		0.6	
+Pexo Agent	SKILL	YOK		0.6	
+Pine Script v5	PAKET	YOK		0.7	
+Postbridge	PAKET	YOK		0.7	
+Pollo Agent	SKILL	YOK		0.7	
+Pyro	SKILL	YOK		0.8	
+Readdy	CLI	YOK		0.8	
+Rich Input	SKILL	YOK		0.7	
+axe	CLI	YOK		0.3	
+export_scene	CLI	YOK		0.9	
+friday-brief	SKILL	YOK		0.1	
+graphify --obsidian	CLI	YOK		0.8	
+head	CLI	YOK		0.95	
+human IK	SKILL	YOK		0.8	
+investment-banking	SKILL	YOK		0.2	
+invoice-parse	SKILL	YOK		0.6	
+invideo Agent	SKILL	YOK		0.85	
+log-parse	CLI	YOK		0.6	
+mkdir	CLI	YOK		0.95	
+node --test	CLI	YOK		0.95	
+networksetup	CLI	YOK		0.9	
+not taker	SKILL	YOK		0.6	
+nxcode	CLI	YOK		0.75	
+openrouter-balance	SKILL	YOK		0.55	
+pacman	CLI	YOK		0.8	
+otool	CLI	YOK		0.9	
+pbcopy	CLI	YOK		0.9	
+product visual skill	SKILL	YOK		0.2	
+requestVideoFrameCallback	SKILL	YOK		0.9	
+soma build	CLI	YOK		0.7	
+soma analyze	CLI	YOK		0.7	
+social-research	SKILL	YOK		0.3	
+soma render	CLI	YOK		0.6	
+systemd	CLI	YOK		0.9	
+wshobson	CLI	YOK		0.8	
+vinzdg/codenotch	CLI	YOK		0.9	
+where-am-i	SKILL	YOK		0.9	
+xKiro	SKILL	YOK		0.7	
+xattr	CLI	YOK		0.8	
+yay	CLI	YOK		0.9	
+88Plugins	SKILL	YOK		0.8	
+AccuPOSE	CLI	YOK		0.8	
+Agent CLI	CLI	YOK		0.3	
+Cal	SKILL	YOK		0.2	
+Forgejo	CLI	YOK		0.2	
+HackRF One	CLI	YOK		0.3	
+Studio for Claude	SKILL	YOK		0.3	
+Write a Skill (/write-a-skill)	SKILL	YOK		0.3	
+ai-second-brain	SKILL	YOK		0.3	
+bug-hunter	CLI	YOK		0.2	
+co-cli	CLI	YOK		0.2	
+eval-viewer	CLI	YOK		0.2	
+get_advisors	SKILL	YOK		0.2	
+grep	CLI	YOK		0.2	
+maozi-114/Mintimage	MODEL	YOK		0.3	
+reverse engineer anything repo	CLI	YOK		0.1	
+search(query)	SKILL	YOK		0.9	
+setfattr	CLI	YOK		0.9	
+sh	CLI	YOK		0.95	
+social-media	SKILL	YOK		0.9	
+sqlite	PAKET	YOK		0.9	
+sqlite3	CLI	YOK		0.9	
+suggest_trades_batch	SKILL	YOK		0.9	
+superwhisper	PAKET	YOK		0.9	macOS-only ucretli
+text.cortex	SKILL	YOK		0.8	
+tools.installer	CLI	YOK		0.8	
+tree	CLI	YOK		0.95	
+ui.camera	SKILL	YOK		0.8	
+update_work	CLI	YOK		0.9	
+uptime-check	CLI	YOK		0.85	
+viewport_screenshot	SKILL	YOK		0.9	
+weather_fetch	SKILL	YOK		0.9	
+web_extract	SKILL	YOK		0.9	
+web_search_fast	SKILL	YOK		0.9	
+wget	CLI	YOK		0.95	
+xAI Grok	SKILL	YOK		0.9	
+xcrun simctl	CLI	YOK		0.9	macOS-only
+xelatex	CLI	YOK		0.9	
+zsh	CLI	YOK		0.95	
+Apify Tester MCP Client	SKILL	YOK		0.8	
+Apowerui MCP toolkit	SKILL	YOK		0.2	

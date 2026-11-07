@@ -1,0 +1,1342 @@
+kalem	sinif	sonuc	kaynak	puan	yol
+A/B Tester	SKILL	YOK		0	
+AI Breakup Recovery Agent	SKILL	DOGRULANDI	gh:Shubhamsaboo/ai-breakup-recovery-agent	0.7	skill klon
+Avatar 1.5	MODEL	MODEL-BEKLE	hf:meituan-longcat/LongCat-Video-Avatar-1.5	0.85	69.7 GB; Omer karari: yerel/buyuk model simdilik YOK
+AvatarV	MODEL	YOK		0	
+Base Mode	MODEL	YOK		0	
+Basic 1.0	MODEL	YOK		0	
+Basic 2.0	MODEL	YOK		0	
+CPM-0.5B	MODEL	YOK		0.2	
+Candle	MODEL	MODEL-BEKLE	gh:huggingface/candle	0.8	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Claude 3.5 Haiku	MODEL	YOK		0	
+Claude 5	MODEL	YOK		0	
+Claude Code 2.1	MODEL	YOK		0	
+Claude Code 2.1.304	MODEL	YOK		0	
+Claude Opus 3.5	MODEL	YOK		0	
+Codex II	MODEL	YOK		0	 
+ComfyUI-GGUF	MODEL	MODEL-BEKLE	gh:city96/ComfyUI-GGUF	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Cosmos-RL	MODEL	MODEL-BEKLE	gh:nvidia-cosmos/cosmos-rl	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+DALA 2	MODEL	YOK		0	
+DeBERTa-v3-large	MODEL	MODEL-BEKLE	hf:microsoft/deberta-v3-large	0.97	3.0 GB; Omer karari: yerel/buyuk model simdilik YOK
+Delta	MODEL	YOK		0	
+Dreamina	MODEL	YOK		0	
+Dreamina Seedance 2.0	MODEL	YOK		0	
+DumplingA	MODEL	YOK		0	
+ERNIE 4.5	MODEL	MODEL-BEKLE	hf:baidu/ERNIE-4.5-21B-A3B-PT	0.85	40.9 GB; Omer karari: yerel/buyuk model simdilik YOK
+ERNIE X1	MODEL	YOK		0	
+FTS5	MODEL	YOK		0	
+Fable 5.1	MODEL	YOK		0	
+Fable 5.1 Medium	MODEL	YOK		0	
+Fable 5.5	MODEL	YOK		0	
+Flux Schnell	MODEL	MODEL-BEKLE	hf:black-forest-labs/FLUX.1-schnell	0.95	53.9 GB; Omer karari: yerel/buyuk model simdilik YOK
+GLM 5.1	MODEL	MODEL-BEKLE	hf:zai-org/GLM-5.1	0.9	1404.2 GB; Omer karari: yerel/buyuk model simdilik YOK
+GLM-5.0	MODEL	MODEL-BEKLE	hf:zai-org/GLM-5	0.8	1404.2 GB; Omer karari: yerel/buyuk model simdilik YOK
+GLM-5.3	MODEL	MODEL-BEKLE	hf:zai-org/GLM-5.3	0.9	703.8 GB; Omer karari: yerel/buyuk model simdilik YOK
+Gemma 3	MODEL	MODEL-BEKLE	hf:google/gemma-3-27b-it	0.75	51.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+Gemma 3 27B Instruct	MODEL	MODEL-BEKLE	hf:google/gemma-3-27b-it	0.95	51.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+Gemma 4	MODEL	MODEL-BEKLE	hf:google/gemma-4-31B-it	0.85	58.3 GB; Omer karari: yerel/buyuk model simdilik YOK
+Google Gemini Chat Model	MODEL	YOK		0	
+Google Veo 3	MODEL	YOK		0	
+Gpt 2.0 Image	MODEL	YOK		0	
+Haiku 4.5	MODEL	YOK		0	
+HappyHorse-1.0	MODEL	YOK		0	
+Hedra	MODEL	YOK		0	
+Helix	MODEL	MODEL-BEKLE	gh:helix-editor/helix	0.7	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Hermes Apollo	MODEL	YOK		0	
+Hevy	MODEL	YOK		0	
+Hunyuan Image-to-Video	MODEL	MODEL-BEKLE	hf:tencent/HunyuanVideo-I2V	0.85	28.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+HunyuanVideo-gguf	MODEL	MODEL-BEKLE	hf:city96/HunyuanVideo-gguf	0.95	123.8 GB; Omer karari: yerel/buyuk model simdilik YOK
+HunyuanVideoGP	MODEL	MODEL-BEKLE	gh:deepbeepmeep/HunyuanVideoGP	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Luma	MODEL	YOK		0	
+Lyra 2.0	MODEL	MODEL-BEKLE	hf:nvidia/Lyra-2.0	0.85	91.6 GB; Omer karari: yerel/buyuk model simdilik YOK
+MaxCode	MODEL	YOK		0	
+MeiGen-AI	MODEL	MODEL-BEKLE	gh:jau123/MeiGen-AI-Design-MCP	0.6	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Meta Lama	MODEL	YOK		0	
+MetaMovieGen	MODEL	YOK		0	
+MiMo	MODEL	MODEL-BEKLE	gh:XiaomiMiMo/MiMo	0.8	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+MiMo-V2.6	MODEL	MODEL-BEKLE	hf:XiaomiMiMo/MiMo-V2.6-Flash-RL	0.7	165.6 GB; Omer karari: yerel/buyuk model simdilik YOK
+ModernBERT	MODEL	MODEL-BEKLE	hf:answerdotai/ModernBERT-base	0.95	2.9 GB; Omer karari: yerel/buyuk model simdilik YOK
+MuseSpark 1.2	MODEL	YOK		0	 
+N8.0	MODEL	YOK		0	
+N8AO	MODEL	MODEL-BEKLE	gh:N8python/n8ao	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4	MODEL	MODEL-BEKLE	hf:nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4	0.97	20.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+Nemotron 3.5 Lightning	MODEL	MODEL-BEKLE	hf:nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16	0.9	61.3 GB; Omer karari: yerel/buyuk model simdilik YOK
+NeuralFrames	MODEL	YOK		0	
+Neurat	MODEL	YOK		0	
+Open-Sora	MODEL	MODEL-BEKLE	gh:hpcaitech/Open-Sora	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Opus	MODEL	YOK		0	
+Opus 4	MODEL	YOK		0	
+Opus 4.5	MODEL	YOK		0.95	
+Opus 4.6	MODEL	YOK		0.95	
+Opus 4.7	MODEL	YOK		0.95	
+Opus 4.8 High	MODEL	YOK		0.95	
+Opus 4.8 Max	MODEL	YOK		0.95	
+Opus 5	MODEL	YOK		0.95	
+Opus 5 High	MODEL	YOK		0.95	
+Opus 5.5	MODEL	YOK		0.95	
+Orpheus TTS	MODEL	MODEL-BEKLE	hf:canopylabs/orpheus-3b-0.1-ft	0.9	52.8 GB; Omer karari: yerel/buyuk model simdilik YOK
+P2.0-Preview	MODEL	YOK		0	
+Perplex	MODEL	YOK		0.9	
+Pest 4	MODEL	MODEL-BEKLE	gh:pestphp/pest	0.85	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Phi-3	MODEL	MODEL-BEKLE	hf:microsoft/Phi-3-mini-4k-instruct	0.9	7.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+Phoenix	MODEL	MODEL-BEKLE	pip:arize-phoenix	0.8	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Pika	MODEL	YOK		0.9	
+Pika 2.5	MODEL	YOK		0.9	
+Ponytau	MODEL	YOK		0	
+QAN3-Coder Next	MODEL	MODEL-BEKLE	hf:Qwen/Qwen3-Coder-Next	0.7	148.4 GB; Omer karari: yerel/buyuk model simdilik YOK
+Qwen	MODEL	MODEL-BEKLE	hf:Qwen/Qwen-Image-Layered	0.7	53.8 GB; Omer karari: yerel/buyuk model simdilik YOK
+Qwen3.8 Max	MODEL	YOK		0.7	
+R2	MODEL	YOK		0.9	
+Real-ESRGAN	MODEL	MODEL-BEKLE	gh:xinntao/Real-ESRGAN	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Rococo	MODEL	YOK		0	
+Rodin 2.5	MODEL	YOK		0.8	
+SONA	MODEL	YOK		0.7	
+SadTalker	MODEL	MODEL-BEKLE	gh:OpenTalker/SadTalker	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+SeedAudio 1.0	MODEL	YOK		0	
+Sigma	MODEL	MODEL-BEKLE	gh:SigmaHQ/sigma	0.85	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Sonnet 5 Medium	MODEL	YOK		0.95	
+THU-MAIC/OpenMAIC	MODEL	MODEL-BEKLE	gh:THU-MAIC/OpenMAIC	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Wan 2.6	MODEL	YOK		0.6	
+Wan 2.7	MODEL	YOK		0.6	
+Wan2.1	MODEL	MODEL-BEKLE	gh:Wan-Video/Wan2.1	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Wan3.0	MODEL	YOK		0.6	
+Whisper AI	MODEL	MODEL-BEKLE	gh:openai/whisper	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+WiLoR	MODEL	MODEL-BEKLE	gh:rolpotamias/WiLoR	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+ZAi GLM-Flash	MODEL	MODEL-BEKLE	hf:zai-org/GLM-4.7-Flash	0.7	58.2 GB; Omer karari: yerel/buyuk model simdilik YOK
+ZJU3DV	MODEL	YOK		0.9	
+allstar	MODEL	YOK		0.8	
+coli	MODEL	YOK		0	
+colibri (JustVugg/colibri)	MODEL	MODEL-BEKLE	gh:JustVugg/colibri	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+faster-whisper	MODEL	MODEL-BEKLE	pip:faster-whisper	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+gan-generator	MODEL	YOK		0.8	
+gemini-3-flash-grounding	MODEL	YOK		0.9	
+gemini-3-flash-preview	MODEL	YOK		0.9	
+gemini-3-pro-grounding	MODEL	YOK		0.9	
+ghcr.io/styles01/qwen38-flash-next:q4	MODEL	YOK		0	
+grok-4.20-beta1	MODEL	YOK		0.9	
+hunyuan	MODEL	MODEL-BEKLE	hf:tencent/HunyuanVideo	0.6	37.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+kimi-k3-in-c	MODEL	YOK		0.2	
+nemotron-3-nano-omni-30b-a3b-reasoning	MODEL	MODEL-BEKLE	hf:nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16	0.9	61.5 GB; Omer karari: yerel/buyuk model simdilik YOK
+nemotron-3-ultra-550b-a55b	MODEL	MODEL-BEKLE	hf:nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16	0.9	1044.1 GB; Omer karari: yerel/buyuk model simdilik YOK
+nemotron-3.5-lightning-30b-a3b	MODEL	MODEL-BEKLE	hf:nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16	0.9	61.3 GB; Omer karari: yerel/buyuk model simdilik YOK
+nemotron-parse-2	MODEL	MODEL-BEKLE	hf:nvidia/NVIDIA-Nemotron-Parse-2.0	0.9	3.4 GB; Omer karari: yerel/buyuk model simdilik YOK
+o1-mini	MODEL	YOK		0.9	
+qinxuancai/Mintimage	MODEL	YOK		0	
+qwen3.8	MODEL	MODEL-BEKLE	hf:Qwen/Qwen3.8-27B	0.7	51.8 GB; Omer karari: yerel/buyuk model simdilik YOK
+twozero	MODEL	MODEL-BEKLE	gh:twozero-team/twozero-td-mcp	0.6	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+xai/grok-imagine-video/extend-video	MODEL	YOK		0.9	
+0NE API	CLI	DOGRULANDI	gh:songquanpeng/one-api	0.75	win-x64 release / docker
+AFL++	CLI	DOGRULANDI	gh:AFLplusplus/AFLplusplus	0.9	git klon + make (Windows icin WSL/Cygwin)
+AI Marketing Claude	SKILL	DOGRULANDI	gh:zubair-trabzada/ai-marketing-claude	0.85	skill klon
+9Router	CLI	DOGRULANDI	gh:decolua/9router	0.85	npm i -g 9router / git klon
+AI Slop Detector	SKILL	DOGRULANDI	pip:ai-slop-detector	0.65	pip install ai-slop-detector (gh:flamehaven01/AI-SLOP-Detector)
+AI Data Analysis Agent	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.75	git klon, alt klasor starter_ai_agents/ai_data_analysis_agent (pip -r requirements)
+AI Home Renovation Agent	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.75	git klon, alt klasor advanced_ai_agents/multi_agent_apps/ai_home_renovation_agent (pip -r requirements)
+AI Medical Imaging Agent	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.75	git klon, alt klasor starter_ai_agents/ai_medical_imaging_agent (pip -r requirements)
+AI Video Toolkit	SKILL	YOK			
+AI Web Site Generator	SKILL	YOK		0	
+AI UI Designer	SKILL	YOK		0	 
+AICode	SKILL	YOK			
+AThevon/genjutsu	CLI	DOGRULANDI	gh:AThevon/genjutsu	0.9	skill klon (release v4.1.3)
+Ad Skill	SKILL	YOK		0	
+Ad_Generator	SKILL	YOK		0	
+Advisor Tool	SKILL	YOK			
+Agent Engine	CLI	YOK		0	
+AgentCouncil	CLI	DOGRULANDI	gh:Sentry01/AgentCouncil	0.7	Copilot CLI eklentisi klon
+AdaL CLI	CLI	DOGRULANDI	gh:SylphAI-Inc/adal-cli	0.8	repo/docs.sylph.ai kurulum
+AgentLog	PAKET	DOGRULANDI	gh:imran31415/agentlog	0.5	git clone
+Alphai-tui	CLI	DOGRULANDI	gh:makeev/alphai-tui	0.9	release binary (v0.38.0, Windows asset kontrol et)
+Agent TARS	CLI	DOGRULANDI	gh:bytedance/UI-TARS-desktop	0.8	npm i -g @agent-tars/cli
+AtomicParsley	CLI	DOGRULANDI	gh:wez/atomicparsley	0.95	win-x64 release (AtomicParsleyWindows.zip)
+Athena	SKILL	YOK		0	 
+Amazon Product Scraper	CLI	YOK			
+Atomic Chat	SKILL	DOGRULANDI	gh:AtomicBot-ai/Atomic-Chat	0.8	release/yerel uygulama
+Augment Code	SKILL	YOK			
+Auto Setup	SKILL	YOK		0	
+AutoResearchClaw	CLI	DOGRULANDI	gh:aiming-lab/AutoResearchClaw	0.85	repo klon (v0.5.0), PyPI yok
+AutoPhysics	SKILL	YOK		0	
+AutoSetup plugin	SKILL	YOK		0	
+Awesome Claude Skill	SKILL	DOGRULANDI	gh:ComposioHQ/awesome-claude-skills	0.7	repo klon (liste)
+B-Roll Finder	CLI	DOGRULANDI	gh:louisedesadeleer/b-roll-finder	0.9	skill klon
+AskUserQuestion	SKILL	YOK			
+BeHuman	SKILL	DOGRULANDI	gh:w3nabil/behuman	0.7	skill klon
+Bedrock Runtime	PAKET	YOK			
+BlackArch	PAKET	YOK		0	
+Blacksmith	CLI	YOK			
+BFXR	CLI	DOGRULANDI	gh:increpare/bfxr	0.85	repo/bfxr.net (Adobe AIR; halefi bfxr2)
+Blender Agent Studio	SKILL	DOGRULANDI	gh:ifBars/blender-agent-studio	0.9	skill/eklenti klon
+BlenderGIS	CLI	DOGRULANDI	gh:domlysz/BlenderGIS	0.9	Blender addon zip
+Blender Connector	PAKET	YOK		0	
+BotFather	CLI	YOK			
+BodySwap	SKILL	YOK		0	 
+BotForge	CLI	YOK		0	
+Business Skills	SKILL	DOGRULANDI	gh:minhnv0807/ai-business-skills	0.5	Claude Code plugin marketplace veya repo klonla
+CLAUDE HQ	SKILL	DOGRULANDI	gh:bro789/claude-hq	0.6	git clone; skill kopyala
+CHGPT	SKILL	YOK		0	
+CLIPLoader	PAKET	YOK			
+CRIMA	CLI	YOK		0	
+Chat Trigger	SKILL	YOK			
+ChartScanner	CLI	YOK		0	 
+Chat with GitHub	SKILL	YOK			
+Baserow	CLI	DOGRULANDI	gh:baserow/baserow	0.9	docker self-host / cloud
+Chat with Gmail	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.5	klon; advanced_llm_apps/chat_with_X_tutorials/chat_with_gmail
+Chat with YouTube Videos	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.7	repo klonla; advanced_llm_apps/chat_with_X_tutorials/chat_with_youtube_videos
+Capd	CLI	YOK			
+Chat-GBT	SKILL	YOK		0	
+ChatDOC	SKILL	YOK			
+ChatGPT MD	SKILL	DOGRULANDI	gh:bramses/chatgpt-md	0.9	Obsidian community plugin
+ChatInput	SKILL	YOK			
+ChatOutput	SKILL	YOK			
+ChatPlace	SKILL	YOK			
+Chatterbox	SKILL	DOGRULANDI	pip:chatterbox-tts	0.9	pip install chatterbox-tts
+Chop	CLI	YOK			
+Claude Artifacts	SKILL	YOK			
+Claude Code 3.0	SKILL	YOK			
+Claude Chat	SKILL	YOK			
+Claude Code Channels	SKILL	YOK			
+Claude Cowork	SKILL	YOK			
+Claude Eyes	SKILL	DOGRULANDI	gh:moritzkremb/claude-eyes	0.85	skill klon
+Claude Code Security Reviewer	SKILL	DOGRULANDI	gh:anthropics/claude-code-security-review	0.85	git clone; GitHub Action/.claude komut
+Claude Flow	SKILL	DOGRULANDI	gh:ruvnet/claude-flow	0.75	npm i -g claude-flow
+Claude GitHub App	SKILL	YOK			
+Claude Marketing Team	SKILL	YOK		0	
+Claude Toolkit	CLI	DOGRULANDI	gh:dwmkerr/claude-toolkit	0.6	plugin marketplace add
+Claude sales plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	/plugin marketplace add anthropics/knowledge-work-plugins; sales eklentisi
+ClickHouse	CLI	DOGRULANDI	gh:ClickHouse/ClickHouse	0.9	binary (Linux/macOS); Windows WSL/docker
+Claude Token Monitor	CLI	DOGRULANDI	gh:novapizza/claude-token-monitor	0.7	repo klonla, tek dosya CLI calistir
+Comfy-Org	CLI	YOK			
+ComfyUI-HunyuanVideo	PAKET	DOGRULANDI	gh:kijai/ComfyUI-HunyuanVideoWrapper	0.6	ComfyUI custom_nodes git clone
+ComfyUI-Native	CLI	YOK		0	
+Claudex Loop	CLI	DOGRULANDI	gh:chaseai-yt/claudex-loop	0.9	skill klon
+ComfyUI-HunyuanVideoWrapper	PAKET	DOGRULANDI	gh:kijai/ComfyUI-HunyuanVideoWrapper	0.9	ComfyUI custom_nodes klon
+Comment Handler	SKILL	YOK		0	
+Command Code	CLI	DOGRULANDI	npm:command-code	0.85	npm i -g command-code
+Content Skill	SKILL	YOK		0	
+ContentBot	SKILL	YOK		0	 
+Clink	CLI	YOK		0	
+ContentOS	SKILL	YOK		0	
+Cortex Code	SKILL	YOK			
+Conductor	CLI	YOK			
+Data Analyst Agent	SKILL	YOK		0	
+Coucou (Louis-CFM/coucou)	CLI	DOGRULANDI	gh:Louis-CFM/coucou	0.85	win release (Win10/11 destekli)
+DM Responder	SKILL	YOK		0	 
+Dependabot	CLI	YOK			
+Director	SKILL	YOK		0	
+DevTools	CLI	YOK			
+Deal Strategy Agent	SKILL	YOK		0	
+Echo	SKILL	YOK		0	
+EditorConfig	PAKET	DOGRULANDI	npm:editorconfig	0.7	npm i editorconfig (editor eklentisi/cekirdek)
+ElevenAgents	SKILL	YOK			
+ElevenCreative	SKILL	YOK			
+Eigent	CLI	DOGRULANDI	gh:eigent-ai/eigent	0.85	win-x64 release (Eigent.Setup.exe)
+Executor	SKILL	YOK		0	 
+Figma connector	SKILL	YOK			
+FUSE	SKILL	YOK			
+Filetree	CLI	DOGRULANDI	gh:nekocode/filetree-skill	0.75	skill/plugin klon
+Foreman	CLI	DOGRULANDI	pip:foreman-orchestrator	0.6	pip install foreman-orchestrator
+Founders Skill	SKILL	DOGRULANDI	gh:Grunder-Mentor-de/founder-skills	0.5	git clone; SKILL.md kopyala
+Free Claude Code Repo	CLI	DOGRULANDI	gh:Alishahryar1/free-claude-code	0.7	klon, README kurulum
+Eye Contact	SKILL	YOK			
+FilaCheck	CLI	DOGRULANDI	gh:LaravelDaily/FilaCheck	0.9	composer require laraveldaily/filacheck --dev
+FreeTheAI	SKILL	YOK		0	
+Frida	CLI	DOGRULANDI	pip:frida-tools	0.9	pip install frida-tools
+FrontierAgent	SKILL	DOGRULANDI	gh:ApodexAI/FrontierAgent	0.8	repo klon + uv sync
+Fooocus	CLI	DOGRULANDI	gh:lllyasviel/Fooocus	0.9	win-x64 zip indirme
+Gemini Deep Research	SKILL	YOK		0	
+Gemini Canvas	SKILL	YOK			
+GenTabs	SKILL	YOK			
+Gemini Multimodal Agent	SKILL	YOK		0	
+Gemini Omni Flash	SKILL	YOK			
+Gemini Robotics-ER 1.5	SKILL	YOK			
+Ghostty	CLI	DOGRULANDI	gh:ghostty-org/ghostty	0.9	kaynak derleme/release; Windows resmi destek yok (macOS/Linux)
+Get-NetAdapter	CLI	YOK			
+Ghidra MCP	SKILL	DOGRULANDI	gh:bethington/ghidra-mcp	0.9	release zip + Ghidra plugin + Python
+Greptile	CLI	YOK			
+Git Bash	CLI	DOGRULANDI	gh:git-for-windows/git	0.85	win-x64 release (Git for Windows)
+Gradle	CLI	DOGRULANDI	gh:gradle/gradle	0.7	win dagitim zip / scoop / winget
+Grok Imagine	SKILL	YOK			
+Grok Build	CLI	DOGRULANDI	gh:xai-org/grok-build	0.85	install script / win binary
+Grok Loop	SKILL	YOK		0	
+HAWK	CLI	YOK		0	 
+HIA (Health Insights Agent)	SKILL	DOGRULANDI	gh:harshhh28/hia	0.75	repo klon
+Head of Content	SKILL	DOGRULANDI	gh:bradautomates/head-of-content	0.95	skill/plugin klon
+Hermes Chat	SKILL	YOK		0	
+Hermes Muse	SKILL	DOGRULANDI	gh:xiaohei-info/hermes-muse	0.85	hermes plugin/skill klon
+Grok Imagine Image 2.0	SKILL	YOK			
+Hermes Skills Hub	SKILL	YOK			
+Hex	CLI	YOK			
+Hermes voice agent	SKILL	DOGRULANDI	gh:onlockj/hermes-voice-agent	0.7	git clone; docker/uvicorn
+Hardflow	CLI	DOGRULANDI	gh:ugulay/hardflow	0.9	Blender add-on zip
+Hector	CLI	YOK		0	
+Homebrew (brew)	CLI	DOGRULANDI	gh:Homebrew/brew	0.95	macOS/Linux only; Windows yok (WSL)
+JADX	CLI	DOGRULANDI	gh:skylot/jadx	0.95	win-x64 release zip (jadx-gui)
+LEANN	PAKET	DOGRULANDI	pip:leann	0.9	pip install leann
+LLM Council	CLI	DOGRULANDI	gh:tenfoldmarc/llm-council-skill	0.7	skill klasorunu kopyala
+LLM Council skill	SKILL	DOGRULANDI	gh:tenfoldmarc/llm-council-skill	0.85	skill klon
+LLMStack	CLI	DOGRULANDI	pip:llmstack	0.8	pip install llmstack (docker)
+Laravel Reverb	PAKET	DOGRULANDI	gh:laravel/reverb	0.9	composer require laravel/reverb (PHP)
+LinkedIn Agent	SKILL	DOGRULANDI	gh:Jakeschincariol/linkedin-agent-skill	0.6	skill klasorlerini ~/.claude/skills'e kopyala
+Lago	CLI	DOGRULANDI	gh:getlago/lago	0.85	docker compose self-host
+LingoForge	CLI	DOGRULANDI	gh:shenfn/LingoForge	0.6	repo release masaustu uygulamasi
+LoopTools	CLI	DOGRULANDI	blender:looptools	0.9	Blender Extensions: Install from Extensions > LoopTools
+Luma Agents	SKILL	DOGRULANDI	gh:lumalabs/luma-agents-cli	0.6	git clone; npm/pip kurulum
+Lois	SKILL	YOK		0	 
+Magic MCP server	SKILL	DOGRULANDI	gh:21st-dev/magic-mcp	0.9	npx @21st-dev/magic (MCP, API anahtari)
+Lovart Agent	SKILL	DOGRULANDI	gh:lovartai/lovart-skill	0.5	skill kopyala; Lovart hesabi gerekir
+MCP Bridge	CLI	DOGRULANDI	gh:SecretiveShell/MCP-Bridge	0.55	pip/docker; OpenAI uyumlu uc nokta MCP araclarini cagirir
+MYCLAUDESKILL	SKILL	YOK		0	
+Market Trends Agent	SKILL	YOK		0	
+MarketProfile	SKILL	YOK		0	
+MemZero	PAKET	DOGRULANDI	gh:mem0ai/mem0	0.85	pip install mem0ai
+Marketing Agent	SKILL	YOK		0	 
+Meta Pixel	SKILL	YOK		0.8	
+MetaClaw	CLI	DOGRULANDI	gh:aiming-lab/MetaClaw	0.8	repo README kurulum
+Metasploit	CLI	DOGRULANDI	gh:rapid7/metasploit-framework	0.9	win installer (nightly)
+Mobbin MCP	SKILL	DOGRULANDI	gh:mobbin/mobbin-mcp-server	0.8	npx MCP; Mobbin hesabi (ucretli)
+MySkill	SKILL	YOK		0	
+MiniMax Agent	SKILL	YOK		0.7	
+NVIDIA Kimodo	CLI	DOGRULANDI	gh:nv-tlabs/kimodo	0.8	git klon + pip, GPU
+Moises	SKILL	YOK		0.8	
+Notion AI	SKILL	YOK		0.8	
+Notebook LLM	SKILL	YOK		0.7	
+NaiboWang/EasySpider	CLI	DOGRULANDI	gh:NaiboWang/EasySpider	0.85	win-x64 release zip
+Octo	CLI	YOK		0	
+OpenAI operator	SKILL	YOK		0.9	
+OpenSSF Scorecard	CLI	DOGRULANDI	gh:ossf/scorecard	0.9	go install / binary indir
+OpenRig	CLI	DOGRULANDI	npm:@openrig/cli	0.7	npm i -g @openrig/cli
+PathAi	SKILL	YOK		0	
+PackyCode	SKILL	YOK		0.6	
+Pipecat CLI	CLI	DOGRULANDI	pip:pipecat-ai-cli	0.85	pip install pipecat-ai-cli
+Pexo Agent	SKILL	YOK		0.6	
+Pine Script v5	PAKET	YOK		0.7	
+Pletor	SKILL	YOK		0	 
+Pocket TTS	SKILL	DOGRULANDI	gh:kyutai-labs/pocket-tts	0.95	pip install pocket-tts
+Portal agent	SKILL	YOK		0	
+Postbridge	PAKET	YOK		0.7	
+PowerPoint master	SKILL	YOK		0	
+Pollo Agent	SKILL	YOK		0.7	
+Productivity Plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin marketplace add anthropics/knowledge-work-plugins; productivity/
+Pyro	SKILL	YOK		0.8	
+Python SDK	PAKET	YOK		0	
+Python Data Analyst	SKILL	YOK		0	
+Quick Favorites	SKILL	YOK		0	 
+Proxmark 3	CLI	DOGRULANDI	gh:RfidResearchGroup/proxmark3	0.9	win ProxSpace/derleme, donanim gerekli
+Podman	CLI	DOGRULANDI	gh:podman-container-tools/podman	0.95	win installer release (podman machine)
+Qwen CLI	CLI	DOGRULANDI	npm:@qwen-code/qwen-code	0.9	npm i -g @qwen-code/qwen-code
+Readdy	CLI	YOK		0.8	
+Ratatui	CLI	DOGRULANDI	gh:ratatui/ratatui	0.8	cargo add ratatui (Rust kutuphane)
+Reicon Agent	SKILL	DOGRULANDI	gh:dqev/reicon	0.6	npm/CDN ile reicon paketi; kalem agent/skill degil ikon kutuphanesi
+Rector	CLI	DOGRULANDI	gh:rectorphp/rector	0.9	composer require rector/rector --dev
+Remove AI Design Slop	SKILL	DOGRULANDI	gh:charlie947/remove-ai-design-slop	0.85	skill klon
+ReplyHandler	SKILL	YOK		0	
+Rhythmia	SKILL	YOK		0	
+Rich Input	SKILL	YOK		0.7	
+Research mode	SKILL	DOGRULANDI	gh:assafkip/research-mode	0.7	git clone; skill kopyala
+RippleEffect	SKILL	YOK		0	 
+Scoop	CLI	DOGRULANDI	gh:ScoopInstaller/Scoop	0.95	powershell iex (win)
+Scientific Skills	SKILL	DOGRULANDI	gh:K-Dense-AI/claude-scientific-skills	0.8	skill klon
+ScreensDesign MCP	SKILL	DOGRULANDI	gh:screensdesign-com/screensdesign-agent-skill	0.7	skill klon; MCP web hizmeti (hesap/ucret olabilir)
+SWE-agent/SWE-agent	SKILL	DOGRULANDI	gh:SWE-agent/SWE-agent	0.95	pip install -e / docker
+Sealos	CLI	DOGRULANDI	gh:labring/sealos	0.9	Linux binary/k8s; win-x64 release yok
+Skills by Anthropic	SKILL	DOGRULANDI	gh:anthropics/skills	0.85	skill klon
+Scroll Observer	CLI	YOK		0	
+SkillClaw	SKILL	DOGRULANDI	gh:AMAP-ML/SkillClaw	0.95	pip/klon
+Slurm	CLI	DOGRULANDI	gh:SchedMD/slurm	0.9	Linux kaynak derleme; Windows yok
+Strategy agent	SKILL	YOK		0	
+TARS	CLI	DOGRULANDI	gh:bytedance/UI-TARS-desktop	0.85	npm i -g @agent-tars/cli
+SuperhumanGo	SKILL	YOK			
+Tactiq	SKILL	YOK			
+TeX Live	PAKET	DOGRULANDI	gh:TeX-Live/texlive-source	0.8	install-tl-windows.exe (tug.org)
+Triton	PAKET	DOGRULANDI	gh:triton-lang/triton	0.8	pip triton (Linux); Windows: pip triton-windows (3. parti)
+Trivy	CLI	DOGRULANDI	gh:aquasecurity/trivy	0.95	win-x64 release (windows-64bit.zip)
+UGC skill	SKILL	YOK			
+Valkey	CLI	DOGRULANDI	gh:valkey-io/valkey	0.85	kaynak derleme/docker; Windows yok (WSL)
+Vale	CLI	DOGRULANDI	gh:vale-cli/vale	0.7	win release zip
+UIAutomator	CLI	YOK			
+Visual Skill	SKILL	YOK		0	
+UX/UI Agent	SKILL	DOGRULANDI	gh:plugin87/ux-ui-agent-skills	0.85	skill klon
+Webwright	CLI	DOGRULANDI	gh:microsoft/webwright	0.85	pip/uv (artik CUAWright adi)
+Whisker	CLI	DOGRULANDI	gh:pipecat-ai/whisker	0.9	pip (pipecat-ai-whisker)
+Wifite	CLI	DOGRULANDI	gh:derv82/wifite2	0.7	Linux-only; klon+python
+Willow	SKILL	YOK			
+Wrap-up skill	SKILL	YOK		0	
+YARA	CLI	DOGRULANDI	gh:VirusTotal/yara	0.9	release zip/kaynak derleme
+YouTube Scraper	CLI	YOK			
+YouTubeSummary	SKILL	YOK		0	
+YouTube AI Agent Studio	SKILL	YOK		0	
+YourSenior	SKILL	YOK		0	 
+Wondelai Skills	SKILL	DOGRULANDI	gh:wondelai/skills	0.9	skill klon
+Zapler	CLI	YOK			
+a_domain_deep_research_agent	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.85	klon; alt dizin ai_domain_deep_research_agent
+agency-agents (msitarzewski/agency-agents)	CLI	DOGRULANDI	gh:msitarzewski/agency-agents	0.95	klon + cp division
+ad generator skill	SKILL	YOK		0	
+add_camera	SKILL	YOK			
+apify/instagram-scraper	CLI	YOK			
+anti-ai-slop-writing	SKILL	DOGRULANDI	gh:jalaalrd/anti-ai-slop-writing	0.85	skill klon (skills/anti-ai-slop-writing)
+ai-research-analyst	SKILL	YOK		0	
+ad-promper	SKILL	YOK			
+aircrack-ng	CLI	DOGRULANDI	gh:aircrack-ng/aircrack-ng	0.9	win zip/kaynak; adaptor sinirli
+apktool	CLI	DOGRULANDI	gh:iBotPeaches/Apktool	0.95	jar + win wrapper
+article-extractor	SKILL	DOGRULANDI	gh:michalparkola/tapestry-skills-for-claude-code	0.8	skill klon (article-extractor)
+aria2	CLI	DOGRULANDI	gh:aria2/aria2	0.9	win-64bit release zip
+axe	CLI	YOK		0.3	
+backend-engineer	SKILL	YOK		0	
+aqi_analysis_agent	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.85	klon; alt dizin ai_aqi_analysis_agent
+baoyu-design	SKILL	DOGRULANDI	gh:JimLiu/baoyu-design	0.9	skill klon
+boykopovar/AnyPs5	CLI	DOGRULANDI	gh:boykopovar/AnyPS5	0.8	kaynak derleme (C++)
+claude --version	SKILL	YOK			
+claude scan	SKILL	YOK		0	
+caffeinate	CLI	YOK			
+binwalk	CLI	DOGRULANDI	gh:ReFirmLabs/binwalk	0.9	cargo install; Linux oncelikli, Windows sinirli
+bilawalsidhu/godseyeview	CLI	DOGRULANDI	gh:bilawalsidhu/gods-eye-view	0.8	klon
+claude-skils	SKILL	YOK		0	 
+claude-trace	SKILL	DOGRULANDI	npm:@mariozechner/claude-trace	0.85	npm i -g @mariozechner/claude-trace
+cline-settings	CLI	YOK			
+codesign	CLI	YOK			
+comfy-reshoot	CLI	DOGRULANDI	gh:Comfy-Org/comfy-reshoot	0.9	klon + ComfyUI
+codex-computer-use	SKILL	DOGRULANDI	gh:Ankitrai97/rai-claude-mods	0.7	plugin marketplace (plugins/codex-computer-use)
+codex/openai-codex	SKILL	DOGRULANDI	gh:openai/codex-plugin-cc	0.8	plugin marketplace add openai/codex-plugin-cc
+competitive-ads-extract	SKILL	DOGRULANDI	gh:ComposioHQ/awesome-claude-skills	0.8	skill klon (competitive-ads-extractor)
+compass/crawler-google-places	CLI	YOK			
+earthtojake/text-to-cad	SKILL	DOGRULANDI	gh:earthtojake/text-to-cad	0.95	skill/klon
+delegate_task	SKILL	YOK			
+dnf	CLI	DOGRULANDI	gh:rpm-software-management/dnf	0.9	Linux-only (Fedora/RHEL); Windows yok
+export_scene	CLI	YOK		0.9	
+defending-code-reference-harnes	CLI	DOGRULANDI	gh:anthropics/defending-code-reference-harness	0.9	skill klon
+fakeroot	CLI	YOK		0	
+feder-cr/dots	CLI	YOK		0	
+firecrawl/firecrawl-workflows	CLI	DOGRULANDI	gh:firecrawl/firecrawl-workflows	0.95	skill klon
+firecrawl/anydoc	CLI	DOGRULANDI	gh:firecrawl/anydoc	0.95	npm i @firecrawl/anydoc / pip firecrawl-anydoc
+finance:financial-modeling	SKILL	YOK		0	
+fixai	SKILL	DOGRULANDI	gh:pratikmishra356/fixai	0.4	repo klonla (FastAPI/LangGraph)
+founder-skills	SKILL	DOGRULANDI	gh:ognjengt/founder-skills	0.8	skill klon
+fastfind	CLI	YOK		0	
+friday-brief	SKILL	YOK		0.1	
+godot-2d-movement	CLI	YOK		0	
+godot-tilemap	CLI	YOK		0	
+gVisor	CLI	DOGRULANDI	gh:google/gvisor	0.9	Linux runsc release; Windows disi
+gan-planner	SKILL	DOGRULANDI	gh:affaan-m/everything-claude-code	0.9	ECC agents/gan-planner.md (claude plugin/ECC kurulumu)
+golive-skill	SKILL	DOGRULANDI	gh:mikehasa/golive-skill	0.95	skill klon + node CLI
+harness2-demo	CLI	DOGRULANDI	gh:joesaas/harness2-demo	0.8	git klon
+graphify --obsidian	CLI	YOK		0.8	
+hbot CLI	CLI	DOGRULANDI	gh:hummingbot/hummingbot	0.6	pip/docker, README
+head	CLI	YOK		0.95	
+hook-arsenal	CLI	YOK		0	
+hookify	CLI	DOGRULANDI	gh:anthropics/claude-plugins-official	0.85	/plugin install hookify@claude-plugins-official
+hubbench	CLI	YOK		0	
+helm	CLI	DOGRULANDI	gh:helm/helm	0.95	win-x64 release / winget
+huashu-design	SKILL	DOGRULANDI	gh:alchaincyf/huashu-design	0.9	skill klon
+ian-xiaohei-illustrations	SKILL	DOGRULANDI	gh:helloianneo/ian-xiaohei-illustrations	0.95	skill klon
+human IK	SKILL	YOK		0.8	
+codspeed	CLI	DOGRULANDI	gh:CodSpeedHQ/codspeed	0.85	curl installer (Linux/Debian); Windows desteksiz
+infographic	SKILL	DOGRULANDI	gh:antvis/Infographic	0.7	repo skills/infographic-creator kopyala
+investment-banking	SKILL	YOK		0.2	
+invoice-parse	SKILL	YOK		0.6	
+invideo Agent	SKILL	YOK		0.85	
+kodeks	CLI	DOGRULANDI	npm:@dirstack/kodeks	0.5	npm i -D @dirstack/kodeks
+kubectl	CLI	DOGRULANDI	gh:kubernetes/kubernetes	0.9	win-x64 release / winget
+log-parse	CLI	YOK		0.6	
+letta-ai/claude-subconscious	SKILL	DOGRULANDI	gh:letta-ai/claude-subconscious	0.95	plugin / npm
+llmtrim	CLI	DOGRULANDI	gh:fkiene/llmtrim	0.9	pip/npm / release
+linkedin-automator	CLI	DOGRULANDI	gh:charlesdove977/linkedin-automator	0.85	skill klon
+margin-analyzer	CLI	DOGRULANDI	gh:tuffy-xie/margin-analyzer	0.4	repo klonla; yerel servis
+mattgierhart/PRD-driven-context-engineering	CLI	DOGRULANDI	gh:mattgierhart/PRD-driven-context-engineering	0.95	git klon
+mempalace	CLI	DOGRULANDI	gh:MemPalace/mempalace	0.95	pip
+mkdir	CLI	YOK		0.95	
+mChat	SKILL	YOK		0	 
+mmBERT-base	PAKET	DOGRULANDI	hf:jhu-clsp/mmBERT-base	0.9	hf snapshot
+mortulo/rea	CLI	DOGRULANDI	gh:morluto/rea	0.85	git klon / MCP
+nextlevelbuilder/ui-ux-pro-max-skill	SKILL	DOGRULANDI	gh:nextlevelbuilder/ui-ux-pro-max-skill	0.95	skill klon
+node --test	CLI	YOK		0.95	
+networksetup	CLI	YOK		0.9	
+nvm-windows	CLI	DOGRULANDI	gh:coreybutler/nvm-windows	0.95	win installer / winget
+not taker	SKILL	YOK		0.6	
+nvm	CLI	DOGRULANDI	gh:nvm-sh/nvm	0.7	POSIX kabuk; Windows icin nvm-windows
+nxcode	CLI	YOK		0.75	
+nmap	CLI	DOGRULANDI	gh:nmap/nmap	0.95	win-x64 installer
+oh-my-openagent	SKILL	DOGRULANDI	gh:code-yeongyu/oh-my-openagent	0.9	npm / plugin
+openrouter-balance	SKILL	YOK		0.55	
+pacman	CLI	YOK		0.8	
+otool	CLI	YOK		0.9	
+paru	CLI	DOGRULANDI	gh:Morganamilo/paru	0.9	Arch Linux AUR; Windows'ta kurulamaz
+pbcopy	CLI	YOK		0.9	
+pgnx	PAKET	DOGRULANDI	npm:pgnx	0.8	npm i pgnx
+pi harness	SKILL	YOK			
+openssl	CLI	DOGRULANDI	gh:openssl/openssl	0.95	win-x64 installer / winget
+oMLX	PAKET	DOGRULANDI	gh:jundot/omlx	0.9	macOS-only (Apple Silicon)
+product visual skill	SKILL	YOK		0.2	
+reel-factory	SKILL	DOGRULANDI	gh:Shaan-alpha/AI-Reel-Factory	0.5	klon, Telegram /makeshort
+remotion-dev/skills	SKILL	DOGRULANDI	gh:remotion-dev/skills	0.9	skill klon
+reaver	CLI	YOK		0	
+requestVideoFrameCallback	SKILL	YOK		0.9	
+rendercv-skill	SKILL	DOGRULANDI	gh:rendercv/rendercv-skill	0.85	skill klon
+scope-guard	CLI	DOGRULANDI	gh:YeonwooSung/my-claude-code-mods	0.8	claude plugin marketplace add YeonwooSung/my-claude-code-mods; scope-guard/ alt eklentisi
+scrum-sage	CLI	DOGRULANDI	gh:codegeekyyy/ScrumSage	0.4	repo klonla
+skill	SKILL	YOK		0	
+rtmpdump	CLI	DOGRULANDI	gh:mstorsjo/rtmpdump	0.8	win binary/kaynak derleme
+social agents	SKILL	YOK		0	
+soma build	CLI	YOK		0.7	
+soma analyze	CLI	YOK		0.7	
+social-research	SKILL	YOK		0.3	
+sound engine	PAKET	YOK		0	 
+soma render	CLI	YOK		0.6	
+storytold/artcraft	CLI	DOGRULANDI	gh:storytold/artcraft	0.8	win-x64 release / kaynak (Rust)
+static-ad-generator	SKILL	YOK		0	
+sports	SKILL	YOK		0	
+standup-summary	SKILL	YOK		0	
+superlite	PAKET	DOGRULANDI	gh:iha2/superlite	0.7	claude plugin klon
+sudo	CLI	DOGRULANDI	gh:microsoft/sudo	0.9	win release / winget (Windows sudo)
+support agent plugin	SKILL	YOK		0	
+tar	CLI	YOK		0	
+systemd	CLI	YOK		0.9	
+tinyagents	SKILL	DOGRULANDI	gh:tinyhumansai/tinyagents	0.75	cargo/kaynak
+twentyhq/twenty	CLI	DOGRULANDI	gh:twentyhq/twenty	0.9	docker compose
+tshark	CLI	DOGRULANDI	gh:wireshark/wireshark	0.8	win installer (tshark dahil)
+tutor-skills	SKILL	DOGRULANDI	gh:bevibing/tutor-skills	0.9	skill klon / npx skills add
+voice-dna-builder	SKILL	DOGRULANDI	gh:ponomr/voice-dna-builder	0.85	skill klon
+whatsapp-rust	CLI	DOGRULANDI	gh:oxidezap/whatsapp-rust	0.75	cargo
+wshobson	CLI	YOK		0.8	
+vinzdg/codenotch	CLI	YOK		0.9	
+where-am-i	SKILL	YOK		0.9	
+whatweb	CLI	DOGRULANDI	gh:urbanadventurer/WhatWeb	0.85	ruby gem/kaynak
+xAI Finance Agent	SKILL	YOK		0	
+xKiro	SKILL	YOK		0.7	
+xattr	CLI	YOK		0.8	
+yay	CLI	YOK		0.9	
+youtube-skills	SKILL	DOGRULANDI	gh:Jakeschincariol/youtube-agent-skill	0.5	repo skills klasorunu .claude/skills a kopyala
+zstd	CLI	DOGRULANDI	gh:facebook/zstd	0.9	win-x64 release
+youtube-dl	CLI	DOGRULANDI	gh:ytdl-org/youtube-dl	0.9	pip/exe release
+Anthropic finance agents	SKILL	DOGRULANDI	gh:anthropics/financial-services	0.9	Cowork plugin veya Managed Agents API (kurulmadi)
+Antigravity SDK	PAKET	DOGRULANDI	gh:google-antigravity/antigravity-sdk-python	0.9	pip install google-antigravity
+21st Day MCP Connector	SKILL	DOGRULANDI	npm:@21st-dev/cli	0.7	npx @21st-dev/cli
+21st Dev MCP	SKILL	DOGRULANDI	npm:@21st-dev/cli	0.85	npx @21st-dev/cli init
+21st MCP	SKILL	DOGRULANDI	npm:@21st-dev/cli	0.85	npx @21st-dev/cli init
+30s Token Tax Calculator	SKILL	YOK		0	
+3D Property Configurator	SKILL	YOK		0	
+3DNFTGenerator	CLI	YOK		0	
+88Plugins	SKILL	YOK		0.8	
+@pletor_ai MCP	SKILL	YOK		0	
+AARMATURE	SKILL	YOK		0	
+AI Home Renovation Agent with NanoBanana	SKILL	YOK		0	
+AI Hormozi Skill	SKILL	YOK		0	
+AI Host+ Order Agent	SKILL	YOK		0	
+AI Movie Generator Agent (Browser)	SKILL	YOK		0	
+AI Ops + Reporting Agent	SKILL	YOK		0	
+AI Retention + Sales Agent	SKILL	YOK		0	
+AI Service Advisor Agent	SKILL	YOK		0	
+AI Travel Agent (Local & Cloud)	SKILL	DOGRULANDI	gh:nirbar1985/ai-travel-agent	0.6	repo klonla; LangGraph agent, local/cloud
+AI Video & Carousel Generator	SKILL	YOK		0	
+AI-UGC Skill	SKILL	YOK		0	
+AIStoryAgent	CLI	YOK		0	
+API Authorization Chaos Tester	CLI	YOK		0	
+AWK	CLI	YOK			
+AccuPOSE	CLI	YOK		0.8	
+Ad Generator (/ad-generator)	SKILL	YOK		0	
+Ad Hook Analyzer	SKILL	YOK		0	
+Add Zooms	SKILL	YOK		0	 
+Addy Osmani Skills	SKILL	DOGRULANDI	gh:addyosmani/agent-skills	0.8	skill klon
+Adobe for Claude	SKILL	YOK			
+Advisor (/advisor)	SKILL	YOK		0	
+Agent 327 Animation Toolset	SKILL	YOK		0	
+Agent Booster·WASM	CLI	DOGRULANDI	npm:agent-booster	0.85	npm i -g
+Agent CLI	CLI	YOK		0.3	
+Agent Client	CLI	DOGRULANDI	gh:agentclientprotocol/agent-client-protocol	0.6	ACP SDK/protokol
+Agent Skill OnenClaw	SKILL	YOK		0	
+All Agents Pack	SKILL	YOK		0	
+Alloc	CLI	YOK		0	
+Apple Intelligence	SKILL	YOK			
+Apple tasarım dili skill'i	SKILL	YOK		0	 
+Apps Script	SKILL	YOK		0	
+Archivist	CLI	YOK		0	
+Area Insights Agent	SKILL	YOK		0	
+Ask Gemini	SKILL	YOK			
+AskDeepWiki	SKILL	YOK			
+Astros	MODEL	YOK		0	
+Audio Overview	SKILL	YOK			
+Aurelio	MODEL	YOK			
+Auto-Router	SKILL	YOK			
+BU Bench	CLI	DOGRULANDI	gh:browser-use/benchmark	0.85	git klon
+Backtest Engine	CLI	YOK		0	
+Base MCP	SKILL	DOGRULANDI	gh:base/base-mcp	0.6	repo README MCP yapilandirma
+BlackboxAI	CLI	YOK			
+Blast Radius	MODEL	YOK		0	
+BlendSwap MCP	SKILL	YOK		0	
+Blender MCP add-on	SKILL	DOGRULANDI	gh:ahujasid/blender-mcp	0.85	git klon + addon.py
+BlitzReels	SKILL	YOK			
+Build-Write the code	SKILL	YOK			
+Built-in Assistant	SKILL	YOK			
+Buzzy MCP	SKILL	YOK		0	
+CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS	SKILL	YOK			
+CLAUOECODE	SKILL	YOK			
+CLI Tool	CLI	YOK			
+CLI-Hub	CLI	DOGRULANDI	gh:HKUDS/CLI-Anything	0.85	pip/klon (cli-hub)
+CMD	CLI	YOK			
+CTA Strategist	SKILL	YOK		0	
+Cal	SKILL	YOK		0.2	
+Campaign Launcher OSS	CLI	YOK		0	
+Carousels skill	SKILL	YOK		0	
+Cascager	CLI	YOK		0	
+Chachapetit	MODEL	YOK			
+ChachiBT	MODEL	YOK			
+Chart generation skill	SKILL	YOK		0	 
+Chat Mode	SKILL	YOK			
+Chat with Research Papers (ArXiv)	SKILL	DOGRULANDI	gh:Shubhamsaboo/awesome-llm-apps	0.5	klon; advanced_llm_apps/chat_with_X_tutorials/chat_with_research_papers
+ChatDev 1.0 (Legacy)	SKILL	DOGRULANDI	gh:OpenBMB/ChatDev	0.85	git klon branch chatdev1.0
+ChatGPT 5.2	MODEL	YOK			
+ChatGPT Astra	MODEL	YOK			
+ChatGPT Codex	MODEL	YOK			
+ChatGPT Work Mode	SKILL	YOK			
+ChatGPT agent modu	SKILL	YOK			
+ChatGPT image	SKILL	YOK			
+ChatGPT-01	MODEL	YOK			
+ChatPlace MCP	SKILL	YOK		0	
+Chocolatey	CLI	DOGRULANDI	gh:chocolatey/choco	0.9	choco install (win)
+Claude Animate Like a Studio	SKILL	YOK			
+Claude Blog (claude-blog)	SKILL	DOGRULANDI	gh:AgriciDaniel/claude-blog	0.9	skill klon
+Claude Cleans Your Downloads	SKILL	YOK			
+Claude Code Setup Plugin	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.9	plugin marketplace (plugins/claude-code-setup)
+Claude Code kurulumu (resmi Anthropic eklentisi)	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.8	/plugin install claude-code-setup@claude-plugins-official
+Claude Code plugin marketplace	SKILL	YOK			
+Claude Code skill · 59 film styles	SKILL	YOK		0	
+Claude Code v1.0.21	SKILL	YOK			
+Claude Code v2.1.175	SKILL	YOK			
+Claude Code v2.1.299	SKILL	YOK			
+Claude Code v2.1.384	SKILL	YOK			
+Claude Code v2.1.71	SKILL	DOGRULANDI	gh:anthropics/claude-code	0.9	npm i -g @anthropic-ai/claude-code
+Claude Codex	SKILL	YOK		0	
+Claude Cowork plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.6	Cowork plugin marketplace ekle
+Claude Director skill	SKILL	DOGRULANDI	gh:wuwangzhang1216/DirectorSKILL	0.8	git clone; skill kopyala
+Claude Fable 5.1	SKILL	YOK		0	
+Claude Harnesses	SKILL	YOK		0	-
+Claude Otomasyonlari	SKILL	YOK		0	-
+Claude SEO (claude-seo)	SKILL	DOGRULANDI	gh:AgriciDaniel/claude-seo	0.95	skill/plugin klon
+Claude Science	SKILL	YOK		0	-
+Claude Skills System	SKILL	YOK		0	-
+Claw Code Router	CLI	YOK		0	
+Clawdbot	CLI	DOGRULANDI	gh:openclaw/openclaw	0.85	npm i -g openclaw / release
+Clawdbot (Moltbot)	CLI	DOGRULANDI	gh:openclaw/openclaw	0.85	npm i -g openclaw / release
+Clawed Code Setup	CLI	DOGRULANDI	gh:anthropics/claude-plugins-official	0.6	/plugin install claude-code-setup
+Clean 3.0	MODEL	YOK		0	-
+Clink 4.0	CLI	YOK		0	-
+Cloud Code Agent	SKILL	YOK		0	-
+Cloud Code MCP	SKILL	YOK		0	-
+Cloudflare AI security skill	SKILL	YOK		0	
+Codeium	SKILL	YOK		0	-
+CogVideoX-1.5	MODEL	MODEL-BEKLE	hf:zai-org/CogVideoX1.5-5B	0.9	28.9 GB; Omer karari: yerel/buyuk model simdilik YOK
+Color.review	SKILL	YOK		0	-
+CometAssistant	SKILL	YOK		0	-
+Command Prompt (cmd)	CLI	YOK		0	-
+Comment Replier	SKILL	YOK		0	
+CommentDrafter	SKILL	YOK		0	
+Commercial Legal plugin	SKILL	YOK		0	
+ConmentDrafter	SKILL	YOK		0	
+Connectors (Claude Settings)	SKILL	YOK		0	-
+Console	CLI	YOK		0	
+Copilot	SKILL	YOK		0	-
+Corporate Legal plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.6	legal/ plugin klasoru
+Creative-Ad Skill	SKILL	DOGRULANDI	gh:hoangngocanh2407/creative-ads-skill-layer	0.7	git clone; skill/MCP kopyala
+Credit memo writer	SKILL	YOK		0	
+CrewAI AMP Suite	CLI	YOK		0	-
+CrewAI Control Plane	CLI	YOK		0	-
+CrewControl Plane	CLI	YOK		0	-
+Cross AI Transition System	SKILL	YOK		0	
+Cross-Poster	SKILL	YOK		0	 
+Crypto trading bot	SKILL	YOK		0	-
+Current Directive	SKILL	YOK		0	-
+CursorAI	SKILL	YOK		0	-
+Custom Connector	SKILL	YOK		0	-
+Custom GPT	SKILL	YOK		0	-
+CybersecuritySkillsRouter	SKILL	YOK		0	
+Cycles	MODEL	YOK		0	-
+Data Analyst	SKILL	YOK		0	
+Data plugin (Data Analyst)	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin marketplace add; data/
+DataviewJS	PAKET	DOGRULANDI	gh:blacksmithgu/obsidian-dataview	0.6	Obsidian topluluk eklentisi Dataview
+Define-Clarify	SKILL	YOK		0	
+Deja Memory	SKILL	YOK		0	
+Developer Tools	CLI	YOK		0	-
+Devin	SKILL	YOK		0	-
+Devin CLI	CLI	DOGRULANDI	gh:CognitionAI/devin-cli	0.7	resmi kurulum betigi (README)
+Director Skill	SKILL	DOGRULANDI	gh:wuwangzhang1216/DirectorSKILL	0.75	skill klon
+Editor agent	SKILL	YOK		0	
+Editorial Motion Graphics Skill	SKILL	YOK		0	
+EdlithePDF	CLI	YOK		0	
+Eevee	MODEL	YOK		0	-
+Eloquent	PAKET	YOK		0	
+Em2	MODEL	YOK		0	-
+Email Voice	SKILL	YOK		0	
+Email Voice skill	SKILL	YOK		0	
+Encode	PAKET	YOK		0	 
+Enidend MCP server	SKILL	YOK		0	
+Eval for LinkedIn	SKILL	YOK		0	
+Everything Claw Code	SKILL	DOGRULANDI	gh:affaan-m/everything-claude-code	0.7	plugin/repo kurulumu README
+Evidence dialogue	SKILL	YOK		0	-
+Execute Command	SKILL	YOK		0	-
+Execute Workflow Trigger	SKILL	YOK		0	-
+Exit	SKILL	YOK		0	-
+Exploit Agent	SKILL	YOK		0	-
+Expo official skills	SKILL	DOGRULANDI	gh:expo/skills	0.95	skill klon
+Eye MoCap	SKILL	YOK		0	
+F12	CLI	YOK		0	-
+F2	SKILL	YOK		0	-
+FILM	SKILL	DOGRULANDI	gh:google-research/frame-interpolation	0.75	git klon + pip
+FIX API	SKILL	YOK		0	-
+Fable Prompt (/fable)	SKILL	YOK		0	
+FablePrompter	SKILL	YOK		0	
+Factory Droid	SKILL	YOK		0	-
+FakeResolveEnricher	SKILL	YOK		0	-
+FakeSubdomainEnricher	SKILL	YOK		0	-
+Figma Design Partner	SKILL	YOK		0	-
+Figma Make	SKILL	YOK		0	-
+Figma Weave	SKILL	YOK		0	-
+FilmCraft CLI	CLI	DOGRULANDI	gh:storytold/filmcraft	0.75	git clone; CLI/MCP kurulum
+Fin	SKILL	YOK		0	-
+Finance Plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin klon (finance/ klasoru)
+Finance eklentisi	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.75	plugin klon (finance/ klasoru)
+Finance plugin (Finance Guy)	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin marketplace add; finance/
+Finegrain Image Enhancer	PAKET	DOGRULANDI	hf:finegrain/finegrain-image-enhancer	0.7	HF Space git klon (gradio, refiners)
+FingerprintChromium	CLI	DOGRULANDI	gh:adryfish/fingerprint-chromium	0.8	win-x64 release
+Finnh	SKILL	YOK		0	
+Firebase Skill	SKILL	DOGRULANDI	gh:firebase/agent-skills	0.85	skill klon
+Firecrawl MCP	SKILL	DOGRULANDI	gh:firecrawl/firecrawl-mcp-server	0.95	npx firecrawl-mcp (API anahtari)
+Firecrawl MCP Server	SKILL	DOGRULANDI	gh:firecrawl/firecrawl-mcp-server	0.95	npx firecrawl-mcp (API anahtari)
+FireredASR	MODEL	MODEL-BEKLE	hf:FireRedTeam/FireRedASR-AED-L	0.9	4.4 GB; Omer karari: yerel/buyuk model simdilik YOK
+Fireworks	MODEL	YOK		0	-
+Fish Audio	CLI	DOGRULANDI	gh:fishaudio/fish-speech	0.6	pip/uv ile repo README
+Flourish	MODEL	YOK		0	-
+FlowMind	SKILL	YOK		0	
+Fluid-1 Mini	MODEL	YOK		0	
+Fluid-1 Pico	MODEL	YOK		0	
+Flux	MODEL	MODEL-BEKLE	hf:black-forest-labs/FLUX.1-schnell	0.85	53.9 GB; Omer karari: yerel/buyuk model simdilik YOK
+Flux 3 Max	MODEL	YOK		0	
+Flux Kontext	SKILL	DOGRULANDI	hf:black-forest-labs/FLUX.1-Kontext-dev	0.9	hf snapshot (ComfyUI/diffusers); dev lisansi non-commercial
+Forever	CLI	DOGRULANDI	npm:forever	0.85	npm i -g forever
+Forgejo	CLI	YOK		0.2	
+GL Reconciler	CLI	YOK		0	
+GNU make	CLI	DOGRULANDI		0.8	winget/choco make (ezwinports)
+GOATBOTX	SKILL	YOK		0	-
+GPT	MODEL	YOK		0	-
+GPT 5.5	MODEL	YOK		0	-
+GPT Sol 5.6 ultra	SKILL	YOK		0	
+GPT-3	MODEL	YOK		0	-
+GPT-3.5	MODEL	YOK		0	-
+GPT-4	MODEL	YOK		0	-
+GPT-4.1-nano	MODEL	YOK		0	-
+GPT-4.5	MODEL	YOK		0	-
+GPT-5 Thinking	MODEL	YOK		0	-
+GPT-5.2	MODEL	YOK		0	-
+GPT-5.6-Soll	MODEL	YOK		0	 
+GPT-6	MODEL	YOK		0	
+GPT-6 Astra	MODEL	YOK		0	
+GPT-6-Sol	MODEL	YOK		0	
+GPT-6.1	MODEL	YOK		0	 
+GPT-7	MODEL	YOK		0	
+GPTs	SKILL	YOK		0	-
+GUT	MODEL	MODEL-BEKLE	gh:bitwes/Gut	0.7	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Gaia Multi-Agent AI	SKILL	YOK		0	
+Gemini 1.5 Pro	MODEL	YOK		0	-
+Gemini 2.0 Flash-Lite	MODEL	YOK		0	-
+Gemini 2.5 Flash Preview 04-17	MODEL	YOK		0	-
+Gemini 2.5 Flash TTS	MODEL	YOK			
+Gemini 2.5 Flash-Lite Preview 06-17	MODEL	YOK			
+Gemini 3	MODEL	YOK			
+Gemini 3.1 Flash TTS	MODEL	YOK			
+Gemini 4	MODEL	YOK			
+Gemini Advanced	MODEL	YOK			
+Gemini Live	SKILL	YOK			
+GetFigma Plugin	SKILL	YOK		0	
+Git Worktree	CLI	YOK			
+GitHub Copilot	SKILL	YOK			
+GitHub Copilot CLI	CLI	DOGRULANDI	npm:@github/copilot	0.9	npm i -g @github/copilot
+GitHub Copilot Chat	SKILL	YOK			
+Glob	CLI	YOK		0	
+Google AI Overview	SKILL	YOK			
+Google Agent Substrate	SKILL	YOK		0	
+Google Apps Script	SKILL	YOK			
+Google Cloud CLI	CLI	YOK			
+Google PageSpeed	CLI	YOK			
+Grog	MODEL	YOK			
+GrokBot (XAI)	SKILL	YOK			
+HR plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.7	human-resources/ plugin klasoru
+HackRF One	CLI	YOK		0.3	
+Hackathon AI Strategist	SKILL	YOK			
+Hailuo MiniMax H3	MODEL	YOK		0	
+Headless browser	CLI	YOK			
+Hero Section	SKILL	YOK			
+HeyGen AV5	MODEL	YOK			
+HeyGen Brand System	SKILL	YOK			
+Hi3D3.0	MODEL	YOK		0	
+Higgs	SKILL	YOK		0	
+Higgsfield CLI	CLI	YOK		0	
+High Quality Shader	SKILL	YOK		0	
+Hiring packet builder	SKILL	YOK			
+Hook Analyst	SKILL	YOK			
+HookExtractor	CLI	YOK		0	
+IK Retargeter	SKILL	YOK			
+Interactive Assets Skill	SKILL	YOK			
+Kafka	CLI	DOGRULANDI	gh:apache/kafka	0.9	release indir (JVM) / docker
+Kilo Code	SKILL	DOGRULANDI	gh:Kilo-Org/kilocode	0.85	VS Code eklentisi / npm CLI
+Kim Barrett suite.skill	SKILL	YOK		0	
+Kiro CLI	CLI	YOK			
+Kling AI Skills	SKILL	DOGRULANDI	gh:wangdinwei/kling-ai-skills	0.8	skills klasorunu ~/.claude/skills'e kopyala; KLING_ACCESS_KEY gerekir
+Laravel Boost	PAKET	DOGRULANDI	gh:laravel/boost	0.95	composer require laravel/boost --dev
+Legal Plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	/plugin marketplace add anthropics/knowledge-work-plugins; legal eklentisi
+Legal plugin (Lawyer)	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.7	legal/ plugin klasoru
+LinkedIn Agent Scale	SKILL	YOK		0	
+LinkedIn ekibi	SKILL	YOK			
+Lint	CLI	DOGRULANDI	npm:@shadcn/lint	0.9	npm i -D @shadcn/lint (kurulmadi)
+Local MCP Bridge	SKILL	YOK		0	
+Local REST API with MCP	SKILL	DOGRULANDI	gh:coddingtonbear/obsidian-local-rest-api	0.85	Obsidian eklenti magazasi/klon
+LocalAI	MODEL	MODEL-BEKLE	gh:mudler/LocalAI	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Logcat	CLI	YOK			
+Lovart Interactive Assets skill	SKILL	YOK			
+MCP Client	CLI	YOK			
+MCP server	CLI	YOK			
+MCP sunucusu	SKILL	YOK			
+MLSharp	PAKET	DOGRULANDI	gh:apple/ml-sharp	0.7	git clone; pip install -r requirements
+MagicaVoxel	MODEL	YOK		0	
+Magnific Agents	SKILL	YOK			
+Makefile	CLI	YOK			
+Makefile (make)	CLI	YOK			
+Managed Agents	SKILL	YOK			
+Manus 1.6	MODEL	YOK			
+Manus 1.8 Lite	MODEL	YOK			
+ManusAuth	SKILL	YOK			
+ManyMotions	MODEL	YOK			
+Marble	MODEL	YOK			
+Market Researcher	SKILL	YOK		0	
+Marketing Skills for AI Agents	SKILL	DOGRULANDI	gh:coreyhaines31/marketingskills	0.85	skill klon
+Marketing plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin marketplace add; marketing/
+MasterClaudeCode	SKILL	YOK		0	
+Matt Pocock skills repo	SKILL	DOGRULANDI	gh:mattpocock/skills	0.95	skill klon
+Mempalus	PAKET	DOGRULANDI	gh:MemPalace/mempalace	0.55	pip install mempalace
+Meta AI Connectors	SKILL	YOK		0	
+Meta Ads AI Connectors	SKILL	YOK		0	
+Meta Muse	SKILL	YOK		0	
+Meta resmi MCP	SKILL	YOK		0	
+Microsoft Copilot	SKILL	YOK		0	
+Mod Skill	SKILL	YOK		0	
+Moo Moo AI Novel	SKILL	YOK			
+Mortiflix particle engine	MODEL	MODEL-BEKLE	gh:GTKottman/mortiflix-oss	0.6	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Motion Correction	CLI	YOK		0	 
+MuMu AI Novel	SKILL	YOK		0	
+Muse	SKILL	YOK		0	
+Muse Code	SKILL	YOK		0	
+My All Agents Pack	SKILL	YOK		0	
+Mzero Recall	SKILL	YOK		0	
+NSIS	CLI	YOK		0	
+Name That Vibe	SKILL	YOK		0	
+Nanobot	MODEL	MODEL-BEKLE	gh:HKUDS/nanobot	0.6	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Needle devtools	CLI	YOK			
+Notebook Elem	SKILL	YOK		0	
+Nurse's AI Floor	SKILL	YOK		0	
+Official Anthropic Skill Pack	SKILL	DOGRULANDI	gh:anthropics/skills	0.85	skill klon
+Official GSAP Skills	SKILL	DOGRULANDI	gh:greensock/gsap-skills	0.95	skill klon
+Official Marketing Plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	/plugin marketplace add anthropics/knowledge-work-plugins
+OkcarosInstaller	CLI	YOK		0	
+Omni Reference	SKILL	YOK		0	
+One Skill	SKILL	YOK		0	
+Ootto Autopilot	SKILL	YOK		0	
+Ootto Content Skills	SKILL	YOK		0	
+Open Alternative Jev	MODEL	MODEL-BEKLE	gh:ikermoel/open-alternative-jev	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Open SEO Skills	SKILL	YOK		0	
+Open-source agent tools	SKILL	YOK		0	
+OpenAI Chat Model	MODEL	YOK		0	
+OpenAI Codex	MODEL	MODEL-BEKLE	gh:openai/codex	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+OpenAI agent manager	SKILL	YOK		0	
+OpenVoice V1	MODEL	MODEL-BEKLE	gh:myshell-ai/OpenVoice	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Optic Lab FX	MODEL	YOK		0	
+Optimizer4.8	PAKET	YOK		0	
+Opus 5.5 MotionLab	MODEL	YOK		0	
+Opus 5.5 x Roblox	MODEL	YOK		0	
+Opus 5.5.Claude Max	MODEL	YOK		0	
+OpusClip	CLI	YOK		0	
+Orby	SKILL	YOK		0	
+Orchestrator.inc (agent-orchestrator)	CLI	DOGRULANDI	gh:OrchestratorInc/agent-orchestrator	0.85	desktop release (win-x64) / klon
+Osaurus	CLI	DOGRULANDI	gh:osaurus-ai/osaurus	0.8	macOS-only
+Oto-değerlendirme (self-evaluate)	SKILL	YOK		0	
+Overage	MODEL	YOK		0	
+Overflow	CLI	YOK		0	
+Overmind CLI	CLI	YOK		0	
+Owen	SKILL	YOK		0	
+Owkin	MODEL	YOK		0	
+Own_reasoning_model_with_GRPO	SKILL	YOK		0	
+Oxfmt	CLI	DOGRULANDI	npm:oxfmt	0.85	npm i -g oxfmt
+PS1	CLI	YOK		0	
+PandaAi	SKILL	YOK		0	
+Paper-Cut Skill	SKILL	YOK		0	
+Paralel alt ajanlar (sub-agents)	SKILL	YOK		0	
+Param-shankar/Hiervue-Al-Interviewer	SKILL	YOK		0	
+Personal Agent Proxy	SKILL	DOGRULANDI	gh:personalagentproxy/proxy	0.9	self-host klon
+Pipecat Skills	SKILL	DOGRULANDI	gh:pipecat-ai/skills	0.8	plugin marketplace veya repo klonla
+Plan-Break it down	SKILL	YOK		0	
+Play policy skill	SKILL	YOK		0	
+Playtor Creative Agent	SKILL	YOK		0	
+Playwright MCP (playwright-mcp)	SKILL	DOGRULANDI	gh:microsoft/playwright-mcp	0.95	npx @playwright/mcp / mcp add
+Pletor Creative Agent	SKILL	YOK		0	
+Pletor MCP	SKILL	YOK		0	
+Plugin (/plugin)	SKILL	YOK		0	
+Plugin Marketplace	SKILL	YOK		0	
+Poppler	CLI	DOGRULANDI	gh:oschwartz10612/poppler-windows	0.9	win-x64 release zip (PATH)
+Post Strategist	SKILL	DOGRULANDI	gh:Aameeq/social-strategist	0.5	git clone
+Premium Website Claude skill	SKILL	YOK		0	
+Privacy Legal plugin	SKILL	YOK		0	
+Product-Ad Skill	SKILL	YOK		0	 
+Profile skill	SKILL	YOK		0	
+Ps	SKILL	YOK		0	
+Puma	MODEL	YOK		0	
+Puppenwerkzeug	CLI	YOK		0	
+PurpleXT	MODEL	YOK		0	
+PyPy	MODEL	MODEL-BEKLE	gh:pypy/pypy	0.85	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Python API	PAKET	YOK		0	
+Qoder	SKILL	YOK		0	
+Quick Rigging Tool	SKILL	YOK		0	
+QuickJS	MODEL	MODEL-BEKLE	gh:quickjs-ng/quickjs	0.8	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+QuiverStrategies	SKILL	YOK		0	
+RIFE	CLI	DOGRULANDI	gh:hzwer/ECCV2022-RIFE	0.9	git clone + pip (torch)
+Read	SKILL	YOK		0	
+Realiste	MODEL	YOK		0	
+Remotion Inside Claude Code	SKILL	DOGRULANDI	gh:remotion-dev/skills	0.8	npx skills add remotion-dev/skills
+Remotion Lambda	SKILL	DOGRULANDI	npm:@remotion/lambda	0.8	npm i @remotion/lambda
+Remotion ajan becerileri	SKILL	DOGRULANDI	gh:remotion-dev/skills	0.8	skill klon (npx skills add)
+Remotion becerileri	SKILL	DOGRULANDI	gh:remotion-dev/skills	0.8	skill klon (npx skills add)
+Remove AI Slop	SKILL	DOGRULANDI	gh:manavmishra/ZeroSlop	0.7	skill kopyala
+ReplaceAI Slop	SKILL	YOK		0	
+Replies	SKILL	YOK		0	
+Replies skill	SKILL	YOK			
+Ripping	CLI	YOK		0	
+RooCodeInc/Roo	CLI	DOGRULANDI	gh:RooCodeInc/Roo-Code	0.85	VS Code eklentisi
+RunClaudeCode	SKILL	YOK		0	 
+Runway Agent 2.0	SKILL	YOK		0	
+Runway Gen-4.5	MODEL	YOK		0	
+RunwayGen3	MODEL	YOK		0	
+SSH	CLI	YOK		0	
+Sales Comparison Agent	SKILL	YOK		0	
+Sales Plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	/plugin marketplace add anthropics/knowledge-work-plugins
+Sales plugin (Sales Rep)	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin marketplace add; sales/
+Sandcastles MCP	SKILL	YOK		0	
+ScriptCreatorGraph	SKILL	DOGRULANDI	pip:scrapegraphai	0.5	pip install scrapegraphai; ScriptCreatorGraph sinifi
+ScrollSmoother	CLI	DOGRULANDI	npm:gsap	0.85	npm i gsap
+Security Advisor	SKILL	YOK		0	
+Security Audit Skill Control Bits	SKILL	YOK		0	
+Seedance	MODEL	YOK		0	
+Seedance 1.0	MODEL	YOK		0	
+Seedance 1.5 Pro	MODEL	YOK		0	
+Seedream	MODEL	YOK		0	
+Seedream 4.0	MODEL	YOK		0	
+Sequence	SKILL	YOK		0	
+Service + follow up Agent	SKILL	YOK		0	
+Shark Tank in Claude	SKILL	YOK		0	
+Shatsian UI MCP Connector	SKILL	YOK		0	
+Shell	CLI	YOK		0	
+Sinyal bozucular	SKILL	YOK		0	 
+Skill Geliştiren Skill	SKILL	DOGRULANDI	gh:anthropics/skills	0.8	skills/skill-creator kopyala
+Skill Spectre	SKILL	DOGRULANDI	gh:NVIDIA/SkillSpector	0.85	pip/git clone NVIDIA/SkillSpector; skill klasorunu tara
+Skill-bus	SKILL	YOK		0	
+Skills (beceriler özelliği)	SKILL	YOK		0	
+Smooth Trajectory	MODEL	YOK		0	
+Sol 5.6	PAKET	YOK		0	
+Sonnet	MODEL	YOK		0	
+Sora 2	MODEL	YOK		0	
+SoraTurbo	MODEL	YOK			
+Soul	MODEL	YOK			
+Soul 2.0	MODEL	YOK			
+Stable Diffusion Forge	CLI	DOGRULANDI	gh:lllyasviel/stable-diffusion-webui-forge	0.9	git klon + webui-user.bat
+StepFun 3.5	MODEL	MODEL-BEKLE	hf:stepfun-ai/Step-3.5-Flash	0.8	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+Studio for Claude	SKILL	YOK		0.3	
+Superblocks MCP	SKILL	YOK		0	
+Support plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.8	plugin marketplace add; customer-support/
+SynthGen	MODEL	YOK		0	 
+TARS (Agent TARS)	SKILL	DOGRULANDI	gh:bytedance/UI-TARS-desktop	0.95	npm i -g @agent-tars/cli
+TITAN	MODEL	YOK		0	
+Tail	CLI	DOGRULANDI	gh:pipecat-ai/tail	0.95	pip
+TapNow Agentic Canvas	SKILL	YOK			
+Taste Skill v2 Beta	SKILL	DOGRULANDI	gh:Leonxlnx/taste-skill	0.6	repo klonla; examples/v2
+Teach	SKILL	DOGRULANDI	gh:mattpocock/skills	0.7	skill klon (skills/productivity/teach)
+Test Engineer	SKILL	YOK		0	
+Test-First Autopilot	SKILL	YOK		0	
+Text2CAD	MODEL	MODEL-BEKLE	gh:earthtojake/text-to-cad	0.75	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+The Hormozi Brain Toolkit for Claude Code	SKILL	DOGRULANDI	gh:antonio-clicktoclose/hormozi-claude-code-brain	0.8	skill klon
+Thumbnail Maker Skill	SKILL	YOK		0	
+Thumbnail Skills	SKILL	YOK		0	
+Time Machine skill	SKILL	YOK		0	 
+Tokens Studio	SKILL	DOGRULANDI	gh:tokens-studio/figma-plugin	0.8	Figma eklentisi (Figma icinden kur)
+TopView MCP	SKILL	YOK			
+Trail of Bits Security Skills	SKILL	DOGRULANDI	gh:trailofbits/skills	0.95	plugin marketplace add trailofbits/skills
+Trail of Bits Skills Marketplace	SKILL	DOGRULANDI	gh:trailofbits/skills	0.9	plugin marketplace add trailofbits/skills
+TrainLLMFromScratch	CLI	DOGRULANDI	gh:FareedKhan-dev/train-llm-from-scratch	0.6	git klon + pip
+Tweetclaw.skill	SKILL	DOGRULANDI	gh:Xquik-dev/tweetclaw	0.85	skill/plugin klon
+Türkçe yazı skill	SKILL	DOGRULANDI	gh:ozgurbuluta/turkce-yazi-yazma	0.6	repo skills/turkce-yazi kopyala
+Türkçe yazı skill'i (turkce-yazi.zip)	SKILL	DOGRULANDI	gh:ozgurbuluta/turkce-yazi-yazma	0.6	git clone; skill kopyala
+U2NET	MODEL	MODEL-BEKLE	gh:xuebinqin/U-2-Net	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+UGC content skill	SKILL	DOGRULANDI	gh:kofiowusuai-lab/ugc-skills	0.6	klon, install.sh
+UGC generator skill	SKILL	DOGRULANDI	gh:kofiowusuai-lab/ugc-skills	0.6	repo klonla; install.sh
+UI UX Pro Max Scale	SKILL	DOGRULANDI	gh:nextlevelbuilder/ui-ux-pro-max-skill	0.5	repo README kurulum
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	DOGRULANDI	gh:nextlevelbuilder/ui-ux-pro-max-skill	0.95	skill klon / npm cli
+UV5-Plugin	SKILL	YOK		0	
+Unet Loader (GGUF)	SKILL	DOGRULANDI	gh:city96/ComfyUI-GGUF	0.9	ComfyUI custom node klon
+VS Code Copilot	SKILL	YOK			
+Vane (Perplexica)	CLI	DOGRULANDI	gh:ItzCrazyKns/Vane	0.9	docker / klon
+Vibe CLI	CLI	DOGRULANDI	gh:mistralai/mistral-vibe	0.85	pip/uv install mistral-vibe
+Vim	CLI	DOGRULANDI	gh:vim/vim	0.95	winget install vim.vim
+Vite 5	PAKET	DOGRULANDI	npm:vite@5	0.95	npm i vite@5
+Vite 7	PAKET	DOGRULANDI	npm:vite@7	0.95	npm i vite@7
+Voice AI agent	SKILL	YOK		0	
+Voice Agent	SKILL	YOK		0	
+Voice Assistant	SKILL	YOK		0	
+Voice Mode	SKILL	DOGRULANDI	gh:mbailey/voicemode	0.8	pip/uvx voice-mode
+Vue and Vite core team skills collection	SKILL	DOGRULANDI	gh:vuejs-ai/skills	0.5	repo klonla / npx skills add
+WAF	PAKET	YOK			
+WAFv2	PAKET	YOK			
+WebFetch	PAKET	YOK			
+WhatsApp Open Source API Gateway	CLI	DOGRULANDI	gh:rmyndharis/OpenWA	0.85	docker / klon
+Windows CMD	CLI	YOK			
+Workbench	CLI	YOK		0	 
+Write a Skill	SKILL	YOK			
+Write a Skill (/write-a-skill)	SKILL	YOK		0.3	
+X-Filt	CLI	YOK		0	
+X1	MODEL	YOK			
+XBly	CLI	YOK		0	
+XULTA MiniDetangler	CLI	YOK			
+Xia Director	MODEL	YOK		0	
+YouTube Thumbnail Claude skill	SKILL	YOK		0	
+YouTube Thumbnail Hook Generator	CLI	YOK		0	
+YouTube Thumbnail Hook Generator.skill	SKILL	YOK		0	
+YouTube ajan becerisi	SKILL	YOK		0	
+YouTube to MP3	CLI	YOK		0	 
+ZeroGPT	SKILL	YOK			
+ad animator skill	SKILL	YOK		0	
+adb	CLI	YOK		0	
+add generator skill	SKILL	YOK		0	
+add_cube	SKILL	YOK		0	
+add_cylinder	SKILL	YOK		0	
+add_light	SKILL	YOK		0	
+add_plane	SKILL	YOK		0	
+add_sphere	SKILL	YOK		0	
+advanced_ai_agents	SKILL	YOK		0	
+afinancial.coach_agent	SKILL	YOK		0	
+agent editor	SKILL	YOK		0	
+agent-importers	CLI	YOK		0	
+agent-radar	SKILL	DOGRULANDI	gh:duanyytop/agents-radar	0.6	GitHub Actions ile gunluk ozet
+agents-sdk-dev	CLI	DOGRULANDI	gh:anthropics/claude-plugins-official	0.7	/plugin install agent-sdk-dev
+agy	SKILL	YOK		0	
+ahome_renovation_agent	SKILL	YOK		0	
+ai-language-cleanup	SKILL	YOK		0	
+ai-second-brain	SKILL	YOK		0.3	
+analytics-review	SKILL	YOK		0	
+animation on baking	SKILL	YOK		0	
+anthropic-automations-recommender	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.85	/plugin install claude-code-setup (skills/claude-automation-recommender)
+api-verifier	CLI	YOK		0	
+apify/e-commerce-scraping-tool	CLI	YOK		0	
+apify/website-content-crawler	CLI	YOK		0	
+apt	CLI	YOK		0	
+apt-get	CLI	YOK		0	
+archiver	CLI	YOK		0	 
+artillerytrades/5-bot-repos	CLI	YOK		0	
+ask_freellmapi	SKILL	YOK		0	
+aspeech_trainer_agent	SKILL	YOK		0	
+audit-writer	SKILL	YOK		0	
+auto-dream	SKILL	DOGRULANDI	gh:grandamenium/dream-skill	0.5	repo klonla; skills'e kopyala
+automation-master	SKILL	YOK		0	
+automode-on	SKILL	YOK		0	
+b3d	MODEL	YOK		0	
+bash	CLI	YOK		0	
+bash_tool	SKILL	YOK		0	
+best-practice-audit	SKILL	YOK		0	
+better-auth/better-icons	SKILL	DOGRULANDI	gh:better-auth/better-icons	0.95	skill klon / npx
+billion-context	MODEL	MODEL-BEKLE	npm:billion-context	0.85	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+bitwarden_rs	CLI	DOGRULANDI	gh:dani-garcia/vaultwarden	0.8	docker pull vaultwarden/server
+bpy_api_lookup	CLI	YOK		0	
+brand DNA builder skill	SKILL	YOK		0	
+brand-dna-builder	SKILL	YOK		0	
+bug-hunter	CLI	YOK		0.2	
+build-error-resolver	CLI	DOGRULANDI	gh:affaan-m/everything-claude-code	0.9	agents/build-error-resolver.md kopyala
+c4dpy	CLI	YOK		0	
+cat	CLI	YOK		0	
+ceo-advisor	SKILL	DOGRULANDI	gh:ultrathink-art/ai-ceo	0.75	skill klon (SKILL.md)
+checkpoint	MODEL	YOK		0	
+chief-executive	SKILL	YOK		0	
+chmod	CLI	YOK		0	
+claim-receiver	SKILL	YOK		0	
+clang	CLI	YOK		0	
+claude --dangerously-skip-permissions --system-prompt-file	SKILL	YOK		0	
+claude agents deploy	SKILL	YOK		0	
+claude-academy-guide	SKILL	YOK		0	
+claude-academy-guide skill	SKILL	YOK		0	
+claude-md-management	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.9	/plugin install claude-md-management
+claude-opus-4-6-search	SKILL	YOK		0	
+claude-plugin-lock	SKILL	DOGRULANDI	npm:claude-plugin-lock	0.8	npm i -g claude-plugin-lock
+claude-skills-pack	SKILL	YOK			
+claude-sonnet-4-6-search	SKILL	YOK		0	
+clockworks/tiktok-scraper	CLI	YOK		0	
+close_positions_batch	SKILL	YOK		0	
+cloudflare/security-audit-skill	SKILL	DOGRULANDI	gh:cloudflare/security-audit-skill	0.95	skill klon
+cloudroom-core	CLI	YOK		0	
+cmake	CLI	DOGRULANDI	gh:Kitware/CMake	0.9	win-x64 release/winget
+co-cli	CLI	YOK		0.2	
+code-architect	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.7	/plugin install feature-dev
+code-based-memory-mcp	SKILL	YOK		0	
+code-operations-plugin	SKILL	YOK		0	
+codex configure --auth chatgpt	SKILL	YOK		0	
+coleschaffer/copywritingskills-rmbc	SKILL	DOGRULANDI	gh:coleschaffer/copywritingskills-rmbc	0.95	skill klon
+color-palette	SKILL	YOK		0	 
+comment-writer	SKILL	YOK		0	
+commit-commands	CLI	DOGRULANDI	gh:anthropics/claude-plugins-official	0.85	plugin klon (plugins/commit-commands)
+connect-apps-plugin	SKILL	DOGRULANDI	gh:ComposioHQ/awesome-claude-skills	0.8	skill klon (connect-apps-plugin dizini)
+content-writer	SKILL	YOK		0	
+context-inspector	CLI	DOGRULANDI	gh:mgechev/context-inspector	0.7	git clone + npm
+continuedev/continue	SKILL	DOGRULANDI	gh:continuedev/continue	0.95	vscode/jetbrains eklentisi, npm cli
+contract-review	SKILL	YOK		0	
+controller-mapper	CLI	YOK		0	
+convert_to_markdown	MODEL	MODEL-BEKLE	pip:markitdown-mcp	0.8	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+copy-editing	SKILL	DOGRULANDI	gh:coreyhaines31/marketingskills	0.9	skill klon (skills/copy-editing)
+copywriting	SKILL	DOGRULANDI	gh:coreyhaines31/marketingskills	0.9	skill klon (skills/copywriting)
+cost-cutter	MODEL	YOK		0	 
+cost-reducer	MODEL	YOK		0	
+cover-letter	SKILL	YOK		0	
+cp	CLI	YOK		0	
+craftwork-author	SKILL	YOK		0	
+crap4clj	PAKET	DOGRULANDI	gh:unclebob/crap4clj	0.9	skill klon
+create-control	MODEL	YOK		0	
+create-twenty-app	MODEL	YOK			
+create-video	MODEL	MODEL-BEKLE	npm:create-video	0.6	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+create_agent	SKILL	YOK		0	
+create_file	MODEL	YOK		0	
+creative-excellence	SKILL	YOK		0	
+crm-cleanup	CLI	YOK		0	 
+crm-maintenance	CLI	YOK		0	
+cro	MODEL	MODEL-BEKLE	gh:coreyhaines31/marketingskills	0.75	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+cron job tool	CLI	YOK		0	
+cron-writer	SKILL	YOK		0	
+cronjob	CLI	YOK		0	
+csv-clean	CLI	YOK		0	
+cta-strategist.skill	SKILL	YOK		0	
+cuopt-developer	MODEL	MODEL-BEKLE	gh:NVIDIA/cuopt	0.95	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+customer support plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.85	plugin klon (customer-support)
+data plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.75	/plugin marketplace add anthropics/knowledge-work-plugins; data eklentisi
+delete_object	CLI	YOK		0	
+describe_node_type	SKILL	YOK		0	
+devcontainer	CLI	DOGRULANDI	npm:@devcontainers/cli	0.85	npm i -g @devcontainers/cli
+diagnose	CLI	YOK		0	 
+diff	CLI	YOK		0	
+docx/pptx/xlsx	PAKET	DOGRULANDI	gh:anthropics/skills	0.85	skill klon (skills/docx,pptx,xlsx)
+dopamine-ladder	SKILL	YOK		0	
+dpkg	CLI	YOK		0	
+dump	CLI	YOK		0	
+duplicate_object	SKILL	YOK		0	
+dyld_info	CLI	YOK		0	
+e2e-runner	CLI	DOGRULANDI	gh:affaan-m/everything-claude-code	0.6	ECC agents/e2e-runner.md kopyala
+earshot compare	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot critique	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot describe	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot find	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot fit	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot forge	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot match	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot rank	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot realness	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+earshot timeline	SKILL	DOGRULANDI	gh:Leonxlnx/earshot	0.8	skill/CLI klon (earshot)
+engineering-workflow-plugin	SKILL	YOK		0	
+ensemble-solving	SKILL	YOK		0	
+eval-viewer	CLI	YOK		0.2	
+execute()	SKILL	YOK		0	
+execute_code	SKILL	YOK		0	
+execute_sql	SKILL	DOGRULANDI	gh:supabase-community/supabase-mcp	0.6	npx @supabase/mcp-server-supabase
+executive:business-growth-consultant	SKILL	YOK		0	
+fal	SKILL	YOK			fal.ai
+feature-dev	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.9	plugin klon (plugins/feature-dev)
+feature-planning	SKILL	YOK		0	 
+ffprobe	CLI	DOGRULANDI	gh:FFmpeg/FFmpeg	0.9	win-x64 release (ffmpeg paketiyle gelir)
+file-automation	CLI	YOK		0	
+finance	SKILL	YOK		0	
+finance:unit-economics	SKILL	YOK		0	
+frame-direction	SKILL	YOK		0	
+gan-evaluator	SKILL	DOGRULANDI	gh:affaan-m/ECC	0.85	agents/gan-evaluator.md
+gemini-cli-extension	SKILL	YOK			repo konu etiketi
+gen-pptx	CLI	YOK		0	 
+generate_typescript_types	SKILL	DOGRULANDI	gh:supabase-community/supabase-mcp	0.6	npx supabase-mcp sunucusu
+geo-crawlers	CLI	DOGRULANDI	gh:sickn33/agentic-awesome-skills	0.85	skill klon (skills/geo-crawlers)
+get_advisors	SKILL	YOK		0.2	
+get_object_info	SKILL	YOK		0	
+get_observations	SKILL	DOGRULANDI	gh:thedotmack/claude-mem	0.85	claude-mem plugin (mem-search skill)
+get_scene_info	SKILL	DOGRULANDI	gh:ahujasid/blender-mcp	0.6	blender-mcp kur; Blender eklentisi + uvx blender-mcp
+gh (GitHub CLI)	CLI	DOGRULANDI	gh:cli/cli	0.98	win-x64 release / winget
+git add	CLI	DOGRULANDI	gh:git-for-windows/git	0.9	Git for Windows kurulumu
+git clone	CLI	DOGRULANDI	gh:git-for-windows/git	0.9	Git for Windows kurulumu
+git commit	CLI	DOGRULANDI	gh:git-for-windows/git	0.9	Git for Windows kurulumu
+gnu-tar	CLI	YOK		0	
+go toolchain	CLI	DOGRULANDI	gh:golang/go	0.95	win-x64 release
+go version -m	CLI	DOGRULANDI	gh:golang/go	0.9	go toolchain ile gelir
+gpg	CLI	DOGRULANDI	winget:GnuPG.Gpg4win	0.7	winget install GnuPG.Gpg4win
+graphify-out	CLI	YOK			graphify cikti klasoru
+grep	CLI	YOK		0.2	
+gstack-slug	CLI	DOGRULANDI	gh:garrytan/gstack	0.9	gstack klon (bin/gstack-slug)
+hallpass CLI	CLI	YOK		0	
+harness-audit	CLI	DOGRULANDI	gh:affaan-m/ECC	0.85	ECC kur (commands/harness-audit.md, scripts/harness-audit.js)
+harness-optimizer	CLI	DOGRULANDI	gh:affaan-m/ECC	0.85	ECC kur (agents/harness-optimizer.md)
+hermes plugins install homeassistant	CLI	YOK		0	
+hermes serve	CLI	YOK			
+hook-library	PAKET	YOK		0	
+hookity	CLI	YOK		0	
+http.server	CLI	YOK			python stdlib modulu
+hy-wu-edit	SKILL	DOGRULANDI	gh:Tencent-Hunyuan/HY-WU	0.6	git clone; pip kurulum
+icon-design	SKILL	YOK		0	
+identify_contact	SKILL	YOK		0	
+import_asset	SKILL	YOK		0	 
+inbox-alerts-priority	SKILL	DOGRULANDI	gh:Ankitrai97/rai-claude-mods	0.8	/plugin marketplace add Ankitrai97/rai-claude-mods; /plugin install inbox-alerts-priority@rai-claude-mods
+inspect_work	SKILL	YOK		0	
+instagram-reels-script	SKILL	YOK		0	
+install-github-skill	SKILL	YOK		0	 
+interview-preparation	SKILL	YOK		0	
+investor-update	SKILL	YOK		0	
+invoice-follow-up	SKILL	YOK		0	
+just-scrape	CLI	DOGRULANDI	npm:just-scrape	0.9	npm i -g just-scrape
+lark-cli	CLI	DOGRULANDI	npm:@larksuite/cli	0.9	npm i -g @larksuite/cli
+lark-vc-agent	SKILL	DOGRULANDI	gh:larksuite/cli	0.85	skill klon (skills/lark-vc-agent)
+launchd	CLI	YOK			macOS sistem hizmeti
+ldid-procursus	CLI	DOGRULANDI	gh:ProcursusTeam/ldid	0.85	macOS brew / kaynaktan derle
+lead-research-outreach	CLI	YOK		0	 
+learn-this	SKILL	DOGRULANDI	gh:michalparkola/tapestry-skills	0.85	skill klon (learn-this/)
+leftflow	CLI	YOK		0	
+libx264	PAKET	YOK		0	
+lint-fix	CLI	YOK		0	
+list_objects	CLI	YOK		0	
+llama-cli	CLI	DOGRULANDI	gh:ggml-org/llama.cpp	0.95	win-x64 release
+llama.cpp qwen4exp fork	MODEL	YOK		0	
+lln-council	SKILL	DOGRULANDI	gh:rohitg00/pro-workflow	0.5	skills/llm-council kopyala
+localwhisper	MODEL	MODEL-BEKLE	pip:localwhisper	0.55	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+ls	CLI	YOK			shell komutu
+lualatex	CLI	YOK			
+managed-agents-secure	SKILL	YOK		0	
+maozi-114/Mintimage	MODEL	YOK		0.3	
+marketing-skills@claude-code-skills	SKILL	YOK		0	
+marketing-to-sales	SKILL	YOK		0	
+marketingskills/skills/seo-audit	SKILL	DOGRULANDI	gh:coreyhaines31/marketingskills	0.95	skill klon (skills/seo-audit)
+mcp-server-sqlite	MODEL	MODEL-BEKLE	pip:mcp-server-sqlite	0.75	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+mcp__ide__getDiagnostics	SKILL	YOK			
+media.mjs record	CLI	YOK		0	
+mem0	MODEL	MODEL-BEKLE	pip:mem0ai	0.9	boyut ? ; Omer karari: yerel/buyuk model simdilik YOK
+memory file	CLI	YOK			
+memory_append	CLI	YOK			
+memory_delete	CLI	YOK			
+meta agent pipeline	SKILL	YOK		0	
+month-heads-up	SKILL	YOK		0	
+move_object	SKILL	YOK			
+multi_agent_researcher	SKILL	YOK			
+multi_agent_trust_layer	SKILL	YOK			
+music-caption skill	SKILL	YOK		0	
+mv	CLI	YOK			
+n8n AI Agent Claude Skill	SKILL	DOGRULANDI	gh:czlonkowski/n8n-skills	0.7	skills/n8n-agents kopyala
+n8n Agent Builder Skill	SKILL	DOGRULANDI	gh:czlonkowski/n8n-skills	0.7	git clone; /plugin marketplace add
+nm	CLI	YOK			
+noeticagent	SKILL	YOK		0	
+now-playing	SKILL	YOK		0	
+nuviora-email-reply	SKILL	YOK			
+nuviora-training-proposal	SKILL	YOK			
+ocr	SKILL	YOK		0	
+offensive-sqli	SKILL	DOGRULANDI	gh:rudraverma/offensive-sqli-claude-skill	0.7	skill klasorunu ~/.claude/skills'e kopyala
+one-object-film	SKILL	YOK		0	
+openai-balance	SKILL	YOK		0	
+openai/codex-plugin-cc	SKILL	DOGRULANDI	gh:openai/codex-plugin-cc	0.95	plugin marketplace / klon
+pdflatex	CLI	YOK			
+pi coding agent	SKILL	DOGRULANDI	npm:@mariozechner/pi-coding-agent	0.85	npm i -g
+pi+fff extension	SKILL	YOK		0	
+pip3	CLI	YOK			
+plugin-cc	SKILL	DOGRULANDI	gh:openai/codex-plugin-cc	0.7	/plugin marketplace add openai/codex-plugin-cc
+prayer-times	SKILL	YOK		0	
+presentation.design	SKILL	YOK			
+price-check	SKILL	YOK		0	
+prisOn-ipg/Antigv-plugin	SKILL	YOK		0	
+product visuals	SKILL	YOK		0	
+product-catalog-static	SKILL	YOK		0	
+product-mockup	SKILL	YOK		0	
+promptible-terminal-inserts	SKILL	YOK		0	
+promptslove-motion-gfx	SKILL	YOK		0	
+pxhyper	SKILL	YOK		0	
+rea-agents	SKILL	YOK		0	
+read_crm_history	SKILL	YOK			
+real estate walkthrough pro skill pack	SKILL	YOK		0	
+receptionist skill	SKILL	YOK		0	
+record_fact	SKILL	YOK			
+reel-transitions	SKILL	YOK		0	
+regex-build	SKILL	YOK		0	
+remove-claude-marks	SKILL	YOK			
+render_frame	SKILL	YOK			
+rendercv/rendercv-skill	SKILL	DOGRULANDI	gh:rendercv/rendercv-skill	0.85	skill klon
+repo-sync-helper	CLI	YOK		0	
+research_person	SKILL	YOK			
+reverse engineer anything repo	CLI	YOK		0.1	
+review-implementing	SKILL	YOK		0	
+review-watch	SKILL	YOK		0	
+rm -rf	CLI	YOK			
+rustc	CLI	DOGRULANDI	gh:rust-lang/rust	0.9	rustup win-x64
+sales-brief	SKILL	YOK		0	
+schedule_recheck	CLI	YOK			
+scrape(url,prompt)	SKILL	YOK			
+search(query)	SKILL	YOK		0.9	
+senior-creative-director-video-ads	SKILL	YOK		0	
+setfattr	CLI	YOK		0.9	
+setup-claude	SKILL	YOK		0	
+setup-matt-docock-skills	SKILL	DOGRULANDI	gh:mattpocock/skills	0.85	skill klon
+sh	CLI	YOK		0.95	
+ship-learn-next	CLI	DOGRULANDI	gh:michalparkola/tapestry-skills-for-claude-code	0.9	skill klon
+simple-mode	SKILL	YOK		0	
+skool-platinum	SKILL	DOGRULANDI	gh:charlesdove977/skool-platinum-claude-code	0.8	skill klon
+slash goal	SKILL	YOK		0	
+smtg-ai/claude-squad	SKILL	DOGRULANDI	gh:smtg-ai/claude-squad	0.95	go binary / brew
+social-media	SKILL	YOK		0.9	
+sqlite	PAKET	YOK		0.9	
+sqlite3	CLI	YOK		0.9	
+static-ad-generator skill	SKILL	DOGRULANDI	gh:creatify-ai/static-ad-concept-generator	0.5	skill kopyala
+storytelling-ux	SKILL	YOK		0	
+suggest_trades_batch	SKILL	YOK		0.9	
+superwhisper	PAKET	YOK		0.9	macOS-only ucretli
+telegram@claude-plugins-official	SKILL	DOGRULANDI	gh:anthropics/claude-plugins-official	0.95	plugin install (external_plugins/telegram)
+test-runner	CLI	YOK		0	 
+text.cortex	SKILL	YOK		0.8	
+textkit	PAKET	YOK		0	
+to-issues	CLI	YOK		0	
+to-prd	CLI	YOK			
+tool-audit	CLI	YOK		0	
+tool-audit skill	SKILL	YOK		0	
+tools	SKILL	YOK		0	
+tools.installer	CLI	YOK		0.8	
+tools/release-discipline	CLI	YOK		0	
+tree	CLI	YOK		0.95	
+turkish-coffee-domain	SKILL	YOK		0	
+tv_health_check	CLI	DOGRULANDI	gh:tradesdontlie/tradingview-mcp	0.9	git clone + npm install (MCP araci)
+ui.camera	SKILL	YOK		0.8	
+unblock-action	SKILL	DOGRULANDI	gh:michalparkola/tapestry-skills-for-claude-code	0.9	skill klon
+update_work	CLI	YOK		0.9	
+uptime-check	CLI	YOK		0.85	
+usage-meter	SKILL	YOK		0	
+uzun-video-kurgu	SKILL	YOK		0	
+vibe-tandem	SKILL	YOK		0	
+viewport_screenshot	SKILL	YOK		0.9	
+viral-emotion	SKILL	YOK		0	
+viral-reels-creator	SKILL	YOK		0	
+voice-profile	SKILL	YOK		0	
+vulnerability-harness	SKILL	DOGRULANDI	gh:visa/visa-vulnerability-agentic-harness	0.7	git clone
+weather_fetch	SKILL	YOK		0.9	
+web-security	SKILL	YOK		0	
+web_extract	SKILL	YOK		0.9	
+web_search_fast	SKILL	YOK		0.9	
+wget	CLI	YOK		0.95	
+writebanger	SKILL	YOK		0	
+writing-landing-page-copy	SKILL	YOK		0	
+x-agent	SKILL	YOK		0	 
+x402 Paying Agent	SKILL	YOK		0	
+xAI Grok	SKILL	YOK		0.9	
+xcrun simctl	CLI	YOK		0.9	macOS-only
+xelatex	CLI	YOK		0.9	
+xet	CLI	DOGRULANDI	pip:hf-xet	0.6	pip install hf-xet (gh:huggingface/xet-core)
+youtube-teaser	SKILL	YOK		0	
+yt-lp	SKILL	YOK		0	
+zoom-out	SKILL	YOK		0	
+zqxwce/tap/vphone-cli	CLI	DOGRULANDI	gh:zqxwce/homebrew-tap	0.9	brew install (macOS-only)
+zsh	CLI	YOK		0.95	
+Anthropic Marketing plugin	SKILL	DOGRULANDI	gh:anthropics/knowledge-work-plugins	0.85	plugin install (marketing/)
+Anti-AI (/anti-ai)	SKILL	YOK		0	
+Anti-Gravity-OpenCode	CLI	YOK		0	
+Anti-Slop Frontend Framework for AI Agents	SKILL	DOGRULANDI	gh:Leonxlnx/taste-skill	0.7	skills/taste-skill kopyala
+Apify Tester MCP Client	SKILL	YOK		0.8	
+Apowerui MCP toolkit	SKILL	YOK		0.2	

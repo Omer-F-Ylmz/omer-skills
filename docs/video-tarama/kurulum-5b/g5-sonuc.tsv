@@ -1,0 +1,118 @@
+kalem	sinif	puan	karar	hedef	yontem	lisans	neden
+CPM-0.5B	MODEL	0.2	OMER-SOR	openbmb/VoxCPM-0.5B | MiniCPM4-0.5B | BitCPM4-0.5B	HF snapshot	OLCULEMEDI (HF lisans okunmadi)	HF API 200: uc openbmb *CPM-0.5B modeli var, hangisi belirsiz
+Opus 4.5	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 4.6	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 4.7	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 4.8 High	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 4.8 Max	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 5	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 5 High	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Opus 5.5	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Perplex	MODEL	0.9	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Pika	MODEL	0.9	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Pika 2.5	MODEL	0.9	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Qwen3.8 Max	MODEL	0.7	YOK-DOGRU				HF aramasinda Qwen3.8-27B/Flash-Next var, Max yok (API-only)
+R2	MODEL	0.9	YOK-DOGRU				Cloudflare R2 depolama servisi (ChatbotX ayari)
+Rodin 2.5	MODEL	0.8	YOK-DOGRU				Hyper3D Rodin SaaS/API, acik agirlik yok
+SONA	MODEL	0.7	YOK-DOGRU				ana aracin ozellik adi
+Sonnet 5 Medium	MODEL	0.95	YOK-DOGRU				kapali ticari model (Anthropic API), acik agirlik yok
+Wan 2.6	MODEL	0.6	YOK-DOGRU				HF Wan-AI listesinde en yeni Wan2.2; 2.6 yalniz ucuncu parti sahte repo (fanfa2320s/wan2.6)
+Wan 2.7	MODEL	0.6	YOK-DOGRU				HF Wan-AI listesinde en yeni Wan2.2; 2.7 acik agirlik yok
+Wan3.0	MODEL	0.6	YOK-DOGRU				HF Wan-AI listesinde en yeni Wan2.2; 3.0 acik agirlik yok
+ZJU3DV	MODEL	0.9	YOK-DOGRU				gh: zju3dv bir org (139 repo), tek urun degil; zju3dv/zju3dv repo 404
+allstar	MODEL	0.8	YOK-DOGRU				gemini-cli dosya listesinde klasor adi
+gan-generator	MODEL	0.8	YOK-DOGRU				agent/skill adi, repo yok
+gemini-3-flash-grounding	MODEL	0.9	YOK-DOGRU				Google API ozelligi, kurulabilir kaynak yok
+gemini-3-flash-preview	MODEL	0.9	YOK-DOGRU				Google API modeli, acik agirlik yok
+gemini-3-pro-grounding	MODEL	0.9	YOK-DOGRU				Google API ozelligi
+grok-4.20-beta1	MODEL	0.9	YOK-DOGRU				xAI API modeli, acik agirlik yok
+kimi-k3-in-c	MODEL	0.2	GERI-AL	FareedKhan-dev/kimi-k3-in-c (v1.1.0)	KLON	Apache-2.0	"gh api: repo var, 11096 yildiz, aktif; eski elenme ""repo bulunamadi"" yanlis; model agirligi >2GB ayri OMER-SOR (HF moonshotai/Kimi-K3)"
+o1-mini	MODEL	0.9	YOK-DOGRU				OpenAI kapali model (API)
+xai/grok-imagine-video/extend-video	MODEL	0.9	YOK-DOGRU				xAI API ucu, acik agirlik yok
+Meta Pixel	SKILL	0.8	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+MiniMax Agent	SKILL	0.7	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Moises	SKILL	0.8	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Notion AI	SKILL	0.8	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Notebook LLM	SKILL	0.7	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+OpenAI operator	SKILL	0.9	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+PackyCode	SKILL	0.6	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Pexo Agent	SKILL	0.6	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Pine Script v5	PAKET	0.7	YOK-DOGRU				TradingView dili, urun degil
+Postbridge	PAKET	0.7	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Pollo Agent	SKILL	0.7	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Pyro	SKILL	0.8	YOK-DOGRU				Houdini Pyro cozucusu (ucretli SideFX)
+Readdy	CLI	0.8	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+Rich Input	SKILL	0.7	YOK-DOGRU				Claude Code arayuz ozelligi (Ctrl G)
+axe	CLI	0.3	YOK-DOGRU				cameroncooke/AXe iOS Simulator CLI (MIT), macOS-only (gh aciklamasi)
+export_scene	CLI	0.9	YOK-DOGRU				Blender operator adi
+friday-brief	SKILL	0.1	YOK-DOGRU				MaxGluckman/friday-brief: 0 yildiz, aciklama yok, lisans NONE
+graphify --obsidian	CLI	0.8	YOK-DOGRU				graphify bayragi; graphify zaten kurulu skill
+head	CLI	0.95	YOK-DOGRU				yerlesik Unix komutu; yerelde /usr/bin/head var
+human IK	SKILL	0.8	YOK-DOGRU				Maya/Unity IK ozelligi
+investment-banking	SKILL	0.2	YOK-DOGRU				genel ad; QiushenZou/cn-investment-banking-skills Cin IPO koleksiyonu, ayni degil
+invoice-parse	SKILL	0.6	YOK-DOGRU				genel ad, ilgisiz Cince proje
+invideo Agent	SKILL	0.85	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+log-parse	CLI	0.6	YOK-DOGRU				genel ad; logpai/logparser ayri ML arac
+mkdir	CLI	0.95	YOK-DOGRU				yerlesik; yerelde /usr/bin/mkdir var
+node --test	CLI	0.95	YOK-DOGRU				Node yerlesik; yerelde node v24.22.1 --test calisiyor
+networksetup	CLI	0.9	YOK-DOGRU				macOS yerlesik
+not taker	SKILL	0.6	YOK-DOGRU				genel ad; ilgisiz macOS ornek proje
+nxcode	CLI	0.75	YOK-DOGRU				nxcode.io SaaS; teogodgift4/nxcode ilgisiz 2024 react projesi, 0 yildiz
+openrouter-balance	SKILL	0.55	YOK-DOGRU				genel ad; ilgisiz Noctalia eklentisi
+pacman	CLI	0.8	YOK-DOGRU				Arch Linux paket yoneticisi, Linux-only
+otool	CLI	0.9	YOK-DOGRU				Xcode/macOS araci
+pbcopy	CLI	0.9	YOK-DOGRU				macOS yerlesik
+product visual skill	SKILL	0.2	YOK-DOGRU				HH683/product-visual-skills 0 yildiz, lisans NONE, ozellik (marka urun icerigi) eslesmiyor
+requestVideoFrameCallback	SKILL	0.9	YOK-DOGRU				tarayici web API
+soma build	CLI	0.7	YOK-DOGRU				SOMA ajan ozel CLI komutu; somaBuild bos repo
+soma analyze	CLI	0.7	YOK-DOGRU				SOMA ozel CLI; somanews-analyzer farkli urun
+social-research	SKILL	0.3	YOK-DOGRU				liangdabiao/social_research_agent lisans NONE, 44 yildiz, ad farkli (TikHub)
+soma render	CLI	0.6	YOK-DOGRU				SOMA ozel CLI; SomaRender aciklamasiz repo
+systemd	CLI	0.9	YOK-DOGRU				Linux init sistemi, Windows hedefi yok
+wshobson	CLI	0.8	YOK-DOGRU				"kalem sahip adi; wshobson/agents (MIT, 42273 yildiz) ana-listede ayri kalem ""wshobson agents"""
+vinzdg/codenotch	CLI	0.9	YOK-DOGRU				gh aciklamasi: macOS uygulamasi (Windows hedefi yok)
+where-am-i	SKILL	0.9	YOK-DOGRU				macOS-only CoreLocation CLI
+xKiro	SKILL	0.7	YOK-DOGRU				birlesik API servisi; repo yalniz profil
+xattr	CLI	0.8	YOK-DOGRU				macOS yerlesik
+yay	CLI	0.9	YOK-DOGRU				Arch AUR yardimcisi, Linux-only
+88Plugins	SKILL	0.8	YOK-DOGRU				marka/sirket adi, Manus arayuz ogesi
+AccuPOSE	CLI	0.8	YOK-DOGRU				Reallusion iClone ticari eklentisi
+Agent CLI	CLI	0.3	OMER-SOR	postiz (npm 2.0.27)	NPM	AGPL-3.0	npm view: postiz AGPL; genel ad, ayni mi emin degil
+Cal	SKILL	0.2	YOK-DOGRU				Cal.com SaaS; calcom/cal.diy self-host altyapisi, skill degil
+Forgejo	CLI	0.2	OMER-SOR	codeberg.org/forgejo/forgejo	RELEASE	OLCULEMEDI	Codeberg API 503 iki denemede; git forge sunucusu (CLI degil), puan 0.2
+HackRF One	CLI	0.3	YOK-DOGRU				donanim; greatscottgadgets/hackrf GPL-2.0 firmware/host, kalem donanim
+Studio for Claude	SKILL	0.3	YOK-DOGRU				gonimar/claude-web-studio 5 yildiz, ad farkli, ayni urun kanitlanamadi
+Write a Skill (/write-a-skill)	SKILL	0.3	YOK-DOGRU				gh tree mattpocock/skills: deprecated/engineering/in-progress/misc/productivity altinda write-a-skill yok
+ai-second-brain	SKILL	0.3	OMER-SOR	eugeniughelbur/obsidian-second-brain	SKILL klon	MIT	repo var, 5206 yildiz, aktif; ad farkli, kalemle ayni mi belirsiz
+bug-hunter	CLI	0.2	OMER-SOR	elementalsouls/Claude-BugHunter	SKILL klon	MIT	repo var 5476 yildiz; ad farkli + saldirgan guvenlik paketi (82 skill)
+co-cli	CLI	0.2	YOK-DOGRU				github/copilot-cli ayri urun (NOASSERTION), kalemle ayni degil
+eval-viewer	CLI	0.2	OMER-SOR	anthropics/skills:skills/skill-creator/eval-viewer	SKILL klasoru	NONE	gh api tree: dizin var (generate_review.py, viewer.html) ama repo lisanssiz; skill-creator parcasi
+get_advisors	SKILL	0.2	YOK-DOGRU				Supabase MCP arac adi; supabase/mcp (Apache-2.0) ayri kalem olarak izleniyor
+grep	CLI	0.2	YOK-DOGRU				yerelde /usr/bin/grep var; ripgrep (Unlicense) kurulu
+maozi-114/Mintimage	MODEL	0.3	YOK-DOGRU				gh: maozi-114/Mintimage 404; aiqinxuancai/MintImage farkli sahip, lisans NONE
+reverse engineer anything repo	CLI	0.1	OMER-SOR	chandraas44/rea	KLON	NONE	"gh api: aciklama birebir ""Reverse Engineer Anything Repo"", 0 yildiz, lisanssiz; anthropic-skills:reverse-engineer-anything zaten kurulu"
+search(query)	SKILL	0.9	YOK-DOGRU				arac fonksiyon adi
+setfattr	CLI	0.9	YOK-DOGRU				Linux attr araci, Windows yok
+sh	CLI	0.95	YOK-DOGRU				yerlesik; yerelde /usr/bin/sh var
+social-media	SKILL	0.9	YOK-DOGRU				genel terim
+sqlite	PAKET	0.9	YOK-DOGRU				veritabani motoru, kalem urun degil (sqlite3 ayri satir)
+sqlite3	CLI	0.9	OMER-SOR	winget SQLite.SQLite (dogrulanmadi)	WINGET	OLCULEMEDI	winget show/search 25-40sn takildi, bos cikti; yerelde sqlite3 yok (command -v); sistem CLI
+suggest_trades_batch	SKILL	0.9	YOK-DOGRU				Co-Invest arac adi
+superwhisper	PAKET	0.9	YOK-DOGRU				macOS-only ucretli kapali uygulama
+text.cortex	SKILL	0.8	YOK-DOGRU				web hizmeti (SaaS), kurulabilir kaynak yok
+tools.installer	CLI	0.8	YOK-DOGRU				genel kurulum modu, tek urun degil
+tree	CLI	0.95	OMER-SOR	winget (kimlik dogrulanmadi)	WINGET	OLCULEMEDI	winget bos cikti; yerelde tree yok; Windows tree.com yerlesik
+ui.camera	SKILL	0.8	YOK-DOGRU				designengineer.tools site adi
+update_work	CLI	0.9	YOK-DOGRU				ajan arac adi
+uptime-check	CLI	0.85	YOK-DOGRU				ornek skill adi (NVIDIA videosu)
+viewport_screenshot	SKILL	0.9	YOK-DOGRU				Blender MCP arac adi
+weather_fetch	SKILL	0.9	YOK-DOGRU				ornek arac adi
+web_extract	SKILL	0.9	YOK-DOGRU				hermes_tools fonksiyonu
+web_search_fast	SKILL	0.9	YOK-DOGRU				arac parametresi
+wget	CLI	0.95	OMER-SOR	winget JernejSimoncic.Wget (dogrulanmadi)	WINGET	OLCULEMEDI	winget bos cikti; yerelde wget yok; curl mevcut
+xAI Grok	SKILL	0.9	YOK-DOGRU				xAI SaaS/API
+xcrun simctl	CLI	0.9	YOK-DOGRU				Xcode araci, macOS-only
+xelatex	CLI	0.9	OMER-SOR	winget MiKTeX.MiKTeX (dogrulanmadi)	WINGET	OLCULEMEDI	winget bos cikti; yerelde xelatex yok; TeX dagitimi >2GB olabilir
+zsh	CLI	0.95	YOK-DOGRU				kabuk, urun degil; yerelde yok, Git Bash/PowerShell mevcut
+Apify Tester MCP Client	SKILL	0.8	GERI-AL	apify/tester-mcp-client	KLON	Apache-2.0	"gh api: repo adi kalemle birebir, 80 yildiz, package.json var; ""SaaS"" elenmesi yanlis (kod yerelde calisir; APIFY token gerekir)"
+Apowerui MCP toolkit	SKILL	0.2	OMER-SOR	oraios/serena	UV/MCP	NOASSERTION (GPL-3.0 uygulama + MIT SolidLSP)	"repo aciklamasi ""A powerful MCP toolkit for coding"" = kalem (Apowerui = A powerful); 31174 yildiz; GPL kosulu icin Omer karari; envanterde KURULU-KANITSIZ"

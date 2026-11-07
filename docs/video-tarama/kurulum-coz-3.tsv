@@ -1,0 +1,293 @@
+kalem	sinif	sonuc	kaynak	puan	yol
+Agent SDK	PAKET	AI-SINIF-ADAY	npm:@anthropic-ai/claude-agent-sdk	0.9	
+Algorithmic Art	SKILL	AI-SINIF-ADAY	anthropics/skills	0.7	
+Angular	PAKET	AI-SINIF-ADAY	npm:@angular/core	0.9	
+BMAD	PAKET	AI-SINIF-ADAY	npm:bmad-method	0.7	
+BMAD Method	PAKET	AI-SINIF-ADAY	npm:bmad-method	0.7	
+Babel	PAKET	AI-SINIF-ADAY	npm:@babel/core	0.9	
+Bootstrap	PAKET	AI-SINIF-ADAY	npm:bootstrap	0.9	
+Brotli	PAKET	AI-SINIF-ADAY	google/brotli	0.7	
+C-Sharp	UYGULAMA	AI-SINIF-ADAY	dotnet/sdk	0.7	
+CPython	UYGULAMA	AI-SINIF-ADAY	python/cpython	0.9	
+Chromium	UYGULAMA	AI-SINIF-ADAY	chromium/chromium	0.7	
+Cua Driver	PAKET	AI-SINIF-ADAY	trycua/cua	0.5	
+Dart	UYGULAMA	AI-SINIF-ADAY	dart-lang/sdk	0.9	
+E2B	PAKET	AI-SINIF-ADAY	npm:e2b	0.7	
+Flatpak	CLI	AI-SINIF-ADAY	flatpak/flatpak	0.9	
+GitHub Spec Kit	CLI	AI-SINIF-ADAY	github/spec-kit	0.9	
+Go	UYGULAMA	AI-SINIF-ADAY	golang/go	0.9	
+Go 1.27.1	UYGULAMA	AI-SINIF-ADAY	golang/go	0.7	
+GorillaPod	UYGULAMA	AI-SINIF-ADAY	lllyasviel/GorillaPod	0.5	
+GraphQL	PAKET	AI-SINIF-ADAY	npm:graphql	0.9	
+Graphite	UYGULAMA	AI-SINIF-ADAY	graphite-project/graphite-web	0.5	
+HoRNDIS	UYGULAMA	AI-SINIF-ADAY	microsoft/HoRNDIS	0.7	
+Hyper	UYGULAMA	AI-SINIF-ADAY	vercel/hyper	0.9	
+Hyperframe	PAKET	AI-SINIF-ADAY	heygen-com/hyperframes	0.7	
+JSON Canvas	SKILL	AI-SINIF-ADAY	obsidianmd/jsoncanvas	0.7	
+Jakubantalik/transitions.dev-s	SKILL	AI-SINIF-ADAY	Jakubantalik/transitions.dev-s	0.7	
+Kilo	UYGULAMA	AI-SINIF-ADAY	Kilo-Org/kilocode	0.5	
+Kotlin	UYGULAMA	AI-SINIF-ADAY	JetBrains/kotlin	0.9	
+Lua	UYGULAMA	AI-SINIF-ADAY	lua/lua	0.7	
+Luau	UYGULAMA	AI-SINIF-ADAY	luau-lang/luau	0.7	
+MariaDB	UYGULAMA	AI-SINIF-ADAY	MariaDB/server	0.7	
+Maxun	UYGULAMA	AI-SINIF-ADAY	getmaxun/maxun	0.7	
+Meta Bind	UYGULAMA	AI-SINIF-ADAY	mProjectsCode/obsidian-meta-bind-plugin	0.7	
+Metro	PAKET	AI-SINIF-ADAY	npm:metro	0.7	
+Mongo	UYGULAMA	AI-SINIF-ADAY	mongodb/mongo	0.9	
+MySQL	UYGULAMA	AI-SINIF-ADAY	mysql/mysql-server	0.7	
+Ninja	CLI	AI-SINIF-ADAY	ninja-build/ninja	0.9	
+Nix	CLI	AI-SINIF-ADAY	NixOS/nix	0.9	
+Node	UYGULAMA	AI-SINIF-ADAY	nodejs/node	0.9	
+Node Runtime	UYGULAMA	AI-SINIF-ADAY	nodejs/node	0.7	
+Node.js 20+	UYGULAMA	AI-SINIF-ADAY	nodejs/node	0.7	
+Ocis	UYGULAMA	AI-SINIF-ADAY	owncloud/ocis	0.7	
+OpenHandds	UYGULAMA	AI-SINIF-ADAY	All-Hands-AI/OpenHands	0.9	
+OpenManus	UYGULAMA	AI-SINIF-ADAY	mannaandpoem/OpenManus	0.7	
+PERL	UYGULAMA	AI-SINIF-ADAY	Perl/perl5	0.7	
+PHP	UYGULAMA	AI-SINIF-ADAY	php/php-src	0.9	
+PHP 8.3	UYGULAMA	AI-SINIF-ADAY	php/php-src	0.7	
+Pest	PAKET	AI-SINIF-ADAY	pestphp/pest	0.7	
+Pinokio	UYGULAMA	AI-SINIF-ADAY	pinokiocomputer/pinokio	0.7	
+Postgre	UYGULAMA	AI-SINIF-ADAY	postgres/postgres	0.7	
+Postkog	UYGULAMA	AI-SINIF-ADAY	PostHog/posthog	0.5	
+Primer	PAKET	AI-SINIF-ADAY	@primer/react	0.7	
+ProtoMaps	PAKET	AI-SINIF-ADAY	protomaps/PMTiles	0.7	
+Python 3.10+	UYGULAMA	AI-SINIF-ADAY	python/cpython	0.9	
+RPM	CLI	AI-SINIF-ADAY	rpm-software-management/rpm	0.7	
+Ruflo router	PAKET	AI-SINIF-ADAY	ruflo	0.5	
+Rust	UYGULAMA	AI-SINIF-ADAY	rust-lang/rust	0.9	
+S3-compatible storage	UYGULAMA	AI-SINIF-ADAY	minio/minio	0.7	
+Servo	UYGULAMA	AI-SINIF-ADAY	servo/servo	0.7	
+Stan	PAKET	AI-SINIF-ADAY	stan-dev/stan	0.7	
+Storm	PAKET	AI-SINIF-ADAY	stanford-oval/storm	0.7	
+Super	UYGULAMA	AI-SINIF-ADAY	swiftlang/swift	0.7	
+Swift for Visual Studio	CLI	AI-SINIF-ADAY	swiftlang/swift-package-manager	0.7	
+System Settings	PAKET	AI-SINIF-ADAY	t3-oss/create-t3-app	0.5	
+Trojan Horse Detector	UYGULAMA	AI-SINIF-ADAY	opa334/TrollStore	0.7	
+TypeSafe AI	PAKET	AI-SINIF-ADAY	microsoft/TypeScript	0.9	
+Voice DNA	UYGULAMA	AI-SINIF-ADAY	voideditor/void	0.7	
+WP	UYGULAMA	AI-SINIF-ADAY	microsoft/WSL	0.7	
+WSL	UYGULAMA	AI-SINIF-ADAY	microsoft/WSL	0.7	
+Web	SKILL	AI-SINIF-ADAY	vercel-labs/web-interface-guidelines	0.7	
+WebGL	UYGULAMA	AI-SINIF-ADAY	WebKit/WebKit	0.7	
+WebM	PAKET	AI-SINIF-ADAY	facebookresearch/WebUI	0.7	
+Zerodha/Kite	UYGULAMA	AI-SINIF-ADAY	ziglang/zig	0.7	
+animation principles	SKILL	AI-SINIF-ADAY	addyosmani/agent-skills	0.7	
+api-and-interface-design	PAKET	AI-SINIF-ADAY	swagger-api/swagger-ui	0.5	
+api-docs	CLI	AI-SINIF-ADAY	apple/container	0.7	
+artillerytrades/links	SKILL	AI-SINIF-ADAY	artillerytrades/prop-firm-stack	0.5	
+base64	PAKET	AI-SINIF-ADAY	microsoft/BitNet	0.7	
+cash-flow-snapshot	CLI	AI-SINIF-ADAY	ryoppippi/ccusage	0.7	
+document	SKILL	AI-SINIF-ADAY	anthropics/skills	0.7	
+ewm	UYGULAMA	AI-SINIF-ADAY	farion1231/cc-switch	0.7	
+generative tools	SKILL	AI-SINIF-ADAY	getagentseal/founder-playbook	0.7	
+grid motion	CLI	AI-SINIF-ADAY	googleworkspace/cli	0.7	
+karpathy-guidelines	SKILL	AI-SINIF-ADAY	karpathy/guidelines	0.7	
+media.mjs	PAKET	AI-SINIF-ADAY	media.mjs	0.5	
+pdf	SKILL	AI-SINIF-ADAY	anthropics/skills	0.7	
+pptx	SKILL	AI-SINIF-ADAY	anthropics/skills	0.7	
+python3	UYGULAMA	AI-SINIF-ADAY	python/cpython	0.7	
+schema (coreyhaines31/marketingskills)	SKILL	AI-SINIF-ADAY	coreyhaines31/marketingskills	0.7	
+xlsx	SKILL	AI-SINIF-ADAY	anthropics/skills	0.7	
+Codebase Memory Graph <localhost:9749>	PAKET	AI-SINIF-ADAY	DeusData/codebase-memory-mcp	0.5	
+Codebase Memory UI <localhost:9749>	PAKET	AI-SINIF-ADAY	DeusData/codebase-memory-mcp	0.5	
+CodebaseMemory <DeusData/codehasememory-mcp>	PAKET	AI-SINIF-ADAY	DeusData/codebase-memory-mcp	0.7	
+FLOW <AgriciDaniel/flow>	SKILL	AI-SINIF-ADAY	AgriciDaniel/flow	0.7	
+Loopy <Forward-Future/loopy>	PAKET	AI-SINIF-ADAY	Forward-Future/loopy	0.7	
+Make Interfaces Feel Better <jakubkrehel/make-interfaces-feel-better>	SKILL	AI-SINIF-ADAY	jakubkrehel/make-interfaces-feel-better	0.7	
+Mintimage <qinxuancai/Mintimage.pr.md>	UYGULAMA	AI-SINIF-ADAY	qinxuancai/Mintimage	0.5	
+Node.js <nodejs.org/en>	UYGULAMA	AI-SINIF-ADAY	nodejs/node	0.9	
+Omarchy <omarchy.org>	UYGULAMA	AI-SINIF-ADAY	basecamp/omarchy	0.7	
+OneVOneJev <emrickgarrett/OneVoneJev>	UYGULAMA	AI-SINIF-ADAY	emrickgarrett/OneVoneJev	0.5	
+Python <www.python.org>	UYGULAMA	AI-SINIF-ADAY	python/cpython	0.9	
+Swagger.io <Swagger.io>	UYGULAMA	AI-SINIF-ADAY	swagger-api/swagger-ui	0.7	
+Tailwind CSS <tailwindcss.com>	PAKET	AI-SINIF-ADAY	tailwindlabs/tailwindcss	0.9	
+Telegram <https://t.me/+n>	UYGULAMA	AI-SINIF-ADAY	telegramdesktop/tdesktop	0.7	
+Terraform <Terraform.io>	CLI	AI-SINIF-ADAY	hashicorp/terraform	0.9	
+Terraform.io <Terraform.io>	CLI	AI-SINIF-ADAY	hashicorp/terraform	0.9	
+Three.js <https://threejs.org>	PAKET	AI-SINIF-ADAY	mrdoob/three.js	0.9	
+claude-blog <AgriciDaniel/claude-blog>	SKILL	AI-SINIF-ADAY	AgriciDaniel/claude-blog	0.7	
+codegraph <https://colbymchenry.github.io/codegraph/>	CLI	AI-SINIF-ADAY	colbymchenry/codegraph	0.7	
+ink <80-days.ink>	UYGULAMA	AI-SINIF-ADAY	inkle/ink	0.7	
+morluto/rea <GITHUB.COM/TRENDING.TODAY>	SKILL	AI-SINIF-ADAY	morluto/rea	0.5	
+ai-employeesreadme	REPO	BULUNDU-ADAY	markfulton/ai-employees	1.00	
+Archify	REPO	BULUNDU-ADAY	tt-a1i/archify	0.93	
+awesome-gamedev-agent	REPO	BULUNDU-ADAY	gamedev-skills/awesome-gamedev-agent-skills	0.87	
+awesome-mcp-	REPO	BULUNDU-ADAY	punkpeye/awesome-mcp-servers	0.86	
+baocutreadme	REPO	BULUNDU-ADAY	JimLiu/baocut	0.89	
+beads	REPO	BULUNDU-ADAY	gastownhall/beads	0.98	
+blender-skills	REPO	BULUNDU-ADAY	EL4CTEO/blender-skills	0.94	
+claude-memREADME	REPO	BULUNDU-ADAY	thedotmack/claude-mem	0.96	
+claude-remotion-skill	REPO	BULUNDU-ADAY	haidrrrry/claude-remotion-skill	0.95	
+claude-task	REPO	BULUNDU-ADAY	eyaltoledano/claude-task-master	0.86	
+ClaudeAnimationBaseFreadme	REPO	BULUNDU-ADAY	JohnHeibel/ClaudeAnimationBase	0.96	
+Concord MCP	REPO	BULUNDU-ADAY	Get-Concord-AI/concord-mcp	0.97	
+Council of High Intelligence	REPO	BULUNDU-ADAY	0xNyk/council-of-high-intelligence	0.92	
+DeepDiagram	REPO	BULUNDU-ADAY	LingyiChen-AI/DeepDiagram	0.97	
+Dextopreadme	REPO	BULUNDU-ADAY	NarYuki/Dextop	0.97	
+DiffSynth-	REPO	BULUNDU-ADAY	modelscope/DiffSynth-Studio	0.86	
+Ditto	REPO	BULUNDU-ADAY	yoheinakajima/ditto	0.95	
+evolution-goreadme	REPO	BULUNDU-ADAY	evolution-foundation/evolution-go	1.00	
+flocireadme	REPO	BULUNDU-ADAY	floci-io/floci	1.00	
+HTML Anything	REPO	BULUNDU-ADAY	nexu-io/html-anything	0.86	
+mcptoonreadme	REPO	BULUNDU-ADAY	activeing123/mcptoon	1.00	
+OpenChatCut	REPO	BULUNDU-ADAY	0xsline/OpenChatCut	0.94	
+openshipreadme	REPO	BULUNDU-ADAY	oblien/openship	1.00	
+pentest-agentsfreadme	REPO	BULUNDU-ADAY	H-mmer/pentest-agents	1.00	
+plexoreadme	REPO	BULUNDU-ADAY	anmolkapil/plexo	1.00	
+task-coe	REPO	BULUNDU-ADAY	Agent4Science-UTokyo/Task-CoEvolve	0.85	
+youtube-automation-agent	REPO	BULUNDU-ADAY	darkzOGx/youtube-automation-agent	0.91	
+netflix-clone	REPO	BULUNDU-ADAY	KalleHallden/Netflix_Clone	0.84	
+youtube-clone	REPO	BULUNDU-ADAY	manikandanraji/youtubeclone-backend	0.84	
+AEON	SKILL	LT-GB-ADAY		0.4	
+Adobe Creative Cloud Suite	UYGULAMA	LT-GB-ADAY		0.7	
+Backend Architect	SKILL	LT-GB-ADAY		0.4	
+C# (C-Sharp)	UYGULAMA	LT-GB-ADAY	dotnet/sdk	0.7	
+CUDA	UYGULAMA	LT-GB-ADAY		0.9	
+CUDA 12.8	UYGULAMA	LT-GB-ADAY		0.7	
+Clean Code	SKILL	LT-GB-ADAY		0.4	
+Cloud Code Setup	SKILL	LT-GB-ADAY		0.7	
+CodexBar	UYGULAMA	LT-GB-ADAY		0.4	
+Core Web Vitals	SKILL	LT-GB-ADAY		0.7	
+DaVinci	UYGULAMA	LT-GB-ADAY		0.7	
+DataFlex	UYGULAMA	LT-GB-ADAY		0.4	
+Final Cut Camera	UYGULAMA	LT-GB-ADAY		0.9	
+Flatpak (paket yÃ¶neticisi)	CLI	LT-GB-ADAY	flatpak/flatpak	0.9	
+Go (programlama dili)	UYGULAMA	LT-GB-ADAY	golang/go	0.9	
+Hicksfield	SKILL	LT-GB-ADAY		0.4	
+Hyper-V	UYGULAMA	LT-GB-ADAY		0.7	
+HyperFrames Studio	UYGULAMA	LT-GB-ADAY		0.4	
+Interactive Portfolio	SKILL	LT-GB-ADAY		0.4	
+Investor Outreach Agent	SKILL	LT-GB-ADAY		0.4	
+Java	UYGULAMA	LT-GB-ADAY		0.7	
+LLM Wiki	SKILL	LT-GB-ADAY		0.4	
+LaTeX	UYGULAMA	LT-GB-ADAY		0.7	
+LrC	UYGULAMA	LT-GB-ADAY		0.7	
+MSSQL	UYGULAMA	LT-GB-ADAY		0.7	
+MSVC	UYGULAMA	LT-GB-ADAY		0.7	
+MacTeX	UYGULAMA	LT-GB-ADAY		0.7	
+Marketing Psychology	SKILL	LT-GB-ADAY		0.4	
+Mattpocock	SKILL	LT-GB-ADAY		0.4	
+Microsoft Visual C++ Redistributable	UYGULAMA	LT-GB-ADAY		0.7	
+Microsoft Visual C++ v14 x64 Redistributable	UYGULAMA	LT-GB-ADAY		0.7	
+Month-end close	SKILL	LT-GB-ADAY		0.4	
+OpenClaw	UYGULAMA	LT-GB-ADAY		0.7	
+PK/PD modeling	SKILL	LT-GB-ADAY		0.4	
+ParrotOS	UYGULAMA	LT-GB-ADAY		0.7	
+Principle	UYGULAMA	LT-GB-ADAY		0.7	
+Product Photoshoot	SKILL	LT-GB-ADAY		0.4	
+Proxmox	UYGULAMA	LT-GB-ADAY		0.7	
+REA (Reverse Engineer)	SKILL	LT-GB-ADAY		0.7	
+RHEL	UYGULAMA	LT-GB-ADAY		0.7	
+Simple Jev	SKILL	LT-GB-ADAY		0.4	
+Swift	UYGULAMA	LT-GB-ADAY	swiftlang/swift	0.7	
+Swift Language Support for Visual Studio	UYGULAMA	LT-GB-ADAY		0.7	
+SwiftPM	CLI	LT-GB-ADAY	swiftlang/swift-package-manager	0.7	
+T3 Code	PAKET	LT-GB-ADAY	t3-oss/create-t3-app	0.4	
+Texel Density Checker	PAKET	LT-GB-ADAY		0.4	
+TokenJuice	CLI	LT-GB-ADAY		0.4	
+Toon Boom	UYGULAMA	LT-GB-ADAY		0.7	
+Transcribe	SKILL	LT-GB-ADAY		0.4	
+TrollStore	UYGULAMA	LT-GB-ADAY	opa334/TrollStore	0.7	
+Type UI Chrome Eklentisi	UYGULAMA	LT-GB-ADAY		0.4	
+TypeScript	PAKET	LT-GB-ADAY	microsoft/TypeScript	0.9	
+UE Live Link	PAKET	LT-GB-ADAY		0.4	
+UI Designer	SKILL	LT-GB-ADAY		0.4	
+VOICE DNA CREATOR	SKILL	LT-GB-ADAY		0.4	
+Void	UYGULAMA	LT-GB-ADAY	voideditor/void	0.7	
+WSL2	UYGULAMA	LT-GB-ADAY	microsoft/WSL	0.7	
+Web Interface Guidelines	SKILL	LT-GB-ADAY	vercel-labs/web-interface-guidelines	0.7	
+WebKit	UYGULAMA	LT-GB-ADAY	WebKit/WebKit	0.7	
+WebUI	PAKET	LT-GB-ADAY	facebookresearch/WebUI	0.7	
+Windsurf	UYGULAMA	LT-GB-ADAY		0.7	
+Xiaomi MiMo-V2.6-Pro	MODEL	LT-GB-ADAY		0.4	
+Zig	UYGULAMA	LT-GB-ADAY	ziglang/zig	0.7	
+apple-container	CLI	LT-GB-ADAY	apple/container	0.7	
+apple-design	SKILL	LT-GB-ADAY		0.7	
+prop-firm-stack	SKILL	LT-GB-ADAY	artillerytrades/prop-firm-stack	0.4	
+bitnet.cpp	PAKET	LT-GB-ADAY	microsoft/BitNet	0.7	
+brand-identity	SKILL	LT-GB-ADAY		0.4	
+brand-intake	SKILL	LT-GB-ADAY		0.4	
+brand-positioning	SKILL	LT-GB-ADAY		0.4	
+browse	SKILL	LT-GB-ADAY		0.4	
+building-landing-page	SKILL	LT-GB-ADAY		0.4	
+business-pulse	SKILL	LT-GB-ADAY		0.4	
+call-prep	SKILL	LT-GB-ADAY		0.4	
+canary	SKILL	LT-GB-ADAY		0.4	
+career-interview	SKILL	LT-GB-ADAY		0.4	
+careful	SKILL	LT-GB-ADAY		0.4	
+ccusage	CLI	LT-GB-ADAY	ryoppippi/ccusage	0.7	
+ci-cd-and-automation	SKILL	LT-GB-ADAY		0.4	
+client-onboarding	SKILL	LT-GB-ADAY		0.4	
+cln-council	SKILL	LT-GB-ADAY		0.4	
+Windows	SKILL	LT-GB-ADAY		0.4	
+Grafik tasarÄ±m kavramlarÄ± (konsept, animasyon, 3D)	SKILL	LT-GB-ADAY		0.4	
+Ä°Ã§erik Ä°mparatorluÄŸu (strateji, yÃ¶netim)	SKILL	LT-GB-ADAY		0.4	
+Ä°Ã§erik Stratejisi (planlama, analiz)	SKILL	LT-GB-ADAY		0.4	
+Kontekst GeÃ§iÅŸ (iÅŸ akÄ±ÅŸÄ± yÃ¶netimi)	SKILL	LT-GB-ADAY		0.4	
+designlang	CLI	LT-GB-ADAY		0.7	
+docx	SKILL	LT-GB-ADAY	anthropics/skills	0.7	
+farion1231/cc-switch	UYGULAMA	LT-GB-ADAY	farion1231/cc-switch	0.7	
+frontend-architecture	SKILL	LT-GB-ADAY		0.4	
+fundraising-and-investor-relations	SKILL	LT-GB-ADAY		0.4	
+gamedesign	SKILL	LT-GB-ADAY		0.4	
+getagentseal/founder-playbook	SKILL	LT-GB-ADAY	getagentseal/founder-playbook	0.7	
+go-viral	SKILL	LT-GB-ADAY		0.4	
+graphics-artist	SKILL	LT-GB-ADAY		0.4	
+gws	CLI	LT-GB-ADAY	googleworkspace/cli	0.7	
+handle-complaint	SKILL	LT-GB-ADAY		0.4	
+m2.7Code	MODEL	LT-GB-ADAY		0.4	
+market-analysis	SKILL	LT-GB-ADAY		0.4	
+media.mjs (modÃ¼l/JS)	PAKET	LT-GB-ADAY	media.mjs	0.4	
+morning	SKILL	LT-GB-ADAY		0.4	
+PDF (dosya biÃ§imi)	SKILL	LT-GB-ADAY	anthropics/skills	0.7	
+pitch-deck	SKILL	LT-GB-ADAY		0.4	
+platform-design	SKILL	LT-GB-ADAY		0.4	
+public-relations	SKILL	LT-GB-ADAY		0.4	
+quarterly-review	SKILL	LT-GB-ADAY		0.4	
+run-campaign	SKILL	LT-GB-ADAY		0.4	
+saas-idea-validator	SKILL	LT-GB-ADAY		0.4	
+santa-loop	SKILL	LT-GB-ADAY		0.4	
+schema (Corey Haines'in marketingskills projesinde kullanÄ±lan kavram)	SKILL	LT-GB-ADAY	coreyhaines31/marketingskills	0.7	
+trader-timemachine	SKILL	LT-GB-ADAY		0.4	
+App-Builder	SKILL	LT-GB-ADAY		0.4	
+ARES	PAKET	LT-GB-ADAY		0.4	
+Codebase Memory Graph	PAKET	LT-GB-ADAY	DeusData/codebase-memory-mcp	0.4	
+Codebase Memory UI	PAKET	LT-GB-ADAY	DeusData/codebase-memory-mcp	0.4	
+CodebaseMemory	PAKET	LT-GB-ADAY	DeusData/codebase-memory-mcp	0.7	
+FLOW	SKILL	LT-GB-ADAY	AgriciDaniel/flow	0.7	
+Fast Jev Compaction	SKILL	LT-GB-ADAY		0.4	
+FluidVoice	UYGULAMA	LT-GB-ADAY		0.4	
+Freebuff	CLI	LT-GB-ADAY		0.4	
+Herdr	CLI	LT-GB-ADAY		0.7	
+Hue	UYGULAMA	LT-GB-ADAY		0.4	
+Jev	CLI	LT-GB-ADAY		0.7	
+Loopy	PAKET	LT-GB-ADAY	Forward-Future/loopy	0.7	
+Make Interfaces Feel Better	SKILL	LT-GB-ADAY	jakubkrehel/make-interfaces-feel-better	0.7	
+Mintimage	UYGULAMA	LT-GB-ADAY	qinxuancai/Mintimage	0.4	
+Node.js	UYGULAMA	LT-GB-ADAY	nodejs/node	0.9	
+O-USERSEARCH	CLI	LT-GB-ADAY		0.4	
+Omarchy	UYGULAMA	LT-GB-ADAY	basecamp/omarchy	0.7	
+OneVOneJev	UYGULAMA	LT-GB-ADAY	emrickgarrett/OneVoneJev	0.4	
+Python	UYGULAMA	LT-GB-ADAY	python/cpython	0.9	
+Castle II Environment Pack	PAKET	LT-GB-ADAY		0.4	
+Swagger.io (API Design Framework)	UYGULAMA	LT-GB-ADAY	swagger-api/swagger-ui	0.7	
+Tailwind CSS (Framework)	PAKET	LT-GB-ADAY	tailwindlabs/tailwindcss	0.9	
+Telegram (Messaging Platform)	UYGULAMA	LT-GB-ADAY	telegramdesktop/tdesktop	0.7	
+Terraform (Infrastructure as Code)	CLI	LT-GB-ADAY	hashicorp/terraform	0.9	
+Terraform.io (alternatif URL)	CLI	LT-GB-ADAY	hashicorp/terraform	0.9	
+Three.js (3D Rendering Library)	PAKET	LT-GB-ADAY	mrdoob/three.js	0.9	
+Ubuntu	UYGULAMA	LT-GB-ADAY		0.9	
+Claude Blog	SKILL	LT-GB-ADAY	AgriciDaniel/claude-blog	0.7	
+Codegraph	CLI	LT-GB-ADAY	colbymchenry/codegraph	0.7	
+deep-research	SKILL	LT-GB-ADAY		0.4	
+iClone Video Mocap	UYGULAMA	LT-GB-ADAY		0.4	
+Ink (Inkle)	UYGULAMA	LT-GB-ADAY	inkle/ink	0.7	
+morluto/rea	SKILL	LT-GB-ADAY	morluto/rea	0.4	
+userinterface.wiki	SKILL	LT-GB-ADAY		0.7	
+ai-job-searchfreadme	REPO	BULUNDU-ADAY	https://github.com/ai-job-search-dev/ai-job-search	0.9	lisans MIT
+ClaudeAnimationBasereadme	REPO	BULUNDU-ADAY	https://github.com/JohnHeibel/ClaudeAnimationBase	0.9	lisans MIT
+dioramasreadme	REPO	BULUNDU-ADAY	https://github.com/blendi-remade/dioramas	0.9	lisans MIT
+OmniCloudirreadme	REPO	BULUNDU-ADAY	https://github.com/dimartarmizi/OmniCloud	0.9	lisans MIT
+OpenShell-tag	REPO	BULUNDU-ADAY	https://github.com/NVIDIA/OpenShell	0.9	lisans Apache-2.0
+releases	REPO	BULUNDU-ADAY	https://github.com/lightpanda-io/browser	0.9	lisans AGPL-3.0
