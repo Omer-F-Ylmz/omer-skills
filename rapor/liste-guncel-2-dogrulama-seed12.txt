@@ -1,0 +1,51 @@
+kuruldu | prompt2rig | KURULU-KANITSIZ | EVET | ['klon:prompt2rig'] | 
+kuruldu | gh (GitHub CLI) | KURULDU | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\cli__cli'] | ipucu:['skills:github', 'klon:.github']
+kuruldu | Zod | KURULU-KANITSIZ | EVET | ['skills:zod', 'envanter-kurulu:zod'] | 
+kuruldu | Skill Inspector | CALISIYOR | EVET | ['skills:skill-inspector', 'envanter-kurulu:skill-inspector'] | ipucu:['npmbin:inspector']
+kuruldu | Facebook | KURULU-KANITSIZ | EVET | ['skills:facebook', 'envanter-kurulu:facebook'] | ipucu:['skills:facebook-ads', 'skills:facebook-automation']
+kuruldu | lead-triage | CALISIYOR | EVET | ['skills:lead-triage', 'envanter-kurulu:lead-triage'] | ipucu:['skills:anthropics-lead-triage', 'skills:triage']
+kuruldu | Claude Cowork plugin | ZATEN | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\anthropics__knowledge-work-plugins'] | 
+kuruldu | Meta Ads MCP | CALISIYOR | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\nowork-studio__notfair-plugin\\skills\\meta-ads'] | ipucu:['skills:meta-ads', 'envanter-kurulu:meta-ads']
+kuruldu | /hiring-panel | KURULU-KANITSIZ | EVET | ['skills:hiring-panel', 'envanter-kurulu:hiring-panel'] | 
+kuruldu | Mattpocock | KURULU-KANITSIZ | YOK | [] | ipucu:['skills:mattpocock-ask-matt', 'skills:mattpocock-chief-of-staff']
+kuruldu | rea-agents | KURULU-KANITSIZ | EVET | ['npm:rea-agents', 'klon:rea-agents'] | ipucu:['skills:agents', 'klon:agents']
+kuruldu | GitHub Spec Kit | KURULDU | YOK | [] | ipucu:['skills:github', 'klon:spec-kit']
+kuruldu | lenis | KURULU-KANITSIZ | EVET | ['skills:lenis', 'klon:lenis'] | 
+kuruldu | Plexo | KURULDU | EVET | ['klon:plexo'] | 
+kuruldu | Outreach | KURULU-KANITSIZ | EVET | ['envanter-kurulu:outreach'] | ipucu:['skills:affaan-m-investor-outreach', 'skills:apollo-outreach']
+kuruldu | Vicoa | KURULU-KANITSIZ | EVET | ['klon:vicoa'] | 
+kuruldu | engineering-workflow-plugin | KURULDU | EVET | ['klon:engineering-workflow-plugin', 'yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\AndsGo__engineering-workflow-plugin'] | ipucu:['envanter-kurulu:engineering']
+kuruldu | Taste (taste-skill) | ZATEN | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\affaan-m__ECC\\skills\\taste'] | ipucu:['skills:taste-skill', 'klon:taste-skill']
+kuruldu | /artifact-capabilities | KURULU-KANITSIZ | EVET | ['skills:artifact-capabilities', 'envanter-kurulu:artifact-capabilities'] | 
+kuruldu | Segment Analysis | KURULU-KANITSIZ | EVET | ['envanter-kurulu:segment-analysis'] | 
+kuruldu | xtask | KURULU-KANITSIZ | EVET | ['klon:xtask'] | 
+kuruldu | Claude in Chrome | KURULU-KANITSIZ | EVET | ['skills:claude-in-chrome', 'envanter-kurulu:claude-in-chrome'] | 
+kuruldu | oraios/serena | CALISIYOR | EVET | ['skills:oraios-serena', 'envanter-kurulu:oraios-serena'] | ipucu:['skills:serena', 'klon:serena']
+kuruldu | Make Interfaces Feel Better | KURULU-KANITSIZ | EVET | ['skills:make-interfaces-feel-better', 'klon:make-interfaces-feel-better'] | ipucu:['skills:affaan-m-make-interfaces-feel-better', 'skills:free-the-ai-make-interfaces-feel-better']
+kuruldu | cloudflare/security-audit | ZATEN | YOK | [] | ipucu:['skills:cloudflare', 'skills:security-audit']
+kurulmadi | Higgsfield Virality Predictor | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:higgsfield', 'skills:virality']
+kurulmadi | debugging-hermes-tui-command | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:debugging', 'envanter-kurulu:debugging']
+kurulmadi | AnswerThePublic.com | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['klon:public', 'klon:public']
+kurulmadi | RNDIS | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | CUDA 12.8 | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Asana.com | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | pdflatex | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Unity IL2CPP | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | HEVC | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Typefully | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:typefully-automation', 'envanter-kurulu:typefully-automation']
+kurulmadi | LinkedIn Premium | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | B Fiam Studio | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:studio', 'envanter-kurulu:studio']
+kurulmadi | 3D printer | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Anti-AI | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:anti-ai-slop-writing', 'klon:anti-ai-slop-writing']
+kurulmadi | Timeline (Zaman Çizelgesi) | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Palo Alto PAN-OS | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | DNET | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | BEAUTY | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | ManyMotions | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:motion', 'klon:motion']
+kurulmadi | MinerU | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | byterover | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Ticimax | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Manus AI | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Chromium | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['klon:fingerprint-chromium']
+kurulmadi | promptible-terminal-inserts | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['envanter-kurulu:terminal']
+uyusma 47 /50

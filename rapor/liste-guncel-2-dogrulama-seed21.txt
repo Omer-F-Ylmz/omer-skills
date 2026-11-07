@@ -1,0 +1,51 @@
+kuruldu | code-architect | ZATEN | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\anthropics__claude-plugins-official'] | ipucu:['skills:architect', 'skills:design-code-architecture']
+kuruldu | offensive-xss | ZATEN | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\SnailSploit__Claude-Red\\Skills\\web\\offensive-xss'] | 
+kuruldu | OpenAI | KURULU-KANITSIZ | EVET | ['pip:openai', 'PATH:C:\\Users\\pc\\.local\\bin\\openai.EXE'] | ipucu:['skills:azure-ai-openai-dotnet', 'skills:openai-audio']
+kuruldu | awesome-design-md | KURULU-KANITSIZ | EVET | ['klon:awesome-design-md'] | ipucu:['skills:design', 'skills:design-md']
+kuruldu | Google Lighthouse | KURULDU | YOK | [] | ipucu:['npm:lighthouse', 'npmbin:lighthouse']
+kuruldu | QuickLook | KURULDU-SARMALAYICI | EVET | ['klon:QuickLook', 'yol:C:\\Users\\pc\\.claude\\skills\\ql-win-quicklook'] | ipucu:['skills:ql-win-quicklook', 'envanter-kurulu:ql-win-quicklook']
+kuruldu | dryer | KURULU-KANITSIZ | EVET | ['klon:dryer'] | 
+kuruldu | PromptDirector | KURULU-KANITSIZ | EVET | ['klon:PromptDirector'] | ipucu:['skills:promptdirector-library', 'klon:rector']
+kuruldu | ScrapeGraphAI | CALISIYOR | EVET | ['klon:Scrapegraph-ai'] | ipucu:['skills:scrape', 'skills:scrapegraph-ai-automation']
+kuruldu | Copilot | KURULU-KANITSIZ | EVET | ['npmbin:copilot', 'PATH:C:\\Users\\pc\\AppData\\Roaming\\npm\\copilot.CMD'] | ipucu:['skills:copilot-sdk', 'skills:copilotc-nvim-copilotchat.nvim']
+kuruldu | rtk | KURULU-KANITSIZ | EVET | ['klon:rtk', 'envanter-kurulu:rtk'] | 
+kuruldu | SimilarWeb | KURULU-KANITSIZ | EVET | ['envanter-kurulu:similarweb'] | ipucu:['skills:similarweb-digitalrank-api-automation', 'skills:similarweb-traffic']
+kuruldu | FactSet | KURULU-KANITSIZ | EVET | ['envanter-kurulu:factset'] | ipucu:['envanter-kurulu:plugin:claude-for-financial-advisors:factset']
+kuruldu | /caption-and-hashtags | KURULU-KANITSIZ | EVET | ['skills:caption-and-hashtags', 'envanter-kurulu:caption-and-hashtags'] | ipucu:['skills:ootto-caption-and-hashtags', 'envanter-kurulu:ootto-caption-and-hashtags']
+kuruldu | /init | KURULU-KANITSIZ | EVET | ['skills:init', 'envanter-kurulu:init'] | 
+kuruldu | Marketing plugin | KURULU-KANITSIZ | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\anthropics__knowledge-work-plugins'] | ipucu:['envanter-kurulu:marketing']
+kuruldu | UGC content skill | KURULDU | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\kofiowusuai-lab__ugc-skills'] | 
+kuruldu | OpenAI Research Agent | KURULDU-SARMALAYICI | EVET | ['klon:openai-research-agent', 'yol:C:\\Users\\pc\\.claude\\skills\\swarajbhopatkar22-openai-research-agent'] | ipucu:['skills:research', 'skills:search']
+kuruldu | Anthropic finance agents | KURULDU | EVET | ['yol:C:\\Users\\pc\\Desktop\\Claude ile yapýlanlar\\araclar\\ana-liste\\anthropics__financial-services'] | ipucu:['skills:agents', 'klon:agents']
+kuruldu | CLAUDE HQ | KURULDU | EVET | ['klon:claude-hq', 'klon:claude-hq'] | 
+kuruldu | excel-mcp-server | KURULU-KANITSIZ | EVET | ['klon:excel-mcp-server'] | ipucu:['klon:server']
+kuruldu | executing-plans | KURULU-KANITSIZ | EVET | ['skills:executing-plans', 'envanter-kurulu:executing-plans'] | ipucu:['skills:davila7-executing-plans', 'envanter-kurulu:superpowers-executing-plans']
+kuruldu | songsee | KURULU-KANITSIZ | EVET | ['skills:songsee', 'envanter-kurulu:songsee'] | 
+kuruldu | Add Zooms | KURULDU | EVET | ['skills:add-zooms', 'klon:add-zooms'] | 
+kuruldu | Openship | KURULU-KANITSIZ | EVET | ['npm:openship', 'klon:openship'] | ipucu:['skills:openship-config', 'envanter-kurulu:openship-config']
+kurulmadi | XYN Motion Studio | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:motion', 'skills:motion-studio']
+kurulmadi | Live Face v1.1 | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Skool MCP | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Microsplat | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Ae | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Happy Horse | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | proposal architect agent | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:architect', 'envanter-kurulu:architect']
+kurulmadi | OpenSSH | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | v3fast | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | CamoFox | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['klon:camofox-browser']
+kurulmadi | Taskade | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | iPhone 14 Pro Max | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Abacus AI agent | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Clawed | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | YouTube AI Agent Studio | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:agents', 'skills:studio']
+kurulmadi | Backlinks API | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Cemin | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | 3ds Max | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Motion-Track | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:motion', 'klon:motion']
+kurulmadi | Clone stamp | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Qwen3.8-LiveTranslate | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Wolfteam | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Hopper | KURULMADI-SIRADA | UYUSTU | [] | ipucu:['skills:graphhopper-automation', 'envanter-kurulu:graphhopper-automation']
+kurulmadi | lift_to_mixamo.py | KURULMADI-SIRADA | UYUSTU | [] | 
+kurulmadi | Omarchi | KURULMADI-SIRADA | UYUSTU | [] | 
+uyusma 49 /50
