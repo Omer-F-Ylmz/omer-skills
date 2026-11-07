@@ -1,0 +1,1905 @@
+﻿kalem	yontem	durum	not
+AI Slop Detector	UV	DENEME	uv tool install ai-slop-detector
+AI Data Analysis Agent	SKILL	ZATEN	advisor-orchestrator-worker
+AI Data Analysis Agent	SKILL	ZATEN	commit-archaeologist
+AI Data Analysis Agent	SKILL	ZATEN	dependency-doctor
+AI Data Analysis Agent	SKILL	ZATEN	first-reader
+AI Data Analysis Agent	SKILL	ZATEN	project-graveyard
+AI Data Analysis Agent	SKILL	ZATEN	scope-creep-detector
+AI Data Analysis Agent	SKILL	ZATEN	thinking-out-loud
+AI Data Analysis Agent	SKILL	ZATEN	chatgpt-app-builder
+AI Data Analysis Agent	SKILL	ZATEN	mcp-apps-builder
+AI Data Analysis Agent	SKILL	ZATEN	mcp-builder
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\apple-calendar -> C:\Users\pc\.claude\skills\apple-calendar
+Atomic Chat	SKILL	ZATEN	apple-notes
+Atomic Chat	SKILL	ZATEN	apple-reminders
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\audio-transcribe -> C:\Users\pc\.claude\skills\audio-transcribe
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\currency -> C:\Users\pc\.claude\skills\currency
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\docker -> C:\Users\pc\.claude\skills\docker
+Atomic Chat	SKILL	ZATEN	ffmpeg
+Atomic Chat	SKILL	ZATEN	github
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\gog-workspace -> C:\Users\pc\.claude\skills\gog-workspace
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\imagemagick -> C:\Users\pc\.claude\skills\imagemagick
+Atomic Chat	SKILL	ZATEN	notion
+Atomic Chat	SKILL	ZATEN	obsidian
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\pandoc -> C:\Users\pc\.claude\skills\pandoc
+Atomic Chat	SKILL	ZATEN	pdf
+Atomic Chat	SKILL	ZATEN	skill-creator
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\wikipedia -> C:\Users\pc\.claude\skills\wikipedia
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\wttr-weather -> C:\Users\pc\.claude\skills\wttr-weather
+Atomic Chat	SKILL	ZATEN	xlsx
+AutoResearchClaw	UV	DENEME	uv tool install researchclaw
+Chatterbox	UV	DENEME	uv tool install chatterbox-tts
+Command Code	NPM	DENEME	npm i -g command-code
+EditorConfig	NPM	DENEME	npm i -g editorconfig
+Foreman	UV	DENEME	uv tool install foreman-orchestrator
+Free Claude Code Repo	UV	DENEME	uv tool install free-claude-code
+LEANN	UV	DENEME	uv tool install leann
+MCP Bridge	UV	DENEME	uv tool install mcp-bridge
+MetaClaw	UV	DENEME	uv tool install aiming-metaclaw
+Pipecat CLI	UV	DENEME	uv tool install pipecat-ai-cli
+claude-trace	NPM	DENEME	npm i -g @mariozechner/claude-trace
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\bambu-labs -> C:\Users\pc\.claude\skills\bambu-labs
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\cad -> C:\Users\pc\.claude\skills\cad
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\dfam-check -> C:\Users\pc\.claude\skills\dfam-check
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\dfm -> C:\Users\pc\.claude\skills\dfm
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\dxf -> C:\Users\pc\.claude\skills\dxf
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\engineering-drawing -> C:\Users\pc\.claude\skills\engineering-drawing
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\gcode -> C:\Users\pc\.claude\skills\gcode
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\sdf -> C:\Users\pc\.claude\skills\sdf
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\sendcutsend -> C:\Users\pc\.claude\skills\sendcutsend
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\srdf -> C:\Users\pc\.claude\skills\srdf
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\step-parts -> C:\Users\pc\.claude\skills\step-parts
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\urdf -> C:\Users\pc\.claude\skills\urdf
+pgnx	NPM	DENEME	npm i -g pgnx
+21st Day MCP Connector	NPM	DENEME	npm i -g @21st-dev/cli
+21st Dev MCP	NPM	DENEME	npm i -g @21st-dev/cli
+21st MCP	NPM	DENEME	npm i -g @21st-dev/cli
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\chart -> C:\Users\pc\.claude\skills\chart
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\gh-issues -> C:\Users\pc\.claude\skills\gh-issues
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\icon-jetbrains -> C:\Users\pc\.claude\skills\icon-jetbrains
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\icon-vscode -> C:\Users\pc\.claude\skills\icon-vscode
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-arch -> C:\Users\pc\.claude\skills\jetbrains-arch
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-cli-pin -> C:\Users\pc\.claude\skills\jetbrains-cli-pin
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-dev -> C:\Users\pc\.claude\skills\jetbrains-dev
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-sandbox -> C:\Users\pc\.claude\skills\jetbrains-sandbox
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-session -> C:\Users\pc\.claude\skills\jetbrains-session
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-ui -> C:\Users\pc\.claude\skills\jetbrains-ui
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\kilocode-merge-minimizer -> C:\Users\pc\.claude\skills\kilocode-merge-minimizer
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\pr-track-v1 -> C:\Users\pc\.claude\skills\pr-track-v1
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilocode\skills\vscode-visual-regression -> C:\Users\pc\.claude\skills\vscode-visual-regression
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.opencode\skills\effect -> C:\Users\pc\.claude\skills\effect
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.opencode\skills\rtl-aware-development -> C:\Users\pc\.claude\skills\rtl-aware-development
+Kilo Code	SKILL	ZATEN	agents-sdk
+Kilo Code	SKILL	ZATEN	cloudflare
+Lint	NPM	DENEME	npm i -g @shadcn/lint
+MLSharp	UV	DENEME	uv tool install sharp
+Mempalus	UV	DENEME	uv tool install mempalace
+Official Anthropic Skill Pack	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__skills\template -> C:\Users\pc\.claude\skills\template
+Official Anthropic Skill Pack	SKILL	ZATEN	academy-guide
+Official Anthropic Skill Pack	SKILL	ZATEN	algorithmic-art
+Official Anthropic Skill Pack	SKILL	ZATEN	brand-guidelines
+Official Anthropic Skill Pack	SKILL	ZATEN	canvas-design
+Official Anthropic Skill Pack	SKILL	ZATEN	claude-api
+Official Anthropic Skill Pack	SKILL	ZATEN	discernment-nudge
+Official Anthropic Skill Pack	SKILL	ZATEN	doc-coauthoring
+Official Anthropic Skill Pack	SKILL	ZATEN	docx
+Official Anthropic Skill Pack	SKILL	ZATEN	frontend-design
+Official Anthropic Skill Pack	SKILL	ZATEN	internal-comms
+Official Anthropic Skill Pack	SKILL	ZATEN	mcp-builder
+Official Anthropic Skill Pack	SKILL	ZATEN	pdf
+Official Anthropic Skill Pack	SKILL	ZATEN	pptx
+Official Anthropic Skill Pack	SKILL	ZATEN	skill-creator
+Official Anthropic Skill Pack	SKILL	ZATEN	slack-gif-creator
+Official Anthropic Skill Pack	SKILL	ZATEN	theme-factory
+Official Anthropic Skill Pack	SKILL	ZATEN	web-artifacts-builder
+Official Anthropic Skill Pack	SKILL	ZATEN	webapp-testing
+Official Anthropic Skill Pack	SKILL	ZATEN	xlsx
+Official GSAP Skills	SKILL	ZATEN	gsap-core
+Official GSAP Skills	SKILL	ZATEN	gsap-frameworks
+Official GSAP Skills	SKILL	ZATEN	gsap-performance
+Official GSAP Skills	SKILL	ZATEN	gsap-plugins
+Official GSAP Skills	SKILL	ZATEN	gsap-react
+Official GSAP Skills	SKILL	ZATEN	gsap-scrolltrigger
+Official GSAP Skills	SKILL	ZATEN	gsap-timeline
+Official GSAP Skills	SKILL	ZATEN	gsap-utils
+Oxfmt	NPM	DENEME	npm i -g oxfmt
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\addressing-pr-feedback -> C:\Users\pc\.claude\skills\addressing-pr-feedback
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\creating-pr -> C:\Users\pc\.claude\skills\creating-pr
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\reviewing-pr-feedback -> C:\Users\pc\.claude\skills\reviewing-pr-feedback
+Personal Agent Proxy	SKILL	ZATEN	skill-authoring
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\writing-result-code -> C:\Users\pc\.claude\skills\writing-result-code
+Pipecat Skills	SKILL	ZATEN	deploy
+Pipecat Skills	SKILL	ZATEN	init
+Pipecat Skills	SKILL	ZATEN	talk
+Playwright MCP (playwright-mcp)	SKILL	ZATEN	playwright-triage
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-best-practices
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-captions
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-create
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-docs
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-interactivity
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-maps
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-markup
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-multimedia
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-render
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-saas
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-studio
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-upgrade
+Remotion Lambda	NPM	DENEME	npm i -g @remotion/lambda
+Remotion ajan becerileri	SKILL	ZATEN	remotion-best-practices
+Remotion ajan becerileri	SKILL	ZATEN	remotion-captions
+Remotion ajan becerileri	SKILL	ZATEN	remotion-create
+Remotion ajan becerileri	SKILL	ZATEN	remotion-docs
+Remotion ajan becerileri	SKILL	ZATEN	remotion-interactivity
+Remotion ajan becerileri	SKILL	ZATEN	remotion-maps
+Remotion ajan becerileri	SKILL	ZATEN	remotion-markup
+Remotion ajan becerileri	SKILL	ZATEN	remotion-multimedia
+Remotion ajan becerileri	SKILL	ZATEN	remotion-render
+Remotion ajan becerileri	SKILL	ZATEN	remotion-saas
+Remotion ajan becerileri	SKILL	ZATEN	remotion-studio
+Remotion ajan becerileri	SKILL	ZATEN	remotion-upgrade
+Remotion becerileri	SKILL	ZATEN	remotion-best-practices
+Remotion becerileri	SKILL	ZATEN	remotion-captions
+Remotion becerileri	SKILL	ZATEN	remotion-create
+Remotion becerileri	SKILL	ZATEN	remotion-docs
+Remotion becerileri	SKILL	ZATEN	remotion-interactivity
+Remotion becerileri	SKILL	ZATEN	remotion-maps
+Remotion becerileri	SKILL	ZATEN	remotion-markup
+Remotion becerileri	SKILL	ZATEN	remotion-multimedia
+Remotion becerileri	SKILL	ZATEN	remotion-render
+Remotion becerileri	SKILL	ZATEN	remotion-saas
+Remotion becerileri	SKILL	ZATEN	remotion-studio
+Remotion becerileri	SKILL	ZATEN	remotion-upgrade
+Remove AI Slop	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\manavmishra__ZeroSlop\. -> C:\Users\pc\.claude\skills\omer-skills
+Remove AI Slop	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\manavmishra__ZeroSlop\distribution\plugins\zero-slop\skills\zero-slop -> C:\Users\pc\.claude\skills\zero-slop
+Remove AI Slop	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\manavmishra__ZeroSlop\skills\zero-slop -> C:\Users\pc\.claude\skills\zero-slop
+ScriptCreatorGraph	UV	DENEME	uv tool install scrapegraphai
+ScrollSmoother	NPM	DENEME	npm i -g gsap
+Skill Geliştiren Skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__skills\template -> C:\Users\pc\.claude\skills\template
+Skill Geliştiren Skill	SKILL	ZATEN	academy-guide
+Skill Geliştiren Skill	SKILL	ZATEN	algorithmic-art
+Skill Geliştiren Skill	SKILL	ZATEN	brand-guidelines
+Skill Geliştiren Skill	SKILL	ZATEN	canvas-design
+Skill Geliştiren Skill	SKILL	ZATEN	claude-api
+Skill Geliştiren Skill	SKILL	ZATEN	discernment-nudge
+Skill Geliştiren Skill	SKILL	ZATEN	doc-coauthoring
+Skill Geliştiren Skill	SKILL	ZATEN	docx
+Skill Geliştiren Skill	SKILL	ZATEN	frontend-design
+Skill Geliştiren Skill	SKILL	ZATEN	internal-comms
+Skill Geliştiren Skill	SKILL	ZATEN	mcp-builder
+Skill Geliştiren Skill	SKILL	ZATEN	pdf
+Skill Geliştiren Skill	SKILL	ZATEN	pptx
+Skill Geliştiren Skill	SKILL	ZATEN	skill-creator
+Skill Geliştiren Skill	SKILL	ZATEN	slack-gif-creator
+Skill Geliştiren Skill	SKILL	ZATEN	theme-factory
+Skill Geliştiren Skill	SKILL	ZATEN	web-artifacts-builder
+Skill Geliştiren Skill	SKILL	ZATEN	webapp-testing
+Skill Geliştiren Skill	SKILL	ZATEN	xlsx
+Taste Skill v2 Beta	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__taste-skill\skills\taste-skill -> C:\Users\pc\.claude\skills\taste-skill
+Tweetclaw.skill	SKILL	ZATEN	tweetclaw
+Türkçe yazı skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ozgurbuluta__turkce-yazi-yazma\skills\turkce-yazi -> C:\Users\pc\.claude\skills\turkce-yazi
+Türkçe yazı skill'i (turkce-yazi.zip)	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ozgurbuluta__turkce-yazi-yazma\skills\turkce-yazi -> C:\Users\pc\.claude\skills\turkce-yazi
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-ad-strategist -> C:\Users\pc\.claude\skills\ugc-ad-strategist
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-device-screen -> C:\Users\pc\.claude\skills\ugc-device-screen
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-minimax-mode -> C:\Users\pc\.claude\skills\ugc-minimax-mode
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-video-producer -> C:\Users\pc\.claude\skills\ugc-video-producer
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-vision-referee -> C:\Users\pc\.claude\skills\ugc-vision-referee
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-ad-strategist -> C:\Users\pc\.claude\skills\ugc-ad-strategist
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-device-screen -> C:\Users\pc\.claude\skills\ugc-device-screen
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-minimax-mode -> C:\Users\pc\.claude\skills\ugc-minimax-mode
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-video-producer -> C:\Users\pc\.claude\skills\ugc-video-producer
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-vision-referee -> C:\Users\pc\.claude\skills\ugc-vision-referee
+UI UX Pro Max Scale	SKILL	ZATEN	banner-design
+UI UX Pro Max Scale	SKILL	ZATEN	brand
+UI UX Pro Max Scale	SKILL	ZATEN	design
+UI UX Pro Max Scale	SKILL	ZATEN	design-system
+UI UX Pro Max Scale	SKILL	ZATEN	slides
+UI UX Pro Max Scale	SKILL	ZATEN	ui-styling
+UI UX Pro Max Scale	SKILL	ZATEN	ui-ux-pro-max
+UI UX Pro Max Scale	SKILL	ZATEN	banner-design
+UI UX Pro Max Scale	SKILL	ZATEN	brand
+UI UX Pro Max Scale	SKILL	ZATEN	design
+UI UX Pro Max Scale	SKILL	ZATEN	design-system
+UI UX Pro Max Scale	SKILL	ZATEN	slides
+UI UX Pro Max Scale	SKILL	ZATEN	ui-styling
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	banner-design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	brand
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design-system
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	slides
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-styling
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-ux-pro-max
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	banner-design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	brand
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design-system
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	slides
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-styling
+Vibe CLI	UV	DENEME	uv tool install mistral-vibe
+Vite 5	NPM	DENEME	npm i -g vite@5
+Vite 7	NPM	DENEME	npm i -g vite@7
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\create-adaptable-composable -> C:\Users\pc\.claude\skills\create-adaptable-composable
+Vue and Vite core team skills collection	SKILL	ZATEN	vue-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-debug-guides -> C:\Users\pc\.claude\skills\vue-debug-guides
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-jsx-best-practices -> C:\Users\pc\.claude\skills\vue-jsx-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-options-api-best-practices -> C:\Users\pc\.claude\skills\vue-options-api-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-pinia-best-practices -> C:\Users\pc\.claude\skills\vue-pinia-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-router-best-practices -> C:\Users\pc\.claude\skills\vue-router-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-testing-best-practices -> C:\Users\pc\.claude\skills\vue-testing-best-practices
+auto-dream	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\grandamenium__dream-skill\. -> C:\Users\pc\.claude\skills\omer-skills
+better-auth/better-icons	SKILL	ZATEN	skills
+build-error-resolver	UV	DENEME	uv tool install llm-abstraction
+ceo-advisor	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ultrathink-art__ai-ceo\. -> C:\Users\pc\.claude\skills\omer-skills
+claude-plugin-lock	NPM	DENEME	npm i -g claude-plugin-lock
+continuedev/continue	SKILL	ZATEN	docs-style
+continuedev/continue	SKILL	ZATEN	cn-check
+devcontainer	NPM	DENEME	npm i -g @devcontainers/cli
+e2e-runner	UV	DENEME	uv tool install llm-abstraction
+earshot compare	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot compare	SKILL	ZATEN	earshot
+earshot compare	SKILL	ZATEN	real-sound
+earshot critique	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot critique	SKILL	ZATEN	earshot
+earshot critique	SKILL	ZATEN	real-sound
+earshot describe	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot describe	SKILL	ZATEN	earshot
+earshot describe	SKILL	ZATEN	real-sound
+earshot find	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot find	SKILL	ZATEN	earshot
+earshot find	SKILL	ZATEN	real-sound
+earshot fit	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot fit	SKILL	ZATEN	earshot
+earshot fit	SKILL	ZATEN	real-sound
+earshot forge	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot forge	SKILL	ZATEN	earshot
+earshot forge	SKILL	ZATEN	real-sound
+earshot match	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot match	SKILL	ZATEN	earshot
+earshot match	SKILL	ZATEN	real-sound
+earshot rank	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot rank	SKILL	ZATEN	earshot
+earshot rank	SKILL	ZATEN	real-sound
+earshot realness	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot realness	SKILL	ZATEN	earshot
+earshot realness	SKILL	ZATEN	real-sound
+earshot timeline	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot timeline	SKILL	ZATEN	earshot
+earshot timeline	SKILL	ZATEN	real-sound
+gstack-slug	NPM	DENEME	npm i -g gstack
+harness-optimizer	UV	DENEME	uv tool install llm-abstraction
+just-scrape	NPM	DENEME	npm i -g just-scrape
+lark-cli	NPM	DENEME	npm i -g @larksuite/cli
+learn-this	SKILL	ZATEN	article-extractor
+learn-this	SKILL	ZATEN	learn-this
+learn-this	SKILL	ZATEN	scrum-sage
+learn-this	SKILL	ZATEN	session-log
+learn-this	SKILL	ZATEN	ship-learn-next
+learn-this	SKILL	ZATEN	unblock-action
+learn-this	SKILL	ZATEN	youtube-transcript
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-agents
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-binary-and-data
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-javascript
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-python
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-tool
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-error-handling
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-expression-syntax
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-mcp-tools-expert
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-multi-instance
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-node-configuration
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-self-hosting
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-subworkflows
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-validation-expert
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-workflow-patterns
+n8n AI Agent Claude Skill	SKILL	ZATEN	using-n8n-mcp-skills
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-agents
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-binary-and-data
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-javascript
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-python
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-tool
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-error-handling
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-expression-syntax
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-mcp-tools-expert
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-multi-instance
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-node-configuration
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-self-hosting
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-subworkflows
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-validation-expert
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-workflow-patterns
+n8n Agent Builder Skill	SKILL	ZATEN	using-n8n-mcp-skills
+openai/codex-plugin-cc	SKILL	ZATEN	codex-cli-runtime
+openai/codex-plugin-cc	SKILL	ZATEN	codex-result-handling
+openai/codex-plugin-cc	SKILL	ZATEN	gpt-5-4-prompting
+pi coding agent	NPM	DENEME	npm i -g @mariozechner/pi-coding-agent
+plugin-cc	SKILL	ZATEN	codex-cli-runtime
+plugin-cc	SKILL	ZATEN	codex-result-handling
+plugin-cc	SKILL	ZATEN	gpt-5-4-prompting
+rendercv/rendercv-skill	SKILL	ZATEN	rendercv
+static-ad-generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\creatify-ai__static-ad-concept-generator\. -> C:\Users\pc\.claude\skills\omer-skills
+tv_health_check	NPM	DENEME	npm i -g tradingview-mcp
+unblock-action	SKILL	ZATEN	article-extractor
+unblock-action	SKILL	ZATEN	learn-this
+unblock-action	SKILL	ZATEN	scrum-sage
+unblock-action	SKILL	ZATEN	session-log
+unblock-action	SKILL	ZATEN	ship-learn-next
+unblock-action	SKILL	ZATEN	unblock-action
+unblock-action	SKILL	ZATEN	youtube-transcript
+xet	UV	DENEME	uv tool install hf-xet
+Anti-Slop Frontend Framework for AI Agents	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__taste-skill\skills\taste-skill -> C:\Users\pc\.claude\skills\taste-skill
+AI Slop Detector	UV	DENEME	uv tool install ai-slop-detector
+AI Data Analysis Agent	SKILL	ZATEN	advisor-orchestrator-worker
+AI Data Analysis Agent	SKILL	ZATEN	commit-archaeologist
+AI Data Analysis Agent	SKILL	ZATEN	dependency-doctor
+AI Data Analysis Agent	SKILL	ZATEN	first-reader
+AI Data Analysis Agent	SKILL	ZATEN	project-graveyard
+AI Data Analysis Agent	SKILL	ZATEN	scope-creep-detector
+AI Data Analysis Agent	SKILL	ZATEN	thinking-out-loud
+AI Data Analysis Agent	SKILL	ZATEN	chatgpt-app-builder
+AI Data Analysis Agent	SKILL	ZATEN	mcp-apps-builder
+AI Data Analysis Agent	SKILL	ZATEN	mcp-builder
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\apple-calendar -> C:\Users\pc\.claude\skills\apple-calendar
+Atomic Chat	SKILL	ZATEN	apple-notes
+Atomic Chat	SKILL	ZATEN	apple-reminders
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\audio-transcribe -> C:\Users\pc\.claude\skills\audio-transcribe
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\currency -> C:\Users\pc\.claude\skills\currency
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\docker -> C:\Users\pc\.claude\skills\docker
+Atomic Chat	SKILL	ZATEN	ffmpeg
+Atomic Chat	SKILL	ZATEN	github
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\gog-workspace -> C:\Users\pc\.claude\skills\gog-workspace
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\imagemagick -> C:\Users\pc\.claude\skills\imagemagick
+Atomic Chat	SKILL	ZATEN	notion
+Atomic Chat	SKILL	ZATEN	obsidian
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\pandoc -> C:\Users\pc\.claude\skills\pandoc
+Atomic Chat	SKILL	ZATEN	pdf
+Atomic Chat	SKILL	ZATEN	skill-creator
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\wikipedia -> C:\Users\pc\.claude\skills\wikipedia
+Atomic Chat	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AtomicBot-ai__Atomic-Chat\src-tauri\resources\agent-skills\wttr-weather -> C:\Users\pc\.claude\skills\wttr-weather
+Atomic Chat	SKILL	ZATEN	xlsx
+AutoResearchClaw	UV	DENEME	uv tool install researchclaw
+Chatterbox	UV	DENEME	uv tool install chatterbox-tts
+Command Code	NPM	DENEME	npm i -g command-code
+EditorConfig	NPM	DENEME	npm i -g editorconfig
+Foreman	UV	DENEME	uv tool install foreman-orchestrator
+Free Claude Code Repo	UV	DENEME	uv tool install free-claude-code
+LEANN	UV	DENEME	uv tool install leann
+MCP Bridge	UV	DENEME	uv tool install mcp-bridge
+MetaClaw	UV	DENEME	uv tool install aiming-metaclaw
+Pipecat CLI	UV	DENEME	uv tool install pipecat-ai-cli
+claude-trace	NPM	DENEME	npm i -g @mariozechner/claude-trace
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\bambu-labs -> C:\Users\pc\.claude\skills\bambu-labs
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\cad -> C:\Users\pc\.claude\skills\cad
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\dfam-check -> C:\Users\pc\.claude\skills\dfam-check
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\dfm -> C:\Users\pc\.claude\skills\dfm
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\dxf -> C:\Users\pc\.claude\skills\dxf
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\engineering-drawing -> C:\Users\pc\.claude\skills\engineering-drawing
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\gcode -> C:\Users\pc\.claude\skills\gcode
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\sdf -> C:\Users\pc\.claude\skills\sdf
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\sendcutsend -> C:\Users\pc\.claude\skills\sendcutsend
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\srdf -> C:\Users\pc\.claude\skills\srdf
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\step-parts -> C:\Users\pc\.claude\skills\step-parts
+earthtojake/text-to-cad	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\earthtojake__text-to-cad\skills\urdf -> C:\Users\pc\.claude\skills\urdf
+pgnx	NPM	DENEME	npm i -g pgnx
+21st Day MCP Connector	NPM	DENEME	npm i -g @21st-dev/cli
+21st Dev MCP	NPM	DENEME	npm i -g @21st-dev/cli
+21st MCP	NPM	DENEME	npm i -g @21st-dev/cli
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\chart -> C:\Users\pc\.claude\skills\chart
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\gh-issues -> C:\Users\pc\.claude\skills\gh-issues
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\icon-jetbrains -> C:\Users\pc\.claude\skills\icon-jetbrains
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\icon-vscode -> C:\Users\pc\.claude\skills\icon-vscode
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-arch -> C:\Users\pc\.claude\skills\jetbrains-arch
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-cli-pin -> C:\Users\pc\.claude\skills\jetbrains-cli-pin
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-dev -> C:\Users\pc\.claude\skills\jetbrains-dev
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-sandbox -> C:\Users\pc\.claude\skills\jetbrains-sandbox
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-session -> C:\Users\pc\.claude\skills\jetbrains-session
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\jetbrains-ui -> C:\Users\pc\.claude\skills\jetbrains-ui
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\kilocode-merge-minimizer -> C:\Users\pc\.claude\skills\kilocode-merge-minimizer
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilo\skills\pr-track-v1 -> C:\Users\pc\.claude\skills\pr-track-v1
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.kilocode\skills\vscode-visual-regression -> C:\Users\pc\.claude\skills\vscode-visual-regression
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.opencode\skills\effect -> C:\Users\pc\.claude\skills\effect
+Kilo Code	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Kilo-Org__kilocode\.opencode\skills\rtl-aware-development -> C:\Users\pc\.claude\skills\rtl-aware-development
+Kilo Code	SKILL	ZATEN	agents-sdk
+Kilo Code	SKILL	ZATEN	cloudflare
+Lint	NPM	DENEME	npm i -g @shadcn/lint
+MLSharp	UV	DENEME	uv tool install sharp
+Mempalus	UV	DENEME	uv tool install mempalace
+Official Anthropic Skill Pack	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__skills\template -> C:\Users\pc\.claude\skills\template
+Official Anthropic Skill Pack	SKILL	ZATEN	academy-guide
+Official Anthropic Skill Pack	SKILL	ZATEN	algorithmic-art
+Official Anthropic Skill Pack	SKILL	ZATEN	brand-guidelines
+Official Anthropic Skill Pack	SKILL	ZATEN	canvas-design
+Official Anthropic Skill Pack	SKILL	ZATEN	claude-api
+Official Anthropic Skill Pack	SKILL	ZATEN	discernment-nudge
+Official Anthropic Skill Pack	SKILL	ZATEN	doc-coauthoring
+Official Anthropic Skill Pack	SKILL	ZATEN	docx
+Official Anthropic Skill Pack	SKILL	ZATEN	frontend-design
+Official Anthropic Skill Pack	SKILL	ZATEN	internal-comms
+Official Anthropic Skill Pack	SKILL	ZATEN	mcp-builder
+Official Anthropic Skill Pack	SKILL	ZATEN	pdf
+Official Anthropic Skill Pack	SKILL	ZATEN	pptx
+Official Anthropic Skill Pack	SKILL	ZATEN	skill-creator
+Official Anthropic Skill Pack	SKILL	ZATEN	slack-gif-creator
+Official Anthropic Skill Pack	SKILL	ZATEN	theme-factory
+Official Anthropic Skill Pack	SKILL	ZATEN	web-artifacts-builder
+Official Anthropic Skill Pack	SKILL	ZATEN	webapp-testing
+Official Anthropic Skill Pack	SKILL	ZATEN	xlsx
+Official GSAP Skills	SKILL	ZATEN	gsap-core
+Official GSAP Skills	SKILL	ZATEN	gsap-frameworks
+Official GSAP Skills	SKILL	ZATEN	gsap-performance
+Official GSAP Skills	SKILL	ZATEN	gsap-plugins
+Official GSAP Skills	SKILL	ZATEN	gsap-react
+Official GSAP Skills	SKILL	ZATEN	gsap-scrolltrigger
+Official GSAP Skills	SKILL	ZATEN	gsap-timeline
+Official GSAP Skills	SKILL	ZATEN	gsap-utils
+Oxfmt	NPM	DENEME	npm i -g oxfmt
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\addressing-pr-feedback -> C:\Users\pc\.claude\skills\addressing-pr-feedback
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\creating-pr -> C:\Users\pc\.claude\skills\creating-pr
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\reviewing-pr-feedback -> C:\Users\pc\.claude\skills\reviewing-pr-feedback
+Personal Agent Proxy	SKILL	ZATEN	skill-authoring
+Personal Agent Proxy	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\personalagentproxy__proxy\skills\writing-result-code -> C:\Users\pc\.claude\skills\writing-result-code
+Pipecat Skills	SKILL	ZATEN	deploy
+Pipecat Skills	SKILL	ZATEN	init
+Pipecat Skills	SKILL	ZATEN	talk
+Playwright MCP (playwright-mcp)	SKILL	ZATEN	playwright-triage
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-best-practices
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-captions
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-create
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-docs
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-interactivity
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-maps
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-markup
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-multimedia
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-render
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-saas
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-studio
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-upgrade
+Remotion Lambda	NPM	DENEME	npm i -g @remotion/lambda
+Remotion ajan becerileri	SKILL	ZATEN	remotion-best-practices
+Remotion ajan becerileri	SKILL	ZATEN	remotion-captions
+Remotion ajan becerileri	SKILL	ZATEN	remotion-create
+Remotion ajan becerileri	SKILL	ZATEN	remotion-docs
+Remotion ajan becerileri	SKILL	ZATEN	remotion-interactivity
+Remotion ajan becerileri	SKILL	ZATEN	remotion-maps
+Remotion ajan becerileri	SKILL	ZATEN	remotion-markup
+Remotion ajan becerileri	SKILL	ZATEN	remotion-multimedia
+Remotion ajan becerileri	SKILL	ZATEN	remotion-render
+Remotion ajan becerileri	SKILL	ZATEN	remotion-saas
+Remotion ajan becerileri	SKILL	ZATEN	remotion-studio
+Remotion ajan becerileri	SKILL	ZATEN	remotion-upgrade
+Remotion becerileri	SKILL	ZATEN	remotion-best-practices
+Remotion becerileri	SKILL	ZATEN	remotion-captions
+Remotion becerileri	SKILL	ZATEN	remotion-create
+Remotion becerileri	SKILL	ZATEN	remotion-docs
+Remotion becerileri	SKILL	ZATEN	remotion-interactivity
+Remotion becerileri	SKILL	ZATEN	remotion-maps
+Remotion becerileri	SKILL	ZATEN	remotion-markup
+Remotion becerileri	SKILL	ZATEN	remotion-multimedia
+Remotion becerileri	SKILL	ZATEN	remotion-render
+Remotion becerileri	SKILL	ZATEN	remotion-saas
+Remotion becerileri	SKILL	ZATEN	remotion-studio
+Remotion becerileri	SKILL	ZATEN	remotion-upgrade
+Remove AI Slop	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\manavmishra__ZeroSlop\. -> C:\Users\pc\.claude\skills\omer-skills
+Remove AI Slop	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\manavmishra__ZeroSlop\distribution\plugins\zero-slop\skills\zero-slop -> C:\Users\pc\.claude\skills\zero-slop
+Remove AI Slop	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\manavmishra__ZeroSlop\skills\zero-slop -> C:\Users\pc\.claude\skills\zero-slop
+ScriptCreatorGraph	UV	DENEME	uv tool install scrapegraphai
+ScrollSmoother	NPM	DENEME	npm i -g gsap
+Skill Geliştiren Skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__skills\template -> C:\Users\pc\.claude\skills\template
+Skill Geliştiren Skill	SKILL	ZATEN	academy-guide
+Skill Geliştiren Skill	SKILL	ZATEN	algorithmic-art
+Skill Geliştiren Skill	SKILL	ZATEN	brand-guidelines
+Skill Geliştiren Skill	SKILL	ZATEN	canvas-design
+Skill Geliştiren Skill	SKILL	ZATEN	claude-api
+Skill Geliştiren Skill	SKILL	ZATEN	discernment-nudge
+Skill Geliştiren Skill	SKILL	ZATEN	doc-coauthoring
+Skill Geliştiren Skill	SKILL	ZATEN	docx
+Skill Geliştiren Skill	SKILL	ZATEN	frontend-design
+Skill Geliştiren Skill	SKILL	ZATEN	internal-comms
+Skill Geliştiren Skill	SKILL	ZATEN	mcp-builder
+Skill Geliştiren Skill	SKILL	ZATEN	pdf
+Skill Geliştiren Skill	SKILL	ZATEN	pptx
+Skill Geliştiren Skill	SKILL	ZATEN	skill-creator
+Skill Geliştiren Skill	SKILL	ZATEN	slack-gif-creator
+Skill Geliştiren Skill	SKILL	ZATEN	theme-factory
+Skill Geliştiren Skill	SKILL	ZATEN	web-artifacts-builder
+Skill Geliştiren Skill	SKILL	ZATEN	webapp-testing
+Skill Geliştiren Skill	SKILL	ZATEN	xlsx
+Taste Skill v2 Beta	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__taste-skill\skills\taste-skill -> C:\Users\pc\.claude\skills\taste-skill
+Tweetclaw.skill	SKILL	ZATEN	tweetclaw
+Türkçe yazı skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ozgurbuluta__turkce-yazi-yazma\skills\turkce-yazi -> C:\Users\pc\.claude\skills\turkce-yazi
+Türkçe yazı skill'i (turkce-yazi.zip)	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ozgurbuluta__turkce-yazi-yazma\skills\turkce-yazi -> C:\Users\pc\.claude\skills\turkce-yazi
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-ad-strategist -> C:\Users\pc\.claude\skills\ugc-ad-strategist
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-device-screen -> C:\Users\pc\.claude\skills\ugc-device-screen
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-minimax-mode -> C:\Users\pc\.claude\skills\ugc-minimax-mode
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-video-producer -> C:\Users\pc\.claude\skills\ugc-video-producer
+UGC content skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-vision-referee -> C:\Users\pc\.claude\skills\ugc-vision-referee
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-ad-strategist -> C:\Users\pc\.claude\skills\ugc-ad-strategist
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-device-screen -> C:\Users\pc\.claude\skills\ugc-device-screen
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-minimax-mode -> C:\Users\pc\.claude\skills\ugc-minimax-mode
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-video-producer -> C:\Users\pc\.claude\skills\ugc-video-producer
+UGC generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kofiowusuai-lab__ugc-skills\skills\ugc-vision-referee -> C:\Users\pc\.claude\skills\ugc-vision-referee
+UI UX Pro Max Scale	SKILL	ZATEN	banner-design
+UI UX Pro Max Scale	SKILL	ZATEN	brand
+UI UX Pro Max Scale	SKILL	ZATEN	design
+UI UX Pro Max Scale	SKILL	ZATEN	design-system
+UI UX Pro Max Scale	SKILL	ZATEN	slides
+UI UX Pro Max Scale	SKILL	ZATEN	ui-styling
+UI UX Pro Max Scale	SKILL	ZATEN	ui-ux-pro-max
+UI UX Pro Max Scale	SKILL	ZATEN	banner-design
+UI UX Pro Max Scale	SKILL	ZATEN	brand
+UI UX Pro Max Scale	SKILL	ZATEN	design
+UI UX Pro Max Scale	SKILL	ZATEN	design-system
+UI UX Pro Max Scale	SKILL	ZATEN	slides
+UI UX Pro Max Scale	SKILL	ZATEN	ui-styling
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	banner-design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	brand
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design-system
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	slides
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-styling
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-ux-pro-max
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	banner-design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	brand
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design-system
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	slides
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-styling
+Vibe CLI	UV	DENEME	uv tool install mistral-vibe
+Vite 5	NPM	DENEME	npm i -g vite@5
+Vite 7	NPM	DENEME	npm i -g vite@7
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\create-adaptable-composable -> C:\Users\pc\.claude\skills\create-adaptable-composable
+Vue and Vite core team skills collection	SKILL	ZATEN	vue-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-debug-guides -> C:\Users\pc\.claude\skills\vue-debug-guides
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-jsx-best-practices -> C:\Users\pc\.claude\skills\vue-jsx-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-options-api-best-practices -> C:\Users\pc\.claude\skills\vue-options-api-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-pinia-best-practices -> C:\Users\pc\.claude\skills\vue-pinia-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-router-best-practices -> C:\Users\pc\.claude\skills\vue-router-best-practices
+Vue and Vite core team skills collection	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\vuejs-ai__skills\skills\vue-testing-best-practices -> C:\Users\pc\.claude\skills\vue-testing-best-practices
+auto-dream	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\grandamenium__dream-skill\. -> C:\Users\pc\.claude\skills\omer-skills
+better-auth/better-icons	SKILL	ZATEN	skills
+build-error-resolver	UV	DENEME	uv tool install llm-abstraction
+ceo-advisor	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ultrathink-art__ai-ceo\. -> C:\Users\pc\.claude\skills\omer-skills
+claude-plugin-lock	NPM	DENEME	npm i -g claude-plugin-lock
+continuedev/continue	SKILL	ZATEN	docs-style
+continuedev/continue	SKILL	ZATEN	cn-check
+devcontainer	NPM	DENEME	npm i -g @devcontainers/cli
+e2e-runner	UV	DENEME	uv tool install llm-abstraction
+earshot compare	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot compare	SKILL	ZATEN	earshot
+earshot compare	SKILL	ZATEN	real-sound
+earshot critique	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot critique	SKILL	ZATEN	earshot
+earshot critique	SKILL	ZATEN	real-sound
+earshot describe	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot describe	SKILL	ZATEN	earshot
+earshot describe	SKILL	ZATEN	real-sound
+earshot find	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot find	SKILL	ZATEN	earshot
+earshot find	SKILL	ZATEN	real-sound
+earshot fit	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot fit	SKILL	ZATEN	earshot
+earshot fit	SKILL	ZATEN	real-sound
+earshot forge	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot forge	SKILL	ZATEN	earshot
+earshot forge	SKILL	ZATEN	real-sound
+earshot match	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot match	SKILL	ZATEN	earshot
+earshot match	SKILL	ZATEN	real-sound
+earshot rank	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot rank	SKILL	ZATEN	earshot
+earshot rank	SKILL	ZATEN	real-sound
+earshot realness	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot realness	SKILL	ZATEN	earshot
+earshot realness	SKILL	ZATEN	real-sound
+earshot timeline	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__earshot\.venv-agir\Lib\site-packages\typer\.agents\skills\typer -> C:\Users\pc\.claude\skills\typer
+earshot timeline	SKILL	ZATEN	earshot
+earshot timeline	SKILL	ZATEN	real-sound
+gstack-slug	NPM	DENEME	npm i -g gstack
+harness-optimizer	UV	DENEME	uv tool install llm-abstraction
+just-scrape	NPM	DENEME	npm i -g just-scrape
+lark-cli	NPM	DENEME	npm i -g @larksuite/cli
+learn-this	SKILL	ZATEN	article-extractor
+learn-this	SKILL	ZATEN	learn-this
+learn-this	SKILL	ZATEN	scrum-sage
+learn-this	SKILL	ZATEN	session-log
+learn-this	SKILL	ZATEN	ship-learn-next
+learn-this	SKILL	ZATEN	unblock-action
+learn-this	SKILL	ZATEN	youtube-transcript
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-agents
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-binary-and-data
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-javascript
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-python
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-tool
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-error-handling
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-expression-syntax
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-mcp-tools-expert
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-multi-instance
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-node-configuration
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-self-hosting
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-subworkflows
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-validation-expert
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-workflow-patterns
+n8n AI Agent Claude Skill	SKILL	ZATEN	using-n8n-mcp-skills
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-agents
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-binary-and-data
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-javascript
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-python
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-tool
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-error-handling
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-expression-syntax
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-mcp-tools-expert
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-multi-instance
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-node-configuration
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-self-hosting
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-subworkflows
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-validation-expert
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-workflow-patterns
+n8n Agent Builder Skill	SKILL	ZATEN	using-n8n-mcp-skills
+openai/codex-plugin-cc	SKILL	ZATEN	codex-cli-runtime
+openai/codex-plugin-cc	SKILL	ZATEN	codex-result-handling
+openai/codex-plugin-cc	SKILL	ZATEN	gpt-5-4-prompting
+pi coding agent	NPM	DENEME	npm i -g @mariozechner/pi-coding-agent
+plugin-cc	SKILL	ZATEN	codex-cli-runtime
+plugin-cc	SKILL	ZATEN	codex-result-handling
+plugin-cc	SKILL	ZATEN	gpt-5-4-prompting
+rendercv/rendercv-skill	SKILL	ZATEN	rendercv
+static-ad-generator skill	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\creatify-ai__static-ad-concept-generator\. -> C:\Users\pc\.claude\skills\omer-skills
+tv_health_check	NPM	DENEME	npm i -g tradingview-mcp
+unblock-action	SKILL	ZATEN	article-extractor
+unblock-action	SKILL	ZATEN	learn-this
+unblock-action	SKILL	ZATEN	scrum-sage
+unblock-action	SKILL	ZATEN	session-log
+unblock-action	SKILL	ZATEN	ship-learn-next
+unblock-action	SKILL	ZATEN	unblock-action
+unblock-action	SKILL	ZATEN	youtube-transcript
+xet	UV	DENEME	uv tool install hf-xet
+Anti-Slop Frontend Framework for AI Agents	SKILL	DENEME	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Leonxlnx__taste-skill\skills\taste-skill -> C:\Users\pc\.claude\skills\taste-skill
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+tool	UV	HATA	exit 
+AI Slop Detector	UV	KURULDU	ai-slop-detector
+AI Data Analysis Agent	SKILL	ZATEN	advisor-orchestrator-worker
+AI Data Analysis Agent	SKILL	ZATEN	commit-archaeologist
+AI Data Analysis Agent	SKILL	ZATEN	dependency-doctor
+AI Data Analysis Agent	SKILL	ZATEN	first-reader
+AI Data Analysis Agent	SKILL	ZATEN	project-graveyard
+AI Data Analysis Agent	SKILL	ZATEN	scope-creep-detector
+AI Data Analysis Agent	SKILL	ZATEN	thinking-out-loud
+AI Data Analysis Agent	SKILL	ZATEN	chatgpt-app-builder
+AI Data Analysis Agent	SKILL	ZATEN	mcp-apps-builder
+AI Data Analysis Agent	SKILL	ZATEN	mcp-builder
+AutoResearchClaw	UV	KURULDU	researchclaw
+Chatterbox	UV	HATA	exit 2
+Command Code	NPM	KURULDU	command-code
+EditorConfig	NPM	KURULDU	editorconfig
+Foreman	UV	KURULDU	foreman-orchestrator
+Free Claude Code Repo	UV	KURULDU	free-claude-code
+LEANN	UV	HATA	exit 2
+MCP Bridge	UV	KURULDU	mcp-bridge
+MetaClaw	UV	KURULDU	aiming-metaclaw
+Pipecat CLI	UV	KURULDU	pipecat-ai-cli
+claude-trace	NPM	KURULDU	@mariozechner/claude-trace
+earthtojake/text-to-cad	SKILL	KURULDU	bambu-labs
+earthtojake/text-to-cad	SKILL	KURULDU	cad
+earthtojake/text-to-cad	SKILL	KURULDU	dfam-check
+earthtojake/text-to-cad	SKILL	KURULDU	dfm
+earthtojake/text-to-cad	SKILL	KURULDU	dxf
+earthtojake/text-to-cad	SKILL	KURULDU	engineering-drawing
+earthtojake/text-to-cad	SKILL	KURULDU	gcode
+earthtojake/text-to-cad	SKILL	KURULDU	sdf
+earthtojake/text-to-cad	SKILL	KURULDU	sendcutsend
+earthtojake/text-to-cad	SKILL	KURULDU	srdf
+earthtojake/text-to-cad	SKILL	KURULDU	step-parts
+earthtojake/text-to-cad	SKILL	KURULDU	urdf
+pgnx	NPM	HATA	exit 1
+21st Day MCP Connector	NPM	KURULDU	@21st-dev/cli
+21st Dev MCP	NPM	KURULDU	@21st-dev/cli
+21st MCP	NPM	KURULDU	@21st-dev/cli
+Kilo Code	SKILL	KURULDU	chart
+Kilo Code	SKILL	KURULDU	gh-issues
+Kilo Code	SKILL	KURULDU	icon-jetbrains
+Kilo Code	SKILL	KURULDU	icon-vscode
+Kilo Code	SKILL	KURULDU	jetbrains-arch
+Kilo Code	SKILL	KURULDU	jetbrains-cli-pin
+Kilo Code	SKILL	KURULDU	jetbrains-dev
+Kilo Code	SKILL	KURULDU	jetbrains-sandbox
+Kilo Code	SKILL	KURULDU	jetbrains-session
+Kilo Code	SKILL	KURULDU	jetbrains-ui
+Kilo Code	SKILL	KURULDU	kilocode-merge-minimizer
+Kilo Code	SKILL	KURULDU	pr-track-v1
+Kilo Code	SKILL	KURULDU	vscode-visual-regression
+Kilo Code	SKILL	KURULDU	effect
+Kilo Code	SKILL	KURULDU	rtl-aware-development
+Kilo Code	SKILL	ZATEN	agents-sdk
+Kilo Code	SKILL	ZATEN	cloudflare
+Lint	NPM	KURULDU	@shadcn/lint
+MLSharp	UV	HATA	exit 1
+Mempalus	UV	KURULDU	mempalace
+Official Anthropic Skill Pack	SKILL	KURULDU	template
+Official Anthropic Skill Pack	SKILL	ZATEN	academy-guide
+Official Anthropic Skill Pack	SKILL	ZATEN	algorithmic-art
+Official Anthropic Skill Pack	SKILL	ZATEN	brand-guidelines
+Official Anthropic Skill Pack	SKILL	ZATEN	canvas-design
+Official Anthropic Skill Pack	SKILL	ZATEN	claude-api
+Official Anthropic Skill Pack	SKILL	ZATEN	discernment-nudge
+Official Anthropic Skill Pack	SKILL	ZATEN	doc-coauthoring
+Official Anthropic Skill Pack	SKILL	ZATEN	docx
+Official Anthropic Skill Pack	SKILL	ZATEN	frontend-design
+Official Anthropic Skill Pack	SKILL	ZATEN	internal-comms
+Official Anthropic Skill Pack	SKILL	ZATEN	mcp-builder
+Official Anthropic Skill Pack	SKILL	ZATEN	pdf
+Official Anthropic Skill Pack	SKILL	ZATEN	pptx
+Official Anthropic Skill Pack	SKILL	ZATEN	skill-creator
+Official Anthropic Skill Pack	SKILL	ZATEN	slack-gif-creator
+Official Anthropic Skill Pack	SKILL	ZATEN	theme-factory
+Official Anthropic Skill Pack	SKILL	ZATEN	web-artifacts-builder
+Official Anthropic Skill Pack	SKILL	ZATEN	webapp-testing
+Official Anthropic Skill Pack	SKILL	ZATEN	xlsx
+Official GSAP Skills	SKILL	ZATEN	gsap-core
+Official GSAP Skills	SKILL	ZATEN	gsap-frameworks
+Official GSAP Skills	SKILL	ZATEN	gsap-performance
+Official GSAP Skills	SKILL	ZATEN	gsap-plugins
+Official GSAP Skills	SKILL	ZATEN	gsap-react
+Official GSAP Skills	SKILL	ZATEN	gsap-scrolltrigger
+Official GSAP Skills	SKILL	ZATEN	gsap-timeline
+Official GSAP Skills	SKILL	ZATEN	gsap-utils
+Oxfmt	NPM	KURULDU	oxfmt
+Personal Agent Proxy	SKILL	KURULDU	addressing-pr-feedback
+Personal Agent Proxy	SKILL	KURULDU	creating-pr
+Personal Agent Proxy	SKILL	KURULDU	reviewing-pr-feedback
+Personal Agent Proxy	SKILL	ZATEN	skill-authoring
+Personal Agent Proxy	SKILL	KURULDU	writing-result-code
+Pipecat Skills	SKILL	ZATEN	deploy
+Pipecat Skills	SKILL	ZATEN	init
+Pipecat Skills	SKILL	ZATEN	talk
+Playwright MCP (playwright-mcp)	SKILL	ZATEN	playwright-triage
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-best-practices
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-captions
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-create
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-docs
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-interactivity
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-maps
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-markup
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-multimedia
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-render
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-saas
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-studio
+Remotion Inside Claude Code	SKILL	ZATEN	remotion-upgrade
+Remotion Lambda	NPM	KURULDU	@remotion/lambda
+Remotion ajan becerileri	SKILL	ZATEN	remotion-best-practices
+Remotion ajan becerileri	SKILL	ZATEN	remotion-captions
+Remotion ajan becerileri	SKILL	ZATEN	remotion-create
+Remotion ajan becerileri	SKILL	ZATEN	remotion-docs
+Remotion ajan becerileri	SKILL	ZATEN	remotion-interactivity
+Remotion ajan becerileri	SKILL	ZATEN	remotion-maps
+Remotion ajan becerileri	SKILL	ZATEN	remotion-markup
+Remotion ajan becerileri	SKILL	ZATEN	remotion-multimedia
+Remotion ajan becerileri	SKILL	ZATEN	remotion-render
+Remotion ajan becerileri	SKILL	ZATEN	remotion-saas
+Remotion ajan becerileri	SKILL	ZATEN	remotion-studio
+Remotion ajan becerileri	SKILL	ZATEN	remotion-upgrade
+Remotion becerileri	SKILL	ZATEN	remotion-best-practices
+Remotion becerileri	SKILL	ZATEN	remotion-captions
+Remotion becerileri	SKILL	ZATEN	remotion-create
+Remotion becerileri	SKILL	ZATEN	remotion-docs
+Remotion becerileri	SKILL	ZATEN	remotion-interactivity
+Remotion becerileri	SKILL	ZATEN	remotion-maps
+Remotion becerileri	SKILL	ZATEN	remotion-markup
+Remotion becerileri	SKILL	ZATEN	remotion-multimedia
+Remotion becerileri	SKILL	ZATEN	remotion-render
+Remotion becerileri	SKILL	ZATEN	remotion-saas
+Remotion becerileri	SKILL	ZATEN	remotion-studio
+Remotion becerileri	SKILL	ZATEN	remotion-upgrade
+Remove AI Slop	SKILL	KURULDU	omer-skills
+Remove AI Slop	SKILL	KURULDU	zero-slop
+Remove AI Slop	SKILL	ZATEN	zero-slop
+ScriptCreatorGraph	UV	HATA	exit 2
+ScrollSmoother	NPM	KURULDU	gsap
+Skill Geliştiren Skill	SKILL	ZATEN	template
+Skill Geliştiren Skill	SKILL	ZATEN	academy-guide
+Skill Geliştiren Skill	SKILL	ZATEN	algorithmic-art
+Skill Geliştiren Skill	SKILL	ZATEN	brand-guidelines
+Skill Geliştiren Skill	SKILL	ZATEN	canvas-design
+Skill Geliştiren Skill	SKILL	ZATEN	claude-api
+Skill Geliştiren Skill	SKILL	ZATEN	discernment-nudge
+Skill Geliştiren Skill	SKILL	ZATEN	doc-coauthoring
+Skill Geliştiren Skill	SKILL	ZATEN	docx
+Skill Geliştiren Skill	SKILL	ZATEN	frontend-design
+Skill Geliştiren Skill	SKILL	ZATEN	internal-comms
+Skill Geliştiren Skill	SKILL	ZATEN	mcp-builder
+Skill Geliştiren Skill	SKILL	ZATEN	pdf
+Skill Geliştiren Skill	SKILL	ZATEN	pptx
+Skill Geliştiren Skill	SKILL	ZATEN	skill-creator
+Skill Geliştiren Skill	SKILL	ZATEN	slack-gif-creator
+Skill Geliştiren Skill	SKILL	ZATEN	theme-factory
+Skill Geliştiren Skill	SKILL	ZATEN	web-artifacts-builder
+Skill Geliştiren Skill	SKILL	ZATEN	webapp-testing
+Skill Geliştiren Skill	SKILL	ZATEN	xlsx
+Taste Skill v2 Beta	SKILL	KURULDU	taste-skill
+Tweetclaw.skill	SKILL	ZATEN	tweetclaw
+Türkçe yazı skill	SKILL	KURULDU	turkce-yazi
+Türkçe yazı skill'i (turkce-yazi.zip)	SKILL	ZATEN	turkce-yazi
+UGC content skill	SKILL	KURULDU	ugc-ad-strategist
+UGC content skill	SKILL	KURULDU	ugc-device-screen
+UGC content skill	SKILL	KURULDU	ugc-minimax-mode
+UGC content skill	SKILL	KURULDU	ugc-video-producer
+UGC content skill	SKILL	KURULDU	ugc-vision-referee
+UGC generator skill	SKILL	ZATEN	ugc-ad-strategist
+UGC generator skill	SKILL	ZATEN	ugc-device-screen
+UGC generator skill	SKILL	ZATEN	ugc-minimax-mode
+UGC generator skill	SKILL	ZATEN	ugc-video-producer
+UGC generator skill	SKILL	ZATEN	ugc-vision-referee
+UI UX Pro Max Scale	SKILL	ZATEN	banner-design
+UI UX Pro Max Scale	SKILL	ZATEN	brand
+UI UX Pro Max Scale	SKILL	ZATEN	design
+UI UX Pro Max Scale	SKILL	ZATEN	design-system
+UI UX Pro Max Scale	SKILL	ZATEN	slides
+UI UX Pro Max Scale	SKILL	ZATEN	ui-styling
+UI UX Pro Max Scale	SKILL	ZATEN	ui-ux-pro-max
+UI UX Pro Max Scale	SKILL	ZATEN	banner-design
+UI UX Pro Max Scale	SKILL	ZATEN	brand
+UI UX Pro Max Scale	SKILL	ZATEN	design
+UI UX Pro Max Scale	SKILL	ZATEN	design-system
+UI UX Pro Max Scale	SKILL	ZATEN	slides
+UI UX Pro Max Scale	SKILL	ZATEN	ui-styling
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	banner-design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	brand
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design-system
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	slides
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-styling
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-ux-pro-max
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	banner-design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	brand
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	design-system
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	slides
+UI/UX ProMax (ui-ux-pro-max-skill)	SKILL	ZATEN	ui-styling
+Vibe CLI	UV	KURULDU	mistral-vibe
+Vite 5	NPM	KURULDU	vite@5
+Vite 7	NPM	KURULDU	vite@7
+Vue and Vite core team skills collection	SKILL	KURULDU	create-adaptable-composable
+Vue and Vite core team skills collection	SKILL	ZATEN	vue-best-practices
+Vue and Vite core team skills collection	SKILL	KURULDU	vue-debug-guides
+Vue and Vite core team skills collection	SKILL	KURULDU	vue-jsx-best-practices
+Vue and Vite core team skills collection	SKILL	KURULDU	vue-options-api-best-practices
+Vue and Vite core team skills collection	SKILL	KURULDU	vue-pinia-best-practices
+Vue and Vite core team skills collection	SKILL	KURULDU	vue-router-best-practices
+Vue and Vite core team skills collection	SKILL	KURULDU	vue-testing-best-practices
+auto-dream	SKILL	ZATEN	omer-skills
+better-auth/better-icons	SKILL	ZATEN	skills
+build-error-resolver	UV	HATA	exit 2
+ceo-advisor	SKILL	ZATEN	omer-skills
+claude-plugin-lock	NPM	KURULDU	claude-plugin-lock
+continuedev/continue	SKILL	ZATEN	docs-style
+continuedev/continue	SKILL	ZATEN	cn-check
+devcontainer	NPM	KURULDU	@devcontainers/cli
+e2e-runner	UV	HATA	exit 2
+earshot compare	SKILL	KURULDU	typer
+earshot compare	SKILL	ZATEN	earshot
+earshot compare	SKILL	ZATEN	real-sound
+earshot critique	SKILL	ZATEN	typer
+earshot critique	SKILL	ZATEN	earshot
+earshot critique	SKILL	ZATEN	real-sound
+earshot describe	SKILL	ZATEN	typer
+earshot describe	SKILL	ZATEN	earshot
+earshot describe	SKILL	ZATEN	real-sound
+earshot find	SKILL	ZATEN	typer
+earshot find	SKILL	ZATEN	earshot
+earshot find	SKILL	ZATEN	real-sound
+earshot fit	SKILL	ZATEN	typer
+earshot fit	SKILL	ZATEN	earshot
+earshot fit	SKILL	ZATEN	real-sound
+earshot forge	SKILL	ZATEN	typer
+earshot forge	SKILL	ZATEN	earshot
+earshot forge	SKILL	ZATEN	real-sound
+earshot match	SKILL	ZATEN	typer
+earshot match	SKILL	ZATEN	earshot
+earshot match	SKILL	ZATEN	real-sound
+earshot rank	SKILL	ZATEN	typer
+earshot rank	SKILL	ZATEN	earshot
+earshot rank	SKILL	ZATEN	real-sound
+earshot realness	SKILL	ZATEN	typer
+earshot realness	SKILL	ZATEN	earshot
+earshot realness	SKILL	ZATEN	real-sound
+earshot timeline	SKILL	ZATEN	typer
+earshot timeline	SKILL	ZATEN	earshot
+earshot timeline	SKILL	ZATEN	real-sound
+gstack-slug	NPM	KURULDU	gstack
+harness-optimizer	UV	HATA	exit 2
+just-scrape	NPM	KURULDU	just-scrape
+lark-cli	NPM	KURULDU	@larksuite/cli
+learn-this	SKILL	ZATEN	article-extractor
+learn-this	SKILL	ZATEN	learn-this
+learn-this	SKILL	ZATEN	scrum-sage
+learn-this	SKILL	ZATEN	session-log
+learn-this	SKILL	ZATEN	ship-learn-next
+learn-this	SKILL	ZATEN	unblock-action
+learn-this	SKILL	ZATEN	youtube-transcript
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-agents
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-binary-and-data
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-javascript
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-python
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-code-tool
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-error-handling
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-expression-syntax
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-mcp-tools-expert
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-multi-instance
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-node-configuration
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-self-hosting
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-subworkflows
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-validation-expert
+n8n AI Agent Claude Skill	SKILL	ZATEN	n8n-workflow-patterns
+n8n AI Agent Claude Skill	SKILL	ZATEN	using-n8n-mcp-skills
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-agents
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-binary-and-data
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-javascript
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-python
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-code-tool
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-error-handling
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-expression-syntax
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-mcp-tools-expert
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-multi-instance
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-node-configuration
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-self-hosting
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-subworkflows
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-validation-expert
+n8n Agent Builder Skill	SKILL	ZATEN	n8n-workflow-patterns
+n8n Agent Builder Skill	SKILL	ZATEN	using-n8n-mcp-skills
+openai/codex-plugin-cc	SKILL	ZATEN	codex-cli-runtime
+openai/codex-plugin-cc	SKILL	ZATEN	codex-result-handling
+openai/codex-plugin-cc	SKILL	ZATEN	gpt-5-4-prompting
+pi coding agent	NPM	HATA	exit 1
+plugin-cc	SKILL	ZATEN	codex-cli-runtime
+plugin-cc	SKILL	ZATEN	codex-result-handling
+plugin-cc	SKILL	ZATEN	gpt-5-4-prompting
+rendercv/rendercv-skill	SKILL	ZATEN	rendercv
+static-ad-generator skill	SKILL	ZATEN	omer-skills
+tv_health_check	NPM	KURULDU	tradingview-mcp
+unblock-action	SKILL	ZATEN	article-extractor
+unblock-action	SKILL	ZATEN	learn-this
+unblock-action	SKILL	ZATEN	scrum-sage
+unblock-action	SKILL	ZATEN	session-log
+unblock-action	SKILL	ZATEN	ship-learn-next
+unblock-action	SKILL	ZATEN	unblock-action
+unblock-action	SKILL	ZATEN	youtube-transcript
+xet	UV	HATA	exit 2
+Anti-Slop Frontend Framework for AI Agents	SKILL	ZATEN	taste-skill

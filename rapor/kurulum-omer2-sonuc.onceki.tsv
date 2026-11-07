@@ -1,0 +1,86 @@
+﻿kalem	yontem	durum	not
+FilaCheck	COMPOSER	DENEME	composer global require laraveldaily/filacheck
+Rector	COMPOSER	DENEME	composer global require rector/rector
+LEANN	UV	DENEME	uv tool install leann-core
+ScriptCreatorGraph	VENV	DENEME	uv venv C:\Users\pc\.venvs\ScriptCreatorGraph --python 3.12; uv pip install scrapegraphai
+build-error-resolver	AJAN	DENEME	ECC agents/build-error-resolver.md -> C:\Users\pc\.claude\agents\build-error-resolver.md
+e2e-runner	AJAN	DENEME	ECC agents/e2e-runner.md -> C:\Users\pc\.claude\agents\e2e-runner.md
+harness-optimizer	AJAN	DENEME	ECC agents/harness-optimizer.md -> C:\Users\pc\.claude\agents\harness-optimizer.md
+CLAUDE HQ	KLON	DENEME	git clone --depth 1 RoString36222/claude-hq
+ChatGPT MD	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\bramses__chatgpt-md
+FrontierAgent	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ApodexAI__FrontierAgent
+HIA (Health Insights Agent)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\harshhh28__hia
+Hermes voice agent	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\onlockj__hermes-voice-agent
+Luma Agents	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\lumalabs__luma-agents-cli
+Mobbin MCP	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\mobbin__mobbin-mcp-server
+Pocket TTS	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kyutai-labs__pocket-tts
+SkillClaw	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AMAP-ML__SkillClaw
+codex-computer-use	KLON	DENEME	git clone --depth 1 tmustier/codex-computer-use-mcp
+letta-ai/claude-subconscious	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\letta-ai__claude-subconscious
+reel-factory	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Shaan-alpha__AI-Reel-Factory
+AI Travel Agent (Local & Cloud)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\nirbar1985__ai-travel-agent
+Creative-Ad Skill	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\hoangngocanh2407__creative-ads-skill-layer
+Firecrawl MCP	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\firecrawl__firecrawl-mcp-server
+Firecrawl MCP Server	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\firecrawl__firecrawl-mcp-server
+Flux Kontext	KLON	DENEME	git clone --depth 1 black-forest-labs/flux
+Local REST API with MCP	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\coddingtonbear__obsidian-local-rest-api
+TARS (Agent TARS)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\bytedance__UI-TARS-desktop
+Tokens Studio	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\tokens-studio__figma-plugin
+Unet Loader (GGUF)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\city96__ComfyUI-GGUF
+agent-radar	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\duanyytop__agents-radar
+execute_sql	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\supabase-community__supabase-mcp
+generate_typescript_types	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\supabase-community__supabase-mcp
+AgentCouncil	KLON	DENEME	git clone --depth 1 zekigalip/AgentCouncil
+Grok Build	KLON	DENEME	git clone --depth 1 xai-org/grok-build-plugin-cc
+NVIDIA Kimodo	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\nv-tlabs__kimodo
+agency-agents (msitarzewski/agency-agents)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\msitarzewski__agency-agents
+comfy-reshoot	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Comfy-Org__comfy-reshoot
+linkedin-automator	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\charlesdove977__linkedin-automator
+mattgierhart/PRD-driven-context-engineering	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\mattgierhart__PRD-driven-context-engineering
+superlite	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\iha2__superlite
+whatsapp-rust	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\oxidezap__whatsapp-rust
+Cua Driver	KLON	DENEME	git clone --depth 1 trycua/cua
+JSON Canvas	KLON	DENEME	git clone --depth 1 obsidianmd/jsoncanvas
+Loopy <Forward-Future/loopy>	KLON	DENEME	git clone --depth 1 Forward-Future/loopy
+Make Interfaces Feel Better <jakubkrehel/make-interfaces-feel-better>	KLON	DENEME	git clone --depth 1 jakubkrehel/make-interfaces-feel-better
+claude-blog <AgriciDaniel/claude-blog>	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AgriciDaniel__claude-blog
+morluto/rea <GITHUB.COM/TRENDING.TODAY>	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\morluto__rea
+ai-employeesreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\markfulton__ai-employees
+Archify	KLON	DENEME	git clone --depth 1 tt-a1i/archify
+awesome-gamedev-agent	KLON	DENEME	git clone --depth 1 gamedev-skills/awesome-gamedev-agent-skills
+awesome-mcp-	KLON	DENEME	git clone --depth 1 punkpeye/awesome-mcp-servers
+blender-skills	KLON	DENEME	git clone --depth 1 EL4CTEO/blender-skills
+claude-memREADME	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\thedotmack__claude-mem
+claude-remotion-skill	KLON	DENEME	git clone --depth 1 haidrrrry/claude-remotion-skill
+ClaudeAnimationBaseFreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\JohnHeibel__ClaudeAnimationBase
+Concord MCP	KLON	DENEME	git clone --depth 1 Get-Concord-AI/concord-mcp
+Council of High Intelligence	KLON	DENEME	git clone --depth 1 0xNyk/council-of-high-intelligence
+Ditto	KLON	DENEME	git clone --depth 1 yoheinakajima/ditto
+flocireadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\floci-io__floci
+HTML Anything	KLON	DENEME	git clone --depth 1 nexu-io/html-anything
+openshipreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\oblien__openship
+youtube-automation-agent	KLON	DENEME	git clone --depth 1 darkzOGx/youtube-automation-agent
+Web Interface Guidelines	KLON	DENEME	git clone --depth 1 vercel-labs/web-interface-guidelines
+bitnet.cpp	KLON	DENEME	git clone --depth 1 microsoft/BitNet
+FLOW	KLON	DENEME	git clone --depth 1 AgriciDaniel/flow
+Claude Blog	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AgriciDaniel__claude-blog
+ai-job-searchfreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ai-job-search-dev__ai-job-search
+ClaudeAnimationBasereadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\JohnHeibel__ClaudeAnimationBase
+dioramasreadme	KLON	DENEME	git clone --depth 1 blendi-remade/dioramas
+OmniCloudirreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\dimartarmizi__OmniCloud
+OpenShell-tag	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\NVIDIA__OpenShell
+kimi-k3-in-c	KLON	DENEME	git clone --depth 1 FareedKhan-dev/kimi-k3-in-c
+Apify Tester MCP Client	KLON	DENEME	git clone --depth 1 apify/tester-mcp-client
+9Router	NPM	ZATEN	9router
+Agent TARS	NPM	DENEME	npm i -g @agent-tars/cli
+Claude Token Monitor	NPM	DENEME	npm i -g claude-token-monitor
+Agent Client	NPM	DENEME	npm i -g @agentclientprotocol/sdk
+context-inspector	NPM	DENEME	npm i -g context-inspector
+Agent SDK	NPM	DENEME	npm i -g @anthropic-ai/claude-agent-sdk
+Angular	NPM	DENEME	npm i -g @angular/core
+BMAD	NPM	DENEME	npm i -g bmad-method
+BMAD Method	NPM	DENEME	npm i -g bmad-method
+Babel	NPM	DENEME	npm i -g @babel/core
+Bootstrap	NPM	DENEME	npm i -g bootstrap
+E2B	NPM	DENEME	npm i -g e2b
+GraphQL	NPM	DENEME	npm i -g graphql

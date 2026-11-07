@@ -1,0 +1,12 @@
+# KURULUM-5B (7 Kas)
+1. 10 HATA kök neden (docs/video-tarama/kurulum-5b/hata10.tsv, kanıtlı): paket adı yanlış 1 (LEANN→leann-core), kütüphane/entry_points yok 3 (Chatterbox, ScriptCreatorGraph, xet), PyPI değil ECC ajan dosyası 3 (build-error-resolver, e2e-runner, harness-optimizer → ~/.claude/agents), Node 22 prebuild gerekir 1 (pgnx; makinede Node 24), yanlış repo 1 (MLSharp), zaten kurulu 1 (pi coding agent). Düzeltilen satır 5, OMER-SOR 3, YOK 2.
+2. kurulum_d2.py: bitenler() her kalemin SON satırına bakıyor (eskiden herhangi bir KAPI-GECTI dışı satır = bitti). Kırmızı görüldü, tests/test_kurulum_d2_bitenler.py 1/1 yeşil. Gerçek veride 257 takılı kalem (görevde 244) kurulum kuyruğuna döner.
+3. ayır 173 (kurulum-5b/g3-*.tsv): KLON-YOK 38 → 24 KURULABILIR/9 OMER-SOR/5 YOK (hiçbir depo silinmiş çıkmadı, 404 olan yok); TOPLU 29 → 25/2/2 ölçülemedi; RELEASE 20 + YOL-YOK 43 → 21 KURULABILIR/27 OMER-SOR/10 YOK/5 ZATEN; YOL-YOK 43 → 23/12/8. YOL-YOK'ta yol bulunan çok (hookify, scrum-sage vb.).
+4. coz-3 292 aday (g4-a/b): 121 KURULABILIR, 52 OMER-SOR, 119 YOK. lightpanda (AGPL) OMER-SOR; Atomic Chat iki yarıda yok, kurulum_omer.ps1'de zaten OMER-SOR yorumu (1,56 GB).
+5. coz-4 elenenler: ölçülen 117 (görevdeki 82 yeniden üretilemedi: coz-4 YOK ∧ puan>0). 2 GERI-AL (kimi-k3-in-c, Apify Tester MCP Client), 12 OMER-SOR, 103 YOK-DOGRU (tek cümle kanıt dosyada).
+6. tools/kurulum_omer2.ps1 (üretici tools/kurulum_omer2_uret.py): 199 satır: KLON 65, SKILL 44, NPM 35, WINGET 29 (-Sistem bayrağı gerekir), INDIR 8, PIP 8, UV 3, AJAN 3, COMPOSER 2, VENV 1, VSCODE 1. OMER-SOR yorum satırı 139 (GPL/AGPL/lisanssız, uygulama/>2 GB, belirsiz eşleşme). -Deneme koşusu: 199 satır, HATA 0 (ZATEN 45: 40 klon, 5 npm).
+7. Sınırlar: GitHub arama kotası ve `winget show` zaman aşımı → winget kimlikleri doğrulanmadı; g4-b'de kaynağı boş 48 kalem "kaynak yok" gerekçesiyle YOK çıktı, kota sıfırlanınca yeniden aranmalı. NPM satırlarında @babel/core, bootstrap vb. kütüphaneler var (global kurulumun anlamı Ömer'de).
+8. Çıkan lisanslar: lisanssız/NOASSERTION/AGPL/GPL kalemler yalnız yorum; MIT dışı kurulabilirlerin satır sonunda "# lisans:" notu var (ör. task-master-ai MIT+Commons Clause).
+Ömer'in iki satırı (PowerShell 5.1, repo kökü):
+- `powershell -NoProfile -ExecutionPolicy Bypass -File tools\kurulum_omer2.ps1 -Deneme`
+- `powershell -NoProfile -ExecutionPolicy Bypass -File tools\kurulum_omer2.ps1` (winget/sistem paketleri için sonuna `-Sistem`)

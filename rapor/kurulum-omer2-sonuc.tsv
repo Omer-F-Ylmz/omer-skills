@@ -1,0 +1,200 @@
+﻿kalem	yontem	durum	not
+FilaCheck	COMPOSER	DENEME	composer global require laraveldaily/filacheck
+Rector	COMPOSER	DENEME	composer global require rector/rector
+LEANN	UV	DENEME	uv tool install leann-core
+ScriptCreatorGraph	VENV	DENEME	uv venv C:\Users\pc\.venvs\ScriptCreatorGraph --python 3.12; uv pip install scrapegraphai
+build-error-resolver	AJAN	DENEME	ECC agents/build-error-resolver.md -> C:\Users\pc\.claude\agents\build-error-resolver.md
+e2e-runner	AJAN	DENEME	ECC agents/e2e-runner.md -> C:\Users\pc\.claude\agents\e2e-runner.md
+harness-optimizer	AJAN	DENEME	ECC agents/harness-optimizer.md -> C:\Users\pc\.claude\agents\harness-optimizer.md
+CLAUDE HQ	KLON	DENEME	git clone --depth 1 RoString36222/claude-hq
+ChatGPT MD	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\bramses__chatgpt-md
+FrontierAgent	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ApodexAI__FrontierAgent
+HIA (Health Insights Agent)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\harshhh28__hia
+Hermes voice agent	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\onlockj__hermes-voice-agent
+Luma Agents	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\lumalabs__luma-agents-cli
+Mobbin MCP	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\mobbin__mobbin-mcp-server
+Pocket TTS	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\kyutai-labs__pocket-tts
+SkillClaw	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AMAP-ML__SkillClaw
+codex-computer-use	KLON	DENEME	git clone --depth 1 tmustier/codex-computer-use-mcp
+letta-ai/claude-subconscious	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\letta-ai__claude-subconscious
+reel-factory	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Shaan-alpha__AI-Reel-Factory
+AI Travel Agent (Local & Cloud)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\nirbar1985__ai-travel-agent
+Creative-Ad Skill	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\hoangngocanh2407__creative-ads-skill-layer
+Firecrawl MCP	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\firecrawl__firecrawl-mcp-server
+Firecrawl MCP Server	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\firecrawl__firecrawl-mcp-server
+Flux Kontext	KLON	DENEME	git clone --depth 1 black-forest-labs/flux
+Local REST API with MCP	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\coddingtonbear__obsidian-local-rest-api
+TARS (Agent TARS)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\bytedance__UI-TARS-desktop
+Tokens Studio	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\tokens-studio__figma-plugin
+Unet Loader (GGUF)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\city96__ComfyUI-GGUF
+agent-radar	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\duanyytop__agents-radar
+execute_sql	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\supabase-community__supabase-mcp
+generate_typescript_types	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\supabase-community__supabase-mcp
+AgentCouncil	KLON	DENEME	git clone --depth 1 zekigalip/AgentCouncil
+Grok Build	KLON	DENEME	git clone --depth 1 xai-org/grok-build-plugin-cc
+NVIDIA Kimodo	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\nv-tlabs__kimodo
+agency-agents (msitarzewski/agency-agents)	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\msitarzewski__agency-agents
+comfy-reshoot	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Comfy-Org__comfy-reshoot
+linkedin-automator	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\charlesdove977__linkedin-automator
+mattgierhart/PRD-driven-context-engineering	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\mattgierhart__PRD-driven-context-engineering
+superlite	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\iha2__superlite
+whatsapp-rust	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\oxidezap__whatsapp-rust
+Cua Driver	KLON	DENEME	git clone --depth 1 trycua/cua
+JSON Canvas	KLON	DENEME	git clone --depth 1 obsidianmd/jsoncanvas
+Loopy <Forward-Future/loopy>	KLON	DENEME	git clone --depth 1 Forward-Future/loopy
+Make Interfaces Feel Better <jakubkrehel/make-interfaces-feel-better>	KLON	DENEME	git clone --depth 1 jakubkrehel/make-interfaces-feel-better
+claude-blog <AgriciDaniel/claude-blog>	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AgriciDaniel__claude-blog
+morluto/rea <GITHUB.COM/TRENDING.TODAY>	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\morluto__rea
+ai-employeesreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\markfulton__ai-employees
+Archify	KLON	DENEME	git clone --depth 1 tt-a1i/archify
+awesome-gamedev-agent	KLON	DENEME	git clone --depth 1 gamedev-skills/awesome-gamedev-agent-skills
+awesome-mcp-	KLON	DENEME	git clone --depth 1 punkpeye/awesome-mcp-servers
+blender-skills	KLON	DENEME	git clone --depth 1 EL4CTEO/blender-skills
+claude-memREADME	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\thedotmack__claude-mem
+claude-remotion-skill	KLON	DENEME	git clone --depth 1 haidrrrry/claude-remotion-skill
+ClaudeAnimationBaseFreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\JohnHeibel__ClaudeAnimationBase
+Concord MCP	KLON	DENEME	git clone --depth 1 Get-Concord-AI/concord-mcp
+Council of High Intelligence	KLON	DENEME	git clone --depth 1 0xNyk/council-of-high-intelligence
+Ditto	KLON	DENEME	git clone --depth 1 yoheinakajima/ditto
+flocireadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\floci-io__floci
+HTML Anything	KLON	DENEME	git clone --depth 1 nexu-io/html-anything
+openshipreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\oblien__openship
+youtube-automation-agent	KLON	DENEME	git clone --depth 1 darkzOGx/youtube-automation-agent
+Web Interface Guidelines	KLON	DENEME	git clone --depth 1 vercel-labs/web-interface-guidelines
+bitnet.cpp	KLON	DENEME	git clone --depth 1 microsoft/BitNet
+FLOW	KLON	DENEME	git clone --depth 1 AgriciDaniel/flow
+Claude Blog	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AgriciDaniel__claude-blog
+ai-job-searchfreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\ai-job-search-dev__ai-job-search
+ClaudeAnimationBasereadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\JohnHeibel__ClaudeAnimationBase
+dioramasreadme	KLON	DENEME	git clone --depth 1 blendi-remade/dioramas
+OmniCloudirreadme	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\dimartarmizi__OmniCloud
+OpenShell-tag	KLON	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\NVIDIA__OpenShell
+kimi-k3-in-c	KLON	DENEME	git clone --depth 1 FareedKhan-dev/kimi-k3-in-c
+Apify Tester MCP Client	KLON	DENEME	git clone --depth 1 apify/tester-mcp-client
+9Router	NPM	ZATEN	9router
+Agent TARS	NPM	DENEME	npm i -g @agent-tars/cli
+Claude Token Monitor	NPM	DENEME	npm i -g claude-token-monitor
+Agent Client	NPM	DENEME	npm i -g @agentclientprotocol/sdk
+context-inspector	NPM	DENEME	npm i -g context-inspector
+Agent SDK	NPM	DENEME	npm i -g @anthropic-ai/claude-agent-sdk
+Angular	NPM	DENEME	npm i -g @angular/core
+BMAD	NPM	DENEME	npm i -g bmad-method
+BMAD Method	NPM	DENEME	npm i -g bmad-method
+Babel	NPM	DENEME	npm i -g @babel/core
+Bootstrap	NPM	DENEME	npm i -g bootstrap
+E2B	NPM	DENEME	npm i -g e2b
+GraphQL	NPM	DENEME	npm i -g graphql
+Hyperframe	NPM	DENEME	npm i -g hyperframes
+Metro	NPM	DENEME	npm i -g metro
+Primer	NPM	DENEME	npm i -g @primer/react
+ProtoMaps	NPM	DENEME	npm i -g pmtiles
+Ruflo router	NPM	ZATEN	ruflo
+Swagger.io <Swagger.io>	NPM	DENEME	npm i -g swagger-ui
+Tailwind CSS <tailwindcss.com>	NPM	DENEME	npm i -g tailwindcss
+Three.js <https://threejs.org>	NPM	DENEME	npm i -g three
+codegraph <https://colbymchenry.github.io/codegraph/>	NPM	DENEME	npm i -g @colbymchenry/codegraph
+beads	NPM	DENEME	npm i -g @beads/bd
+claude-task	NPM	DENEME	npm i -g task-master-ai
+REA (Reverse Engineer)	NPM	ZATEN	rea-agents
+TokenJuice	NPM	DENEME	npm i -g tokenjuice
+TypeScript	NPM	ZATEN	typescript
+ccusage	NPM	DENEME	npm i -g ccusage
+designlang	NPM	DENEME	npm i -g designlang
+gws	NPM	DENEME	npm i -g @googleworkspace/cli
+Freebuff	NPM	DENEME	npm i -g freebuff
+Tailwind CSS (Framework)	NPM	DENEME	npm i -g tailwindcss
+Three.js (3D Rendering Library)	NPM	DENEME	npm i -g three
+Codegraph	NPM	DENEME	npm i -g @colbymchenry/codegraph
+morluto/rea	NPM	ZATEN	rea-agents
+MemZero	PIP	DENEME	pip install --user mem0ai
+Triton	PIP	DENEME	pip install --user triton-windows
+CLI-Hub	PIP	DENEME	pip install --user cli-anything-hub
+Fish Audio	PIP	DENEME	pip install --user fish-audio-sdk
+Brotli	PIP	DENEME	pip install --user brotli
+Stan	PIP	DENEME	pip install --user cmdstanpy
+Storm	PIP	DENEME	pip install --user knowledge-storm
+DiffSynth-	PIP	DENEME	pip install --user diffsynth
+nvm	INDIR	DENEME	https://github.com/coreybutler/nvm-windows/releases/download/v2.0.1/nvm-2.0.1-x64-setup.exe -> C:\Users\pc\Downloads\kurulum5b\nvm-2.0.1-x64-setup.exe (exe/msi'yi Omer calistirir)
+RIFE	INDIR	DENEME	https://github.com/nihui/rife-ncnn-vulkan/releases/download/20221029/rife-ncnn-vulkan-20221029-windows.zip -> C:\Users\pc\Downloads\kurulum5b\rife-ncnn-vulkan-20221029-windows.zip (exe/msi'yi Omer calistirir)
+Vim	INDIR	DENEME	https://github.com/vim/vim-win32-installer/releases/download/v9.2.1302/gvim_9.2.1302_x64.exe -> C:\Users\pc\Downloads\kurulum5b\gvim_9.2.1302_x64.exe (exe/msi'yi Omer calistirir)
+go toolchain	INDIR	DENEME	https://go.dev/dl/go1.27.3.windows-amd64.msi -> C:\Users\pc\Downloads\kurulum5b\go1.27.3.windows-amd64.msi (exe/msi'yi Omer calistirir)
+go version -m	INDIR	DENEME	https://go.dev/dl/go1.27.3.windows-amd64.msi -> C:\Users\pc\Downloads\kurulum5b\go1.27.3.windows-amd64.msi (exe/msi'yi Omer calistirir)
+llama-cli	INDIR	DENEME	https://github.com/ggml-org/llama.cpp/releases/download/b12189/llama-b12189-bin-win-cpu-x64.zip -> C:\Users\pc\Downloads\kurulum5b\llama-b12189-bin-win-cpu-x64.zip (exe/msi'yi Omer calistirir)
+rustc	INDIR	DENEME	https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe -> C:\Users\pc\Downloads\kurulum5b\rustup-init.exe (exe/msi'yi Omer calistirir)
+Claude Flow	SKILL	DENEME	ruvnet/claude-flow  -> C:\Users\pc\.claude\skills
+Marketing Skills for AI Agents	SKILL	DENEME	coreyhaines31/marketingskills  -> C:\Users\pc\.claude\skills
+copy-editing	SKILL	DENEME	coreyhaines31/marketingskills  -> C:\Users\pc\.claude\skills
+copywriting	SKILL	DENEME	coreyhaines31/marketingskills  -> C:\Users\pc\.claude\skills
+marketingskills/skills/seo-audit	SKILL	DENEME	coreyhaines31/marketingskills  -> C:\Users\pc\.claude\skills
+Marketing plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+Official Marketing Plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+Sales Plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+Sales plugin (Sales Rep)	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+Support plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+customer support plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+data plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+Anthropic Marketing plugin	SKILL	DENEME	anthropics/knowledge-work-plugins  -> C:\Users\pc\.claude\skills
+Matt Pocock skills repo	SKILL	DENEME	mattpocock/skills  -> C:\Users\pc\.claude\skills
+Teach	SKILL	DENEME	mattpocock/skills  -> C:\Users\pc\.claude\skills
+setup-matt-docock-skills	SKILL	DENEME	mattpocock/skills  -> C:\Users\pc\.claude\skills
+anthropic-automations-recommender	SKILL	DENEME	anthropics/claude-plugins-official  -> C:\Users\pc\.claude\skills
+claude-md-management	SKILL	DENEME	anthropics/claude-plugins-official  -> C:\Users\pc\.claude\skills
+code-architect	SKILL	DENEME	anthropics/claude-plugins-official  -> C:\Users\pc\.claude\skills
+feature-dev	SKILL	DENEME	anthropics/claude-plugins-official  -> C:\Users\pc\.claude\skills
+telegram@claude-plugins-official	SKILL	DENEME	anthropics/claude-plugins-official  -> C:\Users\pc\.claude\skills
+coleschaffer/copywritingskills-rmbc	SKILL	DENEME	coleschaffer/copywritingskills-rmbc  -> C:\Users\pc\.claude\skills
+gan-evaluator	SKILL	DENEME	affaan-m/everything-claude-code  -> C:\Users\pc\.claude\skills
+get_observations	SKILL	DENEME	thedotmack/claude-mem  -> C:\Users\pc\.claude\skills
+lark-vc-agent	SKILL	DENEME	larksuite/cli  -> C:\Users\pc\.claude\skills
+B-Roll Finder	SKILL	DENEME	louisedesadeleer/b-roll-finder  -> C:\Users\pc\.claude\skills
+firecrawl/firecrawl-workflows	SKILL	DENEME	firecrawl/firecrawl-workflows skills -> C:\Users\pc\.claude\skills
+hookify	SKILL	DENEME	anthropics/claude-plugins-official plugins/hookify -> C:\Users\pc\.claude\skills
+scrum-sage	SKILL	DENEME	michalparkola/tapestry-skills-for-claude-code scrum-sage -> C:\Users\pc\.claude\skills
+agents-sdk-dev	SKILL	DENEME	anthropics/claude-plugins-official plugins/agent-sdk-dev -> C:\Users\pc\.claude\skills
+commit-commands	SKILL	DENEME	anthropics/claude-plugins-official plugins/commit-commands -> C:\Users\pc\.claude\skills
+geo-crawlers	SKILL	DENEME	sickn33/agentic-awesome-skills skills/geo-crawlers -> C:\Users\pc\.claude\skills
+ship-learn-next	SKILL	DENEME	michalparkola/tapestry-skills-for-claude-code ship-learn-next -> C:\Users\pc\.claude\skills
+api-and-interface-design	SKILL	DENEME	addyosmani/agent-skills skills/api-and-interface-design -> C:\Users\pc\.claude\skills
+schema (coreyhaines31/marketingskills)	SKILL	DENEME	coreyhaines31/marketingskills skills/schema -> C:\Users\pc\.claude\skills
+Marketing Psychology	SKILL	DENEME	coreyhaines31/marketingskills skills/marketing-psychology -> C:\Users\pc\.claude\skills
+Mattpocock	SKILL	DENEME	mattpocock/skills  -> C:\Users\pc\.claude\skills
+docx	SKILL	DENEME	anthropics/skills skills/docx -> C:\Users\pc\.claude\skills
+getagentseal/founder-playbook	SKILL	DENEME	getagentseal/founder-playbook  -> C:\Users\pc\.claude\skills
+PDF (dosya biÃ§imi)	SKILL	DENEME	anthropics/skills skills/pdf -> C:\Users\pc\.claude\skills
+public-relations	SKILL	DENEME	coreyhaines31/marketingskills skills/public-relations -> C:\Users\pc\.claude\skills
+schema (Corey Haines'in marketingskills projesinde kullanÄ±lan kavram)	SKILL	DENEME	coreyhaines31/marketingskills skills/schema -> C:\Users\pc\.claude\skills
+Loopy	SKILL	DENEME	Forward-Future/loopy  -> C:\Users\pc\.claude\skills
+Make Interfaces Feel Better	SKILL	DENEME	jakubkrehel/make-interfaces-feel-better  -> C:\Users\pc\.claude\skills
+GitHub Spec Kit	UV	DENEME	uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+OpenHandds	UV	DENEME	uv tool install openhands
+Kilo	VSCODE	DENEME	code --install-extension kilocode.Kilo-Code
+Podman	WINGET	ATLANDI	-Sistem yok: RedHat.Podman
+helm	WINGET	ATLANDI	-Sistem yok: Helm.Helm
+C-Sharp	WINGET	ATLANDI	-Sistem yok: Microsoft.DotNet.SDK.10
+CPython	WINGET	ATLANDI	-Sistem yok: Python.Python.3.13
+Dart	WINGET	ATLANDI	-Sistem yok: Google.DartSDK
+Go	WINGET	ATLANDI	-Sistem yok: GoLang.Go
+Go 1.27.1	WINGET	ATLANDI	-Sistem yok: GoLang.Go
+Kotlin	WINGET	ATLANDI	-Sistem yok: JetBrains.Kotlin.Compiler
+Ninja	WINGET	ATLANDI	-Sistem yok: Ninja-build.Ninja
+Node	WINGET	ATLANDI	-Sistem yok: OpenJS.NodeJS.LTS
+Node Runtime	WINGET	ATLANDI	-Sistem yok: OpenJS.NodeJS.LTS
+Node.js 20+	WINGET	ATLANDI	-Sistem yok: OpenJS.NodeJS.LTS
+PHP	WINGET	ATLANDI	-Sistem yok: PHP.PHP.8.3
+PHP 8.3	WINGET	ATLANDI	-Sistem yok: PHP.PHP.8.3
+Postgre	WINGET	ATLANDI	-Sistem yok: PostgreSQL.PostgreSQL.17
+Python 3.10+	WINGET	ATLANDI	-Sistem yok: Python.Python.3.13
+Rust	WINGET	ATLANDI	-Sistem yok: Rustlang.Rustup
+WSL	WINGET	ATLANDI	-Sistem yok: Microsoft.WSL
+python3	WINGET	ATLANDI	-Sistem yok: Python.Python.3.13
+Node.js <nodejs.org/en>	WINGET	ATLANDI	-Sistem yok: OpenJS.NodeJS.LTS
+Python <www.python.org>	WINGET	ATLANDI	-Sistem yok: Python.Python.3.13
+C# (C-Sharp)	WINGET	ATLANDI	-Sistem yok: Microsoft.DotNet.SDK.10
+Go (programlama dili)	WINGET	ATLANDI	-Sistem yok: GoLang.Go
+Java	WINGET	ATLANDI	-Sistem yok: Microsoft.OpenJDK.21
+Microsoft Visual C++ Redistributable	WINGET	ATLANDI	-Sistem yok: Microsoft.VCRedist.2015+.x64
+Microsoft Visual C++ v14 x64 Redistributable	WINGET	ATLANDI	-Sistem yok: Microsoft.VCRedist.2015+.x64
+Zig	WINGET	ATLANDI	-Sistem yok: zig.zig
+Node.js	WINGET	ATLANDI	-Sistem yok: OpenJS.NodeJS.LTS
+Python	WINGET	ATLANDI	-Sistem yok: Python.Python.3.12
+Gradle	INDIR	DENEME	https://services.gradle.org/distributions/gradle-9.9.0-bin.zip -> C:\Users\pc\Downloads\kurulum5b\gradle-9.9.0-bin.zip (exe/msi'yi Omer calistirir)
