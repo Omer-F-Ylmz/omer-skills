@@ -1,0 +1,118 @@
+kalem	sinif	sonuc	kaynak	puan	yol	gerekce
+AgentLog	PAKET	ADAY	gh:imran31415/agentlog	0	-	sira4-0811
+CLAUDE HQ	PAKET	ADAY	gh:bro789/claude-hq	0	-	sira4-0811
+Claude Code Security Reviewer	PAKET	ADAY	gh:anthropics/claude-code-security-review	0	-	sira4-0811
+ComfyUI-HunyuanVideo	PAKET	ADAY	gh:kijai/ComfyUI-HunyuanVideoWrapper	0	-	sira4-0811
+Founders Skill	SKILL	ADAY	gh:Grunder-Mentor-de/founder-skills	0	-	sira4-0811
+Hermes voice agent	PAKET	ADAY	gh:onlockj/hermes-voice-agent	0	-	sira4-0811
+Luma Agents	PAKET	ADAY	gh:lumalabs/luma-agents-cli	0	-	sira4-0811
+OpenSSF Scorecard	PAKET	ADAY	gh:ossf/scorecard	0	-	sira4-0811
+Research mode	SKILL	ADAY	gh:assafkip/research-mode	0	-	sira4-0811
+21st Day MCP Connector	PAKET	ADAY	npm:@21st-dev/cli	0	-	sira4-0811
+Claude Director skill	SKILL	ADAY	gh:wuwangzhang1216/DirectorSKILL	0	-	sira4-0811
+Creative-Ad Skill	PAKET	ADAY	gh:hoangngocanh2407/creative-ads-skill-layer	0	-	sira4-0811
+FilmCraft CLI	PAKET	ADAY	gh:storytold/filmcraft	0	-	sira4-0811
+MLSharp	PAKET	ADAY	gh:apple/ml-sharp	0	-	sira4-0811
+Mortiflix particle engine	SKILL	ADAY	gh:GTKottman/mortiflix-oss	0	-	sira4-0811
+Official Marketing Plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Post Strategist	PAKET	ADAY	gh:Aameeq/social-strategist	0	-	sira4-0811
+Remotion Lambda	PAKET	ADAY	npm:@remotion/lambda	0	-	sira4-0811
+Sales Plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Türkçe yazı skill'i (turkce-yazi.zip)	SKILL	ADAY	gh:ozgurbuluta/turkce-yazi-yazma	0	-	sira4-0811
+Vibe CLI	SKILL	ADAY	gh:mistralai/mistral-vibe	0	-	sira4-0811
+create-video	PAKET	ADAY	npm:create-video	0	-	sira4-0811
+hy-wu-edit	PAKET	ADAY	gh:Tencent-Hunyuan/HY-WU	0	-	sira4-0811
+n8n Agent Builder Skill	SKILL	ADAY	gh:czlonkowski/n8n-skills	0	-	sira4-0811
+vulnerability-harness	SKILL	ADAY	gh:visa/visa-vulnerability-agentic-harness	0	-	sira4-0811
+MeiGen-AI	SKILL	ADAY	gh:jau123/MeiGen-AI-Design-MCP	0	-	sira4-0811
+Chat with Gmail	SKILL	ADAY	gh:Shubhamsaboo/awesome-llm-apps	0	-	sira4-0811
+Claude Toolkit	SKILL	ADAY	gh:dwmkerr/claude-toolkit	0	-	sira4-0811
+Free Claude Code Repo	PAKET	ADAY	gh:Alishahryar1/free-claude-code	0	-	sira4-0811
+LLM Council	SKILL	ADAY	gh:tenfoldmarc/llm-council-skill	0	-	sira4-0811
+Lovart Agent	SKILL	ADAY	gh:lovartai/lovart-skill	0	-	sira4-0811
+Productivity Plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+hbot CLI	PAKET	ADAY	gh:hummingbot/hummingbot	0	-	sira4-0811
+kodeks	PAKET	ADAY	npm:@dirstack/kodeks	0	-	sira4-0811
+reel-factory	PAKET	ADAY	gh:Shaan-alpha/AI-Reel-Factory	0	-	sira4-0811
+Agent Client	PAKET	ADAY	gh:agentclientprotocol/agent-client-protocol	0	-	sira4-0811
+Chat with Research Papers (ArXiv)	SKILL	ADAY	gh:Shubhamsaboo/awesome-llm-apps	0	-	sira4-0811
+Clawed Code Setup	SKILL	ADAY	gh:anthropics/claude-plugins-official	0	-	sira4-0811
+Data plugin (Data Analyst)	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Finance plugin (Finance Guy)	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Marketing plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Remove AI Slop	SKILL	ADAY	gh:manavmishra/ZeroSlop	0	-	sira4-0811
+Sales plugin (Sales Rep)	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Support plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+UGC content skill	SKILL	ADAY	gh:kofiowusuai-lab/ugc-skills	0	-	sira4-0811
+Voice Mode	SKILL	ADAY	gh:mbailey/voicemode	0	-	sira4-0811
+code-architect	SKILL	ADAY	gh:anthropics/claude-plugins-official	0	-	sira4-0811
+plugin-cc	SKILL	ADAY	gh:openai/codex-plugin-cc	0	-	sira4-0811
+static-ad-generator skill	SKILL	ADAY	gh:creatify-ai/static-ad-concept-generator	0	-	sira4-0811
+AI Slop Detector	PAKET	ADAY	pip:ai-slop-detector	0	-	sira4-0811
+Chat with YouTube Videos	SKILL	ADAY	gh:Shubhamsaboo/awesome-llm-apps	0	-	sira4-0811
+Claude sales plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+LinkedIn Agent	SKILL	ADAY	gh:Jakeschincariol/linkedin-agent-skill	0	-	sira4-0811
+MCP Bridge	PAKET	ADAY	gh:SecretiveShell/MCP-Bridge	0	-	sira4-0811
+hookify	SKILL	ADAY	gh:anthropics/claude-plugins-official	0	-	sira4-0811
+margin-analyzer	PAKET	ADAY	gh:tuffy-xie/margin-analyzer	0	-	sira4-0811
+AI Travel Agent (Local & Cloud)	PAKET	ADAY	gh:nirbar1985/ai-travel-agent	0	-	sira4-0811
+Claude Code kurulumu (resmi Anthropic eklentisi)	SKILL	ADAY	gh:anthropics/claude-plugins-official	0	-	sira4-0811
+DataviewJS	PAKET	ADAY	gh:blacksmithgu/obsidian-dataview	0	-	sira4-0811
+Legal Plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Mempalus	SKILL	ADAY	gh:MemPalace/mempalace	0	-	sira4-0811
+Nanobot	SKILL	ADAY	gh:HKUDS/nanobot	0	-	sira4-0811
+ScriptCreatorGraph	PAKET	ADAY	pip:scrapegraphai	0	-	sira4-0811
+Taste Skill v2 Beta	SKILL	ADAY	gh:Leonxlnx/taste-skill	0	-	sira4-0811
+UGC generator skill	SKILL	ADAY	gh:kofiowusuai-lab/ugc-skills	0	-	sira4-0811
+Vue and Vite core team skills collection	SKILL	ADAY	gh:vuejs-ai/skills	0	-	sira4-0811
+agent-radar	PAKET	ADAY	gh:duanyytop/agents-radar	0	-	sira4-0811
+auto-dream	SKILL	ADAY	gh:grandamenium/dream-skill	0	-	sira4-0811
+data plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+execute_sql	PAKET	ADAY	gh:supabase-community/supabase-mcp	0	-	sira4-0811
+get_scene_info	PAKET	ADAY	gh:ahujasid/blender-mcp	0	-	sira4-0811
+xet	PAKET	ADAY	pip:hf-xet	0	-	sira4-0811
+Phoenix	PAKET	ADAY	pip:arize-phoenix	0	-	sira4-0811
+Business Skills	SKILL	ADAY	gh:minhnv0807/ai-business-skills	0	-	sira4-0811
+Claude Token Monitor	SKILL	ADAY	gh:novapizza/claude-token-monitor	0	-	sira4-0811
+LingoForge	PAKET	ADAY	gh:shenfn/LingoForge	0	-	sira4-0811
+MetaClaw	SKILL	ADAY	gh:aiming-lab/MetaClaw	0	-	sira4-0811
+Qwen CLI	PAKET	ADAY	npm:@qwen-code/qwen-code	0	-	sira4-0811
+fixai	PAKET	ADAY	gh:pratikmishra356/fixai	0	-	sira4-0811
+infographic	SKILL	ADAY	gh:antvis/Infographic	0	-	sira4-0811
+scrum-sage	PAKET	ADAY	gh:codegeekyyy/ScrumSage	0	-	sira4-0811
+youtube-skills	SKILL	ADAY	gh:Jakeschincariol/youtube-agent-skill	0	-	sira4-0811
+Base MCP	PAKET	ADAY	gh:base/base-mcp	0	-	sira4-0811
+Claude Cowork plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Corporate Legal plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Everything Claw Code	SKILL	ADAY	gh:affaan-m/everything-claude-code	0	-	sira4-0811
+Fish Audio	PAKET	ADAY	gh:fishaudio/fish-speech	0	-	sira4-0811
+HR plugin	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Legal plugin (Lawyer)	SKILL	ADAY	gh:anthropics/knowledge-work-plugins	0	-	sira4-0811
+Pipecat Skills	SKILL	ADAY	gh:pipecat-ai/skills	0	-	sira4-0811
+Remotion Inside Claude Code	SKILL	ADAY	gh:remotion-dev/skills	0	-	sira4-0811
+Skill Geliştiren Skill	SKILL	ADAY	gh:anthropics/skills	0	-	sira4-0811
+Türkçe yazı skill	SKILL	ADAY	gh:ozgurbuluta/turkce-yazi-yazma	0	-	sira4-0811
+UI UX Pro Max Scale	SKILL	ADAY	gh:nextlevelbuilder/ui-ux-pro-max-skill	0	-	sira4-0811
+agents-sdk-dev	SKILL	ADAY	gh:anthropics/claude-plugins-official	0	-	sira4-0811
+bitwarden_rs	PAKET	ADAY	gh:dani-garcia/vaultwarden	0	-	sira4-0811
+e2e-runner	SKILL	ADAY	gh:affaan-m/everything-claude-code	0	-	sira4-0811
+generate_typescript_types	PAKET	ADAY	gh:supabase-community/supabase-mcp	0	-	sira4-0811
+lln-council	SKILL	ADAY	gh:rohitg00/pro-workflow	0	-	sira4-0811
+n8n AI Agent Claude Skill	SKILL	ADAY	gh:czlonkowski/n8n-skills	0	-	sira4-0811
+Anti-Slop Frontend Framework for AI Agents	SKILL	ADAY	gh:Leonxlnx/taste-skill	0	-	sira4-0811
+twozero	PAKET	ADAY	gh:twozero-team/twozero-td-mcp	0	-	sira4-0811
+Foreman	PAKET	ADAY	pip:foreman-orchestrator	0	-	sira4-0811
+Kling AI Skills	SKILL	ADAY	gh:wangdinwei/kling-ai-skills	0	-	sira4-0811
+Open Alternative Jev	PAKET	ADAY	gh:ikermoel/open-alternative-jev	0	-	sira4-0811
+context-inspector	PAKET	ADAY	gh:mgechev/context-inspector	0	-	sira4-0811
+offensive-sqli	SKILL	ADAY	gh:rudraverma/offensive-sqli-claude-skill	0	-	sira4-0811
+gan-planner	SKILL	ADAY	gh:affaan-m/everything-claude-code	0	-	sira4-0811
+billion-context	PAKET	ADAY	npm:billion-context	0	-	sira4-0811
+localwhisper	PAKET	ADAY	pip:localwhisper	0	-	sira4-0811
+Anthropic finance agents	SKILL	ADAY	gh:anthropics/financial-services	0	-	sira4-0811
+Lint	PAKET	ADAY	npm:@shadcn/lint	0	-	sira4-0811
+Reicon Agent	SKILL	ADAY	gh:dqev/reicon	0	-	sira4-0811
+scope-guard	PAKET	ADAY	gh:YeonwooSung/my-claude-code-mods	0	-	sira4-0811
+Antigravity SDK	SKILL	ADAY	gh:google-antigravity/antigravity-sdk-python	0	-	sira4-0811
+Skill Spectre	SKILL	ADAY	gh:NVIDIA/SkillSpector	0	-	sira4-0811
+inbox-alerts-priority	PAKET	ADAY	gh:Ankitrai97/rai-claude-mods	0	-	sira4-0811
