@@ -1,0 +1,14 @@
+kalem	tur	tahmini_boyut	kaynak	neden
+PostgreSQL	uygulama	~300MB	winget PostgreSQL.PostgreSQL.17	psql kurulu degil; masaustu uygulamasi kurali
+Wifite	diger	~5MB	apt wifite (WSL Ubuntu)	guvenlik-ayri-dalga
+tshark	diger	~30MB	apt tshark (WSL Ubuntu)	guvenlik-ayri-dalga
+binwalk	diger	~10MB	apt binwalk (WSL Ubuntu)	guvenlik-ayri-dalga
+whatweb	diger	~5MB	apt whatweb (WSL Ubuntu)	guvenlik-ayri-dalga
+Eigent	uygulama	~100MB	gh release Eigent.Setup.1.0.7.exe	masaustu uygulamasi
+NaiboWang/EasySpider	uygulama	~200MB	gh release 7z	masaustu uygulamasi
+storytold/artcraft	uygulama	~100MB	gh release exe/msi	masaustu uygulamasi
+nvm-windows	uygulama	~10MB	coreybutler/nvm-windows	installer; node zaten kurulu
+Chocolatey	uygulama	~10MB	chocolatey msi	sistem paket yoneticisi
+Orchestrator.inc (agent-orchestrator)	uygulama	~150MB	gh release exe	Electron uygulamasi
+AnyPs5	diger	?	boykopovar/AnyPS5	guvenlik-ayri-dalga
+Scoop	uygulama	-	scoop.sh	sistem paket yoneticisi

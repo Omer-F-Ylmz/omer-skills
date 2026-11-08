@@ -28,3 +28,27 @@ tools/laya/*.log
 skills/omer-kutuphaneler/raf/
 tools/adim_log.jsonl
 tools/code-mode/node_modules/
+skills/*/.venv
+*.mp4
+deneme.log
+
+raf/
+.aider*
+
+# gece-0811: gecici/cikti siniflamasi (silinmedi, yalniz izlenmiyor)
+/tmp/
+/_arsiv/liste-eksik-1/
+/.base/hook-output/
+/.secim/
+/araclar/xerj/
+/araclar/hermes-home/
+/araclar/notlu77/
+/araclar/notlu77-kurulu/
+/.claude/b2-olcum/
+/.claude/b2-aile/
+/.claude/t7f2-birlesik/
+/.claude/ig42/
+/.claude/ordu3/
+/.claude/ogren3/
+/.claude/v13/
+/.claude/v13b/
