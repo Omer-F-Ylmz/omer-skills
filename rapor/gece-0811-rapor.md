@@ -25,3 +25,11 @@
 
 ## Kullanilan araclar
 gh api/search, claude plugin marketplace list, gitleaks ciktisi + git show, python betikleri (tmp\sira3_0811.py, sira4_0811.py, gl_ozet_0811.py), PyPI/npm kayit API, Monitor. Kullanilmayan: alt ajan (is kucuk/dosya yazar), LLM hakem (yukaridaki nedenle).
+
+## DEVAM-3..7 / SON-4 (son durum)
+- SIRA 8: 632 kategori denetimi; Sonnet hakemi 286 satir: 224 MEVCUT, 49 ONERI, 13 IKISI-DE-DEGIL (tmp\sira8-sonnet-0811.tsv). Kalan hakem turu: rapor\kanit-kategori-1.md.
+- SIRA 9a: 490 varlik -> 247 INDIRILDI, 15 ZATEN, 2 HATA, 181 KAYNAK-YOK, 34 UYGULAMA?, 11 BUYUK. SIRA 9b: 3746 -> slash-ne-zaman-1105.tsv (19200->22945); Sonnet orneklem 200: 193 DOGRU / 1 YANLIS / 6 BELIRSIZ.
+- Omer'e sorulacak (rapor\omer-sorulacak.tsv, tur): diger 187, uygulama 42, buyuk 11, yukle 2 = 242 satir.
+- ana-liste.tsv son durum (23650 kalem): KAYITLI 14377, KURULMADI-SIRADA 5896, CALISIYOR 2223, KURULDU 418, ZATEN 246, BULUNDU-ADAY 212, KURULDU-SARMALAYICI 95, BULUNAMADI-KESIN 69, KANITSIZ-ESLESME-YOK 51, KURULDU-KAYNAK 24, KURULDU-DOGRULANMADI 11, KANITSIZ-LINK-ULASILAMADI 10, KURULU-KANITSIZ 6, KURULDU-KUTUPHANE 4.
+- Git: commit 5c6ee359 (1293 dosya, Co-Authored-By yok, hook atlanmadi) + push basarili, @{u}..HEAD = 0. Gitleaks pre-commit 21 dosyada generic-api-key/sourcegraph-token buldu; bu dosyalar commit disi (unstaged, diskte duruyor): .token-savior-cache.json, kategori*.tsv (+ _arsiv, .oncesi-*), kategori-denetim.tsv, kategori-degisiklik.tsv, usta.jsonl.bak*, video-arastirma-7eki.md, yetenek.jsonl, kurulumlar/kacan-karar-5.tsv. Omer: sahte/ornek ise allowlist ekle, sonra commit edilsin.
+- Kullanilan araclar: git, gitleaks (hook), rg, python betikleri, claude -p Sonnet hakem, OmniRoute ucretsiz zincir, gh. Kullanilmayan: alt ajan (cagri sayaci/baglam nedeniyle).
