@@ -19,8 +19,8 @@ ruvnet__claude-flow	yukle	22MB	~/.claude/skills/ruvnet__claude-flow	tek basina p
 1.400+ SVG logo referans kütüphanesi	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 2.5D page camera	uygulama	?	chrisneagu/FTC-Skystone-Dark-Angels-Romania-2020	9a/UYGULAMA?: uygulama olabilir
 28-Day AI Sprint Roadmap	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
-3D Icons	buyuk	?	ryanoasis/nerd-fonts	9a/BUYUK: >=2GB
-3MF	buyuk	?	sceneview/sceneview	9a/BUYUK: >=2GB
+3D Icons	buyuk	?	ryanoasis/nerd-fonts	VARLIK-ARA: alindi araclar/varlik/3dicons (realvjy/3dicons CC0, 20MB)
+3MF	buyuk	?	sceneview/sceneview	Omer: alinmayacak (yanlis eslesme)
 4BLENDERADDONS	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 72pt: Fonts for Designers	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 88Vector	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
@@ -45,7 +45,7 @@ BoxerStepBack	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 BoxerStepForward	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 BoxerStepLeft	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 BoxerStepRight	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
-brain.glb	buyuk	?	nirholas/three.ws	9a/BUYUK: >=2GB
+brain.glb	buyuk	?	nirholas/three.ws	VARLIK-ARA: three.ws icinde yok (yalniz brainstem.glb); kaynak dogrulanamadi, indirilmedi
 Breathing Text	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Canvas Reveal Effect	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Carousel (karusel)	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
@@ -87,7 +87,7 @@ Facebook Like button	uygulama	?	harshalbenake/hbworkspace2-100	9a/UYGULAMA?: uyg
 Facet Glass Hero	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 FadingVideo	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Fitness-Tracker-App	uygulama	?	Kennygunderman/state-of-health-tracker	9a/UYGULAMA?: uygulama olabilir
-fonts	buyuk	?	ryanoasis/nerd-fonts	9a/BUYUK: >=2GB
+fonts	buyuk	?	ryanoasis/nerd-fonts	VARLIK-ARA: alindi nerd-fonts-2 (JetBrainsMono+FiraCode zip)
 Fontshare	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 FontsNinja	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 FR_Procedural_Building	uygulama	?	Sfedfcv/redesigned-pancake	9a/UYGULAMA?: uygulama olabilir
@@ -111,13 +111,13 @@ House/Senate Stock Watcher	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesm
 Humanity's Last Exam (Full)	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Iconly	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 iconly.pro	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
-icons	buyuk	?	ryanoasis/nerd-fonts	9a/BUYUK: >=2GB
+icons	buyuk	?	ryanoasis/nerd-fonts	VARLIK-ARA: alindi material-icons+material-symbols npm
 ImageNet	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 InkReveal	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Inter	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 INTERFONT	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 iPhone 16 Pro Mockups	uygulama	?	sachinmotwani02/app-icon-mockup	9a/UYGULAMA?: uygulama olabilir
-iPhone 17 Pro 3D model	buyuk	?	Dujltqzv/Some-Many-Books	9a/BUYUK: >=2GB
+iPhone 17 Pro 3D model	buyuk	?	Dujltqzv/Some-Many-Books	Omer: alinmayacak (yanlis eslesme)
 Iridescent silk	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Kinetic Monolith	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 KineticEditorial	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
@@ -132,7 +132,7 @@ Lumen Fonts	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Magnetic Drop Zone	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 markov-ai/cad-1000-hours	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Marquee Along SVG Path	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
-Material Icons	buyuk	?	ryanoasis/nerd-fonts	9a/BUYUK: >=2GB
+Material Icons	buyuk	?	ryanoasis/nerd-fonts	VARLIK-ARA: alindi material-icons npm (Apache-2.0)
 MathVision	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Mesh Text Hover	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Meteors	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
@@ -198,13 +198,13 @@ spotlight-hero	uygulama	?	Sfedfcv/redesigned-pancake	9a/UYGULAMA?: uygulama olab
 Stack Panel	uygulama	?	cirosantilli/china-dictatorship	9a/UYGULAMA?: uygulama olabilir
 StackedDrawerMenu	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Stay Picker	uygulama	?	PBJ-2/clauderipple	9a/UYGULAMA?: uygulama olabilir
-STL	buyuk	?	Dujltqzv/Some-Many-Books	9a/BUYUK: >=2GB
+STL	buyuk	?	Dujltqzv/Some-Many-Books	Omer: alinmayacak (yanlis eslesme)
 storefront-web	uygulama	?	aws-samples/aws-bookstore-demo-app	9a/UYGULAMA?: uygulama olabilir
 Suez One	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Superscene Emoji	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 SVGMaskEffect	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Swimming pool scene	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
-Symbols	buyuk	?	google/material-design-icons	9a/BUYUK: >=2GB
+Symbols	buyuk	?	google/material-design-icons	VARLIK-ARA: alindi material-symbols npm (Apache-2.0)
 Sık sorulan sorular	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Table Editor Artifact	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
 Task Tracker	diger	?		9a/KAYNAK-YOK: kaynak-yok: gh aramasi eslesme yok
