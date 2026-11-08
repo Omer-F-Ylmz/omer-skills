@@ -1,0 +1,6 @@
+{
+  "ANTHROPIC_BASE_URL": "http://127.0.0.1:8081",
+  "ANTHROPIC_AUTH_TOKEN": "yerel",
+  "ANTHROPIC_MODEL": "ss-yerel",
+  "_not": "Yalniz ANTHROPIC_BASE_URL eklenir; diger anahtarlar oldugu gibi kalir."
+}

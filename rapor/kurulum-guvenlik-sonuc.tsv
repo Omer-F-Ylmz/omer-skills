@@ -1,0 +1,14 @@
+﻿kalem	yontem	durum	not
+jadx	gh-release	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\guvenlik\jadx-1.5.6
+jadx-cli	gh-release	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\guvenlik\jadx-cli-1.5.6
+apktool	gh-release	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\guvenlik\apktool-3.0.3
+yara	gh-release	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\guvenlik\yara-4.6.0
+ghidra	gh-release	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\guvenlik\ghidra-12.2
+frida-tools	pip	KURULDU	frida-tools
+yara-python	pip	KURULDU	yara-python
+binwalk	cargo	ZATEN	C:\Users\pc\.cargo\bin\binwalk.exe
+nmap	winget	HATA	exit -1
+metasploit	bundle	HATA	bundle install basarisiz, ayrinti: _indir\msf-bundle.log
+proxspace	gh-release	ZATEN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\guvenlik\ProxSpace
+aflplusplus	haric	ATLA	Omer 6 Kas: almiyoruz
+aircrack-ng	haric	ATLA	Omer 6 Kas: almiyoruz

@@ -181,6 +181,24 @@ def _bol(sk, agirlik):
     return dengeli if all(sigar(p) for p in dengeli) else acgozlu
 
 
+def _tek(ad, kaynak, cikti):
+    """Tek skill'lik paket: sarmalayıcı yok; özgün SKILL.md (açıklama/tetik kelimeleri aynen), ekler olduğu gibi."""
+    d = pathlib.Path(kaynak)
+    ana = d / "SKILL.md" if (d / "SKILL.md").is_file() else d / "TALIMAT.md"
+    t = ana.read_text(encoding="utf-8")
+    t = re.sub(r"^name:.*$", lambda m: f"name: {ad}", t, count=1, flags=re.M)
+    dosyalar = {}
+    for f in sorted(d.rglob("*")):
+        if f.is_file() and f != ana and not {"node_modules", ".git", "__pycache__"} & set(f.relative_to(d).parts):
+            r = f.relative_to(d).as_posix()
+            if r.split("/")[-1].lower() == "skill.md":
+                r = r.rsplit("/", 1)[0] + "/SKILL-ornek.md" if "/" in r else "SKILL-ornek.md"
+            dosyalar[r] = f.read_bytes()
+    if 1 + len(dosyalar) > SINIR:
+        raise ValueError(f"{ad}: {1 + len(dosyalar)} dosya > {SINIR}")
+    return yaz(ad, t, dosyalar, cikti, BUYUK_BOYUT), 1 + len(dosyalar)
+
+
 def buyuk(ad, konu, kaynaklar, cikti):
     if "claude" in ad.lower() or "anthropic" in ad.lower():
         raise ValueError(f"paket adında claude/anthropic olamaz: {ad}")

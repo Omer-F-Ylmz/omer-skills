@@ -26,6 +26,7 @@ KOP = KOK / ".kos/kopru"
 OLAY, DURUM, KOTA, ONERI, BESLEME = (KOP / n for n in ("beyin-olay.jsonl", "beyin-durum.json", "beyin-kota.json", "beyin-oneri.jsonl", "beyin-besleme.jsonl"))
 KILIT, KART, ONAY, IS_KAYDI = KOP / "beyin-kilit", KOP / "icgoru-kart.md", KOP / "onay-bekliyor.md", KOP / "is-kaydi.tsv"
 ALARM, OZET, DESKTOP, ETKI = (KOP / n for n in ("beyin-alarm.txt", "beyin-ozet.md", "beyin-desktop.jsonl", "beyin-etki.jsonl"))
+TEKRAR, IMZA, KONTROL = (KOP / n for n in ("beyin-tekrar.jsonl", "beyin-hata-imza.json", "beyin-kontrol.md"))  # BEYIN-GERI-1
 GOREV = "omer-beyin-dusun"  # onay/beyin_dusun.py zamanlanmış görevi (2 dk)
 KASA = Path(r"C:\Users\pc\Desktop\Obsidian")
 ICGORU, ONERILER = KASA / "20-icgoru", KASA / "10-kararlar/oneriler.md"
@@ -57,10 +58,59 @@ def olay(tur, arac="", ozet="", hata=False, kaynak=""):
     ozet = " ".join(str(ozet).split())[:200]
     if ders.sir_var(f"{arac} {ozet}"):
         return False
+    kaynak = kaynak or KAYNAK.get(tur.split("-")[0], "beyin")
     OLAY.parent.mkdir(parents=True, exist_ok=True)
     with OLAY.open("ab") as f:  # satır başına tek yazım: paralel kancalar birbirini bozmaz
-        f.write((json.dumps({"t": round(time.time(), 1), "tur": tur, "arac": arac, "ozet": ozet, "hata": bool(hata), "kaynak": kaynak or KAYNAK.get(tur.split("-")[0], "beyin")}, ensure_ascii=False) + "\n").encode("utf-8"))
+        f.write((json.dumps({"t": round(time.time(), 1), "tur": tur, "arac": arac, "ozet": ozet, "hata": bool(hata), "kaynak": kaynak}, ensure_ascii=False) + "\n").encode("utf-8"))
+    if hata:
+        _hata_izle(arac, ozet, kaynak)
     return True
+
+
+# ---- BEYIN-GERI-1: hata tekrar ölçümü (sürekli) ----
+def _kok(metin):
+    """Türkçe harfleri ASCII'ye katla, 5 harf kök: 'parfüm'/'parfum' aynı terim."""
+    return ders.kelimeler(metin.translate(str.maketrans("ğüşıöçĞÜŞİÖÇ", "gusiocGUSIOC")))
+
+
+def _imza(arac, ozet):
+    return " ".join(re.sub(r"\d+", "#", f"{arac} {ozet}".lower()).split())[:60]
+
+
+def _kacirilan_ders(imza):
+    """İmzaya en çok uyan (≥2 ortak kök) kural/kanıtlı/deneniyor ders metni; yoksa ''."""
+    a, en = set(_kok(imza)), (0, "")
+    for o in oneri_oku():
+        if o["durum"] in ("kural", "kanitlandi", "deneniyor"):
+            n = len(a & set(_kok(o["tetik"] + " " + o["metin"])))
+            if n >= 2 and n > en[0]:
+                en = (n, o["metin"])
+    return en[1]
+
+
+def _hata_izle(arac, ozet, kaynak):
+    """Aynı hata imzası ikinci kez: kaynağı (iş/ajan) + kaçırılan ders beyin-tekrar.jsonl'e. Kanca asla bozulmaz."""
+    try:
+        imza = _imza(arac, ozet)
+        goruldu = _json(IMZA, {})
+        if imza in goruldu:
+            with TEKRAR.open("ab") as f:
+                f.write((json.dumps({"t": round(time.time(), 1), "imza": imza, "kaynak": kaynak, "onceki_kaynak": goruldu[imza],
+                                     "ders": _kacirilan_ders(imza)}, ensure_ascii=False) + "\n").encode("utf-8"))
+        else:
+            goruldu[imza] = kaynak
+            if len(goruldu) > 3000:
+                goruldu = dict(list(goruldu.items())[-2000:])
+            _yaz_bayt(IMZA, json.dumps(goruldu, ensure_ascii=False))
+    except Exception:
+        pass
+
+
+def _tekrarlar(gun=7):
+    if not TEKRAR.exists():
+        return []
+    l = [json.loads(s) for s in TEKRAR.read_text(encoding="utf-8").splitlines() if s.strip()]
+    return [x for x in l if x["t"] >= time.time() - gun * 86400]
 
 
 def kanca(g):
@@ -541,7 +591,27 @@ def gosterge(liste, olaylar):
     tekrar = f"%{100 * (len(hatalar) - len(set(hatalar))) / len(hatalar):.0f}" if hatalar else "-"
     return (f"GÖSTERGE: bugün {sum(o['t'] >= bugun for o in olaylar)} olay · yeni ders {sum(x['olusma'] >= bugun for x in liste)} · "
             f"kurala dönen {sum(x['durum'] == 'kural' for x in liste)} · geri çekilen {sum(x['durum'] in ('elendi', 'kalici-elendi') for x in liste)} · "
-            f"iş başı $ 7g {egilim} · tekrar eden hata {tekrar} ({len(hatalar)} hata)")
+            f"iş başı $ 7g {egilim} · tekrar eden hata {tekrar} ({len(hatalar)} hata) · canlı tekrar {len(_tekrarlar())}")
+
+
+def tekillestir(metinler, esik=0.4, en_az=3):
+    """Anlamsal tekilleştirme (0 jeton): kök kümesi örtüşmesi ≥esik ve ≥en_az ortak kök → aynı kural. [(ilk metin, sayı)], sıra korunur."""
+    gruplar = []  # [metin, say, kök kümesi (birleşim)]
+    for m in metinler:
+        a = set(_kok(m))
+        for g in gruplar:
+            ort = len(a & g[2])
+            if ort >= en_az and a and ort / min(len(a), len(g[2])) >= esik:
+                g[1], g[2] = g[1] + 1, g[2] | a
+                break
+        else:
+            gruplar.append([m, 1, a])
+    return [(g[0], g[1]) for g in gruplar]
+
+
+def _kural_satirlari(liste, durumlar, n):
+    uyan = sorted((x for x in liste if x["durum"] in durumlar), key=lambda x: -x["destek"])
+    return [f"{m[:100]}" + (f" (×{s})" if s > 1 else "") for m, s in tekillestir([x["metin"] for x in uyan])[:n]]
 
 
 def ozet_yaz():
@@ -551,15 +621,52 @@ def ozet_yaz():
         satir.append("ALARM: " + ALARM.read_text(encoding="utf-8").strip()[:150])
     son = [o["t"] for o in olaylar][-1:] or [0]
     satir.append(f"BEYİN ÖZETİ {time.strftime('%d %H:%M')} · son olay {(time.time() - son[0]) / 60:.0f} dk önce · toplam olay {len(olaylar)}")
-    for baslik, durumlar, n in (("KURAL", ("kural",), 6), ("KANITLI", ("kanitlandi",), 4)):
-        satir += [f"{baslik}: {x['metin'][:100]}" for x in sorted((x for x in liste if x["durum"] in durumlar), key=lambda x: -x["destek"])[:n]]
+    kurallar = _kural_satirlari(liste, ("kural",), 6)
+    satir += ["KURAL: " + k for k in kurallar]
+    satir += ["KANITLI: " + k for k in _kural_satirlari(liste, ("kanitlandi",), 4)]
     satir += ["MALİYET: " + o["ozet"][:120] for o in [o for o in olaylar if o["tur"] == "maliyet"][-3:]]
     rows = _is_oku()[-20:]
     if rows:
         u, h = _ort(rows)
         satir.append(f"İŞ BAŞI ORT: son {len(rows)} iş ${u:.2f}, hata %{h * 100:.0f} (hedef $0.50)")
+    tek = _tekrarlar()[-1:]
+    kont = [s for s in satir[:2] if s.startswith(("ALARM", "BEYİN"))] + ["KURAL: " + k for k in kurallar[:4]]
+    if tek:
+        satir.append(f"TEKRAR HATA: {tek[0]['imza'][:60]} ← {tek[0]['kaynak']}; kaçırılan ders: {tek[0]['ders'][:60] or '(yok)'}")
+        kont.append(satir[-1])
     satir.append(gosterge(liste, olaylar))
     _yaz_bayt(OZET, "\n".join(satir[:20]) + "\n")
+    _yaz_bayt(KONTROL, "KONTROL BAŞINDA OKU (beyin geri okuma)\n" + "\n".join(kont + [satir[-1]])[:1500] + "\n")  # Desktop: kısa dosya
+
+
+def geri_oku(gorev, ad="", tavan=2400):
+    """BEYIN-GERI-1: işin başına enjekte edilecek blok (0 jeton, ücretsiz): beyin-özet + göreve uyan kanıtlı ders + Obsidian 50-dersler/90-log
+    eşleşmeleri (≥3 ortak kök, dosya başına en uygun satır) + uyan tekrar-hata. Hiçbiri yoksa ''."""
+    parca = []
+    if OZET.exists():
+        parca.append("\n".join(OZET.read_text(encoding="utf-8", errors="replace").splitlines()[:20])[:1200])
+    s = satirlar(gorev)
+    if s:
+        parca.append("İlgili ders:\n" + s)
+    sorgu, bulunan = set(_kok(f"{gorev[:600]} {ad}")), []
+    for alt, en_cok in (("50-dersler", 300), ("90-log", 12)):
+        d = KASA / alt
+        dosyalar = sorted(d.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)[:en_cok] if d.exists() else []
+        for p in dosyalar:
+            try:
+                satirlar_ = [x.strip() for x in p.read_text(encoding="utf-8", errors="replace").splitlines() if len(x.strip()) > 15][:80]
+            except OSError:
+                continue
+            ort = len(sorgu & set(_kok(p.stem + " " + " ".join(satirlar_))))
+            if ort >= 3:
+                en = max(satirlar_, key=lambda x: len(sorgu & set(_kok(x))), default="")
+                bulunan.append((ort, f"- {alt}/{p.name}: {en.lstrip('#- ').strip()[:140]}"))
+    if bulunan:
+        parca.append("Geçmiş dersler/hatalar:\n" + "\n".join(x for _, x in sorted(bulunan, reverse=True)[:3]))
+    tek = [t for t in reversed(_tekrarlar(30)) if len(sorgu & set(_kok(t["imza"]))) >= 2][:2]
+    if tek:
+        parca.append("Tekrar eden hata:\n" + "\n".join(f"- {t['imza']} → {t['ders'] or 'ders yok'}" for t in tek))
+    return ("[BEYİN GERİ OKUMA]\n" + "\n".join(parca))[:tavan] + "\n" if parca else ""
 
 
 def kart_metin():
@@ -717,6 +824,8 @@ if __name__ == "__main__":
         os.environ["BEYIN_DUSUN"] = "1"; print(derin())
     elif kmt == "ozet":  # CC SessionStart kancası: stdout oturum bağlamına girer
         print(bekci_yokla() + (OZET.read_text(encoding="utf-8") if OZET.exists() else ""))
+    elif kmt == "geri":  # cc-kopru ajan aracı: görev stdin'den, blok stdout'a
+        print(geri_oku(sys.stdin.read(), sys.argv[2] if len(sys.argv) > 2 else ""), end="")
     elif kmt == "kart":
         print(kart_metin() or "(kanıtlı içgörü yok)")
     elif kmt == "durum":

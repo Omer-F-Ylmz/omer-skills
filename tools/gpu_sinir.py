@@ -11,6 +11,7 @@ import time
 
 KOK = r"C:\Projeler\omer-skills"
 DURUM = os.path.join(KOK, ".kos", "kopru", "gpu-sinir.json")
+SAYAC = os.path.join(KOK, ".kos", "kopru", "gpu-sinir-sayac.json")
 KILIT = os.path.join(KOK, ".kos", "kopru", "gpu-sinir.pid")
 GUNLUK = os.path.join(KOK, ".kos", "kopru", "gpu-sinir.log")
 UST, ALT = 78.0, 70.0
@@ -103,6 +104,35 @@ def calisiyor_mu(psutil):
         return False
 
 
+def yeni_durum():
+    return {"son": [], "sinirda": False, "sure": 0.3, "askiya": 0, "ornek": 0, "tepe": 0.0}
+
+
+def karar(d, u):
+    """Bir ölçümle durumu ilerletir; True ise bu turda askıya alınmalı. Sayaçlar d içinde."""
+    d["son"] = (d["son"] + [u])[-2:]
+    d["ornek"] += 1
+    d["tepe"] = max(d["tepe"], u)
+    ort = u if u >= UST else sum(d["son"]) / len(d["son"])
+    if d["sinirda"] and ort <= ALT:
+        d["sinirda"] = False
+    elif ort >= UST:
+        d["sinirda"] = True
+    if d["sinirda"]:
+        d["sure"] = min(0.6, d["sure"] + 0.1) if ort >= UST else max(0.3, d["sure"] - 0.1)
+        d["askiya"] += 1
+    return d["sinirda"]
+
+
+def sayac_yaz(d, yol=SAYAC):
+    import json
+    try:
+        with open(yol, "w", encoding="utf-8") as f:
+            json.dump({k: d[k] for k in ("askiya", "ornek", "tepe", "sure")}, f)
+    except OSError:
+        pass
+
+
 def dongu():
     import psutil
     if calisiyor_mu(psutil):
@@ -114,21 +144,13 @@ def dongu():
     for sig in (signal.SIGINT, signal.SIGTERM, getattr(signal, "SIGBREAK", signal.SIGTERM)):
         signal.signal(sig, lambda *_: sys.exit(0))
     psutil.Process().nice(psutil.BELOW_NORMAL_PRIORITY_CLASS)
-    son = []
-    sinirda = False
-    sure = 0.3  # askı süresi (sn), uyarlamalı 0,3–0,6
+    d = yeni_durum()
     while True:
         t0 = time.time()
         try:
             u, _ = olc()
-            son = (son + [u])[-2:]
-            ort = sum(son) / len(son)
-            if sinirda and ort <= ALT:
-                sinirda = False
-            elif ort >= UST:
-                sinirda = True
-            if sinirda:
-                sure = min(0.6, sure + 0.1) if ort >= UST else max(0.3, sure - 0.1)
+            if karar(d, u):
+                sure = d["sure"]
                 try:
                     for pid in bizim_pidler(psutil):
                         try:
@@ -141,6 +163,8 @@ def dongu():
                     time.sleep(sure)
                 finally:
                     hepsini_surdur()
+            if d["ornek"] % 10 == 0 or d["sinirda"]:
+                sayac_yaz(d)
         except Exception as e:  # ölçüm hatası döngüyü öldürmesin
             with open(GUNLUK, "a", encoding="utf-8") as f:
                 f.write("%s hata %r\n" % (time.strftime("%H:%M:%S"), e))

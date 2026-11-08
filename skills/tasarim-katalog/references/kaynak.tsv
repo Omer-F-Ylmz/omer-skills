@@ -263,3 +263,6 @@ unlumen UI	1	bilesen	teknik	https://ui.unlumen.com	React bileşenleri + WebGL ar
 Cult UI	1	bilesen	repo	https://github.com/nolly-studio/cult-ui	150+ animasyonlu shadcn bileşeni (MIT).	Dc2KI0HEqqk
 Watermelon UI	1	bilesen	teknik	https://ui.watermelon.sh	600+ animasyonlu React bileşeni, kopyala-yapıştır; MCP kurmadan llms.txt ile okunur (MIT).	DbasXSvgVE1
 Tabler Icons	1	bilesen	repo	https://github.com/tabler/tabler-icons	5000+ tutarlı çizgi ikon, SVG/React; Lucide'e alternatif (MIT).	DbasXSvgVE1
+Penpot	1	uretici	MCP	https://github.com/penpot/penpot-mcp	Figma'nin açık kaynak karşılığı (kalem logolu, MPL-2.0); resmi MCP yerel :4401/mcp, tarayıcıda Penpot eklentisi bağlanınca çalışır. CC'de 'penpot' MCP kayıtlı (27-28 Eki).	link27
+kokonutui	1	bilesen	teknik	https://github.com/kokonut-labs/kokonutui	Animasyonlu React/Tailwind bileşenleri, shadcn tarzı kopyala-yapıştır (MIT).	link27
+liquid-glass-js	1	bilesen	teknik	https://github.com/dashersw/liquid-glass-js	Apple liquid-glass cam efekti, JS (MIT).	link27

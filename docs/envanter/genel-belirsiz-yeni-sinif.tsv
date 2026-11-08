@@ -1,0 +1,1061 @@
+kalem	ad	eski_sinif	yeni_sinif	kurulabilir	kaynak	guven
+++Ai Agent App	AI Agent App	GENEL	gurultu	N		dusuk
+1v1 Jev	1v1 Jev	BELIRSIZ	gurultu	N		dusuk
+2.1.287	2.1.287	GENEL	gurultu	N		yuksek
+2D motion graphics	2D motion graphics	GENEL	gurultu	N		orta
+30ms ses geçişi (audio fade)	Audio Fade	GENEL	gurultu	N		orta
+3D shot composer	3D shot composer	GENEL	gurultu	N		dusuk
+3DS	3DS	GENEL	gurultu	N		orta
+802.11	IEEE 802.11	GENEL	gurultu	N		yuksek
+@sites	@sites	GENEL	gurultu	N		dusuk
+ACM	ACM	GENEL	gurultu	N		orta
+AEON	AEON	BELIRSIZ	skill	Y		dusuk
+AGI	AGI	GENEL	gurultu	N		yuksek
+AI Boost	AI Boost	BELIRSIZ	gurultu	N		dusuk
+AI Builder	AI Builder	GENEL	gurultu	N		orta
+AI Clipping	AI Clipping	GENEL	gurultu	N		orta
+AI Copilot	AI Copilot	GENEL	gurultu	N		orta
+AI Engineer	AI Engineer	GENEL	gurultu	N		orta
+AI Enhancer	AI Enhancer	GENEL	gurultu	N		orta
+AI Marketing	AI Marketing	GENEL	gurultu	N		orta
+AI Mode	AI Mode	GENEL	gurultu	N		orta
+AI Music Album	AI Music Album	GENEL	gurultu	N		orta
+AI Overview	AI Overview	GENEL	gurultu	N		yuksek
+AI Remover	AI Remover	GENEL	gurultu	N		orta
+AI SEO	AI SEO	GENEL	gurultu	N		orta
+AI Visibility	AI Visibility	GENEL	gurultu	N		orta
+AI calling tool	AI calling tool	GENEL	gurultu	N		orta
+AI code editor	AI code editor	GENEL	gurultu	N		orta
+AI coder	AI coder	GENEL	gurultu	N		orta
+AI coding tool	AI coding tool	GENEL	gurultu	N		orta
+AI kodlama aracı	AI kodlama aracı	GENEL	gurultu	N		orta
+AI slope temizliği	AI slope temizliği	GENEL	gurultu	N		yuksek
+AIS	AIS	GENEL	gurultu	N		orta
+AMQP	AMQP	GENEL	gurultu	N		yuksek
+ANALYZE	ANALYZE	GENEL	gurultu	N		dusuk
+API Gateway	API Gateway	GENEL	hizmet	N		orta
+API Security	API Security	GENEL	gurultu	N		orta
+ATS	ATS	GENEL	gurultu	N		orta
+AUR	AUR	GENEL	hizmet	N		yuksek
+Academic Research	Academic Research	GENEL	gurultu	N		orta
+Accessibility	Accessibility	GENEL	gurultu	N		dusuk
+Active Directory	Active Directory	GENEL	hizmet	N		yuksek
+Activity Monitor	Activity Monitor	GENEL	uygulama	N		yuksek
+AdNetwork	Ad Network	GENEL	gurultu	N		orta
+Admin	Admin	GENEL	gurultu	N		orta
+Adobe Suite	Adobe Creative Cloud Suite	GENEL	uygulama	Y		orta
+Advanced AI	Advanced AI	GENEL	gurultu	N		orta
+Advanced thinking	Advanced Thinking	GENEL	gurultu	N		orta
+AeAi	AeAi	BELIRSIZ	gurultu	N		dusuk
+Affinity Layout	Affinity Layout	GENEL	uygulama	N		orta
+Affinity Pixel	Affinity Pixel Persona	GENEL	uygulama	N		orta
+Affinity Vector	Affinity Vector Persona	GENEL	uygulama	N		orta
+Age of Reach	Age of Reach	BELIRSIZ	gurultu	N		dusuk
+Agent	AI Agent	GENEL	gurultu	N		orta
+Agent Network	Agent Network	GENEL	gurultu	N		orta
+Agent OS	Agent OS	GENEL	gurultu	N		dusuk
+Agent SDK	Agent SDK	GENEL	paket	Y	npm:@anthropic-ai/claude-agent-sdk	yuksek
+Agent Service	Agent Service	GENEL	hizmet	N		orta
+Agent2Agent	Agent2Agent	GENEL	hizmet	N	google-a2a/A2A	orta
+Agenthield	Agenthield	BELIRSIZ	gurultu	N		dusuk
+Alama	Alama	BELIRSIZ	gurultu	N		dusuk
+Alan's Way	Alan's Way	BELIRSIZ	gurultu	N		dusuk
+Alexandria	Alexandria	BELIRSIZ	gurultu	N		dusuk
+Algorithmic Art	Algorithmic Art	GENEL	skill	Y	anthropics/skills	orta
+All My Cloud Code	All My Cloud Code	BELIRSIZ	gurultu	N		dusuk
+Alpine	Alpine Linux	GENEL	uygulama	N		yuksek
+Android	Android	GENEL	uygulama	N		orta
+Android 13	Android 13	GENEL	gurultu	N		yuksek
+Android 8.0 (Oreo)	Android 8.0 (Oreo)	GENEL	gurultu	N		yuksek
+Android APK	Android APK	GENEL	gurultu	N		yuksek
+Android TV	Android TV	GENEL	uygulama	N		orta
+Angular	Angular	GENEL	paket	Y	npm:@angular/core	yuksek
+Annotated Illustrations	Annotated Illustrations	GENEL	gurultu	N		dusuk
+AppTrackingTransparency	AppTrackingTransparency	GENEL	hizmet	N		yuksek
+AppTrackingTransparency (ATT)	AppTrackingTransparency (ATT)	GENEL	hizmet	N		yuksek
+Apple CarPlay	Apple CarPlay	GENEL	gurultu	N		orta
+Apple Mac mini	Apple Mac mini	GENEL	gurultu	N		yuksek
+Apple MacBook	Apple MacBook	GENEL	gurultu	N		yuksek
+Apple Metal	Apple Metal	GENEL	hizmet	N		orta
+Apps	Apps	GENEL	gurultu	N		orta
+Arcads	Arcads	BELIRSIZ	hizmet	N		dusuk
+Arch Linux	Arch Linux	GENEL	uygulama	N		yuksek
+ArchLinux User Repository	ArchLinux User Repository	GENEL	hizmet	N		yuksek
+Architecture	Architecture	GENEL	gurultu	N		orta
+Article	Article	GENEL	gurultu	N		orta
+Artifa	Artifa	BELIRSIZ	gurultu	N		dusuk
+Artifact	Artifact	GENEL	gurultu	N		orta
+Asiline	Asiline	BELIRSIZ	gurultu	N		dusuk
+Assembly	Assembly	GENEL	gurultu	N		orta
+Audio Editing	Audio Editing	GENEL	gurultu	N		orta
+Ayarlar	Ayarlar	GENEL	gurultu	N		yuksek
+BA.	BA.	GENEL	gurultu	N		yuksek
+BLE	BLE	GENEL	gurultu	N		orta
+BMAD	BMAD	GENEL	paket	Y	npm:bmad-method	orta
+BMAD Method	BMAD Method	GENEL	paket	Y	npm:bmad-method	orta
+BRK-B	BRK-B	GENEL	gurultu	N		yuksek
+Babel	Babel	GENEL	paket	Y	npm:@babel/core	yuksek
+Backend Architect	Backend Architect	GENEL	skill	Y		dusuk
+Backtesting	Backtesting	GENEL	gurultu	N		orta
+Backtesting frameworks	Backtesting frameworks	GENEL	gurultu	N		orta
+BadSEO	BadSEO	GENEL	gurultu	N		dusuk
+Banana	Banana	GENEL	gurultu	N		dusuk
+Base44	Base44	BELIRSIZ	hizmet	N		dusuk
+Bases	Bases	BELIRSIZ	gurultu	N		dusuk
+BenQ	BenQ	GENEL	gurultu	N		yuksek
+Bennett OS	Bennett OS	GENEL	gurultu	N		dusuk
+BibTeX	BibTeX	GENEL	gurultu	N		yuksek
+Bible Strong Avatar Lab	Bible Strong Avatar Lab	BELIRSIZ	gurultu	N		dusuk
+Big Projects	Big Projects	BELIRSIZ	gurultu	N		dusuk
+BlackRock	BlackRock	GENEL	gurultu	N		yuksek
+BlueWillow	BlueWillow	GENEL	hizmet	N		dusuk
+Books	Books	GENEL	gurultu	N		orta
+Bootstrap	Bootstrap	GENEL	paket	Y	npm:bootstrap	yuksek
+Brand guideline	Brand guideline	GENEL	gurultu	N		orta
+Brantial	Brantial	BELIRSIZ	gurultu	N		dusuk
+Breathly	Breathly	BELIRSIZ	gurultu	N		dusuk
+Brotli	Brotli	GENEL	paket	Y	google/brotli	orta
+Browser Agent	Browser Agent	BELIRSIZ	gurultu	N		dusuk
+BrowserAct	BrowserAct	BELIRSIZ	gurultu	N		dusuk
+Btrfs	Btrfs	GENEL	gurultu	N		orta
+BuildModernWebsites	BuildModernWebsites	BELIRSIZ	gurultu	N		dusuk
+Bulk Create	Bulk Create	BELIRSIZ	gurultu	N		dusuk
+Busabase	Busabase	BELIRSIZ	gurultu	N		dusuk
+ButterCut	ButterCut	BELIRSIZ	gurultu	N		dusuk
+C++	C++	GENEL	gurultu	N		orta
+C++20	C++20	GENEL	gurultu	N		yuksek
+C-Dance	C-Dance	BELIRSIZ	gurultu	N		dusuk
+C-Sharp	C# (C-Sharp)	GENEL	uygulama	Y	dotnet/sdk	orta
+C99	C99	GENEL	gurultu	N		yuksek
+CAD	CAD	GENEL	gurultu	N		orta
+CANEDIT	CANEDIT	GENEL	gurultu	N		dusuk
+CHANGELOG	CHANGELOG	GENEL	gurultu	N		orta
+CLI mode	CLI mode	GENEL	gurultu	N		orta
+CMS	CMS	GENEL	gurultu	N		orta
+CPython	CPython	GENEL	uygulama	Y	python/cpython	yuksek
+CSO	CSO	GENEL	gurultu	N		dusuk
+CSS	CSS	GENEL	gurultu	N		yuksek
+CSS Gradient	CSS Gradient	GENEL	gurultu	N		orta
+CUDA	CUDA	GENEL	uygulama	Y		yuksek
+CUDA 12.8	CUDA 12.8	GENEL	uygulama	Y		orta
+Cana	Cana	GENEL	gurultu	N		dusuk
+Capcom	Capcom	GENEL	gurultu	N		yuksek
+CentOS	CentOS	GENEL	uygulama	N		yuksek
+Cerebras	Cerebras	GENEL	hizmet	N		orta
+Chaos	Chaos	GENEL	gurultu	N		orta
+Charlie OS	Charlie OS	GENEL	gurultu	N		dusuk
+Chisle	Chisle	BELIRSIZ	gurultu	N		dusuk
+Chromium	Chromium	GENEL	uygulama	Y	chromium/chromium	orta
+CiaudpCode	CiaudpCode	BELIRSIZ	gurultu	N		orta
+Cisco IOS	Cisco IOS	GENEL	uygulama	N		orta
+Cisco IOS/IOS-XE	Cisco IOS/IOS-XE	GENEL	uygulama	N		orta
+ClassicM	ClassicM	BELIRSIZ	gurultu	N		dusuk
+Claude Subscription	Claude Subscription	GENEL	hizmet	N		yuksek
+Claude Tag	Claude Tag	GENEL	gurultu	N		dusuk
+Claude Video Vision	Claude Video Vision	GENEL	gurultu	N		dusuk
+Claude Vision	Claude Vision	GENEL	hizmet	N		orta
+Claude at Director	Claude at Director	GENEL	gurultu	N		dusuk
+Claude for Legal	Claude for Legal	GENEL	hizmet	N		dusuk
+Claude for Small Business	Claude for Small Business	GENEL	hizmet	N		dusuk
+ClaudeOpun S.5	ClaudeOpun S.5	BELIRSIZ	gurultu	N		dusuk
+Claw Design	Claw Design	GENEL	gurultu	N		dusuk
+Clawed	Clawed	BELIRSIZ	gurultu	N		dusuk
+Clawed HED	Clawed HED	BELIRSIZ	gurultu	N		dusuk
+Clean Code	Clean Code	GENEL	skill	Y		dusuk
+Client	Client	GENEL	gurultu	N		orta
+ClinePass	ClinePass	BELIRSIZ	gurultu	N		dusuk
+ClockCode	ClockCode	BELIRSIZ	gurultu	N		dusuk
+Clod of Tanks	Clod of Tanks	BELIRSIZ	gurultu	N		dusuk
+Clone stamp	Clone stamp	GENEL	gurultu	N		yuksek
+Cloud	Cloud	GENEL	gurultu	N		orta
+Cloud Code Setup	Cloud Code Setup	GENEL	skill	Y		orta
+Cloud Code Usage	Cloud Code Usage	GENEL	skill	N		dusuk
+Cloudly	Cloudly	BELIRSIZ	gurultu	N		dusuk
+Code	Code	BELIRSIZ	gurultu	N		orta
+CodebaseMembran	CodebaseMembran	BELIRSIZ	gurultu	N		dusuk
+CodexBar	CodexBar	BELIRSIZ	uygulama	Y		dusuk
+Comments	Comments	GENEL	gurultu	N		yuksek
+CommonJS	CommonJS	GENEL	gurultu	N		yuksek
+Compiler	Compiler	GENEL	gurultu	N		orta
+Composer	Composer	GENEL	gurultu	N		dusuk
+Comps	Comps	GENEL	gurultu	N		orta
+Concept Studio OSM	Concept Studio OSM	GENEL	gurultu	N		dusuk
+Confine UA	Confine UA	GENEL	gurultu	N		dusuk
+Core Web Vitals	Core Web Vitals	GENEL	skill	Y		orta
+Creem	Creem	BELIRSIZ	gurultu	N		dusuk
+Cua Driver	Cua Driver	GENEL	paket	Y	trycua/cua	dusuk
+Cua Spaces	Cua Spaces	GENEL	gurultu	N		dusuk
+Cursify	Cursify	BELIRSIZ	gurultu	N		dusuk
+Curzer	Curzer	BELIRSIZ	gurultu	N		dusuk
+Cybercab	Cybercab	BELIRSIZ	gurultu	N		yuksek
+DCF	DCF (Discounted Cash Flow)	GENEL	gurultu	N		yuksek
+DEB	DEB (Debian)	GENEL	gurultu	N		yuksek
+DHL	DHL	GENEL	gurultu	N		yuksek
+DMG	DMG (Disk Image Format)	GENEL	gurultu	N		yuksek
+DSH	DSH	BELIRSIZ	gurultu	N		dusuk
+DaVinci	DaVinci	BELIRSIZ	uygulama	Y		orta
+Dart	Dart	GENEL	uygulama	Y	dart-lang/sdk	yuksek
+Darwin	Darwin (macOS kernel)	GENEL	gurultu	N		orta
+DataFlex	DataFlex	GENEL	uygulama	Y		dusuk
+Daydream	Daydream	BELIRSIZ	gurultu	N		dusuk
+Debian	Debian	GENEL	uygulama	N		yuksek
+Debian/Ubuntu	Debian/Ubuntu	GENEL	uygulama	N		yuksek
+Debugging	Debugging	GENEL	gurultu	N		orta
+Desigr	Desigr	BELIRSIZ	gurultu	N		dusuk
+Director World/3GS	Director World/3GS	GENEL	gurultu	N		dusuk
+Documentation	Documentation	GENEL	gurultu	N		orta
+Doherty Threshold	Doherty Threshold	GENEL	gurultu	N		yuksek
+E2B	E2B	GENEL	paket	Y	npm:e2b	orta
+EAP	EAP	GENEL	gurultu	N		dusuk
+EAS	EAS	GENEL	gurultu	N		dusuk
+EDL (Edit Decision List)	EDL (Edit Decision List)	GENEL	gurultu	N		yuksek
+EODHD	EODHD	GENEL	hizmet	N		orta
+ESP32-S3	ESP32-S3	GENEL	gurultu	N		yuksek
+Easing Functions	Easing Functions	GENEL	gurultu	N		orta
+Emil	Emil	BELIRSIZ	gurultu	N		orta
+Enaten	Enaten	BELIRSIZ	gurultu	N		dusuk
+English Longbow	English Longbow	BELIRSIZ	gurultu	N		dusuk
+Entrepreneur	Entrepreneur	BELIRSIZ	gurultu	N		orta
+Entry	Entry	BELIRSIZ	gurultu	N		orta
+Epic	Epic	BELIRSIZ	gurultu	N		dusuk
+Ethernet	Ethernet	GENEL	gurultu	N		yuksek
+Eve	Eve	BELIRSIZ	gurultu	N		dusuk
+Excalibro	Excalibro	BELIRSIZ	gurultu	N		dusuk
+Explee	Explee	BELIRSIZ	gurultu	N		dusuk
+FBX	FBX	GENEL	gurultu	N		yuksek
+Fedora	Fedora	GENEL	uygulama	N		yuksek
+Feedback loops	Feedback loops	GENEL	gurultu	N		orta
+Fetch API	Fetch API	GENEL	gurultu	N		orta
+Fiber	Fiber	GENEL	gurultu	N		dusuk
+Filesystem	Filesystem	GENEL	gurultu	N		orta
+Final Cut Camera	Final Cut Camera	GENEL	uygulama	Y		yuksek
+Financial Services	Financial Services	GENEL	gurultu	N		orta
+Finder	Finder (macOS dosya yöneticisi)	GENEL	uygulama	N		yuksek
+Firewall	Firewall (donanım/uygulama)	GENEL	gurultu	N		orta
+Flatpak	Flatpak (paket yöneticisi)	GENEL	cli	Y	flatpak/flatpak	yuksek
+Flipper Zero	Flipper Zero (donanım/analiz cihazı)	GENEL	gurultu	N		yuksek
+Flora	Flora (donanım/veri toplayıcı)	GENEL	gurultu	N		dusuk
+Fotoğraflar	Fotoğraflar	GENEL	gurultu	N		orta
+Frequency x Impact / Effort skor formülü	Frequency x Impact / Effort skor formülü	GENEL	gurultu	N		yuksek
+Frostbite	Frostbite	GENEL	uygulama	N		dusuk
+G-Code	G-Code	GENEL	gurultu	N		yuksek
+GOAT	GOAT	BELIRSIZ	gurultu	N		dusuk
+GPD	GPD	GENEL	gurultu	N		yuksek
+Gemni3Fissh	Gemni3Fissh	BELIRSIZ	gurultu	N		yuksek
+Geometriesammlung	Geometriesammlung	BELIRSIZ	gurultu	N		orta
+GitHub Spec Kit	GitHub Spec Kit	GENEL	cli	Y	github/spec-kit	yuksek
+Gitnimble	Gitnimble	BELIRSIZ	gurultu	N		dusuk
+Glider	Glider	BELIRSIZ	gurultu	N		dusuk
+Glio	Glio	BELIRSIZ	gurultu	N		dusuk
+Glofox	Glofox	BELIRSIZ	gurultu	N		yuksek
+GlowUp	GlowUp	BELIRSIZ	gurultu	N		dusuk
+Gluck	Gluck	BELIRSIZ	gurultu	N		dusuk
+Glyph	Glyph	GENEL	gurultu	N		dusuk
+Gmall	Gmall	BELIRSIZ	gurultu	N		dusuk
+Go	Go (programlama dili)	GENEL	uygulama	Y	golang/go	yuksek
+Go 1.27.1	Go 1.27.1	GENEL	uygulama	Y	golang/go	orta
+Go Live	Go Live	BELIRSIZ	gurultu	N		dusuk
+GoPro 10	GoPro 10	GENEL	gurultu	N		yuksek
+GodMod	GodMod	BELIRSIZ	gurultu	N		dusuk
+Google Arama	Google Arama	GENEL	hizmet	N		yuksek
+Google Chirp3-HD	Google Chirp3-HD	BELIRSIZ	model	N		orta
+Google Opal	Google Opal	BELIRSIZ	hizmet	N		dusuk
+Google hesabı	Google Hesabı	GENEL	gurultu	N		yuksek
+GoogleNanoBananaPro	GoogleNanoBananaPro	BELIRSIZ	model	N		orta
+GorillaPod	GorillaPod	GENEL	uygulama	Y	lllyasviel/GorillaPod	dusuk
+Graft	Graft	BELIRSIZ	gurultu	N		dusuk
+Grain	Grain	GENEL	gurultu	N		orta
+GraphQL	GraphQL	GENEL	paket	Y	npm:graphql	yuksek
+Graphite	Graphite	GENEL	uygulama	Y	graphite-project/graphite-web	dusuk
+Gremlin	Gremlin	GENEL	gurultu	N		dusuk
+Gustavo	Gustavo	BELIRSIZ	gurultu	N		yuksek
+H.264	H.264	GENEL	gurultu	N		yuksek
+H3 Max Turbo	H3 Max Turbo	GENEL	gurultu	N		dusuk
+HAR	HAR	GENEL	gurultu	N		yuksek
+HEVC	HEVC	GENEL	gurultu	N		yuksek
+HN	HN	GENEL	hizmet	N		yuksek
+HTML	HTML	GENEL	gurultu	N		yuksek
+HTML canvas	HTML Canvas	GENEL	gurultu	N		orta
+HTTP Request	HTTP Request	GENEL	gurultu	N		orta
+HUD	HUD (Heads-Up Display)	GENEL	gurultu	N		yuksek
+Hailuo	Hailuo	GENEL	model	N		orta
+HarmonyOS/ArkTS	HarmonyOS/ArkTS	GENEL	uygulama	N		orta
+Hava Durumu	Hava Durumu (Weather)	GENEL	gurultu	N		yuksek
+Haylu	Haylu	GENEL	gurultu	N		dusuk
+Helium	Helium	GENEL	gurultu	N		dusuk
+Herald OS	Herald OS	GENEL	gurultu	N		dusuk
+Hick's Law	Hick's Law	GENEL	gurultu	N		yuksek
+Hicksfield	Hicksfield	BELIRSIZ	skill	Y		dusuk
+Higsild	Higsild	BELIRSIZ	gurultu	N		dusuk
+Hikayeler	Hikayeler	GENEL	gurultu	N		orta
+HoRNDIS	HoRNDIS	GENEL	uygulama	Y	microsoft/HoRNDIS	orta
+How To (/how-to)	How To (/how-to)	BELIRSIZ	gurultu	N		dusuk
+Hub	Hub	BELIRSIZ	gurultu	N		dusuk
+HubSpot Mi 2 Webcam	HubSpot Mi 2 Webcam	GENEL	gurultu	N		yuksek
+Hyper	Hyper	GENEL	uygulama	Y	vercel/hyper	yuksek
+Hyper-V	Hyper-V	GENEL	uygulama	Y		orta
+HyperFrames Studio	HyperFrames Studio	BELIRSIZ	uygulama	Y		dusuk
+HyperOS 3	HyperOS 3	GENEL	uygulama	N		orta
+Hyperframe	Hyperframe	BELIRSIZ	paket	Y	heygen-com/hyperframes	orta
+Hyperresearch	Hyperresearch	BELIRSIZ	gurultu	N		dusuk
+IAM	IAM	GENEL	gurultu	N		yuksek
+IBM Bob	IBM Bob	BELIRSIZ	uygulama	N		dusuk
+ICS/OT	ICS/OT	GENEL	gurultu	N		yuksek
+IDE	IDE	GENEL	gurultu	N		orta
+IG TV	IG TV	GENEL	gurultu	N		orta
+IG profile	IG profile	GENEL	gurultu	N		orta
+IG viral	IG viral	GENEL	gurultu	N		orta
+IMRS 2.5	IMRS 2.5	BELIRSIZ	gurultu	N		dusuk
+INSTALL SKILL	INSTALL SKILL	BELIRSIZ	gurultu	N		orta
+IOS-XE	IOS-XE	GENEL	uygulama	N		orta
+IT Reelsmaker	IT Reelsmaker	BELIRSIZ	gurultu	N		dusuk
+Idea Bank	Idea Bank	BELIRSIZ	gurultu	N		orta
+Idea Validator	Idea Validator	BELIRSIZ	gurultu	N		orta
+Idea generator	Idea generator	BELIRSIZ	gurultu	N		orta
+If/Else Switch	If/Else Switch	GENEL	gurultu	N		orta
+Image AI	Image AI	BELIRSIZ	gurultu	N		orta
+Image to Code	Image to Code	BELIRSIZ	gurultu	N		orta
+Image-Turbolike1.81k	Image-Turbolike1.81k	BELIRSIZ	gurultu	N		yuksek
+ImageMask	ImageMask	GENEL	gurultu	N		orta
+ImageSuite 3D	ImageSuite 3D	BELIRSIZ	gurultu	N		dusuk
+Imagine	Imagine	BELIRSIZ	gurultu	N		orta
+Improve	Improve	BELIRSIZ	gurultu	N		orta
+Infinity	Infinity	BELIRSIZ	gurultu	N		dusuk
+Infographic Feedback	Infographic Feedback	BELIRSIZ	gurultu	N		orta
+Infographic Lean	Infographic Lean	BELIRSIZ	gurultu	N		orta
+Instagram transcript	Instagram transcript	BELIRSIZ	gurultu	N		orta
+Instagram video download	Instagram video download	BELIRSIZ	gurultu	N		orta
+Instagum	Instagum	BELIRSIZ	gurultu	N		yuksek
+Instatic	Instatic	BELIRSIZ	gurultu	N		dusuk
+Instinct	Instinct	BELIRSIZ	gurultu	N		dusuk
+Institutional grade quantitative tooling	Institutional grade quantitative tooling	BELIRSIZ	gurultu	N		dusuk
+Interaction Design	Interaction Design	GENEL	gurultu	N		orta
+Interactive	Interactive	BELIRSIZ	gurultu	N		orta
+Interactive Assets	Interactive Assets	BELIRSIZ	gurultu	N		orta
+Interactive Object Generator	Interactive Object Generator	BELIRSIZ	gurultu	N		dusuk
+Interactive Portfolio	Interactive Portfolio	BELIRSIZ	skill	Y		dusuk
+Interviewer	Interviewer	BELIRSIZ	gurultu	N		orta
+Investor Outreach Agent	Investor Outreach Agent	BELIRSIZ	skill	Y		dusuk
+IronCoding	IronCoding	BELIRSIZ	gurultu	N		dusuk
+Is.graphics	Is.graphics	BELIRSIZ	gurultu	N		dusuk
+Isaac	Isaac	BELIRSIZ	gurultu	N		dusuk
+JD WEBSITE BUILDER	JD WEBSITE BUILDER	BELIRSIZ	gurultu	N		dusuk
+JEV AI	JEV AI	BELIRSIZ	uygulama	N		dusuk
+JGPT	JGPT	BELIRSIZ	gurultu	N		dusuk
+JOURNAL	JOURNAL	BELIRSIZ	gurultu	N		orta
+JS	JS	GENEL	gurultu	N		orta
+JS/TS	JS/TS	GENEL	gurultu	N		orta
+JSON	JSON	GENEL	gurultu	N		yuksek
+JSON Canvas	JSON Canvas	GENEL	skill	Y	obsidianmd/jsoncanvas	orta
+JSON Renderer	JSON Renderer	BELIRSIZ	gurultu	N		dusuk
+JSONL	JSONL	GENEL	gurultu	N		yuksek
+JSX	JSX	GENEL	gurultu	N		yuksek
+JTBD Interview Tool	JTBD Interview Tool	BELIRSIZ	gurultu	N		dusuk
+JTINDER	JTINDER	BELIRSIZ	gurultu	N		dusuk
+JVM	JVM	GENEL	gurultu	N		orta
+Jakob's Law	Jakob's Law	GENEL	gurultu	N		yuksek
+Jakubantalik/transitions.dev-s	Jakubantalik/transitions.dev-s	BELIRSIZ	skill	Y	Jakubantalik/transitions.dev-s	orta
+Java	Java	GENEL	uygulama	Y		orta
+JavaScript	JavaScript	GENEL	gurultu	N		orta
+JavaScript SDK	JavaScript SDK	BELIRSIZ	gurultu	N		dusuk
+Jeffcode	Jeffcode	BELIRSIZ	gurultu	N		dusuk
+JetBrains	JetBrains	GENEL	gurultu	N		orta
+Jev Trade Live	Jev Trade Live	BELIRSIZ	gurultu	N		dusuk
+Jio Optimizer	Jio Optimizer	BELIRSIZ	gurultu	N		dusuk
+JoeMemory	JoeMemory	BELIRSIZ	gurultu	N		dusuk
+JoinForBet	JoinForBet	BELIRSIZ	gurultu	N		dusuk
+Judge	Judge	BELIRSIZ	gurultu	N		dusuk
+Juniper Junos	Juniper Junos	GENEL	uygulama	N		orta
+Jupiter	Jupiter	BELIRSIZ	gurultu	N		dusuk
+KIOS	KIOS	BELIRSIZ	gurultu	N		dusuk
+KMS	KMS	GENEL	gurultu	N		orta
+KVM2	KVM2	BELIRSIZ	gurultu	N		dusuk
+KYC Screener	KYC Screener	BELIRSIZ	gurultu	N		dusuk
+KYC screening	KYC screening	GENEL	gurultu	N		orta
+Kairos	Kairos	GENEL	gurultu	N		dusuk
+Kali	Kali Linux	GENEL	uygulama	N		yuksek
+Kao Code	Kao Code	BELIRSIZ	gurultu	N		dusuk
+KaoKlee	KaoKlee	BELIRSIZ	gurultu	N		dusuk
+KaosGPT	KaosGPT	BELIRSIZ	gurultu	N		dusuk
+Karma XPU	Karma XPU	BELIRSIZ	gurultu	N		dusuk
+Kata	Kata	BELIRSIZ	gurultu	N		dusuk
+Katya T	Katya T	BELIRSIZ	gurultu	N		dusuk
+Kaukli Chat	Kaukli Chat	BELIRSIZ	gurultu	N		dusuk
+Kerry Robbs	Kerry Robbs	BELIRSIZ	gurultu	N		dusuk
+Key Grabber	Key Grabber	BELIRSIZ	gurultu	N		dusuk
+Keychain Access	Keychain Access	GENEL	uygulama	N		yuksek
+KeyloCode	KeyloCode	BELIRSIZ	gurultu	N		dusuk
+Keyloop	Keyloop	BELIRSIZ	gurultu	N		dusuk
+Kilo	Kilo	BELIRSIZ	uygulama	Y	Kilo-Org/kilocode	dusuk
+Kim Barrett suite	Kim Barrett suite	BELIRSIZ	gurultu	N		dusuk
+Kimodo	Kimodo	BELIRSIZ	gurultu	N		dusuk
+Kira	Kira	BELIRSIZ	gurultu	N		dusuk
+Klein	Klein	BELIRSIZ	gurultu	N		dusuk
+Knowledge Base	Knowledge Base	GENEL	gurultu	N		orta
+Kodak	Kodak	GENEL	gurultu	N		yuksek
+KokiTDSCutterbox	KokiTDSCutterbox	BELIRSIZ	gurultu	N		dusuk
+Kondo	Kondo	BELIRSIZ	gurultu	N		dusuk
+Kotak	Kotak	BELIRSIZ	gurultu	N		dusuk
+Kotlin	Kotlin	GENEL	uygulama	Y	JetBrains/kotlin	yuksek
+Kula	Kula	BELIRSIZ	gurultu	N		dusuk
+Kuru	Kuru	BELIRSIZ	gurultu	N		dusuk
+LAYA AI	LAYA AI	BELIRSIZ	gurultu	N		dusuk
+LINK	LINK	BELIRSIZ	gurultu	N		dusuk
+LLM Wiki	LLM Wiki	GENEL	skill	Y		dusuk
+LOYA	LOYA	BELIRSIZ	gurultu	N		dusuk
+LU Labs Cloud	LU Labs Cloud	BELIRSIZ	gurultu	N		dusuk
+LaTeX	LaTeX	GENEL	uygulama	Y		orta
+Labable	Labable	BELIRSIZ	gurultu	N		dusuk
+Landing-page	Landing-page	GENEL	gurultu	N		dusuk
+Later	Later	BELIRSIZ	gurultu	N		dusuk
+LaunchKit	LaunchKit	BELIRSIZ	gurultu	N		dusuk
+Law of Proximity	Law of Proximity	BELIRSIZ	gurultu	N		yuksek
+Law of Similarity	Law of Similarity	BELIRSIZ	gurultu	N		yuksek
+Lean	Lean	GENEL	gurultu	N		orta
+Learn	Learn	GENEL	gurultu	N		orta
+Learn Your Way	Learn Your Way	GENEL	gurultu	N		dusuk
+Learning mode	Learning mode	GENEL	gurultu	N		orta
+Levels	Levels	BELIRSIZ	gurultu	N		dusuk
+LiDAR	LiDAR	GENEL	gurultu	N		yuksek
+Linux	Linux	GENEL	uygulama	N		yuksek
+Linux kernel	Linux kernel	GENEL	uygulama	N		yuksek
+Live artifacts	Live artifacts	BELIRSIZ	gurultu	N		dusuk
+Live-Link	Live-Link	BELIRSIZ	gurultu	N		orta
+LogQL	LogQL	GENEL	gurultu	N		orta
+LrC	LrC	BELIRSIZ	uygulama	Y		orta
+Lua	Lua	GENEL	uygulama	Y	lua/lua	orta
+Luau	Luau	GENEL	uygulama	Y	luau-lang/luau	orta
+Lyria	Lyria	BELIRSIZ	model	N		orta
+MDX	MDX	GENEL	gurultu	N		orta
+MINDRONE	MINDRONE	BELIRSIZ	gurultu	N		dusuk
+MP3	MP3	GENEL	gurultu	N		yuksek
+MSIX	MSIX	GENEL	gurultu	N		orta
+MSK	MSK	BELIRSIZ	gurultu	N		dusuk
+MSSQL	MSSQL	GENEL	uygulama	Y		orta
+MSVC	MSVC	GENEL	uygulama	Y		orta
+Mac	Mac	GENEL	gurultu	N		dusuk
+Mac (MacOS)	MacOS	GENEL	uygulama	N		yuksek
+MacOS	macOS	GENEL	uygulama	N		yuksek
+MacTeX	MacTeX	GENEL	uygulama	Y		orta
+Macintosh	Macintosh	GENEL	gurultu	N		yuksek
+Macopi	Macopi	BELIRSIZ	gurultu	N		dusuk
+MacroPulse	MacroPulse	BELIRSIZ	gurultu	N		dusuk
+Macroscope	Macroscope	BELIRSIZ	gurultu	N		dusuk
+Magnific	Magnific	BELIRSIZ	hizmet	N		orta
+Manifest	Manifest	GENEL	gurultu	N		dusuk
+MariaDB	MariaDB	GENEL	uygulama	Y	MariaDB/server	orta
+Markdown	Markdown	GENEL	gurultu	N		yuksek
+Marketing	Marketing	GENEL	gurultu	N		orta
+Marketing Council	Marketing Council	GENEL	gurultu	N		dusuk
+Marketing Module	Marketing Module	GENEL	gurultu	N		dusuk
+Marketing Psychology	Marketing Psychology	GENEL	skill	Y		dusuk
+Marketing Studio	Marketing Studio	GENEL	gurultu	N		dusuk
+Martini	Martini	GENEL	gurultu	N		dusuk
+Masks	Masks	GENEL	gurultu	N		orta
+Match&Move	Match&Move	GENEL	gurultu	N		orta
+Matrix	Matrix	GENEL	gurultu	N		orta
+Mattpocock	Mattpocock	GENEL	skill	Y		dusuk
+Maxun	Maxun	BELIRSIZ	uygulama	Y	getmaxun/maxun	orta
+Memory Galaxy	Memory Galaxy	GENEL	gurultu	N		dusuk
+Memory Management	Memory Management	GENEL	gurultu	N		orta
+Memory and user settings	Memory and user settings	GENEL	gurultu	N		orta
+Menace	Menace	GENEL	gurultu	N		dusuk
+Meta Bind	Meta Bind	BELIRSIZ	uygulama	Y	mProjectsCode/obsidian-meta-bind-plugin	orta
+Meta-Discover	Meta-Discover	BELIRSIZ	gurultu	N		dusuk
+MetaChain	MetaChain	BELIRSIZ	gurultu	N		dusuk
+Metro	Metro	GENEL	paket	Y	npm:metro	orta
+Microsoft Corporation	Microsoft Corporation	GENEL	gurultu	N		yuksek
+Microsoft Visual C++ Redistributable	Microsoft Visual C++ Redistributable	GENEL	uygulama	Y		orta
+Microsoft Visual C++ v14 x64 Redistributable	Microsoft Visual C++ v14 x64 Redistributable	GENEL	uygulama	Y		orta
+Migration	Migration	GENEL	gurultu	N		orta
+Miller's Law	Miller's Law	GENEL	gurultu	N		yuksek
+Minimalist UI	Minimalist UI	GENEL	gurultu	N		orta
+Mobile App UI Design	Mobile App UI Design	GENEL	gurultu	N		orta
+Mockup	Mockup	GENEL	gurultu	N		orta
+Mod router	Mod router	GENEL	gurultu	N		dusuk
+Mongo	Mongo	GENEL	uygulama	Y	mongodb/mongo	yuksek
+Month-end close	Month-end close	GENEL	skill	Y		dusuk
+Music	Music	GENEL	gurultu	N		orta
+MySQL	MySQL	GENEL	uygulama	Y	mysql/mysql-server	orta
+NAGEL	NAGEL	BELIRSIZ	gurultu	N		dusuk
+NVENC	NVENC	GENEL	gurultu	N		yuksek
+Nano Banana Pro	Nano Banana Pro	GENEL	model	N		orta
+NanoBanana Pro Ultra	NanoBanana Pro Ultra	GENEL	model	N		dusuk
+Network Engineer	Network Engineer	GENEL	gurultu	N		orta
+Niagara	Niagara	BELIRSIZ	gurultu	N		orta
+Ninja	Ninja	BELIRSIZ	cli	Y	ninja-build/ninja	yuksek
+Nix	Nix	GENEL	cli	Y	NixOS/nix	yuksek
+Node	Node	GENEL	uygulama	Y	nodejs/node	yuksek
+Node Runtime	Node Runtime	GENEL	uygulama	Y	nodejs/node	orta
+Node.js 20+	Node.js 20+	GENEL	uygulama	Y	nodejs/node	orta
+Nvidia Chimera	Nvidia Chimera	GENEL	gurultu	N		dusuk
+O.MG Cables	O.MG Cables	GENEL	gurultu	N		yuksek
+OAuth	OAuth	GENEL	gurultu	N		yuksek
+OBI	OBI	GENEL	gurultu	N		dusuk
+OCI	OCI	GENEL	hizmet	N		orta
+OFGB	OFGB	GENEL	gurultu	N		dusuk
+OIDC	OIDC	GENEL	gurultu	N		yuksek
+OMI	OMI	GENEL	gurultu	N		dusuk
+OMP	OMP	GENEL	gurultu	N		orta
+OOMOL	OOMOL	GENEL	hizmet	N		dusuk
+OTLP	OTLP	GENEL	gurultu	N		yuksek
+Obsidian Vault	Obsidian Vault	GENEL	gurultu	N		orta
+Obsidyen	Obsidyen	BELIRSIZ	gurultu	N		dusuk
+Ocis	Ocis	GENEL	uygulama	Y	owncloud/ocis	orta
+OkcarOS	OkcarOS	GENEL	gurultu	N		dusuk
+Old Roll	Old Roll	BELIRSIZ	gurultu	N		dusuk
+Omarchy 4.0.3	Omarchy 4.0.3	GENEL	uygulama	N		orta
+Omarchy OS	Omarchy OS	GENEL	uygulama	N		orta
+OmarchyQuattro	OmarchyQuattro	GENEL	uygulama	N		dusuk
+OmniRoot	OmniRoot	GENEL	gurultu	N		dusuk
+Opal	Opal	GENEL	hizmet	N		dusuk
+Opal C1	Opal C1	GENEL	gurultu	N		dusuk
+OpenClaw	OpenClaw	BELIRSIZ	uygulama	Y		orta
+OpenCode plugn-	OpenCode plugn-	BELIRSIZ	gurultu	N		dusuk
+OpenHandds	OpenHandds	BELIRSIZ	uygulama	Y	All-Hands-AI/OpenHands	yuksek
+OpenJev	OpenJev	BELIRSIZ	gurultu	N		dusuk
+OpenManus	OpenManus	BELIRSIZ	uygulama	Y	mannaandpoem/OpenManus	orta
+OpenRider	OpenRider	BELIRSIZ	gurultu	N		dusuk
+OpenTeams/specs	OpenTeams/specs	GENEL	gurultu	N		orta
+Options	Options (Unclear context)	BELIRSIZ	gurultu	N		dusuk
+Organization	Organization (General term)	GENEL	gurultu	N		orta
+Output Log	Output Log (General logging)	GENEL	gurultu	N		orta
+Ovi	Ovi (Unclear context)	BELIRSIZ	gurultu	N		dusuk
+Oyun Motoru	Oyun Motoru	GENEL	gurultu	N		orta
+PAN-OS	PAN-OS	GENEL	uygulama	N		yuksek
+PERL	PERL	GENEL	uygulama	Y	Perl/perl5	orta
+PHP	PHP	GENEL	uygulama	Y	php/php-src	yuksek
+PHP 8.3	PHP 8.3	GENEL	uygulama	Y	php/php-src	orta
+PK/PD modeling	PK/PD modeling	GENEL	skill	Y		dusuk
+POP	POP	GENEL	gurultu	N		dusuk
+PZERO	PZERO	GENEL	gurultu	N		dusuk
+Palantir	Palantir	GENEL	hizmet	N		yuksek
+Palantir Technologies Inc.	Palo Alto PAN-OS	GENEL	uygulama	N		orta
+Palo Alto PAN-OS	PAN-OS	GENEL	uygulama	N		orta
+PaperMoney	PaperMoney	GENEL	uygulama	N		dusuk
+Paradigm	Paradigm	GENEL	hizmet	N		yuksek
+Parquet	Parquet	GENEL	gurultu	N		orta
+Parquet/CSV	Parquet/CSV	GENEL	gurultu	N		orta
+ParrotOS	ParrotOS	GENEL	uygulama	Y		orta
+Paseo	Paseo	GENEL	hizmet	N		dusuk
+Peak-End Rule	Peak-End Rule	GENEL	gurultu	N		yuksek
+PearOS X Nectar	PearOS X Nectar	GENEL	uygulama	N		dusuk
+Performance	Performance	GENEL	gurultu	N		yuksek
+Perplexity Computer	Perplexity Computer	GENEL	hizmet	N		orta
+Pest	Pest	GENEL	paket	Y	pestphp/pest	orta
+Phone	Phone	GENEL	gurultu	N		yuksek
+Physics Corrector 100	Physics Corrector 100	GENEL	gurultu	N		dusuk
+Pinokio	Pinokio	GENEL	uygulama	Y	pinokiocomputer/pinokio	orta
+PlayStation	PlayStation	GENEL	gurultu	N		yuksek
+Ponder	Ponder	BELIRSIZ	gurultu	N		dusuk
+PostHack	PostHack	BELIRSIZ	gurultu	N		dusuk
+Postgre	Postgre	BELIRSIZ	uygulama	Y	postgres/postgres	orta
+Postkog	Postkog	BELIRSIZ	uygulama	Y	PostHog/posthog	dusuk
+Postopus	Postopus	BELIRSIZ	gurultu	N		dusuk
+Pr	Pr	BELIRSIZ	gurultu	N		yuksek
+Primer	Primer	GENEL	paket	Y	@primer/react	orta
+Principle	Principle	GENEL	uygulama	Y		orta
+ProRes	ProRes	GENEL	gurultu	N		yuksek
+Processor Registry	Processor Registry	GENEL	gurultu	N		dusuk
+Product Integration	Product Integration	GENEL	gurultu	N		dusuk
+Product Photoshoot	Product Photoshoot	GENEL	skill	Y		dusuk
+Productivity	Productivity	GENEL	gurultu	N		yuksek
+Profile	Profile	GENEL	gurultu	N		yuksek
+Progressive Disclosure	Progressive Disclosure	GENEL	gurultu	N		yuksek
+Project Artifacts	Project Artifacts	GENEL	gurultu	N		yuksek
+Project Lyra	Project Lyra	GENEL	gurultu	N		dusuk
+Projects	Projects	GENEL	gurultu	N		yuksek
+PromQL	PromQL	GENEL	gurultu	N		yuksek
+Prompt Engineering	Prompt Engineering	GENEL	gurultu	N		yuksek
+Prompt caching	Prompt caching	GENEL	gurultu	N		yuksek
+Prompt injection	Prompt injection	GENEL	gurultu	N		yuksek
+Prompt library	Prompt library	GENEL	gurultu	N		yuksek
+Prompt optimization	Prompt optimization	GENEL	gurultu	N		yuksek
+ProtoMaps	ProtoMaps	GENEL	paket	Y	protomaps/PMTiles	orta
+Proxmox	Proxmox	GENEL	uygulama	Y		orta
+Pryzm	Pryzm	BELIRSIZ	gurultu	N		dusuk
+Python 3.10+	Python 3.10+	GENEL	uygulama	Y	python/cpython	yuksek
+R&R	R&R	GENEL	gurultu	N		dusuk
+REA (Reverse Engineer)	REA (Reverse Engineer)	GENEL	skill	Y		orta
+README	README	GENEL	gurultu	N		yuksek
+RED GREEN REFACTOR	RED GREEN REFACTOR	GENEL	gurultu	N		yuksek
+RFIDLER	RFIDLER	GENEL	gurultu	N		orta
+RHEL	RHEL	GENEL	uygulama	Y		orta
+RIA	RIA	GENEL	gurultu	N		yuksek
+RLS	RLS	GENEL	gurultu	N		yuksek
+RNDIS	RNDIS	GENEL	gurultu	N		yuksek
+RPM	RPM	GENEL	cli	Y	rpm-software-management/rpm	orta
+RTOS	RTOS	GENEL	gurultu	N		yuksek
+Reach Target System	Reach Target System	GENEL	gurultu	N		dusuk
+Realtek	Realtek	GENEL	gurultu	N		yuksek
+Regex	Regex	GENEL	gurultu	N		yuksek
+Regulatory filing	Regulatory filing	GENEL	gurultu	N		yuksek
+Renk düzenleme (color grading)	Renk düzenleme (color grading)	GENEL	gurultu	N		yuksek
+Responsive Design	Responsive Design	GENEL	gurultu	N		yuksek
+Risk assessment	Risk assessment	GENEL	gurultu	N		yuksek
+Risk management systems	Risk management systems	GENEL	gurultu	N		yuksek
+Roborock Saros Z70	Roomba (iRobot Roomba)	GENEL	gurultu	N		yuksek
+Roomba (رمبة)	Roomba (رمبة)	GENEL	gurultu	N		yuksek
+Rotato	Rotato	GENEL	hizmet	N		orta
+Rubber Ducky	Rubber Ducky	GENEL	gurultu	N		yuksek
+Ruflo router	Ruflo router	GENEL	paket	Y	ruflo	dusuk
+Rust	Rust	GENEL	uygulama	Y	rust-lang/rust	yuksek
+S3	S3	GENEL	hizmet	N		yuksek
+S3-compatible storage	S3-compatible storage	GENEL	uygulama	Y	minio/minio	orta
+SEO	SEO	GENEL	gurultu	N		yuksek
+SQL	SQL	GENEL	gurultu	N		yuksek
+Safari	Safari	GENEL	uygulama	N		yuksek
+Safari 26	Safari 26	GENEL	uygulama	N		yuksek
+Sales	Sales	BELIRSIZ	gurultu	N		yuksek
+Samsung DeX	Samsung DeX	GENEL	gurultu	N		yuksek
+Samsung Note 23 Ultra	Samsung Note 23 Ultra	GENEL	gurultu	N		yuksek
+School	School	BELIRSIZ	gurultu	N		yuksek
+Sempra Systems	Sempra Systems	GENEL	gurultu	N		dusuk
+Sequenzer	Sequenzer	BELIRSIZ	gurultu	N		dusuk
+Serial Position Effect	Serial Position Effect	GENEL	gurultu	N		yuksek
+Servo	Servo	GENEL	uygulama	Y	servo/servo	orta
+Settings	Settings	GENEL	gurultu	N		yuksek
+SiliconFlo	SiliconFlo	GENEL	hizmet	N		dusuk
+Simple Jev	Simple Jev	BELIRSIZ	skill	Y		dusuk
+Simpler	Simpler	BELIRSIZ	gurultu	N		dusuk
+Slang Hang	Slang Hang	BELIRSIZ	gurultu	N		dusuk
+SmartScreen	SmartScreen	GENEL	gurultu	N		yuksek
+Social Media OS	Social Media OS	GENEL	gurultu	N		dusuk
+Soekir	Soekir	BELIRSIZ	gurultu	N		dusuk
+Software Engineering	Software Engineering	GENEL	gurultu	N		yuksek
+Spec-Driven Development	Spec-Driven Development	GENEL	gurultu	N		yuksek
+Stan	Stan	GENEL	paket	Y	stan-dev/stan	orta
+Stand Up	Stand Up	GENEL	gurultu	N		yuksek
+Standard Shader	Standard Shader	GENEL	gurultu	N		yuksek
+Starter Templates	Starter Templates	GENEL	gurultu	N		yuksek
+StartupSubmit	StartupSubmit	GENEL	hizmet	N		dusuk
+State machine	State machine	GENEL	gurultu	N		yuksek
+Statement Auditor	Statement Auditor	GENEL	gurultu	N		dusuk
+Status Line	Status Line	GENEL	gurultu	N		yuksek
+Stax	Stax	GENEL	hizmet	N		dusuk
+Steve Jobs Design Review	Steve Jobs Design Review	GENEL	gurultu	N		dusuk
+Storm	Storm	GENEL	paket	Y	stanford-oval/storm	orta
+StoryTooliktAl	StoryTooliktAl	BELIRSIZ	gurultu	N		dusuk
+Strategy Builder	Strategy Builder	GENEL	gurultu	N		yuksek
+Stretched Type Repeater	Stretched Type Repeater	GENEL	gurultu	N		dusuk
+Stricks	Stricks	GENEL	gurultu	N		yuksek
+Strong	Strong	GENEL	gurultu	N		yuksek
+Study Guide	Study Guide	GENEL	gurultu	N		dusuk
+Sunny	Sunny	BELIRSIZ	gurultu	N		dusuk
+Supaste	Supaste	BELIRSIZ	gurultu	N		dusuk
+Super	Super	BELIRSIZ	uygulama	Y	swiftlang/swift	orta
+Swift	Swift	GENEL	uygulama	Y		orta
+Swift Language Support for Visual Studio	Swift Language Support for Visual Studio	GENEL	uygulama	Y		orta
+Swift for Visual Studio	Swift for Visual Studio	GENEL	cli	Y	swiftlang/swift-package-manager	orta
+SwiftPM	SwiftPM	GENEL	gurultu	N		yuksek
+System Settings	System Settings	GENEL	paket	Y	t3-oss/create-t3-app	dusuk
+T3 Code	T3 Code	GENEL	gurultu	N		yuksek
+TLS/SSL	TLS/SSL	GENEL	gurultu	N		dusuk
+TMAX	TMAX	BELIRSIZ	gurultu	N		yuksek
+TOML	TOML	GENEL	gurultu	N		dusuk
+TURTLI	TURTLI	BELIRSIZ	gurultu	N		yuksek
+Table	Table (Tablo)	GENEL	gurultu	N		dusuk
+Teepl	Teepl	BELIRSIZ	gurultu	N		yuksek
+Tekno Akademi Discord	Tekno Akademi Discord	GENEL	gurultu	N		orta
+Teleprompter	Teleprompter	GENEL	gurultu	N		dusuk
+Templify	Templify	BELIRSIZ	hizmet	N		dusuk
+Tencent Agent Memory	Tencent Agent Memory	BELIRSIZ	hizmet	N		dusuk
+TencentDB AgentMemory	TencentDB AgentMemory	BELIRSIZ	gurultu	N		dusuk
+Terminal Browser	Terminal Browser	BELIRSIZ	gurultu	N		dusuk
+Terra	Terra	BELIRSIZ	gurultu	N		dusuk
+Tertil AI program	Tertil AI program	BELIRSIZ	gurultu	N		dusuk
+Tesana	Tesana	BELIRSIZ	gurultu	N		yuksek
+Tesler's Law	Tesler's Law	GENEL	gurultu	N		dusuk
+TetherKit	TetherKit	BELIRSIZ	paket	Y		dusuk
+Texel Density Checker	Texel Density Checker	BELIRSIZ	gurultu	N		yuksek
+Text	Text	GENEL	gurultu	N		dusuk
+Text Observer	Text Observer	BELIRSIZ	gurultu	N		dusuk
+The Advisor Tool	The Advisor Tool	BELIRSIZ	gurultu	N		dusuk
+The Agent	The Agent	BELIRSIZ	gurultu	N		dusuk
+The Council	The Council	BELIRSIZ	gurultu	N		dusuk
+The Data Platform	The Data Platform	BELIRSIZ	gurultu	N		dusuk
+The Hugging Bay	The Hugging Bay	BELIRSIZ	gurultu	N		dusuk
+The Loop Engineer QA	The Loop Engineer QA	BELIRSIZ	gurultu	N		dusuk
+TheArchitecture	TheArchitecture	BELIRSIZ	gurultu	N		dusuk
+TheLibrarian	TheLibrarian	BELIRSIZ	gurultu	N		dusuk
+TheNicheDaily	TheNicheDaily	BELIRSIZ	gurultu	N		dusuk
+TheSpec	TheSpec	BELIRSIZ	gurultu	N		yuksek
+Think	Think	GENEL	gurultu	N		dusuk
+ThisQuant Bot	ThisQuant Bot	BELIRSIZ	gurultu	N		yuksek
+Threat Hunting	Threat Hunting	GENEL	gurultu	N		yuksek
+Threat Intelligence	Threat Intelligence	GENEL	gurultu	N		dusuk
+ThruWire	ThruWire	BELIRSIZ	gurultu	N		dusuk
+Thumbnail Maker	Thumbnail Maker	BELIRSIZ	gurultu	N		yuksek
+Thunderbolt	Thunderbolt	GENEL	uygulama	N		yuksek
+Time Machine	Time Machine	GENEL	gurultu	N		dusuk
+Tiny Lesson	Tiny Lesson	BELIRSIZ	gurultu	N		dusuk
+Title & Thumbnail	Title & Thumbnail	BELIRSIZ	gurultu	N		orta
+Toast	Toast	BELIRSIZ	cli	Y		dusuk
+TokenJuice	TokenJuice	BELIRSIZ	gurultu	N		yuksek
+Tool design	Tool design	GENEL	gurultu	N		orta
+Tools Agent	Tools Agent	BELIRSIZ	uygulama	Y		orta
+Toon Boom	Toon Boom	GENEL	gurultu	N		yuksek
+Toon Shader	Toon Shader	GENEL	gurultu	N		orta
+Trace	Trace	BELIRSIZ	gurultu	N		dusuk
+Trade accounting	Trade accounting	GENEL	skill	Y		dusuk
+Transcribe	Transcribe	BELIRSIZ	gurultu	N		dusuk
+Transporter	Transporter	BELIRSIZ	gurultu	N		dusuk
+Treg	Treg	BELIRSIZ	gurultu	N		dusuk
+Trend Fit	Trend Fit	BELIRSIZ	gurultu	N		dusuk
+Trend Scout	Trend Scout	BELIRSIZ	gurultu	N		dusuk
+TrendWatcher	TrendWatcher	BELIRSIZ	hizmet	N		dusuk
+Trevor AI	Trevor AI	BELIRSIZ	gurultu	N		dusuk
+TrimOne	TrimOne	BELIRSIZ	gurultu	N		orta
+TrimRx	TrimRx	BELIRSIZ	gurultu	N		dusuk
+Triple Oil	Triple Oil	BELIRSIZ	gurultu	N		dusuk
+Tripoh3-1	Tripoh3-1	BELIRSIZ	gurultu	N		dusuk
+Tripon	Tripon	BELIRSIZ	gurultu	N		dusuk
+Trojan Horse Detector	Trojan Horse Detector	BELIRSIZ	uygulama	Y	opa334/TrollStore	orta
+TrollStore	TrollStore	BELIRSIZ	gurultu	N		orta
+TrueDepth: Depth Map Generator	TrueDepth: Depth Map Generator	BELIRSIZ	gurultu	N		dusuk
+TrueForge	TrueForge	BELIRSIZ	gurultu	N		dusuk
+Trytree	Trytree	BELIRSIZ	gurultu	N		dusuk
+Tufflehawk	Tufflehawk	BELIRSIZ	gurultu	N		dusuk
+Turtle	Turtle	GENEL	gurultu	N		yuksek
+Twenty Twenty-Five	Twenty Twenty-Five	GENEL	gurultu	N		yuksek
+Twenty Twenty-Four	Twenty Twenty-Four	GENEL	gurultu	N		dusuk
+Twitter Optimizer	Twitter Optimizer	BELIRSIZ	gurultu	N		yuksek
+Type Scale	Type Scale	GENEL	gurultu	N		dusuk
+Type UI	Type UI	BELIRSIZ	uygulama	Y		dusuk
+Type UI Chrome Eklentisi	Type UI Chrome Eklentisi	BELIRSIZ	gurultu	N		dusuk
+TypeSade	TypeSade	BELIRSIZ	skill	Y		orta
+TypeSafe AI	TypeSafe AI	BELIRSIZ	paket	Y	microsoft/TypeScript	yuksek
+TypeScript	TypeScript	GENEL	gurultu	N		dusuk
+TypoTab	TypoTab	BELIRSIZ	gurultu	N		dusuk
+Tüketici Paneli	Tüketici Paneli	BELIRSIZ	paket	Y		dusuk
+UE Live Link	UE Live Link	GENEL	gurultu	N		yuksek
+UGC Ads	UGC Ads	GENEL	gurultu	N		yuksek
+UGC Content	UGC Content	GENEL	gurultu	N		dusuk
+UGC generator	UGC generator	BELIRSIZ	skill	Y		dusuk
+UI Designer	UI Designer	BELIRSIZ	gurultu	N		dusuk
+UIScale	UIScale	BELIRSIZ	gurultu	N		yuksek
+USB Rubber Ducky	USB Rubber Ducky	GENEL	gurultu	N		dusuk
+UVO	UVO	BELIRSIZ	gurultu	N		dusuk
+Ultraplan	Ultraplan	BELIRSIZ	gurultu	N		yuksek
+Ultrathink	Ultrathink	GENEL	gurultu	N		dusuk
+Umachi	Umachi	BELIRSIZ	gurultu	N		dusuk
+UniV	UniV	BELIRSIZ	gurultu	N		dusuk
+UniteHairX	UniteHairX	BELIRSIZ	gurultu	N		yuksek
+Unity IL2CPP	Unity IL2CPP	GENEL	hizmet	N		dusuk
+UnoRouter	UnoRouter	BELIRSIZ	gurultu	N		yuksek
+Unreal Control Rig	Unreal Control Rig	GENEL	gurultu	N		yuksek
+Unreal Live Link	Unreal Live Link	GENEL	gurultu	N		dusuk
+Unrejectable CV	Unrejectable CV	BELIRSIZ	gurultu	N		orta
+UpdateTodos	UpdateTodos	BELIRSIZ	gurultu	N		yuksek
+Uploads	Uploads	GENEL	hizmet	N		dusuk
+Uptimepage	Uptimepage	BELIRSIZ	gurultu	N		dusuk
+Usage Tally	Usage Tally	BELIRSIZ	gurultu	N		dusuk
+UseYourFiles	UseYourFiles	BELIRSIZ	gurultu	N		yuksek
+User Research	User Research	GENEL	gurultu	N		yuksek
+V3	V3	BELIRSIZ	hizmet	N		orta
+V7 AI	V7 AI	BELIRSIZ	gurultu	N		orta
+V8 Inspector	V8 Inspector	GENEL	gurultu	N		dusuk
+VAELoader	VAELoader	GENEL	gurultu	N		dusuk
+VEGO	VEGO	BELIRSIZ	gurultu	N		dusuk
+VIP Cam PRO	VIP Cam PRO	BELIRSIZ	gurultu	N		orta
+VNC	VNC	GENEL	skill	Y		dusuk
+VOICE DNA CREATOR	VOICE DNA CREATOR	BELIRSIZ	gurultu	N		yuksek
+VP9	VP9	GENEL	gurultu	N		yuksek
+VPS	VPS	GENEL	gurultu	N		dusuk
+VVTerm	VVTerm	BELIRSIZ	gurultu	N		dusuk
+Valaxi	Valaxi	BELIRSIZ	gurultu	N		orta
+Validator	Validator	GENEL	gurultu	N		dusuk
+Valuation Reviewer	Valuation Reviewer	BELIRSIZ	gurultu	N		dusuk
+Valuation review	Valuation review	BELIRSIZ	gurultu	N		dusuk
+Vayne	Vayne	BELIRSIZ	gurultu	N		yuksek
+Vector Store	Vector Store	GENEL	gurultu	N		orta
+Verification gates	Verification gates	GENEL	gurultu	N		yuksek
+Visual Hierarchy	Visual Hierarchy	GENEL	gurultu	N		dusuk
+VisualARP	VisualARP	BELIRSIZ	gurultu	N		dusuk
+Visualizer	Visualizer	BELIRSIZ	gurultu	N		dusuk
+Vit Rush	Vit Rush	BELIRSIZ	gurultu	N		dusuk
+VizePlus+	VizePlus+	BELIRSIZ	gurultu	N		dusuk
+Voibe	Voibe	BELIRSIZ	gurultu	N		yuksek
+Voice	Voice	BELIRSIZ	skill	Y		dusuk
+Voice DNA	Voice DNA	BELIRSIZ	uygulama	Y	voideditor/void	orta
+Void	Void	BELIRSIZ	gurultu	N		yuksek
+Von Restorff Effect	Von Restorff Effect	BELIRSIZ	gurultu	N		yuksek
+Vulkan	Vulkan	GENEL	gurultu	N		yuksek
+WAV	WAV	GENEL	gurultu	N		orta
+WP	WP	GENEL	uygulama	Y	microsoft/WSL	orta
+WSL	WSL	GENEL	uygulama	Y	microsoft/WSL	orta
+WSL2	WSL2	GENEL	gurultu	N		yuksek
+Wear OS	Wear OS	GENEL	gurultu	N		yuksek
+Web	Web	GENEL	skill	Y	vercel-labs/web-interface-guidelines	orta
+Web Interface Guidelines	Web Interface Guidelines	GENEL	gurultu	N		yuksek
+WebCodecs	WebCodecs	GENEL	gurultu	N		yuksek
+WebGL	WebGL	GENEL	uygulama	Y	WebKit/WebKit	orta
+WebKit	WebKit	GENEL	gurultu	N		yuksek
+WebM	WebM	GENEL	paket	Y	facebookresearch/WebUI	orta
+WebUI	WebUI	GENEL	gurultu	N		dusuk
+Webild	Webild	BELIRSIZ	gurultu	N		dusuk
+Weflow	Weflow	BELIRSIZ	gurultu	N		yuksek
+Wii U	Wii U	GENEL	gurultu	N		yuksek
+Window Buffer Memory	Window Buffer Memory	GENEL	uygulama	N		yuksek
+Windows	Windows	GENEL	uygulama	N		yuksek
+Windows 10	Windows 10	GENEL	gurultu	N		yuksek
+Windows 95	Windows 95	GENEL	uygulama	Y		orta
+Windsurf	Windsurf	BELIRSIZ	gurultu	N		dusuk
+Winora	Winora	BELIRSIZ	hizmet	N		dusuk
+Wisetack	Wisetack	BELIRSIZ	gurultu	N		dusuk
+Word Cam	Word Cam	BELIRSIZ	gurultu	N		dusuk
+Worldforge	Worldforge	GENEL	gurultu	N		yuksek
+XML	XML	GENEL	model	Y		dusuk
+Xiaomi MiMo-V2.6-Pro	Xiaomi MiMo-V2.6-Pro	GENEL	gurultu	N		yuksek
+YAML	YAML	GENEL	gurultu	N		yuksek
+You Should Know	You Should Know	GENEL	gurultu	N		yuksek
+YouTube ekibi	YouTube ekibi	GENEL	gurultu	N		yuksek
+Z-Wave	Z-Wave	GENEL	gurultu	N		yuksek
+ZIP	ZIP	GENEL	gurultu	N		yuksek
+Zen	Zen	GENEL	hizmet	N		yuksek
+Zerodha/Kite	Zerodha/Kite	GENEL	uygulama	Y	ziglang/zig	orta
+Zig	Zig	GENEL	gurultu	N		yuksek
+Zigbee	Zigbee	GENEL	gurultu	N		yuksek
+aac	aac (Advanced Audio Coding)	GENEL	gurultu	N		yuksek
+animation principles	animation principles	GENEL	skill	Y	addyosmani/agent-skills	orta
+api-and-interface-design	api-and-interface-design	GENEL	paket	Y	swagger-api/swagger-ui	dusuk
+api-docs	api-docs	GENEL	cli	Y	apple/container	orta
+apple-container	apple-container	GENEL	skill	Y		orta
+apple-design	apple-design	GENEL	gurultu	N		dusuk
+apply_migration	apply_migration	GENEL	gurultu	N		dusuk
+artillerytrades/links	links	GENEL	skill	Y	artillerytrades/prop-firm-stack	dusuk
+artillerytrades/prop-firm-stack	prop-firm-stack	GENEL	gurultu	N		yuksek
+base64	base64	GENEL	paket	Y	microsoft/BitNet	orta
+bitnet.cpp	bitnet.cpp	GENEL	gurultu	N		dusuk
+brand	brand	GENEL	skill	Y		dusuk
+brand-identity	brand-identity	GENEL	skill	Y		dusuk
+brand-intake	brand-intake	GENEL	skill	Y		dusuk
+brand-positioning	brand-positioning	GENEL	gurultu	N		dusuk
+brief	brief	GENEL	skill	Y		dusuk
+browse	browse	GENEL	skill	Y		dusuk
+building-landing-page	building-landing-page	GENEL	skill	Y		dusuk
+business-pulse	business-pulse	GENEL	gurultu	N		dusuk
+cache clock	cache clock	GENEL	gurultu	N		dusuk
+call-list	call-list	GENEL	skill	Y		dusuk
+call-prep	call-prep	GENEL	gurultu	N		dusuk
+camera-moves	camera-moves	GENEL	skill	Y		dusuk
+canary	canary	GENEL	skill	Y		dusuk
+career-interview	career-interview	GENEL	skill	Y		dusuk
+careful	careful	GENEL	skill	Y		dusuk
+cash-flow-snapshot	cash-flow-snapshot	GENEL	cli	Y	ryoppippi/ccusage	orta
+ccusage	ccusage	GENEL	gurultu	N		yuksek
+cgroup v2	cgroup v2	GENEL	skill	Y		dusuk
+ci-cd-and-automation	ci-cd-and-automation	GENEL	gurultu	N		dusuk
+clawed code	clawed code	BELIRSIZ	skill	Y		dusuk
+client-onboarding	client-onboarding	GENEL	skill	Y		dusuk
+cln-council	cln-council	BELIRSIZ	uygulama	N		yuksek
+cmd (Command Prompt)	cmd (Command Prompt)	GENEL	skill	Y		dusuk
+computer use	Windows	GENEL	skill	Y		dusuk
+concept-graphics	Grafik tasarım kavramları (konsept, animasyon, 3D)	GENEL	skill	Y		dusuk
+content-empire	İçerik İmparatorluğu (strateji, yönetim)	GENEL	skill	Y		dusuk
+content-strategy	İçerik Stratejisi (planlama, analiz)	GENEL	gurultu	N		dusuk
+context-bar	Kontext Bar (UI/UX elemanı)	GENEL	skill	Y		dusuk
+context-handoff	Kontekst Geçiş (iş akışı yönetimi)	GENEL	gurultu	N		yuksek
+dark-mode	dark-mode	GENEL	cli	Y		orta
+designlang	designlang	GENEL	gurultu	N		yuksek
+değişken metinler	değişken metinler	GENEL	skill	Y		dusuk
+document	document	GENEL	skill	Y	anthropics/skills	orta
+docx	docx	GENEL	gurultu	N		yuksek
+error handling	error handling	GENEL	gurultu	N		dusuk
+ewm	ewm	BELIRSIZ	uygulama	Y	farion1231/cc-switch	orta
+farion1231/cc-switch	farion1231/cc-switch	BELIRSIZ	gurultu	N		dusuk
+fff	fff	BELIRSIZ	skill	Y		dusuk
+frontend-architecture	frontend-architecture	GENEL	gurultu	N		dusuk
+full-output-enforcement	full-output-enforcement	GENEL	gurultu	N		dusuk
+fund-admin	fund-admin	GENEL	skill	Y		dusuk
+fundraising-and-investor-relations	fundraising-and-investor-relations	GENEL	skill	Y		dusuk
+gamedesign	gamedesign	GENEL	gurultu	N		yuksek
+generative tools	generative tools	GENEL	skill	Y	getagentseal/founder-playbook	orta
+getagentseal/founder-playbook	getagentseal/founder-playbook	GENEL	gurultu	N		dusuk
+giyilebilir iletişim aracı	giyilebilir iletişim aracı	BELIRSIZ	skill	Y		dusuk
+go-viral	go-viral	BELIRSIZ	gurultu	N		dusuk
+goat-buddy	goat-buddy	BELIRSIZ	skill	Y		dusuk
+graphics-artist	graphics-artist	BELIRSIZ	gurultu	N		dusuk
+grid motion	grid motion	BELIRSIZ	cli	Y	googleworkspace/cli	orta
+gws	gws	BELIRSIZ	skill	Y		dusuk
+handle-complaint	handle-complaint	BELIRSIZ	gurultu	N		dusuk
+hata erken gösterme	hata erken gösterme	BELIRSIZ	gurultu	N		yuksek
+iOS	iOS	GENEL	gurultu	N		yuksek
+iOS 26	iOS 26	GENEL	gurultu	N		yuksek
+iOS 27	iOS 27	GENEL	gurultu	N		yuksek
+iOS17	iOS17	GENEL	gurultu	N		yuksek
+iPhone 14 Pro Max	iPhone 14 Pro Max	GENEL	gurultu	N		yuksek
+iPhone 8	iPhone 8	GENEL	gurultu	N		yuksek
+iPhone Mirroring	iPhone Mirroring	GENEL	gurultu	N		yuksek
+iPhone Simulator	iPhone Simulator	GENEL	gurultu	N		dusuk
+iZephyr.hg	iZephyr.hg	BELIRSIZ	gurultu	N		yuksek
+image	image	GENEL	gurultu	N		yuksek
+imagefolder	imagefolder	GENEL	gurultu	N		yuksek
+json-schema	JSON Schema	GENEL	gurultu	N		yuksek
+karpathy-guidelines	karpathy-guidelines	GENEL	skill	Y	karpathy/guidelines	orta
+kitbash	Kitbash	GENEL	hizmet	N		orta
+legal	legal	GENEL	gurultu	N		yuksek
+library	library	GENEL	gurultu	N		yuksek
+loading states	loading states	GENEL	gurultu	N		yuksek
+localStorage	localStorage	GENEL	gurultu	N		yuksek
+m2.7Code	m2.7Code	GENEL	model	Y		dusuk
+macOS 15+ (Sequoia)	macOS 15+ (Sequoia)	GENEL	uygulama	N		yuksek
+machine learning	machine learning	GENEL	gurultu	N		yuksek
+market-analysis	market-analysis	GENEL	skill	Y		dusuk
+media.mjs	media.mjs (modül/JS)	GENEL	paket	Y	media.mjs	dusuk
+morning	morning	GENEL	skill	Y		dusuk
+nanovalanık	nanovalanık	BELIRSIZ	gurultu	N		dusuk
+next.config	next.config	GENEL	gurultu	N		yuksek
+parent_objects	parent_objects	BELIRSIZ	gurultu	N		dusuk
+pdf	PDF (dosya biçimi)	GENEL	skill	Y	anthropics/skills	orta
+penetrasyon testi	penetrasyon testi	GENEL	gurultu	N		yuksek
+performance optimization	performance optimization	GENEL	gurultu	N		yuksek
+pitch-deck	pitch-deck	GENEL	skill	Y		dusuk
+platform-design	platform-design	GENEL	skill	Y		dusuk
+podcast	podcast	GENEL	gurultu	N		dusuk
+pptx	pptx	GENEL	skill	Y	anthropics/skills	orta
+private-equity	private-equity	GENEL	gurultu	N		dusuk
+psychology	psychology	GENEL	gurultu	N		yuksek
+public-relations	public-relations	GENEL	skill	Y		dusuk
+python3	python3	GENEL	uygulama	Y	python/cpython	orta
+quarterly-review	quarterly-review	GENEL	skill	Y		dusuk
+rig	rig	BELIRSIZ	gurultu	N		dusuk
+run-campaign	run-campaign	BELIRSIZ	skill	Y		dusuk
+saas-idea-validator	saas-idea-validator	BELIRSIZ	skill	Y		dusuk
+santa-loop	santa-loop	BELIRSIZ	skill	Y		dusuk
+save-systems	save-systems	BELIRSIZ	gurultu	N		dusuk
+savior	savior	BELIRSIZ	gurultu	N		dusuk
+savvy-flow	savvy-flow	BELIRSIZ	gurultu	N		dusuk
+scalability	scalability	GENEL	gurultu	N		yuksek
+schema (coreyhaines31/marketingskills)	schema (Corey Haines'in marketingskills projesinde kullanılan kavram)	GENEL	skill	Y	coreyhaines31/marketingskills	orta
+screenshot'lı kod	screenshot'lı kod	BELIRSIZ	gurultu	N		dusuk
+scripts	scripts (genel dosya klasörü)	GENEL	gurultu	N		yuksek
+scripts/gen.mjs	gen.mjs (genel script dosyası)	GENEL	gurultu	N		orta
+scripts/optimize-all.mjs	optimize-all.mjs (genel script dosyası)	GENEL	gurultu	N		orta
+scripts/optimize.mjs	optimize.mjs (genel script dosyası)	GENEL	gurultu	N		orta
+scripts/review.mjs	review.mjs (genel script dosyası)	GENEL	gurultu	N		orta
+start.bat	start.bat	GENEL	gurultu	N		yuksek
+start_work	start_work	GENEL	gurultu	N		yuksek
+sweetgreen	Sweetgreen	GENEL	gurultu	N		yuksek
+trader-timemachine	trader-timemachine	BELIRSIZ	skill	Y		dusuk
+trading agent	trading agent	BELIRSIZ	gurultu	N		dusuk
+trading bot	trading bot	BELIRSIZ	gurultu	N		dusuk
+transfer-pricing	transfer-pricing	BELIRSIZ	gurultu	N		dusuk
+unit-economics	unit-economics	BELIRSIZ	gurultu	N		dusuk
+unity-scriptable-objects	unity-scriptable-objects	GENEL	gurultu	N		yuksek
+v3fast	v3fast	BELIRSIZ	gurultu	N		dusuk
+vaults	vaults	GENEL	gurultu	N		dusuk
+venv	venv	GENEL	gurultu	N		yuksek
+verification loop	verification loop	GENEL	gurultu	N		orta
+video düzenleme yazılımı	video düzenleme yazılımı	GENEL	gurultu	N		yuksek
+video editing	video editing	GENEL	gurultu	N		yuksek
+video-generation	video-generation	GENEL	gurultu	N		orta
+view	view	GENEL	gurultu	N		yuksek
+virtual machine	virtual machine	GENEL	gurultu	N		yuksek
+voice module	voice module	GENEL	gurultu	N		dusuk
+weather	weather	GENEL	gurultu	N		dusuk
+website widget	website widget	GENEL	gurultu	N		dusuk
+worktree.bgIsolation	worktree.bgIsolation	GENEL	gurultu	N		orta
+x64	x64	GENEL	gurultu	N		yuksek
+x64 compiler	x64 compiler	GENEL	gurultu	N		yuksek
+xlsx	xlsx	GENEL	skill	Y	anthropics/skills	orta
+ücretsiz uygulamalar	ücretsiz uygulamalar	GENEL	gurultu	N		yuksek
+İki kelimelik BÜYÜK HARF altyazı	İki kelimelik BÜYÜK HARF altyazı	GENEL	gurultu	N		yuksek
+İnsanlar Bunları da Soruyor	İnsanlar Bunları da Soruyor	GENEL	gurultu	N		yuksek
+Ansvisor	Ansvisor	BELIRSIZ	gurultu	N		dusuk
+AnthropicAI	AnthropicAI	GENEL	gurultu	N		yuksek
+Anti-AI	Anti-AI	GENEL	gurultu	N		dusuk
+Antivirus yazılımları	Antivirus yazılımları	GENEL	gurultu	N		yuksek
+Antropi	Antropi	BELIRSIZ	gurultu	N		dusuk
+AnyMove	AnyMove	BELIRSIZ	gurultu	N		dusuk
+Apity	Apity	BELIRSIZ	gurultu	N		dusuk
+App Check	App Check	GENEL	gurultu	N		yuksek
+App Review	App Review	GENEL	gurultu	N		yuksek
+App Store	App Store	GENEL	gurultu	N		yuksek
+App-Builder	App-Builder	BELIRSIZ	skill	Y		dusuk
+AppConfig	AppConfig	BELIRSIZ	gurultu	N		dusuk
+AppFlowee	AppFlowee	BELIRSIZ	gurultu	N		dusuk
+AppImage	AppImage	GENEL	gurultu	N		yuksek
+AppMode	AppMode	BELIRSIZ	gurultu	N		dusuk
+ARES <github.com>	ARES	BELIRSIZ	paket	Y		dusuk
+Canluse <Canluse.com>	Canluse	BELIRSIZ	hizmet	N		dusuk
+Codebase Memory Graph <localhost:9749>	Codebase Memory Graph	BELIRSIZ	paket	Y	DeusData/codebase-memory-mcp	dusuk
+Codebase Memory UI <localhost:9749>	Codebase Memory UI	BELIRSIZ	paket	Y	DeusData/codebase-memory-mcp	dusuk
+CodebaseMemory <DeusData/codehasememory-mcp>	CodebaseMemory	BELIRSIZ	paket	Y	DeusData/codebase-memory-mcp	orta
+FLOW <AgriciDaniel/flow>	FLOW	BELIRSIZ	skill	Y	AgriciDaniel/flow	orta
+Facebook <http://www.facebook.com/thecherno>	Facebook	GENEL	gurultu	N		yuksek
+Fast Jev Compaction <jevlist.ai/fast-jev-compaction>	Fast Jev Compaction	BELIRSIZ	skill	Y		dusuk
+FluidVoice <fluicvoice.com>	FluidVoice	BELIRSIZ	uygulama	Y		dusuk
+Freebuff <freebuff.com>	Freebuff	BELIRSIZ	cli	Y		dusuk
+Generate <https://ctaude.ai/oooe/session_011tnGxgrany5Q0oqnugiuR1>	Generate	BELIRSIZ	gurultu	N		dusuk
+GitHub <https://github.com>	GitHub	GENEL	hizmet	N		yuksek
+Herder <https://herdr.dev>	Herdr	BELIRSIZ	cli	Y		orta
+Hue <hueapp.io>	Hue	BELIRSIZ	uygulama	Y		dusuk
+Instagram <https://instagram.com/thecherno>	Instagram	GENEL	gurultu	N		yuksek
+Jev <composio.dev/jev>	Jev	BELIRSIZ	cli	Y		orta
+Loopy <Forward-Future/loopy>	Loopy	BELIRSIZ	paket	Y	Forward-Future/loopy	orta
+Make Interfaces Feel Better <jakubkrehel/make-interfaces-feel-better>	Make Interfaces Feel Better	GENEL	skill	Y	jakubkrehel/make-interfaces-feel-better	orta
+Mintimage <qinxuancai/Mintimage.pr.md>	Mintimage	BELIRSIZ	uygulama	Y	qinxuancai/Mintimage	dusuk
+Neuform <neuform.ai>	Neuform	BELIRSIZ	hizmet	N		dusuk
+Nim <nim.video>	Nim	BELIRSIZ	hizmet	N		dusuk
+Node.js <nodejs.org/en>	Node.js	GENEL	uygulama	Y	nodejs/node	yuksek
+O-USERSEARCH <O-USERSEARCH.com>	O-USERSEARCH	BELIRSIZ	cli	Y		dusuk
+ODS <osp.fyi/ods>	ODS	BELIRSIZ	gurultu	N		dusuk
+OPTIC <https://www.playgrnd.tools/optic>	OPTIC	BELIRSIZ	hizmet	N		dusuk
+Obridgesind.ai <Obridgesind.ai>	Obridgesind.ai	BELIRSIZ	hizmet	N		dusuk
+Omarchy <omarchy.org>	Omarchy	GENEL	uygulama	Y	basecamp/omarchy	orta
+OneVOneJev <emrickgarrett/OneVoneJev>	OneVOneJev	BELIRSIZ	uygulama	Y	emrickgarrett/OneVoneJev	dusuk
+OpenBot <www.copilotkit.ai/openbot>	OpenBot	BELIRSIZ	hizmet	N		dusuk
+OpenDots <www.copltit.ai/opendots>	OpenDots	BELIRSIZ	hizmet	N		dusuk
+OpenWorker <openworker.com>	OpenWorker	BELIRSIZ	hizmet	N		dusuk
+Orbit Agents <orbitagents.com>	Orbit Agents	BELIRSIZ	hizmet	N		dusuk
+Originkit <ORIGINKIT.DEV>	Originkit	BELIRSIZ	hizmet	N		dusuk
+Osmantic Deployment System (ODS) <osp.fyi/ods>	Osmantic Deployment System (ODS)	BELIRSIZ	gurultu	N		dusuk
+OverCrowd <https://bit.ly/3K9ryCX>	OverCrowd	BELIRSIZ	gurultu	N		dusuk
+PYNK <https://pynk.ai>	PYNK	BELIRSIZ	hizmet	N		dusuk
+PeachWeb <PeachWeb.io>	PeachWeb	BELIRSIZ	hizmet	N		dusuk
+ProrotipAL <http://ocalhost:3000>	ProrotipAL	BELIRSIZ	gurultu	N		dusuk
+Python <www.python.org>	Python	GENEL	uygulama	Y	python/cpython	yuksek
+SVG <http://www.w3.org/20ee/svg>	SVG	GENEL	gurultu	N		yuksek
+Shopify <shopify.com/editions/winter2026>	Shopify Editions	GENEL	gurultu	N		yuksek
+Strikeforminteractive <https://strikeforminteractive.com/products/castle-ii-environment-pack>	Castle II Environment Pack	GENEL	paket	Y		dusuk
+Swagger.io <Swagger.io>	Swagger.io (API Design Framework)	GENEL	uygulama	Y	swagger-api/swagger-ui	orta
+TDD <https://Inkd.in/dB8mKdTy>	TDD (Inkd.in)	BELIRSIZ	gurultu	N		dusuk
+Tailwind CSS <tailwindcss.com>	Tailwind CSS (Framework)	GENEL	paket	Y	tailwindlabs/tailwindcss	yuksek
+Telegram <https://t.me/+n>	Telegram (Messaging Platform)	GENEL	uygulama	Y	telegramdesktop/tdesktop	orta
+Tensor.art <https://tensor.art>	Tensor.art (AI Art Platform)	GENEL	hizmet	N		orta
+Terraform <Terraform.io>	Terraform (Infrastructure as Code)	GENEL	cli	Y	hashicorp/terraform	yuksek
+Terraform.io <Terraform.io>	Terraform.io (alternatif URL)	GENEL	cli	Y	hashicorp/terraform	yuksek
+TestFlight <testflight.apple.com>	TestFlight (iOS App Testing)	GENEL	hizmet	N		yuksek
+Three.js <https://threejs.org>	Three.js (3D Rendering Library)	GENEL	paket	Y	mrdoob/three.js	yuksek
+Tik Tok <tiktok.com>	TikTok (Social Media)	GENEL	hizmet	N		yuksek
+TinyURL <https://tinyurl.com>	TinyURL (URL Shortener)	GENEL	hizmet	N		yuksek
+TinyURL.com <https://TinyURL.com>	TinyURL.com (alternatif URL)	GENEL	hizmet	N		yuksek
+Todoist.com <Todoist.com>	Todoist.com (alternatif URL)	GENEL	hizmet	N		yuksek
+Ubuntu <releases.ubuntu.com>	Ubuntu	GENEL	uygulama	Y		yuksek
+Vast.dev <https://vask.dev/>	Vast.dev	GENEL	hizmet	N		orta
+arXiv <https://arxiv.org/abs/2412.20138>	arXiv	GENEL	hizmet	N		yuksek
+business.facebook.com <business.facebook.com>	Facebook Business Suite	GENEL	hizmet	N		yuksek
+chat bot <https://youtube.com/@chatbotxofficial>	chat bot	BELIRSIZ	gurultu	N		dusuk
+claude-blog <AgriciDaniel/claude-blog>	Claude Blog	GENEL	skill	Y	AgriciDaniel/claude-blog	orta
+codegraph <https://colbymchenry.github.io/codegraph/>	Codegraph	GENEL	cli	Y	colbymchenry/codegraph	orta
+dashboard <localhost:3741>	dashboard	BELIRSIZ	gurultu	N		dusuk
+deep-research <github.com>	deep-research	BELIRSIZ	skill	Y		dusuk
+developers.facebook.com <https://developers.facebook.com>	Facebook Developers	GENEL	hizmet	N		yuksek
+github.com/D4Vincil <github.com/D4Vincil>	D4Vincil GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/DietrichGebert <github.com/DietrichGebert>	DietrichGebert GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/bakaus <github.com/bakaus>	bakaus GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/blader <github.com/blader>	blader GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/cathynlaveny <github.com/cathynlaveny>	cathynlaveny GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/nextlevelbuilder <github.com/nextlevelbuilder>	nextlevelbuilder GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/nutlope <github.com/nutlope>	nutlope GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/rvnahorm <github.com/rvnahorm>	rvnahorm GitHub Profile	GENEL	gurultu	N		yuksek
+github.com/senlindesign <github.com/senlindesign>	senlindesign GitHub Profile	GENEL	gurultu	N		yuksek
+hooksforyou <hooksforyou>	hooksforyou	BELIRSIZ	gurultu	N		dusuk
+httpSMS Docs <https://docs.httpsms.com>	httpSMS Docs	GENEL	hizmet	N		orta
+iClone Video Mocap <https://magazine.reallusion.com/2025/10/29/iclone-video-mocap-converts-videos-into-editabl>	iClone Video Mocap	GENEL	uygulama	Y		dusuk
+ink <80-days.ink>	Ink (Inkle)	GENEL	uygulama	Y	inkle/ink	orta
+localhost:3000/api/checkout <http://localhost:3000/api/checkout>	localhost:3000/api/checkout	BELIRSIZ	gurultu	N		dusuk
+morluto/rea <GITHUB.COM/TRENDING.TODAY>	morluto/rea	BELIRSIZ	skill	Y	morluto/rea	dusuk
+userinterface.wiki <userinterface.wiki>	userinterface.wiki	GENEL	skill	Y		orta
+vIsiIcasmo.co <vIsiIcasmo.co>	vIsiIcasmo.co	BELIRSIZ	gurultu	N		dusuk

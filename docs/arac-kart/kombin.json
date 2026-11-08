@@ -29,25 +29,15 @@
 "is-akisi",
 "yt-dlp"
 ],
-"fikir-karar": [
-"pln-fikir-olgunlastir",
-"21st",
-"chrome-devtools",
-"ajn-ajan-orkestrasyon",
-"ecc-orkestrasyon-paket",
-"premiere-pro",
-"lifekernel-monthly-review",
-"pln-hedef-planlayici"
-],
 "belge": [
-"ai-labs-paket",
 "daymade-belge-finans-macos-paket",
+"ai-labs-paket",
 "markitdown",
 "summarize",
+"claude-ads:ads-report",
 "gitleaks",
 "headroom-compress",
-"semgrep",
-"departman-belge"
+"semgrep"
 ],
 "guvenlik": [
 "gitleaks",
@@ -58,6 +48,16 @@
 "playwright",
 "rea",
 "sec-guvenlik-raporu"
+],
+"fikir-karar": [
+"pln-fikir-olgunlastir",
+"ecc-orkestrasyon-paket",
+"continue-codex-work",
+"lifekernel-project-memory",
+"brainstorming",
+"design-ops:design-critique",
+"doubt-driven-development",
+"gstack-plan-ceo-review"
 ],
 "mod": [
 "blender",
@@ -74,8 +74,8 @@
 "yt-dlp"
 ],
 "site-3d": [
-"playwright",
 "frontend-craft",
+"playwright",
 "threejs-3d-paket",
 "web-sahne-desenleri",
 "gsap-skills:gsap-core",
@@ -84,9 +84,14 @@
 "gitleaks"
 ],
 "kod-backend": [
+"departman-surec-ajan-arac",
 "convex",
 "octo:droids:octo-backend-architect",
-"premiere-pro"
+"premiere-pro",
+"continue-codex-work",
+"continue-codex-work~40f5afb984",
+"backend-security-coder",
+"ecc-backend-paket"
 ],
 "render": [
 "bl-python-betik",

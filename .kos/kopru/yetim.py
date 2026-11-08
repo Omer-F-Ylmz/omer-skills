@@ -8,9 +8,11 @@ HEDEF = {"python.exe", "pythonw.exe", "node.exe", "conhost.exe", "uv.exe", "uvx.
 # zincirde bu adlardan biri canlıysa süreç bir oturuma/runner'a bağlıdır
 BAGLI_AD = ("claude", "powershell", "pwsh", "explorer", "video.exe")
 # komut satırı (süreç ya da zincirindeki herhangi biri) bunlardan birini içeriyorsa dokunulmaz
-KORUNAN = ("headroom", "omniroute", "worker-service", "bun-runner", "37777", "20190", "ucretsiz_havuz", "ajan_sira", "yonetici_gorev",
+KORUNAN = ("headroom", "omniroute", "worker-service", "bun-runner", "37777", "20190", "ucretsiz_havuz", "kurulum_d2_hata", "ajan_sira", "yonetici_gorev",
            "video764", "cc-kopru", "obsidian", "chrome", "mem_bekci", "mem-bekci", "yetim.py", "ram_bekci", "arka.py",
-           "mcp_paylasim", "mcp-proxy", "_kos.py")  # mcp-proxy havuzu bilerek ortak: altındaki MCP sunucuları yetim değil
+           "mcp_paylasim", "mcp-proxy", "_kos.py", "_sessiz_calistir", "sikistir.py", "sikistir_hizli", "sikistir_v3", "sikistir_tum", "git_sil", "wiztree", "sikistir_yardim", "kurulum_d2", "d2kur_tam", "d2kur_tur2", "skill_sar", "compact.exe", "sikistir_tam", "uyg_olc", "disk_harita", "cc_bol", "cc_tani", "wiztree", "winget", "ajan_arka", "yer_ac_sil", "kopya_birlestir", "vhdx_kucult", "model_kullanim",
+           "h3_seri", "kuyruk.py", "_zincir", "_sira_bekle", "_ram_bekle", "_reel_toplu", "sosyal-oto", "kurulum_coz", "kurulum_zincir", "kurulum_tamamla", "kurulum_checkout", "sikistir_sonra", "baslat_ayrik", "kurulum_eksik", "yok_coz", "var_yeniden", "borsa-botu", "egit_surekli", "tam_hat", "kalem_denetim", "sonnet_coz", "sonnet_coz_cwd", "-m borsa",
+           "venv-t2", "calistir_hepsi", "arka_ajan", "zincir.py", "zincir2.py", "disk_nereye", "ram_kapi", "borsa", "egit_surekli", "comfyui", "--port 8188", "af_montaj", "tts_satir", "beyin_dusun")  # mcp-proxy havuzu bilerek ortak: altındaki MCP sunucuları yetim değil
 KOK = os.path.dirname(os.path.abspath(__file__))
 LOG = os.path.join(KOK, "yetim.log")
 PS = ("Get-CimInstance Win32_Process | Select-Object ProcessId,ParentProcessId,Name,WorkingSetSize,"

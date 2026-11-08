@@ -41,7 +41,7 @@ def durma_satiri(transkriptler):
         return "-- durma: transkript yok"
     d, n = durma_orani(j)
     return (f"-- durma: {j.parent.name[-28:]}/{j.stem[:8]} son {n} adımda {d} (%{100 * d / (n or 1):.0f})"
-            + (" · ≥%30 → ara kayıt + DUR, yeni oturum" if n and d / n >= 0.3 else ""))
+            + (" · ≥%30 → ara kayıt + DUR, yeni oturum" if n >= 8 and d / n >= 0.3 else ""))
 
 
 def git(wt, *a):

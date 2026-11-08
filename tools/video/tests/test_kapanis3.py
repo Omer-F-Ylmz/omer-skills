@@ -15,6 +15,12 @@ def test_gizle_sorgu_ve_ciplak():
     assert "page=2" in g and "sort_key=1" in g and "monkey=2" in g and tr.gizle(g) == g
 
 
+def test_gizle_ortam_degiskeni_adi():
+    # IG-EKSIK-1: ANTHROPIC_AUTH_TOKEN=… gibi büyük harfli ortam değişkeni adı (önünde "_" var) kaçmıştı
+    g = tr.gizle(f"export ANTHROPIC_AUTH_TOKEN={S} OPENAI_API_KEY={S} DB_PASSWORD={S} sort_key=1 MY_VAR=2")
+    assert S not in g and g.count("[gizlendi]") == 3 and "sort_key=1" in g and "MY_VAR=2" in g
+
+
 def _z(**k):
     z = {"bahis": 0, "baglanan": 0, "aday_degil": 0, "kacan": [], "dusuk": [], "degil": [], "iz_yok": [], "konusma_yok": [],
          "erisilemedi": [], "eski_sema": []}

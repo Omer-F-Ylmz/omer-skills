@@ -17,17 +17,21 @@
  "havuz": {
   "basari": "40/40",
   "basari_yuzde": 100.0,
-  "ort_gecikme_sn": 3.8,
-  "dis_cagri": 47,
+  "ort_gecikme_sn": 8.6,
+  "dis_cagri": 56,
   "kaynak": {
-   "cloudflare": 23,
-   "groq": 15,
+   "omniroute": 1,
+   "gemini": 9,
+   "groq": 12,
+   "nvidia": 2,
+   "mistral": 13,
+   "haiku": 1,
    "openrouter": 2
   },
-  "en_buyuk_pay_yuzde": 57.5,
-  "haiku_yuzde": 0.0,
-  "hakem_dogruluk": "13/20",
-  "hakem_aile_uyumu": "7/10",
+  "en_buyuk_pay_yuzde": 32.5,
+  "haiku_yuzde": 2.5,
+  "hakem_dogruluk": "14/20",
+  "hakem_aile_uyumu": "6/10",
   "ertelenen": 0
  }
 }

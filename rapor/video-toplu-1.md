@@ -1,0 +1,7 @@
+# VIDEO-TOPLU-1 (3 Kas 06:15), DUR: kapı geçmedi, toplu koşu başlatılmadı
+- Birleşik kuyruk hazır: `.kos/kopru/arka/video-toplu-1-kuyruk.txt` = 740 link (543 YouTube · 197 IG). Kaynak: arka/derin-eksik.txt 877 → 322 zaten docs/video-tarama/derin'de, 9 ig-silinen, 546 kuyruğa; yeni-linkler 194 tekil (1 YT + 193 IG), hiçbiri derinde/eksik listede yok → 194 kuyruğa. Ömer'in NOT satırı yok (dosyada yalnız başlık yorumları; NOT satırı çıkmadı).
+- Kapı (28 Eki): derin-hiz-3 TUR 5c (31 Eki) sonu: benzerlik ≥0,96 → 5/8 + 2 link referans hatası (dublaj ses izi, `format_note*=original` ile düzeldi, 0,972/1,000); 10 linkte hata 0 ve %100 örtüşme tek koşuda gösterilmedi; hız 20–68 sn/link ≈ 53–180 link/sa < 300 link/sa. Hız turu (Groq/Gemini ücretsiz ASR havuzu, aynı VAD) yapılmadı.
+- 180 sn takılma: kök neden KANITLANMADI. Kanıt: tek linkte tekrarlanmıyor (0_3A 31–48 sn), toplu koşuda -o8h/5LL 2×180 sn; yt-dlp altyazı 429 + aralıklı 403, batched generate'te py-spy takılması (GPU paylaşımlı). Aday: altyazı.getir 2×60 sn bekleme + 429; çözüm adayı: ASR alt süreç zaman aşımı + `--es 1`.
+- Bu oturumda ajan başlatma reddedildi (haftalık pencere %94), hız turu için bütçe yok.
+- Sonraki: (1) ses izi sabitlemeyi video_derin.py'ye al, (2) Groq'a VAD segmentli gönderim + paralel işçi ile 10 link ölçümü (≥300/sa, ≥0,96, hata 0), (3) geçince: `python tools/video_derin.py --es 2 --en 150 --liste .kos/kopru/arka/video-toplu-1-kuyruk.txt` toplu_gozetmen ile, VRAM ≤5 GB/işçi.
+- Commit yok; C: üzerindeki DeepSeek indirmesine dokunulmadı.

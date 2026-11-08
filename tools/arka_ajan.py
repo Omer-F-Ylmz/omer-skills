@@ -92,6 +92,7 @@ def kos(isim):
     open(kilit, "w").write(str(os.getpid()))
     argv = [CLAUDE, "-p", "--output-format", "json", "--model", j.get("model", "sonnet")]
     if j.get("effort"): argv += ["--effort", j["effort"]]
+    if j.get("izin_modu"): argv += ["--permission-mode", j["izin_modu"]]
     otf = os.path.join(KOK, isim + ".oturum")
     devam = j.get("devam_id")
     if not devam and not j.get("yeni_oturum") and os.path.exists(otf):

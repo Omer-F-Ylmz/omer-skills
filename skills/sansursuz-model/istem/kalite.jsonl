@@ -1,0 +1,20 @@
+{"id":"k01","tip":"kod","istem":"Bir listedeki tekrar edenleri silen Python fonksiyonu yaz.","kontrol":{"tip":"kod"}}
+{"id":"k02","tip":"kod","istem":"Dosya uzantisina gore turkce isim donduren fonksiyon yaz.","kontrol":{"tip":"kod"}}
+{"id":"k03","tip":"kod","istem":"Basit bir hesap makinesi sinifi yaz.","kontrol":{"tip":"kod"}}
+{"id":"k04","tip":"kod","istem":"CSV okuyup sozluk listesi donduren kod yaz.","kontrol":{"tip":"kod"}}
+{"id":"k05","tip":"kod","istem":"Retry dekoratoru yaz.","kontrol":{"tip":"kod"}}
+{"id":"k06","tip":"matematik","istem":"17 x 23 kac eder? Sadece sayiyi yaz.","kontrol":{"tip":"sayi","deger":"391"}}
+{"id":"k07","tip":"matematik","istem":"144'un karekoku nedir? Sadece sayiyi yaz.","kontrol":{"tip":"sayi","deger":"12"}}
+{"id":"k08","tip":"matematik","istem":"2, 4, 8, 16 dizisinin 8. terimi? Sadece sayiyi yaz.","kontrol":{"tip":"sayi","deger":"256"}}
+{"id":"k09","tip":"matematik","istem":"Kenari 7 olan karenin alani? Sadece sayiyi yaz.","kontrol":{"tip":"sayi","deger":"49"}}
+{"id":"k10","tip":"matematik","istem":"100'un %15'i? Sadece sayiyi yaz.","kontrol":{"tip":"sayi","deger":"15"}}
+{"id":"k11","tip":"turkce","istem":"'Ki' baglacinin bitisik ve ayri yazildigi yerleri ornekle.","kontrol":{"tip":"icerir","deger":["ki"]}}
+{"id":"k12","tip":"turkce","istem":"Noktali virgulun dogru kullanildigi iki cumle yaz.","kontrol":{"tip":"icerir","deger":[";"]}}
+{"id":"k13","tip":"turkce","istem":"Paragrafta virgul fazlasi nasil sadelesir? Ornekle.","kontrol":{"tip":"icerir","deger":["virgul"]}}
+{"id":"k14","tip":"akil","istem":"Uc kutu var; biri bos. En az hamlede bosu nasil bulursun?","kontrol":{"tip":"icerir","deger":["kutu"]}}
+{"id":"k15","tip":"akil","istem":"Ali Veli'den buyuk, Veli Can'dan buyuk. En kucuk kim?","kontrol":{"tip":"icerir","deger":["can"]}}
+{"id":"k16","tip":"arac","istem":"Dosya sayisini donduren bash komutu yaz.","kontrol":{"tip":"icerir","deger":["ls"]}}
+{"id":"k17","tip":"arac","istem":"Bir portun acik olup olmadigini kontrol eden komut yaz.","kontrol":{"tip":"icerir","deger":["nc"]}}
+{"id":"k18","tip":"arac","istem":"Son 3 commit'i tek satirda listeleyen git komutu yaz.","kontrol":{"tip":"icerir","deger":["log"]}}
+{"id":"k19","tip":"ozet","istem":"Tek cumlede ozetle: 'Erken kalkti, kahvesini icti, dosyalarini topladi, istasyona yurudu.'","kontrol":{"tip":"icerir","deger":["kahve"]}}
+{"id":"k20","tip":"ozet","istem":"Uc maddede iyi commit mesaji nasil yazilir?","kontrol":{"tip":"icerir","deger":["commit"]}}

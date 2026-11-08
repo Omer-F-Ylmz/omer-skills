@@ -42,6 +42,10 @@ Teslim = kahraman render (brief çözünürlüğü, Cycles + denoise) + GLB + `t
 - **Durma kuralı:** v1 teslim + kapı geçtiyse en fazla 1 iyileştirme turu (teslimi yeniden üretir), sonra dur ve raporla: teslim yolları · dogrula çıktısı · açık maddeler.
 - Eleştiri turları (≤3; madde listesi + evet/hayır teyidi; referansta silüet IoU ≥ 0.90 öneri) yalnız kullanıcı isterse.
 
+## Metin→3D varlık (Hunyuan3D Space, ücretsiz)
+Hazır araç: `araclar\hunyuan3d\uret.py "<nesne>" <ad>.glb` (venv: `araclar\hunyuan3d\.venv`). Space `tencent/Hunyuan3D-2` metin→3D'yi kapatmış; betik önce metinden görsel (pollinations, anahtarsız), sonra görselden GLB üretir (HF_TOKEN env'den, değer yazılmaz). Gerçek koşu: "coffee cup" → 10,6 MB GLB (şekil, dokusuz; HF kotası/ZeroGPU kuyruğu yüzünden dakikalar sürebilir).
+Sonra temizleme (F7): `blender -b -P tools/blender/varlik_temizle.py -- ham.glb temiz.glb [yükseklik_m=0.1] [üçgen=20000]` (tek mesh, gerçek ölçü, taban z=0, merkez 0, Decimate, smooth, GLB; son satır JSON: yüz/boyut). Gerçek koşu: fincan 417 210 → 20 000 yüz, 0,155×0,132×0,100 m, 352 KB. Dokusuz şekil: doku için Space'in `generation_all` ucu ya da Blender'da PBR malzeme (blender-agent-skills). Lisans: Tencent Hunyuan Community License (AB/BK/G.Kore hariç); `docs/kurulumlar/hunyuan3d.md`.
+
 ## Görüntü disiplini
 
 - Kendi kontrol render'ın ≤512 px (Workbench/Eevee); kontrol görüntülerine en fazla 3 Read.

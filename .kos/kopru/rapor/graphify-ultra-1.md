@@ -16,3 +16,6 @@ Katalog: kullanılan [graphify_sor, onay betiği kalıbı (jev_1_uygula), zip_de
 - d6 G6: graphify-desktop SKILL.md'ye kompakt sorgu + keşif sırası bölümü; dist/graphify-desktop.zip (SKILL.md + scripts/graphify_sor.py) zip_denetle TEMİZ, paketli betik zip'ten açılıp koştu; atlas kart.jsonl'a graphify_sor kartı. ~/.claude/skills/graphify zaten 0.9.88; eski olan ~/.agents/skills/graphify 0.9.57 → onay: `python .kos/kopru/onay/graphify_ultra_1_uygula.py` (--kuru temiz; --geri var). claude.ai: zip'i Ömer yükler.
 - Yapılmadı: G0 izleme koşusu (d7, 15 Eki 21–23), .graphifyignore --tam doğrulaması (RAM), BİTTİ. Devir: devir/graphify-ultra-1-devam.md
 - claude -p: d5 2/2 (profil:1, telve:1), $1.15.
+- d2 (28 Eki, zincir): G0 izleme koşusu: 79 transkript · keşif 1072 çağrı · 353k jeton · graf yanıtlardı 2k (%1); tam Read payı 41k/353k = %11.6 (taban %34 → düştü). rtk-read 145k + rtk-grep 121k hâlâ ana kalem.
+- G5 tekrar KOŞULMADI: 3 deneme (d3, d5, ab5) kök neden aynı kanıtlı (tur başına ~60k sabit bağlam); aynı tasarımla 4. koşu kanıt eklemez. Kanca ÖNERİSİ yapılmadı (kapı geçmedi). RAM %86.7 → .graphifyignore --tam atlandı (<%70 koşulu).
+- Durum: BİTTİ (G5 GEÇMEDİ notuyla).

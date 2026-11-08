@@ -1,0 +1,83 @@
+kalem	tur	yonlendirme	neden
+Backgrounds Supply	site	varlik-site	ucretsiz arka plan gorselleri
+Freepik.com	site	varlik-site	vektor/foto/ikon; ucretsiz katman
+Free Faces Gallery	site	varlik-site	ucretsiz font galerisi
+Figma Community	site	varlik-site	UI kit, sablon, plugin
+Designbomb	site	varlik-site	ucretsiz tasarim kaynaklari
+1000+ Design Tools	site	varlik-site	tasarim araclari derlemesi
+opengameart.org	site	varlik-site	oyun icin ucretsiz sprite/ses/3d (oyun modu)
+Lummi	site	varlik-site	ucretsiz AI stok foto
+Unsplash	site	varlik-site	ucretsiz stok foto
+Storyset.com	site	varlik-site	animasyonlu ucretsiz illustrasyon
+UI8	site	varlik-site	UI kit (cogu ucretli; ucretsizleri ayikla)
+Pangram Pangram	site	varlik-font	kaliteli fontlar, deneme lisansi
+Catppuccin	palet	varlik-gradyan	acik kaynak renk paleti/tema
+POIMANDRES	palet	varlik-gradyan	koyu tema paleti
+Rose Pine	palet	varlik-gradyan	acik kaynak tema paleti
+Solarized Light	palet	varlik-gradyan	klasik palet
+OFL-1.1	lisans	varlik-font	font indirirken kabul edilecek lisans filtresi
+Reallusion Content Store	site	hesap-kuyrugu	karakter/animasyon varliklari, hesap ister
+Reallusion Tutorials	ogrenme	ders-bankasi	iClone/CC karakter dersleri
+polygoniq	site	varlik-3d	Blender asset paketleri
+Blender Studio	site	varlik-3d	acik film dosyalari, rig, egitim (hesap: bazi icerik)
+Higgs field assets	site	varlik-site	Higgsfield MCP zaten bagli; oradan
+Shutterstock	site	not	ucretli; sadece referans
+awesome-react	repo	awesome-rehber	React ekosistem listesi
+Cloudflare/clef	repo	kurulum-aday	clef + clef-flash + Tijo2000/clef-decision-demo
+convaiinnovations/laya	repo	kurulum-aday	video icindeki adla eslesen repo
+axolotl	repo	kurulum-aday	LLM fine-tune (model indirmez; arac)
+langchain-ai	org	kurulum-aday	langgraph vb; video baglamina gore tek repo sec
+HKUDS	org	kurulum-aday	LightRAG/AI-Researcher vb; baglamdan tek repo
+multica-ai	org	kurulum-aday	andrej-karpathy-skills (skill reposu)
+ilabai/3dcodeverse	repo	kurulum-aday	3d kod ornekleri
+n8nio/n8n	repo	mevcut-kontrol	n8n kurulu; sablonlar icin
+realworld	repo	ders-bankasi	ayni uygulamanin 100+ stack ornegi
+Heroic Labs (Nakama)	repo	kurulum-aday	oyun backend sunucusu (oyun modu)
+nano-pdf	repo	kurulum-aday	PDF araci
+himalaya	repo	kurulum-aday	terminal e-posta istemcisi (CLI)
+Seed-TTS	api	not	acik agirlik yok (7 Kas kontrol): Seed TTS 2.0 yalniz Volcengine/Doubao bulut API; yerel kurulacak sey yok. Acik muadil: ByteDance/MegaTTS3 (HF agirlikli) -> ses turu adayi
+xai/grok-imagine-video	api	not	API; hesap ister
+skills/manim-video	skill	kurulum-aday	manim ile video skill
+nanochat	repo	kurulum-aday	karpathy nanochat; ogrenme + kucuk LLM egitimi (model indirmez)
+storm-research/SKILL	skill	kurulum-aday	Stanford STORM arastirma skill'i
+Paperclip Agents	repo	kurulum-aday	paperclip ajan orkestrasyonu
+Spacedrive	uygulama	kurulum-aday	dosya yoneticisi uygulamasi (kural: atilan her sey kurulur)
+Obsidian Canvas	format	mevcut-kontrol	JSON Canvas ile ayni; obsidian-paket var
+JSON Canvas	format	ders-bankasi	acik canvas formati
+Typst	arac	kurulum-aday	LaTeX alternatifi (TeX Live yerine, kucuk)
+AI4Finance-Foundation (FinRL)	repo	borsa	RL ile trading cercevesi
+nautechsystems (NautilusTrader)	repo	borsa	uretim seviyesi backtest/canli motor
+stefan-jansen (ML for Trading)	repo	borsa	kitap kodlari, ozellik muhendisligi
+TauricResearch (TradingAgents)	repo	borsa	cok-ajanli trading arastirma cercevesi
+virattt (ai-hedge-fund)	repo	borsa	LLM ajan hedge fund ornegi
+TraderAlice	repo	borsa	video baglamindaki trading ajani
+NIXTLA	repo	borsa	statsforecast/neuralforecast zaman serisi tahmini
+Alpaca	api	borsa+hesap-kuyrugu	ABD hisse/kripto API, paper trading
+Interactive Brokers	api	borsa+hesap-kuyrugu	TWS API
+Quant Lab / STRATEGY LIBRARY / STRATEGY REGISTRY	kavram	borsa	strateji kayit defteri fikri (borsa botuna yapi onerisi)
+Apify Google Maps Email Extractor	servis	hesap-kuyrugu	lead uretimi actor
+Apify Google Search Results Scraper	servis	hesap-kuyrugu	SERP actor
+Apify RAG Web Browser	servis	hesap-kuyrugu	ajan icin web okuma actor
+DashScope	api	hesap-kuyrugu	Alibaba Qwen API
+Mailgun	api	hesap-kuyrugu	transactional e-posta
+Email Support Agent w/ Gemini & GPT fallback using Gmail + Google Sheets	n8n-sablon	n8n	hazir n8n akisi
+Upwork scrape apply system	n8n-sablon	n8n	is ilani tarama akisi
+crAPI	repo	guvenlik-lab	OWASP kasitli zafiyetli API (kendi lab)
+OWASP Juice Shop	repo	guvenlik-lab	kasitli zafiyetli web uygulamasi (kendi lab)
+OWASP Cheat Sheets	ogrenme	guvenlik	site guvenligi kontrol listeleri
+DEF CON	ogrenme	guvenlik	konusma arsivi
+KVKK	uyum	guvenlik+hukuk	Turk siteleri icin veri koruma kontrol listesi
+HIPAA	uyum	guvenlik+hukuk	saglik verisi uyumu (gerekirse)
+WWDC18 Designing Fluid Interfaces	ogrenme	ders-bankasi	hareket/jest tasarimi klasigi
+Emil Kowalski	ogrenme	ders-bankasi	animasyon/UI muhendisligi
+Premium Animation Mastery	ogrenme	ders-bankasi	animasyon kursu
+GSAP Site of the Year / Site of the Day	ogrenme	tasarim-katalog	referans site arsivi
+Wikipedia:Signs of AI writing	ogrenme	yazi-kurali	AI yazi izleri; antislop kurallarina ekle
+WikiProject AI Cleanup	ogrenme	yazi-kurali	ayni kaynak
+schema.org	ogrenme	seo	yapisal veri
+ContinualLearningBench1.0	benchmark	ml-eval	surekli ogrenme olcumu
+The New Rules of Context Engineering for Claude 5 Models	makale	ders-bankasi	baglam muhendisligi
+Ogilvy on Advertising	kitap	reklam	reklam metni klasigi
+three blue, one brown / StatQuest / Krish Naik / Ken Jee 66daysofdata / DataProfessor / NetworkChuck	youtube	video-tarama	ogrenme kanallari (istege bagli tarama)
+Turing Post / Thinking Machines	bulten	arastirma	AI arastirma takibi
+StackBlitz Labs	arac	not	bolt.new; web

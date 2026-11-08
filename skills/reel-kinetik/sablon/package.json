@@ -1,0 +1,2 @@
+{"name":"reel-kinetik","private":true,"version":"1.0.0","scripts":{"render":"remotion render src/index.tsx Reel out/reel.mp4 --props=reel.json"},
+"dependencies":{"remotion":"^4.0.0","@remotion/cli":"^4.0.0","react":"^18.3.1","react-dom":"^18.3.1"},"devDependencies":{"@types/react":"^18.3.0","typescript":"^5.5.0"}}

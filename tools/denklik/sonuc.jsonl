@@ -1,0 +1,12 @@
+{"id": "a65d87cb", "tur": "kod-backend", "katman": "ucretsiz", "aday": "groq/openai/gpt-oss-20b", "puan": 7.5, "hakemler": [[0, "openai"], [15, "nvidia"]], "anlasmazlik": 15, "denk": false}
+{"id": "c648e209", "tur": "belge", "katman": "ucretsiz", "aday": "groq/openai/gpt-oss-20b", "puan": 50.0, "hakemler": [[100, "openai"], [0, "google"]], "anlasmazlik": 100, "denk": false}
+{"id": "a65d87cb", "tur": "kod-backend", "katman": "ucretsiz", "aday": "gemini/gemini-3.6-flash", "puan": 50.0, "hakemler": [[0, "openai"], [100, "google"]], "anlasmazlik": 100, "denk": false}
+{"id": "77d5863d", "tur": "kod-backend", "katman": "ucretsiz", "aday": "groq/openai/gpt-oss-20b", "puan": 50.0, "hakemler": [[100, "openai"], [0, "google"]], "anlasmazlik": 100, "denk": false}
+{"id": "d292affe", "tur": "belge", "katman": "ucretsiz", "aday": "groq/openai/gpt-oss-120b", "puan": 13.5, "hakemler": [[12, "openai"], [15, "nvidia"]], "anlasmazlik": 3, "denk": false}
+{"id": "c648e209", "tur": "belge", "katman": "ucretsiz", "aday": "groq/openai/gpt-oss-20b", "puan": 100.0, "hakemler": [[100, "openai"]], "anlasmazlik": null, "denk": true}
+{"id": "10305e4f", "tur": "video", "katman": "ucretsiz", "aday": "groq/openai/gpt-oss-20b", "puan": 0.0, "hakemler": [[0, "openai"]], "anlasmazlik": null, "denk": false}
+{"id": "a3a1c2b7", "tur": "site-3d", "katman": "ucretsiz", "aday": "mistral/ministral-8b-latest", "puan": 65.0, "hakemler": [[100, "openai"], [30, "google"]], "anlasmazlik": 70, "denk": false}
+{"id": "b7d0b8f6", "tur": "site-3d", "katman": "ucretsiz", "aday": "omniroute/cc-ucuz-free", "puan": 2.5, "hakemler": [[5, "karma"], [0, "openai"]], "anlasmazlik": 5, "denk": false}
+{"id": "a6bcc35a", "tur": "site-3d", "katman": "ucretsiz", "aday": "mistral/ministral-8b-latest", "puan": 11.0, "hakemler": [[22, "openai"], [0, "google"]], "anlasmazlik": 22, "denk": false}
+{"id": "d66f0e64", "tur": "kurulum", "katman": "ucretsiz", "aday": "mistral/ministral-8b-latest", "puan": 92.5, "hakemler": [[85, "openai"], [100, "google"]], "anlasmazlik": 15, "denk": false}
+{"id": "8d9ba144", "tur": "araştırma", "katman": "ucretsiz", "aday": "mistral/ministral-8b-latest", "puan": 60.0, "hakemler": [[100, "openai"], [20, "google"]], "anlasmazlik": 80, "denk": false}

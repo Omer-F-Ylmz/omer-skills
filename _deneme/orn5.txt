@@ -1,0 +1,30 @@
+0 claude-devfleet | plugi | swarm, is-akisi | Orchestrate multi-agent coding tasks via Claude DevFleet — plan projects, dispatch paralle
+1 cc-blender-skill | arast | konu | yargı  · UYARLA F2 (KAYNAK-TARAMA-BLENDER)
+2 herdr-paket | skill | is-akisi | Herdr ajan çalışma alanı yönetimi: herdr, herdr pre release audit…
+3 idea-refine / brainstormin | skill | çekirdek-araç | ham fikri keskinleştirir
+4 prompt-teknoloji-dosya | arast | konu | yargı KUR · madde eklendi: 25. site/UI yapım promptlarında: Site/arayüz yaptırırken prompt
+5 ecc | plugi | is-akisi, hakem | çok ajanlı orkestrasyon kalıpları
+6 meng-to-skills-awards-qual | arast | konu | yargı  · UYARLA (Ömer, panel)
+7 CC kendi | yerel | çekirdek-araç | alt ajan tanımı, kanca, çıktı stili
+8 gstack | plugi | çekirdek-araç | rol bazlı plan/inceleme/QA ajanları
+9 observability-design | plugi | swarm | Making multi-agent workflows visible and debuggable for designers and developers.
+10 herdr | skill | is-akisi | Control Herdr, a terminal multiplexer for coding agents. Use only when the user explicitly
+11 phoenix-* | skill | is-akisi, ajan | bitiş kapısı ve doğrulama matrisi
+12 Multi-Agent Systems Archit | ajan | swarm | Multi-agent AI pipeline architect: topology, context management, inter-agent trust, failur
+13 claude-usage/terminal-ozet | arast | konu | yargı KUR · bekleyen/claude-usage.md (14b yapılandırılmış kurulum planı; Ömer ONAY verene 
+14 glb-dosya-boyutu-seçimi-2m | arast | konu | yargı UYARLA · şablon: departman-frontend `- asset:` 3D varlık bütçesi (~2 MB)
+15 design-agent-orchestration | plugi | swarm, is-akisi | Design multi-agent systems, handoffs between AI agents, and human-in-the-loop workflows.
+16 santa-method | plugi | swarm | Multi-agent adversarial verification: two independent reviewers with the same rubric must 
+17 hook-development | plugi | hook | This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostToo
+18 plan-orchestrate | plugi | is-akisi | Read a plan document, decompose it into steps, classify each step, and emit the ready-to-p
+19 azure-app-onboard | plugi | is-akisi, ajan | End-to-end orchestrator: from a business idea, app idea, or existing app to running Azure 
+20 iterative-retrieval | plugi | ajan | Pattern for progressively refining context retrieval to solve the subagent context problem
+21 writing-rules | skill | hook | This skill should be used when the user asks to "create a hookify rule", "write a hook rul
+22 kural-loop-anatomisi-plan- | arast | konu | yargı KUR · BİRLEŞTİR → omer-kurallar:10 iterasyon cümlesi (Ömer, 24 Eyl)
+23 claude-automation-recommen | plugi | ajan | Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugin
+24 autonomous-loops | plugi | swarm | Patterns and architectures for autonomous Claude Code loops — from simple sequential pipel
+25 delivery-execution | plugi | is-akisi | Drive delivery: cycle orchestration, risk registers, blocker triage, launch readiness, and
+26 gateguard | plugi | hook | PreToolUse fact-forcing gate that denies the first Edit/Write/Bash (including MultiEdit) a
+27 dotnet-test | plugi | ajan | Skills for running, generating, analyzing, and improving .NET tests: test execution, filte
+28 ajn-ajan-orkestrasyon | ajan | swarm, is-akisi | Designs multi-agent flows with roles, handoffs, state and human approval points
+29 hookify | plugi | hook, ajan | Easily create hooks to prevent unwanted behaviors by analyzing conversation patterns

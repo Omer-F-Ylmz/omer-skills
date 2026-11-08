@@ -9,7 +9,7 @@ COMFY = Path(r"C:\AI\ComfyUI")
 CIKTI = Path(__file__).resolve().parent.parent / "tmp" / "yerel-medya"
 SUNUCU = "http://127.0.0.1:8188"
 RAM_TAVAN_GB = 28.5  # toplam RAM %89
-VRAM_TAVAN_MIB = 9800  # %80
+VRAM_TAVAN_MIB = 11637  # %95 (Ömer 02.11; önce 9800 = %80)
 
 
 def vram_mib():

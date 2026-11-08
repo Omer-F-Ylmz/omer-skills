@@ -1,0 +1,30 @@
+0 marketing-council | plugi | hakem | When the user wants multiple expert perspectives on a marketing question — a simulated board of advi
+1 santa-method | plugi | swarm | Multi-agent adversarial verification: two independent reviewers with the same rubric must both pass 
+2 multimodal-orchestration | plugi | is-akisi | Coordinating text, image, voice, and tool-use modalities in a single interaction.
+3 writing-rules | skill | hook | This skill should be used when the user asks to "create a hookify rule", "write a hook rule", "confi
+4 orch-pipeline | plugi | is-akisi | Shared orchestration engine behind the orch-* skill family — the gated Research-Plan-TDD-Review-Comm
+5 subagent-driven-developmen | plugi | ajan | 
+6 delivery-execution | plugi | is-akisi | 5 skill · 2 komut · 0 ajan · 0 MCP · açık — Drive delivery: cycle orchestration, risk registers, blo
+7 commercial-legal | plugi | ajan | Reviews vendor agreements, NDAs, and SaaS subscriptions against your sales-side or purchasing-side p
+8 sentry-create-alert | skill | is-akisi | Create Sentry alerts using the workflow engine API.
+9 observability-design | plugi | swarm | Making multi-agent workflows visible and debuggable for designers and developers.
+10 benchmark-models | skill | hakem | Cross-model benchmark for gstack skills. (gstack)
+11 Writing Hookify Rules | plugi | hook | This skill should be used when the user asks to "create a hookify rule", "write a hook rule", "confi
+12 octo-paket | skill | is-akisi | 56 skill'lik paket (Octo ajan iş akışları). Konu bu alandaysa önce bu dizini aç, uygun alt skill'in 
+13 oh-my-issues | skill | çekirdek-araç | backlog'u kök nedene göre kümeler
+14 superpowers-subagent-drive | skill | ajan | 
+15 blueprint | plugi | swarm | Turn a one-line objective into a step-by-step construction plan for multi-session, multi-agent engin
+16 Multi-Agent Systems Archit | ajan | swarm | Multi-agent AI pipeline architect: topology, context management, inter-agent trust, failure recovery
+17 OmniRoute | cli | hakem | çoklu model yönlendirme ve yedekleme
+18 phoenix-orchestrator | plugi | is-akisi, ajan | Run the full Phoenix Security spec pipeline (roles 01–10) from raw context to a ship-ready PRD — aut
+19 cli-a2a | skill | hakem | Interact with the OmniRoute A2A server from the CLI. Send tasks, inspect skill execution history, an
+20 ecc | plugi | is-akisi, hakem | çok ajanlı orkestrasyon kalıpları
+21 sys-configure | plugi | is-akisi | Configure Claude Octopus — redirects to /octo:setup interactive wizard
+22 flow-define | plugi | is-akisi | Multi-AI requirements scoping using available external providers (Double Diamond Define phase). Prio
+23 gsd-paket | skill | is-akisi | GSD: planlama, yürütme ve doğrulama iş akışı: gsd add tests…
+24 autoharness | plugi | ajan | Per-symbol maintenance optimizer for an agent's skill layer — learns skills from real runs and keeps
+25 ruflo | mcp | ogrenen-bellek | ReasoningBank desen belleği (HNSW)
+26 orchestration | plugi | is-akisi, ajan | Routing doctrine for the architect-as-orchestrator pattern — how the session (on whatever model the 
+27 code-mode (UTCP) | cli | çekirdek-araç | araç zincirini tek JS çağrısına indirir
+28 headroom | cli | çekirdek-araç | çıktı sıkıştırma
+29 gstack | plugi | çekirdek-araç | rol bazlı plan/inceleme/QA ajanları

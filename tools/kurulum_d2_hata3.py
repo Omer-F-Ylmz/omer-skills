@@ -86,8 +86,10 @@ def bolum_misc():
 
 def bolum_ebusy():
     """Sıkıştırma (compact.exe) sürerken npm rename EBUSY verir: 3 deneme + 30 sn; hâlâ EBUSY ise HATA değil, SIKISTIRMA-SONRASI-YENIDEN."""
+    D.NPMDIR = D.NPMDIR.parent / "ana-liste-npm-2"
+    D.NPMDIR.mkdir(exist_ok=True)
     ilk = True
-    for r in [r for r in son().values() if hata(r, r"EBUSY")]:
+    for r in [r for r in son().values() if r["durum"] == "SIKISTIRMA-SONRASI-YENIDEN" or hata(r, r"EBUSY")]:
         ad = r["kaynak"].split(":", 1)[1] if r["kaynak"].startswith("npm:") else None
         d = Path(r["yol"]) if r["yol"] else None
         hedef = ad or str(d)
@@ -103,6 +105,7 @@ def bolum_ebusy():
         if c:
             yaz(r, "HATA", "npm: " + D.npm_kok(o)[:120], D.npm_kok(o)[:250]); continue
         ok, n = D.npm_dogrula(ad) if ad else (True, "npm install ok")
+        n = f"ana-liste-npm-2 (ana-liste-npm/node_modules/iobroker.discovery klasör tutamacıyla kilitli); {n}"
         yaz(r, "KURULDU" if ok else "HATA", n, n)
 
 

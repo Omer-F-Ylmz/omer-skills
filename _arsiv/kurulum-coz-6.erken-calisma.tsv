@@ -1,0 +1,1550 @@
+kalem	sinif	sonuc	kaynak	puan	yol	gerekce
+Basic 2.0	MODEL	YOK	-	0	-	arama yapilmadi
+CPM-0.5B	MODEL	YOK	-	0	-	arama yapilmadi
+Claude 3.5 Haiku	MODEL	YOK	-	0	-	arama yapilmadi
+Claude Opus 3.5	MODEL	YOK	-	0	-	arama yapilmadi
+Codex II	MODEL	YOK	-	0	-	arama yapilmadi
+DALA 2	MODEL	YOK	-	0	-	arama yapilmadi
+Dreamina	MODEL	YOK	-	0	-	arama yapilmadi
+Dreamina Seedance 2.0	MODEL	YOK	-	0	-	arama yapilmadi
+DumplingA	MODEL	YOK	-	0	-	arama yapilmadi
+ERNIE X1	MODEL	YOK	-	0	-	arama yapilmadi
+Fable 5.1 Medium	MODEL	YOK	-	0	-	arama yapilmadi
+GLM-5.0	MODEL	YOK	-	0	-	arama yapilmadi
+Google Gemini Chat Model	MODEL	YOK	-	0	-	arama yapilmadi
+Gpt 2.0 Image	MODEL	YOK	-	0	-	arama yapilmadi
+HappyHorse-1.0	MODEL	YOK	-	0	-	arama yapilmadi
+Hedra	MODEL	YOK	-	0	-	arama yapilmadi
+Hermes Apollo	MODEL	YOK	-	0	-	arama yapilmadi
+Hevy	MODEL	YOK	-	0	-	arama yapilmadi
+Hunyuan Image-to-Video	MODEL	YOK	-	0	-	arama yapilmadi
+Luma	MODEL	YOK	-	0	-	arama yapilmadi
+MetaMovieGen	MODEL	YOK	-	0	-	arama yapilmadi
+MuseSpark 1.2	MODEL	YOK	-	0	-	arama yapilmadi
+N8.0	MODEL	YOK	-	0	-	arama yapilmadi
+NeuralFrames	MODEL	YOK	-	0	-	arama yapilmadi
+Neurat	MODEL	YOK	-	0	-	arama yapilmadi
+Opus	MODEL	YOK	-	0	-	arama yapilmadi
+Opus 4.8 High	MODEL	YOK	-	0	-	arama yapilmadi
+P2.0-Preview	MODEL	YOK	-	0	-	arama yapilmadi
+Perplex	MODEL	YOK	-	0	-	arama yapilmadi
+Phi-3	MODEL	YOK	-	0	-	arama yapilmadi
+Pika	MODEL	YOK	-	0	-	arama yapilmadi
+Pika 2.5	MODEL	YOK	-	0	-	arama yapilmadi
+Ponytau	MODEL	YOK	-	0	-	arama yapilmadi
+QAN3-Coder Next	MODEL	YOK	-	0	-	arama yapilmadi
+Qwen	MODEL	YOK	-	0	-	arama yapilmadi
+Qwen3.8 Max	MODEL	YOK	-	0	-	arama yapilmadi
+R2	MODEL	YOK	-	0	-	arama yapilmadi
+Rodin 2.5	MODEL	YOK	-	0	-	arama yapilmadi
+SONA	MODEL	YOK	-	0	-	arama yapilmadi
+SeedAudio 1.0	MODEL	YOK	-	0	-	arama yapilmadi
+Sonnet 5 Medium	MODEL	YOK	-	0	-	arama yapilmadi
+THU-MAIC/OpenMAIC	MODEL	YOK	-	0	-	arama yapilmadi
+Wan 2.7	MODEL	YOK	-	0	-	arama yapilmadi
+Wan3.0	MODEL	YOK	-	0	-	arama yapilmadi
+ZJU3DV	MODEL	YOK	-	0	-	arama yapilmadi
+coli	MODEL	YOK	-	0	-	arama yapilmadi
+gemini-3-flash-grounding	MODEL	YOK	-	0	-	arama yapilmadi
+gemini-3-flash-preview	MODEL	YOK	-	0	-	arama yapilmadi
+gemini-3-pro-grounding	MODEL	YOK	-	0	-	arama yapilmadi
+ghcr.io/styles01/qwen38-flash-next:q4	MODEL	YOK	-	0	-	arama yapilmadi
+grok-4.20-beta1	MODEL	YOK	-	0	-	arama yapilmadi
+qinxuancai/Mintimage	MODEL	YOK	-	0	-	arama yapilmadi
+xai/grok-imagine-video/extend-video	MODEL	YOK	-	0	-	arama yapilmadi
+Grok Imagine Image 2.0	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Hermes Skills Hub	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Strategy agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+SuperhumanGo	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Tactiq	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+UGC skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Visual Skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+YouTube AI Agent Studio	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+YourSenior	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add_camera	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+apify/instagram-scraper	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+ad-promper	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+backend-engineer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude --version	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude-skils	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+cline-settings	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+delegate_task	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+finance:financial-modeling	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+hook-arsenal	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+hubbench	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+human IK	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+investment-banking	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+networksetup	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+nxcode	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+product visual skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+requestVideoFrameCallback	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+soma analyze	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+social-research	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+static-ad-generator	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+support agent plugin	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+30s Token Tax Calculator	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+3D Property Configurator	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+3DNFTGenerator	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+88Plugins	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+@pletor_ai MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AARMATURE	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Home Renovation Agent with NanoBanana	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Host+ Order Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Movie Generator Agent (Browser)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Ops + Reporting Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Retention + Sales Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Service Advisor Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Video & Carousel Generator	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AI-UGC Skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AIStoryAgent	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+API Authorization Chaos Tester	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+AccuPOSE	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Ad Generator (/ad-generator)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Ad Hook Analyzer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Adobe for Claude	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Advisor (/advisor)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Agent 327 Animation Toolset	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Agent Skill OnenClaw	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+All Agents Pack	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Apple tasarım dili skill'i	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Area Insights Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+AskDeepWiki	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Audio Overview	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Aurelio	MODEL	YOK	-	0	-	arama yapilmadi
+BlendSwap MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Build-Write the code	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Built-in Assistant	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Buzzy MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CLAUOECODE	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CTA Strategist	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Campaign Launcher OSS	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Cascager	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Chachapetit	MODEL	YOK	-	0	-	arama yapilmadi
+ChachiBT	MODEL	YOK	-	0	-	arama yapilmadi
+Chart generation skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Chat Mode	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ChatGPT 5.2	MODEL	YOK	-	0	-	arama yapilmadi
+ChatGPT Codex	MODEL	YOK	-	0	-	arama yapilmadi
+ChatGPT Work Mode	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ChatGPT agent modu	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ChatGPT image	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ChatGPT-01	MODEL	YOK	-	0	-	arama yapilmadi
+ChatPlace MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Animate Like a Studio	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Cleans Your Downloads	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Fable 5.1	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Harnesses	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Otomasyonlari	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Science	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Skills System	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Claw Code Router	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Clean 3.0	MODEL	YOK	-	0	-	arama yapilmadi
+Clink 4.0	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Cloud Code Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Cloud Code MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Cloudflare AI security skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Color.review	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CometAssistant	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Command Prompt (cmd)	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Comment Replier	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CommentDrafter	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ConmentDrafter	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Connectors (Claude Settings)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Credit memo writer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CrewAI AMP Suite	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+CrewAI Control Plane	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+CrewControl Plane	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Cross AI Transition System	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Current Directive	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CursorAI	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+CybersecuritySkillsRouter	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Define-Clarify	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+EdlithePDF	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Eevee	MODEL	YOK	-	0	-	arama yapilmadi
+Email Voice	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Email Voice skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Enidend MCP server	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Eval for LinkedIn	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Evidence dialogue	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Execute Command	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Execute Workflow Trigger	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Exploit Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Eye MoCap	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Fable Prompt (/fable)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+FablePrompter	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Factory Droid	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+FakeResolveEnricher	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+FakeSubdomainEnricher	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Figma Design Partner	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Figma Weave	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Flux 3 Max	MODEL	YOK	-	0	-	arama yapilmadi
+GPT 5.5	MODEL	YOK	-	0	-	arama yapilmadi
+GPT Sol 5.6 ultra	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+GPT-3	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-3.5	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-4.1-nano	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-4.5	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-5.2	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-5.6-Soll	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-6	MODEL	YOK	-	0	-	arama yapilmadi
+GPT-7	MODEL	YOK	-	0	-	arama yapilmadi
+GUT	MODEL	YOK	-	0	-	arama yapilmadi
+Gaia Multi-Agent AI	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Gemini 2.0 Flash-Lite	MODEL	YOK	-	0	-	arama yapilmadi
+Gemini 2.5 Flash Preview 04-17	MODEL	YOK	-	0	-	arama yapilmadi
+Gemini 2.5 Flash TTS	MODEL	YOK	-	0	-	arama yapilmadi
+Gemini 2.5 Flash-Lite Preview 06-17	MODEL	YOK	-	0	-	arama yapilmadi
+Gemini 3.1 Flash TTS	MODEL	YOK	-	0	-	arama yapilmadi
+Gemini Advanced	MODEL	YOK	-	0	-	arama yapilmadi
+GetFigma Plugin	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Google AI Overview	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Google Agent Substrate	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Google Cloud CLI	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Google PageSpeed	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Grog	MODEL	YOK	-	0	-	arama yapilmadi
+GrokBot (XAI)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+HackRF One	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Hackathon AI Strategist	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Hailuo MiniMax H3	MODEL	YOK	-	0	-	arama yapilmadi
+HeyGen AV5	MODEL	YOK	-	0	-	arama yapilmadi
+HeyGen Brand System	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Hi3D3.0	MODEL	YOK	-	0	-	arama yapilmadi
+High Quality Shader	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Hiring packet builder	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Hook Analyst	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+HookExtractor	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+IK Retargeter	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Interactive Assets Skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Kim Barrett suite.skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+LinkedIn Agent Scale	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+LinkedIn ekibi	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Local MCP Bridge	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Lovart Interactive Assets skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+MCP sunucusu	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+MagicaVoxel	MODEL	YOK	-	0	-	arama yapilmadi
+Magnific Agents	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Makefile (make)	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Manus 1.6	MODEL	YOK	-	0	-	arama yapilmadi
+Manus 1.8 Lite	MODEL	YOK	-	0	-	arama yapilmadi
+ManusAuth	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ManyMotions	MODEL	YOK	-	0	-	arama yapilmadi
+Marble	MODEL	YOK	-	0	-	arama yapilmadi
+MasterClaudeCode	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Meta AI Connectors	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Meta Ads AI Connectors	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Meta resmi MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Mod Skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Moo Moo AI Novel	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Mortiflix particle engine	MODEL	YOK	-	0	-	arama yapilmadi
+My All Agents Pack	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Mzero Recall	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Name That Vibe	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Nanobot	MODEL	YOK	-	0	-	arama yapilmadi
+Needle devtools	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Notebook Elem	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Nurse's AI Floor	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+OkcarosInstaller	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Omni Reference	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Ootto Autopilot	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Open Alternative Jev	MODEL	YOK	-	0	-	arama yapilmadi
+Open-source agent tools	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+OpenAI Chat Model	MODEL	YOK	-	0	-	arama yapilmadi
+OpenAI agent manager	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+OpenVoice V1	MODEL	YOK	-	0	-	arama yapilmadi
+Optic Lab FX	MODEL	YOK	-	0	-	arama yapilmadi
+Optimizer4.8	PAKET	YOK	-	0	-	hicbir yolda aday cikmadi
+Opus 5.5 MotionLab	MODEL	YOK	-	0	-	arama yapilmadi
+Opus 5.5 x Roblox	MODEL	YOK	-	0	-	arama yapilmadi
+Opus 5.5.Claude Max	MODEL	YOK	-	0	-	arama yapilmadi
+OpusClip	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Oto-değerlendirme (self-evaluate)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Overage	MODEL	YOK	-	0	-	arama yapilmadi
+Own_reasoning_model_with_GRPO	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Paralel alt ajanlar (sub-agents)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Param-shankar/Hiervue-Al-Interviewer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Plan-Break it down	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Playtor Creative Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Pletor Creative Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Pletor MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Plugin (/plugin)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Profile skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Puma	MODEL	YOK	-	0	-	arama yapilmadi
+Puppenwerkzeug	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+PurpleXT	MODEL	YOK	-	0	-	arama yapilmadi
+PyPy	MODEL	YOK	-	0	-	arama yapilmadi
+Qoder	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Quick Rigging Tool	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+QuickJS	MODEL	YOK	-	0	-	arama yapilmadi
+QuiverStrategies	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Realiste	MODEL	YOK	-	0	-	arama yapilmadi
+ReplaceAI Slop	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Replies skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Ripping	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+RunClaudeCode	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Runway Agent 2.0	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Runway Gen-4.5	MODEL	YOK	-	0	-	arama yapilmadi
+Sales Comparison Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Security Audit Skill Control Bits	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Seedance	MODEL	YOK	-	0	-	arama yapilmadi
+Seedance 1.0	MODEL	YOK	-	0	-	arama yapilmadi
+Seedance 1.5 Pro	MODEL	YOK	-	0	-	arama yapilmadi
+Seedream	MODEL	YOK	-	0	-	arama yapilmadi
+Seedream 4.0	MODEL	YOK	-	0	-	arama yapilmadi
+Service + follow up Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Shatsian UI MCP Connector	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Sinyal bozucular	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Skill-bus	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Skills (beceriler özelliği)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Sol 5.6	PAKET	YOK	-	0	-	hicbir yolda aday cikmadi
+Sonnet	MODEL	YOK	-	0	-	arama yapilmadi
+SoraTurbo	MODEL	YOK	-	0	-	arama yapilmadi
+Soul	MODEL	YOK	-	0	-	arama yapilmadi
+Soul 2.0	MODEL	YOK	-	0	-	arama yapilmadi
+StepFun 3.5	MODEL	YOK	-	0	-	arama yapilmadi
+Studio for Claude	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Superblocks MCP	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+SynthGen	MODEL	YOK	-	0	-	arama yapilmadi
+TITAN	MODEL	YOK	-	0	-	arama yapilmadi
+TapNow Agentic Canvas	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Test Engineer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Test-First Autopilot	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Text2CAD	MODEL	YOK	-	0	-	arama yapilmadi
+Thumbnail Maker Skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Thumbnail Skills	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+U2NET	MODEL	YOK	-	0	-	arama yapilmadi
+UV5-Plugin	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+WAFv2	PAKET	YOK	-	0	-	hicbir yolda aday cikmadi
+WebFetch	PAKET	YOK	-	0	-	hicbir yolda aday cikmadi
+Write a Skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Write a Skill (/write-a-skill)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+X-Filt	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+X1	MODEL	YOK	-	0	-	arama yapilmadi
+XBly	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+XULTA MiniDetangler	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+Xia Director	MODEL	YOK	-	0	-	arama yapilmadi
+YouTube Thumbnail Claude skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+YouTube Thumbnail Hook Generator.skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+YouTube ajan becerisi	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add generator skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add_cube	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add_cylinder	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add_light	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add_plane	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+add_sphere	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+advanced_ai_agents	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+afinancial.coach_agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+agent editor	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+agent-importers	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+ahome_renovation_agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ai-language-cleanup	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+analytics-review	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+animation on baking	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+api-verifier	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+apify/e-commerce-scraping-tool	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+apify/website-content-crawler	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+artillerytrades/5-bot-repos	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+ask_freellmapi	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+aspeech_trainer_agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+audit-writer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+automation-master	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+automode-on	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+b3d	MODEL	YOK	-	0	-	arama yapilmadi
+best-practice-audit	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+billion-context	MODEL	YOK	-	0	-	arama yapilmadi
+bpy_api_lookup	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+brand DNA builder skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+brand-dna-builder	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+c4dpy	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+checkpoint	MODEL	YOK	-	0	-	arama yapilmadi
+chief-executive	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claim-receiver	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude --dangerously-skip-permissions --system-prompt-file	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude agents deploy	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude-academy-guide	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude-academy-guide skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude-opus-4-6-search	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+claude-sonnet-4-6-search	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+clockworks/tiktok-scraper	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+close_positions_batch	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+cloudroom-core	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+code-based-memory-mcp	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+code-operations-plugin	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+codex configure --auth chatgpt	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+comment-writer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+convert_to_markdown	MODEL	YOK	-	0	-	arama yapilmadi
+cost-cutter	MODEL	YOK	-	0	-	arama yapilmadi
+cost-reducer	MODEL	YOK	-	0	-	arama yapilmadi
+cover-letter	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+cp	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+craftwork-author	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+create-control	MODEL	YOK	-	0	-	arama yapilmadi
+create-twenty-app	MODEL	YOK	-	0	-	arama yapilmadi
+create_file	MODEL	YOK	-	0	-	arama yapilmadi
+creative-excellence	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+crm-maintenance	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+cron job tool	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+cron-writer	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+csv-clean	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+cta-strategist.skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+cuopt-developer	MODEL	YOK	-	0	-	arama yapilmadi
+delete_object	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+describe_node_type	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+dopamine-ladder	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+dyld_info	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+ensemble-solving	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+eval-viewer	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+execute_code	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+executive:business-growth-consultant	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+feature-planning	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+finance:unit-economics	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+frame-direction	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+gemini-cli-extension	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+gen-pptx	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+get_advisors	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+get_object_info	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+graphify-out	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+hermes plugins install homeassistant	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+hermes serve	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+hookity	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+icon-design	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+identify_contact	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+import_asset	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+inspect_work	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+instagram-reels-script	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+interview-preparation	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+lead-research-outreach	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+leftflow	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+libx264	PAKET	YOK	-	0	-	hicbir yolda aday cikmadi
+list_objects	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+llama.cpp qwen4exp fork	MODEL	YOK	-	0	-	arama yapilmadi
+localwhisper	MODEL	YOK	-	0	-	arama yapilmadi
+lualatex	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+managed-agents-secure	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+maozi-114/Mintimage	MODEL	YOK	-	0	-	arama yapilmadi
+marketing-skills@claude-code-skills	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+marketing-to-sales	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+mcp-server-sqlite	MODEL	YOK	-	0	-	arama yapilmadi
+mcp__ide__getDiagnostics	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+media.mjs record	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+memory file	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+memory_append	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+memory_delete	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+month-heads-up	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+move_object	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+music-caption skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+mv	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+nm	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+noeticagent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+nuviora-email-reply	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+nuviora-training-proposal	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+one-object-film	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+presentation.design	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+product-catalog-static	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+product-mockup	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+promptible-terminal-inserts	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+promptslove-motion-gfx	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+pxhyper	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+read_crm_history	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+real estate walkthrough pro skill pack	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+receptionist skill	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+record_fact	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+reel-transitions	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+remove-claude-marks	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+render_frame	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+repo-sync-helper	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+research_person	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+review-implementing	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+sales-brief	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+schedule_recheck	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+scrape(url,prompt)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+senior-creative-director-video-ads	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+setfattr	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+setup-claude	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+sh	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+simple-mode	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+slash goal	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+storytelling-ux	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+suggest_trades_batch	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+superwhisper	PAKET	YOK	-	0	-	hicbir yolda aday cikmadi
+to-issues	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+to-prd	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+tools.installer	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+tools/release-discipline	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+turkish-coffee-domain	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+ui.camera	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+update_work	CLI	YOK	-	0	-	hicbir yolda aday cikmadi
+uzun-video-kurgu	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+vibe-tandem	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+viewport_screenshot	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+viral-emotion	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+viral-reels-creator	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+writebanger	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+x402 Paying Agent	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Anti-AI (/anti-ai)	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Apowerui MCP toolkit	SKILL	YOK	-	0	-	hicbir yolda aday cikmadi
+Agenthield	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Alama	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Alan's Way	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+All My Cloud Code	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Artifa	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Asiline	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Bible Strong Avatar Lab	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Big Projects	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Brantial	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Breathly	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+BrowserAct	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+BuildModernWebsites	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Bulk Create	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ButterCut	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+C-Dance	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CiaudpCode	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ClassicM	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ClaudeOpun S.5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clawed HED	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ClockCode	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clod of Tanks	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CodebaseMembran	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CodexBar	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Curzer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Cybercab	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Desigr	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Enaten	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+English Longbow	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Excalibro	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Explee	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Gemni3Fissh	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Geometriesammlung	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Gitnimble	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Glio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Glofox	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Gmall	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Google Chirp3-HD	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Google Opal	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GoogleNanoBananaPro	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Higsild	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+How To (/how-to)	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+IBM Bob	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+IMRS 2.5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+IT Reelsmaker	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Idea Bank	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Idea Validator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Image-Turbolike1.81k	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ImageSuite 3D	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Infographic Feedback	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Infographic Lean	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Instagram transcript	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Instagram video download	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Instagum	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Institutional grade quantitative tooling	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Interactive Assets	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Interactive Object Generator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Investor Outreach Agent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+IronCoding	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Is.graphics	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+JD WEBSITE BUILDER	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+JTBD Interview Tool	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+JTINDER	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Jakubantalik/transitions.dev-s	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Jeffcode	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Jev Trade Live	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Jio Optimizer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+JoeMemory	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+JoinForBet	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KVM2	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KYC Screener	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Kao Code	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KaoKlee	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KaosGPT	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Karma XPU	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Katya T	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Kaukli Chat	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Kerry Robbs	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Key Grabber	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KeyloCode	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Keyloop	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Kim Barrett suite	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KokiTDSCutterbox	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+LAYA AI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+LOYA	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+LU Labs Cloud	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Labable	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Live artifacts	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+MINDRONE	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Macopi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+MacroPulse	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Meta Bind	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Meta-Discover	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Obsidyen	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Old Roll	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OpenCode plugn-	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OpenRider	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+PostHack	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Postkog	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Sequenzer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Simple Jev	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Slang Hang	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Soekir	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+StoryTooliktAl	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Supaste	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TURTLI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Teepl	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tencent Agent Memory	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tertil AI program	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tesana	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TetherKit	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+The Advisor Tool	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+The Agent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+The Data Platform	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+The Hugging Bay	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+The Loop Engineer QA	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TheArchitecture	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TheNicheDaily	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TheSpec	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ThisQuant Bot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ThruWire	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tiny Lesson	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Title & Thumbnail	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tools Agent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Trend Fit	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TrendWatcher	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Trevor AI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TrimOne	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TrimRx	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Triple Oil	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tripoh3-1	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tripon	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Trojan Horse Detector	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TrollStore	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TrueDepth: Depth Map Generator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Trytree	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tufflehawk	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Twitter Optimizer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Type UI Chrome Eklentisi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TypeSade	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TypoTab	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tüketici Paneli	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UGC generator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UIScale	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Umachi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UniteHairX	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UnoRouter	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Unrejectable CV	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UpdateTodos	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Uptimepage	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Usage Tally	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UseYourFiles	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+V3	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+V7 AI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VIP Cam PRO	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VOICE DNA CREATOR	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VVTerm	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Valaxi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Valuation Reviewer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Valuation review	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VisualARP	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Vit Rush	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VizePlus+	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Voibe	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Webild	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Winora	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Wisetack	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Word Cam	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+cln-council	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+giyilebilir iletişim aracı	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+go-viral	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+goat-buddy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+graphics-artist	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+grid motion	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+handle-complaint	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+hata erken gösterme	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+iZephyr.hg	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+nanovalanık	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+parent_objects	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+run-campaign	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+saas-idea-validator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+santa-loop	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+save-systems	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+savvy-flow	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+screenshot'lı kod	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+trader-timemachine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+trading agent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+transfer-pricing	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ansvisor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AnyMove	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AppFlowee	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ diyor. HTML table'ın	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ editleyeceğim	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ mail ola	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ presentations olara	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ say we ha	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ service y	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ slash nler	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+18 Pro Simulator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+2706115	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+3B Face Control	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+3B Object Converter	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+3B Scanner	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+3D OS	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+3DJutsu	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+5 Legends Judge Your Pick	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+5FREEREPOS	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Influencer Studio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Influencer Studio 2.0	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AI Tool Notes	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AUDEAI 米Claud	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AUDEINTOA 100%FR	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Accent Picker	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ActorMixer Pro plugin	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Algo Trading Platform	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Alpha Stocks	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ancor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+And Gravity	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Animation Pro	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Animation V3	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Anime Scene Gallery	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Anthropix Engine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Antigraity Peniew	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Antrop	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+AnyAnchoc	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Applay	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Arspara	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Arts Par	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Atlas Infinite	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Auto Setup Version 1.23	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Avafine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Azur VMGC	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+B Fiam Studio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+BQ	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Bekçi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Benjamin dumpy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Blog Auto	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ByFable	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CBM Lens	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CLAUDE BORSA	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CTOFMXER	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Celeris 1 Mignus	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Celi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ceren 5.3 flash	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Churned	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ciscoli	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clan V3	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Claude Plastic Dance 2.0	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ClawCo	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clawd Labirent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ClawdGotchi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clawdebots	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clean Navi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Clothcode	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Cloud Koteli	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Codec CLI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Codex 5.6 Sol 5.6 Astra	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Collision Guard	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ColorZia	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Compozeo	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Cortex Suite	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Cream 5.0	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+CreatorBerry	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+DF Tube	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+DPIN	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Device LIVE	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Diplo App	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Docploy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Dolmolt	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Domain Guard	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Dr. Plus	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Drama Studio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+DriveBook	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+DriveSlot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+EAPI 米Claud	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ERDOS-CLAY	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Email Claude	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Engelrock Tunnel	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ergify	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ExitPlanner	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+FACEHD	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+FS dev sles plugin	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Fable5OS	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Face HD Control	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Faceware Engine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Falaya	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Fine M	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+First Dev	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Footer Builder	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Forecastcreator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+FounderOS	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GPT 2.5 Flare	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GPT 2.5 Sunburst 2K	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GPT 5.6 souls	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GPT-5.6SolMedium	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GSFIELD GENJUTSU Ev	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GSFIELD dgHiggsfield P	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GT12.5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+GeolocationSpy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Gnom	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Goal Meter	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+God YouTube	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Godot Turkish	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Grilmi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+H3 Face API	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+HD Face Control	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+HackGuardian	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Harik	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Havadan Uygulama Uçağı/Karabin Uçağı	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Hayden Fox Media	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+HelloBiz	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Hexfield	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Hickfield	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Higgs Fuel	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Higgsfield Jinjutsu	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+HixView	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+IG Real	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+IHug Textto AI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Image Detail Contrast	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Imprint Tool	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Inbound VoiceAgent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Into the Unknown	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KD	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KD agents Usage	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KEDIN CODEPL	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+KVCash	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Klint AI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Kompozy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Lev8	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Life Colel	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Limo Opus Car	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Little Davey Mimic	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+LivePerformance	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Loomshot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Loopmaker	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Lucky Engine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Luna Max	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+MOCAP STUDIO	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Maltic	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Maltica	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Maltika	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ManagedAPI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Mapel Joseph	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+MarketIntel Team	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Master A Automation	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Max paketi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Maxwood	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Microsoft My Transcribe 2,5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+MimMimAI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Mom and Dad, I want to hear your story	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Motion-Track	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Multilingual FAQ Chatbot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Musark	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+My Ad Finder	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+MyHealth App	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+NE Pics me loo	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Nalubaan 2	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Netlefi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+NewsMonitor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ninja Sketch	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Not a Banana Pro	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+NousHoustedHermesBot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OCTOMXER	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OMN.CH	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OmniFlash	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OpenAI Dots	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OpenCEO	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Opes.4.6	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Opus Portfolio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Opus Sound Layer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Orca IDE	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+OrderExecutor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Ornith 1.5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Overpass probe	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+P1	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+P2	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+PLAINO	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+PLUG FIXYOU	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Pace Focus	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Pixel Agency	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Play It To	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Premium Backup	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Pullfrock	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Quiller	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+REA Growth	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+RTA smiti brain	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+RVIBE RUNLIN	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Retarget Manager	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Review Booster	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+RobeCop	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Rooflio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+RouterHub	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Rub App	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Rubric Editor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Rubric Flows	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Rubric References	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+S Node-based ph	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+S6S-Doy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SETUPON	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SFIELDAPPS	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SG Cache	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SIXTY FRAMES	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SSSPIN	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+STUDIO CODING	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Scheme 1	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Scheme 4	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+School monitor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Sculptforge	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SecDefault	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Section Store	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Security Optimizer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Sedans 2.5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+See-through	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SkinGen	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SkinGenediting	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SlackAgent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+SmartPlatform	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Space Mail	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Speed Optimizer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Stageecast	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Stellarx	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Stock and ETF Research Panel	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Style Savvy	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Super Etkid	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Super Evi Zero	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Super dial	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TRIPOD 3D Workspace	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+TTS Generator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+The Nikos Knife	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Thunely	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Token Dashboard	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Topweave	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tracking Data Inspector	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Translate Manipulator	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Tripor	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Trust Emerald	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UCTIONSKILLSBUNDLE worl	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+UGINS FOREVE	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Umachi Quattro	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Unity Face	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+V3.1	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VIDEOMODELS FROMON	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+VantageInternational	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Vcot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Vdeal	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Video Builder	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Video to Anime	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Visual Builder	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Vrlo	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+WJPixel	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Web2Agent	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Westm	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+What If Animation	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Wiro	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Work Kits	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+World-Builder Kit	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+XYN Motion Studio	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Xfield Plugin	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+YAPAYZEKA OYUN EKIBI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+Z Shale	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+a da v	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+a veya tank**,	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+acme/marketing-site	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ak terazisi** kullanara	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ame swamm	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ant data scraper aça	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+arı kontrol ediyorum	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+bölümünden 	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+c 360View Image t	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+chart scanner	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+clingi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+clotama	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+cordGenerator Creote a	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+customs information	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+deepsik v 1. 4.1 flash	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+defteriyle 	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+defunnel	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+deo Background Rem	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+devon desktop	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+dice spare	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+e, ken	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+eklif kutusu 	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+entry timer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+eo kamera, ı	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+flxa	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+fnaimpi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+food trust AI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+gb40	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+gbd4	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+gh) VS Code Con	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ght (Ağırlık)** sekmesi kul	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+gisine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+gpt 2.5	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+grok pot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+hatGPTClassic S	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+idate ile modun hangi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ilityhamess THE ORIG	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ilters)	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+influentgram	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ing Avatar	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+k datadan çekiyo	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+katzensteg	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ktorlar) d	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+lam API'ları yine	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+llama con	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+lolardaki anali	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+lotting copilot	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+m için en iyi	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+m slash commands. Now	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+mage to video 4K,	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+mage to video pro,	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+miş	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+model deck	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+motion console	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+multicup	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ng toolar var	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+nuzd	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+odexPlugin 60DAYS UN	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+oject Youweg	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+on Brand	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+pecker yin	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+pixmax	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+quest tool'unu ku	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+r. Basit bir 	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ralphanimations	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+reading one page	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+rongardFI	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+rter fal	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+seedense	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+service vein	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+spray truck	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+swix	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+t olu	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+to video yapab	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+tools.programmer	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+tore it's got Cho	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+uthoring skill'in	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+vehins API docs	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+İş Bulucu	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ı kullanmış. E	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+ızda b	BELIRSIZ	YOK	-	0	-	hicbir yolda aday cikmadi
+A/B Tester	SKILL	YOK		0.0		Adaylar pil test cihazı, pentest kitabı gibi ilgisiz projeler; A/B test aracı yok. [claude/sonnet]
+Avatar 1.5	MODEL	ADAY	hf:meituan-longcat/LongCat-Video-Avatar-1.5	0.7		Ad kısmi (LongCat-Video-Avatar-1.5); resmi meituan-longcat deposu büyük olasılıkla bu, ama bağlam yok. [claude/sonnet]
+AvatarV	MODEL	YOK		0.0		AvatarV ile eşleşen bir ürün yok; avatar-v1, avatar_v2 ve AvatarVerse farklı projeler. [claude/sonnet]
+Base Mode	MODEL	YOK		0.0		Genel bir ifade; aday Thai NER derlemesi için ilgisiz bir model. [claude/sonnet]
+Basic 1.0	MODEL	YOK		0.0		Genel ad; adaylar ilgisiz kişisel fine-tune'lar. [claude/sonnet]
+Claude 5	MODEL	YOK		0.0		Adaylar Qwen/MiniCPM tabanlı üçüncü taraf distill modelleri, Claude 5'in kendisi değil. [claude/sonnet]
+DeBERTa-v3-large	MODEL	DOGRULANDI	hf:microsoft/deberta-v3-large	0.97		microsoft/deberta-v3-large resmi model, ad birebir. [claude/sonnet]
+Delta	MODEL	YOK		0.0		'Delta' çok genel; tek aday bilinmeyen kişisel bir depo, işlev doğrulanamıyor. [claude/sonnet]
+ERNIE 4.5	MODEL	DOGRULANDI	hf:baidu/ERNIE-4.5-21B-A3B-PT	0.85		baidu/ERNIE-4.5-21B-A3B-PT resmi ERNIE 4.5 ailesi; varyant belirsiz ama aynı ürün. [claude/sonnet]
+Fable 5.1	MODEL	YOK		0.0		Adaylar Qwen/LFM tabanlı distill veya fine-tune'lar, Anthropic'in Fable 5.1 modeli değil. [claude/sonnet]
+Fable 5.5	MODEL	YOK		0.0		Resmi bir Fable 5.5 yok; aday resmi olmayan bir depo, diğerleri Fable 5.1 distill'i. [claude/sonnet]
+Flux Schnell	MODEL	DOGRULANDI	hf:black-forest-labs/FLUX.1-schnell	0.95		black-forest-labs/FLUX.1-schnell resmi model. [claude/sonnet]
+Gemma 3	MODEL	DOGRULANDI	hf:google/gemma-3-4b-it	0.9		google/gemma-3-4b-it resmi Gemma 3 ailesi. [claude/sonnet]
+Gemma 3 27B Instruct	MODEL	ADAY	hf:lm-kit/gemma-3-27b-instruct-gguf	0.55		lm-kit/gemma-3-27b-instruct-gguf büyük olasılıkla Gemma 3 27B Instruct dönüşümü; diğerleri text-to-cypher fine-tune'u. [claude/sonnet]
+Gemma 4	MODEL	DOGRULANDI	hf:google/gemma-4-31B-it	0.93		google/gemma-4-31B-it resmi Gemma 4 ailesi. [claude/sonnet]
+Haiku 4.5	MODEL	YOK		0.0		Adaylar Qwen/Llama tabanlı üçüncü taraf distill veya merge, Claude Haiku 4.5 değil. [claude/sonnet]
+HunyuanVideo-gguf	MODEL	DOGRULANDI	hf:city96/HunyuanVideo-gguf	0.97		city96/HunyuanVideo-gguf ad ve işlev birebir. [claude/sonnet]
+Lyra 2.0	MODEL	DOGRULANDI	hf:nvidia/Lyra-2.0	0.93		nvidia/Lyra-2.0 resmi depo; diğerleri kopya. [claude/sonnet]
+MaxCode	MODEL	YOK		0.0		MaxCoder-4B ve max-code farklı, belirsiz projeler. [claude/sonnet]
+MeiGen-AI	MODEL	YOK		0.0		MeiGen-AI bir kuruluş adı; MultiTalk onun tek bir ürünü, kalemle eşleşmiyor. [claude/sonnet]
+Meta Lama	MODEL	YOK		0.0		Adaylar Llama 3.1'in resmi olmayan yeniden yüklemeleri ve ad yazımı farklı; kalem belirsiz. [claude/sonnet]
+MiMo-V2.6	MODEL	ADAY	hf:XiaomiMiMo/MiMo-V2.6-Flash-RL	0.65		XiaomiMiMo/MiMo-V2.6-Flash-RL resmi aile; varyant belirsiz. [claude/sonnet]
+ModernBERT	MODEL	DOGRULANDI	hf:answerdotai/ModernBERT-base	0.93		answerdotai/ModernBERT-base resmi model. [claude/sonnet]
+NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4	MODEL	DOGRULANDI	hf:nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-NVFP4	0.98		nvidia deposu adla birebir eşleşiyor. [claude/sonnet]
+Nemotron 3.5 Lightning	MODEL	DOGRULANDI	hf:nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16	0.9		nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16 resmi ana model. [claude/sonnet]
+Opus 4.5	MODEL	YOK		0.0		Aday, Opus 4.5 çıktılarıyla damıtılmış bir GLM-4.7-Flash ince ayarı. Anthropic'in Opus 4.5 modeli değil. [claude/sonnet]
+Opus 4.7	MODEL	YOK		0.0		Qwen3.6 tabanlı pentest ince ayarı. Anthropic'in Opus 4.7 modeli değil. [claude/sonnet]
+Opus 4.8 Max	MODEL	YOK		0.0		Gemma tabanlı üçüncü taraf türev modeller. Anthropic'in Opus 4.8 modeli değil. [claude/sonnet]
+Opus 5 High	MODEL	YOK		0.0		Ad dışında bağı olmayan, indirmesi çok düşük deney checkpoint'leri. [claude/sonnet]
+Opus 5.5	MODEL	YOK		0.0		Adında Opus5.5 geçen Qwen3.8 ve Qwen3.5 türevleri. Anthropic'in Opus 5.5 modeli değil. [claude/sonnet]
+Orpheus TTS	MODEL	YOK		0.0		Orpheus TTS'in Hmong ve Mossi dilleri için üçüncü taraf ince ayarları. Orijinal ürün değil. [claude/sonnet]
+Phoenix	MODEL	YOK		0.0		Eclipsed-Phoenix ve Phoenix-X, ilgisiz LLM türevleri. Video bağlamı boş, kalemin türüyle eşleşme doğrulanamıyor. [claude/sonnet]
+Rococo	MODEL	YOK		0.0		Stil LoRA'ları ve rococo temalı görüntü modelleri. Kalemin 'Rococo' adlı bir ürün olduğu doğrulanamıyor. [claude/sonnet]
+Wan 2.6	MODEL	YOK		0.0		Belirsiz kullanıcı depoları, 0 indirme, resmi bir kaynak değil. [claude/sonnet]
+Wan2.1	MODEL	DOGRULANDI	hf:Comfy-Org/Wan-2.1	0.8		Comfy-Org, Wan 2.1 modelini ComfyUI için yeniden paketlemiş. Ad ve işlev uyuşuyor. [claude/sonnet]
+Whisper AI	MODEL	YOK		0.0		Arapça Kuran ve İbranice için Whisper ince ayarları. Orijinal OpenAI Whisper değil. [claude/sonnet]
+WiLoR	MODEL	DOGRULANDI	hf:rolpotamias/WiLoR	0.95		rolpotamias/WiLoR, WiLoR el rekonstrüksiyon modelinin resmi deposu. [claude/sonnet]
+ZAi GLM-Flash	MODEL	ADAY	hf:zai-org/GLM-5.3-Flash	0.55		zai-org'un GLM Flash ailesi. Hangi sürümün kastedildiği belli değil, en yeni sürüm seçildi. [claude/sonnet]
+allstar	MODEL	YOK		0.0		Ad çakışması. Stil LoRA'sı ve Pythia deney modelleri, ilgisiz. [claude/sonnet]
+gan-generator	MODEL	YOK		0.0		'gan-generator' genel bir terim. Adaylar APISR üst ölçekleme ve BART modelleri, aynı ürün değil. [claude/sonnet]
+hunyuan	MODEL	ADAY	hf:Comfy-Org/Hunyuan-Video-1.5	0.4		Video bağlamı yok. Tencent Hunyuan ailesinin en olası ürünü video modeli, ancak OCR ve 3D de var. [claude/sonnet]
+nemotron-3-nano-omni-30b-a3b-reasoning	MODEL	DOGRULANDI	hf:nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16	0.95		nvidia'nın Nemotron-3-Nano-Omni-30B-A3B-Reasoning modeli, ad birebir aynı. BF16 temel sürüm seçildi. [claude/sonnet]
+nemotron-3-ultra-550b-a55b	MODEL	DOGRULANDI	hf:nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16	0.95		nvidia'nın Nemotron-3-Ultra-550B-A55B modeli, ad birebir aynı. BF16 resmi sürüm seçildi. [claude/sonnet]
+nemotron-3.5-lightning-30b-a3b	MODEL	DOGRULANDI	hf:nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16	0.95		nvidia'nın Nemotron-3.5-Lightning-30B-A3B modeli, ad birebir aynı. BF16 resmi sürüm seçildi. [claude/sonnet]
+nemotron-parse-2	MODEL	DOGRULANDI	hf:nvidia/NVIDIA-Nemotron-Parse-2.0	0.95		nvidia'nın Nemotron-Parse-2.0 modeli, ad ve işlev uyuyor. [claude/sonnet]
+o1-mini	MODEL	YOK		0.0		OpenAI o1-mini ile ilgisi olmayan Type-o1-mini ve Coder-o1-mini ince ayarları. [claude/sonnet]
+qwen3.8	MODEL	DOGRULANDI	hf:Qwen/Qwen3.8-27B	0.85		Qwen/Qwen3.8-27B, Qwen3.8 ailesinin resmi deposu. [claude/sonnet]
+twozero	MODEL	YOK		0.0		'twozeroeight' ve 'twozeronine' gibi anlamsız kullanıcı depoları. Ad ve işlev uyuşmuyor. [claude/sonnet]
+AI Web Site Generator	SKILL	ADAY	gh:Rudraksh-Upadhyay/AI-WebSite-Generator	0.5		Ad birebir aynı, ancak açıklama yok ve ad genel. Aynı ada sahip çok sayıda proje var. [claude/sonnet]
+AI UI Designer	SKILL	ADAY	gh:Niervaaa/ai-ui-designer-skill	0.5		Ad uyuyor ve tür SKILL ile örtüşüyor. Ancak ad genel, kesin eşleşme yok. [claude/sonnet]
+AICode	SKILL	YOK		0.1		Ad geneldir; adaylar birbirinden bağımsız ve hiçbiri bir skill değil. [claude/sonnet]
+Ad Skill	SKILL	YOK		0.1		Genel ifade; ads-skills reklam skill paketi ama aynı ürün olduğu belli değil. [claude/sonnet]
+Ad_Generator	SKILL	YOK		0.05		Ad çakışması var ama adaylar admin generator ve ilgisiz modeller. [claude/sonnet]
+Advisor Tool	SKILL	YOK		0.2		Anthropic Advisor Tool bir API özelliği; aday demo uygulama, aynı ürün değil. [claude/sonnet]
+Agent Engine	CLI	YOK		0.1		Adaylar belirsiz veya context engineering koleksiyonları; eşleşme yok. [claude/sonnet]
+Athena	SKILL	YOK		0.05		Adaylar Hadoop, tema vb. ilgisiz ürünler. [claude/sonnet]
+Augment Code	SKILL	YOK		0.15		Adaylar ücretsiz yenileme hack araçları veya prompt koleksiyonu; resmi ürün değil. [claude/sonnet]
+AutoSetup plugin	SKILL	YOK		0.1		Adaylar ilgisiz küçük eklentiler. [claude/sonnet]
+AskUserQuestion	SKILL	YOK		0.2		Claude Code'un yerleşik aracı; adaylar başka ajanlar için yeniden uygulamalar. [claude/sonnet]
+Bedrock Runtime	PAKET	ADAY	gh:async-aws/bedrock-runtime	0.6		async-aws/bedrock-runtime AWS Bedrock Runtime istemci paketi; ad ve işlev uyuyor ama bağlam yok. [claude/sonnet]
+Blacksmith	CLI	YOK		0.1		Adaylar statik site üreticisi, profiler vb.; ad çakışması. [claude/sonnet]
+Blender Connector	PAKET	YOK		0.15		Adaylar FEAGI, DMX vb. belirli ama ilgisiz bağlayıcılar. [claude/sonnet]
+BotFather	CLI	ADAY	gh:JosXa/botfather-cli	0.5		botfather-cli Telegram BotFather için CLI; tür uyuyor ama BotFather'ın kendisi değil, sarmalayıcı. [claude/sonnet]
+BodySwap	SKILL	YOK		0.05		Ad çakışması, ilgisiz projeler. [claude/sonnet]
+BotForge	CLI	YOK		0.1		Aynı ada sahip birbirinden bağımsız projeler. [claude/sonnet]
+CHGPT	SKILL	YOK		0.05		Muhtemelen ChatGPT OCR hatası; adaylar ilgisiz. [claude/sonnet]
+CLIPLoader	PAKET	YOK		0.1		ComfyUI CLIPLoader düğümü yerleşik; aday uzak proxy, diğerleri ilgisiz. [claude/sonnet]
+CRIMA	CLI	YOK		0.05		Adaylar crimage ve CRIMAC; eşleşme yok. [claude/sonnet]
+Chat Trigger	SKILL	YOK		0.1		Adaylar Minecraft ChatTriggers ve widget; muhtemelen n8n düğümü ile ilgisiz. [claude/sonnet]
+ChartScanner	CLI	YOK		0.05		Açıklamasız, doğrulanamayan rastgele repolar. [claude/sonnet]
+Chat-GBT	SKILL	YOK		0.05		Muhtemelen ChatGPT yazım/OCR hatası; adaylar ilgisiz. [claude/sonnet]
+ChatDOC	SKILL	YOK		0.15		ChatDOC ticari ürün; adaylar benzer adlı açık kaynak projeler. [claude/sonnet]
+ChatInput	SKILL	YOK		0.05		Adaylar Android giriş kutusu bileşenleri; ilgisiz. [claude/sonnet]
+ChatOutput	SKILL	YOK		0.1		Adaylar küçük ilgisiz repolar; aynı bileşen olduğu belli değil. [claude/sonnet]
+ChatPlace	SKILL	YOK		0.1		Adaylar rastgele kişisel repolar; ChatPlace ürünüyle bağ yok. [claude/sonnet]
+Chop	CLI	YOK		0.0		Hiçbir aday 'Chop' CLI aracı değil; chops farklı bir macOS uygulaması, diğerleri ilgisiz. [claude/sonnet]
+Claude Artifacts	SKILL	YOK		0.1		Claude Artifacts Anthropic'in kendi özelliği; adaylar üçüncü taraf yardımcı araçlar. [claude/sonnet]
+Claude Chat	SKILL	YOK		0.0		Claude Chat Anthropic'in ürünü; adaylar ilgisiz mesaj yönlendirici ya da üçüncü taraf arayüzler. [claude/sonnet]
+Claude Code Channels	SKILL	ADAY	gh:osisdie/claude-code-channels	0.5		Ad ve işlev (Claude Code'u Telegram/Discord vb. ile bağlama) uyuyor, ama resmi özelliğin topluluk uygulaması olabilir. [claude/sonnet]
+Claude Cowork	SKILL	YOK		0.1		Resmi Cowork ürününün adayı yok; npm paketinin açıklaması boş, diğerleri klon ya da rehber. [claude/sonnet]
+Claude GitHub App	SKILL	YOK		0.1		Resmi Anthropic GitHub uygulaması yok; adaylar açıklamasız rastgele depolar. [claude/sonnet]
+Comment Handler	SKILL	YOK		0.0		Genel ad; adaylar ilgisiz, farklı işlevli projeler. [claude/sonnet]
+Content Skill	SKILL	YOK		0.0		Genel ad; belirli bir ürün değil, adaylar farklı skill koleksiyonları. [claude/sonnet]
+ContentBot	SKILL	YOK		0.1		ContentBot.ai ürününün kendisi yok; adaylar ilgisiz projeler ya da promosyon sayfası. [claude/sonnet]
+Clink	CLI	ADAY	gh:chrisant996/clink	0.55		Clink, cmd.exe için komut satırı düzenleme aracı ve tür CLI ile uyuyor; ama bağlam boş, mridgers/clink orijinal depo. [claude/sonnet]
+Cortex Code	SKILL	YOK		0.1		Hiçbiri belirgin biçimde aranan Cortex Code ürünü değil; adlar çakışıyor ama kaynak doğrulanamıyor. [claude/sonnet]
+Data Analyst Agent	SKILL	YOK		0.0		Genel ad; adaylar açıklamasız ya da ilgisiz. [claude/sonnet]
+DM Responder	SKILL	YOK		0.0		Genel ad; adaylar farklı küçük projeler, ürün eşleşmesi yok. [claude/sonnet]
+Director	SKILL	YOK		0.0		Director yönlendirici/komut kütüphanesi, skill ile ilgisi yok. [claude/sonnet]
+DevTools	CLI	YOK		0.0		Çok genel ad; adaylar birbirinden farklı ilgisiz araçlar. [claude/sonnet]
+Deal Strategy Agent	SKILL	YOK		0.0		Adaylar genel satış skill koleksiyonları; aynı adlı ürün yok. [claude/sonnet]
+ElevenAgents	SKILL	YOK		0.1		ElevenAgents ElevenLabs ürünü; adaylar onu kullanan projeler ya da SDK, ürünün kendisi değil. [claude/sonnet]
+ElevenCreative	SKILL	YOK		0.0		Adaylar ElevenLabs ürünüyle bağı kanıtlanamayan ilgisiz depolar. [claude/sonnet]
+Executor	SKILL	ADAY	gh:UsefulSoftwareCo/executor	0.4		Executor adı çok genel; AI ajanları için entegrasyon katmanı skill türüne en yakın aday, ancak bağlam boş. [claude/sonnet]
+Figma connector	SKILL	YOK		0.2		Figma connector Claude'un resmi bağlayıcısı; adaylar üçüncü taraf ya da açıklamasız depolar. [claude/sonnet]
+FUSE	SKILL	YOK		0.0		FUSE adaylarının hiçbiri skill değil; GraphQL, arama ve dosya sistemi kütüphaneleri. [claude/sonnet]
+Eye Contact	SKILL	YOK		0.1		Hedef ürün belirsiz; adaylar farklı göz teması projeleri, hiçbiri açıkça aynı ürün değil. [claude/sonnet]
+Gemini Canvas	SKILL	YOK		0.1		Gemini Canvas Google'ın özelliği; adaylar örnek, proxy ve üçüncü taraf projeler. [claude/sonnet]
+GenTabs	SKILL	YOK		0.2		Google'ın GenTabs özelliğine benzer işlevli bir klon var (sayasaya8039), ama aynı ürün değil; diğerleri ilgisiz. [claude/sonnet]
+Gemini Multimodal Agent	SKILL	YOK		0.0		Genel ad; adaylar bağımsız küçük projeler, belirli bir ürün eşleşmesi yok. [claude/sonnet]
+Gemini Omni Flash	SKILL	ADAY	gh:EvoLinkAI/awesome-gemini-omni-1.2-flash-API-guide-and-prompt	0.45		Aynı adlı HF depoları boş; EvoLink rehberi Gemini Omni Flash için en ilgili kaynak ama resmi ürün değil [claude/sonnet]
+Gemini Robotics-ER 1.5	SKILL	ADAY	gh:GitHub30/Awesome-Gemini-Robotics	0.6		Robotics-ER 1.5 örnek ve prompt koleksiyonu, skill türüne en yakın [claude/sonnet]
+Get-NetAdapter	CLI	ADAY	gh:lukeb1961/Get-NetAdapter	0.65		Ad birebir ve PowerShell cmdlet'i; ama asıl cmdlet Windows'ta yerleşik, depo yeniden uygulama olabilir [claude/sonnet]
+Grok Imagine	SKILL	ADAY	npm:@runapi.ai/grok-imagine	0.55		Grok Imagine için SDK sarmalayıcı, işlev uyuyor ama resmi xAI ürünü değil [claude/sonnet]
+Grok Loop	SKILL	ADAY	gh:Godz57/grok-loops	0.55		Grok için agent loop kiti, ad ve işlev yakın; video bağlamı yok [claude/sonnet]
+HAWK	CLI	ADAY	pip:hawk	0.35		Yapay zekâ bağlamına uyan tek aday pip:hawk (Inspect AI değerlendirme CLI'ı); diğerleri HTTP kimlik doğrulama kütüphanesi [claude/sonnet]
+Hermes Chat	SKILL	YOK		0.1		XMPP tabanlı sohbet sunucusu, bir yapay zekâ sohbet aracı değil [claude/sonnet]
+Hector	CLI	YOK		0.1		Hector adı çakışıyor (Cassandra istemcisi, ROS SLAM); CLI karşılığı belirsiz [claude/sonnet]
+LoopTools	CLI	ADAY	blender:LoopTools	0.35		Blender LoopTools tanınmış bir araç, ama CLI türüne uymuyor ve bağlam yok [claude/sonnet]
+Lois	SKILL	YOK		0.05		Yalnızca ad çakışması, aday açıklamaları ilgisiz [claude/sonnet]
+MYCLAUDESKILL	SKILL	YOK		0.1		Genel bir ad, her aday kişisel bir skill deposu; belirli bir ürün yok [claude/sonnet]
+Market Trends Agent	SKILL	YOK		0.1		Genel bir ad, adaylar farklı projeler [claude/sonnet]
+MarketProfile	SKILL	ADAY	pip:marketprofile	0.4		Ad uyuyor (Market Profile kütüphanesi) ama skill olduğu belirsiz, aynı adlı çok depo var [claude/sonnet]
+MiniMax Agent	SKILL	ADAY	gh:MiniMax-AI/Mini-Agent	0.45		MiniMax-AI'nin resmi Mini-Agent deposu; ürün adı birebir aynı değil [claude/sonnet]
+Notion AI	SKILL	YOK		0.1		Açıklamasız adaylar, Notion AI ile bağı doğrulanamıyor [claude/sonnet]
+Notebook LLM	SKILL	YOK		0.1		NotebookLM ile ilgisiz: biri Jupyter dönüştürücü, diğerleri açıklamasız [claude/sonnet]
+OpenAI operator	SKILL	YOK		0.1		Açıklamasız kişisel depolar veya klon/alternatif; resmi Operator değil [claude/sonnet]
+PathAi	SKILL	YOK		0.1		Açıklamasız veya patoloji araçları, ürün eşleşmesi doğrulanamıyor [claude/sonnet]
+PackyCode	SKILL	ADAY	gh:PackyCode/PackyCode.github.io	0.4		PackyCode'un kendi GitHub Pages deposu olabilir, açıklama yok; diğerleri yan araçlar [claude/sonnet]
+Pexo Agent	SKILL	ADAY	gh:pexoai/pexo-skills	0.75		pexoai/pexo-skills, Pexo ürününün içerik üretimi için skill koleksiyonu [claude/sonnet]
+Portal agent	SKILL	YOK		0.15		Tek birebir ad, oyun 'Portal' çalıştırma kurulumu; ürün ve bağlam uyuşmuyor [claude/sonnet]
+Pollo Agent	SKILL	ADAY	gh:polloaiofficial/skills	0.65		Pollo AI'nın resmi agent skill deposu, ad yakın ama birebir değil [claude/sonnet]
+Pyro	SKILL	ADAY	gh:pyro-ppl/pyro	0.4		pyro-ppl/pyro bilinen Pyro olasılıksal programlama kütüphanesi; video bağlamı olmadan belirsiz [claude/sonnet]
+Python Data Analyst	SKILL	YOK		0.05		Genel bir ifade, adaylar kurs ve portfolyo depoları [claude/sonnet]
+Quick Favorites	SKILL	YOK		0.15		Aynı adlı farklı projeler (Windows başlatıcı, Spring alıştırması, Blender); hangisi olduğu belirsiz [claude/sonnet]
+Readdy	CLI	YOK		0.1		Adaylar parçacık tabanlı reaksiyon-difüzyon simülatörü; kalemle işlev uyuşmuyor, sadece ad çakışması. [claude/sonnet]
+Rhythmia	SKILL	YOK		0.1		Adaylarda açıklama yok; hangi Rhythmia reposunun aynı ürün olduğu doğrulanamıyor. [claude/sonnet]
+Rich Input	SKILL	YOK		0.1		Genel ad; adaylar ilgisiz input kütüphaneleri, skill ile eşleşmiyor. [claude/sonnet]
+RippleEffect	SKILL	YOK		0.1		Genel ad; adaylar birbirinden bağımsız UI/Unity kütüphaneleri, skill değil. [claude/sonnet]
+Scroll Observer	CLI	YOK		0.1		Genel ad; adaylar JS/mobil kütüphaneleri, CLI kalemiyle eşleştirilemiyor. [claude/sonnet]
+Willow	SKILL	YOK		0.1		Adaylar görüntü kütüphanesi, markup dili ve açıklamasız HF kayıtları; ad çakışması. [claude/sonnet]
+YouTube Scraper	CLI	YOK		0.2		Genel ad; birden fazla benzer paket var ve hangisinin kastedildiği belli değil. [claude/sonnet]
+YouTubeSummary	SKILL	YOK		0.1		Açıklamasız HF kayıtları (model/veri seti); skill ile uyumları kanıtlanamıyor. [claude/sonnet]
+codesign	CLI	YOK		0.1		Kalem macOS codesign aracı; npm paketi dizin karşılaştırıcı, farklı işlev. [claude/sonnet]
+invoice-parse	SKILL	ADAY	hf:purna419/invoice-parser	0.4		Ad ve işlev (fatura ayrıştırma) benziyor ama açıklama yok, emin değilim. [claude/sonnet]
+log-parse	CLI	YOK		0.1		VS Code eklentisi 'test amaçlı' olarak tanımlanmış; CLI kalemiyle uyumsuz. [claude/sonnet]
+mChat	SKILL	YOK		0.1		pip paketi Minecraft konsol sohbet istemcisi; skill ile ilgisi gösterilemiyor. [claude/sonnet]
+mmBERT-base	PAKET	DOGRULANDI	hf:jhu-clsp/mmBERT-base	0.95		jhu-clsp/mmBERT-base resmi mmBERT-base modelinin yayımlandığı yer; ad birebir. [claude/sonnet]
+node --test	CLI	YOK		0.05		node --test Node.js'in yerleşik test koşucusu; adaylar ilgisiz paketler. [claude/sonnet]
+not taker	SKILL	ADAY	vscode:Note Taker	0.5		'not taker' büyük olasılıkla 'Note Taker' yazım hatası ve işlev uyuyor, ama genel bir ad olduğu için emin değilim. [claude/sonnet]
+pacman	CLI	YOK		0.05		Kalem Arch Linux paket yöneticisi; adaylar ilgisiz paketler. [claude/sonnet]
+otool	CLI	YOK		0.1		Kalem macOS otool aracı; npm 'otool' kişisel araç paketi, aynı ürün değil. [claude/sonnet]
+pbcopy	CLI	YOK		0.15		pbcopy macOS yerleşik aracı; npm paketi onun klonu, aynı ürün değil. [claude/sonnet]
+sports	SKILL	YOK		0.05		Çok genel ad, açıklamasız npm paketi; eşleşme kanıtlanamaz. [claude/sonnet]
+xattr	CLI	ADAY	pip:xattr	0.6		pip:xattr aynı adlı xattr komutunu da sağlayan Python paketi ve işlev uyuyor, ama kalemin macOS yerleşik aracı olması mümkün. [claude/sonnet]
+Agent CLI	CLI	ADAY	pip:agent-cli	0.35		pip:agent-cli bir CLI paketi ve ad uyuyor, ama 'Agent CLI' genel bir ad olduğundan emin değilim. [claude/sonnet]
+Alloc	CLI	YOK		0.15		Genel ad; pip paketi GPU/VRAM kalibrasyonu, npm paketi bellek ayırıcı, bağlam yok. [claude/sonnet]
+Apple Intelligence	SKILL	YOK		0.1		Apple Intelligence Apple'ın kendi ürünü; adaylar üçüncü taraf sarmalayıcı ya da ilgisiz kayıtlar. [claude/sonnet]
+Apps Script	SKILL	YOK		0.15		Google Apps Script bir platform; açıklamasız npm paketi aynı ürün olarak doğrulanamaz. [claude/sonnet]
+Archivist	CLI	YOK		0.1		Adaylar yapılandırma karşılaştırma, kod arama gibi farklı işlevli ürünler; ad çakışması. [claude/sonnet]
+Ask Gemini	SKILL	ADAY	pip:ask-gemini	0.5		Ad uyuşuyor, Gemini'ye soru soran CLI olarak işlev de makul; ama kalemin bir skill olduğu doğrulanamıyor. [claude/sonnet]
+Astros	MODEL	YOK		0.0		AstroSage astronomi LLM'i, 'Astros' ile ilgisiz. [claude/sonnet]
+Auto-Router	SKILL	YOK		0.0		Hepsi genel ad çakışması (URL/Express router), bir AI skill'i değil. [claude/sonnet]
+Backtest Engine	CLI	ADAY	npm:backtestengine	0.4		Ad ve işlev (backtest motoru) uyuyor, ama ad çok genel ve bağlam yok. [claude/sonnet]
+CLI Tool	CLI	YOK		0.0		Çok genel ad, belirli bir ürünü işaret etmiyor. [claude/sonnet]
+CMD	CLI	ADAY	npm:cmd	0.5		npm:cmd, Command Code kodlama ajanının takma adı; CLI türü uyuyor, ama 'CMD' Windows komutu da olabilir. [claude/sonnet]
+Cal	SKILL	YOK		0.0		Tarih/takvim kütüphaneleri, skill ile uyuşmuyor, ad çakışması. [claude/sonnet]
+ChatGPT Astra	MODEL	ADAY	hf:diablomike20/ChatGPT-Astra-6	0.6		Ad neredeyse birebir ve tür MODEL, ama sürüm eki (-6) ve bağlam belirsiz. [claude/sonnet]
+Claude Code plugin marketplace	SKILL	ADAY	vscode:Claude Plugin Marketplace	0.5		Ad ve işlev uyuyor, ancak bu bir VS Code eklentisi; Anthropic'in kendi özelliği olmayabilir. [claude/sonnet]
+Claude Codex	SKILL	YOK		0.1		Açıklama Claude Code SDK otomasyon betikleri diyor, Claude Codex ile uyumu kanıtlanamıyor. [claude/sonnet]
+CogVideoX-1.5	MODEL	DOGRULANDI	hf:zai-org/CogVideoX1.5-5B	0.9		Resmi zai-org CogVideoX1.5-5B, ad ve model türü uyuyor. [claude/sonnet]
+Console	CLI	YOK		0.0		Genel ad çakışması. [claude/sonnet]
+Cross-Poster	SKILL	ADAY	npm:crossposter	0.4		Ad ve işlev (markdown yazıları birden çok platforma çapraz paylaşma) uyuyor, ama iki aday arasında ve genel ad. [claude/sonnet]
+Crypto trading bot	SKILL	YOK		0.0		Genel ad, belirli bir ürün değil. [claude/sonnet]
+Custom Connector	SKILL	YOK		0.0		Adaylar OpenMetadata ve Azuro ile ilgili, ad çakışması. [claude/sonnet]
+Custom GPT	SKILL	YOK		0.0		OpenAI'nin Custom GPT özelliği değil, ilgisiz paketler. [claude/sonnet]
+Cycles	MODEL	YOK		0.0		Ad çakışması, ilgisiz modeller. [claude/sonnet]
+Data Analyst	SKILL	YOK		0.0		Genel ad; HF modeli skill ile uyuşmuyor. [claude/sonnet]
+Developer Tools	CLI	YOK		0.0		Çok genel ad, CLI ile uyuşmuyor. [claude/sonnet]
+Editor agent	SKILL	YOK		0.0		Açıklamasız, genel ad; doğrulanamaz. [claude/sonnet]
+Eloquent	PAKET	YOK		0.0		Bağlam yok; adaylar ORM, zincirleme yardımcı ve TTS eklentisi, birbirinden farklı. [claude/sonnet]
+Em2	MODEL	YOK		0.0		Açıklamasız, ilgisiz HF depoları. [claude/sonnet]
+Encode	PAKET	YOK		0.0		Genel ad çakışması. [claude/sonnet]
+Exit	SKILL	YOK		0.0		Genel ad çakışması (process exit yardımcıları). [claude/sonnet]
+F12	CLI	YOK		0.0		Açıklamasız, doğrulanamaz. [claude/sonnet]
+F2	SKILL	YOK		0.15		F2 genel bir ad; Blender eklentisi video baglamiyla dogrulanamiyor. [claude/sonnet]
+Figma Make	SKILL	YOK		0.2		Aciklamasiz npm paketi; Figma'nin resmi Make urunu oldugu dogrulanamiyor. [claude/sonnet]
+Fin	SKILL	YOK		0.1		pip:fin genel bir yardimci kutuphane, npm:fin bir SaaS baslatma CLI'i; ikisi de bilinen Fin urunu degil. [claude/sonnet]
+Finegrain Image Enhancer	PAKET	ADAY	hf:TBurdairon/finegrain-image-enhancer-model	0.6		Ad uyumlu ve islev (goruntu iyilestirme) tutuyor, ama resmi Finegrain depo oldugu belli degil. [claude/sonnet]
+Finnh	SKILL	YOK		0.15		Aciklamasiz, bilinmeyen bir kisisel HF deposu; islev dogrulanamiyor. [claude/sonnet]
+FireredASR	MODEL	DOGRULANDI	hf:FireRedTeam/FireRedASR2-AED	0.93		FireRedTeam/FireRedASR2-AED resmi FireRedASR modeli; digerleri turev veya donusum. [claude/sonnet]
+Fireworks	MODEL	YOK		0.1		Fireworks AI platformu ile ilgisiz; adaylar sadece ad cakismasi olan SDXL LoRA ve Llama kuantizasyonlari. [claude/sonnet]
+Flourish	MODEL	YOK		0.1		Flourish veri gorsellestirme araciyla ilgisiz; adaylar baska islevli modeller. [claude/sonnet]
+Fluid-1 Mini	MODEL	DOGRULANDI	hf:altic-dev/fluid-1-mini	0.92		altic-dev/fluid-1-mini ana model deposu; ad ve islev uyumlu. [claude/sonnet]
+Fluid-1 Pico	MODEL	DOGRULANDI	hf:altic-dev/Fluid-1-Pico-0.8B-MLX-6bit	0.85		Fluid-1 Pico'nun 0.8B MLX surumu; ayni model ailesi ve en cok indirilen. [claude/sonnet]
+Forgejo	CLI	YOK		0.15		Forgejo REST API istemci kutuphanesi, Forgejo'nun kendisi degil. [claude/sonnet]
+GNU make	CLI	ADAY	pip:gnumake	0.55		pip:gnumake aciklamasi GNU Make'i anlatiyor, ama paketin gercek GNU make'i sagladigi emin degil. [claude/sonnet]
+GPT	MODEL	YOK		0.1		GPT-2 jenerik 'GPT' adinin karsiligi degil; farkli model. [claude/sonnet]
+GPT-5 Thinking	MODEL	YOK		0.1		Topluluk GGUF deposu, OpenAI'nin GPT-5 Thinking modeli degil. [claude/sonnet]
+GPT-6-Sol	MODEL	YOK		0.05		Ilgisiz Qwen fine-tune ve belirsiz bir depo; ad cakismasi. [claude/sonnet]
+GPT-6.1	MODEL	YOK		0.1		Sifir indirmeli, aciklamasiz depo; dogrulanamaz. [claude/sonnet]
+GPTs	SKILL	YOK		0.05		OpenAI GPTs ozellestirilmis sohbet botlariyla ilgisiz paketler. [claude/sonnet]
+Gemini Live	SKILL	YOK		0.2		Aciklamasiz npm paketi; Google'in Gemini Live ozelligi oldugu dogrulanamiyor. [claude/sonnet]
+Git Worktree	CLI	YOK		0.2		Git worktree git'in kendi ozelligi; adaylar ucuncu taraf sarmalayici ve eklentiler. [claude/sonnet]
+GitHub Copilot Chat	SKILL	DOGRULANDI	vscode:GitHub Copilot Chat	0.97		Resmi GitHub Copilot Chat VS Code eklentisi; ad ve islev birebir. [claude/sonnet]
+Glob	CLI	ADAY	npm:glob	0.4		npm glob paketi ad olarak uyuyor, ama kalem bir arac/ajan aracinin Glob'u da olabilir. [claude/sonnet]
+Google Apps Script	SKILL	YOK		0.2		Google Apps Script bir Google platformu; adaylar CLI, tip tanimi ve editor eklentisi. [claude/sonnet]
+Headless browser	CLI	YOK		0.1		Genel bir kavram; aday PhantomJS/Puppeteer tarayici paketi, belirli bir urun degil. [claude/sonnet]
+Hero Section	SKILL	YOK		0.1		Genel tasarim terimi; aday kucuk bir web bileseni, ayni urun oldugu belli degil. [claude/sonnet]
+Kiro CLI	CLI	DOGRULANDI	vscode:Kiro CLI	0.93		vscode:Kiro CLI, Kiro CLI'ye erisim saglayan eklenti; pip ve npm adaylari ilgisiz. [claude/sonnet]
+LocalAI	MODEL	YOK		0.0		Adaylar 'LocalAI' adını taşıyan alakasız HF modelleri; mudler/LocalAI sunucusu değil. [claude/sonnet]
+Logcat	CLI	YOK		0.1		Android logcat aracı ayrı bir şey; adaylar üçüncü taraf sarmalayıcı/eklenti, aynı ürün değil. [claude/sonnet]
+MCP Client	CLI	YOK		0.0		Jenerik kavram adı; adaylar birbirinden bağımsız, bağlam yok. [claude/sonnet]
+MCP server	CLI	YOK		0.0		Jenerik kavram adı; adaylar belirli/ilgisiz sunucular. [claude/sonnet]
+Makefile	CLI	YOK		0.0		Makefile bir dosya biçimi; adaylar okuyucu/şablon/editör eklentisi. [claude/sonnet]
+Meta Muse	SKILL	YOK		0.1		Açıklaması olmayan HF deposu; Meta Muse ile bağ kurulamıyor. [claude/sonnet]
+Microsoft Copilot	SKILL	YOK		0.1		Açıklamasız, kimliği belirsiz HF deposu; resmi Microsoft Copilot değil. [claude/sonnet]
+Motion Correction	CLI	YOK		0.0		Adaylar FLIM verisine özel; bağlam yok. [claude/sonnet]
+Muse	SKILL	YOK		0.0		Adaylar farklı, ilgisiz projeler (MUSE misyonu, CMS iskelesi, ihale aracı). [claude/sonnet]
+Orby	SKILL	YOK		0.1		pip:orby eşzamanlılık kütüphanesi; HF deposu açıklamasız, doğrulanamaz. [claude/sonnet]
+Overflow	CLI	YOK		0.0		Jenerik ad; adaylar ilgisiz paketler. [claude/sonnet]
+Owen	SKILL	YOK		0.0		Ad çakışması; adaylar belirsiz/ilgisiz. [claude/sonnet]
+Plugin Marketplace	SKILL	YOK		0.2		Aday belirli bir şirketin (1EH) eklentisi; jenerik ada eşleşme kanıtı yok. [claude/sonnet]
+Ps	SKILL	YOK		0.0		Blender teması, Photoshop değil. [claude/sonnet]
+Python API	PAKET	YOK		0.0		Darkweb veritabanı API'si; jenerik 'Python API' ile ilgisiz. [claude/sonnet]
+Read	SKILL	YOK		0.0		Jenerik ad; adaylar ilgisiz paketler. [claude/sonnet]
+Replies	SKILL	YOK		0.0		HTTP API araç seti; bir beceri olarak 'Replies' ile eşleşmiyor. [claude/sonnet]
+Security Advisor	SKILL	YOK		0.1		Adaylar belirli ürünler (zafiyet yönetimi, IBM istemcisi); bağlam yok. [claude/sonnet]
+Sequence	SKILL	YOK		0.0		Jenerik ad; adaylar kuantum simülatörü, async kütüphanesi vb. [claude/sonnet]
+Shell	CLI	YOK		0.0		Jenerik ad; adaylar farklı işlevli paketler. [claude/sonnet]
+Voice AI agent	SKILL	YOK		0.2		Jenerik ad; adaylar farklı ürünler, bağlam yok. [claude/sonnet]
+Voice Agent	SKILL	ADAY	vscode:Voice Agent	0.35		vscode 'Voice Agent' ad ve işlev olarak uyuyor olabilir ama ad jenerik, bağlam yok. [claude/sonnet]
+Voice Assistant	SKILL	YOK		0.1		Jenerik ad; adaylar birbirinden bağımsız küçük projeler. [claude/sonnet]
+WAF	PAKET	ADAY	npm:waf	0.4		npm:waf 'Web Application Firewall' olarak tanımlı, kavramla uyumlu ama belirli bir ürün olduğu kesin değil. [claude/sonnet]
+Windows CMD	CLI	YOK		0.1		Aday cmd.exe değil, komut çalıştıran üçüncü taraf npm paketi. [claude/sonnet]
+Workbench	CLI	YOK		0.0		Genel ad; adaylar AWS SageMaker, Sanity, GPU, VSCode gibi ilgisiz ürünler, CLI aracıyla uyuşmuyor [claude/sonnet]
+YouTube to MP3	CLI	ADAY	pip:youtube-to-mp3	0.7		Ad ve işlev uyuyor, ama aynı işi yapan birçok benzer paket var; hangisi olduğu belirsiz [claude/sonnet]
+adb	CLI	YOK		0.1		Resmi Android adb aracı değil, protokolün Python/Node yeniden uygulamaları [claude/sonnet]
+agy	SKILL	YOK		0.1		Skill ile uyuşmuyor; pip:agy YAML ajan motoru, npm:agy açıklamasız [claude/sonnet]
+apt	CLI	YOK		0.1		Debian apt CLI değil; libapt bağlayıcısı ve Node sarmalayıcısı [claude/sonnet]
+apt-get	CLI	YOK		0.1		Açıklamasız npm paketi, doğrulanamaz [claude/sonnet]
+archiver	CLI	YOK		0.1		CLI değil; npm archiver bir akış kütüphanesi, diğerleri ilgisiz [claude/sonnet]
+bash_tool	SKILL	ADAY	npm:bash-tool	0.65		AI ajanları için genel bash aracı; ad ve işlev uyumlu ama emin değilim [claude/sonnet]
+clang	CLI	YOK		0.1		Clang derleyicisi değil; libclang bağlayıcısı, SOAP sarmalayıcısı ve clangd [claude/sonnet]
+create_agent	SKILL	YOK		0.2		Skill ile uyuşmuyor, adaylar proje üreten CLI'lar; ad genel [claude/sonnet]
+dpkg	CLI	YOK		0.0		Açıklamasız paketler, sistem dpkg aracı değil [claude/sonnet]
+dump	CLI	YOK		0.1		Genel ad; adaylar pg_dump sarmalayıcısı ve Node nesne dökümü, hangisi belirsiz [claude/sonnet]
+duplicate_object	SKILL	YOK		0.1		VSCode eklentisi skill ile uyuşmuyor [claude/sonnet]
+execute()	SKILL	YOK		0.1		Genel fonksiyon adı, ilgisiz paketler [claude/sonnet]
+file-automation	CLI	ADAY	pip:file-automation	0.6		Ad aynı ve CLI olarak dosya başına komut çalıştırıyor; aynı ürün olduğu kesin değil [claude/sonnet]
+hook-library	PAKET	YOK		0.1		Açıklamasız npm paketi, doğrulanamaz [claude/sonnet]
+http.server	CLI	YOK		0.1		Python stdlib http.server modülü; adaylar ayrı paketler [claude/sonnet]
+launchd	CLI	YOK		0.1		launchd macOS sistem servisi; adaylar üçüncü taraf sarmalayıcılar [claude/sonnet]
+ls	CLI	YOK		0.0		Unix ls komutu değil, Node dizin gezme kütüphanesi [claude/sonnet]
+pdflatex	CLI	YOK		0.1		pdflatex'in kendisi değil, sarmalayıcılar [claude/sonnet]
+price-check	SKILL	YOK		0.0		Açıklamasız paket, doğrulanamaz [claude/sonnet]
+rm -rf	CLI	YOK		0.0		rm -rf kabuk komutu; adaylar Node paketleri [claude/sonnet]
+search(query)	SKILL	YOK		0.1		Genel fonksiyon imzası; adaylar ilgisiz sorgu ayrıştırıcıları [claude/sonnet]
+sqlite	PAKET	ADAY	npm:sqlite	0.4		Ad aynı, Node için SQLite paketi; ama SQLite'ın kendisi veya başka sarmalayıcı olabilir [claude/sonnet]
+sqlite3	CLI	YOK		0.1		sqlite3 CLI değil; Node bağlayıcısı ve VSCode eklentisi [claude/sonnet]
+test-runner	CLI	ADAY	npm:test-runner	0.6		Ad aynı, işlev CLI test runner ile uyumlu. Video bağlamı yok, pip ve npm sürümleri birbirinden ayrılamıyor. [claude/sonnet]
+textkit	PAKET	ADAY	pip:textkit	0.5		pip:textkit adı aynı ve komut satırından metin analizi yapıyor. vscode:TextKit SMS aracı, ilgisiz. [claude/sonnet]
+tools	SKILL	YOK		0.0		Çok genel bir ad, adaylar ilgisiz. [claude/sonnet]
+tree	CLI	YOK		0.0		Adaylar kütüphane veya eklenti. Unix tree komutunun kendisi yok. [claude/sonnet]
+uptime-check	CLI	ADAY	npm:uptime-check	0.6		Ad ve işlev (uptime kontrolü) uyumlu. pip:uptimecheck ise MCP sunucusu, CLI değil. [claude/sonnet]
+voice-profile	SKILL	YOK		0.0		Adaylar NFT, VoiceAttack veya sınıflandırma projeleri, aynı ürün değil. [claude/sonnet]
+weather_fetch	SKILL	ADAY	npm:weather-fetch	0.35		Ad ve işlev (hava durumu çekme) uyumlu ama ad genel, kesin değil. [claude/sonnet]
+web-security	SKILL	YOK		0.0		Awesome listeleri ve ilgisiz paket, aynı ürün değil. [claude/sonnet]
+web_extract	SKILL	YOK		0.0		Genel ad. Açıklamalar belirsiz veya başka işlevli, eşleşme doğrulanamıyor. [claude/sonnet]
+web_search_fast	SKILL	DOGRULANDI	gh:uk0/web-search-fast	0.7		Ad birebir aynı ve işlev (hızlı web arama MCP) uyumlu. [claude/sonnet]
+writing-landing-page-copy	SKILL	YOK		0.0		Aday bir portfolyo sitesi, bir skill değil. [claude/sonnet]
+x-agent	SKILL	ADAY	gh:wenge-research/x-agent	0.4		wenge-research/x-agent adı birebir aynı ama açıklama yetersiz. OpenBMB/XAgent de olabilir. [claude/sonnet]
+xcrun simctl	CLI	YOK		0.0		Adaylar Apple'ın xcrun simctl aracının sarmalayıcıları, aracın kendisi değil. [claude/sonnet]
+xelatex	CLI	YOK		0.0		Adaylar LaTeX şablonları, xelatex motorunun kendisi değil. [claude/sonnet]
+youtube-teaser	SKILL	YOK		0.0		Adaylar ilgisiz projeler. [claude/sonnet]
+yt-lp	SKILL	YOK		0.0		Açıklamalar belirsiz, eşleşme doğrulanamıyor. [claude/sonnet]
+zoom-out	SKILL	YOK		0.0		Ad çakışması. Adaylar ilgisiz. [claude/sonnet]
+zsh	CLI	YOK		0.0		npm:zsh kişisel bir paket, zsh kabuğu değil. [claude/sonnet]
+Anti-Gravity-OpenCode	CLI	YOK		0.0		Adaylar ilgisiz portfolyo, OS ve eklenti projeleri. [claude/sonnet]
+1v1 Jev	BELIRSIZ	YOK		0.0		Adaylar Jev'i kullanan oyunlar, 1v1 Jev adlı bir ürün değil. [claude/sonnet]
+AeAi	BELIRSIZ	YOK		0.0		AEAI adlı birçok ilgisiz depo var, hiçbiri tek başına doğrulanamıyor. [claude/sonnet]
+Alexandria	BELIRSIZ	ADAY	npm:@ureck/alexandria	0.4		@ureck/alexandria yapay zekâ ajanları için bilgi kasası. Video bağlamı yok, diğerleri font veya ilgisiz. [claude/sonnet]
+Arcads	BELIRSIZ	ADAY	npm:@assemblyline-agents/arcads	0.45		Arcads (yapay zekâ reklam videosu) hosted MCP eklentisi. Ürünün kendisi değil ama ilişkili. Diğerleri ArcAds reklam sarmalayıcısı, farklı ürün. [claude/sonnet]
+Bases	BELIRSIZ	YOK		0.0		Genel ad. Adaylar Base-N dönüştürme kütüphaneleri. [claude/sonnet]
+Busabase	BELIRSIZ	DOGRULANDI	npm:busabase	0.85		Ad birebir aynı. npm:busabase, yapay zekâ ajanları için açık kaynak veritabanı ve çalışma alanı. pip paketi aynı ürünün SDK'sı. [claude/sonnet]
+Clawed	BELIRSIZ	ADAY	pip:clawed	0.3		Ad aynı, ama bağlam yok. Claude'un OCR hatası da olabilir. [claude/sonnet]
+ClinePass	BELIRSIZ	ADAY	npm:pi-clinepass	0.45		ClinePass gerçek bir ürün, ancak adaylar onun pi uzantıları, ürünün kendisi değil. [claude/sonnet]
+Cloudly	BELIRSIZ	YOK		0.0		Genel ad, açıklamalar belirsiz ve ilgisiz. [claude/sonnet]
+Code	BELIRSIZ	YOK		0.0		Çok genel ad, assertion kütüphanesi ilgisiz. [claude/sonnet]
+Creem	BELIRSIZ	ADAY	npm:creem	0.7		Creem.io ödeme platformunun resmi SDK'sı. Ad uyuyor, video türü doğrulanamadı. [claude/sonnet]
+Cursify	BELIRSIZ	YOK		0.0		Dosya bozma aracı, büyük olasılıkla ilgisiz. [claude/sonnet]
+DaVinci	BELIRSIZ	YOK		0.0		Büyük olasılıkla DaVinci Resolve. Adaylar DL deneyleri, CLI ve tema, uyuşmuyor. [claude/sonnet]
+Daydream	BELIRSIZ	YOK		0.0		Adaylar ürünle uyuşmuyor: deprecated paket, ilgisiz npm ve renk teması. [claude/sonnet]
+Emil	BELIRSIZ	YOK		0.0		İlgisiz paketler. [claude/sonnet]
+Entrepreneur	BELIRSIZ	YOK		0.0		İlgisiz scaffolding aracı. [claude/sonnet]
+Entry	BELIRSIZ	YOK		0.0		Genel ad, ilgisiz. [claude/sonnet]
+Epic	BELIRSIZ	YOK		0.0		Genel ad, ilgisiz. [claude/sonnet]
+GOAT	BELIRSIZ	YOK		0.0		Ad çakışması, işlev uyuşmuyor. [claude/sonnet]
+Glider	BELIRSIZ	YOK		0.0		Genel ad, doğrulanabilir eşleşme yok. [claude/sonnet]
+GlowUp	BELIRSIZ	YOK		0.0		Açıklaması boş, doğrulanamaz. [claude/sonnet]
+Gluck	BELIRSIZ	YOK		0.0		Test framework'ü, kalemle ilgisi kanıtlanamıyor. [claude/sonnet]
+GodMod	BELIRSIZ	YOK		0.0		Ad benzerliği var, işlev kanıtlanamıyor. [claude/sonnet]
+Graft	BELIRSIZ	YOK		0.0		Adaylar farklı ürünler, bağlam yok. [claude/sonnet]
+Gustavo	BELIRSIZ	YOK		0.0		Kişi adı çakışması. [claude/sonnet]
+Hub	BELIRSIZ	YOK		0.0		Çok genel ad, adaylar farklı ürünler. [claude/sonnet]
+Hyperresearch	BELIRSIZ	ADAY	pip:hyperresearch	0.7		Ad benzersiz ve Claude Code derin araştırma aracı olarak tutarlı. Video işlevi doğrulanamadı. [claude/sonnet]
+Idea generator	BELIRSIZ	YOK		0.0		Genel ad, doğrulanabilir değil. [claude/sonnet]
+Image AI	BELIRSIZ	ADAY	pip:imageai	0.45		ImageAI kütüphanesi adla uyuşuyor, ancak ad geneldir ve bağlam yoktur. [claude/sonnet]
+Imagine	BELIRSIZ	YOK		0.0		Genel ad, adaylar ilgisiz. [claude/sonnet]
+Infinity	BELIRSIZ	YOK		0.0		Genel ad, ilgisiz. [claude/sonnet]
+Instinct	BELIRSIZ	YOK		0.1		Genel ad, 'agent framework' kalemle bağı kanıtlanamıyor [claude/sonnet]
+Interactive	BELIRSIZ	YOK		0.0		Genel sözcük, ilgisiz paketler [claude/sonnet]
+Interviewer	BELIRSIZ	YOK		0.05		Genel ad, ürünle bağ yok [claude/sonnet]
+Isaac	BELIRSIZ	YOK		0.05		İsim çakışması (CSPRNG, NN eğitim yöntemi), Isaac ürünü değil [claude/sonnet]
+JGPT	BELIRSIZ	ADAY	npm:jgpt	0.5		Ad birebir, GPT'yi JS'de kullanma işlevi makul ama doğrulanamadı [claude/sonnet]
+JSON Renderer	BELIRSIZ	ADAY	npm:json-renderer	0.4		Ad ve JSON UI renderlama işlevi uyuyor, emin değil [claude/sonnet]
+JavaScript SDK	BELIRSIZ	YOK		0.0		Genel ad, farklı şirketlerin SDK'ları [claude/sonnet]
+Jupiter	BELIRSIZ	YOK		0.05		Ad çakışması, açıklamalar ilgisiz [claude/sonnet]
+KIOS	BELIRSIZ	YOK		0.05		Port izleme aracı ve güvenlik placeholder'ı, ilgisiz [claude/sonnet]
+Kata	BELIRSIZ	YOK		0.05		Genel ad, TDD/şablon/not aracı ilgisiz [claude/sonnet]
+Kira	BELIRSIZ	YOK		0.0		MAL API ve DDoS aracı, ilgisiz [claude/sonnet]
+Klein	BELIRSIZ	YOK		0.0		Web framework ve ORM, ad çakışması [claude/sonnet]
+Kondo	BELIRSIZ	ADAY	npm:kondo	0.35		Ad birebir, kod temizleme aracı olabilir ama kanıt zayıf [claude/sonnet]
+Kotak	BELIRSIZ	YOK		0.05		Ad çakışması, Next.js şablonu ve ilgisiz paket [claude/sonnet]
+Kula	BELIRSIZ	ADAY	pip:kula	0.5		Ad birebir, niş bir git istemcisi (MCP sunuculu), pip ve npm sürümleri aynı ürün [claude/sonnet]
+Kuru	BELIRSIZ	YOK		0.1		JSX ayrıştırıcı, ürün bağlantısı yok [claude/sonnet]
+Later	BELIRSIZ	YOK		0.0		Genel ad, kütüphaneler [claude/sonnet]
+LaunchKit	BELIRSIZ	YOK		0.1		Genel ad, açıklama belirsiz/kısa [claude/sonnet]
+Levels	BELIRSIZ	YOK		0.0		Genel ad, ilgisiz paketler [claude/sonnet]
+Live-Link	BELIRSIZ	ADAY	npm:live-link	0.5		Ad uyuyor, terminal ajanlarından yayın işlevi güncel bir araç gibi [claude/sonnet]
+LrC	BELIRSIZ	YOK		0.05		LrC büyük olasılıkla Lightroom Classic, adaylar LRC dosya/uzaktan kumanda [claude/sonnet]
+MSK	BELIRSIZ	YOK		0.0		Mycroft kit ve string maskeleme, ilgisiz [claude/sonnet]
+Macroscope	BELIRSIZ	ADAY	pip:macroscope	0.45		Macroscope ürününün CLI'ı olabilir, npm ve vscode sürümleri başka işlev [claude/sonnet]
+Magnific	BELIRSIZ	YOK		0.1		Placeholder paket, gerçek ürün değil [claude/sonnet]
+Maxun	BELIRSIZ	DOGRULANDI	pip:maxun	0.85		Ad özgün, web otomasyon ve veri çıkarma işlevi Maxun ile uyuşuyor [claude/sonnet]
+MetaChain	BELIRSIZ	YOK		0.1		npm metachain aciklamasi belirsiz; bilinen MetaChain ajan cercevesiyle bagi dogrulanamiyor [claude/sonnet]
+NAGEL	BELIRSIZ	YOK		0.1		Pastebin yazilimi, kalemin turuyle bag kurulamiyor [claude/sonnet]
+Niagara	BELIRSIZ	YOK		0.05		Linux ricing araci ve async map/filter kutuphanesi; ikisi de ilgisiz ad cakismasi [claude/sonnet]
+OpenJev	BELIRSIZ	ADAY	pip:openjev	0.35		Nadir ad birebir eslesiyor ama aciklama bos, islev dogrulanamiyor [claude/sonnet]
+OpenManus	BELIRSIZ	ADAY	pip:openmanus	0.55		OpenManus bilinen bir ajan projesi, ad birebir; pip aciklamasi sablon oldugu icin emin degilim [claude/sonnet]
+Ovi	BELIRSIZ	ADAY	pip:ovi	0.3		Ovi bilinen bir model adi, pip paketinin aciklamasi bos; npm olan React bundler ve ilgisiz [claude/sonnet]
+Ponder	BELIRSIZ	ADAY	npm:ponder	0.6		Ponder EVM indeksleme cercevesi olarak bilinen bir arac, ad birebir; video baglami yok [claude/sonnet]
+Postgre	BELIRSIZ	YOK		0.05		Genel sozcuk, ilgisiz paketler [claude/sonnet]
+Postopus	BELIRSIZ	ADAY	pip:postopus	0.5		Ozgun ad birebir, OctoPUS verisi icin python ortami; video baglami olmadan kesin degil [claude/sonnet]
+Pr	BELIRSIZ	YOK		0.05		Cok kisa ve genel ad, aciklama null [claude/sonnet]
+Pryzm	BELIRSIZ	YOK		0.1		Terminal renk destegi ve rezerve paket; baglanti yok [claude/sonnet]
+Simpler	BELIRSIZ	YOK		0.05		Genel sozcuk, yer tutucu veya ilgisiz paketler [claude/sonnet]
+Sunny	BELIRSIZ	YOK		0.05		Ad cakismasi; Solr, bulut veri deposu ve sablon uretici ilgisiz [claude/sonnet]
+Super	BELIRSIZ	YOK		0.05		Genel ad, belirgin bir urun degil [claude/sonnet]
+TMAX	BELIRSIZ	YOK		0.1		Ad benzerligi var ama aday islevleri (doku analizi, surec calistirici, terminal buyutme) kalemle dogrulanamiyor [claude/sonnet]
+Templify	BELIRSIZ	YOK		0.15		Genel sablon araclari, kalemle bag kurulamiyor [claude/sonnet]
+Terminal Browser	BELIRSIZ	ADAY	npm:terminal-browser	0.6		Ad ve islev (terminal web tarayicisi) uyumlu, ancak video baglami yok [claude/sonnet]
+Terra	BELIRSIZ	YOK		0.1		Genel ad, aciklamalar belirsiz [claude/sonnet]
+Texel Density Checker	BELIRSIZ	DOGRULANDI	blender:Texel Density Checker	0.9		Blender eklentisi, ad birebir ve Texel Density ile calisma islevi uyumlu [claude/sonnet]
+Text Observer	BELIRSIZ	ADAY	npm:textobserver	0.35		Ad yakin ve islev (DOM'da metin izleme) mantikli ama genel [claude/sonnet]
+The Council	BELIRSIZ	ADAY	npm:the-council	0.4		Cok ajanli tartisma/konsey araci olarak ad ve islev uyumlu; hangi paketin kastedildigi belirsiz [claude/sonnet]
+TheLibrarian	BELIRSIZ	YOK		0.1		Aciklama bos, dogrulanamiyor [claude/sonnet]
+Thumbnail Maker	BELIRSIZ	YOK		0.1		Genel ad, Korece kucuk resim araci kalemle bagdasmiyor [claude/sonnet]
+Toast	BELIRSIZ	YOK		0.05		Ad cakismasi; astrofizik araclari, belirsiz npm paketi ve calisma gorevi eklentisi ilgisiz [claude/sonnet]
+Transporter	BELIRSIZ	YOK		0.05		Genel ad, aciklamalar bos [claude/sonnet]
+Treg	BELIRSIZ	YOK		0.1		Ad uyuyor ama baglam yok; trie regex kutuphanesi oldugu dogrulanamaz [claude/sonnet]
+Trend Scout	BELIRSIZ	ADAY	pip:trendscout	0.5		Ad birebir, trend istihbarati araci olarak makul ama baglam yok [claude/sonnet]
+Type UI	BELIRSIZ	YOK		0.15		Genel ad, belirsiz kucuk GUI paketi [claude/sonnet]
+UVO	BELIRSIZ	ADAY	blender:UVO	0.5		Blender UV eklentisi, ad birebir; baglam yok ama listedeki UniV ile ayni alan [claude/sonnet]
+Ultraplan	BELIRSIZ	ADAY	npm:ultraplan	0.4		Ad birebir ama aciklama bos, islev dogrulanamiyor [claude/sonnet]
+UniV	BELIRSIZ	ADAY	blender:UniV	0.5		Blender Smart UV Tools, ad birebir; pip/npm adaylari ilgisiz [claude/sonnet]
+VEGO	BELIRSIZ	YOK		0.1		Vue canvas kutuphanesi, baglamla dogrulanamaz [claude/sonnet]
+Vayne	BELIRSIZ	YOK		0.1		Webpack sarmalayici, ad cakismasi [claude/sonnet]
+Voice	BELIRSIZ	YOK		0.05		Genel ad, adaylar ilgisiz [claude/sonnet]
+Void	BELIRSIZ	YOK		0.1		Hicbir aday Void editoru degil, ad cakismasi [claude/sonnet]
+Weflow	BELIRSIZ	YOK		0.1		Weco servisi paketi ya da bos aciklama, dogrulanamaz [claude/sonnet]
+Windsurf	BELIRSIZ	YOK		0.1		Windsurf IDE degil; yardimci paket ve test eklentisi [claude/sonnet]
+clawed code	BELIRSIZ	ADAY	npm:clawedcode	0.55		Kodlama ajani kabugu, ad ve islev uyumlu ama emin degil [claude/sonnet]
+ewm	BELIRSIZ	YOK		0.05		Mini program eklentisi, ilgisiz [claude/sonnet]
+fff	BELIRSIZ	YOK		0.05		Ad cakismasi, ilgisiz paketler [claude/sonnet]
+rig	BELIRSIZ	YOK		0.05		Ad cakismasi, ilgisiz paketler [claude/sonnet]
+savior	BELIRSIZ	YOK		0.05		Ad cakismasi, ilgisiz paketler [claude/sonnet]
+trading bot	BELIRSIZ	YOK		0.15		Genel tanim, belirli bir urun degil [claude/sonnet]
+v3fast	BELIRSIZ	ADAY	npm:v3fast	0.35		Ad birebir ama aciklama bos [claude/sonnet]
+Apity	BELIRSIZ	YOK		0.15		Adaylar birbirinden farkli islevde, hicbiri dogrulanamaz [claude/sonnet]
+AppConfig	BELIRSIZ	YOK		0.05		Genel ad, ad cakismasi [claude/sonnet]
+AppMode	BELIRSIZ	YOK		0.1		Jupyter eklentisi, baglam yok [claude/sonnet]
+8N	BELIRSIZ	YOK		0.1		Dokuman araci, ad cakismasi olasi [claude/sonnet]
+AI home	BELIRSIZ	YOK		0.1		Aciklamasiz genel ad [claude/sonnet]
+ARK	BELIRSIZ	YOK		0.05		Ad cakismasi, ilgisiz paketler [claude/sonnet]
+ASRA	BELIRSIZ	ADAY	npm:asra	0.4		Ad birebir aynı ve benzersiz, ama açıklama çok kısa; kalemin türü bilinmiyor. [claude/sonnet]
+Aid	BELIRSIZ	YOK		0.0		Genel bir sözcük; adaylar ilgisiz ya da belirsiz, işlev eşleşmesi yok. [claude/sonnet]
+Analog	BELIRSIZ	YOK		0.0		Genel bir ad; log analiz aracı ve görüntü efekti paketi arasında kalemle bağ kurulamıyor. [claude/sonnet]
+AppFly	BELIRSIZ	YOK		0.1		Yalnızca ad benzerliği var; küçük bir Flask yapılandırma paketi, video aracıyla bağı kurulamıyor. [claude/sonnet]
+Argon 4	BELIRSIZ	YOK		0.1		'Argon 4' sürüm numaralı bir ürün; aday bir VS Code teması (Argon) ve aynı ürün olduğuna dair kanıt yok. [claude/sonnet]
+Audio Studio	BELIRSIZ	ADAY	npm:@siteed/audio-studio	0.35		@siteed/audio-studio adı ve işlevi uyuyor, ama diğer adaylar aynı paketin kopyaları ve kalemin türü belirsiz. [claude/sonnet]
+Bionic	BELIRSIZ	YOK		0.0		Genel ad; adaylar birbirinden ilgisiz. [claude/sonnet]
+Blow	BELIRSIZ	YOK		0.0		Genel ad; adaylar ilgisiz küçük paketler. [claude/sonnet]
+Botato	BELIRSIZ	YOK		0.1		Ad benzerliği var ama işlev kanıtı yok; npm adayı ayrıca botnet istemcisi. [claude/sonnet]
+Brain Build	BELIRSIZ	ADAY	npm:brainbuild	0.3		Ad ('Brain Build' ile brainbuild) uyuyor, açıklama ('create apps fast') çok belirsiz. [claude/sonnet]
+BudgetManager	BELIRSIZ	YOK		0.1		Genel ad; küçük bir Django/React uygulaması, video aracı olduğuna dair kanıt yok. [claude/sonnet]
+CEV	BELIRSIZ	YOK		0.0		Kısa kısaltma; adaylarla işlev uyumu doğrulanamıyor. [claude/sonnet]
+Cannon	BELIRSIZ	YOK		0.1		Genel ad; adaylar farklı işlevlerde, kalemin türü bilinmiyor. [claude/sonnet]
+Claude Cook	BELIRSIZ	DOGRULANDI	npm:claude-cook	0.8		Ad birebir aynı ve benzersiz; açıklama Claude Code için bir sistem, bu da video bağlamına uyuyor. [claude/sonnet]
+Cleaner	BELIRSIZ	YOK		0.0		Genel ad; adaylar ilgisiz. [claude/sonnet]
+Clo	BELIRSIZ	YOK		0.0		Çok kısa ad; adaylar ilgisiz. [claude/sonnet]
+Clod	BELIRSIZ	YOK		0.0		Muhtemelen 'Claude' OCR hatası; adaylar ilgisiz paketler. [claude/sonnet]
+Cloudbot	BELIRSIZ	YOK		0.1		Genel ad; adaylar belirsiz ya da eski/ilgisiz. [claude/sonnet]
+Curator	BELIRSIZ	YOK		0.0		Genel ad; adaylar birbirinden ilgisiz. [claude/sonnet]
+DNET	BELIRSIZ	YOK		0.0		Kısaltma; ad çakışması dışında kanıt yok. [claude/sonnet]
+Defy	BELIRSIZ	YOK		0.0		Genel ad; adaylar ilgisiz küçük paketler. [claude/sonnet]
+DevToolkit	BELIRSIZ	ADAY	vscode:DevToolkit	0.45		Ad birebir aynı ve açıklama bir geliştirici araç kutusu; yine de video bağlamı olmadan kesin değil. [claude/sonnet]
+Donald	BELIRSIZ	YOK		0.0		Genel ad; adaylar ilgisiz. [claude/sonnet]
+Easyco	BELIRSIZ	YOK		0.1		Küçük bir YAML yapılandırma paketi; ad benzerliği dışında kanıt yok. [claude/sonnet]
+Entropic	BELIRSIZ	YOK		0.0		Genel ad; adaylar ilgisiz. [claude/sonnet]
+Fay	BELIRSIZ	ADAY	pip:fay	0.5		Fay açık kaynak dijital insan/LLM çerçevesi bilinen bir yapay zekâ aracı; video bağlamı yok, emin değilim [claude/sonnet]
+Flare	BELIRSIZ	YOK		0.0		Adaylar ilgisiz ve genel adlı paketler; ad çakışması [claude/sonnet]
+Foley	BELIRSIZ	ADAY	pip:foley	0.35		Ad tam eşleşiyor, ses efekti bulma/anlatım işlevi video aracı olabilir ama doğrulanamıyor [claude/sonnet]
+ForgeEditor	BELIRSIZ	YOK		0.0		Açıklama yok, işlev doğrulanamaz [claude/sonnet]
+Franklin	BELIRSIZ	ADAY	vscode:Franklin	0.35		Franklin AI ajanı yapay zekâ aracı olarak makul, ama bağlam yok [claude/sonnet]
+Free-Way	BELIRSIZ	YOK		0.0		Dosya sistemi ve reverse proxy, ilgisiz [claude/sonnet]
+GGG	BELIRSIZ	YOK		0.0		Genel ad, ilgisiz paketler [claude/sonnet]
+Game Builder	BELIRSIZ	YOK		0.0		Genel ad; adaylar belirli bir ürünle eşleşmiyor [claude/sonnet]
+God	BELIRSIZ	YOK		0.0		Ad çakışması [claude/sonnet]
+HXX	BELIRSIZ	YOK		0.0		Sunucu paketi, işlev uyumu yok [claude/sonnet]
+Haro	BELIRSIZ	YOK		0.0		Haro.ai kütüphanesi aynı ürün olarak doğrulanamıyor [claude/sonnet]
+Haven	BELIRSIZ	YOK		0.0		İlgisiz paketler [claude/sonnet]
+Hay	BELIRSIZ	YOK		0.0		İlgisiz paketler [claude/sonnet]
+I avatar	BELIRSIZ	YOK		0.0		Genel avatar bileşenleri, ad uyuşmuyor [claude/sonnet]
+IXX	BELIRSIZ	YOK		0.0		Kod kontrol listesi aracı, kanıt yok [claude/sonnet]
+Image Optimizer	BELIRSIZ	YOK		0.0		Genel ad, belirli ürün yok [claude/sonnet]
+Image Upscaler	BELIRSIZ	YOK		0.0		Genel ad, belirli ürün yok [claude/sonnet]
+Insight	BELIRSIZ	YOK		0.0		Genel ad, ilgisiz paketler [claude/sonnet]
+Instant	BELIRSIZ	YOK		0.0		İlgisiz paketler [claude/sonnet]
+Jeffrey	BELIRSIZ	YOK		0.0		Analitik middleware, kanıt yok [claude/sonnet]
+Jiminy	BELIRSIZ	YOK		0.0		Veri görselleştirme kütüphanesi, kanıt yok [claude/sonnet]
+Jonathan	BELIRSIZ	YOK		0.0		Ad çakışması [claude/sonnet]
+Juno	BELIRSIZ	ADAY	vscode:Juno	0.3		Juno kod asistanı yapay zekâ aracı olabilir, doğrulanamıyor [claude/sonnet]
+LUNA	BELIRSIZ	YOK		0.0		Ad çakışması [claude/sonnet]
+Layer	BELIRSIZ	ADAY	pip:layer	0.55		Layer, oyun stüdyoları için yapay zekâ varlık üretimi; ad ve işlev makul, bağlam yok [claude/sonnet]
+Leah	BELIRSIZ	YOK		0.1		Genel kisi adi; aciklama ya da baglam yok, urun eslesmesi kurulamaz [claude/sonnet]
+LightPost	BELIRSIZ	ADAY	npm:lightpost	0.3		Ad birebir ve ayirt edici ama video baglami yok; islev dogrulanamadi [claude/sonnet]
+Lightspeed	BELIRSIZ	YOK		0.1		Genel ad; aday sadece isik hizi sabiti, arac degil [claude/sonnet]
+Luca	BELIRSIZ	YOK		0.1		Genel ad; iki aday birbirinden ilgisiz (muhasebe ve bilesen mimarisi), baglam yok [claude/sonnet]
+MPX	BELIRSIZ	YOK		0.1		Uc aday ilgisiz urunler; baglam olmadan hicbiri secilemez [claude/sonnet]
+Magic	BELIRSIZ	YOK		0.1		Cok genel ad; adaylar ilgisiz, ad cakismasi [claude/sonnet]
+Magma	BELIRSIZ	YOK		0.1		Genel ad; adaylar ilgisiz ve baglam yok [claude/sonnet]
+Massive	BELIRSIZ	YOK		0.15		Genel ad; Polygon.io istemcisi ve Postgres araci arasinda secim icin kanit yok [claude/sonnet]
+Meridian	BELIRSIZ	YOK		0.15		Cok sayida ilgisiz Meridian urunu; baglam yok [claude/sonnet]
+Moda	BELIRSIZ	YOK		0.05		Genel ad; npm paketi kullanimdan kaldirilmis, pip paketi ilgisiz [claude/sonnet]
+Moves	BELIRSIZ	YOK		0.1		Genel ad; adaylar Moves uygulamasi sarmalayicilari veya imlec eklentisi, baglam yok [claude/sonnet]
+Multa	BELIRSIZ	ADAY	npm:multa	0.25		Tek aday ve ad ayni, ama baglam olmadan CSS hareket kutuphanesi oldugu dogrulanamaz [claude/sonnet]
+One	BELIRSIZ	YOK		0.1		Asiri genel ad; ad cakismasi olasi [claude/sonnet]
+OpStack	BELIRSIZ	YOK		0.15		Aday tevm icin yardimci paket; OpStack'in kendisi degil [claude/sonnet]
+P-H3-Image	BELIRSIZ	ADAY	hf:PrunaAI/P-H3-Image	0.6		Ayirt edici ad birebir eslesiyor (PrunaAI modeli); aciklama yok, bu yuzden kesin degil [claude/sonnet]
+Pensieve	BELIRSIZ	ADAY	npm:@esparkman/pensieve	0.35		Claude Code icin kalici hafiza araci, video konusu olabilecek bir arac; baglam yok [claude/sonnet]
+Plod	BELIRSIZ	YOK		0.1		Genel ad; adaylar ilgisiz kucuk paketler [claude/sonnet]
+Prova	BELIRSIZ	YOK		0.1		Genel ad; adaylar ilgisiz, baglam yok [claude/sonnet]
+QBot	BELIRSIZ	YOK		0.1		Adaylar birbirinden ilgisiz botlar ve SDK'lar; baglam yok [claude/sonnet]
+Quick Liquid	BELIRSIZ	ADAY	npm:quick-liquid	0.55		Ayirt edici ad uyuyor (quick-liquid, liquid glass UI); video baglami olmadan emin degil [claude/sonnet]
+Radiant	BELIRSIZ	YOK		0.1		Genel ad; adaylar ilgisiz (Brython, IoT DSL) [claude/sonnet]
+Reanimate	BELIRSIZ	YOK		0.15		Genel ad; React bileseni ile HF modeli ilgisiz, baglam yok [claude/sonnet]
+Reimagine it	BELIRSIZ	ADAY	npm:reimagine-it	0.4		Ad uyuyor (reimagine-it); tek aday, islev dogrulanamadi [claude/sonnet]
+Rules Playground	BELIRSIZ	YOK		0.05		Aday guvenlik amacli yer tutucu paket, gercek urun degil [claude/sonnet]
+SQLConnect	BELIRSIZ	ADAY	pip:sqlconnect	0.4		Ad uyuyor ve SQL baglanti araci olarak makul; baglam yok [claude/sonnet]
+Scrap	BELIRSIZ	YOK		0.1		Genel ad; 4 aday farklı işlevlerde, bağlam yok [claude/sonnet]
+Sera	BELIRSIZ	YOK		0.1		Yalnızca bir 'Sera API' istemcisi; kalemle ilişki doğrulanamıyor [claude/sonnet]
+SkinTokens	BELIRSIZ	ADAY	hf:VAST-AI/SkinTokens	0.65		Ad özgün; VAST-AI (3D/rigging odaklı) büyük olasılıkla asıl yayıncı, ama açıklama yok [claude/sonnet]
+Social Agent	BELIRSIZ	YOK		0.15		Çince sosyal ilişki CLI aracı; kalemle bağ kurulamıyor, HF adayı boş [claude/sonnet]
+Sonic	BELIRSIZ	YOK		0.05		Ad çakışması; workflow engine ve 'blue guy' temalı eklenti ilgisiz [claude/sonnet]
+Spiral	BELIRSIZ	YOK		0.05		Ad çakışması; aday işlevleri birbirinden ve kalemden bağımsız [claude/sonnet]
+Stock Analyzer	BELIRSIZ	YOK		0.1		Genel isimli küçük paket; aynı ürün olduğuna dair kanıt yok [claude/sonnet]
+Strata	BELIRSIZ	YOK		0.1		Genel ad; adayların işlevleri birbirinden farklı, bağlam yok [claude/sonnet]
+TUNGSTEN	BELIRSIZ	YOK		0.05		Ad çakışması; Wolfram API istemcisi ve dil eklentisi ilgisiz [claude/sonnet]
+Telly	BELIRSIZ	YOK		0.1		Kullanım istatistiği aracı; kalemle uyum doğrulanamıyor [claude/sonnet]
+Tony	BELIRSIZ	YOK		0.05		Ad çakışması; CSP modeli ve dil sözdizimi ilgisiz [claude/sonnet]
+Trivi	BELIRSIZ	YOK		0.1		Trivil programlama dili; 'Trivi' ile ad eşleşmiyor, düşük güven [claude/sonnet]
+Tween Machine	BELIRSIZ	ADAY	npm:tween-machine	0.4		Ad birebir uyuyor ama açıklama yok; doğrulanamıyor [claude/sonnet]
+Vain	BELIRSIZ	YOK		0.1		Şablon motoru; kalemin türüyle bağ yok [claude/sonnet]
+Vaka	BELIRSIZ	YOK		0.1		macOS uyku engelleyici; kalemle bağ yok [claude/sonnet]
+Visual Agent	BELIRSIZ	ADAY	npm:visual-agent	0.4		Ad uyuyor ve yapay zekâ aracı; ancak genel isim, doğrulanamıyor [claude/sonnet]
+Ward	BELIRSIZ	YOK		0.05		Ad çakışması; test çerçevesi ve değişmez veri kütüphanesi [claude/sonnet]
+Watcher	BELIRSIZ	YOK		0.05		Genel ad; adayların işlevleri farklı, bağlam yok [claude/sonnet]
+Wisk	BELIRSIZ	YOK		0.15		İşlevler farklı, bağlam yok; eşleşme kanıtı yok [claude/sonnet]
+Wisp	BELIRSIZ	YOK		0.05		Ad çakışması; adaylar birbirinden bağımsız ve ilgisiz [claude/sonnet]
+Writer	BELIRSIZ	ADAY	pip:writer	0.5		Writer platformuyla entegre çerçeve, gerçek bir ürünün SDK'sı; bağlam olmadan emin değilim [claude/sonnet]
+XFC	BELIRSIZ	YOK		0.1		Cross Frame Container; kalemle bağ yok [claude/sonnet]
+XFY	BELIRSIZ	YOK		0.05		Anlamsız açıklama ('zuoye'); bağ yok [claude/sonnet]
+Xpro	BELIRSIZ	YOK		0.05		Açıklama 'package file'; kanıt yok [claude/sonnet]
+Yoz	BELIRSIZ	YOK		0.05		Açıklamasız; ad dışında kanıt yok [claude/sonnet]
+Zap	BELIRSIZ	YOK		0.1		Zap cok genel ad; baglam yok, adaylar birbiriyle ilgisiz (gokbilim araci, HTTP framework, vscode) [claude/sonnet]
+a bir 	BELIRSIZ	YOK		0.05		'a bir' anlamsiz; abir yaml config kutuphanesi ile uyumu yok [claude/sonnet]
+abil	BELIRSIZ	YOK		0.1		abil okyanus biyojeokimya kutuphanesi; video baglami yok, uyum kaniti yok [claude/sonnet]
+ad pilot	BELIRSIZ	ADAY	npm:adpilot	0.6		ad pilot ~ adpilot; reklam yonetimi CLI'i, arac olarak makul ama dogrulanamadi [claude/sonnet]
+ai-phone	BELIRSIZ	ADAY	npm:aiphone	0.6		ai-phone ~ aiphone; AI ajanlari icin telefon hizmeti, ad ve AI temasi uyumlu ama emin degil [claude/sonnet]
+blaze	BELIRSIZ	YOK		0.1		blaze cok genel ad; adaylar belirsiz/ilgisiz [claude/sonnet]
+buckbot	BELIRSIZ	ADAY	npm:buckbot	0.35		ad birebir eslesiyor ama aciklama bos, islev dogrulanamiyor [claude/sonnet]
+coup	BELIRSIZ	YOK		0.1		coup adaylari sakaci/ilgisiz paketler [claude/sonnet]
+creative engine	BELIRSIZ	ADAY	npm:ps-creative-engine	0.35		creative engine ~ ps-creative-engine; kismi ad eslesmesi, islev uyumu belirsiz [claude/sonnet]
+deep se	BELIRSIZ	ADAY	pip:deepse	0.45		deep se ~ deepse; ad uyumlu, cumle gomme modeli olarak makul ama emin degil [claude/sonnet]
+freellm	BELIRSIZ	ADAY	npm:freellm	0.6		freellm ad birebir, ucretsiz LLM erisimi temasi ortak; birden fazla paket var, npm en olasi [claude/sonnet]
+fronti	BELIRSIZ	YOK		0.2		fronti genel proje olusturma araci; uyum kaniti yok [claude/sonnet]
+gitap	BELIRSIZ	YOK		0.1		gitap ile Git-Ape farkli ad; Azure dagitim ajani, uyum yok [claude/sonnet]
+gp4	BELIRSIZ	YOK		0.1		gp4 muhtemelen GPT-4 OCR hatasi; adaylar ilgisiz/aciklamasiz [claude/sonnet]
+guac	BELIRSIZ	YOK		0.05		guac adaylari ilgisiz (monad notasyonu / aciklamasiz) [claude/sonnet]
+hokage	BELIRSIZ	YOK		0.1		hokage adaylari ilgisiz kucuk kutuphaneler [claude/sonnet]
+jet	BELIRSIZ	YOK		0.1		jet cok genel ad; adaylar farkli urunler [claude/sonnet]
+jiraiya	BELIRSIZ	YOK		0.1		jiraiya ORM; baglam uyumu yok [claude/sonnet]
+meta editor	BELIRSIZ	YOK		0.1		metaeditor Pixel Streaming kutuphanesi; 'meta editor' ile islev uyumu yok [claude/sonnet]
+mol	BELIRSIZ	YOK		0.05		mol adaylari ilgisiz [claude/sonnet]
+motif	BELIRSIZ	YOK		0.15		motif genel ad; adaylar birbirinden farkli, uyum kaniti yok [claude/sonnet]
+nu bir 	BELIRSIZ	YOK		0.1		nubirq aciklamasiz ve ad farkli [claude/sonnet]
+oVideo	BELIRSIZ	ADAY	npm:@financial-times/o-video	0.5		oVideo ~ o-video (Origami video oynatici); ad uyumlu, baglam dogrulamasi yok [claude/sonnet]
+oVideo V	BELIRSIZ	ADAY	npm:@financial-times/o-video	0.35		'oVideo V' sonundaki V belirsiz; o-video ile kismi uyum [claude/sonnet]
+open/board	BELIRSIZ	YOK		0.2		openboard aciklamasiz; islev dogrulanamiyor [claude/sonnet]
+patina	BELIRSIZ	YOK		0.1		Tür ve bağlam yok; 'patina' birden çok ilgisiz paketle çakışıyor, hiçbiri seçilemez. [claude/sonnet]
+pxl	BELIRSIZ	YOK		0.1		Tür ve bağlam yok; 'pxl' adaylarının işlevleri birbirinden ilgisiz. [claude/sonnet]
+pych	BELIRSIZ	YOK		0.1		Bağlam yok; 2ch API istemcisi olduğuna dair bir işaret yok, yalnızca ad benzerliği var. [claude/sonnet]
+pyge	BELIRSIZ	YOK		0.1		Bağlam yok; hediye çekilişi aracı ve Angular projesi ad çakışması gibi duruyor. [claude/sonnet]
+robo	BELIRSIZ	YOK		0.1		'robo' çok genel bir ad; bağlam olmadan hiçbir aday doğrulanamaz. [claude/sonnet]
+thumbo	BELIRSIZ	ADAY	npm:thumbo	0.4		Ad birebir aynı ve küçük resim kütüphanesi makul, ama bağlam olmadığı için emin değilim. [claude/sonnet]
+tin can	BELIRSIZ	YOK		0.15		Tin Can API (xAPI) kütüphaneleri var, ancak videodaki 'tin can' aracının bu olduğuna dair kanıt yok. [claude/sonnet]
+agentationburepoy	KESIN	DOGRULANDI	gh:bengitaylor/agentationburepoy	0.8		Ad birebir aynı ve aday ana listedeki repo bağlantısı. [claude/sonnet]
+awesome-	KESIN	ADAY	gh:hesreallyhim/awesome-	0.55		Ad kesilmiş ('awesome-') ve aday ana listedeki repo, ama tam ad kesin değil. pip/npm/vscode adayları ilgisiz. [claude/sonnet]
+backend-service	KESIN	ADAY	gh:user/backend-service	0.4		Ad birebir aynı ve ana listedeki repo, ama sahip adı 'user' yer tutucu gibi görünüyor. npm adayı ilgisiz. [claude/sonnet]
+blender-ai-mcp-addon	KESIN	DOGRULANDI	gh:LiCinCan/blender-ai-mcp-addon	0.85		Ad birebir aynı ve ana listedeki repo; ad Blender AI MCP eklentisi işleviyle uyumlu. [claude/sonnet]
+blobm	KESIN	DOGRULANDI	gh:meuregexfrcefield/blobm	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+blobmain	KESIN	DOGRULANDI	gh:neuregeutreefield/blobmain	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+brag--skill	KESIN	DOGRULANDI	gh:latent-spaces/brag--skill	0.8		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+chramm-devroois-mop	KESIN	DOGRULANDI	gh:CnomeDeyToois/chramm-devroois-mop	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+Claude Desktop Extensions	KESIN	DOGRULANDI	gh:anthropics/claude-desktop-extensions	0.9		anthropics/claude-desktop-extensions, ad ve işlev olarak aynı ürün. [claude/sonnet]
+Claude Swarm	KESIN	DOGRULANDI	gh:parallaxsys/claude-swarm	0.75		Ad aynı ve ana listedeki repo; pip/npm paketleri de benzer ama ana listedeki repo tercih edildi. [claude/sonnet]
+claude-code-video-tocllcit	KESIN	DOGRULANDI	gh:digltalsamba/claude-code-video-tocllcit	0.8		Ad birebir aynı ve ana listedeki repo; Claude Code video araç seti işleviyle uyumlu. [claude/sonnet]
+claude-conl	KESIN	DOGRULANDI	gh:0otto-AI/claude-conl	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+claude-dev-tools	KESIN	DOGRULANDI	gh:zebbern/claude-dev-tools	0.85		Ad birebir aynı ve ana listedeki repo; Claude geliştirici araçları işleviyle uyumlu. [claude/sonnet]
+cnen7	KESIN	DOGRULANDI	gh:ijstash/cnen7	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+crmreadme	KESIN	DOGRULANDI	gh:trycompai/crmreadme	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+dlaude-skilblob	KESIN	DOGRULANDI	gh:Moionsites-Au/dlaude-skilblob	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+earshotareadme	KESIN	DOGRULANDI	gh:Leonodnx/earshotareadme	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]
+emo-opuscarireadme	KESIN	DOGRULANDI	gh:emomo-al/emo-opuscarireadme	0.75		Ad birebir aynı ve ana listedeki repo bağlantısı. [claude/sonnet]

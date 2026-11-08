@@ -1,0 +1,4 @@
+tarih	gorev	kol	mcp	init_mcp_arac	istekler	ilk	mcp_cagri	sure_s	hata	usd	sonuc
+2026-10-22 10:31	cagri	bos		0	15003/15003/15003/15003/15003	15003	0	6	0	0.0017	`mcp__ruflo__memory_search` aracı bu otu
+2026-10-22 10:31	cagri	eski	ruflo,rea,playwright,chrome-devtools,context7,21st	330	15525/15525/15525/15525/427133	15525	1	16	0	0.2688	OK
+2026-10-22 10:31	cagri	ts	ruflo,rea,playwright,chrome-devtools,context7,21st	330	27072/27955/28308	27072	1	11	0	0.0045	OK

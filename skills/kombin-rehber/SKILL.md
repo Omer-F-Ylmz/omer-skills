@@ -15,3 +15,7 @@ description: Picks the best 1-3 proven tool combinations (skill + MCP + CLI chai
 
 New combo idea after a job? Add it to your report as `kombin-oneri: <id> · amac · adimlar`; the owner approves before it is added.
 6. Tool lookup: `references/arac-kartlari.md` holds one short card per installed tool (what, when, not-when, call pattern, good partners, history); `references/kombin-gecmis.md` lists tool sets that succeeded per job type. Grep them by keyword; open a tool's own SKILL.md only for detail.
+
+- Penpot (açık kaynak, kalem logolu Figma karşılığı): MCP `penpot` kayıtlı (http://localhost:4401/mcp); sunucu `npx @penpot/mcp` + tarayıcıda Penpot eklentisi gerekir, Docker kurulmadı.
+
+- URL hileleri (De7WIcEogeo, 30 Eki): repo URL'sinde tek kelime değiştir. `github.com/o/r` -> `gitreverse.com/o/r` (repoyu yapan prompt) ve `gitdiagram.com/o/r` (mimari diyagram). Kaynak videoda 8'in yalnız 2'si görünür, kalanı DM; doğrulanmadan listeleme. Repo incelemede ilk ucuz adım.

@@ -30,14 +30,14 @@ function DiskKapi($once) {
     if ((BosGB) -lt $DiskAltGB) { $script:dur = $true; Kayit "disk" "DUR" 0 "$SikistirBeklemeDk dk sonra bos hala < $DiskAltGB GB; kalan adimlar atlandi" }
 }
 
-function Adim($ad, $aciklama, [scriptblock]$is, [scriptblock]$deneme) {
+function Adim($ad, $aciklama, [scriptblock]$is, [scriptblock]$denemeIs) {
     DiskKapi $ad
     if ($script:dur) { Kayit $ad "ATLANDI" 0 "disk dolu (DUR)"; return }
     $t0 = Get-Date
     try {
         $global:LASTEXITCODE = 0
         if ($Deneme) {
-            if ($deneme) { & $deneme } else { Write-Host "  [deneme] $aciklama" }
+            if ($denemeIs) { & $denemeIs } else { Write-Host "  [deneme] $aciklama" }
             $durum = if ($LASTEXITCODE -eq 0 -or $null -eq $LASTEXITCODE) { "DENEME" } else { "HATA" }
             Kayit $ad $durum ([int]((Get-Date) - $t0).TotalSeconds) $aciklama
         } else {
@@ -72,6 +72,11 @@ Adim "3" "python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-c
     & $py -I (Dosya 'tools\kurulum_d2.py') --faz kur --coz (Dosya 'docs\video-tarama\kurulum-coz-4.tsv') } {
     & $py -I (Dosya 'tools\kurulum_d2.py') --faz kur --sadece-kapi --n 3 --coz (Dosya 'docs\video-tarama\kurulum-coz-4.tsv') | Select-Object -Last 3 }
 
+# [3b] KURULUM-5A'nin buldugu kalemler (kurulum-coz-5.tsv: DOGRULANDI 39 + ADAY 135, gh/npm/pip; ADAY LLM eslesme kapisindan gecer)
+Adim "3b" "python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-5.tsv --aday" {
+    & $py -I (Dosya 'tools\kurulum_d2.py') --faz kur --coz (Dosya 'docs\video-tarama\kurulum-coz-5.tsv') --aday } {
+    & $py -I (Dosya 'tools\kurulum_d2.py') --faz kur --sadece-kapi --n 3 --coz (Dosya 'docs\video-tarama\kurulum-coz-5.tsv') --aday | Select-Object -Last 3 }
+
 # [4] lightpanda (WSL'e kopyalar; SHA256 betigin icinde dogrulanir). Betikte -Deneme yok: Deneme'de yalniz ikili/hash yoklanir.
 Adim "4" "tools\kurulum_lightpanda.ps1" { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_lightpanda.ps1') } {
     $src = 'C:\Users\pc\Apps\lightpanda\lightpanda-x86_64-linux'
@@ -96,6 +101,14 @@ Adim "6" "Atomic Chat /S (SHA256 dogrulanir)" {
 # [6s] sistem/winget kalemleri (yonetici onayi isteyebilir) en sonda
 Adim "6s" "tools\kurulum_omer2.ps1 -Sistem (winget)" { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_omer2.ps1') -Sistem } { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_omer2.ps1') -Sistem -Deneme | Select-Object -Last 3 }
 
+# [6e] ek kurulumlar: SQLite, Copilot x2, Blender F2, CUDA, MegaTTS3 (+ DaVinci yoklama)
+Adim "6e" "tools\kurulum_ek_1107.ps1" { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_ek_1107.ps1') } { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_ek_1107.ps1') -Deneme | Select-Object -Last 3 }
+
+# [6g] gurultu winget kalemleri (Typst)
+if (Test-Path (Dosya 'tools\kurulum_gurultu.ps1')) {
+    Adim "6g" "tools\kurulum_gurultu.ps1 -Sistem (winget)" { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_gurultu.ps1') -Sistem } { & $ps -NoProfile -ExecutionPolicy Bypass -File (Dosya 'tools\kurulum_gurultu.ps1') -Sistem -Deneme | Select-Object -Last 3 }
+}
+
 # [7] kurulum sonrasi: kanit + envanter + katalog + 'her seyimiz' dizinine isleme (NIHAI 36J)
 Adim "7" "kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin" {
     & $py -I (Dosya 'tools\kurulu_kanit.py')
@@ -103,5 +116,5 @@ Adim "7" "kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tar
     & $py -I (Dosya 'tools\katalog_yenile.py')
     & $py -I (Dosya 'tools\envanter_tara.py') --dizin } { Write-Host "  [deneme] 4 betik: kurulu_kanit, topla, katalog_yenile, envanter_tara --dizin" }
 
-$say = (Import-Csv $sonuc -Delimiter "`t" | Select-Object -Last 14 | Group-Object durum | ForEach-Object { "$($_.Name)=$($_.Count)" }) -join ' '
+$say = (Import-Csv $sonuc -Delimiter "`t" | Select-Object -Last 17 | Group-Object durum | ForEach-Object { "$($_.Name)=$($_.Count)" }) -join ' '
 Write-Host "KUR-HEPSI bitti. Son kosu: $say  | sonuc: rapor\kur-hepsi-sonuc.tsv"

@@ -8,3 +8,68 @@
 6	DENEME	12	143.9	Atomic Chat /S (SHA256 dogrulanir)
 6s	DENEME	102	143.9	tools\kurulum_omer2.ps1 -Sistem (winget)
 7	DENEME	0	143.9	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin
+0	DENEME	0	133.2	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal)
+1	DENEME	138	132.4	tools\kurulum_omer2.ps1
+2	DENEME	1	132.4	tools\kurulum_gurultu.ps1
+3	DENEME	4	132.3	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv
+4	DENEME	0	132.3	tools\kurulum_lightpanda.ps1
+5	DENEME	2	132.3	tools\kurulum_guvenlik.ps1
+6	DENEME	1	132.4	Atomic Chat /S (SHA256 dogrulanir)
+6s	DENEME	36	132.4	tools\kurulum_omer2.ps1 -Sistem (winget)
+7	DENEME	0	132.4	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin
+0	DENEME	0	130.5	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal)
+1	DENEME	57	130.1	tools\kurulum_omer2.ps1
+2	DENEME	1	130.1	tools\kurulum_gurultu.ps1
+3	DENEME	2	130.1	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv
+4	DENEME	0	129.9	tools\kurulum_lightpanda.ps1
+5	DENEME	2	129.9	tools\kurulum_guvenlik.ps1
+6	DENEME	1	129.9	Atomic Chat /S (SHA256 dogrulanir)
+6s	DENEME	14	129.8	tools\kurulum_omer2.ps1 -Sistem (winget)
+6g	DENEME	1	129.8	tools\kurulum_gurultu.ps1 -Sistem (winget)
+7	DENEME	0	129.8	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin
+0	DENEME	0	123.3	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal)
+1	DENEME	10	123.3	tools\kurulum_omer2.ps1
+2	DENEME	0	123.3	tools\kurulum_gurultu.ps1
+3	DENEME	1	123.3	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv
+4	DENEME	0	123.3	tools\kurulum_lightpanda.ps1
+5	DENEME	1	123.3	tools\kurulum_guvenlik.ps1
+6	DENEME	0	123.3	Atomic Chat /S (SHA256 dogrulanir)
+6s	DENEME	11	123.3	tools\kurulum_omer2.ps1 -Sistem (winget)
+6g	DENEME	0	123.3	tools\kurulum_gurultu.ps1 -Sistem (winget)
+7	DENEME	0	123.3	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin
+0	DENEME	0	124.2	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal)
+1	DENEME	137	124.2	tools\kurulum_omer2.ps1
+2	DENEME	1	124.2	tools\kurulum_gurultu.ps1
+3	DENEME	3	124.2	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv
+3b	DENEME	16	124.2	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-5.tsv --aday
+4	DENEME	0	124.2	tools\kurulum_lightpanda.ps1
+5	DENEME	3	124.2	tools\kurulum_guvenlik.ps1
+6	DENEME	1	124.2	Atomic Chat /S (SHA256 dogrulanir)
+6s	DENEME	67	124.2	tools\kurulum_omer2.ps1 -Sistem (winget)
+6e	DENEME	20	124.2	tools\kurulum_ek_1107.ps1
+6g	DENEME	1	124.2	tools\kurulum_gurultu.ps1 -Sistem (winget)
+7	DENEME	0	124.2	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin
+0	TAMAM	9	124.1	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal) (exit 0)
+1	TAMAM	4034	143.1	tools\kurulum_omer2.ps1 (exit 0)
+2	TAMAM	112	142.2	tools\kurulum_gurultu.ps1 (exit 0)
+3	TAMAM	1145	139.1	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv (exit 0)
+3b	TAMAM	436	133.7	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-5.tsv --aday (exit 0)
+4	TAMAM	5	133.7	tools\kurulum_lightpanda.ps1 (exit 0)
+5	TAMAM	7016	157.1	tools\kurulum_guvenlik.ps1 (exit 0)
+6	TAMAM	22	156.9	Atomic Chat /S (SHA256 dogrulanir) (exit 0)
+6s	TAMAM	5466	154	tools\kurulum_omer2.ps1 -Sistem (winget) (exit 0)
+6e	HATA	1005	152.2	tools\kurulum_ek_1107.ps1 (exit 1)
+6g	HATA	0	152.2	tools\kurulum_gurultu.ps1 -Sistem (winget) (exit -1073741205)
+7	HATA	0	152.2	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin (exit -1073741205)
+0	TAMAM	8	154.1	schtasks /run omer-sikistir-gunluk (arka plan, BelowNormal) (exit 0)
+1	TAMAM	175	152.2	tools\kurulum_omer2.ps1 (exit 0)
+2	TAMAM	2	152.2	tools\kurulum_gurultu.ps1 (exit 0)
+3	TAMAM	636	148	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-4.tsv (exit 0)
+3b	TAMAM	102	146.1	python tools\kurulum_d2.py --faz kur --coz docs\video-tarama\kurulum-coz-5.tsv --aday (exit 0)
+4	TAMAM	6	146.2	tools\kurulum_lightpanda.ps1 (exit 0)
+5	TAMAM	73	146.2	tools\kurulum_guvenlik.ps1 (exit 0)
+6	TAMAM	25	146.2	Atomic Chat /S (SHA256 dogrulanir) (exit 0)
+6s	TAMAM	1158	146.5	tools\kurulum_omer2.ps1 -Sistem (winget) (exit 0)
+6e	HATA	674	146.5	tools\kurulum_ek_1107.ps1 (exit 1)
+6g	TAMAM	306	146.7	tools\kurulum_gurultu.ps1 -Sistem (winget) (exit 0)
+7	TAMAM	6492	127.2	kurulu_kanit.py + envanter/topla.py + katalog_yenile.py + envanter_tara.py --dizin (exit 0)

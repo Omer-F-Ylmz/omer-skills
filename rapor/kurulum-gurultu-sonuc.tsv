@@ -12,3 +12,142 @@ nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
 storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
 Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
 Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	DENEME	https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi -> C:\Users\pc\Downloads\kurulum-gurultu\Spacedrive-windows-x86_64.msi (exe/msi'yi Omer calistirir)
+Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	DENEME	https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi -> C:\Users\pc\Downloads\kurulum-gurultu\Spacedrive-windows-x86_64.msi (exe/msi'yi Omer calistirir)
+Typst	WINGET	DENEME	winget install --id Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	DENEME	https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi -> C:\Users\pc\Downloads\kurulum-gurultu\Spacedrive-windows-x86_64.msi (exe/msi'yi Omer calistirir)
+Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	DENEME	https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi -> C:\Users\pc\Downloads\kurulum-gurultu\Spacedrive-windows-x86_64.msi (exe/msi'yi Omer calistirir)
+Typst	WINGET	DENEME	winget install --id Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	DENEME	https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi -> C:\Users\pc\Downloads\kurulum-gurultu\Spacedrive-windows-x86_64.msi (exe/msi'yi Omer calistirir)
+Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	DENEME	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	DENEME	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	DENEME	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	DENEME	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	DENEME	multica-ai/andrej-karpathy-skills skills -> C:\Users\pc\.claude\skills
+3dcodeverse	KLON	DENEME	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	DENEME	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	DENEME	uv tool install nano-pdf
+himalaya	INDIR	DENEME	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	DENEME	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	DENEME	openwhat007/storm-research  -> C:\Users\pc\.claude\skills
+Paperclip	KLON	DENEME	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	DENEME	https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi -> C:\Users\pc\Downloads\kurulum-gurultu\Spacedrive-windows-x86_64.msi (exe/msi'yi Omer calistirir)
+Typst	WINGET	DENEME	winget install --id Typst.Typst
+clef-decision-demo	KLON	KURULDU	git clone --depth 1 ajmontalbano/clef-decision-demo
+axolotl	KLON	KURULDU	git clone --depth 1 axolotl-ai-cloud/axolotl
+langchain-ai (langgraph)	KLON	KURULDU	git clone --depth 1 langchain-ai/langgraph
+HKUDS (LightRAG)	KLON	KURULDU	git clone --depth 1 HKUDS/LightRAG
+andrej-karpathy-skills	SKILL	KURULDU	multica-ai/andrej-karpathy-skills skills (1 skill)
+3dcodeverse	KLON	KURULDU	git clone --depth 1 gaoypeng/3dcodeverse
+Nakama	KLON	KURULDU	git clone --depth 1 heroiclabs/nakama
+nano-pdf	UV	KURULDU	uv tool install nano-pdf
+himalaya	INDIR	KURULDU	https://github.com/pimalaya/himalaya/releases/download/v2.2.1/himalaya.x86_64-windows.zip -> C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip (exe/msi'yi Omer calistirir)
+nanochat	KLON	KURULDU	git clone --depth 1 karpathy/nanochat
+storm-research	SKILL	KURULDU	openwhat007/storm-research  (1 skill)
+Paperclip	KLON	KURULDU	git clone --depth 1 paperclipai/paperclip
+Spacedrive	INDIR	HATA	İstek durduruldu: Bağlantı beklenmedik bir şekilde kapatıldı.
+Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\ajmontalbano__clef-decision-demo
+axolotl	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\axolotl-ai-cloud__axolotl
+langchain-ai (langgraph)	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\langchain-ai__langgraph
+HKUDS (LightRAG)	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\HKUDS__LightRAG
+andrej-karpathy-skills	SKILL	ZATEN	multica-ai/andrej-karpathy-skills skills (yeni skill yok)
+3dcodeverse	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\gaoypeng__3dcodeverse
+Nakama	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\heroiclabs__nakama
+nano-pdf	UV	KURULDU	uv tool install nano-pdf
+himalaya	INDIR	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip
+nanochat	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\karpathy__nanochat
+storm-research	SKILL	ZATEN	openwhat007/storm-research  (yeni skill yok)
+Paperclip	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\paperclipai__paperclip
+Spacedrive	INDIR	HATA	İstek durduruldu: Bağlantı beklenmedik bir şekilde kapatıldı.
+Typst	WINGET	ATLANDI	-Sistem yok: Typst.Typst
+clef-decision-demo	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\ajmontalbano__clef-decision-demo
+axolotl	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\axolotl-ai-cloud__axolotl
+langchain-ai (langgraph)	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\langchain-ai__langgraph
+HKUDS (LightRAG)	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\HKUDS__LightRAG
+andrej-karpathy-skills	SKILL	ZATEN	multica-ai/andrej-karpathy-skills skills (yeni skill yok)
+3dcodeverse	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\gaoypeng__3dcodeverse
+Nakama	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\heroiclabs__nakama
+nano-pdf	UV	KURULDU	uv tool install nano-pdf
+himalaya	INDIR	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\himalaya.x86_64-windows.zip
+nanochat	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\karpathy__nanochat
+storm-research	SKILL	ZATEN	openwhat007/storm-research  (yeni skill yok)
+Paperclip	KLON	ZATEN	C:\Users\pc\Downloads\kurulum-gurultu\klon\paperclipai__paperclip
+Spacedrive	INDIR	HATA	İstek durduruldu: Bağlantı beklenmedik bir şekilde kapatıldı.
+Typst	WINGET	HATA	exit -1

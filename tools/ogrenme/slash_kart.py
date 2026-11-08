@@ -51,6 +51,11 @@ def kos(dizin, istem):
 
 if __name__ == "__main__":
     kok = Path(sys.argv[1])
-    sonuc = {"skillsiz": kos(kok / "B", GOREV), "skilli": kos(kok / "A", ONEK + GOREV)}
-    (KOK / ".kos" / "ogrenme" / "slash-kart.json").write_text(json.dumps(sonuc, indent=1, ensure_ascii=False), encoding="utf-8")
+    kol = sys.argv[2] if len(sys.argv) > 2 else None  # "A"|"B": tek kol (zaman aşımına karşı parçalı koşu)
+    sonuc = {}
+    if kol in (None, "B"):
+        sonuc["skillsiz"] = kos(kok / "B", GOREV)
+    if kol in (None, "A"):
+        sonuc["skilli"] = kos(kok / "A", ONEK + GOREV)
+    (KOK / ".kos" / "ogrenme" / ("slash-kart.json" if kol is None else f"slash-kart-{kol}.json")).write_text(json.dumps(sonuc, indent=1, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(sonuc, ensure_ascii=False))

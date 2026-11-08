@@ -1,0 +1,71 @@
+22:09:48 ComfyUI kapalý -> aç
+22:10:24 tarla kuyrukta 51d48edc-7430-4c24-8138-3091b61a5bba
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1384, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1037, in send
+    self.connect()
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1003, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 850, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Projeler\omer-skills\sosyal-onizleme\tane-premium\sinema.py", line 64, in <module>
+    if __name__=="__main__":main(sys.argv[1:])
+                            ^^^^^^^^^^^^^^^^^^
+  File "C:\Projeler\omer-skills\sosyal-onizleme\tane-premium\sinema.py", line 48, in main
+    time.sleep(10);h=req("/history/"+pid)
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Projeler\omer-skills\sosyal-onizleme\tane-premium\sinema.py", line 10, in req
+    r=urllib.request.Request(U+p,data=data,headers={"Content-Type":ct} if data else {});return json.loads(urllib.request.urlopen(r,timeout=60).read() or b"{}")
+                                                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [WinError 10061] Hedef makine etkin olarak reddettiðinden baðlantý kurulamadý>
+22:12:44 bekle VRAM 4167 bos GB 5.9
+22:14:45 bekle VRAM 4603 bos GB 4.7
+22:16:45 bekle VRAM 10026 bos GB 7.0
+22:18:46 bekle VRAM 10029 bos GB 5.3
+22:20:46 bekle VRAM 4133 bos GB 2.7
+22:22:47 bekle VRAM 6620 bos GB 7.3
+22:24:47 bekle VRAM 5784 bos GB 7.5
+22:26:47 bekle VRAM 1263 bos GB 7.9
+22:28:48 bekle VRAM 3151 bos GB 7.1
+22:30:48 bekle VRAM 1649 bos GB 1.7
+22:32:49 bekle VRAM 3963 bos GB 7.8
+22:34:49 bekle VRAM 3702 bos GB 7.3
+22:36:50 bekle VRAM 5730 bos GB 6.4
+22:38:50 bekle VRAM 2835 bos GB 6.5
+22:40:50 bekle VRAM 1651 bos GB 2.1
+22:42:51 bekle VRAM 4595 bos GB 7.7
+22:44:51 bekle VRAM 4659 bos GB 6.2

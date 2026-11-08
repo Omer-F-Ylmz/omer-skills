@@ -21,4 +21,4 @@ for p in d["p"] or []:
     print(p["ProcessId"], p["Bas"], f'{p["MB"]}MB', "opus" if "opus" in c else "", c[:140])
 print("claude -p oturumu:", n)
 from durum_ozet import PROJ, durma_satiri  # noqa: E402 — aynı dizin; çalışan/son oturum = en yeni transkript
-print(durma_satiri(PROJ.glob("*/*.jsonl")))
+print(durma_satiri([j for j in PROJ.glob("*/*.jsonl") if "claude-mem" not in j.parent.name]))

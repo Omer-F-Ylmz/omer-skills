@@ -10,8 +10,8 @@ CIKTI = os.path.join(a.KOK, ".kos", "kopru", "rapor", "kurulum-ek-site.tsv")
 
 
 def main():
-    if shutil.disk_usage("C:\\").free < 80 * 2**30:
-        sys.exit("disk <80GB")
+    if shutil.disk_usage("C:\\").free < 30 * 2**30:
+        sys.exit("disk <30GB")
     os.makedirs(a.HEDEF, exist_ok=True)
     aday = {}
     for r in csv.DictReader(open(GIRDI, encoding="utf-8"), delimiter="\t"):

@@ -50,3 +50,4 @@ Mekanizma: hazır adayı (MIT/CC0 kod ya da varlık) bizimkiyle aynı kamera/ı�
 - LCP öğesi (hero başlığı) opacity 0'dan geç başlamaz; giriş ≤600 ms, kademe ≤80 ms.
 - Pencere/tarayıcı açma (`start`, `os.startfile`, `webbrowser` yok); Blender yalnız `-b`, ölçüm headless.
 - Tarif yetmiyorsa: çok sahneli/veriye bağlı video → Remotion/hyperframes; karmaşık zaman çizelgesi → GSAP (ScrollTrigger/SplitText); 3D sahne kurgusu → Theatre.js. Bunlar ayrı skill'lerde; bu atölye en ucuz yoldur.
+- Hareket yakalama/poz hattı (DfFCwnBoxtS): MediaPipe (Apache-2.0) 2B/3B poz, MMPose (Apache-2.0), OpenPose (akademik/ticari-dışı lisans, ticari işte kullanma), VideoPose3D (CC BY-NC 4.0, ticari-dışı); çıktı Blender'a bpy ile aktarılır, Blender yalnız `-b` (pencere açma). Klonlar: C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\link30eki-2\ (kurulum yok, yalnız kaynak).

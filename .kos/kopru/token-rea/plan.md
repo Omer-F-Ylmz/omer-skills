@@ -237,3 +237,7 @@ Mühür: held-out adları taban.json'da; kapıda tek seferlik.
 - (2) Kopya korpus + d19 kapısı KOŞULMADI: model yapılandırmayla seçilemediği için yeniden indeksleme yolu yok; yerel çok dilli gömme ancak kaynak/chroma-mcp değişikliği ister (güncellemede kaybolur, ÖNERİLMEZ). `onay/token_rea_gomme.py` yazılmadı.
 - (3) d20b: `onay/token_rea_anahtar.py` (uygula/--geri/--kuru, yedekli) → `~/.claude-mem/modes/code--anahtar.json` (kullanıcı mod dizini, güncellemeden etkilenmez) + `CLAUDE_MEM_MODE` code→code--anahtar. Yalnız subtitle yer tutucusu değişir: " | TR: 3-5 anahtar | EN: 3-5 anahtar" (FTS + Chroma belgesi içerir; başlık değişmediği için SessionStart enjeksiyonu şişmez). UYGULANMADI (varsayılan kapalı, Desktop onayı). Test: onay/test_token_rea_anahtar.py 2/2.
 - Ölçüm: uygulamadan sonra `--kuru` işaretli gözlem sayısını verir; ~300 işaretli yeni gözlemde mem_anahtar_ab.py mantığıyla yalnız işaretli kayıtlar üzerinde TR→EN/EN→TR paraphrase ≥0.5, anahtar ≥0.93, süre +%20 altı kapısı ölçülür.
+
+## ★ d21 KAPI (28 Eki, KALAN-SON) — işaretli gözlemlerde canlı ölçüm: GEÇMEDİ
+- mem_anahtar_isaretli.py tohum 24101, ~2150 işaretli kayıt, n=40/yön: TR→EN 0.350 (≥0.5 ✗) · EN→TR 0.325 (≥0.5 ✗) · anahtar 0.961 (≥0.93 ✓) · süre 0.046 sn vs taban 0.032 (+%42, ≤%20 ✗). Havuz-anahtar varyantları (5-2/5-6/5-10) da ≥0.5 vermedi (en iyi TR→EN 0.5 yalnız n=20, EN→TR atlandı).
+- KARAR: code--anahtar modu paraphrase kazancı vermedi; kapı geçmedi → token-rea-d20 KAPANDI (mod geri alınabilir: onay/token_rea_anahtar.py --geri, Ömer'e bırakıldı; silme yok).

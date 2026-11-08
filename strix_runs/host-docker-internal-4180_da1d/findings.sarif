@@ -1,0 +1,87 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Strix",
+          "informationUri": "https://strix.ai",
+          "rules": [
+            {
+              "id": "strix-coverage/dom-based-xss",
+              "name": "DOM-based XSS",
+              "shortDescription": {
+                "text": "Coverage: DOM-based XSS"
+              },
+              "fullDescription": {
+                "text": "Coverage of DOM-based XSS across the assessed attack surface."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Coverage of DOM-based XSS across the assessed attack surface.",
+                "markdown": "Coverage of DOM-based XSS across the assessed attack surface."
+              },
+              "properties": {
+                "tags": [
+                  "coverage"
+                ]
+              }
+            }
+          ],
+          "version": "1.7.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "strix-coverage/dom-based-xss",
+          "ruleIndex": 0,
+          "kind": "pass",
+          "level": "none",
+          "message": {
+            "text": "DOM-based XSS — No issue identified: http://host.docker.internal:4180/js/main.js\n\nFull code review of main.js (183 lines): No DOM XSS sources (location.hash, location.search, document.referrer, postMessage, storage) or sinks (innerHTML, eval, document.write, location assignment) found. All DOM updates use safe textContent. No user input reflection or dynamic code execution."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "http://host.docker.internal:4180/js/main.js"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "strix": {
+              "coverage_outcome": "no_issue_found",
+              "risk_area": "DOM-based XSS",
+              "surface": "http://host.docker.internal:4180/js/main.js",
+              "recorded_by": "XSS Analysis Agent",
+              "source": "agent_reported"
+            }
+          }
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": false,
+          "toolExecutionNotifications": [
+            {
+              "level": "warning",
+              "message": {
+                "text": "The scan ended with status 'running' rather than completing, so coverage reflects only the work finished before it stopped."
+              }
+            },
+            {
+              "level": "warning",
+              "message": {
+                "text": "3 agent(s) did not finish cleanly (Path Traversal Agent, Reconnaissance Agent, Root Agent); any surface they held is under-covered."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

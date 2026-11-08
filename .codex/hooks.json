@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -S \"C:\\Projeler\\omer-skills\\tools\\cagri_sayac.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -S \"C:\\Projeler\\omer-skills\\tools\\cagri_sayac.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

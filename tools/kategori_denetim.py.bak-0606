@@ -1,0 +1,410 @@
+"""KATEGORI-DENETIM: kategori.tsv'deki HER satirin yerlesimini bagimsiz ikinci model + Sonnet hakemle denetler.
+CLI: python tools/kategori_denetim.py hazirla | ikinci [--sure DK] [--maks N] | hakem [--sure DK] [--maks N] | orneklem | uygula | rapor | durum
+  hazirla  : her satira kanit metni (ozet / dosya basligi+ilk 400 kr / README) ekler -> .kos/kopru/arka/kategori-denetim/kanit.jsonl
+  ikinci   : ilk etiketi GOSTERMEDEN ucretsiz havuzla (ilk modelin ailesi haric) yeniden siniflar -> ikinci.jsonl (onbellekli, devam eder)
+  hakem    : uyusmayan / guven<0.8 / diger-genel / %5 orneklem satirlari Sonnet'e (cagir('hakem')) -> hakem.jsonl
+  uygula   : kararlari kategori.tsv'ye isler; eski deger docs/envanter/kategori-degisiklik.tsv'ye (silme yok; yedek _arsiv/)
+Kural (yeni kalem akisi): kalem_kontrol(satirlar) = ikinci model + uyusmazsa hakem. Anahtar degeri okunmaz/yazilmaz."""
+import csv, glob, hashlib, json, os, random, re, shutil, sys, threading, time, collections
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import kategori_sinifla as S  # noqa: E402
+
+KOK = S.KOK
+TSV = S.CIKTI
+D = KOK / ".kos/kopru/arka/kategori-denetim"
+DENETIM = KOK / "docs/envanter/kategori-denetim.tsv"
+DEGISIKLIK = KOK / "docs/envanter/kategori-degisiklik.tsv"
+RAPOR = KOK / ".kos/kopru/arka/kategori-denetim.rapor.md"
+csv.field_size_limit(10**9)
+KIMLIK = re.compile(r"^[A-Za-z0-9_-]{11}$")
+KILIT = threading.Lock()
+PARTI = 70
+AILE_HARIC = {"gemini": "google", "groq": "openai"}  # ilk model sirketi -> ucretsiz_havuz aile adi (digerleri ayni ad)
+
+
+def rid(ad, tur, yol):
+    return hashlib.sha1(f"{ad}\x1f{tur}\x1f{yol}".encode("utf-8", "replace")).hexdigest()[:12]
+
+
+def satirlar_oku():
+    with open(TSV, encoding="utf-8", newline="") as f:
+        r = csv.reader(f, delimiter="\t")
+        bas = next(r)
+        return bas, list(r)
+
+
+def _jsonl_oku(p):
+    out = {}
+    if p.exists():
+        for ln in p.read_text(encoding="utf-8").splitlines():
+            try:
+                j = json.loads(ln)
+                out[j["id"]] = j
+            except (ValueError, KeyError):
+                pass
+    return out
+
+
+def _jsonl_ekle(p, kayit):
+    with KILIT, open(p, "a", encoding="utf-8") as f:
+        f.write(json.dumps(kayit, ensure_ascii=False) + "\n")
+
+
+def _temiz(s, n=400):
+    s = re.sub(r"!?\[[^\]]*\]\([^)]*\)|<[^>]+>|[#*`>|=_]+|https?://\S+", " ", s or "")
+    return re.sub(r"\s+", " ", s).strip()[:n]
+
+
+def _yol_coz(yol):
+    if not yol or yol.startswith(("http", "kapsam", "kalem-denetim", "katalog", "ana-liste", "~", "mcp")):
+        return None
+    p = Path(yol) if os.path.isabs(yol) else KOK / yol
+    if p.exists():
+        return p
+    if "�" in str(p):  # bozuk karakterli yol: ? ile eslestir
+        g = glob.glob(glob.escape(str(p)).replace("�", "?"))
+        if g:
+            return Path(g[0])
+    return None
+
+
+def kanit_uret(ad, tur, yol, ozet=""):
+    """satir icin <=400 kr kanit: onbellekteki ozet > dosya basligi/ilk metin > README."""
+    k = _temiz(ozet)
+    if k:
+        return k
+    p = _yol_coz(yol)
+    try:
+        if p and p.is_file() and p.suffix.lower() in (".md", ".txt", ".tsv", ".json", ".yml", ".yaml", ".py", ".rst"):
+            return _temiz(S._oku(p, 600))
+        if p and p.is_dir():
+            return S._readme_ozet(p)
+    except OSError:
+        pass
+    if yol.startswith("kapsam:"):
+        return "kaynak: " + yol.split(":", 2)[1]
+    return ""
+
+
+def hazirla():
+    D.mkdir(parents=True, exist_ok=True)
+    og = json.loads((S.ARA / "ogeler.json").read_text(encoding="utf-8"))["ogeler"]
+    ozet = {}
+    for k, v in og.items():
+        n, t = k.split("\x1f")
+        ozet[(n, t)] = v.get("ozet", "")
+    _, rows = satirlar_oku()
+
+    def is_(r):
+        ad, tur, yol = r[0], r[1], r[2]
+        return kanit_uret(ad, tur, yol, ozet.get((S._norm(ad), tur), ""))
+    with ThreadPoolExecutor(16) as ex:
+        kan = list(ex.map(is_, rows))
+    n_bos = 0
+    with open(D / "kanit.jsonl", "w", encoding="utf-8") as f:
+        for r, k in zip(rows, kan):
+            ilk_model = r[8][6:].split("/")[0] if r[7] == "ucretsiz-model" else ""
+            f.write(json.dumps({"id": rid(r[0], r[1], r[2]), "ad": r[0], "tur": r[1], "yol": r[2], "kanit": k, "ilk": r[3], "ilk_guven": r[6],
+                                "ilk_yontem": r[7], "ilk_model": ilk_model}, ensure_ascii=False) + "\n")
+            n_bos += not k
+    print("hazir:", len(rows), "kanitsiz:", n_bos)
+
+
+def kanit_oku():
+    return [json.loads(x) for x in (D / "kanit.jsonl").read_text(encoding="utf-8").splitlines()]
+
+
+def ipucusuz_kimlik(o):
+    return bool(KIMLIK.match(o["ad"].strip())) and not o["kanit"]
+
+
+# ------------------------------------------------------------------ ikinci model (ilk etiket gosterilmez)
+def _istem_ikinci(grup):
+    satir = [f"{i}|{o['tur']}|{o['ad'][:60]}|{o['kanit'][:220]}" for i, o in enumerate(grup)]
+    return (f"Her satir bir arac/skill/kaynak/yontem kalemi (indeks|tur|ad|ozet). Kaleme EN IYI uyan TEK kategoriyi sec ve 1-5 guven ver (5=kesin). "
+            f"Kategoriler: {S.TANIM}. {S._LLM_KURAL} Cikti: her kalem icin tek satir 'indeks|kategori|guven', baska hicbir sey yazma.\n" + "\n".join(satir))
+
+
+def _ayristir(m, n, ucuncu=False):
+    out = {}
+    for ln in (m or "").splitlines():
+        p = [x.strip() for x in ln.strip().split("|")]
+        if len(p) >= 2 and p[0].isdigit() and int(p[0]) < n and p[1] in S.KATEGORILER:
+            out[int(p[0])] = (p[1], p[2] if len(p) > 2 else "")
+    return out
+
+
+def _guven(x):
+    try:
+        return {5: 0.95, 4: 0.85, 3: 0.7, 2: 0.5, 1: 0.3}[int(x[0])]
+    except (ValueError, KeyError, IndexError):
+        return 0.5
+
+
+def ikinci_parti(grup, haric_aile=None):
+    import ucretsiz_havuz as H
+    try:
+        m, kaynak, _ = H.cagir("ozet", _istem_ikinci(grup), max_tokens=4000, zaman=120, haric_aile=haric_aile)
+    except Exception as e:  # kota/ag: bekleme yok
+        return {}, str(e)[:60]
+    return _ayristir(m, len(grup)), kaynak
+
+
+def ikinci(sure_dk=600, maks=3000, is_parcacigi=12):
+    os.environ["PYTHONUTF8"] = "1"
+    kan = kanit_oku()
+    yap = _jsonl_oku(D / "ikinci.jsonl")
+    bekle = []
+    for o in kan:
+        if o["id"] in yap:
+            continue
+        if ipucusuz_kimlik(o):
+            _jsonl_ekle(D / "ikinci.jsonl", {"id": o["id"], "b": "diger-genel", "c": 0.95, "m": "kimlik-ipucusuz"})
+            continue
+        bekle.append(o)
+    # oncelik: diger-genel + kanitli olanlar once, sonra tur-varsayilan/dusuk guven, sonra gerisi
+    bekle.sort(key=lambda o: (o["ilk"] != "diger-genel", o["ilk_guven"] != "dusuk", not o["kanit"]))
+    gruplar = collections.defaultdict(list)
+    for o in bekle:
+        gruplar[o["ilk_model"]].append(o)
+    isler = []
+    for fam, ls in gruplar.items():
+        isler += [(ls[i:i + PARTI], AILE_HARIC.get(fam, fam) or None) for i in range(0, len(ls), PARTI)]
+    isler.sort(key=lambda j: (j[0][0]["ilk"] != "diger-genel", j[0][0]["ilk_guven"] != "dusuk"))
+    son = time.time() + sure_dk * 60
+    sayac = {"cagri": 0, "yeni": 0, "bos": 0}
+
+    def calis(j):
+        grup, haric = j
+        if time.time() > son or sayac["cagri"] >= maks:
+            return
+        sayac["cagri"] += 1
+        r, kaynak = ikinci_parti(grup, haric)
+        if not r:
+            sayac["bos"] += 1
+            return
+        for i, (b, g) in r.items():
+            _jsonl_ekle(D / "ikinci.jsonl", {"id": grup[i]["id"], "b": b, "c": _guven((g,)), "m": kaynak})
+            sayac["yeni"] += 1
+    with ThreadPoolExecutor(is_parcacigi) as ex:
+        list(ex.map(calis, isler))
+    print("ikinci:", sayac, "kalan_is:", len(isler))
+
+
+# ------------------------------------------------------------------ hakem (Sonnet)
+def _istem_hakem(grup):
+    satir = [f"{i}|{o['tur']}|{o['ad'][:60]}|{o['kanit'][:300]}|A={o['ilk']}|B={o['ikinci']}" for i, o in enumerate(grup)]
+    return (f"Sen hakemsin. Her satir bir arac/skill/kaynak kalemi (indeks|tur|ad|kanit|A=ilk etiket|B=ikinci etiket). Kanita bakip kalemin ASIL AMACINA gore "
+            f"tek dogru kategoriyi ver (A ya da B ile sinirli degilsin). Kategoriler: {S.TANIM}. {S._LLM_KURAL} Kanit/ipucu yoksa diger-genel. "
+            f"Cikti: her kalem icin tek satir 'indeks|kategori|<=8 sozcuk gerekce', baska hicbir sey yazma.\n" + "\n".join(satir))
+
+
+def hakem_parti(grup):
+    import ucretsiz_havuz as H
+    try:
+        m, kaynak, _ = H.cagir("hakem", _istem_hakem(grup), max_tokens=6000, zaman=300)
+    except Exception as e:
+        return {}, str(e)[:60], ""
+    out = {}
+    for ln in (m or "").splitlines():
+        p = [x.strip() for x in ln.strip().split("|", 2)]
+        if len(p) >= 2 and p[0].isdigit() and int(p[0]) < len(grup) and p[1] in S.KATEGORILER:
+            out[int(p[0])] = (p[1], p[2] if len(p) > 2 else "")
+    return out, kaynak, m
+
+
+def birlestir():
+    """kanit + ikinci -> satir basina dict (ikinci yoksa 'ikinci' None)."""
+    kan = kanit_oku()
+    ik = _jsonl_oku(D / "ikinci.jsonl")
+    for o in kan:
+        v = ik.get(o["id"])
+        o["ikinci"], o["c"], o["im"] = (v["b"], v["c"], v["m"]) if v else (None, 0, "")
+    return kan
+
+
+def hakem_listesi(kan, tohum=11):
+    """hakeme gidecek satirlar: ikinci var VE (uyusmaz | c<0.8 | diger-genel | ilk etiket backend-dotnet'ten ayrilmis olabilir)."""
+    kuyruk = []
+    for o in kan:
+        if o["ikinci"] is None or o["im"] == "kimlik-ipucusuz":
+            continue
+        if o["ilk"] != o["ikinci"] or o["c"] < 0.8 or "diger-genel" in (o["ilk"], o["ikinci"]):
+            kuyruk.append(o)
+    return kuyruk
+
+
+def orneklem(kan, oran=0.05, tohum=11):
+    """uyusan satirlardan kategori-katmanli rastgele %5 (en az 10/kategori)."""
+    rnd = random.Random(tohum)
+    uyus = collections.defaultdict(list)
+    for o in kan:
+        if o["ikinci"] is not None and o["im"] != "kimlik-ipucusuz" and o["ilk"] == o["ikinci"] and o["c"] >= 0.8 and o["ilk"] != "diger-genel":
+            uyus[o["ilk"]].append(o)
+    sec = []
+    for k, ls in uyus.items():
+        sec += rnd.sample(ls, min(len(ls), max(10, int(len(ls) * oran))))
+    return sec
+
+
+def hakem(sure_dk=600, maks=400, is_parcacigi=6, ornek=False):
+    kan = birlestir()
+    yap = _jsonl_oku(D / "hakem.jsonl")
+    hedef = hakem_listesi(kan) + (orneklem(kan) if ornek else [])
+    bekle = [o for o in hedef if o["id"] not in yap]
+    # once sirasi: uyusmayanlar, sonra dusuk guven/diger-genel
+    bekle.sort(key=lambda o: (o["ilk"] == o["ikinci"], o["c"]))
+    isler = [bekle[i:i + PARTI] for i in range(0, len(bekle), PARTI)]
+    son = time.time() + sure_dk * 60
+    sayac = {"cagri": 0, "yeni": 0, "bos": 0}
+
+    def calis(g):
+        if time.time() > son or sayac["cagri"] >= maks:
+            return
+        sayac["cagri"] += 1
+        r, kaynak, _ = hakem_parti(g)
+        if not r:
+            sayac["bos"] += 1
+            return
+        for i, (b, neden) in r.items():
+            _jsonl_ekle(D / "hakem.jsonl", {"id": g[i]["id"], "b": b, "n": neden[:80], "m": kaynak})
+            sayac["yeni"] += 1
+    with ThreadPoolExecutor(is_parcacigi) as ex:
+        list(ex.map(calis, isler))
+    print("hakem:", sayac, "kuyruk:", len(hedef), "kalan_is:", len(isler))
+
+
+def ornek_hata_orani(kan, hk):
+    """%5 orneklemde hakem != uyusan etiket -> kategori basina (n, hata)."""
+    sonuc = collections.defaultdict(lambda: [0, 0])
+    for o in kan:
+        v = hk.get(o["id"])
+        if v and o["ikinci"] is not None and o["ilk"] == o["ikinci"] and o["c"] >= 0.8 and o["ilk"] != "diger-genel":
+            sonuc[o["ilk"]][0] += 1
+            sonuc[o["ilk"]][1] += v["b"] != o["ilk"]
+    return sonuc
+
+
+# ------------------------------------------------------------------ uygula
+def uygula():
+    kan = birlestir()
+    hk = _jsonl_oku(D / "hakem.jsonl")
+    karar = {}
+    for o in kan:
+        if o["ikinci"] is None:
+            continue
+        if o["im"] == "kimlik-ipucusuz":
+            karar[o["id"]] = ("diger-genel", "denetim-kimlik", "ipucusuz kimlik (video/hesap kodu)", "dusuk")
+        elif o["id"] in hk:
+            karar[o["id"]] = (hk[o["id"]]["b"], "denetim-hakem", f"hakem:{hk[o['id']]['n']}"[:80], "yuksek")
+        elif o["ilk"] == o["ikinci"] and o["c"] >= 0.8:
+            karar[o["id"]] = (o["ilk"], "denetim-uyum", f"ikinci model uyustu {o['c']}", "yuksek")
+    bas, rows = satirlar_oku()
+    yed = KOK / "_arsiv"
+    yed.mkdir(exist_ok=True)
+    shutil.copy2(TSV, yed / f"kategori.{time.strftime('%Y%m%d-%H%M%S')}.tsv")
+    deg, yeni_rows, say = [], [], collections.Counter()
+    for r in rows:
+        r += [""] * (9 - len(r))
+        r[4] = r[4].replace(",", ";")  # ayirac duzeltmesi (kapsam satirlari ',' kullanmisti)
+        k = karar.get(rid(r[0], r[1], r[2]))
+        if k and k[1] != "denetim-uyum":
+            b, y, ger, g = k
+            if b != r[3]:
+                deg.append([r[0], r[1], r[2], r[3], b, r[4], ger])
+                if r[4] == b:
+                    r[4] = ""
+            r[3], r[6], r[7], r[8] = b, g, y, ger
+            say[y] += 1
+        elif k:
+            r[6], r[7], r[8] = "yuksek", "denetim-uyum", k[2]
+            say["denetim-uyum"] += 1
+        yeni_rows.append(r)
+    yeni_rows.sort(key=lambda r: (r[3], r[1], r[0].lower()))
+    gecici = TSV.with_suffix(".tsv.yeni")
+    with open(gecici, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, delimiter="\t", quotechar='"', lineterminator="\n")
+        w.writerow(bas)
+        for r in yeni_rows:
+            w.writerow([re.sub(r"[\t\r\n]+", " ", c) for c in r])
+    os.replace(gecici, TSV)
+    ilk = not DEGISIKLIK.exists()
+    with open(DEGISIKLIK, "a", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, delimiter="\t", lineterminator="\n")
+        if ilk:
+            w.writerow(["ad", "tur", "yol", "eski_birincil", "yeni_birincil", "eski_ikincil", "gerekce"])
+        w.writerows(deg)
+    # denetim tablosu (her satir)
+    with open(DENETIM, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f, delimiter="\t", lineterminator="\n")
+        w.writerow(["ad", "yol", "ilk_birincil", "ikinci_birincil", "uyum", "guven", "hakem"])
+        for o in kan:
+            h = hk.get(o["id"])
+            w.writerow([re.sub(r"[\t\r\n]+", " ", x) for x in (o["ad"], o["yol"], o["ilk"], o["ikinci"] or "", "" if o["ikinci"] is None else ("evet" if o["ilk"] == o["ikinci"] else "hayir"), str(o["c"]), h["b"] if h else "")])
+    print("uygula:", dict(say), "degisen:", len(deg), "denetlenen:", len(karar), "/", len(rows))
+
+
+def durum():
+    kan = birlestir()
+    hk = _jsonl_oku(D / "hakem.jsonl")
+    ik = sum(1 for o in kan if o["ikinci"] is not None)
+    q = hakem_listesi(kan)
+    print({"satir": len(kan), "ikinci_yapilan": ik, "uyusan": sum(1 for o in kan if o["ikinci"] and o["ilk"] == o["ikinci"]),
+           "hakem_kuyruk": len(q), "hakem_yapilan": sum(1 for o in q if o["id"] in hk), "hakem_toplam_kayit": len(hk)})
+
+
+# ------------------------------------------------------------------ yeni kalem akisi (kurulum hattinin son adimi)
+def kalem_kontrol(kalemler):
+    """kalemler: [{ad,tur,ozet,yol}] -> [(birincil, ikincil[list], guven, yontem, gerekce)]. Kural -> ikinci model -> uyusmazsa Sonnet hakem."""
+    out, grup = [], []
+    for k in kalemler:
+        b, ik, g, y, ger = S.siniflandir(k["ad"], k["tur"], k.get("ozet", ""), "", k.get("yol", ""), "")
+        o = {"ad": k["ad"], "tur": k["tur"], "yol": k.get("yol", ""), "kanit": _temiz(k.get("ozet", "")) or kanit_uret(k["ad"], k["tur"], k.get("yol", "")), "ilk": b}
+        grup.append((o, ik, g, y, ger))
+    ls = [o for o, *_ in grup]
+    r, _ = ikinci_parti(ls) if ls else ({}, "")
+    sor = []
+    for i, (o, ik, g, y, ger) in enumerate(grup):
+        o["ikinci"], o["c"] = r.get(i, (None, ""))[0], _guven(r.get(i, (None, ""))[1:])
+        if o["ikinci"] is None:
+            out.append([o["ilk"], ik, g, "kural-denetimsiz", "ikinci model yanit vermedi"]); continue
+        if o["ikinci"] == o["ilk"] and o["c"] >= 0.8 and o["ilk"] != "diger-genel":
+            out.append([o["ilk"], ik, "yuksek", "denetim-uyum", "ikinci model uyustu"])
+        else:
+            out.append(None); sor.append((i, o))
+    if sor:
+        hr, _, _ = hakem_parti([o for _, o in sor])
+        for j, (i, o) in enumerate(sor):
+            b, n = hr.get(j, (o["ilk"], "hakem yanit vermedi"))
+            out[i] = [b, [], "yuksek" if j in hr else "dusuk", "denetim-hakem" if j in hr else "denetim-hakemsiz", n[:80]]
+    return [tuple(x) for x in out]
+
+
+def rapor():
+    kan = birlestir()
+    hk = _jsonl_oku(D / "hakem.jsonl")
+    _, rows = satirlar_oku()
+    n = len(kan)
+    ik = [o for o in kan if o["ikinci"] is not None]
+    uy = sum(1 for o in ik if o["ilk"] == o["ikinci"])
+    q = hakem_listesi(kan)
+    deg = sum(1 for _ in open(DEGISIKLIK, encoding="utf-8")) - 1 if DEGISIKLIK.exists() else 0
+    sade = collections.Counter(r[3] for r in rows)
+    eo = ornek_hata_orani(kan, hk)
+    L = [f"# KATEGORI-DENETIM raporu ({time.strftime('%d.%m.%Y %H:%M')})",
+         f"- Toplam satir {n} · ikinci modelle denetlenen {len(ik)} ({100*len(ik)/n:.1f}%) · uyusma {uy} ({100*uy/max(1,len(ik)):.1f}%) · hakem kuyrugu {len(q)}, hakemden gecen {sum(1 for o in q if o['id'] in hk)} · degisen {deg}",
+         f"- diger-genel: {sade['diger-genel']} ({100*sade['diger-genel']/n:.1f}%) · backend-genel {sade['backend-genel']} · backend-dotnet {sade['backend-dotnet']} · bos birincil {sum(1 for r in rows if not r[3])}",
+         "- %5 dogrulama orneklemi hata orani (kategori: n/hata): " + ", ".join(f"{k}={v[0]}/{v[1]}" for k, v in sorted(eo.items())) if eo else "- %5 dogrulama orneklemi: henuz kosulmadi"]
+    RAPOR.write_text("\n".join(L) + "\n", encoding="utf-8")
+    print("\n".join(L))
+
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    sure = int(a[a.index("--sure") + 1]) if "--sure" in a else 600
+    maks = int(a[a.index("--maks") + 1]) if "--maks" in a else 3000
+    {"hazirla": hazirla, "ikinci": lambda: ikinci(sure, maks), "hakem": lambda: hakem(sure, maks, ornek="--ornek" in a), "uygula": uygula,
+     "rapor": rapor, "durum": durum}[a[0]]()

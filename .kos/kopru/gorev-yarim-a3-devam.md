@@ -6,3 +6,5 @@ YARIM-A3-DEVAM — kalan adımlar (rapor/yarim-a3.md)
 4. base-kur-1: ÖMER onayıyla `python onay/katalog_kanca_uygula.py uygula`; sonra test_kanca_canlida_kurulu'daki xfail işaretini kaldır.
 5. onay/test_token_4_uygula.py::test_uygula_geri_ve_cc_profil_tools kırmızı (YARIM-A3 öncesi ya da ilgisiz; kök neden bakılmadı).
 Kanıt: ajan-sira/{autoharness-fix-1-a2,ruflo-2-d4,base-kur-1-a2}.json
+
+NİHAİ 31+32: başlamadan nihai kapı; her adımda 2. beyne yaz (≤2 dk), ruflo pattern-search önce + store sonra; 32(f) tam ilgili küme; ders çıkar.

@@ -11,6 +11,7 @@ Müdür: `departman-frontend`
 | blender-uretim | cli | Blender üretim araçları: gpu_kilit (GPU tek iş) · varlik_indir (Poly Haven + ambientCG CC… | - | - |
 | comfyui | cli | ComfyUI v0.38 (GPL-3.0, yerel, 127.0.0.1:8188): gorsel-uret skill'inin çalıştırdığı görse… | - | - |
 | 21st | mcp | - | - | - |
+| blender | mcp | Resmi Blender Lab MCP (stdio, uv): Blender 5.1+ içinde model Python'u çalıştırır; varlık,… | - | - |
 | claude-design | mcp | - | - | Yığın |
 | figma | mcp | - | - | Yığın |
 | stitch | mcp | - | - | Yığın |
@@ -52,7 +53,7 @@ Müdür: `departman-frontend`
 | anthropic-skills:vercel-react-native-skills | skill | React Native and Expo best practices for performant mobile apps. | Use for RN components, list performance, animations, or native module work with Expo or n… | - |
 | anthropic-skills:vercel-react-view-transitions | skill | Guide for React View Transition API (ViewTransition, addTransitionType). | Use for page transitions, route/shared-element animation, list reorder, or directional na… | - |
 | anthropic-skills:web-design-guidelines | skill | Web Interface Guidelines uyumu icin UI kodunu gozden gecirir. | "arayuzumu incele", "erisilebilirlik kontrolu", "tasarim denetimi" ya da "siteyi en iyi u… | - |
-| anthropic-skills:web-sahne-desenleri | skill | Premium landing, portfolyo ve 3D hero isinde ac: WebGL imlec reveal, scroll'a bagli 3D ur… | - | Screenshot döngüsü |
+| anthropic-skills:web-sahne-desenleri | skill | Awwwards seviyesi site desenleri: WebGL reveal, scroll'a bağlı 3D ürün pozu, helezon gale… | Premium landing, portfolyo ya da 3D hero işinde aç | Screenshot döngüsü |
 | claude-mem:design-is | skill | Audit a design against Dieter Rams' ten "Good design is..." principles, then hand off a /… | Use when the user says "au | - |
 | design-consultation | skill | Design consultation: understands your product, researches the landscape, proposes a compl… | - | - |
 | design-html | skill | Design finalization: generates production-quality Pretext-native HTML/CSS. | - | - |
@@ -318,8 +319,9 @@ Müdür: `departman-frontend`
 - Koyu tema sunum sayfası (localhost:8765/presentation.html), büyük numaralı bölüm başlığı, vurgu rengi kırmızı, gradyan arka plan, animasyonlu dairesel diyagram · video L2JKgj7WzU4 · 1:03 · kaynak: kare
 - Koyu gradyan intro animasyonu, mor vurgulu başlık · video L2JKgj7WzU4 · 0:16 · kaynak: kare
 - Başlık metni + sağda kayan sohbet balonları (animasyonlu açıklama grafiği) · video kMk4pvFJ13s · 0:16 · kaynak: kare
+- Anthropic frontend-design eklentisi ile jenerik yapay zeka görünümünden kaçınan üretim kalitesinde arayüz · video k0gwr-vC2Z4 · 0:00 · kaynak: altyazı
+- Telefon uygulaması prototipi tasarım ekranı; sol sohbet paneli, ortada mobil kart arayüzü, sağda renk paleti paneli · video k0gwr-vC2Z4 · 0:42 · kaynak: kare
+- Jenerik AI görünümünden kaçınan production-grade frontend üretimi (Frontend Design plugin) · video k0gwr-vC2Z4 · 0:15 · kaynak: kare
+- Tanıtım videosu animasyonları: noktalı ızgara arka plan, neon yeşil çerçeve, serif tipografi · video k0gwr-vC2Z4 · 0:47 · kaynak: kare
 
 ## Elle
-- shadcn-ui-mcp-server (IG-41 #140): global kurulmaz; gereken projenin `.mcp.json`'ına stdio: `{"mcpServers":{"shadcn-ui":{"command":"npx","args":["-y","@jpisnice/shadcn-ui-mcp-server"]}}}`. Hesap gerekmez (GitHub token yalnız hız sınırı için, isteğe bağlı). Tarama: gitleaks 2, semgrep 0E/6, SkillSpector SC4 CRITICAL = proxy-addr 2.0.7 CVE (yalnız HTTP modunda güvenilen vekil ayarıyla anlamlı; stdio'da etkisiz).
-- stitch-skills (IG-41 #22, Apache-2.0): bağlı Stitch MCP üstünde sıra generate-design → upload-to-stitch → extract-design-md; çıkan DESIGN.md frontend-craft'a girdi.
-- MotionSites.ai (IG-41 #14): ücretli kütüphane kurulmaz; prompt kalıbı alınır: tek HTML, ekrandakini birebir üret, uydurma bölüm ekleme.

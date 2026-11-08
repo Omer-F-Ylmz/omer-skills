@@ -22,7 +22,19 @@ function Kur5Pip($k,$p){ Kur5Cal $k PIP "pip install --user $p" { & python.exe -
 function Kur5Venv($k,$p,$py){ $v="$env:USERPROFILE\.venvs\$($k -replace '[^\w.-]','_')"
   if(Test-Path $v){Kayit $k VENV ZATEN $v;return}
   Kur5Cal $k VENV "uv venv $v --python $py; uv pip install $p" { & $uvexe venv $v --python $py 2>&1 | Out-Null; & $uvexe pip install --python "$v\Scripts\python.exe" $p 2>&1 | Out-Null } }
-function Kur5Winget($k,$id){ if(-not $Sistem){Kayit $k WINGET ATLANDI "-Sistem yok: $id";return}
+$wgVar=@{'OpenJS.NodeJS.LTS'='node';'Python.Python.3.12'='py:3.12';'Python.Python.3.13'='py:3.13';'Microsoft.OpenJDK.21'='java:21';
+  'Microsoft.DotNet.SDK.10'='dotnet:10';'Rustlang.Rustup'='cargo';'Microsoft.WSL'='wsl';'GoLang.Go'='go';'Hashicorp.Terraform'='terraform';
+  'Helm.Helm'='helm';'RedHat.Podman'='podman';'Google.DartSDK'='dart';'JetBrains.Kotlin.Compiler'='kotlinc';'Ninja-build.Ninja'='ninja';
+  'PHP.PHP.8.3'='php';'PostgreSQL.PostgreSQL.17'='psql';'zig.zig'='zig'}
+function WgVar($id){ $t=$wgVar[$id]; if(-not $t){return $null}; $ad,$sur=$t -split ':'
+  if($ad -eq 'cargo' -and (Test-Path "$env:USERPROFILE\.cargo\bin\cargo.exe")){return "$env:USERPROFILE\.cargo\bin\cargo.exe"}
+  if($ad -eq 'py'){ $o=(& py.exe "-$sur" -c "import sys;print(sys.executable)" 2>$null); if($LASTEXITCODE -eq 0 -and $o){return "$o"}; return $null }
+  $c=(Get-Command "$ad.exe","$ad.cmd","$ad.bat" -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1).Source; if(-not $c){return $null}
+  if($ad -eq 'java'){ if(((& $c -version 2>&1) -join ' ') -match ('version "'+$sur+'[."]')){return $c}; return $null }
+  if($ad -eq 'dotnet'){ if((& $c --list-sdks 2>$null) -match ('^'+$sur+'\.')){return $c}; return $null }
+  return $c }
+function Kur5Winget($k,$id){ $var=WgVar $id; if($var){$global:LASTEXITCODE=0; Kayit $k WINGET ZATEN "$id -> $var";return}
+  if(-not $Sistem){Kayit $k WINGET ATLANDI "-Sistem yok: $id";return}
   Kur5Cal $k WINGET "winget install --id $id" { winget.exe install --id $id -e --silent --accept-package-agreements --accept-source-agreements 2>&1 | Out-Null } }
 function Kur5Composer($k,$p){ Kur5Cal $k COMPOSER "composer global require $p" { composer.bat global require $p 2>&1 | Out-Null } }
 function Kur5Vscode($k,$id){ Kur5Cal $k VSCODE "code --install-extension $id" { code.cmd --install-extension $id 2>&1 | Out-Null } }
@@ -232,15 +244,15 @@ Kur5Winget 'Dart' 'Google.DartSDK'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
 Kur5Winget 'Go' 'GoLang.Go'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
 Kur5Winget 'Kotlin' 'JetBrains.Kotlin.Compiler'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
 Kur5Winget 'Ninja' 'Ninja-build.Ninja'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
-Kur5Winget 'Node' 'OpenJS.NodeJS.LTS'  # lisans: MIT-benzeri (gh other)
-Kur5Winget 'PHP' 'PHP.PHP.8.3'  # lisans: BSD-3 (gh)
-Kur5Winget 'Postgre' 'PostgreSQL.PostgreSQL.17'  # lisans: PostgreSQL (gh NOASSERTION)
-Kur5Winget 'Rust' 'Rustlang.Rustup'
-Kur5Winget 'WSL' 'Microsoft.WSL'
-Kur5Winget 'Java' 'Microsoft.OpenJDK.21'  # lisans: GPLv2+CE
-Kur5Winget 'Microsoft Visual C++ Redistributable' 'Microsoft.VCRedist.2015+.x64'  # lisans: ticari ucretsiz
-Kur5Winget 'Zig' 'zig.zig'
-Kur5Winget 'Python' 'Python.Python.3.12'  # lisans: PSF (gh other)
+Kur5Winget 'Node' 'OpenJS.NodeJS.LTS'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'PHP' 'PHP.PHP.8.3'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'Postgre' 'PostgreSQL.PostgreSQL.17'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'Rust' 'Rustlang.Rustup'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'WSL' 'Microsoft.WSL'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'Java' 'Microsoft.OpenJDK.21'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'Microsoft Visual C++ Redistributable' 'Microsoft.VCRedist.2015+.x64'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'Zig' 'zig.zig'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
+Kur5Winget 'Python' 'Python.Python.3.12'  # lisans: WINGET-OLCULEMEDI(zaman asimi)
 Kur5Winget 'Terraform (Infrastructure as Code)' 'Hashicorp.Terraform'  # lisans: BUSL-1.1 (gh NOASSERTION)
 Kur5Indir 'Gradle' 'https://services.gradle.org/distributions/gradle-9.9.0-bin.zip'
 

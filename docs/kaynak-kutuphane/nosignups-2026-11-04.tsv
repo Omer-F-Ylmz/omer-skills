@@ -1,0 +1,39 @@
+site	tur	ucretsiz	uyelik	not	durum	is
+openreel.video	video edit (CapCut alternatifi, açık kaynak MIT)	evet	yok	tarayıcıda timeline kurgu	AL	sosyal-oto montaj yedeği
+freecut.net	video edit	evet	yok	kurulumsuz profesyonel kurgu, MIT	AL	sosyal-oto
+opencut.app	video edit (CapCut alternatifi, 95k yıldız)	evet	yok	MIT	AL	sosyal-oto
+omniclip.app	video edit	evet	yok	tarayıcıda, MIT	AL-TEST	sosyal-oto
+videocompress.prolab.sh	video sıkıştırma	evet	yok	%90 küçültme iddiası, MIT	AL	yükleme öncesi boyut
+s-2-v.pages.dev	video işlem araçları	evet	yok	lisans belirsiz	TEST	sosyal-oto
+ffmpegwasm.netlify.app/playground	ffmpeg tarayıcıda	evet	yok	yerelde ffmpeg zaten var	ZATEN-VAR	-
+nikse.dk/subtitleedit/online	altyazı edit	evet	yok	MIT; whisper altyazısını elle düzeltme	AL	sosyal-oto
+audiomass.co	ses/dalga edit	evet	yok	MIT	AL	SFX/VO kırpma
+wavacity.com	çok kanallı ses edit (Audacity web)	evet	yok	GPL-2.0	AL	ses miks
+opendaw.studio	web DAW	evet	yok	lisans belirsiz	TEST	kanal müzik/jingle
+composeyogi.com	müzik besteleme	evet	yok	MIT	AL	kanal özgün müzik
+drumha.us	ritim makinesi	evet	yok	CC BY-NC-SA (ticari DEĞİL)	SADECE-DENEME	-
+squoosh.app	görsel sıkıştırma	evet	yok	Apache-2.0	AL	kapak/thumbnail
+waifu2x.net	görsel büyütme/gürültü	evet	yok	MIT	AL	kapak büyütme
+clearcanvasai.vercel.app	AI görsel üret + upscale + arka plan sil	evet	yok	MIT	AL-TEST	thumbnail/sahne
+toolsforimage.com	görsel araç seti	evet	yok	MIT	AL	-
+tinyimage.pages.dev	görsel sıkıştır/dönüştür offline	evet	yok	lisans belirsiz	AL	-
+avnac.design	poster/sosyal grafik editörü	evet	yok	AGPL-3.0	AL	carousel/post tasarımı
+kleki.com	çizim/boyama	evet	yok	MIT	AL	-
+voidmesh.xyz	görsel/video shader filtreleri	evet	yok	MIT	AL-TEST	geçiş/efekt
+open-mosh.vercel.app	datamosh/glitch, müzikle senkron	evet	yok	MIT	AL-TEST	edit kanalı efekt
+web.ntsc.rs	VHS/NTSC efekti	evet	yok	lisans belirsiz	AL-TEST	retro görünüm
+fluid.krackeddevs.com	WebGL generatif arka plan	evet	yok	MIT	AL	arka plan döngüsü
+aura gradients (auragradients.vercel.app)	gradient seti	evet	yok	MIT	AL	-
+shade-studio (laura.media)	renk paleti üretici	evet	yok	MIT	AL	kanal marka renkleri
+colorskit.vercel.app	renk analiz	evet	yok	MIT	AL	-
+screenshot-studio.com	ekran görüntüsü süsleme	evet	yok	Apache-2.0	AL	Free AI Drop araç görselleri
+carbon.now.sh	kod görseli	evet	yok	MIT	AL	-
+openhero.art	sinematik video hero bölümleri	evet	yok	MIT	AL	site işleri
+vecto3d.app	SVG→3D	evet	yok	MIT	AL	logo/3D
+web.blockbench.net	low-poly 3D	evet	yok	GPL-3.0	AL-TEST	-
+piskelapp.com / pixelorama / pixelcraft.web.app	pixel art + animasyon	evet	yok	açık kaynak	AL	piksel format sahneleri
+cobalt.tools	medya indirici	evet	yok	AGPL-3.0; yalnız telifsiz/izinli içerik	AL	referans indirme
+qsniyg.github.io/maxurl	görselin orijinal boyutunu bulma	evet	yok	Apache-2.0	AL	-
+vert.sh / convert.to.it	dosya dönüştürücü	evet	yok	AGPL/GPL	AL	-
+make.girls.moe	anime karakter üretici	evet	yok	CC BY-NC (ticari DEĞİL)	SADECE-DENEME	-
+fmhy.net	en büyük ücretsiz kaynak dizini	evet	yok	dizin	TARA	tüm hatlar

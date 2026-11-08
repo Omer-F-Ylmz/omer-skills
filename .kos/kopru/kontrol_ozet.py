@@ -101,6 +101,15 @@ def ozet(ad):
     return ["(ham) " + ham(res)[0]] + ham(res)[1:] if ham(res) else ["(ham) yok"]
 
 
+def ders_var(ad):
+    """OGREN-OTO-1: rapor/<ad>.md son satırı 'ders: <kayıt id>' içeriyor mu."""
+    try:
+        satir = [s for s in (SIRA.parent / "rapor" / f"{ad}.md").read_text(encoding="utf-8").splitlines() if s.strip()]
+    except OSError:
+        return False
+    return bool(satir) and re.match(r"\W*ders:\s*\S", satir[-1], re.I) is not None
+
+
 def ozetle(adlar, sure=7):
     """Biten işlerin özetleri tek daemon iş parçacığında; toplam ≤ sure sn (≤10 sn hedefi). Yetişmeyen → zaman aşımı satırı."""
     sonuc = {}
@@ -143,7 +152,12 @@ def main():
     biten = [s.split()[2] for s in yeni if s[9:14] == "BİTTİ"]
     basl = [s.split()[2] for s in yeni if s[9:15] == "BAŞLAT"]
     cal, dis, bek = kuyruk()
-    cikti = [f"RAM %{ram()} · çalışan {cal} (+{dis} dış) · bekleyen {bek} · yeni: {len(basl)} başladı, {len(biten)} bitti (ofset {son})"]
+    try:  # YARIM-BEKCI-1: yarım işler çıktının en üstünde (tek satır; ayrıntı: yarim.tsv)
+        import yarim_bekci
+        yarim = yarim_bekci.ozet_satirlar(K)[0]
+    except Exception as e:
+        yarim = f"YARIM: okunamadı ({e!r:.60})"
+    cikti = [yarim, f"RAM %{ram()} · çalışan {cal} (+{dis} dış) · bekleyen {bek} · yeni: {len(basl)} başladı, {len(biten)} bitti (ofset {son})"]
     if basl:
         cikti.append("başladı: " + ", ".join(basl))
     kalan = SATIR - len(cikti) - 2  # 1: "+ …" satırı, 1: defter satırı
@@ -152,6 +166,9 @@ def main():
         o = o[:4]
         cikti.append(f"[{ad}] {o[0]}")
         cikti += o[1:]
+    yok = [ad for ad in biten if not ders_var(ad)]
+    if yok:
+        cikti.append("ders yok: " + ", ".join(yok))
     if len(gosterilen) < len(biten):
         cikti.append("+ " + ", ".join(biten[len(gosterilen):]) + " (python sonuc_kisa.py --kisa <ad>)")
     top, en_pahali = maliyet_defter.gunluk(maliyet_defter.oku(), time.strftime("%Y-%m-%d"))

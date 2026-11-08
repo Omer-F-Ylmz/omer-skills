@@ -7,7 +7,7 @@ import time
 
 KOK = r"C:\Projeler\omer-skills"
 KILIT = os.path.join(KOK, ".kos", "kopru", "vram-dolu")
-ESIK = 80.0
+ESIK = 95.0
 
 
 def yuzde_olc():

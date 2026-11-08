@@ -4,7 +4,7 @@ Kullanım: python yukle23_uret.py <envanter-fark.tsv> <cikti_dizini>"""
 import csv, re, sys, shutil, pathlib, collections
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from paketle import buyuk
+from paketle import buyuk, _tek
 from zip_denetle import denetle
 
 
@@ -45,7 +45,8 @@ def main(argv):
         for gi, g in enumerate(gruplar):
             ad_g = ad if len(gruplar) == 1 else f"{ad}-d{gi + 1}"
             try:
-                for zp, n in buyuk(ad_g, f"{k} eklentisi, {len(g)} skill", [u["yol"] for u in g], ham):
+                paketler = [_tek(ad_g, g[0]["yol"], ham)] if len(g) == 1 else buyuk(ad_g, f"{k} eklentisi, {len(g)} skill", [u["yol"] for u in g], ham)
+                for zp, n in paketler:
                     sonuc.append((pathlib.Path(zp), n, k, len(g)))
             except Exception as e:
                 print("HATA", k, str(e)[:120])

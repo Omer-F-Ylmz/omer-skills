@@ -1,5 +1,5 @@
 """DERIN-HIZ-3: YouTube altyazı-önce. VTT ayrıştırma (oto altyazı kayan-pencere tekrarı atılır) + doğrulama; bozuksa None -> ASR."""
-import re, subprocess, tempfile
+import os, re, subprocess, tempfile, time
 from pathlib import Path
 
 NW = 0x08000000
@@ -37,18 +37,21 @@ def gecerli(seg, sure):
 
 
 def getir(kod, sure, dil):
-    """(dil, segmentler) ya da None. Yalnız videonun kendi dili (çeviri izi yok: dil uyuşmazlığı benzerliği 0,01 yapıyordu). yt-dlp zaman aşımı 60 sn, 1 yeniden deneme."""
+    """(dil, segmentler) ya da None. Yalnız videonun kendi dili (çeviri izi yok: dil uyuşmazlığı benzerliği 0,01 yapıyordu). yt-dlp zaman aşımı 20 sn; 429'da 5 sn bekleyip 1 deneme, zaman aşımında hemen ASR."""
     if not dil:
         return None
     with tempfile.TemporaryDirectory(prefix="alt_") as d:
         d = Path(d)
-        for _ in range(2):
+        coz = ["--cookies-from-browser", "chrome"] if os.environ.get("ALT_CEREZ") else []
+        for deneme in range(2):
             try:
-                subprocess.run(["yt-dlp", "--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", f"{dil}.*,{dil}", "--sub-format", "vtt", "-o", str(d / "a.%(ext)s"), f"https://www.youtube.com/watch?v={kod}"],
-                               capture_output=True, text=True, timeout=60, creationflags=NW)
+                r = subprocess.run(["yt-dlp", *coz, "--skip-download", "--write-subs", "--write-auto-subs", "--sub-langs", f"{dil}.*,{dil}", "--sub-format", "vtt", "-o", str(d / "a.%(ext)s"), f"https://www.youtube.com/watch?v={kod}"],
+                                   capture_output=True, text=True, timeout=20, creationflags=NW)
+                if deneme == 0 and "429" in r.stderr:  # üstel geri çekilme: tek kısa bekleme, sonra ASR'ye düş
+                    time.sleep(5); continue
                 break
             except subprocess.TimeoutExpired:
-                continue
+                break
         fs = sorted(d.glob("a.*.vtt"), key=lambda f: (".orig" in f.name, f.name))
         for f in fs:
             seg = vtt_segment(f)

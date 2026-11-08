@@ -14,6 +14,7 @@ SONUC, ONAY = KOK / "kurulum-d2-sonuc.tsv", R / "dist/paket-4/model-onay.tsv"
 ADAYTSV = R / "dist/paket-4/aday.tsv"
 KLON = Path(r"C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste")
 NPMDIR = KLON.parent / "ana-liste-npm"
+NPMT2 = KLON.parent / "ana-liste-npm-t2"  # TUR2: kalem başına ayrı --prefix (ortak klasörde EBUSY rename çakışması)
 VENV = Path.home() / ".venvs/ana-liste"
 BIN = Path.home() / ".local/bin"
 NW = 0x08000000
@@ -28,7 +29,8 @@ TUR2 = "--tur2" in sys.argv  # HATA kalemlerini (büyük repo, zaman aşımı, d
 if TUR2: TKALEM = 600
 KAPI = "--sadece-kapi" in sys.argv  # kapılar (eşleşme+güvenlik) koşar, kurulum yapmaz: KAPI-GECTI
 KALEM = set(sys.argv[sys.argv.index("--kalem") + 1].split("|")) if "--kalem" in sys.argv else set()  # yalnız bu kalemler (| ile ayrık)
-BILINEN = {"--faz", "--n", "--sinif", "--is", "--sadece-kapi", "--kalem", "--tur2", "--coz"}
+BILINEN = {"--faz", "--n", "--sinif", "--is", "--sadece-kapi", "--kalem", "--tur2", "--coz", "--aday"}
+ADAY_DA = "--aday" in sys.argv  # --coz ile birlikte: ADAY satırları da alınır (aday_kapisi LLM eşleşme kapısından geçer)
 
 
 def run(a, t=300, cwd=None, env=None):
@@ -155,17 +157,56 @@ def gh_meta(repo):
         return None
 
 
-def klonla(repo):
+def uzak_bos(repo):
+    c, o = run(["git", "ls-remote", "--heads", f"https://github.com/{repo}.git"], 60)
+    return c == 0 and not o.strip()
+
+
+def seyrek_ac(d):
+    """Blobsuz klonda yalnız SKILL.md içeren dizinleri çalışma ağacına açar (büyük repo / Windows'ta geçersiz dosya adı)."""
+    c, o = run(["git", "-c", "core.quotepath=false", "-C", str(d), "ls-tree", "-r", "--name-only", "HEAD"], 300)
+    if c:
+        return False, o[-120:]
+    dizin = sorted({p.rsplit("/", 1)[0] for p in o.splitlines() if p.endswith("/SKILL.md")})
+    kok_md = any(p == "SKILL.md" for p in o.splitlines())
+    pat = (["/SKILL.md"] if kok_md else []) + ["/" + x + "/" for x in dizin]
+    if not pat:
+        return False, "ağaçta SKILL.md yok"
+    run(["git", "-C", str(d), "sparse-checkout", "init", "--no-cone"], 60)
+    (Path(d) / ".git/info").mkdir(exist_ok=True)
+    (Path(d) / ".git/info/sparse-checkout").write_text(chr(10).join(pat) + chr(10), encoding="utf-8")
+    c, o = run(["git", "-C", str(d), "read-tree", "-mu", "HEAD"], 600)
+    return (c == 0), o[-120:]
+
+
+def klonla(repo, seyrek=False):
     d = KLON / repo.replace("/", "__")
     if d.exists() and any(d.iterdir()):
-        if (d / ".git").exists():  # önceki yarım checkout (longpaths) varsa çalışma ağacını HEAD'e geri getir
+        if not (d / ".git").exists():
+            return d, ""
+        c, _ = run(["git", "-C", str(d), "rev-parse", "--verify", "-q", "HEAD"], 30)
+        if c == 0:  # önceki yarım checkout (longpaths) varsa çalışma ağacını HEAD'e geri getir
             run(["git", "config", "--global", "core.longpaths", "true"], 30)
-            run(["git", "-C", str(d), "restore", "--source=HEAD", ":/"], 300)
-        return d, ""
+            if seyrek:
+                seyrek_ac(d)
+            else:
+                run(["git", "-C", str(d), "restore", "--source=HEAD", ":/"], 300)
+            return d, ""
+        if uzak_bos(repo):  # HEAD yok + uzak boş: çözümsüz
+            return None, "repo boş (git ls-remote çıktısı boş): kaynakta commit yok"
+        arsiv = d.parent / "_arsiv"; arsiv.mkdir(exist_ok=True)  # HEAD yok = yarım klon: _arsiv'e taşı (silinmez), yeniden klonla
+        shutil.move(str(d), str(arsiv / f"{d.name}-{int(time.time())}"))
     if not disk_ok():
         return None, "DISK-ALT-SINIR"
     run(["git", "config", "--global", "core.longpaths", "true"], 30)  # Windows uzun yol: checkout hatası önlemi
-    c, o = run(["git", "clone", "--depth", "1", "--single-branch", "--filter=blob:limit=100m", "-q", f"https://github.com/{repo}.git", str(d)], 900 if TUR2 else 240)
+    url = f"https://github.com/{repo}.git"
+    if seyrek:
+        c, o = run(["git", "clone", "--depth", "1", "--single-branch", "--filter=blob:none", "--no-checkout", "-q", url, str(d)], 900)
+        if c:
+            return None, o[-150:]
+        ok, n = seyrek_ac(d)
+        return (d, "") if ok else (None, "seyrek: " + n)
+    c, o = run(["git", "clone", "--depth", "1", "--single-branch", "--filter=blob:limit=100m", "-q", url, str(d)], 900 if TUR2 else 240)
     return (d, "") if c == 0 else (None, o[-150:])
 
 
@@ -215,7 +256,7 @@ def aday_kapisi(kalem, repo, aciklama):
     c2, mf = run(["gh", "api", f"repos/{repo}/contents", "--jq", "[.[].name][:40]|join(\", \")"], 60)  # büyük repolarda tam ağaç değil: kök dosya adları (manifest özeti)
     rd += "\nKÖK DOSYALAR: " + (mf[:400] if c2 == 0 else "(alınamadı)")
     oz = OZ.get(kalem, {}).get("ozellik", "")[:400]
-    y = llm(f"[{kalem}|{repo}] Aşağıdaki GitHub reposu, 'kalem' adlı aracın/skill'in kendisi mi? Yalnız ilk kelime EVET ya da HAYIR yaz, sonra tek cümle neden.\n"
+    y = llm(f"[{kalem}|{repo}] Aşağıdaki GitHub reposu, '{kalem}' adlı aracın/skill'in kendisi mi? Yalnız ilk kelime EVET ya da HAYIR yaz, sonra tek cümle neden.\n"
             f"KALEM: {kalem}\nÖZELLİK NOTU: {oz}\nREPO: {repo}\nAÇIKLAMA: {aciklama}\nREADME:\n{rd}")
     if y is None:
         return None, "LLM-ERISILEMEDI"
@@ -269,7 +310,7 @@ def exe_ara(kalem, ad):
 def uv_zincir(src, ad, spec=False):
     """uv tool install: python 3.12 -> 3.13 (-> pip için --no-build ön-derlenmiş wheel) -> venv + import doğrulama."""
     son = ""
-    for py in ("3.12", "3.13"):
+    for py in ("3.12", "3.13") + (("3.14",) if TUR2 else ()):  # TUR2: requires-python >=3.14 olan paketler (kanıt: "current Python version (3.12.14) does not satisfy")
         a = ["uv", "tool", "install", "--python", py, "--force", str(src)]
         for ek in ([[]] + ([["--no-build"]] if spec else [])):
             c, o = run(a[:-1] + ek + [str(src)], TKALEM)
@@ -284,24 +325,68 @@ def uv_zincir(src, ad, spec=False):
     return "HATA", f"uv tool: {kok(son)[:90]} || venv: {n[:80]}"
 
 
+def bin_kopyala(klasor, ad, ek=""):
+    """derleme çıktısındaki .exe dosyalarını ~/.local/bin'e koyar; (durum, not) ya da None."""
+    exes = [q for q in Path(klasor).glob("*.exe") if not re.search(r"build[-_]script|^deps$", q.name, re.I)]
+    if not exes:
+        return None
+    BIN.mkdir(parents=True, exist_ok=True)
+    for q in exes:
+        if not (BIN / q.name).exists(): shutil.copy2(q, BIN / q.name)
+    ok, n = dogrula([str(BIN / exes[0].name)])
+    return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), f"{ek}: {n}"
+
+
+def kaynak_derle(d, ad):
+    """release yoksa kaynaktan derleme: Cargo (workspace dahil) -> Go -> CMake (VS2022). Başarısızlıkta kök neden satırı (None: yol yok)."""
+    d = Path(d)
+    if (d / "Cargo.toml").exists():
+        with KURKILIT:
+            c, o = run(["cargo", "install", "--locked", "--path", str(d)], 900)
+            if c == 0:
+                ok, n = dogrula([ad]); return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), "cargo install: " + n
+            c2, o2 = run(["cargo", "build", "--release", "--locked"], 900, cwd=str(d))  # sanal manifest/workspace: install --path çalışmaz
+            r = bin_kopyala(d / "target/release", ad, "cargo build --release") if c2 == 0 else None
+        return r or ("HATA", "cargo: " + kok(o2 if c2 else o)[:150])
+    if (d / "go.mod").exists():
+        env = dict(os.environ, GOBIN=str(BIN)); BIN.mkdir(parents=True, exist_ok=True)
+        hedef = "./cmd/..." if (d / "cmd").is_dir() else "./..."
+        with KURKILIT: c, o = run(["go", "install", hedef], 900, cwd=str(d), env=env)
+        if c == 0:
+            exes = sorted(BIN.glob("*.exe"), key=lambda q: -q.stat().st_mtime)
+            ok, n = dogrula([str(exes[0])] if exes else [ad]); return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), "go install: " + n
+        return "HATA", "go: " + kok(o)[:150]
+    if (d / "CMakeLists.txt").exists():
+        with KURKILIT:
+            c, o = run(["cmake", "-S", str(d), "-B", str(d / "build"), "-G", "Visual Studio 17 2022", "-A", "x64"], 600)
+            if c == 0: c, o = run(["cmake", "--build", str(d / "build"), "--config", "Release"], 1200)
+            r = bin_kopyala(d / "build/Release", ad, "cmake Release") if c == 0 else None
+        return r or ("HATA", "cmake: " + kok(o)[:150])
+    return None
+
+
 def gh_cli_kur(d, repo, kalem="", buyuk=0):
     ad = repo.split("/")[1]
     var = lambda f: d is not None and (d / f).exists()
+    hata_py = None
     if var("pyproject.toml"):
-        with KURKILIT: return uv_zincir(d, ad)
+        with KURKILIT: r_py = uv_zincir(d, ad)
+        if r_py[0] != "HATA": return r_py
+        hata_py = r_py  # pyproject Python paketi değil (ör. flat-layout çoklu paket): release/derleme yolları denenir
+    lib_npm = False
     if var("package.json"):
-        with NPMKILIT: c, o = run(["npm.cmd", "i", "-g", str(d)], TKALEM)
-        if c: return "HATA", "npm -g: " + npm_kok(o)
         try:
             pj = json.loads((d / "package.json").read_text(encoding="utf-8"))
             b = pj.get("bin")
             exe = list(b) if isinstance(b, dict) else ([pj.get("name", ad).split("/")[-1]] if b else [])
         except Exception:
             exe = [ad]
-        if not exe:
-            return "HATA", "kuruldu ama package.json 'bin' tanımlamıyor (kütüphane/monorepo kökü): çalıştırılabilir komut yok"
-        ok, n = dogrula([e + ".cmd" for e in exe])
-        return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), n
+        if exe:
+            with NPMKILIT: c, o = run(["npm.cmd", "i", "-g", str(d)], TKALEM)
+            if c: return "HATA", "npm -g: " + npm_kok(o)
+            ok, n = dogrula([e + ".cmd" for e in exe])
+            return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), n
+        lib_npm = True  # bin yok: global kurulacak komut yok (kütüphane/monorepo); release/derleme yolları denenir
     p = exe_ara(kalem, ad)
     if p:
         return "ZATEN", f"PATH'te var (where {Path(p).stem}): {p}"
@@ -310,10 +395,11 @@ def gh_cli_kur(d, repo, kalem="", buyuk=0):
     adlar = o.splitlines() if c == 0 else []
     ass = sorted([x for x in adlar if WINRE.search(x) and not ASSET_ATLA.search(x) and x.lower().endswith((".zip", ".exe", ".tar.gz", ".tgz"))], key=lambda x: (not x.lower().endswith(".zip"), x))
     if not ass:
-        if var("Cargo.toml"):
-            with KURKILIT: c, o = run(["cargo", "install", "--locked", "--path", str(d)], 900)
-            if c == 0:
-                ok, n = dogrula([ad]); return ("KURULDU" if ok else "KURULDU-DOGRULANMADI"), "cargo install: " + n
+        dur = kaynak_derle(d, ad) if d is not None else None
+        if dur: return dur
+        if lib_npm:
+            return "KURULDU-KAYNAK", "kütüphane/monorepo: package.json 'bin' yok, release yok; global kurulacak komut yok, kaynak klonda"
+        if hata_py: return hata_py
         return "KURULUM-YOLU-YOK", f"pyproject/package.json/Cargo yok; win-x64 release asset yok (asset {len(adlar)}: {', '.join(adlar[:3])[:80]})" + (f"; repo {buyuk // 1024} MB" if buyuk else "")
     with KURKILIT, tempfile.TemporaryDirectory() as t:
         c, o = run(["gh", "release", "download", "-R", repo, "-p", ass[0], "-D", t], TKALEM)
@@ -403,19 +489,24 @@ def paket_py_kur(spec, ad=""):
     return "HATA", "pip: " + kok(son)
 
 
-def npm_dogrula(ad):
+def npm_pre(k):
+    return (NPMT2 / re.sub(r"[^\w.-]+", "-", k)[:50]) if TUR2 else NPMDIR
+
+
+def npm_dogrula(ad, kokd=None):
+    kokd = kokd or NPMDIR
     """node_modules/<ad>: bin varsa bin --version; yoksa import.meta.resolve (modülü yürütmez); yalnız tip paketiyse d.ts kanıtı."""
-    pj = NPMDIR / "node_modules" / ad / "package.json"
+    pj = kokd / "node_modules" / ad / "package.json"
     if not pj.exists(): return False, "node_modules'ta paket yok"
     j = json.loads(pj.read_text(encoding="utf-8", errors="ignore"))
     b = j.get("bin")
     for e in (list(b) if isinstance(b, dict) else ([ad.split("/")[-1]] if b else [])):
-        sh = NPMDIR / "node_modules/.bin" / (e + ".cmd")
+        sh = kokd / "node_modules/.bin" / (e + ".cmd")
         if sh.exists():
             for a in ("--version", "--help"):
                 c, o = run([str(sh), a], 40)
                 if c == 0 and o: return True, f"bin {e} {a}: {o.splitlines()[0][:60]}"
-    c, o = run(["node", "--input-type=module", "-e", f"console.log(import.meta.resolve('{ad}'))"], 40, cwd=str(NPMDIR))
+    c, o = run(["node", "--input-type=module", "-e", f"console.log(import.meta.resolve('{ad}'))"], 40, cwd=str(kokd))
     if c == 0: return True, "import.meta.resolve ok: " + o[-60:]
     if j.get("types") or j.get("typings") or (pj.parent / "index.d.ts").exists():
         return True, "yalnız tip paketi (d.ts var, JS girişi yok)"
@@ -443,11 +534,11 @@ def isle(r):
                 ok, n = aday_kapisi(k, ad, meta[3] or "")
                 if ok is None: return yaz(k, sinif, kay, "HATA", "", n)
                 if not ok: return yaz(k, sinif, kay, "YANLIS-ESLESME", "", n)
-            if meta[2] > (3000000 if TUR2 else 400000):
+            if meta[2] > (3000000 if TUR2 else 400000) and not (TUR2 and sinif == "SKILL"):
                 if sinif == "CLI":  # büyük repo klonlanmaz: yalnız hazır release/PATH yolu
                     dur, n = gh_cli_kur(None, ad, k, meta[2]); return yaz(k, sinif, kay, dur, "", n)
                 return yaz(k, sinif, kay, "HATA", "", f"repo çok büyük ({meta[2] // 1024} MB), klonlanmadı")
-            d, h = klonla(ad)
+            d, h = klonla(ad, seyrek=TUR2 and sinif == "SKILL")
             if d is None: return yaz(k, sinif, kay, "HATA", "", "klon: " + h)
             neden = betik_tara(repo_betikleri(d)) if repo_betikleri(d).strip() else ""
             if neden: return yaz(k, sinif, kay, "GUVENLIK-RED", str(d), neden)
@@ -468,12 +559,12 @@ def isle(r):
                     with KURKILIT: dur, n = paket_py_kur(str(d))
                     return yaz(k, sinif, kay, dur, str(d), n)
                 if (d / "package.json").exists():
-                    NPMDIR.mkdir(exist_ok=True)
-                    with NPMKILIT: c, o = run(["npm.cmd", "i", "--prefix", str(NPMDIR), str(d)], TKALEM)
+                    pre = npm_pre(k); pre.mkdir(parents=True, exist_ok=True)
+                    with NPMKILIT: c, o = run(["npm.cmd", "i", "--prefix", str(pre), str(d)], TKALEM)
                     if c: return yaz(k, sinif, kay, "HATA", str(d), "npm: " + npm_kok(o))
                     try: pn = json.loads((d / "package.json").read_text(encoding="utf-8")).get("name", "")
                     except Exception: pn = ""
-                    ok, n = npm_dogrula(pn) if pn else (True, "npm install ok (adsız paket)")
+                    ok, n = npm_dogrula(pn, pre) if pn else (True, "npm install ok (adsız paket)")
                     return yaz(k, sinif, kay, "KURULDU" if ok else "HATA", str(d), n)
                 return yaz(k, sinif, kay, "KURULDU", str(d), "klonlandı (kaynak; kurulum betiği yok)")
             return yaz(k, sinif, kay, "KURULDU", str(d), "klonlandı")
@@ -498,10 +589,10 @@ def isle(r):
                 with SKILLKILIT: n0 = len(G.CIK); G.skill_kur(d, "npm/" + ad); yeni = G.CIK[n0:]
                 dur = [c for c in yeni if c[3] in ("KURULDU", "ZATEN-KURULU")]
                 return yaz(k, sinif, kay, "KURULDU" if dur else "HATA", str(d), f"{len(dur)} skill")
-            NPMDIR.mkdir(exist_ok=True)
-            with NPMKILIT: c, o = run(["npm.cmd", "i", "--prefix", str(NPMDIR), ad], TKALEM)
+            pre = npm_pre(k); pre.mkdir(parents=True, exist_ok=True)
+            with NPMKILIT: c, o = run(["npm.cmd", "i", "--prefix", str(pre), ad], TKALEM)
             if c: return yaz(k, sinif, kay, "HATA", "", "npm: " + npm_kok(o))
-            ok, n = npm_dogrula(ad)
+            ok, n = npm_dogrula(ad, pre)
             return yaz(k, sinif, kay, "KURULDU" if ok else "HATA", "", n)
         if tur == "pip":
             c, o = run(["curl", "-s", f"https://pypi.org/pypi/{ad}/json"], 60)
@@ -578,7 +669,7 @@ def main():
     rows = oku(coz)
     bit = bitenler()
     if "--coz" in a:  # D2C: coz dosyasında DOGRULANDI olup sonuçta BULUNAMADI-2/YANLIS/YOLU-YOK/HATA kalanlar yeniden işlenir
-        rows = [r for r in rows if r["sonuc"] == "DOGRULANDI"]
+        rows = [r for r in rows if r["sonuc"] in (("DOGRULANDI", "ADAY") if ADAY_DA else ("DOGRULANDI",))]
         son0 = {r["kalem"]: r["durum"] for r in oku(SONUC)}
         yeniden = {r["kalem"] for r in rows if son0.get(r["kalem"]) in ("BULUNAMADI-2", "YANLIS-ESLESME", "KURULUM-YOLU-YOK", "HATA")}
         bit -= yeniden

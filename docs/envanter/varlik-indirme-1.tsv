@@ -1,0 +1,306 @@
+kalem	karar	kategori	url	lisans	boyut_mb	yol	not
+3D assets	GURULTU	oyun					genel terim/format, varlik degil
+3D avatarlar	GURULTU	oyun					genel terim/format, varlik degil
+3D Body Mesh	GURULTU	oyun					genel terim/format, varlik degil
+3D floating sneaker visual	GURULTU	oyun					genel terim/format, varlik degil
+3D Orbit	GURULTU	oyun					genel terim/format, varlik degil
+3Dsplats+mesh	GURULTU	oyun					genel terim/format, varlik degil
+3GS	GURULTU	oyun					genel terim/format, varlik degil
+ArtisthandmodellinginBlender	GURULTU	oyun					genel terim/format, varlik degil
+Artistmanual blockingoutinBlender	GURULTU	oyun					genel terim/format, varlik degil
+blender files	GURULTU	oyun					genel terim/format, varlik degil
+colliders	GURULTU	oyun					genel terim/format, varlik degil
+hand skeleton	GURULTU	oyun					genel terim/format, varlik degil
+IGES	GURULTU	oyun					genel terim/format, varlik degil
+kinematic meshes	GURULTU	oyun					genel terim/format, varlik degil
+Lighting Presets	GURULTU	oyun					genel terim/format, varlik degil
+Live FACE profile	GURULTU	oyun					genel terim/format, varlik degil
+live link subject	GURULTU	oyun					genel terim/format, varlik degil
+Morph/Skin	GURULTU	oyun					genel terim/format, varlik degil
+Neon Graphic Cinematic 3D	GURULTU	oyun					genel terim/format, varlik degil
+OBJ	GURULTU	oyun					genel terim/format, varlik degil
+night elf	GURULTU	oyun					genel terim/format, varlik degil
+HD Morphs	GURULTU	oyun					genel terim/format, varlik degil
+IntensifiedBrows&Eyes	GURULTU	oyun					genel terim/format, varlik degil
+IntensifiedExpressions	GURULTU	oyun					genel terim/format, varlik degil
+ccore/ThreeJS-3D-Scenes	INDIRILDI	oyun	https://huggingface.co/datasets/ccore/ThreeJS-3D-Scenes	MIT	1504	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\oyun\ccore-threejs-3d-scenes	git clone HF dataset (4146 sahne); disk 2870 MB (.git kopyasi dahil)
+MatrixCityScene from Unreal	OMER-SOR	oyun	https://github.com/city-super/MatrixCity	CC-BY-NC-4.0 (HF veri)	0	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\oyun\matrixcityscene-from-unreal	veri yuzlerce GB; yalniz README indirildi; sahne varligi Unreal icin
+Cybertruck Hover Project	KAYNAK-YOK	oyun			0		resmi 'Hover Project' bulunamadi; yalniz ucuncu taraf cybertruck three.js repolari
+Digital_Human_Hair	KAYNAK-YOK	oyun			0		resmi kaynak bulunamadi (CGTrader/Fab ticari)
+Energy Drink Game Ready Model	KAYNAK-YOK	oyun			0		tek resmi kaynak dogrulanamadi (muhtemelen Fab/Sketchfab marketplace)
+Epic Skeleton	HESAP	oyun	https://www.fab.com	Fab/Epic EULA	0		Fab/Daz marketplace, giris gerekli
+Extended Eyelash System	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D magaza, ucretli/giris
+Fae Warrior	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D magaza, ucretli/giris
+HD Aeron	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D HD karakter urunu, ucretli/giris
+HD Brows	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D HD karakter urunu, ucretli/giris
+HD Character Bases	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D HD karakter urunu, ucretli/giris
+HD Eyebrows	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D HD karakter urunu, ucretli/giris
+HD eyes	HESAP	oyun	https://www.daz3d.com	Daz EULA	0		Daz3D HD karakter urunu, ucretli/giris
+Josta	HESAP	oyun	https://sketchfab.com	model basina CC/ticari	0		Sketchfab indirme giris gerektirir
+Kevin_Head	KAYNAK-YOK	oyun			0		resmi kaynak bulunamadi
+Kevin_Mouth	KAYNAK-YOK	oyun			0		resmi kaynak bulunamadi
+M4_Coloring_Head	KAYNAK-YOK	oyun			0		resmi kaynak bulunamadi
+Mocap_Sample Head	KAYNAK-YOK	oyun			0		Epic MetaHuman ornegi; Epic hesabi ile Fab
+MHCLightingPresets	HESAP	oyun	https://www.unrealengine.com/metahuman	MetaHuman EULA	0		Epic hesabi gerekli
+Lary sofa by Marco and Giulio Mantellassi	KAYNAK-YOK	oyun			0		resmi indirilebilir model bulunamadi
+orc	GURULTU	oyun			0		genel kelime, tek resmi kaynak yok
+photo-to-3D models	GURULTU	oyun			0		genel kavram
+Reallusion Custom	HESAP	oyun	https://www.reallusion.com		0		Reallusion hesap/ucretli icerik
+Retro Game 3D	GURULTU	oyun			0		genel kelime
+Robot Mascot	GURULTU	oyun			0		genel kelime
+Rococo headgear	GURULTU	oyun			0		genel kelime
+silahlar	GURULTU	oyun			0		genel kelime
+Skeletal Mesh	GURULTU	oyun			0		UE terimi, varlik degil
+Skeleton warrior	GURULTU	oyun			0		genel kelime
+soldier	GURULTU	oyun			0		genel kelime
+superhero cape	GURULTU	oyun			0		genel kelime
+survival character	GURULTU	oyun			0		genel kelime
+swords	GURULTU	oyun			0		genel kelime
+Teeth Diffuse Brightness	GURULTU	oyun			0		shader parametresi
+Teeth Scatter	GURULTU	oyun			0		shader parametresi
+Teeth Shader	GURULTU	oyun			0		shader parametresi
+TeethDesaturation	GURULTU	oyun			0		shader parametresi
+UE4 Mannequin	HESAP	oyun	https://www.fab.com		0		Epic hesabi/Fab girisi gerekir
+UE4 Skeleton	HESAP	oyun	https://www.fab.com		0		Epic projesi icinde, hesap gerekir
+UE5 Mannequin	HESAP	oyun	https://www.fab.com		0		Epic hesabi/Fab girisi gerekir
+UE5 Skeleton	HESAP	oyun	https://www.fab.com		0		Epic projesi icinde, hesap gerekir
+UV sphere	GURULTU	oyun			0		Blender primitifi, indirme yok
+ZBrush Brushes	HESAP	oyun	https://www.maxon.net/en/zbrush		0		Maxon/ZBrush hesap gerekir
+Animation Pack Reviews	GURULTU	video			0		genel kelime
+animation sequence	GURULTU	video			0		genel kelime
+Animation Training 1 iClone 8	HESAP	video	https://www.reallusion.com		0		Reallusion ucretli/hesap
+attack animation	GURULTU	video			0		genel kelime
+bite animation	GURULTU	video			0		genel kelime
+cartoon animations	GURULTU	video			0		genel kelime
+Character fulcrum points	GURULTU	video			0		genel kelime
+FRAME-SEQUENCE	GURULTU	video			0		genel kelime
+metahuman control rig	HESAP	video	https://www.metahuman.com		0		Epic hesabi gerekir
+motion animations	GURULTU	video			0		genel kelime
+Motion Download	GURULTU	video			0		satici baglantisi, belirsiz
+MOTIONStudioMocap Series	HESAP	video	https://www.fab.com		0		Fab/ucretli satici paketi
+Nike Shoe Rotate On Scroll	KAYNAK-YOK	video			0		tek resmi kaynak yok; topluluk ornekleri (GreenSock CodePen, AryanChauhan-26 GitHub) var, secilmedi
+Normal Standing	GURULTU	video			0		genel kelime
+opening eyes	GURULTU	video			0		genel kelime
+parkour animations	GURULTU	video			0		genel kelime
+pendulum rig	GURULTU	video			0		genel kelime
+physical bones	GURULTU	video			0		genel kelime
+Physics asset	GURULTU	video			0		UE terimi
+Pose	GURULTU	video			0		genel kelime
+precision weight distribution	GURULTU	video			0		genel kelime
+Raw Mocap	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+Reference clips	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+Reveal Content On Scroll	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+SNAP ON SCROLL	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+Spine	HESAP	animasyon	https://esotericsoftware.com	ticari lisans			ucretli arac
+Spring Choreography	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+Tour Files Animation Guide	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+whiteboard explainer	GURULTU	video					genel/belirsiz terim, tek resmi varlik yok
+Wilderness Survival Animation Pack	INDIRILDI-KART	video	https://hadukis.itch.io/survival-animation-pack-free	itch ucretsiz ornek: ticari+kisisel serbest, yeniden dagitim yok (tam paket ucretli)			itch indirme tiklama akisi; indirilmedi, yakin eslesme Survival Animation Pack
+Bump Strength	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+cavity maps	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+charcoal	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+dead leaves	KAYNAK-YOK	frontend	https://polyhaven.com/textures				Poly Haven'da dead_leaves yok; ad belirsiz
+Frosted Glass Tiles	INDIRILDI-KART	frontend	https://3dtextures.me/2026/05/27/glass-frosted-003-free-seamless-pbr-texture/	CC0			indirme butonu zip URL vermedi; yakin eslesme Glass Frosted 003
+grass clippings	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+halı	INDIRILDI	frontend	https://polyhaven.com/a/dirty_carpet	CC0	0.93	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\halı	Poly Haven dirty_carpet diffuse 1k
+NASA Earth Observatory Blue Marble	KAYNAK-YOK	frontend	https://visibleearth.nasa.gov/images/57752	NASA medya (genelde serbest)			dogrudan gorsel URL'si bulunamadi (tahmin edilen 404)
+noise node	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Redness Map	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+rock_textured	INDIRILDI	frontend	https://polyhaven.com/a/rock_surface	CC0	2.6	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\rock_textured	tam ad yok; yakin eslesme Poly Haven rock_surface 1k diff/nor/rough
+rocks	INDIRILDI	frontend	https://polyhaven.com/a/rocks_ground_01	CC0	0.73	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\rocks	Poly Haven rocks_ground_01 diffuse 1k
+sapphire crystal	HESAP	frontend	https://sketchfab.com/3d-models/sapphire-bb0519e345e04c8eb00ac2a40b015202	CC-BY (Sketchfab, giris gerekir); Meshy CC0 hesap ister			indirme icin giris/hesap
+warm paper	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+action hover light	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+border	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Border default	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+border widths	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Cartoon Yourself	KAYNAK-YOK	frontend					belirli uygulama bulunamadi; yakin: dev.to cartoon avatar AI Studio, genmedia-creative-studio
+CC Shader	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Character swapping using GenMedia	INDIRILDI	frontend	https://github.com/GoogleCloudPlatform/genmedia-creative-studio	Apache-2.0	279	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\character-swapping-genmedia	tam repo yok; yakin eslesme (Character Consistency workflow)
+clinical daylight	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+crosshatch	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Custom Light	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+cut-paper	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Eye & Eye Occlusion Shader	INDIRILDI	frontend	https://github.com/zulubo/EyeShader	MIT	7	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\eye-eye-occlusion-shader	yakin eslesme; Reallusion/MetaHuman sürümü kapali
+Gobo	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+HQ shader	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Interactive Fluid	INDIRILDI	frontend	https://github.com/PavelDoGreat/WebGL-Fluid-Simulation	MIT	3.3	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\interactive-fluid	git clone depth1, calistirilmadi
+LUT	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+paper cuts	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Particle Orbit	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+pointer-light	GURULTU	frontend					genel/belirsiz terim, tek resmi varlik yok
+Smart Hair shader	INDIRILDI	frontend	https://github.com/DarkBlade909/HairShader	MIT	2	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\smart-hair-shader	yakin eslesme; asil Smart Hair Reallusion ticari
+Tearline Shader	KAYNAK-YOK	frontend	https://manual.reallusion.com/Character-Creator-4/Content/ENU/4.0/15_Digital_Human_Shader/Eyes/Digital-Human-Tearline-Shader.htm	Reallusion ticari yazilim ozelligi			bagimsiz ucretsiz indirme yok; Fab kopyalari yetkisiz
+Wendys Gobo Lighting	KAYNAK-YOK	frontend					resmi kaynak bulunamadi (Wendy's gobo web efekti yok; genel CSS isik efekti)
+Average Sans	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/averagesans	OFL-1.1	0.05	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/average-sans	Google Fonts
+body	GURULTU	frontend					genel kelime
+body large	GURULTU	frontend					genel kelime
+body medium	GURULTU	frontend					genel kelime
+body small	GURULTU	frontend					genel kelime
+Bricolage	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/bricolagegrotesque	OFL-1.1	0.39	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/bricolage	Bricolage Grotesque, Google Fonts
+comic sans	HESAP	frontend	https://learn.microsoft.com/typography/fonts/font-faq	Microsoft proprietary			sistem fontu, ozgur indirme yok
+font family	GURULTU	frontend					genel kelime
+font weight	GURULTU	frontend					genel kelime
+Geist Pixel	INDIRILDI	frontend	https://github.com/vercel/geist-font/tree/main/fonts/GeistPixel	OFL-1.1	1.05	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/geist-pixel	5 ttf (Square/Circle/Grid/Triangle/Line); git clone Windows yol hatasi, API ile indirildi; bos kalan g/ klasoru silinmedi
+Georgia Pro	HESAP	frontend	https://learn.microsoft.com/typography/font-list/georgia-pro	Microsoft proprietary (Office/lisans)			ucretsiz resmi indirme yok
+grotesque	GURULTU	frontend					genel kelime
+Helvetia	GURULTU	frontend					Helvetica yazim hatasi, ozgur kaynak yok
+Helvetica Neue	HESAP	frontend	https://www.fonts.com/font/linotype/neue-helvetica	Monotype ticari			ucretli
+IBM Plex mono	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/ibmplexmono	OFL-1.1	1.89	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/ibm-plex-mono	Google Fonts, 14 ttf
+IBM Plex Sans	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/ibmplexsans	OFL-1.1	1.09	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/ibm-plex-sans	Google Fonts, degisken ttf
+Instrument Sans	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/instrumentsans	OFL-1.1	0.38	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/instrument-sans	Google Fonts
+Neue Haas Grotesk Display Pro	HESAP	frontend	https://www.monotype.com/fonts/neue-haas-grotesk	Monotype ticari			ucretli
+Neue Montreal	HESAP	frontend	https://pangrampangram.com/products/neue-montreal	PP Free (kisisel) / ticari ucretli; e-posta formu			form/e-posta gerekli
+Newsreader	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/newsreader	OFL-1.1	0.91	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/newsreader	Google Fonts
+OpenFonts	INDIRILDI	frontend	https://github.com/bedlaj/openfonts	MIT	7.72	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/openfonts/repo	tahmin: @openfonts npm Google Fonts paketleri; kalem belirsiz, dogrulanmadi
+Orbitron	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/orbitron	OFL-1.1	0.04	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/orbitron	Google Fonts
+Oswald	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/oswald	OFL-1.1	0.17	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/oswald	Google Fonts
+Plex Mono	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/ibmplexmono	OFL-1.1	1.89	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/plex-mono	IBM Plex Mono ile ayni
+Public Sans	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/publicsans	OFL-1.1	0.21	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/public-sans	Google Fonts
+Schibsted Grotesk	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/schibstedgrotesk	OFL-1.1	0.35	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/schibsted-grotesk	Google Fonts
+SF Pro Text	HESAP	frontend	https://developer.apple.com/fonts/	Apple font lisansi (yalniz Apple platformu tasarimi)			Apple sozlesme onayi gerektirir
+Switzer	INDIRILDI	frontend	https://www.fontshare.com/fonts/switzer	ITF Free Font License	2.37	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/switzer/switzer2.zip	zip acilmadi; switzer.zip eksik/bozuk 15KB indirme de duruyor (silinmedi), switzer2.zip tam
+VM Sans	KAYNAK-YOK	frontend					bu adda font bulunamadi (VNM Sans olabilir, Vinamilk ozel)
+GradientWaves	INDIRILDI	frontend	https://github.com/supahfunk/gradientwaves	lisans belirtilmemis	0.05	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/gradientwaves/repo	kucuk demo repo
+arrow icon	GURULTU	frontend					genel kelime
+close icon	GURULTU	frontend					genel kelime
+DiceBear	INDIRILDI	frontend	https://github.com/dicebear/dicebear	MIT (avatar stilleri ayri lisansli)	13.33	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/dicebear/repo	git clone depth1
+home icon	GURULTU	frontend					genel kelime
+icon	GURULTU	frontend					genel kelime
+info icon	GURULTU	frontend					genel kelime
+material UI icon set	INDIRILDI	frontend	https://github.com/marella/material-icons	Apache-2.0	4.24	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/material-ui-icon-set/repo	Material Icons paketi (marella); resmi google/material-design-icons 5GB oldugu icin alinmadi
+mobile portrait symbol	GURULTU	frontend					genel kelime
+Person outline icon	GURULTU	frontend					genel kelime
+Scroll Down icon	GURULTU	frontend					genel kelime
+sFPro Icons	HESAP	frontend	https://developer.apple.com/sf-symbols/	Apple SF Symbols lisansi			Apple sozlesme onayi gerektirir
+SVG icons	GURULTU	frontend					genel kelime
+CC Avatar	KAYNAK-YOK	diger-genel					resmi kaynak/model karti bulunamadi
+CC3_Base_Plus	KAYNAK-YOK	diger-genel			0		HF aramasinda yok
+CC5HD characters	KAYNAK-YOK	diger-genel			0		resmi kaynak bulunamadi
+Deepsea Coder	INDIRILDI-KART	diger-genel	https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct	deepseek license	0.004	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/deepseek-coder/model_karti.md	DeepSeek Coder karti
+DeepSeek V4 Flash 0731	INDIRILDI-KART	diger-genel	https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash	MIT	0.013	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/deepseek-v4-flash-0731/model_karti.md	0731 suffix dogrulanmadi, V4-Flash karti
+Gemini 2.0 Flash Thinking XP	INDIRILDI-KART	diger-genel	https://ai.google.dev/gemini-api/docs/models	Google API terms	0.022	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/gemini-models/model_karti.md	genel Gemini model sayfasi; XP surumu ozel sayfa yok
+Gemini 3.1 Flash	INDIRILDI-KART	diger-genel	https://ai.google.dev/gemini-api/docs/models	Google API terms	0.022	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/gemini-models/model_karti.md	ortak Gemini model sayfasi
+Gemini-3.5-Flash-Lite	INDIRILDI-KART	diger-genel	https://ai.google.dev/gemini-api/docs/models	Google API terms	0.022	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/gemini-models/model_karti.md	ortak Gemini model sayfasi
+Gemma 426B	INDIRILDI-KART	diger-genel	https://huggingface.co/google/gemma-4-26B-A4B-it	Apache-2.0	0.028	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/gemma-4/model_karti.md	muhtemelen Gemma 4 26B
+GPT-5.3-Codex-Spark	INDIRILDI-KART	diger-genel	https://openai.com/index/introducing-gpt-5-3-codex-spark/	OpenAI terms (kapali)	0.010	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/gpt-5-3-codex-spark/model_karti.md	model 14 Eyl 2026 emekli
+GPT-6 Astra Light	KAYNAK-YOK	diger-genel			0		resmi kaynak yok (yalniz 3. taraf HF isimleri)
+GPT-Edge 2	KAYNAK-YOK	diger-genel			0		bulunamadi
+GPT6s	KAYNAK-YOK	diger-genel			0		bulunamadi
+Grok 4.6	INDIRILDI-KART	diger-genel	https://docs.x.ai/docs/models	xAI terms	0.390	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/grok-imagine-1-5/model_karti.md	xAI modeller sayfasi (ham HTML)
+Grok Imagine 1.5	INDIRILDI-KART	diger-genel	https://docs.x.ai/docs/models	xAI terms	0.390	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/grok-imagine-1-5/model_karti.md	grok-imagine-video-1.5-preview; ham HTML
+image model	GURULTU	diger-genel			0		genel kelime
+KimiK2.7 Code	INDIRILDI-KART	diger-genel	https://huggingface.co/moonshotai/Kimi-K2.7-Code	other	0.015	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/kimi-k2-7-code/model_karti.md	
+Kimmy K3	INDIRILDI-KART	diger-genel	https://huggingface.co/moonshotai/Kimi-K3	other	0.045	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/kimi-k3/model_karti.md	Kimi K3
+LTX-Vd-0.87	INDIRILDI-KART	diger-genel	https://huggingface.co/Lightricks/LTX-Video	other (LTX license)	0.021	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/ltx-video/model_karti.md	genel LTX-Video karti
+minimax 2.5	INDIRILDI-KART	diger-genel	https://huggingface.co/MiniMaxAI/MiniMax-M2.5	modified-MIT	0.029	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/minimax-m2-5/model_karti.md	
+CausVid_bidir	INDIRILDI-KART	diger-genel	https://huggingface.co/tianweiy/CausVid	CC-BY-NC-4.0	0.003	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/causvid/model_karti.md	
+Wan VACE	INDIRILDI-KART	diger-genel	https://huggingface.co/Wan-AI/Wan2.1-VACE-14B	Apache-2.0	0.040	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/wan-vace/model_karti.md	
+wan_2.1_vae	INDIRILDI-KART	diger-genel	https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged	Apache-2.0	0.006	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/wan-2-1-vae/model_karti.md	agirlik indirilmedi
+47 Best Email Designs	INDIRILDI	frontend	https://github.com/CosmoBlk/bestemaildesigns	lisans belirtilmemis (Figma Community dosyasi da var)	184	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\47-best-email-designs	repo klon; Figma: figma.com/community/file/1626130771879679378
+AI OS Template	KAYNAK-YOK	frontend			0		belirsiz
+Batman-Inspired Portfolio Template	HESAP	frontend	https://framer.link/UnwKVj3	Framer template	0		Framer sablonu hesap/odeme; alternatif acik repo Sbanerjee91/Bat-theme-Portfolio (indirilmedi)
+Bentogrid template	KAYNAK-YOK	frontend			0		belirsiz
+Blog Over Dark	KAYNAK-YOK	frontend			0		belirsiz
+button group	GURULTU	frontend			0		genel kelime
+Chocolate Hero Section	KAYNAK-YOK	frontend			0		belirsiz
+Conversion Blocks	KAYNAK-YOK	frontend			0		belirsiz
+Email Design Collection	KAYNAK-YOK	frontend					belirsiz ad; genel GitHub sablon depolari (mailgun MIT, sendwithus Apache-2.0) var
+Figma import React teması	KAYNAK-YOK	frontend			0		belirsiz
+footer	GURULTU	frontend			0		genel kelime
+Framer Templates	HESAP	frontend	https://www.framer.com/marketplace/templates/	cesitli/ucretli	0		Framer hesap gerekir
+Gruvbox	INDIRILDI	frontend	https://github.com/morhetz/gruvbox	MIT (repo, GitHub API null)	0.1	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/gruvbox/repo	git clone --depth 1
+hero landing	GURULTU	frontend			0		genel kelime
+Hero'da terminal mockup	GURULTU	frontend			0		genel tarif
+image templates	GURULTU	frontend			0		genel kelime
+Implement Feature MD	KAYNAK-YOK	frontend			0		belirsiz
+linkedin-post	GURULTU	frontend			0		genel kelime
+LuxuryResidenceWebsite-UI/UX Case Study	KAYNAK-YOK	frontend			0		belirsiz
+Menu & Footer	GURULTU	frontend			0		genel kelime
+ri plan şablonları** (	GURULTU	frontend			0		bozuk metin parcasi
+mobile app prototypes	GURULTU	frontend			0		genel kelime
+otion templates*	GURULTU	frontend					belirsiz/yazim hatasi kalem
+Nav Bar	GURULTU	frontend					genel kelime
+Nicolai's Elementor Library	KAYNAK-YOK	frontend					resmi acik kaynak bulunamadi; Elementor kutuphanesi hesap/ucretli olasi
+Northbound Agency Template	KAYNAK-YOK	frontend					resmi kaynak dogrulanamadi
+One-Page Portfolio Template	GURULTU	frontend					genel ad
+OTP Verification UI	GURULTU	frontend					genel UI ogesi
+Pace Dashboard Showcase	KAYNAK-YOK	frontend					resmi kaynak dogrulanamadi
+phone screens	GURULTU	frontend					genel kelime
+presentation slides	GURULTU	frontend					genel kelime
+Sales Pipeline Dashboard	GURULTU	frontend					genel ad
+simple contact form	GURULTU	frontend					genel ad
+Site Administrator Email	GURULTU	frontend					genel ad
+slide templates	GURULTU	frontend					genel kelime
+starter kit	GURULTU	frontend					genel kelime
+Template	GURULTU	frontend					genel kelime
+African Female	GURULTU	video					genel ses tanimi
+Chopin Nocturne Op.48 No.1	INDIRILDI	video	https://commons.wikimedia.org/wiki/File:Chopin_Nocturne_in_C_minor_Op._48_no._1_Luke_Faulkner.ogg	CC0 (Luke Faulkner / Musopen kaydi)	4.2	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\video\chopin-nocturne-op48-no1	Commons ogg
+forge.wav	KAYNAK-YOK	video					genel dosya adi, resmi kaynak yok
+Free BGM	GURULTU	video					genel kelime
+instrumental dark	GURULTU	video					genel kelime
+Logo_sting.wav	KAYNAK-YOK	video					genel dosya adi, resmi kaynak yok
+Musopen	HESAP	video	https://musopen.org	CC0/PD (icerige gore)			indirme icin hesap gerekir; site bu ortamdan erisilemedi; Chopin kaydi Commons'tan alindi
+riser_whoosh.wav	KAYNAK-YOK	video					genel dosya adi
+whoosh_01.wav	KAYNAK-YOK	video					genel dosya adi
+COCO	INDIRILDI	diger-genel	https://cocodataset.org/#download	CC BY 4.0 (annotations)	161.8	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\coco	yalniz annotations_trainval2017.zip; goruntuler (~19GB) indirilmedi
+GEBCO	OMER-SOR	diger-genel	https://www.gebco.net/data-products/gridded-bathymetry-data	serbest kullanim, atif			global grid ~4-7GB; sayfa dogrulamasi sinirli
+ISCCP (NOAA NCEI)	OMER-SOR	diger-genel	https://www.ncei.noaa.gov/products/climate-data-records/global-isccp-h-series-cloud-properties	NOAA acik veri			cok buyuk arsiv (yuzlerce GB)
+JAXA Kaguya TC	OMER-SOR	diger-genel	https://darts.isas.jaxa.jp/planet/pdap/selene/	JAXA DARTS kullanim kosullari			TC mozaikleri cok buyuk
+LongMemEval	INDIRILDI	diger-genel	https://huggingface.co/datasets/xiaowu0162/longmemeval-cleaned	MIT	174.2	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\longmemeval	oracle+s_cleaned; m_cleaned 2.7GB indirilmedi (>500MB)
+LROC WAC	OMER-SOR	diger-genel	https://wms.lroc.asu.edu/lroc/view_rdr/WAC_GLOBAL	NASA PDS acik			global mozaik GB boyutunda
+MNIST	INDIRILDI	diger-genel	https://ossci-datasets.s3.amazonaws.com/mnist/	CC BY-SA 3.0 (yann.lecun.com)	11.6	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\mnist	4 gz dosya
+NASA GRAIL GL0420A	OMER-SOR	diger-genel	https://pds-geosciences.wustl.edu/grail/grail-l-lgrs-5-rdr-v1/	NASA PDS acik			GL0420A dosyasi PDS dizininde net bulunamadi; kucuk gggrx_* urunleri var, hangisi istendigi belirsiz
+NASA LRO LOLA	INDIRILDI	diger-genel	https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/	NASA PDS acik	2.0	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\nasa-lro-lola	yalniz LDEM_4 (kucuk ornek); yuksek cozunurluk LDEM'ler GB
+Sentinel imagery	HESAP	diger-genel	https://dataspace.copernicus.eu	Copernicus acik (CC BY 4.0 benzeri)			indirme icin Copernicus hesabi gerekir; hacim cok buyuk
+SLDEM2015	OMER-SOR	diger-genel	https://pds.lroc.asu.edu/data/LRO-L_LRO-LOLA_LROC-5-RDR-V1.0/	NASA PDS acik			tam urun GB; kesin URL dogrulanamadi
+SVG-Bench	OMER-SOR	diger-genel	https://huggingface.co/starvector	dataset kartina gore degisir			en az 4 farkli 'SVG-Bench' var (starvector, Rapidata, OmniSVG, Datapoint); hangisi belirsiz; HF API bu ortamda dosya listesi vermedi
+swe bench	INDIRILDI	diger-genel	https://huggingface.co/datasets/princeton-nlp/SWE-bench	HF kartinda lisans yok (kod MIT)	91.2	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\swe-bench	dev/test/train parquet
+Tau Cubed Bench	INDIRILDI	diger-genel	https://github.com/sierra-research/tau-bench	MIT	34	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\tau-cubed-bench	tau-bench repo (tau^3 ayri repo olabilir)
+Titanic dataset	INDIRILDI	diger-genel	https://github.com/datasciencedojo/datasets	lisans belirtilmemis	0.06	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\diger-genel\titanic-dataset	titanic.csv
+YouTube Video Database	GURULTU	diger-genel					genel ad, tek resmi kaynak yok
+416 butter	INDIRILDI	frontend	https://github.com/417-Butter/417_easing_bridge	LICENSE var (repo)	0.35	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/video/417-easing-bridge	sinif=efekt(Cascadeur easing eklentisi); kategori asil video; 'butter'=417-Butter hesabi
+ABRICOT	KAYNAK-YOK	frontend					sinif=font; yalniz 'Abricot Sensuel' (dafont, donationware) bulundu, ad farkli
+ad-director-kit	KAYNAK-YOK	diger-genel	https://github.com/mrdainami				sinif=sablon; mrdainami altinda ad-director-kit yok (13 repo, ozel olabilir)
+AI Ad Director Kit	KAYNAK-YOK	diger-genel					sinif=sablon; kaynak bulunamadi
+AI OS Blueprint	INDIRILDI	diger-genel	https://github.com/mrdainami/ai-os-starter	LICENSE var (repo)	0.16	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/ai-os-blueprint	sinif=sablon; blueprint sayfasi dainami.ai/resources/ai-os-blueprint (form olabilir) - starter repo indirildi
+Analog Vibes 2	HESAP	frontend	https://futc.gumroad.com/l/analogvibes2	ticari ($49)			sinif=efekt(Lightroom preset); ucretli
+Anton	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/anton	OFL-1.1	0.17	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/anton	sinif=font
+Arched_Bangs	KAYNAK-YOK	oyun					sinif=3d; kaynak bulunamadi
+Aurora Bloom	HESAP	frontend	https://pixoate.com/backgrounds/mesh/aurora-bloom	Premium plan gerekir			ucretli
+Aurora Glass	INDIRILDI	frontend	https://github.com/Kurtisko221x/aurora-glass	MIT	0.16	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/aurora-glass	sinif=gradyan (glass+aurora CSS uretici)
+Batik	KAYNAK-YOK	frontend		CC0 batik bulunamadi (Freepik/Creative Fabrica atif/ucretli)			tek resmi CC0 kaynak yok
+Bubbly Mila	KAYNAK-YOK	frontend					sinif=font; yalniz ticari 'Mila Rose' (Etsy) ve ilgisiz Mila fontlari
+Cairo	INDIRILDI	frontend	https://github.com/google/fonts/tree/main/ofl/cairo	OFL-1.1	0.43	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/cairo	sinif=font
+ComfyUI Workflows	INDIRILDI	diger-genel	https://github.com/comfyanonymous/ComfyUI_examples	GPL-3.0 (ComfyUI); repo LICENSE var	475	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/comfyui-workflows	sinif=sablon (resmi ornek workflow, clone .git dahil 475MB)
+CyberpunkNeon	KAYNAK-YOK	frontend					sinif=gradyan/tema; belirli kaynak yok
+DAWNSPIRECATHEDRAL	KAYNAK-YOK	oyun					sinif=3d; 3D model yok (yalniz 2D kart sanati/lore)
+dichotomy	KAYNAK-YOK	oyun	https://itch.io/devlog/774252/dichotomy-v08-update.amp	NSFW oyun, varlik paketi degil			varlik paketi bulunamadi
+DVxUI	KAYNAK-YOK	frontend					sinif=sablon; kaynak bulunamadi
+Earth Views from the ISS	INDIRILDI-KART	diger-genel	https://archive.org/details/ISSVideoResourceEarthViews720p	NASA kamu malı			video boyutu olculmedi; indirilmedi
+ETERNAL CLEAR	KAYNAK-YOK	frontend					sinif=font; kaynak bulunamadi
+excalidraw-visuals	INDIRILDI	video	https://github.com/coleam00/excalidraw-diagram-skill	LICENSE var (repo)	0.15	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/video/excalidraw-visuals	sinif=sablon (skill, name: excalidraw-diagram)
+FlexokiLight	INDIRILDI	frontend	https://github.com/kepano/flexoki	MIT	18	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/flexoki-light	sinif=gradyan (renk semasi)
+gloamwood	KAYNAK-YOK	oyun	https://mudpig.itch.io/gloamwood				sinif=3d; yalniz ilgisiz HTML5 oyun
+Hatsune Miku	HESAP	oyun	https://piapro.net/en_for_creators.html	Piapro Character License; yazar kosullari			sinif=3d (MMD model); Piapro/Bowlroll hesapli, ticari kisitli
+ivy mode	HESAP	frontend	https://fonts.adobe.com/fonts/ivy-mode	Adobe Fonts (CC aboneligi)			sinif=font; Adobe hesabi gerekir
+JPL NAIF	INDIRILDI	diger-genel	https://naif.jpl.nasa.gov/pub/naif/generic_kernels/	NASA kamu malı	0.005	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/jpl-naif	sinif=veri-seti; yalniz lsk/naif0012.tls; tum kernel'lar (de430.bsp ~100MB+, toplam GB) indirilmedi
+KemelBenchHard	KAYNAK-YOK	diger-genel					sinif=veri-seti; 'KernelBench' olabilir, dogrulanamadi
+le Chonk	INDIRILDI-KART	diger-genel	https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B	Mistral Ecosystem Open-Weight License (degistirilmis MIT)	0.02	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/le-chonk/model_karti.md	sinif=model-karti; agirlik ~1061GB indirilmedi
+Mason Door	KAYNAK-YOK	oyun					sinif=3d; kaynak bulunamadi
+Meridian Pavilion	KAYNAK-YOK	oyun					sinif=3d; yalniz Yardistry urun sayfasi, model dosyasi yok
+Millennium Falcon	HESAP	oyun	https://sketchfab.com/3d-models/millennium-falcon-2c0783d083e44b959c691682b4cb1f16	CC-BY (fredbear1211); telifli IP			sinif=3d; Sketchfab giris gerekir
+NASA SP-201	INDIRILDI	diger-genel	https://ntrs.nasa.gov/citations/19700005062	NASA kamu malı	47.8	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/nasa-sp-201	sinif=veri-seti (belge); Analysis of Apollo 8 Photography
+NASA TN D-6082	INDIRILDI	diger-genel	https://ntrs.nasa.gov/citations/19710002567	NASA kamu malı	3.9	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/diger-genel/nasa-tn-d-6082	sinif=veri-seti (belge); Lunar Landmark Locations
+Neom Business	INDIRILDI	frontend	https://wordpress.org/themes/neom-business/	GPL-2.0+ (wp.org)	0.2	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/neom-business	sinif=sablon (WP tema)
+Neom Dark	INDIRILDI	frontend	https://wordpress.org/themes/neom-dark/	GPL-2.0+ (wp.org)	0.3	C:/Users/pc/Desktop/Claude ile yapılanlar/varliklar/frontend/neom-dark	sinif=sablon (WP tema, Neom Blog alt temasi)
+NYC_Set_8	HESAP	oyun	https://www.nonecg.com/3D-products/nyc-set-8-1-block/	NoneCG ozel (no AI); ucretsiz			sinif=3d; NoneCG/CGTrader hesabi gerekir
+Outdoor Adventure	INDIRILDI	frontend	https://opengameart.org/content/adventure-awaits-asset-pack-10	CC0	0.2	C:\Users\pc\Desktop\Claude ile yapılanlar\varliklar\frontend\outdoor-adventure	yakin eslesme Adventure Awaits Asset Pack 1.0
+Paragon characters	HESAP	oyun	https://www.unrealengine.com/en-US/paragon	Epic: yalniz Unreal Engine icinde ticari kullanim			sinif=3d; Epic hesabi/Fab gerekir
+Planet Earth	INDIRILDI-KART	frontend	https://pixabay.com/3d-models/world-earth-planet-space-nasa-4045/	Pixabay lisansi (NASA Blue Marble doku)			glb dogrudan URL alinamadi
+Rolls Royce Desert	KAYNAK-YOK	oyun					sinif=3d; belirli kaynak yok
+Seedling Knight	KAYNAK-YOK	oyun					sinif=3d/sprite; Sprout Kingdom varlik paketi bulunamadi
+Softies	KAYNAK-YOK	frontend	https://www.behance.net/bakalev				sinif=sablon; dosyalar yorumla DM ile verilir, genel indirme yok
+Tiny Swords	INDIRILDI-KART	oyun	https://pixelfrog-assets.itch.io/tiny-swords	Kisisel+ticari serbest, yeniden dagitim yok; eski surum CC0			itch indirme tiklama akisi; indirilmedi
+Typecraft	KAYNAK-YOK	frontend	https://www.youtube.com/@typecraft_dev				sinif=font?; YouTube kanali, varlik degil
+Vestapol 13022	KAYNAK-YOK	video					sinif=ses; kaynak bulunamadi

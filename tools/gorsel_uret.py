@@ -142,7 +142,8 @@ def ac():
     komut = [str(COMFY / ".venv" / "Scripts" / "python.exe"), "main.py", "--listen", HOST, "--port", str(PORT),
              "--disable-auto-launch", "--cache-ram", "--disable-smart-memory", "--reserve-vram", "3"] + os.environ.get("COMFY_EK", "").split()  # TURBO: tepe RAM ≤%89 · VRAM ≤%80; COMFY_EK = deney bayrakları
     with open(DURUM.with_suffix(".log"), "w", encoding="utf-8") as log:
-        pid = subprocess.Popen(komut, cwd=COMFY, stdout=log, stderr=subprocess.STDOUT,
+        ortam = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONUTF8="1")  # cp1254 konsolu ComfyUI logger'ını çökertiyordu (4 Kas)
+        pid = subprocess.Popen(komut, cwd=COMFY, stdout=log, stderr=subprocess.STDOUT, env=ortam,
                                creationflags=subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP).pid  # Ekran kuralı: pencere yok
     gk.al("gorsel_uret", pid)  # kilit ComfyUI süreciyle yaşar; süreç ölürse kendiliğinden düşer
     for _ in range(ACILIS_SN):

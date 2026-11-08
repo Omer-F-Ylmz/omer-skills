@@ -18,6 +18,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import katalog_ara
 
 KOK = Path(__file__).resolve().parents[1]
@@ -246,7 +247,15 @@ def main():
             w.writerow([o[k].replace("\t", " ") for k in sutun])
     # yetenek-getir (CC kurulumu + claude.ai zip'i) yerel repo yoluna bağlı kalmasın
     for f in (jl, CIKTI / "yetenek.tsv", CIKTI / "ogrenim.jsonl", Path(katalog_ara.__file__)):
-        shutil.copy2(f, KOK / "skills" / "yetenek-getir" / f.name)
+        for deneme in range(10):
+            try:
+                shutil.copy2(f, KOK / "skills" / "yetenek-getir" / f.name)
+                break
+            except PermissionError:
+                if deneme == 9:
+                    raise
+                import time
+                time.sleep(3)
     shutil.copy2(KOK / "tools" / "plan_kur.py", KOK / "skills" / "plan-kur" / "plan_kur.py")
     try:  # BEYIN-ARAC-KART-1: yeni kurulan araç katalogla birlikte kart + bölüm indeksi alır (kaynak hash'i değişenler yenilenir)
         import arac_kart

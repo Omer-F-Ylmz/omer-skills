@@ -1,0 +1,3 @@
+[
+{"ad":"pinecone-query","kullanim":["Yalnız entegre indeksler için metin sorgusu yap; search-records aracını kullan.","Indeks adı eksikse list-indexes ile listele, describe-index ile namespace seç.","Standart indeks ya da özel vektör işlemleri için pinecone-cli skill'ini kullan."],"tuzak":"OpenAI ya da HuggingFace modelli indeks bu skill ile sorgulanamaz; kullanıcıya bunu hatırlat.","token_ipucu":"Kaynakta belirtilmemiş.","kombin":["list-indexes","describe-index","pinecone-cli"],"ornek":"","kanit_tuzak":"If a user attempts to query an index that uses a third party API model such as OpenAI","kanit_token":""}
+]

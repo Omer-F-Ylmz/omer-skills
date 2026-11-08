@@ -1,0 +1,281 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Strix",
+          "informationUri": "https://strix.ai",
+          "rules": [
+            {
+              "id": "CWE-548",
+              "name": "Directory Listings Enabled on Static File Server",
+              "shortDescription": {
+                "text": "Directory Listings Enabled on Static File Server"
+              },
+              "fullDescription": {
+                "text": "Python's built-in `http.server` has directory listing enabled on multiple paths (`/vendor/`, `/vendor/three/`, `/vendor/gsap/`, `/vendor/lenis/`, `/js/`, `/docs/`), exposing the full file tree structure and exact library versions to unauthenticated remote attackers."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "Python's built-in `http.server` has directory listing enabled on multiple paths (`/vendor/`, `/vendor/three/`, `/vendor/gsap/`, `/vendor/lenis/`, `/js/`, `/docs/`), exposing the full file tree structure and exact library versions to unauthenticated remote attackers.\n\nAttackers can enumerate all static assets, discover library versions (Three.js r170, GSAP 3.12.5, Lenis), and map the complete application structure. This facilitates targeted attacks against known vulnerabilities in specific library versions and provides reconnaissance for further attacks.\n\nDisable directory listing by either: (1) Adding an index.html file to each directory, (2) Running the server with a custom handler that overrides `list_directory` to return 403/404, or (3) Using a production web server (nginx, Apache) with directory indexing disabled. For Python http.server, subclass `SimpleHTTPRequestHandler` and override `list_directory` to return an error response.",
+                "markdown": "Python's built-in `http.server` has directory listing enabled on multiple paths (`/vendor/`, `/vendor/three/`, `/vendor/gsap/`, `/vendor/lenis/`, `/js/`, `/docs/`), exposing the full file tree structure and exact library versions to unauthenticated remote attackers.\n\nAttackers can enumerate all static assets, discover library versions (Three.js r170, GSAP 3.12.5, Lenis), and map the complete application structure. This facilitates targeted attacks against known vulnerabilities in specific library versions and provides reconnaissance for further attacks.\n\nDisable directory listing by either: (1) Adding an index.html file to each directory, (2) Running the server with a custom handler that overrides `list_directory` to return 403/404, or (3) Using a production web server (nginx, Apache) with directory indexing disabled. For Python http.server, subclass `SimpleHTTPRequestHandler` and override `list_directory` to return an error response."
+              },
+              "properties": {
+                "security-severity": "5.3",
+                "tags": [
+                  "security",
+                  "CWE-548",
+                  "stride:T",
+                  "stride:I"
+                ]
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/548.html"
+            },
+            {
+              "id": "CWE-693",
+              "name": "Missing Security Headers on Static File Server",
+              "shortDescription": {
+                "text": "Missing Security Headers on Static File Server"
+              },
+              "fullDescription": {
+                "text": "The Python `http.server` does not set any security headers, leaving the application exposed to various client-side attacks and information disclosure."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "help": {
+                "text": "The Python `http.server` does not set any security headers, leaving the application exposed to various client-side attacks and information disclosure.\n\nAbsence of security headers increases risk of clickjacking (no X-Frame-Options), MIME type sniffing attacks (no X-Content-Type-Options), reduces defense-in-depth against XSS (no CSP), and leaks server technology stack (Server header). The Server header reveals Python 3.12.10 which could aid version-specific attacks.\n\nImplement security headers by: (1) Subclassing `SimpleHTTPRequestHandler` and overriding `end_headers` to add security headers, (2) Deploying behind a reverse proxy (nginx, Apache, Cloudflare) that adds security headers, or (3) Using a production web server instead of Python's development server. Minimum recommended headers: Content-Security-Policy, X-Frame-Options: DENY, X-Content-Type-Options: nosniff, Referrer-Policy: strict-origin-when-cross-origin.",
+                "markdown": "The Python `http.server` does not set any security headers, leaving the application exposed to various client-side attacks and information disclosure.\n\nAbsence of security headers increases risk of clickjacking (no X-Frame-Options), MIME type sniffing attacks (no X-Content-Type-Options), reduces defense-in-depth against XSS (no CSP), and leaks server technology stack (Server header). The Server header reveals Python 3.12.10 which could aid version-specific attacks.\n\nImplement security headers by: (1) Subclassing `SimpleHTTPRequestHandler` and overriding `end_headers` to add security headers, (2) Deploying behind a reverse proxy (nginx, Apache, Cloudflare) that adds security headers, or (3) Using a production web server instead of Python's development server. Minimum recommended headers: Content-Security-Policy, X-Frame-Options: DENY, X-Content-Type-Options: nosniff, Referrer-Policy: strict-origin-when-cross-origin."
+              },
+              "properties": {
+                "security-severity": "5.3",
+                "tags": [
+                  "security",
+                  "CWE-693",
+                  "stride:T",
+                  "stride:I"
+                ]
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/693.html"
+            },
+            {
+              "id": "strix-coverage/general-attack-surface-mapping-and-technology-identification",
+              "name": "General attack surface mapping and technology identification",
+              "shortDescription": {
+                "text": "Coverage: General attack surface mapping and technology identification"
+              },
+              "fullDescription": {
+                "text": "Coverage of General attack surface mapping and technology identification across the assessed attack surface."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Coverage of General attack surface mapping and technology identification across the assessed attack surface.",
+                "markdown": "Coverage of General attack surface mapping and technology identification across the assessed attack surface."
+              },
+              "properties": {
+                "tags": [
+                  "coverage"
+                ]
+              }
+            },
+            {
+              "id": "strix-coverage/path-traversal-lfi",
+              "name": "Path Traversal / LFI",
+              "shortDescription": {
+                "text": "Coverage: Path Traversal / LFI"
+              },
+              "fullDescription": {
+                "text": "Coverage of Path Traversal / LFI across the assessed attack surface."
+              },
+              "defaultConfiguration": {
+                "level": "none"
+              },
+              "help": {
+                "text": "Coverage of Path Traversal / LFI across the assessed attack surface.",
+                "markdown": "Coverage of Path Traversal / LFI across the assessed attack surface."
+              },
+              "properties": {
+                "tags": [
+                  "coverage"
+                ]
+              }
+            }
+          ],
+          "version": "1.7.0"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CWE-548",
+          "ruleIndex": 0,
+          "level": "warning",
+          "message": {
+            "text": "Directory Listings Enabled on Static File Server\n\nPython's built-in `http.server` has directory listing enabled on multiple paths (`/vendor/`, `/vendor/three/`, `/vendor/gsap/`, `/vendor/lenis/`, `/js/`, `/docs/`), exposing the full file tree structure and exact library versions to unauthenticated remote attackers."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "SECURITY.md"
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "http://host.docker.internal:4180",
+                  "kind": "resource"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "3ee1040ea9a21760b2a0b4924b6d3bc946ceda53bba97a783a740f5e6ead6eae"
+          },
+          "properties": {
+            "security-severity": "5.3",
+            "strix_vuln_class_hash": "275963ca120ac937271224d606d79692f20710d06d1df391777f63a5dfeff756",
+            "synthetic_location": true,
+            "strix": {
+              "id": "vuln-0001",
+              "severity": "medium",
+              "cvss": 5.3,
+              "timestamp": "2026-10-28 07:11:46 UTC",
+              "target": "http://host.docker.internal:4180",
+              "cwe": "CWE-548",
+              "impact": "Attackers can enumerate all static assets, discover library versions (Three.js r170, GSAP 3.12.5, Lenis), and map the complete application structure. This facilitates targeted attacks against known vulnerabilities in specific library versions and provides reconnaissance for further attacks.",
+              "technical_analysis": "The Python `http.server` module (SimpleHTTP/0.6) serves static files from its working directory with directory indexing enabled by default. When a request is made to a directory path without an index file (or when the directory itself is requested), the server returns an HTML directory listing showing all files and subdirectories. This is a default behavior of Python's `http.server` and is not appropriate for production deployments. The affected paths include `/vendor/`, `/vendor/three/`, `/vendor/gsap/`, `/vendor/lenis/`, `/js/`, and `/docs/`.",
+              "remediation_steps": "Disable directory listing by either: (1) Adding an index.html file to each directory, (2) Running the server with a custom handler that overrides `list_directory` to return 403/404, or (3) Using a production web server (nginx, Apache) with directory indexing disabled. For Python http.server, subclass `SimpleHTTPRequestHandler` and override `list_directory` to return an error response.",
+              "counterevidence": "This is a demo/portfolio application served by Python's http.server where directory listing may be intentional for demonstration purposes. However, as a security assessment, this is a misconfiguration that would be flagged in any production deployment. No WAF, access controls, or authentication protect these listings.",
+              "confidence": "high",
+              "severity_change_conditions": "If this is confirmed as an intentional demo feature with no production deployment, severity would lower to Low/Informational. If deployed to production with sensitive assets in the served directory, severity would increase to High.",
+              "poc": {
+                "description": "1. Navigate to http://host.docker.internal:4180/vendor/\n2. Observe the directory listing showing all vendor libraries and their versions\n3. Navigate to /vendor/three/, /vendor/gsap/, /vendor/lenis/, /js/, /docs/ to see complete file trees",
+                "script_available": true
+              }
+            }
+          }
+        },
+        {
+          "ruleId": "CWE-693",
+          "ruleIndex": 1,
+          "level": "warning",
+          "message": {
+            "text": "Missing Security Headers on Static File Server\n\nThe Python `http.server` does not set any security headers, leaving the application exposed to various client-side attacks and information disclosure."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "SECURITY.md"
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "http://host.docker.internal:4180",
+                  "kind": "resource"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "8c4669a1f5a4eb9710686ebb56557c7f802cacd6ac9252ae57707f14e9fd2142"
+          },
+          "properties": {
+            "security-severity": "5.3",
+            "strix_vuln_class_hash": "ed90e6cdc5a37f311c8b1ba0108c288d3ab566cf8dd84cb3c3ea54dff739baa4",
+            "synthetic_location": true,
+            "strix": {
+              "id": "vuln-0002",
+              "severity": "medium",
+              "cvss": 5.3,
+              "timestamp": "2026-10-28 07:14:13 UTC",
+              "target": "http://host.docker.internal:4180",
+              "cwe": "CWE-693",
+              "impact": "Absence of security headers increases risk of clickjacking (no X-Frame-Options), MIME type sniffing attacks (no X-Content-Type-Options), reduces defense-in-depth against XSS (no CSP), and leaks server technology stack (Server header). The Server header reveals Python 3.12.10 which could aid version-specific attacks.",
+              "technical_analysis": "Python's `http.server` is a development-only server that does not implement any security headers by default. It exposes the Python version and server type via the `Server` header. In production environments, this information disclosure and lack of security headers would be considered a misconfiguration. The headers missing are standard defense-in-depth measures: CSP prevents XSS, X-Frame-Options prevents clickjacking, X-Content-Type-Options prevents MIME sniffing, HSTS enforces HTTPS, Referrer-Policy controls referrer leakage, and Permissions-Policy controls browser feature access.",
+              "remediation_steps": "Implement security headers by: (1) Subclassing `SimpleHTTPRequestHandler` and overriding `end_headers` to add security headers, (2) Deploying behind a reverse proxy (nginx, Apache, Cloudflare) that adds security headers, or (3) Using a production web server instead of Python's development server. Minimum recommended headers: Content-Security-Policy, X-Frame-Options: DENY, X-Content-Type-Options: nosniff, Referrer-Policy: strict-origin-when-cross-origin.",
+              "counterevidence": "This is a demo application served by Python's development server (http.server). In a production deployment, this would typically run behind a reverse proxy or CDN that adds security headers. The development server is not intended for production use.",
+              "confidence": "high",
+              "severity_change_conditions": "If deployed behind a CDN/WAF that adds security headers, or if this is purely a local development server, severity would be Informational. In production without mitigating infrastructure, severity remains Low to Medium depending on sensitivity.",
+              "poc": {
+                "description": "1. Send a HEAD request to http://host.docker.internal:4180/\n2. Observe missing security headers in response\n3. Note Server header discloses Python version",
+                "script_available": true
+              }
+            }
+          }
+        },
+        {
+          "ruleId": "strix-coverage/general-attack-surface-mapping-and-technology-identification",
+          "ruleIndex": 2,
+          "kind": "pass",
+          "level": "none",
+          "message": {
+            "text": "General attack surface mapping and technology identification — No issue identified: http://host.docker.internal:4180 (entire application)\n\nComplete enumeration performed. Application is a static site served by Python's SimpleHTTP/0.6 (Python 3.12.10). No backend APIs, authentication endpoints, database connections, or server-side processing found. Only static HTML, CSS, JS, and vendor libraries (Three.js r170, GSAP 3.12.5, Lenis) are served. Directory listings enabled for /vendor/, /vendor/three/, /vendor/gsap/, /vendor/lenis/, /js/, /docs/."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "http://host.docker.internal:4180 (entire application)"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "strix": {
+              "coverage_outcome": "no_issue_found",
+              "risk_area": "General attack surface mapping and technology identification",
+              "surface": "http://host.docker.internal:4180 (entire application)",
+              "recorded_by": "Reconnaissance Agent",
+              "source": "agent_reported"
+            }
+          }
+        },
+        {
+          "ruleId": "strix-coverage/path-traversal-lfi",
+          "ruleIndex": 3,
+          "kind": "pass",
+          "level": "none",
+          "message": {
+            "text": "Path Traversal / LFI — Ruled out: http://host.docker.internal:4180 (path traversal)\n\nPath traversal attempts (`/../../../etc/passwd`, `/../../../../etc/passwd`, URL-encoded variants) all returned 404. Python's http.server normalizes paths and prevents directory traversal outside the serving directory. The specific control is path normalization in `http.server.SimpleHTTPRequestHandler.translate_path()` which resolves paths relative to the working directory and rejects attempts to escape."
+          },
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "http://host.docker.internal:4180 (path traversal)"
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "strix": {
+              "coverage_outcome": "ruled_out",
+              "risk_area": "Path Traversal / LFI",
+              "surface": "http://host.docker.internal:4180 (path traversal)",
+              "recorded_by": "Root Agent",
+              "source": "agent_reported"
+            }
+          }
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "properties": {
+        "syntheticLocationCount": 2
+      }
+    }
+  ]
+}

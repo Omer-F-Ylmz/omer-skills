@@ -65,6 +65,12 @@ def sec(metin):
     for desen, mcp in TUR:
         if re.search(desen, metin):
             ad += [m for m in mcp if m not in ad]
+    if os.environ.get("CC_ISSEC") != "0":  # IHTIYAC-AC-1: kart tabanlı seçici (tools/is_sec.py) regex türlerine eklenir; hata → yalnız regex
+        try:
+            import is_sec
+            ad += [m for m in is_sec.sec_mcp(metin) if m not in ad]
+        except Exception:
+            pass
     return ad
 
 

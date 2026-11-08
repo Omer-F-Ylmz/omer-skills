@@ -33,3 +33,11 @@ tarih	kip	aile	ajan	kol	alt_model	puan	usd	jeton	alt_jeton	sure	agent_cagri
 23:28	karsilastir	verimlilik	vrm-alt-ajan-dagitim	opus	claude-opus-5-5	7	0.4199	827689	94483	94.1	1
 23:30	karsilastir	video	vid-altyazi-uretici	sonnet	claude-sonnet-5-5	8	0.1269	276834	47007	95.9	1
 23:32	karsilastir	video	vid-altyazi-uretici	opus	claude-opus-5-5	10	0.4188	827747	94293	134.2	1
+09:39	--help	arastirma-ogrenme	ara-arac-degerlendirme	sonnet	claude-sonnet-5-5	10	0.4987	676956	333853	76.1	1
+09:40	--help	arastirma-ogrenme	ara-arac-degerlendirme	opus	claude-opus-5-5	10	0.8119	603779	254125	69.7	1
+09:41	--help	backend-dotnet	dn-api-surumleme	sonnet	claude-sonnet-5-5	10	0.4628	575964	241471	49.9	1
+09:42	--help	backend-dotnet	dn-api-surumleme	opus	claude-opus-5-5	10	0.746	661324	339250	65.4	1
+09:43	--help	belge	dok-adr-yazar	sonnet	claude-sonnet-5-5	10	0.3344	430797	95327	72.2	1
+09:44	--help	belge	dok-adr-yazar	opus	claude-opus-5-5	10	0.293	385396	96078	75.7	1
+09:45	--help	blender	bl-animasyon-anahtar	sonnet	claude-sonnet-5-5	10	0.3225	415108	95251	59.4	1
+09:46	--help	blender	bl-animasyon-anahtar	opus	claude-opus-5-5	10	0.4598	415849	96528	62.6	1

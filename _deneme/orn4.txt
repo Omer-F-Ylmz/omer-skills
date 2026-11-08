@@ -1,0 +1,31 @@
+bos: 0
+0 blueprint | plugi | swarm | Turn a one-line objective into a step-by-step construction plan for multi-session, multi-a
+1 webcmd | plugi | ogrenen-bellek | Self-learning browser infrastructure for AI agents: live browser control plus local sitema
+2 design-mastery | plugi | ajan | tasarım eklentisi (kaynakta açıklama yok)
+3 agent-skills | plugi | ajan | Production-grade engineering skills for AI coding agents — covering the full software deve
+4 claude-automation-recommen | plugi | ajan | Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugin
+5 orch-fix-defect | plugi | is-akisi | Orchestrate fixing a bug — reproduce it as a failing regression test, fix to green, review
+6 benchmark-models | skill | hakem | Cross-model benchmark for gstack skills. (gstack)
+7 impeccable | plugi | ajan | Design fluency for frontend development. 1 skill with 23 commands (/impeccable polish, /im
+8 orch-add-feature | plugi | is-akisi | Orchestrate building a brand-new feature end to end — research, plan, TDD implementation, 
+9 hookify | plugi | ajan | Easily create hooks to prevent unwanted behaviors by analyzing conversation patterns
+10 roblox-game-development-li | skill | is-akisi | Orchestrate the full Roblox game development lifecycle. Use as the umbrella entrypoint for
+11 gstack-benchmark-models | skill | hakem | Cross-model benchmark for gstack skills. (gstack)
+12 omni-agents-a2a | skill | hakem | Interact with OmniRoute via JSON-RPC 2.0 agent-to-agent protocol. 6 built-in A2A skills: s
+13 ruflo | mcp | ogrenen-bellek | ReasoningBank desen belleği (HNSW)
+14 dotnet-msbuild | plugi | ajan | Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization, 
+15 subagent-driven-developmen | plugi | ajan | görev başına taze alt ajan ve iki aşamalı inceleme
+16 claude-mem | plugi | ogrenen-bellek | oturumlar arası gözlem belleği
+17 delivery-gate | plugi | hook | Stop hook that blocks Claude from finishing until quality checks pass. Detects rationaliza
+18 tdd-guard | cli | hook | testten önce kod yazmayı engelleyen kanca
+19 9router-paket | skill | hakem | 9router: yapay zeka kodlama yönlendirici kullanımı: 9router…
+20 ralph-wiggum | plugi | is-akisi | Implementation of the Ralph Wiggum technique - continuous self-referential AI loops for in
+21 superpowers-subagent-drive | skill | ajan | görev başına taze alt ajan ve iki aşamalı inceleme
+22 dotnet-test | plugi | ajan | Skills for running, generating, analyzing, and improving .NET tests: test execution, filte
+23 ralphinho-rfc-pipeline | plugi | swarm | Split an RFC into a multi-agent execution DAG — decompose into work units with dependencie
+24 orch-pipeline | plugi | is-akisi | Shared orchestration engine behind the orch-* skill family — the gated Research-Plan-TDD-R
+25 headroom | cli | çekirdek-araç | çıktı sıkıştırma
+26 ajn-ajan-bellek-tasarimi | ajan | ogrenen-bellek | Designs agent memory across sessions: scopes, retention, retrieval; forgotten or stale fac
+27 orch-refine-code | plugi | is-akisi | Orchestrate a behavior-preserving refactor — confirm tests are green, restructure without 
+28 gstack | plugi | çekirdek-araç | rol bazlı plan/inceleme/QA ajanları
+29 council-multi-model | plugi | hakem | Add one optional external Codex critique after the existing council has produced a decisio

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-28 07:21:14 UTC",
+  "run_id": "host-docker-internal-4180_a261",
+  "run_name": "host-docker-internal-4180_a261",
+  "scope": {
+    "targets": [
+      {
+        "type": "web_application",
+        "details": {
+          "target_url": "http://host.docker.internal:4180"
+        },
+        "original": "http://host.docker.internal:4180"
+      }
+    ],
+    "scan_mode": "quick",
+    "scope_mode": "auto",
+    "diff_scope": {
+      "active": false,
+      "mode": "auto"
+    },
+    "instruction": ""
+  },
+  "summary": {
+    "surfaces_reviewed": 5,
+    "outcomes": {
+      "reported": 3,
+      "no_issue_found": 1,
+      "ruled_out": 1
+    },
+    "findings_filed": 2,
+    "gaps": 0
+  },
+  "machine_observed": {
+    "agents": [
+      {
+        "agent_id": "72e93172",
+        "agent_name": "Reconnaissance Agent",
+        "status": "completed",
+        "skills": [
+          "reconnaissance/asset_discovery",
+          "tooling/httpx",
+          "tooling/katana",
+          "tooling/ffuf"
+        ],
+        "task": "Perform comprehensive reconnaissance on http://host.docker.internal:4180. Map the attack surface: discover all endpoints, parameters, forms, APIs, and technology stack. Use tools like httpx, katana, and ffuf for enumeration. Create a detailed map of the application structure. Once complete, derive a threat model using save_threat_model for the target.",
+        "is_root": false
+      },
+      {
+        "agent_id": "b63f0467",
+        "agent_name": "Root Agent",
+        "status": "completed",
+        "skills": [],
+        "task": "\n\nURLs: - http://host.docker.internal:4180",
+        "is_root": true
+      }
+    ],
+    "skills_exercised": [
+      "asset_discovery",
+      "ffuf",
+      "httpx",
+      "katana"
+    ],
+    "findings_filed": 2,
+    "source": "runtime"
+  },
+  "completeness": {
+    "complete": true,
+    "scan_status": "completed",
+    "exit_reason": "finished_by_tool",
+    "caveats": []
+  },
+  "entries": [
+    {
+      "surface": "http://host.docker.internal:4180 (entire application)",
+      "risk_area": "General attack surface mapping and technology identification",
+      "outcome": "no_issue_found",
+      "outcome_label": "No issue identified",
+      "evidence": "Complete enumeration performed. Application is a static site served by Python's SimpleHTTP/0.6 (Python 3.12.10). No backend APIs, authentication endpoints, database connections, or server-side processing found. Only static HTML, CSS, JS, and vendor libraries (Three.js r170, GSAP 3.12.5, Lenis) are served. Directory listings enabled for /vendor/, /vendor/three/, /vendor/gsap/, /vendor/lenis/, /js/, /docs/.",
+      "recorded_by": "Reconnaissance Agent",
+      "recorded_at": "2026-10-28 07:02:57 UTC",
+      "updated_at": "",
+      "previous_outcomes": [],
+      "source": "agent_reported"
+    },
+    {
+      "surface": "http://host.docker.internal:4180 (Python http.server static file server)",
+      "risk_area": "Information Disclosure / Directory Listing",
+      "outcome": "reported",
+      "outcome_label": "Finding reported",
+      "evidence": "Directory listings enabled on /vendor/, /vendor/three/, /vendor/gsap/, /vendor/lenis/, /js/, /docs/ exposing full file tree and library versions. Server header discloses Python 3.12.10 and SimpleHTTP/0.6. No CSP or other security headers.",
+      "recorded_by": "Root Agent",
+      "recorded_at": "2026-10-28 07:11:19 UTC",
+      "updated_at": "",
+      "previous_outcomes": [],
+      "source": "agent_reported"
+    },
+    {
+      "surface": "http://host.docker.internal:4180 (Python http.server static file server)",
+      "risk_area": "Missing Security Headers / Information Disclosure",
+      "outcome": "reported",
+      "outcome_label": "Finding reported",
+      "evidence": "No Content-Security-Policy, Strict-Transport-Security, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, or Permissions-Policy headers present in server responses. Server header reveals Python version.",
+      "recorded_by": "Root Agent",
+      "recorded_at": "2026-10-28 07:11:58 UTC",
+      "updated_at": "",
+      "previous_outcomes": [],
+      "source": "agent_reported"
+    },
+    {
+      "surface": "http://host.docker.internal:4180 (vendor libraries)",
+      "risk_area": "Vulnerable Dependency / Version Disclosure",
+      "outcome": "reported",
+      "outcome_label": "Finding reported",
+      "evidence": "Covered by vuln-0001 (Directory Listings Enabled). Version exposure is a consequence of the directory listing misconfiguration. No separate CVE confirmed for Three.js r170, GSAP 3.12.5, or Lenis.",
+      "recorded_by": "Root Agent",
+      "recorded_at": "2026-10-28 07:16:07 UTC",
+      "updated_at": "2026-10-28 07:17:21 UTC",
+      "previous_outcomes": [
+        "reported"
+      ],
+      "source": "agent_reported"
+    },
+    {
+      "surface": "http://host.docker.internal:4180 (path traversal)",
+      "risk_area": "Path Traversal / LFI",
+      "outcome": "ruled_out",
+      "outcome_label": "Ruled out",
+      "evidence": "Path traversal attempts (`/../../../etc/passwd`, `/../../../../etc/passwd`, URL-encoded variants) all returned 404. Python's http.server normalizes paths and prevents directory traversal outside the serving directory. The specific control is path normalization in `http.server.SimpleHTTPRequestHandler.translate_path()` which resolves paths relative to the working directory and rejects attempts to escape.",
+      "recorded_by": "Root Agent",
+      "recorded_at": "2026-10-28 07:20:06 UTC",
+      "updated_at": "",
+      "previous_outcomes": [],
+      "source": "agent_reported"
+    }
+  ],
+  "gaps": []
+}

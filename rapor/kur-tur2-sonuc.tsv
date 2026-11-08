@@ -1,0 +1,275 @@
+kalem	eylem	durum	not
+AI Breakup Recovery Agent	D2	HATA	resolve: n (node:internal/modules/esm/module_job:561:25) { code: 'ERR_MODULE_NOT_FOUND' } Node.js v24.22.1
+0NE API	D2	KURULDU	kurulum_d2 --tur2: go install: C:\Users\pc\.local\bin\one-api.exe --version: v0.0.0
+9Router	D2	ZATEN	kurulum_d2 --tur2: PATH'te var (where 9router): C:\Users\pc\AppData\Roaming\npm\9router.CMD
+AgentCouncil	D2	KURULDU	kurulum_d2 --tur2: 1 skill
+AgentLog	D2	HATA	resolve: n (node:internal/modules/esm/module_job:561:25) { code: 'ERR_MODULE_NOT_FOUND' } Node.js v24.22.1
+Agent TARS	D2	ZATEN	kurulum_d2 --tur2: PATH'te var (where agent-tars): C:\Users\pc\AppData\Roaming\npm\agent-tars.CMD
+AtomicParsley	D2	KURULDU	kurulum_d2 --tur2: cmake Release: C:\Users\pc\.local\bin\AtomicParsley.exe --version: AtomicParsley version: 20241204.151031.0 1ca825de2b92d0eadf29b2f7d7813
+Atomic Chat	D2	KURULDU	kurulum_d2 --tur2: 18 skill
+AutoResearchClaw	D2	HATA	uv tool: × Failed to build `researchclaw @ | ├─▶ The build backend returned an error || venv: pip: × Failed to build `researchclaw @ | ├─▶ The build backend returned an error
+AutoPhysics	D2	KURULDU	kurulum_d2 --tur2: klonlandı (kaynak; kurulum betiği yok)
+CLAUDE HQ	D2	KURULDU	kurulum_d2 --tur2: klonlandı (kaynak; kurulum betiği yok)
+Chat with GitHub	D2	KURULDU	kurulum_d2 --tur2: venv py3.12: import __init__ ok
+Baserow	D2	KURULDU	kurulum_d2 --tur2: 17 skill
+ChatGPT MD	D2	HATA	resolve: n (node:internal/modules/esm/module_job:561:25) { code: 'ERR_MODULE_NOT_FOUND' } Node.js v24.22.1
+Chatterbox	D2	HATA	klon: seyrek: ağaçta SKILL.md yok
+Claude Flow	D2	HATA	klon: seyrek: ağaçta SKILL.md yok
+Claude Token Monitor	D2	HATA	npm -g: code 1 | path C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\novapizza__claude-token-monitor | command failed
+ComfyUI-HunyuanVideo	D2	HATA	pip: × Failed to build `hunyuanvideo-foley @ | ├─▶ The build backend returned an error
+ComfyUI-HunyuanVideoWrapper	D2	HATA	pip: × Failed to build `comfyui-hunyuanvideowrapper @ | ├─▶ The build backend returned an error
+EditorConfig	D2	KURULDU	kurulum_d2 --tur2: klonlandı (kaynak; kurulum betiği yok)
+Eigent	D2	KURULDU-KAYNAK	kurulum_d2 --tur2: kütüphane/monorepo: package.json 'bin' yok, release yok; global kurulacak komut yok, kaynak klonda
+Free Claude Code Repo	D2	KURULUM-YOLU-YOK	pyproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+FrontierAgent	D2	KURULDU	kurulum_d2 --tur2: venv py3.12: import apodex ok
+Ghostty	D2	KURULDU-DOGRULANMADI	kurulum_d2 --tur2: kuruldu; komut bulunamadı/doğrulanamadı (ghostty.cmd): 
+Ghidra MCP	D2	KURULDU	kurulum_d2 --tur2: venv py3.12: import bridge_mcp_ghidra ok
+Grok Build	D2	HATA	cargo: Downloaded gix-error v0.2.4 | Compiling thiserror v2.0.18
+HIA (Health Insights Agent)	D2	KURULDU	kurulum_d2 --tur2: klonlandı (kaynak; kurulum betiği yok)
+Hermes voice agent	D2	KURULDU	kurulum_d2 --tur2: klonlandı (kaynak; kurulum betiği yok)
+LEANN	D2	HATA	pip: × No solution found when resolving dependencies: | ╰─▶ Because all of:
+Luma Agents	D2	KURULDU	kurulum_d2 --tur2: C:\Users\pc\.local\bin\luma-agents-cli.exe --version: luma-agents-cli version 0.3.0
+Meta Pixel	D2	HATA	npm: Cannot read properties of undefined (reading 'spec')
+Mobbin MCP	D2	KURULDU	kurulum_d2 --tur2: klonlandı (kaynak; kurulum betiği yok)
+MySkill	D2	KURULUM-YOLU-YOK	pyproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+NVIDIA Kimodo	D2	KURULUM-YOLU-YOK	pyproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Pocket TTS	D2	KURULDU	kurulum_d2 --tur2: venv py3.12: import pocket_tts ok
+Proxmark 3	D2	HATA	cmake: C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(254,5): error MSB8066: 'C:\Users\pc\Desk
+Podman	D2	HATA	release indirilemedi: 
+Ratatui	D2	HATA	repo erişilemedi/silinmiş
+ReplyHandler	D2	HATA	repo erişilemedi/silinmiş
+SkillClaw	D2	HATA	repo erişilemedi/silinmiş
+TARS	D2	HATA	repo erişilemedi/silinmiş
+TeX Live	D2	HATA	repo erişilemedi/silinmiş
+Triton	D2	HATA	PyPI cevap yok
+Valkey	D2	HATA	repo erişilemedi/silinmiş
+ai-research-analyst	D2	HATA	repo erişilemedi/silinmiş
+claude scan	D2	HATA	repo erişilemedi/silinmiş
+bilawalsidhu/godseyeview	D2	HATA	repo erişilemedi/silinmiş
+claude-trace	D2	HATA	repo erişilemedi/silinmiş
+comfy-reshoot	D2	HATA	repo erişilemedi/silinmiş
+earthtojake/text-to-cad	D2	HATA	repo erişilemedi/silinmiş
+feder-cr/dots	D2	HATA	repo erişilemedi/silinmiş
+fixai	D2	HATA	repo erişilemedi/silinmiş
+friday-brief	D2	HATA	repo erişilemedi/silinmiş
+nvm	D2	HATA	repo erişilemedi/silinmiş
+oh-my-openagent	D2	HATA	repo erişilemedi/silinmiş
+pgnx	D2	HATA	repo erişilemedi/silinmiş
+pi harness	D2	HATA	repo erişilemedi/silinmiş
+reel-factory	D2	HATA	repo erişilemedi/silinmiş
+social agents	D2	HATA	repo erişilemedi/silinmiş
+soma render	D2	HATA	repo erişilemedi/silinmiş
+standup-summary	D2	HATA	repo erişilemedi/silinmiş
+superlite	D2	HATA	repo erişilemedi/silinmiş
+tinyagents	D2	HATA	repo erişilemedi/silinmiş
+whatsapp-rust	D2	HATA	repo erişilemedi/silinmiş
+vinzdg/codenotch	D2	HATA	repo erişilemedi/silinmiş
+xAI Finance Agent	D2	HATA	repo erişilemedi/silinmiş
+xKiro	D2	HATA	repo erişilemedi/silinmiş
+21st Day MCP Connector	D2	HATA	0 skill
+21st Dev MCP	D2	HATA	repo erişilemedi/silinmiş
+21st MCP	D2	HATA	repo erişilemedi/silinmiş
+AI Travel Agent (Local & Cloud)	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Agent Client	D2	HATA	repo erişilemedi/silinmiş
+Creative-Ad Skill	D2	HATA	repo erişilemedi/silinmiş
+DataviewJS	D2	HATA	repo erişilemedi/silinmiş
+FIX API	D2	HATA	repo erişilemedi/silinmiş
+Firecrawl MCP	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Firecrawl MCP Server	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+GL Reconciler	D2	HATA	repo erişilemedi/silinmiş
+GOATBOTX	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Kilo Code	D2	HATA	repo erişilemedi/silinmiş
+Local REST API with MCP	D2	HATA	repo erişilemedi/silinmiş
+Market Researcher	D2	HATA	repo erişilemedi/silinmiş
+MuMu AI Novel	D2	HATA	repo erişilemedi/silinmiş
+Muse Code	D2	HATA	repo erişilemedi/silinmiş
+PandaAi	D2	HATA	repo erişilemedi/silinmiş
+Post Strategist	D2	HATA	repo erişilemedi/silinmiş
+Remotion Lambda	D2	HATA	repo erişilemedi/silinmiş
+Sandcastles MCP	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Stable Diffusion Forge	D2	HATA	repo erişilemedi/silinmiş
+TARS (Agent TARS)	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+The Hormozi Brain Toolkit for Claude Code	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Tokens Studio	D2	HATA	repo erişilemedi/silinmiş
+TopView MCP	D2	HATA	repo erişilemedi/silinmiş
+Unet Loader (GGUF)	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Vane (Perplexica)	D2	HATA	repo erişilemedi/silinmiş
+Vibe CLI	D2	HATA	repo erişilemedi/silinmiş
+Vite 5	D2	HATA	repo erişilemedi/silinmiş
+Vite 7	D2	HATA	repo erişilemedi/silinmiş
+YouTube Thumbnail Hook Generator	D2	HATA	klon: ee warning: Clone succeeded, but checkout failed. You can inspect what was checked out with 'git status' and retry with 'git restore --source=HEAD :/'
+agent-radar	D2	HATA	repo erişilemedi/silinmiş
+bitwarden_rs	D2	HATA	repo erişilemedi/silinmiş
+context-inspector	D2	HATA	kuruldu ama package.json 'bin' tanımlamıyor (kütüphane/monorepo kökü): çalıştırılabilir komut yok
+continuedev/continue	D2	HATA	repo çok büyük (852 MB), klonlanmadı
+execute_sql	D2	HATA	repo erişilemedi/silinmiş
+generate_typescript_types	D2	HATA	repo erişilemedi/silinmiş
+get_observations	D2	HATA	repo erişilemedi/silinmiş
+hy-wu-edit	D2	HATA	repo erişilemedi/silinmiş
+invoice-follow-up	D2	HATA	repo erişilemedi/silinmiş
+multi_agent_researcher	D2	HATA	repo erişilemedi/silinmiş
+multi_agent_trust_layer	D2	HATA	repo erişilemedi/silinmiş
+offensive-sqli	D2	HATA	repo erişilemedi/silinmiş
+openai-balance	D2	HATA	repo erişilemedi/silinmiş
+pi coding agent	D2	HATA	repo erişilemedi/silinmiş
+product visuals	D2	HATA	repo erişilemedi/silinmiş
+regex-build	D2	HATA	repo erişilemedi/silinmiş
+skool-platinum	D2	HATA	repo erişilemedi/silinmiş
+smtg-ai/claude-squad	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Apify Tester MCP Client	D2	HATA	SKILL.md bulunamadı/okunamadı: boş
+Infisical	D2	HATA	repo erişilemedi/silinmiş
+AFL++	COZUMSUZ	COZUMSUZ	dizin=make+docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+AThevon/genjutsu	PLUGIN	HATA	marketplace add: 
+AdaL CLI	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Amazon Product Scraper	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+B-Roll Finder	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+BlackArch	COZUMSUZ	COZUMSUZ	Arch tabanlı dağıtım (PKGBUILD deposu)
+BFXR	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=bos); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+BlenderGIS	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Capd	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: ge.json/Cargo yok; win-x64 release asset yok (asset 1: capd-0.0.9.dmg)
+Claude Code Security Reviewer	KOMUT	KURULDU	1 slash komutu ~/.claude/commands
+Claude Toolkit	PLUGIN	HATA	marketplace add: 
+ClickHouse	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit:  clickhouse-client-26.10.2.103-amd64.tgz, clickhouse-client-26.10.2.10
+Comfy-Org	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=YOK-DIZIN); kanit: ultiple top-level packages' (uygulama deposu; uv tool/venv derlenemez)
+ComfyUI-Native	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=YOK-DIZIN); kanit: ultiple top-level packages' (uygulama deposu; uv tool/venv derlenemez)
+Claudex Loop	PLUGIN	HATA	marketplace add: 
+Conductor	COZUMSUZ	COZUMSUZ	dizin=skills-alt: Windows derleme/kurulum yolu yok; kanit: pyproject/package.json/win-x64 release yok
+Coucou (Louis-CFM/coucou)	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: ackage.json/Cargo yok; win-x64 release asset yok (asset 1: Coucou.zip)
+Dependabot	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok
+Filetree	PLUGIN	HATA	marketplace add: 
+Foreman	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+FilaCheck	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Frida	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+Fooocus	COZUMSUZ	COZUMSUZ	dizin=docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Gradle	COZUMSUZ	COZUMSUZ	winget kimliği bulunamadı (Gradle.Gradle): ', '--accept-source-agreements']' timed out after 60 seconds
+Hardflow	COZUMSUZ	COZUMSUZ	dizin=skills-alt: Windows derleme/kurulum yolu yok; kanit: on/Cargo yok; win-x64 release asset yok (asset 1: hardflow-1.23.0.zip)
+Homebrew (brew)	COZUMSUZ	COZUMSUZ	dizin=skills-alt+docker: Windows derleme/kurulum yolu yok; kanit: kage.json/Cargo yok; win-x64 release asset yok (asset 1: Homebrew.pkg)
+JADX	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: jadx-1.5.6.zip, jadx-gui-1.5.6-win.zip, jadx-gui-1.5.6-with-jre-win.zi
+LLM Council	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Lago	COZUMSUZ	COZUMSUZ	dizin=docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+LingoForge	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+MCP Bridge	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+MetaClaw	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+Metasploit	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit: ge.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 1205 MB
+NaiboWang/EasySpider	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=bos); kanit: EasySpider_0.6.5_Linux_x64.tar.xz, EasySpider_0.6.5_MacOS_Apple_Arm_Ch
+Pipecat CLI	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+Rector	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Scoop	COZUMSUZ	COZUMSUZ	kurulum iex(irm ...) boru hattı; SUPHE kuralı (curl|iex) yasak
+Sealos	COZUMSUZ	COZUMSUZ	release yalnız linux (.deb/.rpm/.tar.gz)
+Slurm	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: /Cargo yok; win-x64 release asset yok (asset 1: slurm-26.05.5.tar.bz2)
+Whisker	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Wifite	APT	HATA	apt wifite: 
+Zapler	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok
+agency-agents (msitarzewski/agency-agents)	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+aircrack-ng	COZUMSUZ	COZUMSUZ	dizin=docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+apktool	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: json/Cargo yok; win-x64 release asset yok (asset 1: apktool_3.0.3.jar)
+axe	COZUMSUZ	COZUMSUZ	Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)
+boykopovar/AnyPs5	COZUMSUZ	COZUMSUZ	release zip'i exe içermiyor (yalnız libs/prx: PS5 araç zinciri); Windows .exe yok
+caffeinate	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+binwalk	APT	HATA	apt binwalk: 
+codex-computer-use	PLUGIN	HATA	marketplace add: 
+compass/crawler-google-places	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok
+dnf	APT	HATA	apt dnf: 
+export_scene	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok
+defending-code-reference-harnes	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+fakeroot	APT	HATA	apt fakeroot: 
+firecrawl/firecrawl-workflows	PLUGIN	HATA	marketplace add: 
+godot-2d-movement	COZUMSUZ	COZUMSUZ	dizin=py: Windows derleme/kurulum yolu yok; kanit: ultiple top-level packages' (uygulama deposu; uv tool/venv derlenemez)
+godot-tilemap	COZUMSUZ	COZUMSUZ	dizin=py: Windows derleme/kurulum yolu yok; kanit: pyproject/package.json/win-x64 release yok
+gVisor	COZUMSUZ	COZUMSUZ	Linux çekirdek sandbox'ı; release yalnız linux tar
+harness2-demo	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+graphify --obsidian	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=bos); kanit: pyproject/package.json/win-x64 release yok
+hbot CLI	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit: age.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 553 MB
+hookify	PLUGIN	HATA	marketplace add: 
+helm	COZUMSUZ	COZUMSUZ	dizin=go+make: Windows derleme/kurulum yolu yok; kanit:  helm-v4.3.1-darwin-amd64.tar.gz.asc, helm-v4.3.1-darwin-amd64.tar.gz.
+codspeed	PLUGIN	HATA	marketplace add: 
+letta-ai/claude-subconscious	PLUGIN	HATA	marketplace add: 
+linkedin-automator	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+margin-analyzer	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+mattgierhart/PRD-driven-context-engineering	PLUGIN	HATA	marketplace add: 
+nvm-windows	COZUMSUZ	COZUMSUZ	winget kimliği bulunamadı (CoreyButler.NVMforWindows): ', '--accept-source-agreements']' timed out after 60 seconds
+nmap	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+paru	COZUMSUZ	COZUMSUZ	Arch Linux AUR aracı
+oMLX	COZUMSUZ	COZUMSUZ	bağımlılık mlx-audio git klonu 'invalid path' (Windows'ta geçersiz dosya adı); MLX yalnız Apple Silicon
+reaver	COZUMSUZ	COZUMSUZ	dizin=py: Windows derleme/kurulum yolu yok; kanit: pyproject/package.json/win-x64 release yok
+scope-guard	PLUGIN	HATA	marketplace add: 
+scrum-sage	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+rtmpdump	APT	HATA	apt rtmpdump: 
+soma build	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=bos); kanit: pyproject/package.json/win-x64 release yok
+sound engine	COZUMSUZ	COZUMSUZ	node-gyp + vcpkg portaudio derlemesi code 1 (kanit); yerel ses SDK'sı yok
+storytold/artcraft	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit:  artcraft-0.41.1-linux-aarch64.AppImage, artcraft-0.41.1-linux-aarch64
+systemd	COZUMSUZ	COZUMSUZ	Linux init sistemi; Windows'ta derlenemez/çalışmaz
+twentyhq/twenty	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit: ge.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 2536 MB
+tshark	APT	HATA	apt tshark: 
+wshobson	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok
+whatweb	APT	HATA	apt whatweb: 
+yay	COZUMSUZ	COZUMSUZ	Arch Linux AUR aracı
+youtube-dl	COZUMSUZ	COZUMSUZ	dizin=py+make: Windows derleme/kurulum yolu yok; kanit:  win-x64 release asset yok (asset 10: MD5SUMS, SHA1SUMS, SHA2-256SUMS)
+BlackboxAI	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+CLI-Hub	PLUGIN	HATA	marketplace add: 
+Chocolatey	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: chocolatey-2.7.5.0.msi, chocolatey.2.7.5.nupkg, chocolatey.lib.2.7.5.n
+Claude Code v2.1.71	PLUGIN	HATA	marketplace add: 
+Clawdbot	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit:  latest.json, OpenClaw-2026.11.1-amd64.AppImage, OpenClaw-2026.11.1-am
+Clawdbot (Moltbot)	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit:  latest.json, OpenClaw-2026.11.1-amd64.AppImage, OpenClaw-2026.11.1-am
+Clawed Code Setup	PLUGIN	HATA	marketplace add: 
+Devin CLI	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+FingerprintChromium	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+Higgsfield CLI	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+Kafka	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+Lint	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+NSIS	COZUMSUZ	COZUMSUZ	winget kimliği bulunamadı (NSIS.NSIS): ', '--accept-source-agreements']' timed out after 60 seconds
+Orchestrator.inc (agent-orchestrator)	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit:  agent-orchestrator-darwin-arm64.dmg, agent-orchestrator-darwin-arm64.
+Osaurus	COZUMSUZ	COZUMSUZ	Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)
+Poppler	COZUMSUZ	COZUMSUZ	winget kimliği bulunamadı (oschwartz10612.Poppler): ', '--accept-source-agreements']' timed out after 60 seconds
+RIFE	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+ScrollSmoother	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+Vim	COZUMSUZ	COZUMSUZ	Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)
+ZeroGPT	PIPEK	HATA	uv pip install pillow rc=3221225794: 
+agents-sdk-dev	PLUGIN	HATA	marketplace add: 
+build-error-resolver	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+co-cli	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+commit-commands	PLUGIN	HATA	marketplace add: 
+controller-mapper	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+crm-cleanup	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+e2e-runner	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+geo-crawlers	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yolsuz); kanit: age.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 442 MB
+gnu-tar	APT	HATA	apt tar: 
+gstack-slug	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+harness-audit	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+harness-optimizer	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+inbox-alerts-priority	PLUGIN	HATA	marketplace add: 
+ldid-procursus	COZUMSUZ	COZUMSUZ	Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)
+lint-fix	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+ship-learn-next	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+tool-audit	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+tv_health_check	DOGRULA	KURULDU-DOGRULANMADI	tür2: bin adı bulunamadı (npm view bin / uv tool list boş)
+wget	APT	HATA	apt wget: 
+zqxwce/tap/vphone-cli	COZUMSUZ	COZUMSUZ	kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )
+agentationburepoy	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+blender-ai-mcp-addon	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+Claude Desktop Extensions	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+claude-code-video-tocllcit	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+Ubersuggest	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+gatsby-simplefolio	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+Fitness-Tracker-App	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+gmail-clone	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+MERN-Stack-Course	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+Hospital-Management-System	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+mern-todo	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+News-App-Full-Stack	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+next13-discord-clone	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+next13-lms-platform	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+note-taking-app	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+online-movie-ticket-booking-system	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+project_travel_companion	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+real-estate-app (machadop1407)	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+recipe-site	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+restaurant-reservation	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+restaurant-webapp	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+Swimming pool scene	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+tic-tac-toe-multiplayer	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+uber-clone (alex996)	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+uber-clone (CleverProgrammers)	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+whatsapp-mern	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+v25-geckos-team-65	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)
+openjutsureadme	COZUMSUZ	COZUMSUZ	eşleşen kural yok (diger/yolsuz)

@@ -1,0 +1,11 @@
+kalem	surum	durum	not	dogrulama
+helm	v4.3.1	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\helm-v4.3.1\windows-amd64\helm.exe	v4.3.1+gc0d08d0
+zig	0.17.1	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\zig-0.17.1\zig-x86_64-windows-0.17.1\zig.exe	0.17.1
+terraform	1.17.1	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\terraform-1.17.1\terraform.exe	Terraform v1.17.1
+kotlin	2.4.21	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\kotlin-2.4.21\kotlinc\bin\kotlinc.bat	info: kotlinc-jvm 2.4.21 (JRE 21.0.13.0.2+1-LTS)
+dart	3.13.7	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\dart-3.13.7\dart-sdk\bin\dart.exe	Dart SDK version: 3.13.7 (stable) (Thu Oct 22 14:28:57 2026 -0700) on "windows_x64"
+typst	?	HATA	URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get issuer certificate (_ssl.c:1010)'))	
+podman	?	HATA	URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get issuer certificate (_ssl.c:1010)'))	
+sqlite	3.54.1	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\sqlite-3.54.1\sqlite3.exe	3.54.1 2026-10-16 14:45:20 555e07ef33f69a0957d24d8e555b702464a131d6f1607f4c3c1e4551e8e6ca76 (64-bit)
+typst	v0.15.1	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\typst-v0.15.1\typst-x86_64-pc-windows-msvc\typst.exe	typst 0.15.1 (9dfd3a08)
+podman	v6.1.4	KURULDU	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\dil\podman-v6.1.4\podman-6.1.4\usr\bin\podman.exe	podman version 6.1.4

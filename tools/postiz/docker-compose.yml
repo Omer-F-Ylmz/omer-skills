@@ -4,7 +4,7 @@ services:
   postiz:
     image: ghcr.io/gitroomhq/postiz-app:latest
     container_name: postiz
-    restart: always
+    restart: "no"
     env_file: .env
     environment:
       BACKEND_INTERNAL_URL: 'http://localhost:3000'
@@ -28,7 +28,7 @@ services:
   postiz-postgres:
     image: postgres:17-alpine
     container_name: postiz-postgres
-    restart: always
+    restart: "no"
     env_file: .env
     volumes:
       - postgres-volume:/var/lib/postgresql/data
@@ -42,7 +42,7 @@ services:
   postiz-redis:
     image: redis:7.2
     container_name: postiz-redis
-    restart: always
+    restart: "no"
     healthcheck:
       test: redis-cli ping
       interval: 10s
@@ -55,7 +55,7 @@ services:
   temporal-elasticsearch:
     container_name: temporal-elasticsearch
     image: elasticsearch:7.17.27
-    restart: always
+    restart: "no"
     environment:
       - cluster.routing.allocation.disk.threshold_enabled=true
       - cluster.routing.allocation.disk.watermark.low=512mb
@@ -72,7 +72,7 @@ services:
   temporal-postgresql:
     container_name: temporal-postgresql
     image: postgres:16
-    restart: always
+    restart: "no"
     environment:
       POSTGRES_PASSWORD: temporal
       POSTGRES_USER: temporal
@@ -84,7 +84,7 @@ services:
   temporal:
     container_name: temporal
     image: temporalio/auto-setup:1.28.1
-    restart: always
+    restart: "no"
     depends_on: [temporal-postgresql, temporal-elasticsearch]
     environment:
       - DB=postgres12

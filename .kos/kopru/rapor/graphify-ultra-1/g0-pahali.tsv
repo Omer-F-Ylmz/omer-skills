@@ -1,21 +1,21 @@
 jeton	sinif	oturum	hedef
-10050	read-tam	agent-a5	C:/Users/pc/AppData/Local/Temp/vk/rank.txt
-9595	read-tam	bf0f7a0d	C:\Users\pc\.claude\projects\C--Projeler-omer-skills-wt-envanter3--claude-envanter3-cwd\bf
-9269	read-tam	ae8815cd	C:\Users\pc\Desktop\TELVE-wt\ab-r0e\A\docs\r1\_ham\r0c\fincan\fincan.js
-9027	read-tam	c12bd92f	C:\Users\pc\.claude\projects\C--Projeler-omer-skills-wt-katalogkanca--claude-envanter6-cwd
-8727	read-aralik	agent-a6	C:/Projeler/omer-skills/.kos/kopru/envanter4/ornek/g1.md
-8464	read-aralik	bd2c1ea4	C:\Users\pc\AppData\Local\Temp\telve-mini-src\fincan.js
-8396	read-tam	7394c5a4	C:\Users\pc\.claude\projects\C--Projeler-omer-skills-wt-katalogkanca--claude-envanter6-cwd
-8385	read-aralik	agent-a6	C:/Projeler/omer-skills/.kos/kopru/envanter4/ornek/g1.md
-8238	read-tam	c41ebeb1	C:\Users\pc\.claude\projects\C--Projeler-omer-skills-wt-plankur2--claude-plankur3-cwd\c41e
-8194	read-tam	agent-a5	C:/Users/pc/AppData/Local/Temp/vk/d2.txt
-8095	read-tam	b9addabc	C:/Users/pc/Desktop/TELVE/src/sahne/fincan.js
-8042	read-aralik	agent-a6	C:/Projeler/omer-skills/.kos/kopru/envanter4/ornek/g1.md
-7971	read-tam	agent-a5	C:/Users/pc/AppData/Local/Temp/vk/b.txt
-7645	read-tam	agent-a4	C:\Users\pc\Desktop\Benim projelerim\Garajim\Garajim.Business\Concrete\UstaManager.cs
-7570	read-tam	37d8ea1f	C:/Users/pc/Desktop/TELVE/docs/r1/_ham/r0c/fincan/fincan.js
-7281	read-tam	agent-a5	C:/Users/pc/AppData/Local/Temp/vk/a.txt
-7233	read-tam	2d060761	C:\Users\pc\AppData\Local\Temp\k1d_5sztc51i\f09.md
-7107	read-tam	2d060761	C:\Users\pc\AppData\Local\Temp\k1d_5sztc51i\f07.md
-6939	read-tam	2d060761	C:\Users\pc\AppData\Local\Temp\k1d_5sztc51i\f05.md
-6769	read-tam	agent-a5	C:/Users/pc/AppData/Local/Temp/vk/d1.txt
+6383	rtk-read	2f5cff55	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site/src" && timeout 600 bash -c
+6373	read-aralik	agent-a4	C:\Projeler\omer-skills\.kos\kopru\devir\ogren-devam.md
+4829	rtk-read	60ac7a8f	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site"; for f in src/App.jsx src/
+4719	grep	d2934880	HİÇ GİRMEMİŞ|HIC GIRMEMIS
+3251	rtk-read	60ac7a8f	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi"; tail -15 durum-site.md; echo =
+3186	read-aralik	4453a3c4	C:\Projeler\omer-skills\tools\video_derin.py
+3078	rtk-grep	2115d82c	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site/src" && for f in lib/Cicek.
+3018	rtk-grep	16fb56a1	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && T="timeout 600"; $T doc
+2898	rtk-read	60ac7a8f	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site"; cat src/lib/Uc.jsx src/co
+2851	rtk-read	c80a5fba	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && timeout 600 bash -c 'ca
+2670	rtk-read	7e0c282e	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && cat src/lib/Cicek.jsx s
+2538	rtk-read	a21807c6	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi" && timeout 600 cat DESIGN.md BR
+2356	rtk-read	d4bcbcd0	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi" && cat DESIGN.md BRIEF.md && ls
+2356	rtk-read	c80a5fba	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && timeout 600 cat ilik-v2
+2320	rtk-read	5514b9f1	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && timeout 600 bash -c 'fo
+2312	rtk-grep	3b6f445b	timeout 120 bash -c 'cd /c/Projeler/omer-skills; cut -f2 docs/kaynak-kutuphane/ek-kaynak-s
+2237	rtk-read	a21807c6	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && timeout 600 cat package
+2144	rtk-read	d4bcbcd0	cd "/c/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && cat package.json vite.c
+2136	read-aralik	agent-a6	C:\Projeler\omer-skills\tools\ucuz_alt.py
+2130	rtk-read	7882f4cd	cd "C:/Users/pc/Desktop/Claude ile yapılanlar/yaka-cicegi/site" && timeout 600 bash -c 'ca

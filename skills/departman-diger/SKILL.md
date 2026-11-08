@@ -15,12 +15,17 @@ Yeni eklenti aileleri (SKILL-YUKLE-1, 23 Eki): aile → departman eşlemesi `doc
 |---|---|---|
 | Video kurgu, kısa klip, altyazı | `video-cli` (tarama/indir) → `ffmpeg` / `whisper-cli` → `premiere-pro` MCP → `hyperframes` plugin (HTML→video) → ajan `vid-*` | premiere-pro, hyperframes yalnız CC |
 | Video linki → bilgi (uzun/kısa) | `video ozet <url>` (önbellekte 1 sn, ≤6 satır) → `video paket <id>` (~79 sn, yerel) → `video kare <id> --t …` → altyazı yoksa/Gemini kotası bittiyse `ffmpeg -ss … -t 30 -ar 16000 -ac 1` + `whisper-cli -m ggml-large-v3-turbo.bin --prompt "<sözlük>"` (CUDA; sözlük garanti değil, özel adı ekran metniyle karşılaştır). Kare metni: RapidOCR (CPU ~30 sn/kare, ikon gürültüsü var) → boşsa VLM `qwen3.5:4b` (RAM <%80 ise). Dikey klip hazırlığı: `ffmpeg -vf "crop=ih*9/16:ih,scale=540:960"`. Desktop: köprü `komut` ile `video ozet`, ayrıntı için köprü `ajan` → `video-tarayici`; Desktop'a yalnız rapor yolu + ≤5 satır döner. Ayrıntı ve ölçüler: `docs/ogren/g3.md` | Desktop kendi indirmez; Remotion/hyperframes render ve VLM kolu bu turda denenmedi |
-| Blender, 3D model, render | `blender` plugin → `blender-uretim` / `blender-oturum` → `blender` MCP → ajan `bl-*` | blender MCP ikisi |
+| Blender, 3D model, render (metin→3D varlık: `araclarhunyuan3dRet.py` + `tools/blender/varlik_temizle.py`, F6/F7) | `blender` plugin → `blender-uretim` / `blender-oturum` → `blender` MCP → ajan `bl-*` | blender MCP ikisi |
 | Oyun, mod | `mod-atolyesi` → `godot` / `unity` MCP → `universal-modder` plugin → ajan `oyn-*` | godot/unity yalnız CC |
 | Görsel üretim, logo, ikon | `nano-banana-2` MCP → `figma` → `logo-design` / `llm-icon-finder` → `fal` MCP | fal yalnız CC; ücretli çağrıda tavan şart |
 | Otomasyon, iş akışı, kazıma | `n8n-mcp` → `airtable` → `apify` MCP → ajan `otm-*` → `scrapling-skill` | yalnız CC |
 | Hukuk, sözleşme, KVKK | `commercial-legal` / `privacy-legal` → `Ironclad` MCP → ajan `dok-sozlesme-madde` → `sec-kvkk-gdpr-kontrol` | DocuSign, iManage yetki bekliyor |
 | Pazarlama, reklam, içerik | `marketing-skills` / `claude-ads` → ajan `urn-*` → `humanizer` | yalnız CC |
+| Satış, CRM, müşteri adayı (F10) | `sales` plugin (`pipeline-review`, `draft-outreach`) → `hubspot-sales` / `apollo` | yalnız CC; ilk kez eklendi, ölçülmedi |
+| Finans, muhasebe, kapanış (F10) | `finance` plugin (`journal-entry`, `variance-analysis`, `reconciliation`) → `intuit-quickbooks` | yalnız CC; ilk kez eklendi, ölçülmedi |
+| Müşteri destek, bilet (F10) | `customer-support` plugin (`ticket-triage`, `draft-response`, `kb-article`) | yalnız CC; ilk kez eklendi, ölçülmedi |
+| İK, işe alım (F10) | `human-resources` plugin (`recruiting-pipeline`, `onboarding`, `performance-review`) | yalnız CC; ilk kez eklendi, ölçülmedi |
+| Ürün yönetimi, yol haritası (F10) | `product-management` plugin (`write-spec`, `roadmap-update`, `sprint-planning`) → `departman-surec-plan` önce | yalnız CC; ilk kez eklendi, ölçülmedi |
 | Altyapı, bulut, k8s | `azure` plugin+MCP → `terraform-skill` → ajan `ops-*` | yalnız CC |
 | ML, değerlendirme, LLM eval | `promptfoo-evaluation` → ajan `ml-*` → `ajn-skill-test` | yalnız CC |
 | Mobil | `expo` plugin+MCP → `android-skills` → ajan `mob-*` | yalnız CC |

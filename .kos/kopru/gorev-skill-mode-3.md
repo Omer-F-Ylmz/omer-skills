@@ -6,3 +6,5 @@ Girdi: .kos/kopru/skill-mode/ (her_sey_ara.py `Arayici.karma(q, n, en)` + `etike
 2. etiket.json + yetenek-tam.jsonl + vek.npy/bm25.pkl canlı katalogla eşitle (yeni kayıt → etiket_uret.py yalnız eksikler).
 3. Doğrulama: ram-bekci-test-1 sorgusunda DENETİM blender-uretim/comfyui istememeli; olc3.py ölçümü ≥%98 kalmalı.
 4. Kısıt: dosya silinmez; RAM ≤%89; python -E; push yok.
+
+NİHAİ 31+32: başlamadan nihai kapı; her adımda 2. beyne yaz (≤2 dk), ruflo pattern-search önce + store sonra; 32(f) tam ilgili küme; ders çıkar.

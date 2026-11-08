@@ -28,3 +28,11 @@ Anahtar değerleri hiçbir yere yazılmaz; yalnız varlık kontrolü yapılır.
 - 429/5xx/zaman aşımı → beklemeden sıradaki halka; düşen halka soğuma sonra tek deneme.
 - Claude (Haiku) son çare; yalnız çağıranın `haiku_tavan` değeri kadar.
 - Tek aile ile karar verilmez (hakem en az 3 aile ister; altı → TEK-AİLE veya Haiku tek oy).
+
+## HAVUZ-GENIS-2 (23 Eki 2026)
+- Tür zincirleri `ZINCIR` (tools/ucretsiz_havuz.py): özet/hakem/kod/yazım/uzun için en iyi 3 halka; dolan halka atlanır, soğuma bitince geri girer (bekleme yok).
+- Sağlayıcı payı tavanı: son 20 seçimde %40'ı aşan sağlayıcı, alternatif varken atlanır. Kuru ölçüm (kota açık, 50 seçim): mistral %38 · groq %34 · nvidia %16 · gemini %12.
+- Yeni halkalar (canlı 200): mistral ministral-14b/3b, codestral; gemini-3-flash-preview. Kapatılanlar: openrouter minimax :free (22 Eki'de kalktı, 404), nvidia gpt-oss-20b (zaman aşımı). nvidia modelleri tek `nvidia` kovasında (40 rpm ortak).
+- Kota: `python tools/ucretsiz_havuz.py kota` → `.kos/havuz-kota.json` (sağlayıcı başına rpd/rpm, bugünkü kullanım, soğuma açılış zamanı); her soğuma kaydında otomatik güncellenir.
+- Envanter listeleme: cloudflare `/ai/models/search` ile düzeldi (73 model). github: models.github.ai her yola 200 + gövde "OK" dönüyor (bu ağda doğrulandı) → "liste:stub-OK", havuza bağlı değil.
+- Yerel Ollama kapalı (Ömer 17:49); `ollama` sağlayıcısı Ollama Cloud'dur.

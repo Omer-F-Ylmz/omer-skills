@@ -337,6 +337,40 @@ def sonuc_var(ad):
     return False
 
 
+ISCI = {}  # ad → işçi no (E2: proje başına kalıcı oturum havuzu)
+ISCI_DIR = K / "oturumlar"
+ISCI_BAGLAM = 120000  # önceki işin girdi bağlamı (~%60 / 200k) bunu aşarsa işçi oturumu yenilenir
+
+
+def isci_oturum(hedef, ad, calisan):
+    """E2: her paralel işçiye proje başına kendi kalıcı oturumu (oturumlar/<proje>-<n>.json); aynı oturuma iki iş aynı anda girmez.
+    Dönüş (sid, devam_mi). Önceki işin sonucu yoksa/bağlam eşiği aşıldıysa taze oturum."""
+    proje = re.sub(r"[^\w.-]", "_", Path(hedef).name)
+    kullanilan = {ISCI[a] for a in calisan if a in ISCI}
+    n = next(i for i in range(1, 100) if i not in kullanilan)
+    ISCI[ad] = n
+    dosya = ISCI_DIR / f"{proje}-{n}.json"
+    sid = devam = None
+    try:
+        kayit = json.loads(dosya.read_text(encoding="utf-8"))
+        onceki = next((j for s in reversed((CIKTI / f"{kayit['ad']}.json").read_text(encoding="utf-8", errors="replace").splitlines())
+                       if (j := json_satir(s)) and j.get("type") == "result"), None)
+        u = (onceki or {}).get("usage") or {}
+        bag = sum(u.get(k, 0) for k in ("input_tokens", "cache_read_input_tokens", "cache_creation_input_tokens"))
+        if onceki and not onceki.get("is_error") and 0 < bag <= ISCI_BAGLAM:
+            sid, devam = kayit["session_id"], True
+    except (OSError, ValueError, KeyError):
+        pass
+    if not sid:
+        sid = str(uuid.uuid4())
+    try:
+        ISCI_DIR.mkdir(exist_ok=True)
+        dosya.write_text(json.dumps({"session_id": sid, "ad": ad}), encoding="utf-8")
+    except OSError:
+        pass
+    return sid, devam
+
+
 def kopya_calisiyor(ad):
     """RC1-TESHIS-1 (c): aynı işin RAM-yeniden (-b) / basamak (-r) kopyası koşuyor ya da bitmişse neden metni, yoksa ''. KURTAR ikinci kopya açmaz."""
     for ek in ("-b", "-r"):
@@ -730,6 +764,20 @@ def limit_bekliyor(simdi=None):
     return LIMIT_BEKLE["bitis"] > (simdi or time.time())
 
 
+KULLANIM = Path.home() / ".claude" / "rate-limits.json"  # statusline.ps1 her çizimde rate_limits'i yazar
+
+
+def kullanim_dolu(yol=KULLANIM, simdi=None):
+    """LINK27-B1 clodfarm kapısı: 5 saat ≥%97 ya da haftalık ≥%97 iken yeni ajan başlamaz; veri yok/eski (>15 dk) → kapı açık."""
+    try:
+        if (simdi or time.time()) - yol.stat().st_mtime > 900:
+            return False
+        j = json.loads(yol.read_text(encoding="utf-8-sig"))
+    except (OSError, ValueError):
+        return False
+    return (j.get("five_hour") or {}).get("used_percentage", 0) >= 97 or (j.get("seven_day") or {}).get("used_percentage", 0) >= 97  # Ömer 1 Kas 16:11: kapı 85/80 → 97/97
+
+
 AG_ISLER, AG_DENEME, AG_BEKLE, AG_DURUM = set(), {}, {}, {"ardisik": 0, "kesik": False}  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ hatası bitenler · taban ad→deneme · yeni ad→başlama zamanı
 ZINCIR_ADIM = {}  # UCRETSIZ-MOTOR-2-DEVAM A: iş adı → ucretsiz_motor.ZINCIR indisi
 
@@ -1084,7 +1132,7 @@ def main():
             for ad, istem, kosul, efor, model, bas, cwd in bekleyen:
                 if not ram_yeniden_hazir(ad, r):  # RAM-BEKCI-2: RAM ile kesilen iş RAM < %85'e inene dek bekler
                     continue
-                if limit_bekliyor():  # LIMIT-SONRASI-1
+                if limit_bekliyor() or kullanim_dolu():  # LIMIT-SONRASI-1 · LINK27-B1 kullanım kapısı
                     break
                 if ag_bekliyor(ad):  # UCRETSIZ-MOTOR-2-DEVAM B2: ağ-hatası bekleme süresi / AĞ-KESİK
                     continue
@@ -1154,6 +1202,8 @@ def main():
                 sid = kesik or str(uuid.uuid4())
                 if kesik:
                     metin = DEVAM_ISTEM
+                elif model in ("opus", "sonnet", "haiku") and not os.environ.get("CC_ISCI_OTURUM_KAPALI"):
+                    sid, kesik = isci_oturum(hedef, ad, calisan)  # E2: işçi başına kalıcı oturum; kesik=True → --resume
                 fo = open(CIKTI / f"{ad}.json", "w", encoding="utf-8")
                 mcp = None
                 if not os.environ.get("CC_MCP_BOS"):  # MCP-AÇ-1: tür bazlı MCP profili; CC_MCP_BOS=1 eski boş config'e döner

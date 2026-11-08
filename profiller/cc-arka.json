@@ -21,20 +21,263 @@
   ],
   "ttl": "5m"
  },
- "d-arastirma-ogrenme": {"mcp": ["brave-search", "context7", "mcp-fetch", "mslearn", "arxiv", "markitdown", "mcp-time"]},
- "d-backend-dotnet": {"mcp": ["mslearn", "context7", "mcp-git", "github", "mcp-time"]},
- "d-frontend": {"mcp": ["21st", "figma", "claude-design", "stitch", "playwright", "context7", "mcp-time"]},
- "d-test-qa": {"mcp": ["playwright", "puppeteer", "mcp-time"]},
- "d-veri-db": {"mcp": ["clickhouse", "drizzle-docs", "airtable", "mcp-time"]},
- "d-surec-inceleme": {"mcp": ["code-review", "github", "mcp-git", "mcp-time"]},
- "d-surec-git-yayin": {"mcp": ["github", "mcp-git", "netlify", "hostinger", "mcp-time"]},
- "d-surec-ajan-arac": {"mcp": ["jev", "context7", "mcp-time"]},
- "d-surec-plan": {"mcp": ["mcp-sequential-thinking", "mcp-time"]},
- "d-verimlilik": {"mcp": ["headroom", "jev", "mcp-time"]},
- "d-belge": {"mcp": ["markitdown", "mcp-time"]},
- "d-guvenlik": {"mcp": ["github", "mcp-git", "mcp-time"]},
- "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]},
- "ajan": {"araclar": ["Agent", "Bash", "Edit", "Glob", "Grep", "Monitor", "PowerShell", "Read", "ScheduleWakeup", "SendMessage", "TaskStop", "ToolSearch", "WebFetch", "WebSearch", "Write"], "ajanTut": ["ajn-ajan-tanimi-yazar", "dok-rapor-uretici"], "ttl": "5m",
-          "ayar": {"includeGitInstructions": false, "env": {"ECC_SESSION_START_CONTEXT": "off", "ENABLE_TOOL_SEARCH": "true"},
-                   "hooks": {"PreToolUse": [{"matcher": "Read", "hooks": [{"type": "command", "command": "python C:/Projeler/omer-skills/tools/oku_yonlendir.py", "timeout": 10}]}]}}}
+ "kod": {
+  "pluginKapat": [
+   "agent-radar@claude-code-mods",
+   "blast-radius@claude-code-mods",
+   "browser-lanes@claude-code-mods",
+   "cache-clock@claude-code-mods",
+   "context-bar@claude-code-mods",
+   "flightdeck@claude-flightdeck",
+   "glance@claude-code-mods",
+   "heatmap@claude-code-mods",
+   "md-preview@claude-code-mods",
+   "merge-gate@claude-code-mods",
+   "mission-control@claude-code-mods",
+   "next-steps@claude-code-mods",
+   "now-playing@claude-code-mods",
+   "openai-balance@claude-code-mods",
+   "openrouter-balance@claude-code-mods",
+   "prayer-times@claude-code-mods",
+   "reels@claude-code-mods",
+   "replay-theater@claude-code-mods",
+   "review-watch@claude-code-mods",
+   "rulebook-guard@claude-code-mods",
+   "session-saver@claude-code-mods",
+   "snake@claude-code-mods",
+   "switchboard@claude-code-mods",
+   "token-weather@claude-code-mods",
+   "usage-meter@claude-code-mods",
+   "where-am-i@claude-code-mods"
+  ],
+  "ttl": "5m"
+ },
+ "d-arastirma-ogrenme": {
+  "mcp": [
+   "brave-search",
+   "context7",
+   "mcp-fetch",
+   "mslearn",
+   "arxiv",
+   "markitdown",
+   "mcp-time"
+  ]
+ },
+ "d-backend-dotnet": {
+  "mcp": [
+   "mslearn",
+   "context7",
+   "mcp-git",
+   "github",
+   "mcp-time"
+  ]
+ },
+ "d-frontend": {
+  "mcp": [
+   "21st",
+   "figma",
+   "claude-design",
+   "stitch",
+   "playwright",
+   "context7",
+   "mcp-time"
+  ]
+ },
+ "d-test-qa": {
+  "mcp": [
+   "playwright",
+   "puppeteer",
+   "mcp-time"
+  ]
+ },
+ "d-veri-db": {
+  "mcp": [
+   "clickhouse",
+   "drizzle-docs",
+   "airtable",
+   "mcp-time"
+  ]
+ },
+ "d-surec-inceleme": {
+  "mcp": [
+   "code-review",
+   "github",
+   "mcp-git",
+   "mcp-time"
+  ]
+ },
+ "d-surec-git-yayin": {
+  "mcp": [
+   "github",
+   "mcp-git",
+   "netlify",
+   "hostinger",
+   "mcp-time"
+  ]
+ },
+ "d-surec-ajan-arac": {
+  "mcp": [
+   "jev",
+   "context7",
+   "mcp-time"
+  ]
+ },
+ "d-surec-plan": {
+  "mcp": [
+   "mcp-sequential-thinking",
+   "mcp-time"
+  ]
+ },
+ "d-verimlilik": {
+  "mcp": [
+   "headroom",
+   "jev",
+   "mcp-time"
+  ]
+ },
+ "d-belge": {
+  "mcp": [
+   "markitdown",
+   "mcp-time"
+  ]
+ },
+ "d-guvenlik": {
+  "mcp": [
+   "github",
+   "mcp-git",
+   "mcp-time"
+  ]
+ },
+ "d-3d": {
+  "mcp": [
+   "blender",
+   "godot",
+   "unity",
+   "mcp-time"
+  ]
+ },
+ "ajan": {
+  "araclar": [
+   "Agent",
+   "Bash",
+   "Edit",
+   "Glob",
+   "Grep",
+   "Monitor",
+   "PowerShell",
+   "Read",
+   "ScheduleWakeup",
+   "SendMessage",
+   "TaskStop",
+   "ToolSearch",
+   "WebFetch",
+   "WebSearch",
+   "Write"
+  ],
+  "ajanTut": [
+   "ajn-ajan-tanimi-yazar",
+   "dok-rapor-uretici"
+  ],
+  "ttl": "5m",
+  "ayar": {
+   "includeGitInstructions": false,
+   "env": {
+    "ECC_SESSION_START_CONTEXT": "off",
+    "ENABLE_TOOL_SEARCH": "true"
+   },
+   "hooks": {
+    "PreToolUse": [
+     {
+      "matcher": "Read",
+      "hooks": [
+       {
+        "type": "command",
+        "command": "python C:/Projeler/omer-skills/tools/oku_yonlendir.py",
+        "timeout": 10
+       }
+      ]
+     }
+    ]
+   }
+  },
+  "_eklentiProfili": {
+   "ad": "sistem-gecici",
+   "tarih": "Mon Nov  2 23:05:24 2026",
+   "not": "Omer 02 Kas 23:02 A secenegi; CC-BASLANGIC-TOKEN-1 bitince kaldirilir",
+   "acik": [
+    "agent-browser@agent-browser",
+    "agent-skills@addy-agent-skills",
+    "agent-usage-guard@agent-usage-guard",
+    "agentmemory@agentmemory",
+    "andrej-karpathy-skills@karpathy-skills",
+    "autoharness@autoharness",
+    "blast-radius@claude-code-mods",
+    "cache-clock@claude-code-mods",
+    "caveman@caveman",
+    "claude-code-setup@claude-plugins-official",
+    "claude-md-management@claude-plugins-official",
+    "claude-mem@thedotmack",
+    "cli-anything@cli-anything",
+    "cloudflare-troubleshooting@daymade-skills",
+    "code-review@claude-code-plugins",
+    "codebase-memory@codebase-memory",
+    "codeburn@codeburn",
+    "codex@openai-codex",
+    "commit-commands@claude-code-plugins",
+    "context-bar@claude-code-mods",
+    "context-engineering@context-engineering-marketplace",
+    "context-mode@context-mode",
+    "cowork-plugin-management@knowledge-work-plugins",
+    "csharp-lsp@claude-plugins-official",
+    "debugging-network-issues@daymade-skills",
+    "dotnet-aspnetcore@dotnet-agent-skills",
+    "dotnet-data@dotnet-agent-skills",
+    "dotnet-msbuild@dotnet-agent-skills",
+    "dotnet-nuget@dotnet-agent-skills",
+    "dotnet-test@dotnet-agent-skills",
+    "engineering@knowledge-work-plugins",
+    "git-repo-prep@2389-research",
+    "git-safety-net@daymade-skills",
+    "github-contributor@daymade-skills",
+    "github-ops@daymade-skills",
+    "github-review-pr@daymade-skills",
+    "github-sensitive-data-cleanup@daymade-skills",
+    "gitkraken@knowledge-work-plugins",
+    "headroom@headroom-marketplace",
+    "hookify@claude-code-plugins",
+    "mind@memvid",
+    "plugin-dev@claude-code-plugins",
+    "plugin-dev@claude-plugins-official",
+    "ponytail@ponytail",
+    "qa-expert@daymade-skills",
+    "remote-system-maintenance@2389-research",
+    "repomix-safe-mixer@daymade-skills",
+    "review-squad@2389-research",
+    "rulebook-guard@claude-code-mods",
+    "scenario-testing@2389-research",
+    "security-guidance@knowledge-work-plugins",
+    "session-saver@claude-code-mods",
+    "sift@2389-research",
+    "skill-creator@claude-plugins-official",
+    "speed-run@2389-research",
+    "stalemap@stalemap",
+    "superpowers@claude-plugins-official",
+    "switchboard@claude-code-mods",
+    "task-observer@one-skill-to-rule-them-all",
+    "test-kitchen@2389-research",
+    "thrifty@2389-research",
+    "token-weather@claude-code-mods",
+    "tokeneconomizer@tokeneconomizer",
+    "trace@2389-research",
+    "tunnel-doctor@daymade-skills",
+    "typesafe@typesafe-ai",
+    "understand-anything@understand-anything",
+    "usage-meter@claude-code-mods",
+    "where-am-i@claude-code-mods",
+    "windows-remote-desktop-connection-doctor@daymade-skills"
+   ],
+   "not2": "02 Kas 00:10: RAM-TEKIL-1 raporu madde 6 — chrome-devtools (1.3 GB/oturum) ve tencentdb embed (1.0 GB/oturum) sistem isleri icin kapatildi"
+  },
+  "not_nihai0": "5 Kas 17:58: enabledPlugins override (373 plugin kapali) kaldirildi; arka ajanlar kullanicinin acik plugin setini (ecc, replica vb.) kullanir. Yedek: .bak-1105-tum-plugin-kapali"
+ }
 }

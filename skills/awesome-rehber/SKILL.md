@@ -32,3 +32,5 @@ Kaynak: sindresorhus/awesome (CC0) → `references/katalog.tsv` (bolum · alt_bo
 
 ## Yenileme
 Katalog eskidiyse (omer-skills reposunda): `python tools/awesome_katalog.py --yenile` → `docs/kaynak/awesome/`; claude.ai paketi `python tools/awesome_rehber_zip.py`.
+
+- Repo ön-bakış (De7WIcEogeo): aday repoyu klonlamadan önce `gitreverse.com/<o>/<r>` (yapan prompt) ve `gitdiagram.com/<o>/<r>` (mimari) ile bak; yalnız genel (public) repo, dış servis, gizli repo URL'si verme.

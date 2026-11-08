@@ -1,0 +1,10 @@
+{"i": 100, "is": "Bu yazıdan 30 saniyelik altyazılı sosyal medya Reel videosu yap", "kume": "yeni", "altin": ["skill:reel-plan", "skill:hyperframes", "skill:remotion", "cli:ffmpeg"]}
+{"i": 101, "is": "Yeni bir landing page sitesi kur, mobil uyumlu ve animasyonlu olsun", "kume": "yeni", "altin": ["skill:departman-frontend", "skill:frontend-craft", "skill:impeccable", "skill:ui-ux-pro-max"]}
+{"i": 102, "is": ".NET 9 Web API'de EF Core ile endpoint yaz ve xUnit ile test et", "kume": "yeni", "altin": ["skill:departman-backend-dotnet", "skill:dotnet-backend", "cli:dotnet"]}
+{"i": 103, "is": "Three.js ile 3D ürün gösterim sahnesi yap", "kume": "yeni", "altin": ["skill:threejs", "skill:threejs-fundamentals", "skill:3d-web-experience"]}
+{"i": 104, "is": "Blender'da bir model oluştur ve render al", "kume": "yeni", "altin": ["mcp:blender"]}
+{"i": 105, "is": "Repoda sızdırılmış API anahtarı var mı tara, güvenlik açıklarını bul", "kume": "yeni", "altin": ["skill:departman-guvenlik", "skill:security-review", "skill:security-audit"]}
+{"i": 106, "is": "YouTube videosunu indir ve transkriptini çıkar", "kume": "yeni", "altin": ["cli:yt-dlp", "skill:video-izle"]}
+{"i": 107, "is": "Playwright ile uçtan uca tarayıcı testi yaz", "kume": "yeni", "altin": ["mcp:playwright", "skill:e2e-testing", "skill:departman-test-qa"]}
+{"i": 108, "is": "PDF raporunu Word belgesine çevir ve özetle", "kume": "yeni", "altin": ["skill:departman-belge", "skill:pdf", "skill:docx"]}
+{"i": 109, "is": "Yapay zekâ ile logo için görsel üret", "kume": "yeni", "altin": ["skill:gorsel-uret", "skill:generate-image"]}

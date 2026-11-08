@@ -1,12 +1,13 @@
 """DERIN-HIZ-1 kalite kapısı: eski ve yeni derin json'larda transkript benzerliği (kelime) + ekran OCR örtüşmesi. Kullanım: derin_hiz_karsilastir.py <eski_dizin> <yeni_dizin>"""
 import difflib
 import json
+import re
 import sys
 from pathlib import Path
 
 
 def kelimeler(j):
-    return " ".join(s["t"] for s in j["transkript"]).lower().split()
+    return re.sub(r"[^\w\s]", "", " ".join(s["t"] for s in j["transkript"]).lower()).split()  # noktalama içerik değil
 
 
 def main(eski, yeni):

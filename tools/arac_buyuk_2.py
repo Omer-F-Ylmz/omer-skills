@@ -1,5 +1,5 @@
 """ARAC-BUL-2 adım 3: arac-indir-2.tsv 'buyuk-ertelendi' repoları sırayla clone --depth 1 (arka plan, tek tek).
-Her indirmeden önce boş alan ölçülür; indirme sonrası boş alan 80 GB altına inecekse BAŞLATILMAZ (sırada kalır). Kaldığı yerden devam eder.
+Her indirmeden önce boş alan ölçülür; indirme sonrası boş alan 30 GB altına inecekse BAŞLATILMAZ (sırada kalır). Kaldığı yerden devam eder.
 Çıktı: .kos/kopru/rapor/arac-buyuk-2.tsv (ad, durum, boyut, tarama). Kullanım: python tools/arac_buyuk_2.py"""
 import csv, os, shutil, sys, time
 
@@ -8,7 +8,7 @@ import arac_indir_1 as ai  # noqa: E402
 
 GIRDI = os.path.join(ai.RAPOR, "arac-indir-2.tsv")
 CIKTI = os.path.join(ai.RAPOR, "arac-buyuk-2.tsv")
-TABAN_GB = 80
+TABAN_GB = 30
 
 
 def _yaz_sil(fn, yol, _):  # Windows: git nesneleri salt-okunur, ignore_errors .part'ı bırakıyor → sonraki clone "dizin var" ile düşüyordu (23 Eki kök neden)

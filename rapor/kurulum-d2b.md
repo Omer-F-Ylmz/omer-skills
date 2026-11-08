@@ -14,3 +14,9 @@ Yapılmadı (neden): ana-liste-ozellik/yapilis md'leri yeni kalemler için üret
 Adım 2-5: kurulum-d2-sonuc.tsv durumları değişmedi (BULUNAMADI-2 956, KAPI-GECTI 442, HATA 437, YANLIS 291, YOLU-YOK 92...). ~2300 kalemin kaynak çözme + semgrep/gitleaks + kurulum turu bu turda başlamadı (tur bütçesi; toplu üçüncü taraf kurulum parti parti, tools/kurulum_coz.py ile sürecek).
 Ömer'e: yok henüz. claude.ai zip listesi: bu turda yeni zip yok.
 Kategori başına araç: bu tur yalnız veri-db/arastirma (liste_cikar/ücretsiz havuz, okuyucu ajanı, derin-3 ham okuma).
+
+# TUR 2 (07 Kas ~00:15) — TUR BITTI, engel: kurulum izni
+- Durum sayımı (kurulum-d2-sonuc.tsv, değişmedi): BULUNAMADI-2 956, KAPI-GECTI 442, ZATEN 437, HATA 437, YANLIS-ESLESME 291, KURULDU 238, KURULDU-SARMALAYICI 101, YOLU-YOK 92, GUVENLIK-RED 44, DOGRULANMADI 31, SIKISTIRMA-SONRASI-YENIDEN 29, KURULDU-KAYNAK 22, MODEL-ONAY 18.
+- Betik hazır: `python -u tools/kurulum_d2.py --faz kur --is 6` (KAPI-GECTI'leri kurar; kaldığı yerden sürer; kapılar zaten geçmiş). `--tur2` HATA'ları yeniden dener.
+- Engel: auto-mode sınıflandırıcı arka plan kurulum süreci başlatmayı reddetti (dış kaynak kodu; 442 üçüncü taraf repo/paket). Hiçbir kurulum çalıştırılmadı; yedek: kurulum-d2-sonuc.yedek-d2b-tur2.tsv.
+- Ömer'e: PowerShell için izin kuralı ekle ya da komutu kendin başlat; sonra adım 2-5 sürer.

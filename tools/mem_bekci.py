@@ -67,6 +67,26 @@ def havuz_serve():
     yaz("havuz serve kapaliydi -> baslatildi")
 
 
+def isit():
+    # CM-CHROMA-FIX: soguk chroma dosyalari rastgele 4K okumayla (4,7 ms/op) dakikalar suruyor; ardisik okuma 200-370 MB/s
+    d = os.path.join(H, ".claude-mem", "chroma")
+    t = time.time()
+    n = 0
+    for kok, _, ds in os.walk(d):
+        for ad in ds:
+            if ad.endswith((".sqlite3", ".bin")):
+                try:
+                    with open(os.path.join(kok, ad), "rb", buffering=0) as f:
+                        while True:
+                            b = f.read(8 << 20)
+                            if not b:
+                                break
+                            n += len(b)
+                except OSError:
+                    pass
+    yaz("chroma isitildi", n >> 20, "MB", round(time.time() - t, 1), "sn")
+
+
 def main():
     havuz_serve()
     if acik():
@@ -75,6 +95,7 @@ def main():
     if r >= 88:
         yaz("worker kapali ama RAM", r, "-> baslatilmadi")
         return
+    isit()
     node = next((n for n in NODE_ADAY if os.path.exists(n)), "node")
     s = betikler()
     arg = [node, os.path.join(s, "bun-runner.js"), os.path.join(s, "worker-service.cjs"), "start"]

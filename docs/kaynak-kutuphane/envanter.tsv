@@ -48,3 +48,38 @@ webild.io	şablon	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI
 clbthemes.com	şablon (WP tema)	belirsiz/kısıtlı	ücretli temalar	ücretli	-	ATLANDI	
 collectivekit.co	şablon	belirsiz/kısıtlı	belirsiz	sahip repo yok	-	ATLANDI	
 temlis.com	şablon dizini	belirsiz/kısıtlı	şablon başına değişir	toplu doğrulanamadı	-	ATLANDI	
+animejs.com (juliangarnier/anime)	JS animasyon motoru	evet	MIT	yok	npm animejs / GitHub	AL	Desktop\Claude ile yapılanlar\araclar\link27\anime
+shadergradient.co (ruucm/shadergradient)	hareketli gradient (React/Three, Framer, Figma)	evet	repoda lisans yok (npm @shadergradient/react)	lisans belirsiz: npm paketi kullanımı serbest görünüyor, kaynak kod kopyalanmaz	npm @shadergradient/react	AL-ŞARTLI	Desktop\Claude ile yapılanlar\araclar\link27\shadergradient
+paper.design liquid-logo (paper-design/liquid-logo)	logoyu sıvı metal shader yapma	evet	NOASSERTION (Paper Shaders)	lisans dosyası okunmalı; iç kullanım	GitHub	AL-ŞARTLI	Desktop\Claude ile yapılanlar\araclar\link27\liquid-logo
+3d-model-anything (wesbos/3d-model-anything)	iPhone LiDAR → düzenlenebilir Three.js oda	evet	NOASSERTION	lisans dosyası okunmalı; iç kullanım	GitHub (npm ci; npm run dev)	AL-ŞARTLI	Desktop\Claude ile yapılanlar\araclar\link27\3d-model-anything
+motionsites.ai	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+skipper-ui	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+amicro	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+animmaster	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+prompts.dev	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+heya.ui	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+beui	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+sceneai	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+stitch.withgoogle.com	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+framer.com	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+shaders.com	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+liquid-glass-js	LINK-27 site kaynağı (27 Eki)	belirsiz	bakılacak	-	site	SİTE-KAYNAK	
+OpenMontage	video üretim (iç iş)	evet	?	Ömer bloğu bekliyor	repo	KUR-BEKLEYEN	docs/link27-uyarla.md
+Docker Desktop	konteyner	evet	ticari>250 çalışan	WSL/yönetici yetkisi gerekir	installer	KUR-BEKLEYEN	
+memvid-claude-mem	bellek	?	?	chroma denemesi	repo	KUR-BEKLEYEN	lisans okunacak
+mcptoon gateway	MCP ağ geçidi	evet	?	destructive araçları engeller; 27 Eki geri alındı	npm	KUR-ATLA	mcptoon-gateway-destructive
+
+app.pavo-ai.work	video uretim (metin/gorsel->video)	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: sinirsiz ucretsiz	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+vheer.com	image-to-video, text-to-video, gorsel araclari	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: 300 video/gun; 4 Kas test: i2v sayfasi girissiz acik, Generate icin hesap gerekli (5s/768, Vheer Quality)	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+theresanaiforthat.com	video uretim	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: 100 video/gun	hesap (Omer acar)	ELE (Omer 4 Kas: yavas/acilmiyor)	sosyal-oto/KALITE-PLANI.md
+vidu.com	image-to-video / text-to-video	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: 50 video/ay	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+vids.google.com	video uretim (Google)	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: 7 video/ay	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+labs.google/flow	video uretim (Veo tabanli)	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: 30 video/ay	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+dola.com	video uretim	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: 15 video/ay	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+toolfk.com	250+ arac: Wan image-to-video, upscale, bg remove, TTS	evet (iddia)	?	ticari kullanim sarti okunacak; onceki kaynak ig-DfH25vuoict; Cin merkezli, kisisel veri yuklenmez	hesap (Omer acar)	ELE (Omer 4 Kas)	sosyal-oto/KALITE-PLANI.md
+chat.qwen.ai	video/gorsel olusturma modu	evet (iddia)	?	ticari kullanim sarti okunacak; iddia: kredi/giris yok; 30 Eki denemesi dogrulanmadi	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+hailuoai.video	video uretim	gunluk kredi	?	~10 video/gun ucretsiz, filigransiz, 720p (Mart 2026 kaynagi)	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+klingai.com	video uretim	gunluk kredi	?	66 kredi/gun (~6 video), kucuk logo, 1080p	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+app.pixverse.ai	video uretim	gunluk kredi	?	5 video/gun, filigransiz, 720p	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+dreamina.capcut.com	video uretim	gunluk kredi	?	gunluk ucretsiz kredi; Seedance modeli	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md
+www.meta.ai	video uretim	gunluk kredi	?	gorsel canlandirma (animate) ucretsiz	Omer giris yapti (Default Chrome)	AL-TEST-BEKLIYOR	sosyal-oto/KALITE-PLANI.md

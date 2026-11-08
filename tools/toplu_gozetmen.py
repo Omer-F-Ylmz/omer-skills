@@ -9,7 +9,7 @@ import time
 from datetime import datetime
 
 AZAMI_YENIDEN = 3
-RAM_SINIR = 84
+RAM_SINIR = 96
 
 
 def ram_yuzde():

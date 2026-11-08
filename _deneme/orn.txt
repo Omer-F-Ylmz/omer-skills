@@ -1,0 +1,30 @@
+0 orch-build-mvp | plugi | is-akisi | Orchestrate bootstrapping a working MVP from a design or spec document — ingest the SDD/PRD, plan thin vertica
+1 flightdeck | plugi | hook | açık — Flightdeck: a live agent dashboard for Claude Code. Main model vitals, an on-call architect, every p
+2 cli-a2a | skill | hakem | Interact with the OmniRoute A2A server from the CLI. Send tasks, inspect skill execution history, and test the
+3 session-handoff-skill | arast | konu | yargı  · UYARLA (Ömer, panel)
+4 oh-my-issues | skill | çekirdek-araç | backlog'u kök nedene göre kümeler
+5 Multi-Agent Systems Architec | ajan | swarm | Multi-agent AI pipeline architect: topology, context management, inter-agent trust, failure recovery, human ga
+6 graphify-gelistirme | arast | konu | yargı  · UYARLA (Ömer, panel)
+7 azure-kusto-graph-skills | plugi | hook | açık — Kusto graph analysis, IRQL security hunting pipelines, and graph visualization skills for Azure Data
+8 skill-council | plugi | hakem | Run a configurable multi-LLM council with personas, budget caps, synthesis, veto gates, and optional implement
+9 kural-güncelleme-sonrası-ve- | arast | konu | yargı KUR · kural-onay → omer-kurallar:27 (Ömer, 24 Eyl)
+10 doubt-driven-development | skill | çekirdek-araç | varsayımları sınar
+11 efor-seviyeleri | arast | konu | yargı KUR · birleşti → omer-kurallar:13 (Desktop)
+12 agent-role-design | plugi | swarm | Defining what each agent does, knows, and owns in a multi-agent system.
+13 graphify | cli | çekirdek-araç | kod bilgi grafiği
+14 azure | plugi | hook | açık — Microsoft Azure MCP and Skills integration for cloud resource management, deployments, and Azure ser
+15 herdr-throwaway-repro | skill | is-akisi | Create and control a disposable named Herdr session from inside an existing Herdr session.
+16 gstack-benchmark-models | skill | hakem | Cross-model benchmark for gstack skills. (gstack)
+17 ajn-hook-yazar | ajan | hook | Writes Claude Code hooks for validation or automation with safe exit codes
+18 continuous-agent-loop | plugi | is-akisi | Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls.
+19 azure-cost | plugi | hook | açık — Azure cost analysis, estimation, optimization, and governance workflows backed by Azure Resource Man
+20 groq | arast | konu | yargı  · DENE (Ömer, panel)
+21 herdr | skill | is-akisi | Control Herdr, a terminal multiplexer for coding agents. Use only when the user explicitly mentions Herdr or a
+22 ajn-ajan-bellek-tasarimi | ajan | ogrenen-bellek | Designs agent memory across sessions: scopes, retention, retrieval; forgotten or stale facts
+23 her-şey-hazır-olana-kadar-lo | arast | konu | yargı UYARLA · prompt kalıbı → frontend-promptlar.md · bekleyen/prompt-her-sey-hazir-olana-kadar-loading-scree
+24 context-mode | plugi | hook | açık — MCP server that saves 98% of your context window with session continuity. Sandboxed code execution i
+25 azure-app-onboard | plugi | is-akisi, ajan | End-to-end orchestrator: from a business idea, app idea, or existing app to running Azure deployment with cost
+26 skillui-gelistirme | arast | konu | yargı  · DENE (Ömer, panel)
+27 markitdown-microsoft | arast | konu | yargı  · DENE (Ömer, panel)
+28 jcode | arast | konu | yargı  · UYARLA (Ömer, panel)
+29 ui-ux-pro-max-gelistirme | arast | konu | yargı  · DENE (Ömer, panel)

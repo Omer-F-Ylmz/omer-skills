@@ -34,6 +34,7 @@ KAYNAKLAR = [
     ("20-ogren", "ogren", "ogren", str(KOK / "docs/ogren/*.md")),
     ("20-ogren", "kogren", "ogren", str(KOK / ".kos/kopru/ogren/*.md")),
     ("30-video", "kurulum", "kurulum", str(KOK / "docs/kurulumlar/*.md")),
+    ("30-video", "aday", "kurulum", str(KOK / ".kos/kopru/ogren/aday/listesi.md")),
     ("40-projeler", "devir", "devir", str(KOK / ".kos/kopru/devir/*.md")),
     ("50-dersler", "ders", "ders", str(BELLEK / "*.md")),
 ]

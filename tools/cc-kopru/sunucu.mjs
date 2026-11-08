@@ -24,7 +24,17 @@ import { gozlemHooku, hookKaynaklari, hookKos, hookTanimlari, izDosyasi,
 import os from "node:os";
 
 const AYAR = ayarYukle();
-const CLAUDE = AYAR.claudeYolu || yolBul("claude");
+/** BEYIN-GERI-1: işin başına beyin-özet + ilgili ders/hata (0 jeton); beyin_dusun.py geri okunamazsa '' — iş engellenmez. Test/sahte yürütücüde kapalı. */
+function beyinGeri(gorev, ad) {
+  if (AYAR.claudeOnArgs?.length || process.env.BEYIN_GERI === "0") return "";
+  try {
+    const r = spawnSync("python", ["C:/Projeler/omer-skills/tools/beyin_dusun.py", "geri", ad], {
+      input: gorev, encoding: "utf8", timeout: 8000, windowsHide: true, env: process.env,
+    });
+    return r.status === 0 && r.stdout ? r.stdout + "\n" : "";
+  } catch { return ""; }
+}
+const CLAUDE =AYAR.claudeYolu || yolBul("claude");
 // claude bir betik olarak kuruluysa (node <js>) yurutucuden once gelen argumanlar
 const CLAUDE_ON = AYAR.claudeOnArgs || [];
 /** hafif modun bayrakları gerçekten var mı — `claude --help` bir kez okunur. */
@@ -182,6 +192,8 @@ srv.registerTool("ajan", {
       "Skill/slash komut yüklemesini ve MCP sunucularını kapatır; hook'lar ve CLAUDE.md "
       + "açık kalır. Bağlam pahalı, iş basitse aç."),
     effort: z.enum(["low", "medium", "high", "xhigh", "max"]).optional().describe("Yalnız bu oturumun effort'u (--effort)"),
+    yeni_oturum: z.boolean().default(false).describe(
+      "true: proje oturumunu yok say ve taze oturum aç (varsayılan: projenin kayıtlı oturumuna --resume)"),
   },
 }, (a) => (async () => {
   // KÖPRÜ-HIZ: ajan tek kuyruğa (sirala) GİRMEZ — 60 dk'lık oturum durum/komut/oku ve diğer
@@ -200,8 +212,16 @@ srv.registerTool("ajan", {
     devamId = a.devam_id ? ajanAlanDenetle("devam_id", a.devam_id) : null;
   } catch (e) { return hata("RED: " + e.message); }
 
+  // E1: proje başına kalıcı oturum (önbellek ısınık kalır); yeni_oturum=true ya da kayıt yoksa taze oturum
+  const kalici = AYAR.oturumKalici !== false;
+  const oturumDosya = path.join(AYAR.oturumDizin || "C:/Projeler/omer-skills/.kos/kopru/oturumlar",
+    path.basename(proje).replace(/[^\w.-]/g, "_") + ".json");
+  if (kalici && !devamId && !a.yeni_oturum) {
+    try { devamId = ajanAlanDenetle("devam_id", JSON.parse(fs.readFileSync(oturumDosya, "utf8")).session_id); } catch { /* kayıt yok */ }
+  }
+
   // --max-turns bayrağı CC CLI'da yok (11i K0-b); bütçe göreve yazılır, dönüşte doğrulanır.
-  const gorev = `${a.gorev}\n\n[bütçe] En fazla ${a.max_turns} tur kullan.`;
+  const gorev = `${beyinGeri(a.gorev, ajanAdi || path.basename(proje))}${a.gorev}\n\n[bütçe] En fazla ${a.max_turns} tur kullan.`;
   // FIX-1: görev metni argv'ye GİRMEZ — bayrağa benzeyen istem bayrak olarak okunabilir.
   // `claude -p` istemi stdin'den alır (aşağıda p.stdin.end(gorev)).
   const argv = ["-p", "--output-format", "json", "--model", model];
@@ -281,6 +301,16 @@ srv.registerTool("ajan", {
   ].join(" · ") + (a.effort ? ` · effort ${a.effort}` : "") + effortNot;
   const govde = await ciktiHazirla(redakte(j.result || ""), AYAR.ciktiTavan ?? CIKTI_TAVAN);
   sonAjan = { model: Object.keys(j.modelUsage || {})[0] || model, girdi, okunan };
+  // E1: bağlam %60'ı (200k penceresinde 120k) geçince kayıt silinir → sonraki çağrı yeni oturum
+  if (kalici && j.session_id) {
+    try {
+      if (girdi > 120000) fs.rmSync(oturumDosya, { force: true });
+      else {
+        fs.mkdirSync(path.dirname(oturumDosya), { recursive: true });
+        fs.writeFileSync(oturumDosya, JSON.stringify({ session_id: j.session_id, tarih: new Date().toISOString().slice(0, 16).replace("T", " ") }));
+      }
+    } catch { /* kayıt yazılamadı: oturum sürekliliği kaybolur, iş etkilenmez */ }
+  }
   const not = await gozle("cc-kopru:ajan", { gorev: a.gorev, model, cwd: proje },
                           { result: govde, session_id: j.session_id }, proje);
   return metin(`${govde}\n\nsession_id: ${j.session_id}\n${durum}${not ? "\n" + not : ""}`);

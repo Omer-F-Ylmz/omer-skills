@@ -1,0 +1,41 @@
+{
+ "tam": {},
+ "ttl": {
+  "ttl": "5m"
+ },
+ "blender": {
+  "mcp": [
+   "blender",
+   "headroom"
+  ],
+  "skills": [
+   "skills/blender-oturum/SKILL.md",
+   "skills/blender-uretim/SKILL.md"
+  ],
+  "pluginKapat": [
+   "claude-mem@thedotmack",
+   "superpowers@claude-plugins-official",
+   "ponytail@ponytail",
+   "everything-claude-code@everything-claude-code",
+   "claude-mem-cowork@thedotmack"
+  ],
+  "ttl": "5m"
+ },
+ "kod": {"pluginKapat": ["agent-radar@claude-code-mods", "blast-radius@claude-code-mods", "browser-lanes@claude-code-mods", "cache-clock@claude-code-mods", "context-bar@claude-code-mods", "flightdeck@claude-flightdeck", "glance@claude-code-mods", "heatmap@claude-code-mods", "md-preview@claude-code-mods", "merge-gate@claude-code-mods", "mission-control@claude-code-mods", "next-steps@claude-code-mods", "now-playing@claude-code-mods", "openai-balance@claude-code-mods", "openrouter-balance@claude-code-mods", "prayer-times@claude-code-mods", "reels@claude-code-mods", "replay-theater@claude-code-mods", "review-watch@claude-code-mods", "rulebook-guard@claude-code-mods", "session-saver@claude-code-mods", "snake@claude-code-mods", "switchboard@claude-code-mods", "token-weather@claude-code-mods", "usage-meter@claude-code-mods", "where-am-i@claude-code-mods"], "ttl": "5m"},
+ "d-arastirma-ogrenme": {"mcp": ["brave-search", "context7", "mcp-fetch", "mslearn", "arxiv", "markitdown", "mcp-time"]},
+ "d-backend-dotnet": {"mcp": ["mslearn", "context7", "mcp-git", "github", "mcp-time"]},
+ "d-frontend": {"mcp": ["21st", "figma", "claude-design", "stitch", "playwright", "context7", "mcp-time"]},
+ "d-test-qa": {"mcp": ["playwright", "puppeteer", "mcp-time"]},
+ "d-veri-db": {"mcp": ["clickhouse", "drizzle-docs", "airtable", "mcp-time"]},
+ "d-surec-inceleme": {"mcp": ["code-review", "github", "mcp-git", "mcp-time"]},
+ "d-surec-git-yayin": {"mcp": ["github", "mcp-git", "netlify", "hostinger", "mcp-time"]},
+ "d-surec-ajan-arac": {"mcp": ["jev", "context7", "mcp-time"]},
+ "d-surec-plan": {"mcp": ["mcp-sequential-thinking", "mcp-time"]},
+ "d-verimlilik": {"mcp": ["headroom", "jev", "mcp-time"]},
+ "d-belge": {"mcp": ["markitdown", "mcp-time"]},
+ "d-guvenlik": {"mcp": ["github", "mcp-git", "mcp-time"]},
+ "d-3d": {"mcp": ["blender", "godot", "unity", "mcp-time"]},
+ "ajan": {"araclar": ["Agent", "Bash", "Edit", "Glob", "Grep", "Monitor", "PowerShell", "Read", "ScheduleWakeup", "SendMessage", "TaskStop", "ToolSearch", "WebFetch", "WebSearch", "Write"], "ajanTut": ["ajn-ajan-tanimi-yazar", "dok-rapor-uretici"], "ttl": "5m",
+          "ayar": {"includeGitInstructions": false, "env": {"ECC_SESSION_START_CONTEXT": "off", "ENABLE_TOOL_SEARCH": "true"},
+                   "hooks": {"PreToolUse": [{"matcher": "Read", "hooks": [{"type": "command", "command": "python C:/Projeler/omer-skills/tools/oku_yonlendir.py", "timeout": 10}]}]}}}
+}

@@ -249,9 +249,13 @@ def tara(canli=None):
         try:
             import telegram_kopru
             if telegram_kopru.TOK and telegram_kopru.CHAT:
-                telegram_kopru.cevapla()
-        except Exception:
-            pass
+                y, c = telegram_kopru.cevapla()
+                if y:
+                    open(_p("_tg.log"), "a", encoding="utf-8").write(time.strftime("%d %H:%M ") + f"yeni={y} cevap={c}\n")
+            else:
+                open(_p("_tg.log"), "a", encoding="utf-8").write(time.strftime("%d %H:%M ") + "TOK/CHAT yok\n")
+        except Exception as e:
+            open(_p("_tg.log"), "a", encoding="utf-8").write(time.strftime("%d %H:%M ") + f"hata {type(e).__name__}: {str(e)[:150]}\n")
 
 
 def desktop(d=None):

@@ -128,3 +128,14 @@
 - Ret (5): blue-cloudy-clean-modern (tek katman vs layered), plan-tune (token_ipucu kaynakta yok), framed-tech-dark-border-gradient (token_ipucu uydurma), yes-scripts (timeout sure), build-hybrid-game-assets (jeton azaltir iddiasi). 4/5 token_ipucu/serbest metin: ornek eski serbest-metin uretimli kartlardan.
 - Kok neden: orneklem eski (alintisiz) kartlardan; alinti yolundaki kartlar tur 26-28de %95. Oneri: kapi olcumunu yalniz alinti yolu kartlarda yap, eski kartlari parti parti alinti yoluyla yeniden uret (Desktop karari).
 - Dosyalar: tmp/hakem29/. Push yok.
+
+# TUR 30 (31 Eki)
+- tools/usta_kart.py: istem mutlaklastirma yasagi + isle() otomatik suzgec (mutlak_var: kaynakta gecmeyen yalniz/sadece/tek/hep/asla/her zaman/daima/hicbir/mutlaka iceren iddia -> 'Kaynakta belirtilmemis').
+- Seed 29 ayni 40 kart, 5 ret yeniden uretildi (Haiku high), 4 bagimsiz Haiku hakem, tam kaynak: 36/40 = %90 (onceki %87,5). KAPI (%98) TUTMADI.
+- Kalan ret (4): add-new-model + build-threejs-enemy-systems (token_ipucu: 'kaynakta belirtilmemis' + uydurma 'tekrari azaltir' eki; hakem 2/2 reddetti), ecc:security-review (kullanim Ingilizce alinti, yararsiz), plan-tune (yalniz onsoz, yararsiz). Dosyalar: tmp/hakem30/. Not: ilk birlestirme bayat g0.json ile yapildi, usta.jsonl.bak30'dan geri alindi (kayip yok).
+- Oneri: token_ipucu alintisiz ise tam olarak 'Kaynakta belirtilmemis.' disinda metin yazilmasin (suzgec); kullanim alintilari Turkceye ozetlensin. Push yok.
+
+# TUR 31 (31 Eki)
+- 509 alintisiz eski kart alinti yoluyla yeniden uretildi (Haiku, 64 grup), usta.jsonl 750; yedek usta.jsonl.bak31. kanitli(): "Kaynakta belirtilmemis" ile baslayan alan tam "Kaynakta belirtilmemis." olur. hazirla --alintisiz, hakem --yeni <ts> eklendi.
+- 393/509 token_ipucu ve 13 tuzak "Kaynakta belirtilmemis" (kaynakta yok).
+- Hakem: 4 bagimsiz Haiku, 40 yeni kart, seed 31: 37/40 = 

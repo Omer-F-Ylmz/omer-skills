@@ -88,7 +88,7 @@ Kur5Skill 'storm-research' 'openwhat007/storm-research' ''
 # --- Paperclip Agents | KLON | MIT | 480 MB
 Kur5Klon 'Paperclip' 'paperclipai/paperclip'
 # --- Spacedrive | UYGULAMA | Apache-2.0 | 86 MB msi
-# UYGULAMA (86 MB msi, Omer calistirir): Kur5Indir 'Spacedrive' 'https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi'
+Kur5Indir 'Spacedrive' 'https://github.com/spacedriveapp/spacedrive/releases/download/v0.4.3/Spacedrive-windows-x86_64.msi'
 # --- Typst | WINGET | Apache-2.0 | kucuk
 Kur5Winget 'Typst' 'Typst.Typst'
 # --- MegaTTS3 (ses turu adayi) | OMER-SOR | Apache-2.0 | 3.98 GiB

@@ -231,3 +231,7 @@ RUFLO-1 d15 BEKLE 13:40 — zor set dersli RET (Σ 4.125 ≤ 4.25, jeton 541.2k 
 - 2026-10-20 BEYIN-4 d1 BİTTİ — ince_bol/cumleler + pencere cümle snap + KAYNAK_TAVAN; tohum 2009/2010 betik üretimi; kapı d2: python .claude/beyin4/kapi.py
 
 TERS-1 d4 — kapı GEÇMEDİ: skill 0.534 / zemin 0.527 (eşik 0.92), 2/10 atlandı; rapor .kos/kopru/rapor/ters-1.md
+- 2026-10-28 GRAPHIFY-ULTRA-1 BİTTİ (G5 GEÇMEDİ, 3 deneme; G0: tam Read %34→%11.6; --tam RAM %86.7 atlandı) · rapor/graphify-ultra-1.md
+28 Eki TOKEN-ZINCIR BITTI → rapor/token-zincir.md
+- 02:12 KARAR-30 ARA: graphify-desktop.zip yuklendi=KAPANDI (Omer 30 Eki 01:27); yarim-g7 WER %2,44 KABUL=KAPANDI. Rapor rapor/karar-30.md
+- 2026-10-31 OGREN-1 d8 BİTTİ (d15 kapanışı): d9..d14b tohum 9-12 ölçümleri tamam (tohum 11 %97,2 / 12 %96,3, kapı %92 geçti) · rapor/ogren-1-d8.md

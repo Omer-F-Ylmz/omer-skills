@@ -2,45 +2,17 @@
  "ozet": {
   "ucretsiz/once": {
    "n": 60,
-   "dogru": 57,
+   "dogru": 60,
    "sonucsuz": 0,
    "jeton": 2968,
    "usd": 0
   },
   "ucretsiz/sonra": {
    "n": 60,
-   "dogru": 40,
-   "sonucsuz": 20,
-   "jeton": 8722,
+   "dogru": 58,
+   "sonucsuz": 0,
+   "jeton": 13246,
    "usd": 0
-  },
-  "haiku/once": {
-   "n": 60,
-   "dogru": 59,
-   "sonucsuz": 0,
-   "jeton": 434833,
-   "usd": 0.033
-  },
-  "haiku/sonra": {
-   "n": 60,
-   "dogru": 60,
-   "sonucsuz": 0,
-   "jeton": 454197,
-   "usd": 0.035
-  },
-  "sonnet/once": {
-   "n": 60,
-   "dogru": 60,
-   "sonucsuz": 0,
-   "jeton": 388317,
-   "usd": 1.191
-  },
-  "sonnet/sonra": {
-   "n": 60,
-   "dogru": 60,
-   "sonucsuz": 0,
-   "jeton": 421273,
-   "usd": 1.227
   }
  },
  "sonuc": [
@@ -208,7 +180,7 @@
    "id": "cik0",
    "katman": "ucretsiz",
    "kol": "once",
-   "ok": false,
+   "ok": true,
    "jeton": 54,
    "usd": 0
   },
@@ -368,7 +340,7 @@
    "id": "man0",
    "katman": "ucretsiz",
    "kol": "once",
-   "ok": false,
+   "ok": true,
    "jeton": 44,
    "usd": 0
   },
@@ -432,7 +404,7 @@
    "id": "man8",
    "katman": "ucretsiz",
    "kol": "once",
-   "ok": false,
+   "ok": true,
    "jeton": 44,
    "usd": 0
   },
@@ -526,966 +498,30 @@
   },
   {
    "id": "kod0",
-   "katman": "haiku",
-   "kol": "once",
+   "katman": "ucretsiz",
+   "kol": "sonra",
    "ok": true,
-   "jeton": 7118,
-   "usd": 0.0010562000000000002
+   "jeton": 216,
+   "usd": 0
   },
   {
    "id": "kod1",
-   "katman": "haiku",
-   "kol": "once",
+   "katman": "ucretsiz",
+   "kol": "sonra",
    "ok": true,
-   "jeton": 7131,
-   "usd": 0.00103
+   "jeton": 225,
+   "usd": 0
   },
   {
    "id": "kod2",
-   "katman": "haiku",
-   "kol": "once",
+   "katman": "ucretsiz",
+   "kol": "sonra",
    "ok": true,
-   "jeton": 7104,
-   "usd": 0.0004999900000000001
+   "jeton": 208,
+   "usd": 0
   },
   {
    "id": "kod3",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7119,
-   "usd": 0.00046649
-  },
-  {
-   "id": "kod4",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7130,
-   "usd": 0.00047059
-  },
-  {
-   "id": "kod5",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7113,
-   "usd": 0.0004603899999999999
-  },
-  {
-   "id": "kod6",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.00047568999999999997
-  },
-  {
-   "id": "kod7",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7138,
-   "usd": 0.0005208900000000001
-  },
-  {
-   "id": "kod8",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7125,
-   "usd": 0.00047509
-  },
-  {
-   "id": "kod9",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.00045919
-  },
-  {
-   "id": "kod10",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7132,
-   "usd": 0.00048379000000000006
-  },
-  {
-   "id": "kod11",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7112,
-   "usd": 0.00045679000000000005
-  },
-  {
-   "id": "kod12",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7123,
-   "usd": 0.00046389
-  },
-  {
-   "id": "kod13",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7117,
-   "usd": 0.00048329
-  },
-  {
-   "id": "kod14",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7119,
-   "usd": 0.0004944900000000001
-  },
-  {
-   "id": "kod15",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7116,
-   "usd": 0.00053169
-  },
-  {
-   "id": "kod16",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7116,
-   "usd": 0.00048519
-  },
-  {
-   "id": "kod17",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.0004951900000000001
-  },
-  {
-   "id": "kod18",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7108,
-   "usd": 0.00046688999999999997
-  },
-  {
-   "id": "kod19",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7124,
-   "usd": 0.00047849000000000004
-  },
-  {
-   "id": "cik0",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7148,
-   "usd": 0.00050439
-  },
-  {
-   "id": "cik1",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7142,
-   "usd": 0.00046679
-  },
-  {
-   "id": "cik2",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7152,
-   "usd": 0.00046978999999999993
-  },
-  {
-   "id": "cik3",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7147,
-   "usd": 0.00046479
-  },
-  {
-   "id": "cik4",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7148,
-   "usd": 0.00050139
-  },
-  {
-   "id": "cik5",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7148,
-   "usd": 0.00046539
-  },
-  {
-   "id": "cik6",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7148,
-   "usd": 0.00046589
-  },
-  {
-   "id": "cik7",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7153,
-   "usd": 0.00046789
-  },
-  {
-   "id": "cik8",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7148,
-   "usd": 0.00046789
-  },
-  {
-   "id": "cik9",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 13963,
-   "usd": 0.0023935000000000002
-  },
-  {
-   "id": "cik10",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7150,
-   "usd": 0.00053709
-  },
-  {
-   "id": "cik11",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7141,
-   "usd": 0.00046768999999999994
-  },
-  {
-   "id": "cik12",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7148,
-   "usd": 0.00046589
-  },
-  {
-   "id": "cik13",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7143,
-   "usd": 0.00046839
-  },
-  {
-   "id": "cik14",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7150,
-   "usd": 0.00046609000000000006
-  },
-  {
-   "id": "cik15",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7151,
-   "usd": 0.00046669
-  },
-  {
-   "id": "cik16",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7150,
-   "usd": 0.00046659
-  },
-  {
-   "id": "cik17",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7150,
-   "usd": 0.00049859
-  },
-  {
-   "id": "cik18",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7141,
-   "usd": 0.00046719
-  },
-  {
-   "id": "cik19",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7149,
-   "usd": 0.00046599
-  },
-  {
-   "id": "man0",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.0007026900000000001
-  },
-  {
-   "id": "man1",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7130,
-   "usd": 0.00050559
-  },
-  {
-   "id": "man2",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7127,
-   "usd": 0.00051829
-  },
-  {
-   "id": "man3",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7145,
-   "usd": 0.0005330900000000001
-  },
-  {
-   "id": "man4",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.0005776900000000001
-  },
-  {
-   "id": "man5",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7130,
-   "usd": 0.00053259
-  },
-  {
-   "id": "man6",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7127,
-   "usd": 0.0005552900000000001
-  },
-  {
-   "id": "man7",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7145,
-   "usd": 0.0005030900000000001
-  },
-  {
-   "id": "man8",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": false,
-   "jeton": 7126,
-   "usd": 0.0007386900000000001
-  },
-  {
-   "id": "man9",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7130,
-   "usd": 0.0005200900000000001
-  },
-  {
-   "id": "man10",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7127,
-   "usd": 0.0005242900000000001
-  },
-  {
-   "id": "man11",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7145,
-   "usd": 0.00056309
-  },
-  {
-   "id": "man12",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.0005606900000000001
-  },
-  {
-   "id": "man13",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7130,
-   "usd": 0.00052059
-  },
-  {
-   "id": "man14",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7127,
-   "usd": 0.0005512900000000001
-  },
-  {
-   "id": "man15",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7145,
-   "usd": 0.0006005900000000001
-  },
-  {
-   "id": "man16",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7126,
-   "usd": 0.00053969
-  },
-  {
-   "id": "man17",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7130,
-   "usd": 0.0005200900000000001
-  },
-  {
-   "id": "man18",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7127,
-   "usd": 0.00053529
-  },
-  {
-   "id": "man19",
-   "katman": "haiku",
-   "kol": "once",
-   "ok": true,
-   "jeton": 7145,
-   "usd": 0.0005515900000000001
-  },
-  {
-   "id": "kod0",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6344,
-   "usd": 0.026512
-  },
-  {
-   "id": "kod1",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6357,
-   "usd": 0.025764000000000002
-  },
-  {
-   "id": "kod2",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6330,
-   "usd": 0.019412699999999998
-  },
-  {
-   "id": "kod3",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6345,
-   "usd": 0.0186627
-  },
-  {
-   "id": "kod4",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6356,
-   "usd": 0.0187067
-  },
-  {
-   "id": "kod5",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6339,
-   "usd": 0.0185287
-  },
-  {
-   "id": "kod6",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6352,
-   "usd": 0.0185707
-  },
-  {
-   "id": "kod7",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6364,
-   "usd": 0.0193387
-  },
-  {
-   "id": "kod8",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6351,
-   "usd": 0.0189367
-  },
-  {
-   "id": "kod9",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6352,
-   "usd": 0.0185307
-  },
-  {
-   "id": "kod10",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6358,
-   "usd": 0.0190447
-  },
-  {
-   "id": "kod11",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6338,
-   "usd": 0.0184547
-  },
-  {
-   "id": "kod12",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6349,
-   "usd": 0.018898699999999997
-  },
-  {
-   "id": "kod13",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6343,
-   "usd": 0.018884699999999997
-  },
-  {
-   "id": "kod14",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6345,
-   "usd": 0.0196027
-  },
-  {
-   "id": "kod15",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6342,
-   "usd": 0.020480699999999998
-  },
-  {
-   "id": "kod16",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6342,
-   "usd": 0.0194207
-  },
-  {
-   "id": "kod17",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6352,
-   "usd": 0.0192807
-  },
-  {
-   "id": "kod18",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6334,
-   "usd": 0.0186487
-  },
-  {
-   "id": "kod19",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6350,
-   "usd": 0.0188327
-  },
-  {
-   "id": "cik0",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6374,
-   "usd": 0.0187087
-  },
-  {
-   "id": "cik1",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6368,
-   "usd": 0.018714699999999997
-  },
-  {
-   "id": "cik2",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6376,
-   "usd": 0.0187367
-  },
-  {
-   "id": "cik3",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6371,
-   "usd": 0.0186767
-  },
-  {
-   "id": "cik4",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6372,
-   "usd": 0.0191407
-  },
-  {
-   "id": "cik5",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6372,
-   "usd": 0.0186907
-  },
-  {
-   "id": "cik6",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6372,
-   "usd": 0.0187007
-  },
-  {
-   "id": "cik7",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6377,
-   "usd": 0.0187507
-  },
-  {
-   "id": "cik8",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 13190,
-   "usd": 0.053166
-  },
-  {
-   "id": "cik9",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6369,
-   "usd": 0.018718699999999998
-  },
-  {
-   "id": "cik10",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6374,
-   "usd": 0.019438700000000003
-  },
-  {
-   "id": "cik11",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6365,
-   "usd": 0.0186727
-  },
-  {
-   "id": "cik12",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6372,
-   "usd": 0.0187007
-  },
-  {
-   "id": "cik13",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6367,
-   "usd": 0.0186907
-  },
-  {
-   "id": "cik14",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6374,
-   "usd": 0.0187087
-  },
-  {
-   "id": "cik15",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6375,
-   "usd": 0.0187227
-  },
-  {
-   "id": "cik16",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6374,
-   "usd": 0.0187187
-  },
-  {
-   "id": "cik17",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6374,
-   "usd": 0.0187187
-  },
-  {
-   "id": "cik18",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6365,
-   "usd": 0.0186627
-  },
-  {
-   "id": "cik19",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6373,
-   "usd": 0.0187047
-  },
-  {
-   "id": "man0",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6350,
-   "usd": 0.0190627
-  },
-  {
-   "id": "man1",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6354,
-   "usd": 0.018948700000000002
-  },
-  {
-   "id": "man2",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6351,
-   "usd": 0.019506700000000002
-  },
-  {
-   "id": "man3",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6369,
-   "usd": 0.0197887
-  },
-  {
-   "id": "man4",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6350,
-   "usd": 0.0190627
-  },
-  {
-   "id": "man5",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6354,
-   "usd": 0.019128700000000002
-  },
-  {
-   "id": "man6",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6351,
-   "usd": 0.0192867
-  },
-  {
-   "id": "man7",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6369,
-   "usd": 0.0199487
-  },
-  {
-   "id": "man8",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6350,
-   "usd": 0.0190227
-  },
-  {
-   "id": "man9",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6354,
-   "usd": 0.019278700000000003
-  },
-  {
-   "id": "man10",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6351,
-   "usd": 0.0195367
-  },
-  {
-   "id": "man11",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6369,
-   "usd": 0.0195087
-  },
-  {
-   "id": "man12",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6350,
-   "usd": 0.0190427
-  },
-  {
-   "id": "man13",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6354,
-   "usd": 0.0191787
-  },
-  {
-   "id": "man14",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6351,
-   "usd": 0.019426699999999998
-  },
-  {
-   "id": "man15",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6369,
-   "usd": 0.0194387
-  },
-  {
-   "id": "man16",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6350,
-   "usd": 0.0190627
-  },
-  {
-   "id": "man17",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6354,
-   "usd": 0.019128700000000002
-  },
-  {
-   "id": "man18",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6351,
-   "usd": 0.0194567
-  },
-  {
-   "id": "man19",
-   "katman": "sonnet",
-   "kol": "once",
-   "ok": true,
-   "jeton": 6369,
-   "usd": 0.0196787
-  },
-  {
-   "id": "kod0",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1493,7 +529,23 @@
    "usd": 0
   },
   {
-   "id": "kod1",
+   "id": "kod4",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 225,
+   "usd": 0
+  },
+  {
+   "id": "kod5",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 215,
+   "usd": 0
+  },
+  {
+   "id": "kod6",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1501,15 +553,95 @@
    "usd": 0
   },
   {
-   "id": "kod2",
+   "id": "kod7",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 205,
+   "jeton": 225,
    "usd": 0
   },
   {
-   "id": "kod3",
+   "id": "kod8",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 221,
+   "usd": 0
+  },
+  {
+   "id": "kod9",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": false,
+   "jeton": 223,
+   "usd": 0
+  },
+  {
+   "id": "kod10",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "kod11",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 214,
+   "usd": 0
+  },
+  {
+   "id": "kod12",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 221,
+   "usd": 0
+  },
+  {
+   "id": "kod13",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 214,
+   "usd": 0
+  },
+  {
+   "id": "kod14",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 216,
+   "usd": 0
+  },
+  {
+   "id": "kod15",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 214,
+   "usd": 0
+  },
+  {
+   "id": "kod16",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 216,
+   "usd": 0
+  },
+  {
+   "id": "kod17",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "kod18",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1517,23 +649,23 @@
    "usd": 0
   },
   {
-   "id": "kod4",
+   "id": "kod19",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 223,
+   "jeton": 220,
    "usd": 0
   },
   {
-   "id": "kod5",
+   "id": "cik0",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 212,
+   "jeton": 225,
    "usd": 0
   },
   {
-   "id": "kod6",
+   "id": "cik1",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1541,132 +673,11 @@
    "usd": 0
   },
   {
-   "id": "kod7",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 222,
-   "usd": 0
-  },
-  {
-   "id": "kod8",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 218,
-   "usd": 0
-  },
-  {
-   "id": "kod9",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 220,
-   "usd": 0
-  },
-  {
-   "id": "kod10",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 221,
-   "usd": 0
-  },
-  {
-   "id": "kod11",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 212,
-   "usd": 0
-  },
-  {
-   "id": "kod12",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 218,
-   "usd": 0
-  },
-  {
-   "id": "kod13",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 211,
-   "usd": 0
-  },
-  {
-   "id": "kod14",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 213,
-   "usd": 0
-  },
-  {
-   "id": "kod15",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
-  },
-  {
-   "id": "kod16",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 213,
-   "usd": 0
-  },
-  {
-   "id": "kod17",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 221,
-   "usd": 0
-  },
-  {
-   "id": "kod18",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 207,
-   "usd": 0
-  },
-  {
-   "id": "kod19",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 218,
-   "usd": 0
-  },
-  {
-   "id": "cik0",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 223,
-   "usd": 0
-  },
-  {
-   "id": "cik1",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 217,
-   "usd": 0
-  },
-  {
    "id": "cik2",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 223,
+   "jeton": 226,
    "usd": 0
   },
   {
@@ -1674,7 +685,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 222,
+   "jeton": 224,
    "usd": 0
   },
   {
@@ -1682,7 +693,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 220,
+   "jeton": 223,
    "usd": 0
   },
   {
@@ -1690,7 +701,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 222,
+   "jeton": 224,
    "usd": 0
   },
   {
@@ -1698,7 +709,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 220,
+   "jeton": 222,
    "usd": 0
   },
   {
@@ -1706,7 +717,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 223,
+   "jeton": 226,
    "usd": 0
   },
   {
@@ -1714,7 +725,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 220,
+   "jeton": 222,
    "usd": 0
   },
   {
@@ -1722,7 +733,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 217,
+   "jeton": 220,
    "usd": 0
   },
   {
@@ -1730,19 +741,11 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 220,
+   "jeton": 223,
    "usd": 0
   },
   {
    "id": "cik11",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 216,
-   "usd": 0
-  },
-  {
-   "id": "cik12",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1750,11 +753,19 @@
    "usd": 0
   },
   {
+   "id": "cik12",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
+  },
+  {
    "id": "cik13",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 217,
+   "jeton": 220,
    "usd": 0
   },
   {
@@ -1762,7 +773,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 223,
+   "jeton": 225,
    "usd": 0
   },
   {
@@ -1770,7 +781,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 223,
+   "jeton": 225,
    "usd": 0
   },
   {
@@ -1778,7 +789,7 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 222,
+   "jeton": 225,
    "usd": 0
   },
   {
@@ -1786,11 +797,27 @@
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 222,
+   "jeton": 225,
    "usd": 0
   },
   {
    "id": "cik18",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 219,
+   "usd": 0
+  },
+  {
+   "id": "cik19",
+   "katman": "ucretsiz",
+   "kol": "sonra",
+   "ok": true,
+   "jeton": 224,
+   "usd": 0
+  },
+  {
+   "id": "man0",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1798,7 +825,7 @@
    "usd": 0
   },
   {
-   "id": "cik19",
+   "id": "man1",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
@@ -1806,1144 +833,149 @@
    "usd": 0
   },
   {
-   "id": "man0",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
-  },
-  {
-   "id": "man1",
-   "katman": "ucretsiz",
-   "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
-  },
-  {
    "id": "man2",
    "katman": "ucretsiz",
    "kol": "sonra",
    "ok": true,
-   "jeton": 217,
+   "jeton": 220,
    "usd": 0
   },
   {
    "id": "man3",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 227,
+   "usd": 0
   },
   {
    "id": "man4",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 216,
+   "usd": 0
   },
   {
    "id": "man5",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
   },
   {
    "id": "man6",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
   },
   {
    "id": "man7",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 227,
+   "usd": 0
   },
   {
    "id": "man8",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": false,
+   "jeton": 215,
+   "usd": 0
   },
   {
    "id": "man9",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
   },
   {
    "id": "man10",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
   },
   {
    "id": "man11",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 227,
+   "usd": 0
   },
   {
    "id": "man12",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 215,
+   "usd": 0
   },
   {
    "id": "man13",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
   },
   {
    "id": "man14",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
   },
   {
    "id": "man15",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 227,
+   "usd": 0
   },
   {
    "id": "man16",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 215,
+   "usd": 0
   },
   {
    "id": "man17",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 222,
+   "usd": 0
   },
   {
    "id": "man18",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
+   "ok": true,
+   "jeton": 220,
+   "usd": 0
   },
   {
    "id": "man19",
    "katman": "ucretsiz",
    "kol": "sonra",
-   "ok": null,
-   "jeton": 0,
-   "usd": 0,
-   "hata": "PermissionError"
-  },
-  {
-   "id": "kod0",
-   "katman": "haiku",
-   "kol": "sonra",
    "ok": true,
-   "jeton": 7442,
-   "usd": 0.00051879
-  },
-  {
-   "id": "kod1",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7455,
-   "usd": 0.00055409
-  },
-  {
-   "id": "kod2",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7428,
-   "usd": 0.00057839
-  },
-  {
-   "id": "kod3",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7443,
-   "usd": 0.00053739
-  },
-  {
-   "id": "kod4",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7454,
-   "usd": 0.00050299
-  },
-  {
-   "id": "kod5",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7437,
-   "usd": 0.0004927900000000001
-  },
-  {
-   "id": "kod6",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7450,
-   "usd": 0.00056309
-  },
-  {
-   "id": "kod7",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7462,
-   "usd": 0.00070829
-  },
-  {
-   "id": "kod8",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7449,
-   "usd": 0.00057899
-  },
-  {
-   "id": "kod9",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7450,
-   "usd": 0.0004915900000000001
-  },
-  {
-   "id": "kod10",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7456,
-   "usd": 0.0005666900000000001
-  },
-  {
-   "id": "kod11",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7436,
-   "usd": 0.0005621900000000001
-  },
-  {
-   "id": "kod12",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7447,
-   "usd": 0.00054379
-  },
-  {
-   "id": "kod13",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7441,
-   "usd": 0.0006511900000000001
-  },
-  {
-   "id": "kod14",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7443,
-   "usd": 0.00063789
-  },
-  {
-   "id": "kod15",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7440,
-   "usd": 0.00059909
-  },
-  {
-   "id": "kod16",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7440,
-   "usd": 0.0005690900000000001
-  },
-  {
-   "id": "kod17",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7450,
-   "usd": 0.0005935900000000001
-  },
-  {
-   "id": "kod18",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7432,
-   "usd": 0.00058379
-  },
-  {
-   "id": "kod19",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7448,
-   "usd": 0.00060789
-  },
-  {
-   "id": "cik0",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7472,
-   "usd": 0.0005672900000000001
-  },
-  {
-   "id": "cik1",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7466,
-   "usd": 0.00055669
-  },
-  {
-   "id": "cik2",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7474,
-   "usd": 0.0005954900000000001
-  },
-  {
-   "id": "cik3",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7469,
-   "usd": 0.00054449
-  },
-  {
-   "id": "cik4",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7470,
-   "usd": 0.0005725900000000001
-  },
-  {
-   "id": "cik5",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7470,
-   "usd": 0.0005455900000000001
-  },
-  {
-   "id": "cik6",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7470,
-   "usd": 0.0005510900000000001
-  },
-  {
-   "id": "cik7",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7475,
-   "usd": 0.0005610900000000001
-  },
-  {
-   "id": "cik8",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7470,
-   "usd": 0.00055659
-  },
-  {
-   "id": "cik9",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7467,
-   "usd": 0.0005922900000000001
-  },
-  {
-   "id": "cik10",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7472,
-   "usd": 0.0006007900000000001
-  },
-  {
-   "id": "cik11",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7463,
-   "usd": 0.00056039
-  },
-  {
-   "id": "cik12",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7470,
-   "usd": 0.00055909
-  },
-  {
-   "id": "cik13",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7465,
-   "usd": 0.0005670900000000001
-  },
-  {
-   "id": "cik14",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7472,
-   "usd": 0.0005662900000000001
-  },
-  {
-   "id": "cik15",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7473,
-   "usd": 0.0005418900000000001
-  },
-  {
-   "id": "cik16",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7472,
-   "usd": 0.0005632900000000001
-  },
-  {
-   "id": "cik17",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7472,
-   "usd": 0.0006217900000000001
-  },
-  {
-   "id": "cik18",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7463,
-   "usd": 0.00055439
-  },
-  {
-   "id": "cik19",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 14289,
-   "usd": 0.00062217
-  },
-  {
-   "id": "man0",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7448,
-   "usd": 0.00067489
-  },
-  {
-   "id": "man1",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7452,
-   "usd": 0.0005432900000000001
-  },
-  {
-   "id": "man2",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7449,
-   "usd": 0.00058549
-  },
-  {
-   "id": "man3",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7467,
-   "usd": 0.00058929
-  },
-  {
-   "id": "man4",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7448,
-   "usd": 0.00064539
-  },
-  {
-   "id": "man5",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7452,
-   "usd": 0.00061479
-  },
-  {
-   "id": "man6",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7449,
-   "usd": 0.0005949900000000001
-  },
-  {
-   "id": "man7",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7467,
-   "usd": 0.00059079
-  },
-  {
-   "id": "man8",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7448,
-   "usd": 0.00073289
-  },
-  {
-   "id": "man9",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7452,
-   "usd": 0.0006047900000000001
-  },
-  {
-   "id": "man10",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7449,
-   "usd": 0.00056399
-  },
-  {
-   "id": "man11",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7467,
-   "usd": 0.00063929
-  },
-  {
-   "id": "man12",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7448,
-   "usd": 0.00060039
-  },
-  {
-   "id": "man13",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7452,
-   "usd": 0.0005662900000000001
-  },
-  {
-   "id": "man14",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7449,
-   "usd": 0.0005669900000000001
-  },
-  {
-   "id": "man15",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7467,
-   "usd": 0.00056979
-  },
-  {
-   "id": "man16",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7448,
-   "usd": 0.0006088900000000001
-  },
-  {
-   "id": "man17",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7452,
-   "usd": 0.00060079
-  },
-  {
-   "id": "man18",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7449,
-   "usd": 0.00060649
-  },
-  {
-   "id": "man19",
-   "katman": "haiku",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 7467,
-   "usd": 0.00061529
-  },
-  {
-   "id": "kod0",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6666,
-   "usd": 0.0206467
-  },
-  {
-   "id": "kod1",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6679,
-   "usd": 0.0198487
-  },
-  {
-   "id": "kod2",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6652,
-   "usd": 0.0208107
-  },
-  {
-   "id": "kod3",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6667,
-   "usd": 0.019950700000000002
-  },
-  {
-   "id": "kod4",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6678,
-   "usd": 0.0200747
-  },
-  {
-   "id": "kod5",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6661,
-   "usd": 0.0198167
-  },
-  {
-   "id": "kod6",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6674,
-   "usd": 0.0198587
-  },
-  {
-   "id": "kod7",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6686,
-   "usd": 0.0206267
-  },
-  {
-   "id": "kod8",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6673,
-   "usd": 0.0201947
-  },
-  {
-   "id": "kod9",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6674,
-   "usd": 0.0198187
-  },
-  {
-   "id": "kod10",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 13498,
-   "usd": 0.0212875
-  },
-  {
-   "id": "kod11",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6660,
-   "usd": 0.019742700000000002
-  },
-  {
-   "id": "kod12",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6671,
-   "usd": 0.0201867
-  },
-  {
-   "id": "kod13",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6665,
-   "usd": 0.0201727
-  },
-  {
-   "id": "kod14",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6667,
-   "usd": 0.0208907
-  },
-  {
-   "id": "kod15",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6664,
-   "usd": 0.0219687
-  },
-  {
-   "id": "kod16",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6664,
-   "usd": 0.0207087
-  },
-  {
-   "id": "kod17",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6674,
-   "usd": 0.0204987
-  },
-  {
-   "id": "kod18",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6656,
-   "usd": 0.019936699999999998
-  },
-  {
-   "id": "kod19",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6672,
-   "usd": 0.0201207
-  },
-  {
-   "id": "cik0",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6696,
-   "usd": 0.0199967
-  },
-  {
-   "id": "cik1",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6690,
-   "usd": 0.020002699999999998
-  },
-  {
-   "id": "cik2",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6698,
-   "usd": 0.0200247
-  },
-  {
-   "id": "cik3",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6693,
-   "usd": 0.019964700000000002
-  },
-  {
-   "id": "cik4",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6694,
-   "usd": 0.020488700000000002
-  },
-  {
-   "id": "cik5",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6694,
-   "usd": 0.019978700000000002
-  },
-  {
-   "id": "cik6",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6694,
-   "usd": 0.0199887
-  },
-  {
-   "id": "cik7",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6699,
-   "usd": 0.0200387
-  },
-  {
-   "id": "cik8",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6694,
-   "usd": 0.019978700000000002
-  },
-  {
-   "id": "cik9",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6691,
-   "usd": 0.0200067
-  },
-  {
-   "id": "cik10",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6696,
-   "usd": 0.0207367
-  },
-  {
-   "id": "cik11",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6687,
-   "usd": 0.0199607
-  },
-  {
-   "id": "cik12",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6694,
-   "usd": 0.0199887
-  },
-  {
-   "id": "cik13",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6689,
-   "usd": 0.0199787
-  },
-  {
-   "id": "cik14",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6696,
-   "usd": 0.0199967
-  },
-  {
-   "id": "cik15",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 13515,
-   "usd": 0.020965499999999998
-  },
-  {
-   "id": "cik16",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 13514,
-   "usd": 0.0209615
-  },
-  {
-   "id": "cik17",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6696,
-   "usd": 0.0200067
-  },
-  {
-   "id": "cik18",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6687,
-   "usd": 0.019950700000000002
-  },
-  {
-   "id": "cik19",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6695,
-   "usd": 0.0199927
-  },
-  {
-   "id": "man0",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6672,
-   "usd": 0.0209507
-  },
-  {
-   "id": "man1",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6676,
-   "usd": 0.0204767
-  },
-  {
-   "id": "man2",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6673,
-   "usd": 0.0204947
-  },
-  {
-   "id": "man3",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6691,
-   "usd": 0.0205767
-  },
-  {
-   "id": "man4",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6672,
-   "usd": 0.0213907
-  },
-  {
-   "id": "man5",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6676,
-   "usd": 0.0205767
-  },
-  {
-   "id": "man6",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6673,
-   "usd": 0.0206847
-  },
-  {
-   "id": "man7",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6691,
-   "usd": 0.0210767
-  },
-  {
-   "id": "man8",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6672,
-   "usd": 0.0221507
-  },
-  {
-   "id": "man9",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6676,
-   "usd": 0.020466699999999997
-  },
-  {
-   "id": "man10",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6673,
-   "usd": 0.020714700000000003
-  },
-  {
-   "id": "man11",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6691,
-   "usd": 0.0208267
-  },
-  {
-   "id": "man12",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6672,
-   "usd": 0.0207207
-  },
-  {
-   "id": "man13",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6676,
-   "usd": 0.0205267
-  },
-  {
-   "id": "man14",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6673,
-   "usd": 0.0207747
-  },
-  {
-   "id": "man15",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6691,
-   "usd": 0.0206167
-  },
-  {
-   "id": "man16",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6672,
-   "usd": 0.0209507
-  },
-  {
-   "id": "man17",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6676,
-   "usd": 0.0204967
-  },
-  {
-   "id": "man18",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6673,
-   "usd": 0.020724700000000002
-  },
-  {
-   "id": "man19",
-   "katman": "sonnet",
-   "kol": "sonra",
-   "ok": true,
-   "jeton": 6691,
-   "usd": 0.0211467
+   "jeton": 227,
+   "usd": 0
   }
  ],
- "zaman": "2026-10-22 12:56"
+ "zaman": "2026-10-22 15:46"
 }

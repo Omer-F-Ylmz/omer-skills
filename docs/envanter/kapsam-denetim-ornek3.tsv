@@ -1,0 +1,101 @@
+no	ad	tur	yol	birincil	ikincil
+1	ui-before-after	skill	C:\Users\pc\.claude\skills\ui-before-after	frontend-ui	gorsel
+2	senior-secops	skill	C:\Users\pc\.claude\skills\senior-secops	guvenlik	inceleme;is-finans-hukuk
+3	pynput	pip-paket	C:\Users\pc\AppData\Local\Programs\Python\Python312\python.exe (1.8.2)	ajan-arac	
+4	sqli-hunter	skill	C:\Users\pc\.claude\skills\sqli-hunter	guvenlik	test-qa
+5	sql-injection-testing	skill	C:\Users\pc\.claude\skills\sql-injection-testing	guvenlik	test-qa;veri-db
+6	monday-crm@knowledge-work-plugins	plugin	C:\Users\pc\.claude\settings.json	is-finans-hukuk	
+7	davila7-executing-plans	skill	C:\Users\pc\.claude\skills\davila7-executing-plans	surec-plan	surec-plan;verimlilik
+8	interfaces-explain-interface	skill-zip	C:\Projeler\omer-skills\dist\yukle-12-eski\parti-5\interfaces-explain-interface.zip	frontend-ui	
+9	ecc-ito-training	skill-zip	C:\Projeler\omer-skills\dist\yukle-12\parti-17\ecc-ito-training.zip	is-finans-hukuk	
+10	y23-qa-expert	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\_ham\y23-qa-expert.zip	test-qa	
+11	rag-chroma	skill	C:\Users\pc\.claude\skills\rag-chroma	veri-db	
+12	certifi	pip-paket	C:\AI\medya\venv-medya\Scripts\python.exe (2026.10.23)	backend-genel	
+13	startup-business-analyst-business-case	skill	C:\Users\pc\.claude\skills\startup-business-analyst-business-case	is-finans-hukuk	
+14	ollaya-dev-frontend-ui-engineering	skill	C:\Users\pc\.claude\skills\ollaya-dev-frontend-ui-engineering	frontend-ui	
+15	agents	skill	C:\Users\pc\.claude\skills\agents	ajan-arac	
+16	omer-kutuphaneler/bklit-ui	repo	C:\Projeler\omer-kutuphaneler\bklit-ui	frontend-ui	
+17	nmrglue	skill	C:\Users\pc\.claude\skills\nmrglue	bilim	surec-plan
+18	create-security-advisory	skill	C:\Users\pc\.claude\skills\create-security-advisory	guvenlik	
+19	calesthio-text-to-speech	skill	C:\Users\pc\.claude\skills\calesthio-text-to-speech	video	
+20	learning-output-style@claude-code-plugins	plugin	C:\Users\pc\.claude\settings.json	ajan-arac	
+21	thesmokedev-geo-compare	skill	C:\Users\pc\.claude\skills\thesmokedev-geo-compare	pazarlama-reklam	
+22	image-first-grid-layout	skill	C:\Users\pc\.claude\skills\image-first-grid-layout	frontend-ui	
+23	primp	pip-paket	C:\Projeler\_araclar\venv-kalem\Scripts\python.exe (2.0.1)	arastirma	
+24	hormozi-pitch	skill	C:\Users\pc\.claude\skills\hormozi-pitch	is-finans-hukuk	
+25	announcing-behavior-changes	skill	C:\Users\pc\.claude\skills\announcing-behavior-changes	belge	
+26	azure-deploy-model	skill-zip	C:\Projeler\omer-skills\dist\yukle-12\parti-44\azure-deploy-model.zip	ml-ai	
+27	port	skill	C:\Users\pc\.claude\skills\port	backend-genel	
+28	git-guardrails-claude-code	skill-zip	C:\Projeler\omer-skills\dist\video-izle-kur-1\git-guardrails-claude-code.zip	ajan-arac	guvenlik;ml-ai
+29	-	uv-arac	uv tool:-==llm-channel-auditor	ajan-arac	
+30	signals-scout-first-report	skill	C:\Users\pc\.claude\skills\signals-scout-first-report	veri-db	
+31	jinero-online-copy-to-figma	skill	C:\Users\pc\.claude\skills\jinero-online-copy-to-figma	frontend-ui	gorsel
+32	departman-backend-dotnet	skill-zip	C:\Projeler\omer-skills\dist\yukle-19\yeni\departman-backend-dotnet.zip	backend-dotnet	
+33	tellurium	skill	C:\Users\pc\.claude\skills\tellurium	bilim	
+34	elainesmithburkel-code-coding-standards	skill	C:\Users\pc\.claude\skills\elainesmithburkel-code-coding-standards	backend-genel	
+35	dianatofficial-chat-with-maps-live	skill	C:\Users\pc\.claude\skills\dianatofficial-chat-with-maps-live	arastirma	
+36	authoring-scouts	skill	C:\Users\pc\.claude\skills\authoring-scouts	ajan-arac	
+37	cloudpickle	pip-paket	C:\AI\medya\venv-medya\Scripts\python.exe (3.1.2)	backend-genel	
+38	ai-code-cleanup	skill	C:\Users\pc\.claude\skills\ai-code-cleanup	inceleme	verimlilik
+39	Microsoft .NET Targeting Pack - 10.0.11 (x64)	uygulama-windows	Microsoft .NET Targeting Pack - 10.0.11 (x64)	backend-dotnet	
+40	svg-character-animation	skill	C:\Users\pc\.claude\skills\svg-character-animation	frontend-ui	
+41	design-research-user-persona	skill-zip	C:\Projeler\omer-skills\dist\yukle-12-eski\parti-2\design-research-user-persona.zip	arastirma	
+42	validate-release-green	skill	C:\Users\pc\.claude\skills\validate-release-green	git-yayin	test-qa;surec-plan
+43	efsun3d.html	dosya	C:\Users\pc\Downloads\efsun3d.html	3d-blender	
+44	_tara/gl.json	veri	C:\Projeler\_tara\gl.json	diger-genel	
+45	penguin-sdk	skill	C:\Users\pc\.claude\skills\penguin-sdk	ajan-arac	
+46	video-production	skill	C:\Users\pc\.claude\skills\video-production	video	
+47	mukul975-digital-forensics-paket	skill-zip	C:\Projeler\omer-skills\dist\yukle-13\_paket\mukul975-digital-forensics-paket.zip	guvenlik	
+48	datamol	skill	C:\Users\pc\.claude\skills\datamol	bilim	frontend-ui
+49	auto-repo-setup@daymade-skills	plugin	C:\Users\pc\.claude\settings.json	git-yayin	
+50	davila7-architecture-patterns	skill	C:\Users\pc\.claude\skills\davila7-architecture-patterns	backend-genel	video
+51	ecc-dart-flutter-patterns	skill-zip	C:\Projeler\omer-skills\dist\yukle-12-eski\parti-14\ecc-dart-flutter-patterns.zip	mobil	test-qa
+52	omer-beyin-notebooklm/05-durum-notlar-1.md	belge	C:\Projeler\omer-beyin-notebooklm\05-durum-notlar-1.md	verimlilik	verimlilik;veri-db
+53	agents-v2-py	skill	C:\Users\pc\.claude\skills\agents-v2-py	bulut-devops	ajan-arac
+54	y23-daymade-cc-code	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\grup-04\y23-daymade-cc-code.zip	ajan-arac	
+55	IIS Express Application Compatibility Database for x64	uygulama-windows	IIS Express Application Compatibility Database for x64	backend-dotnet	
+56	marketing-skills-launch	skill-zip	C:\Projeler\omer-skills\dist\yukle-12\parti-39\marketing-skills-launch.zip	pazarlama-reklam	
+57	mukul975-identity-security-paket	skill-zip	C:\Projeler\omer-skills\dist\yukle-claude-ai\grup-4\mukul975-identity-security-paket.zip	guvenlik	
+58	uizze	plugin-pazaryeri	C:\Users\pc\.claude\plugins\known_marketplaces.json	arastirma	
+59	ralph-tui-prd	skill	C:\Users\pc\.claude\skills\ralph-tui-prd	belge	surec-plan
+60	incident-responder	skill	C:\Users\pc\.claude\skills\incident-responder	bulut-devops	guvenlik;test-qa
+61	Microsoft .NET Host FX Resolver - 9.0.9 (x64)	uygulama-windows	Microsoft .NET Host FX Resolver - 9.0.9 (x64)	backend-dotnet	
+62	desktop-commander@knowledge-work-plugins	plugin	C:\Users\pc\.claude\settings.json	ajan-arac	
+63	open-design@open-design	plugin	C:\Users\pc\.claude\settings.json	frontend-ui	
+64	re-walkthrough-pro	skill	C:\Users\pc\.claude\skills\re-walkthrough-pro	video	inceleme;video
+65	adobe-for-creativity-adobe	skill-zip	C:\Projeler\omer-skills\dist\yukle-12\parti-8\adobe-for-creativity-adobe.zip	gorsel	ajan-arac
+66	localize	skill	C:\Users\pc\.claude\skills\localize	oyun	
+67	mobilecli	skill	C:\Users\pc\.claude\skills\mobilecli	mobil	test-qa
+68	langfuse	skill	C:\Users\pc\.claude\skills\langfuse	ml-ai	
+69	obsidian-bases	skill	C:\Users\pc\.claude\skills\obsidian-bases	verimlilik	veri-db
+70	food-ordering	skill	C:\Users\pc\.claude\skills\food-ordering	diger-genel	surec-plan
+71	voicestudio-maintainer	skill	C:\Users\pc\.claude\skills\voicestudio-maintainer	ajan-arac	git-yayin
+72	y23-carta-investors	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\_ham\y23-carta-investors.zip	is-finans-hukuk	
+73	motion-design-skills	plugin-pazaryeri	C:\Users\pc\.claude\plugins\known_marketplaces.json	video	gorsel
+74	grafana-cloud-mcp@knowledge-work-plugins	plugin	C:\Users\pc\.claude\plugins\installed_plugins.json	bulut-devops	
+75	stocks	skill	C:\Users\pc\.claude\skills\stocks	is-finans-hukuk	veri-db
+76	ghidra-reverse	skill	C:\Users\pc\.claude\skills\ghidra-reverse	guvenlik	
+77	y23-activecampaign	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\_ham\y23-activecampaign.zip	pazarlama-reklam	
+78	slippage-modeling	skill	C:\Users\pc\.claude\skills\slippage-modeling	is-finans-hukuk	surec-plan
+79	api-tester	ajan	C:\Users\pc\.claude\agents\api-tester.md	test-qa	backend-dotnet
+80	remotion-dev-remotion-create	skill	C:\Users\pc\.claude\skills\remotion-dev-remotion-create	video	
+81	rea-agents	npm-paket	C:\Users\pc\AppData\Roaming\npm\node_modules\rea-agents	ajan-arac	
+82	phoenix-cti-search@phoenix-security	plugin	C:\Users\pc\.claude\plugins\installed_plugins.json	guvenlik	
+83	octo-debate-kickoff	skill-zip	C:\Projeler\omer-skills\dist\yukle-12\parti-40\octo-debate-kickoff.zip	surec-plan	
+84	tsup	npm-paket	C:\Users\pc\AppData\Roaming\npm\node_modules\tsup	backend-genel	
+85	kdense-scientific-paket-1	skill-zip	C:\Projeler\omer-skills\dist\yukle-14\_paket\kdense-scientific-paket-1.zip	bilim	
+86	hyperframes-hyperframes-registry	skill-zip	C:\Projeler\omer-skills\dist\yukle-12-eski\parti-10\hyperframes-hyperframes-registry.zip	video	
+87	hig-platforms	skill	C:\Users\pc\.claude\skills\hig-platforms	frontend-ui	
+88	davila7-pyopenms	skill	C:\Users\pc\.claude\skills\davila7-pyopenms	bilim	frontend-ui
+89	autoclip-paket	skill-zip	C:\Projeler\omer-skills\dist\yukle-claude-ai\grup-1\autoclip-paket.zip	video	
+90	ux-design	skill	C:\Users\pc\.claude\skills\ux-design	frontend-ui	
+91	ecc-orch-pipeline	skill-zip	C:\Projeler\omer-skills\dist\yukle-12-eski\parti-20\ecc-orch-pipeline.zip	ajan-arac	
+92	restaurant-recommendations	skill	C:\Users\pc\.claude\skills\restaurant-recommendations	diger-genel	
+93	y23-ceo-personal-os	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\grup-03\y23-ceo-personal-os.zip	verimlilik	
+94	n8n-validation-expert	skill	C:\Users\pc\.claude\skills\n8n-validation-expert	ajan-arac	
+95	11-channel-setup-global	skill	C:\Users\pc\.claude\skills\11-channel-setup-global	pazarlama-reklam	surec-plan
+96	y23-cc-mem-cowork	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\_ham\y23-cc-mem-cowork.zip	ajan-arac	
+97	davila7-react-patterns	skill	C:\Users\pc\.claude\skills\davila7-react-patterns	frontend-ui	verimlilik
+98	y23-kisisel-41	skill-zip	C:\Projeler\omer-skills\dist\claude-ai\yukle-23eki\grup-09\y23-kisisel-41.zip	diger-genel	
+99	meme-creator@daymade-skills	plugin	C:\Users\pc\.claude\settings.json	gorsel	
+100	publish-app	skill	C:\Users\pc\.claude\skills\publish-app	git-yayin	test-qa

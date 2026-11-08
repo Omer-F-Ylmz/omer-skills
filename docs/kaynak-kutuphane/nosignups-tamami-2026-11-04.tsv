@@ -1,0 +1,275 @@
+ad	kategori	url	aciklama	lisans	yildiz	github	durum
+World Monitor	data	https://www.worldmonitor.app/	Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness in	AGPL-3.0-only	89192	https://github.com/koala73/worldmonitor?utm_source=worldmonitor&utm_medium=referral&utm_campaign=general	AL
+OSIRIS	data	https://www.osirisai.live/	Open Source Palantir Alternative	MIT	11226	https://github.com/simplifaisoul/osiris	AL
+RAWGraphs	data	https://app.rawgraphs.io	A web interface to create custom vector-based visualizations on top of RAWGraphs core	Apache-2.0	9044	https://github.com/rawgraphs/rawgraphs-app	AL
+GitHub Readme Streak Stats	data	https://streak-stats.demolab.com/demo/	Stay motivated and show off your contribution streak! Display your total contributions, current streak, and longest streak on your GitHub profile README	MIT	7179	https://github.com/DenverCoder1/github-readme-streak-stats	AL
+Mr. Data Converter	data	https://shancarter.github.io/mr-data-converter/	Takes CSV or tab-delimited data from Excel and converts it into several web-friendly formats, include JSON and XML.	MIT	1956	https://github.com/shancarter/Mr-Data-Converter?tab=License-1-ov-file	AL
+Daily Stars Explorer	data	https://emanuelef.github.io/daily-stars-explorer/	Gain deeper insights into your favourite open-source GitHub repositories. Explore star trends showing daily stats.	MIT	411	https://github.com/emanuelef/daily-stars-explorer	AL
+Datasette Lite	data	https://lite.datasette.io	a full server-side Datasette Python web application directly in your browser	Apache-2.0	410	https://github.com/simonw/datasette-lite	AL
+SQLChef	data	https://jonathanwalker.github.io/SQLChef/	Query files like CSV, JSON, and Parquet directly in the browser	MIT	15	https://github.com/jonathanwalker/sqlchef	AL
+Schema3D	data	https://schema3d.com/	An interactive tool for visualizing relational database schemas in 3D.	MIT	15	https://github.com/shane-jacobeen/schema3d	AL
+Rosint+	data	https://rosintplus.github.io/	Allows you to see deleted reddit posts, private profiles and profile stats (top subreddits, activity heatmap, common words used)	MIT	15	https://github.com/rosintplus/rosintplus.github.io	AL
+Satvisor	data	https://satvisor.com/	3D satellite tracker with orbit visualization, pass predictions, and antenna rotator control (GS-232, EasyComm, Hamlib)	AGPL-3.0	13	https://github.com/satvisorcom/satvisor	AL
+Grade Boundaries	data	https://gradeboundaries.com	A level and IGCSE grade boundary lookup	CC BY-NC 4.0	5	https://github.com/Grade-Boundaries/GradeBoundaries-stable	AL (ticari-disi lisans, bilerek alindi)
+Excalidraw	design	https://excalidraw.com	Virtual whiteboard for sketching hand-drawn like diagrams	MIT	134385	https://github.com/excalidraw/excalidraw	AL
+tldraw	design	https://www.tldraw.com/	A simple drawing/whiteboarding tool	NC	51041	https://github.com/tldraw/tldraw	AL (ticari-disi lisans, bilerek alindi)
+Graphite	design	https://editor.graphite.rs	Community-built comprehensive 2D content creation appplication for graphic design, digital art, and interactive real-time motion graphics powered by a node-base	Apache-2.0	27686	https://github.com/GraphiteEditor/Graphite	AL
+Pascal Editor	design	https://pascaleditor.app/editor	Browser-based 3D room planner for designing and testing interior layouts.	MIT	25054	https://github.com/pascalorg/editor	AL
+Piskel	design	https://www.piskelapp.com	Easy-to-use sprite editor. It can be used to create game sprites, animations, and pixel-art	Apache-2.0	12860	https://github.com/piskelapp/piskel	AL
+Pixelorama	design	https://orama-interactive.itch.io/pixelorama	Create pixel art in your browser	MIT	10691	https://github.com/Orama-Interactive/Pixelorama	AL
+draw.io	design	https://www.drawio.com/	A configurable browser-based diagramming and whiteboarding tool for flowcharts, UML, network diagrams, ER diagrams, BPMN, and more.	Apache-2.0	8931	https://github.com/jgraph/drawio	AL
+Dashboard Icons	design	https://dashboardicons.com/	A collection of over 1800 curated icons for services, applications and tools, designed specifically for dashboards and app directories	Apache-2.0	8908	https://github.com/homarr-labs/dashboard-icons	AL
+JSPaint	design	https://jspaint.app	🎨 Classic MS Paint, ＲＥＶＩＶＥＤ + ✨Extras	MIT	7900	https://github.com/1j01/jspaint	AL
+SVG-Edit	design	https://svgedit.netlify.app/index.html	Powerful SVG-Editor for your browser	MIT	7882	https://github.com/SVG-Edit/svgedit	AL
+Blockbench	design	https://web.blockbench.net/	A low poly 3D model editor	GPL-3.0	6082	https://github.com/JannisX11/blockbench	AL
+SvgPathEditor	design	https://yqnn.github.io/svg-path-editor/	Online editor to create and manipulate SVG paths	Apache-2.0	5339	https://github.com/Yqnn/svg-path-editor	AL
+TerraInk	design	https://terraink.app/	Cartographic poster engine	MIT	4208	https://github.com/yousifamanuel/terraink	AL
+MakeGirlsMoe	design	https://make.girls.moe	Create Anime Characters	CC BY-NC 2.0	3413	https://github.com/makegirlsmoe/makegirlsmoe_web	AL (ticari-disi lisans, bilerek alindi)
+Pattern Craft	design	https://patterncraft.store/	Professional-grade background patterns and gradients for your websites and apps	MIT	3088	https://github.com/megh-bari/pattern-craft	AL
+Method Draw	design	https://editor.method.ac	Simple and easy-to-use SVG editor experience	MIT	3021	https://github.com/methodofaction/Method-Draw	AL
+TheSVG	design	https://thesvg.org/	6,100+ SVG icons. Brands, AWS, Azure, GCP, and more. Search, copy, ship.	MIT	2886	https://github.com/glincker/thesvg	AL
+GodSVG	design	https://www.godsvg.com/editor/	Structured SVG editor	MIT	2783	https://github.com/MewPurPur/GodSVG	AL
+Icon Maker	design	https://ray.so/icon	Tool that lets you quickly generate clean, professional app icons using customizable shapes, gradients, and glyphs	MIT	2365	https://github.com/raycast/ray-so	AL
+Avnac	design	https://avnac.design/	design editor for posters, layouts, social graphics, and other canvas-based compositions	AGPL-3.0	1587	https://github.com/xt42io/avnac	AL
+PixelCraft	design	https://pixelcraft.web.app	A pixel Art & Animation Creation Tool Built using HTML5 Canvas	MIT	1528	https://github.com/rgab1508/PixelCraft	AL
+Vecto3d	design	https://vecto3d.app/	A super simple tool to convert your SVG's to 3D models	MIT	1490	https://github.com/lakshaybhushan/vecto3d	AL
+Screenshot Studio	design	https://www.screenshot-studio.com/	A free, browser-based screenshot editor. Beautiful backgrounds, device frames, 3D effects, animations, and video export. No signup, no watermarks.	Apache-2.0	1083	https://github.com/KartikLabhshetwar/screenshot-studio	AL
+Aura gradients	design	https://auragradients.vercel.app/	200+ layered, atmospheric gradients built from soft blend modes	MIT	509	https://github.com/CristianOlivera1/Aura	AL
+Design Systems Checklist	design	https://designsystemchecklist.com/	checklist to help you plan, build and grow your design system	?	506	https://github.com/ardakaracizmeli/design-system-checklist	AL
+Darkly.Art	design	https://darkly.art/	Entropic Editor for Artists	AGPL-3.0	395	https://github.com/darkly-art/darkly	AL
+Klecks	design	https://kleki.com/	Modern and feature-rich painting app for the web	MIT	385	https://github.com/bitbof/klecks	AL
+Component Gallery	design	https://component.gallery/	The Component Gallery is a collection of components from the best Design Systems.	?	352	https://github.com/inbn/component-gallery	AL
+Glyphr Studio	design	https://www.glyphrstudio.com/	Font editor, made for hobbyists and typeface design beginners	?	319	https://github.com/glyphr-studio/Glyphr-Studio-2	AL
+Studio	design	https://studio.neato.fun/	A suite of random, mostly weird, generative art tools!	MIT	165	https://github.com/Shpigford/studio	AL
+Phosphor-Cam	design	https://phosphor.aroy.site/	Real-time ASCII art camera that transforms your webcam feed into glowing terminal aesthetics. Built with React + Canvas API	MIT	121	https://github.com/pshycodr/phosphor-cam	AL
+zoxilsi studio	design	https://studio.zoxilsi.cc/	Design organic, flowing gradients by sculpting a bezier-patched lattice in real-time WebGL. Export to images, video, code, or as editable project files	MIT	115	https://github.com/zoxilsi/studio	AL
+Fluid	design	https://fluid.krackeddevs.com/	Dependency-free WebGL studio for generative backgrounds and live embeds	MIT	92	https://github.com/enonforetsam/fluid	AL
+ColorKit	design	https://colorskit.vercel.app/	feature-rich color picker and analysis tool	MIT	56	https://github.com/codewithdhruba01/ColorPicker	AL
+ToolsForImage	design	https://toolsforimage.com/	web application that provides a suite of image processing tools	MIT	24	https://github.com/mlbrothers/ToolsForImage-OSS	AL
+OpenMosh	design	https://open-mosh.vercel.app/	Datamosh your photos and videos, glitch effects in sync with music.	MIT	12	https://github.com/zivavu/OpenMosh	AL
+DrawShare	design	https://shravangoswami.com/DrawShare/	collaborative whiteboard for drawing and note-taking	MIT	9	https://github.com/shravanngoswamii/DrawShare	AL
+ShadeStudio	design	https://laura.media/shade-studio/	Create a full color palette from a base color and export it to CSS, Tailwind and SVG	MIT	5	https://github.com/LauraWebdev/shade-studio	AL
+Word Aligner	design	https://aligner.tinygods.dev	Link words across a translation, then export the diagram.	MIT	5	https://github.com/tinygodsdev/bitext-word-alignment	AL
+dither	design	https://dither.fuego.im/	Pixel-perfect dithering utility. Drop an image, dial in the settings, ship a dither	?	4	https://github.com/fuegocoding/dither	AL
+VoidMesh	design	https://voidmesh.xyz/	Local image and video filters with shaders, on an infinite canvas	MIT	4	https://github.com/ogdakke/voidmesh	AL
+Planar	design	https://planar.masn.studio	A client-side web utility to scale, crop, and tile images onto sheets of paper for printing at exact real-world dimensions.	MIT	4	https://github.com/Mason363/Planar	AL
+Image to UnicodeASCII Generator	design	https://reactorcore.itch.io/image-to-unicodeascii-generator	Easily transform any image into ASCII/Unicode art	?		https://github.com/ReactorcoreGames/Image-to-UnicodeASCII-Generator/tree/main	AL
+Unicon	design	https://unicon-tool.vercel.app/	Convert any Unicode symbol, emoji, or glyph into a custom favicon	MIT		https://github.com/waferflopai/unicon-tool	AL
+Visual Studio Code for the Web	development	https://vscode.dev/	provides a free, zero-install Microsoft Visual Studio Code experience running entirely in your browser, allowing you to quickly and safely browse source code re	MIT	194209	https://github.com/microsoft/vscode	AL
+Godot Web	development	https://editor.godotengine.org/releases/latest/	Provides a zero-install Godot enviroment that runs entirely in your browser.	MIT	118872	https://github.com/godotengine/godot	AL
+hoppscotch	development	https://hoppscotch.io/	Open-Source API Development Ecosystem. Alternative to Postman, Insomnia	MIT	80677	https://github.com/hoppscotch/hoppscotch	AL
+Algorithm Visualizer	development	https://algorithm-visualizer.org/	An interactive online platform for visualizing algorithms from code and learning algorithm behavior through animations.	MIT	48889	https://github.com/algorithm-visualizer/algorithm-visualizer	AL
+JSON Crack	development	https://jsoncrack.com/	visualization application that transforms various data formats, such as JSON, YAML, XML and CSV into interactive graphs	Apache-2.0	44516	https://github.com/AykutSarac/jsoncrack.com	AL
+IT-Tools	development	https://it-tools.tech/	Collection of handy online tools for developers, with great UX	GPL-3.0	40934	https://github.com/corentinth/it-tools	AL
+drawDB	development	https://www.drawdb.app	Free, simple, and intuitive online database diagram editor and SQL generator	AGPL-3.0	40106	https://github.com/drawdb-io/drawdb	AL
+carbon	development	https://carbon.now.sh/	Create and share beautiful images of your source code	MIT	36121	https://github.com/carbon-app/carbon	AL
+Simple Icons	development	https://simpleicons.org/	Free SVG icons for popular brands. 3000+ icons, public domain, no signup.	CC0-1.0	26059	https://github.com/simple-icons/simple-icons	AL
+Feather	development	https://feathericons.com/	Simply beautiful open-source icons	MIT	26017	https://github.com/feathericons/feather	AL
+Lucide	development	https://lucide.dev/	Beautiful & consistent icon toolkit made by the community	ISC	25210	https://github.com/lucide-icons/lucide	AL
+heroicons	development	https://heroicons.com/	A set of free MIT-licensed high-quality SVG icons for UI development.	MIT	23875	https://github.com/tailwindlabs/heroicons	AL
+Tabler Icons	development	https://tabler.io/icons	A set of over 6000 free MIT-licensed high-quality SVG icons for you to use in your web projects.	MIT	22412	https://github.com/tabler/tabler-icons	AL
+ffmpeg.wasm	development	https://ffmpegwasm.netlify.app/playground	FFmpeg for browser, powered by WebAssembly	MIT	17898	https://github.com/ffmpegwasm/ffmpeg.wasm	AL
+explainshell.com	development	https://explainshell.com/	Match command-line arguments to their help text	GPL-3.0	14301	https://github.com/idank/explainshell	AL
+Markmap	development	https://markmap.js.org/	Creates interactive mind maps from Markdown with a live editor and visualization	MIT	13187	https://github.com/markmap/markmap	AL
+QuickRef.ME	development	https://quickref.me/	Share quick reference cheat sheet for developers	GPL-3.0	10919	https://github.com/Fechin/reference	AL
+RegExr	development	https://regexr.com/	HTML/JS based tool for creating, testing, and learning about Regular Expressions	GPL-3.0	10382	https://github.com/gskinner/regexr/	AL
+Bundlephobia	development	https://bundlephobia.com/	Find out the cost of adding a new frontend dependency to your project	MIT	9608	https://github.com/pastelsky/bundlephobia	AL
+M3E Canvas	development	https://lnkiai.github.io/m3e-canvas/	A browser-based UI prototyping tool for designing Material 3 Expressive app screens, linking interactive flows, and generating prompts for AI coding tools.	MIT	9588	https://github.com/lnkiai/m3e-canvas	AL
+Transform	development	https://transform.tools/	A polyglot web converter	MIT	9247	https://github.com/ritz078/transform	AL
+Remix Icons	development	https://remixicon.com/	Open source neutral style icon system	RIL-1.0	8427	https://github.com/Remix-Design/RemixIcon	AL
+Phosphor Icons	development	https://ionic.io/ionicons	The homepage of Phosphor Icons, a flexible icon family for everyone	MIT	7701	https://github.com/phosphor-icons/homepage/tree/master	AL
+Mermaid Live	development	https://mermaid.live	Edit, preview and share mermaid charts/diagrams. New implementation of the live editor.	MIT	6869	https://github.com/mermaid-js/mermaid-live-editor	AL
+AST explorer	development	https://astexplorer.net/	A web tool to explore the ASTs generated by various parsers.	MIT	6545	https://github.com/fkling/astexplorer	AL
+SVGOMG	development	https://jakearchibald.github.io/svgomg/	Shrink SVG sizes dramatically	MIT	6207	https://github.com/jakearchibald/svgomg	AL
+Iconoir	development	https://iconoir.com/	An open source icons library with 1600+ icons, supporting React, React Native, Flutter, Vue, Figma, and Framer.	MIT	4601	https://github.com/iconoir-icons/iconoir	AL
+OpenMoji	development	https://openmoji.org/library/	Open source emojis for designers, developers and everyone else!	CC-BY-SA-4.0	4570	https://github.com/hfg-gmuend/openmoji	AL
+JS Bin	development	https://jsbin.com	Collaborative JavaScript Debugging App	MIT	4423	https://github.com/jsbin/jsbin	AL
+Kroki	development	https://kroki.io/#try	diagram rendering service that generates diagrams from text using tools like Mermaid, PlantUML, Graphviz, and more	MIT	4379	https://github.com/yuzutech/kroki	AL
+CodeGraphContext (CGC)	development	https://cgc.codes/explore	An MCP server plus a CLI tool that indexes local code into a graph database to provide context to AI assistants	MIT	4330	https://github.com/CodeGraphContext/CodeGraphContext	AL
+Amicro	development	https://amicro.vercel.app/	A curated library of premium React micro-interactions and transition components powered by Motion.	?	2681	https://github.com/Subhan-code/Amicro--Micro-transitions-	AL
+GitFut	development	https://gitfut.com/	Your GitHub, rated out of 99 ⚽	MIT	2653	https://github.com/younesfdj/gitfut	AL
+CircuitJS1	development	https://www.falstad.com/circuit/	A browser-based electronic circuit simulator with animated schematics, example circuits, and editable components.	GPL-2.0	2429	https://github.com/pfalstad/circuitjs1	AL
+GitReverse	development	https://www.gitreverse.com/	Reverse engineer any repo into it's original prompt	?	2029	https://github.com/filiksyos/gitreverse	AL
+DartPad	development	https://dartpad.dev	An online Dart editor with support for console, web, and Flutter apps.	BSD-3-Clause	1869	https://github.com/dart-lang/dart-pad	AL
+Rom Patcher JS	development	https://www.marcrobledo.com/RomPatcher.js/	A ROM patcher made in Javascript	MIT	1224	https://github.com/marcrobledo/RomPatcher.js/	AL
+Online tools	development	https://emn178.github.io/online-tools/	Online tools provides md2, md5, sha1, sha2, sha512, bas64, html encode / decode functions	?	1221	https://github.com/emn178/online-tools	AL
+KiCanvas	development	https://kicanvas.org/	An interactive browser-based viewer for KiCad schematics and PCB boards.	MIT	1155	https://github.com/theacodes/kicanvas	AL
+Sqlime	development	https://sqlime.org/	Online SQLite playground	MIT	1067	https://github.com/nalgeon/sqlime	AL
+selfh.st Icons	development	https://selfh.st/icons/	Dashboard Icons provided by selfh.st	CC-BY-4.0	985	https://github.com/selfhst/icons	AL
+delphitools	development	https://delphi.tools/	A collection of small, low stakes and low effort tools	MIT	866	https://github.com/1612elphi/delphitools	AL
+CheckMyGit	development	https://checkmygit.com/	Transform any GitHub profile into a stunning portfolio in seconds.	MIT	644	https://github.com/whoisyurii/checkmygit	AL
+Openhero	development	https://openhero.art/	collection of cinematic video hero sections Browse, preview, copy & download production-ready backgrounds - instantly	MIT	403	https://github.com/CristianOlivera1/openhero	AL
+ASM Editor	development	https://asm-editor.specy.app	A web editor to write, run and learn assembly code (X86, MIPS, RISC-V, M68K)	AGPL-3.0	376	https://github.com/Specy/asm-editor	AL
+Python Tutor	development	https://pythontutor.com	Visualize code execution step-by-step to better understand programming concepts and debugging.	GPL-3.0	202	https://github.com/pathrise-eng/pathrise-python-tutor	AL
+Log Voyager	development	https://www.logvoyager.cc/	Analyze huge log files (10GB+). Features JSON prettifier, regex filtering, and bookmarks.	MIT	121	https://github.com/hsr88/log-voyager	AL
+Niolesk	development	niolesk.top	Edit diagrams from textual descriptions!	MIT	115	https://github.com/webgiss/niolesk/	AL
+gists.sh	development	https://gists.sh/	GitHub Gists are the fastest way to share code, notes, and snippets. But they look terrible. This fixes that.	?	85	https://github.com/linuz90/gists.sh	AL
+ROOC Optimization	development	https://rooc.specy.app/	A web platform for modelling and solving linear optimization problems	MPL-2.0	74	https://github.com/Specy/rooc	AL
+PyNote	development	https://pynote-notebook.vercel.app/	A serverless, zero-setup Python notebook environment	MIT	71	https://github.com/bouzidanas/pynote-notebook-editor	AL
+CodeMap AI	development	https://code-map-ai-mu.vercel.app/	helps developers, especially beginners in open source, understand large repositories faster without getting lost trying to figure out where to start	MIT	63	https://github.com/Ayansh0209/CodeMap-Ai	AL
+Tokeko	development	https://tokeko.specy.app/	An online creation tool for LALR and LR(1) parsers to learn how language theory works	?	27	https://github.com/Specy/tokeko	AL
+VeriSim	development	https://senolgulgonul.github.io/verisim/	Verilog simulator built by compiling Icarus Verilog to WebAssembly. No server, no install: edit, compile, simulate, view waveforms, and synthesize to a gate-lev	GPL-2.0	25	https://github.com/senolgulgonul/verisim	AL
+FFmpeg CLI Online	development	https://ffmpeg.wide.video	Run ffmpeg directly in your browser with a terminal-like interface.	GPL-3.0	21	https://github.com/wide-video/ffmpeg-wasm	AL
+App Store Web Search	development	https://vexelon.net/asws	A web app that enables you to search the Apple App Store in your browser and view app meta-data.	MIT	14	https://github.com/petarov/appstore-web-search	AL
+1.tools	development	https://1.tools/	A collection of open-source developer tools for everyday tasks - encoders, decoders, generators, converters, and more.	Apache-2.0	12	https://github.com/rytsh/bir	AL
+Gately	development	https://www.gately.dev/	Simple and modern web-based logic gate simulator	MIT	11	https://github.com/jakmaz/gately	AL
+CSV Repair	development	https://www.csv.repair/	A free, browser-based tool for analyzing, querying, and repairing broken or oversized CSV files	?	10	https://github.com/hsr88/csv-repair	AL
+FaviconAPI	development	https://faviconapi.com	Get the highest resolution favicon for any domain or look up a service icon by name.	?	10	https://github.com/R0GGER/favicon-api/	AL
+Scratch Tabs	development	https://app.scratchtabs.com/	A huge, searchable collection of 200+ local-first developer tools for everyday text, data, and format tasks.	MIT	9	https://github.com/spectra-g/scratch-tabs	AL
+OpenCode Config Builder	development	https://openconfig.mikescave.us	Configuration builder/editor for opencode.	?	7	https://github.com/mikecase/opencode-config-builder	AL
+Online Maven Download Tool	development	https://maven-tools.mohants.com/	Download Maven JAR dependencies and transitive dependencies as ZIP	MIT	4	https://github.com/pmg1991/maven-tools	AL
+fmtly	development	https://fmtly.dev/	General developer tools	MIT	4	https://github.com/oguzhankir/fmtly	AL
+BezierMotion	development	https://tughloks.github.io/BezierMotion/	A visual cubic-bezier curve editor for crafting custom CSS easing functions	?	3	https://github.com/TughlokS/BezierMotion	AL
+Advanced Easing Editor	development	https://ease.a-labs.space/	Draw easing curves on a visual graph, preview them on a live shape, and export to CSS, GSAP, SVG, JavaScript, Flutter, Jetpack Compose, iOS and Android.	MIT	2	https://github.com/alabsi91/animare-ease-visualizer	AL
+DBView	development	https://dbview.pages.dev/	DDL into interactive entity-relationship diagrams instantly	MIT	1	https://github.com/vanshbordia/dbview	AL
+Codi.link	development	https://editor.tailieubkhn.com	HTML, CSS, JS editor & playground	NC	1	https://github.com/tailieubkhn/editor	AL (ticari-disi lisans, bilerek alindi)
+HappyTokenizer	development	https://happytokenizer.com/	Helps analyze how text is split into tokens for different GPT and OpenAI model encodings, and estimate cost impact per model.	GPL-3.0	1	https://github.com/happytoolin/happytokenizer	AL
+HappyFormatter	development	https://happyformatter.com/	Format code for 40+ different languages & minify for 9 different targets.	GPL-3.0		https://github.com/happytoolin/happyformatter	AL
+Roadmaps.sh	education	https://roadmap.sh/	Interactive roadmaps, guides and other educational content to help developers grow in their careers	Custom	370126	https://github.com/nilbuild/developer-roadmap	AL
+Full Stack open	education	https://fullstackopen.com/en/	Learn React, Redux, Node.js, MongoDB, GraphQL and TypeScript in one go	CC BY-NC-SA 3.0	2238	https://github.com/fullstack-hy2020/fullstack-hy2020.github.io	AL (ticari-disi lisans, bilerek alindi)
+Agora Cosmica	education	https://agoracosmica.org	Learn from 30 historical figures through stories, dialogues, and AI conversation. Nonprofit, no signup.	AGPL-3.0	149	https://github.com/chipmates/agoracosmica	AL
+DSA View View	education	https://dsa-view-view.vercel.app/	Turns TypeScript algorithm functions into step-by-step visual stories	MIT	24	https://github.com/nyaomaru/dsa-view-view	AL
+The Missing Manual	education	https://themissingmanual.dev	Clear, in-depth guides to everything from how a computer boots up to how the internet, databases, and AI really work	CC-BY-SA-4.0	22	https://github.com/Topurrra/themissingmanual	AL
+Museum of Ages	education	https://museumofages.org	A digital museum you walk through in the browser: Leonardo da Vinci's last house, 15 machines rebuilt in code, 25 pictures.	AGPL-3.0	17	https://github.com/chipmates/museumofages	AL
+Weaponize.it	education	https://weaponize.it	Go-to resource for gaining insights into pentesting, bug bounty hunting, and scripting	?	12	https://github.com/Nickguitar/weaponize.it	AL
+Quizbun	education	https://a-dev.github.io/quizbun/	static, explanation-first quiz catalog for self-learners, with public quizzes, private local imports, and an AI-first quiz format	MIT	3	https://github.com/a-dev/quizbun	AL
+Stockade	education	https://stockademarketsim.com/	Stock market simulator for practicing trades with virtual money across stocks, crypto, forex, and futures.	?		https://github.com/KanishkVerma-046/stockade	AL
+free-for.dev	lists	https://free-for.dev/#/	A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev	?	139922	https://github.com/ripienaar/free-for-dev	AL
+freemediaheckyeah	lists	https://fmhy.net/	The largest collection of free stuff on the internet!	?	12522	https://github.com/fmhy/edit	AL
+OSINT Framework	lists	https://osintframework.com/	An open-source, browser-based directory of OSINT tools and resources organized by investigation category.	MIT	12321	https://github.com/lockfale/OSINT-Framework	AL
+Windhawk	lists	https://windhawk.net/	The customization marketplace for Windows and programs	GPL-3.0	9489	https://github.com/ramensoftware/windhawk	AL
+Champagne Wiki	lists	https://champagne.pages.dev/	Curated protocols, assets, and tools for the modern archivist.	?	136	https://github.com/champagnewiki/champagne-wiki	AL
+OpenCut	media	https://opencut.app	The open-source CapCut alternative	MIT	95722	https://github.com/OpenCut-app/OpenCut	AL
+Cobalt	media	https://cobalt.tools/	media downloader that doesn't piss you off. it's friendly, efficient, and doesn't have ads, trackers, paywalls or other nonsense.	AGPL-3.0	45348	https://github.com/imputnet/cobalt	AL
+Squoosh	media	https://squoosh.app/	Image compression web app that reduces image sizes through numerous formats	Apache-2.0	26055	https://github.com/GoogleChromeLabs/squoosh/	AL
+SubtitleEdit	media	https://www.nikse.dk/subtitleedit/online	Online Subtitle Editor	MIT	14675	https://github.com/SubtitleEdit/subtitleedit	AL
+OpenReel	media	https://openreel.video/	Open source CapCut alternative	MIT	5430	https://github.com/Augani/openreel-video	AL
+waifu2x	media	https://www.waifu2x.net/	An image upscaler and noise reducer.	MIT	3518	https://github.com/nagadomi/nunif	AL
+AudioMass	media	https://audiomass.co/	Free full-featured web-based audio & waveform editing tool	MIT	3030	https://github.com/pkalogiros/AudioMass	AL
+openDAW	media	https://opendaw.studio/	next-generation web-based Digital Audio Workstation (DAW)	?	2363	https://github.com/andremichelle/openDAW	AL
+FreeCut	media	https://freecut.net	Professional video editing, zero installation. Create stunning content in your browser	MIT	2286	https://github.com/walterlow/freecut	AL
+Image Max URL	media	https://qsniyg.github.io/maxurl/	Finds larger/original versions of images and videos	Apache-2.0	1647	https://github.com/qsniyg/maxurl	AL
+OmniClip	media	https://omniclip.app/	Powerful video editor right in your browser	MIT	1468	https://github.com/omni-media/omniclip	AL
+MiNi PhotoEditor	media	https://mini2-photo-editor.netlify.app/	Online webgl photo editor with effects, filters and cropping	MIT	596	https://github.com/xdadda/mini-photo-editor	AL
+Wavacity	media	https://wavacity.com/	Easy-to-use, multi-track audio editor and recorder	GPL-2.0	482	https://github.com/ahilss/wavacity	AL
+Compress	media	https://videocompress.prolab.sh/	Say goodbye to bulky files! Crush video sizes by 90% with no quality loss, even offline	MIT	384	https://github.com/pranavp10/video-compress	AL
+Drumhaus	media	https://drumha.us/	Computer Controlled Rhythmic Groove Machine	CC BY-NC-SA 4.0	166	https://github.com/mxfng/drumhaus	AL (ticari-disi lisans, bilerek alindi)
+ComposeYogi	media	https://composeyogi.com/	Ableton-style music composer for the web	MIT	152	https://github.com/AppsYogi-com/ComposeYogi	AL
+Simple Video Player	media	https://simplevideoplayer.com/	Plays videos from your computer locally in the browser.	MIT	100	https://github.com/ifedapoolarewaju/simplevideoplayer	AL
+Midee	media	https://midee.app/	Play, visualize, learn, and export your MIDI music as gorgeous piano-roll videos, entirely client-side with zero uploads.	?	45	https://github.com/aayushdutt/midee	AL
+NoSuggest	media	https://nosuggest.com	Distraction free YouTube client without any recommendations, no shorts, no auto-play, no home screen videos, no now trending feeds	NC	38	https://github.com/No-Suggest/NoSuggest	AL (ticari-disi lisans, bilerek alindi)
+NTSC	media	https://web.ntsc.rs/	it a VHS effect that fakes NTSC	?	35	https://github.com/ntsc-rs/ntsc-rs-web	AL
+GreenDolphin	media	https://greendolph.in	Recording looper and analysis tool designed for musicians who want to transcribe music or learn songs by ear	GPL-3.0	6	https://github.com/YottaYocta/GreenDolphin	AL
+ClearCanvas AI	media	https://clearcanvasai.vercel.app/	Generate images, compress photos, upscale pictures, and remove backgrounds	MIT	3	https://github.com/rakibulsagor/Clearcanvas	AL
+s-2-v	media	https://s-2-v.pages.dev/	A simple collection of video processing tools	?	2	https://github.com/kuronekony4n/sequence-to-video	AL
+CyberChef	privacy	https://gchq.github.io/CyberChef/	A browser-based “cyber” workbench for encoding, decoding, encryption, compression, hashing, parsing, and data analysis recipes.	Apache-2.0	36181	https://github.com/gchq/CyberChef	AL
+privacy.sexy	privacy	https://privacy.sexy	A tool to enforce privacy & security best-practices on Windows, macOS and Linux, because privacy is sexy	GPL-3.0	6134	https://github.com/undergroundwires/privacy.sexy	AL
+Cryptgeon	privacy	https://cryptgeon.com/	Send fully encrypted secure notes or files with custom expiration	MIT	1562	https://github.com/cupcakearmy/cryptgeon	AL
+Cryptii	privacy	https://cryptii.com	App for modular conversion, encoding, and encryption	MIT	1509	https://github.com/cryptii/cryptii	AL
+JustDeleteMe	privacy	https://justdeleteme.xyz/	A directory of direct links to delete your account from web services.	MIT	1391	https://github.com/jdm-contrib/jdm	AL
+image-scrubber	privacy	https://everestpipkin.github.io/image-scrubber/	A tool for anonymizing photographs taken at protests	MIT	1013	https://github.com/everestpipkin/image-scrubber	AL
+Aperi'Solve	privacy	https://www.aperisolve.com/	Image metadata and forensics analysis tool	MIT	862	https://github.com/Zeecka/AperiSolve	AL
+Metadata Remover	privacy	https://ianonymous3000.github.io/metadata-remover/	Removes metadata from supported formats in-browser using WASM	MIT	90	https://github.com/iAnonymous3000/metadata-remover	AL
+ProtegeMiDNI	privacy	https://protegemidni.es	Redact the non essential info from the spanish National Identification Document	GPL-3.0	55	https://github.com/AlfonsoML/proteccionDNI/	AL
+ShareClean	privacy	https://omarh-creator.github.io/ShareClean/#playground	A tool for sanitizing logs, stack traces, config snippets, and terminal output before you paste them into GitHub issues, support tickets, Slack, or AI chats.	MIT	21	https://github.com/OmarH-creator/ShareClean	AL
+Stirling-PDF	productivity	https://stirling.com/app	#1 PDF Application on GitHub that lets you edit PDFs on any device anywhere	MIT	94732	https://github.com/Stirling-Tools/Stirling-PDF	AL
+Monkeytype	productivity	https://monkeytype.com/	The most customizable typing website with a minimalistic design and a ton of features. Test yourself in various modes, track your progress and improve your spee	GPL-3.0	20922	https://github.com/monkeytypegame/monkeytype	AL
+WebLLM	productivity	https://webllm.mlc.ai/	High-performance In-browser LLM Inference Engine	Apache-2.0	19301	https://github.com/mlc-ai/web-llm	AL
+BentoPDF	productivity	https://www.bentopdf.com/	Powerful, privacy-first, client-side PDF toolkit that is self hostable and allows you to manipulate, edit, merge, and process PDF files	AGPL-3.0	16123	https://github.com/alam00000/bentopdf/	AL
+Grist	productivity	https://docs.getgrist.com	Modern relational spreadsheet. It combines the flexibility of a spreadsheet with the robustness of a database	Apache-2.0	11986	https://github.com/gristlabs/grist-core	AL
+OmniTools	productivity	https://omnitools.app/	Collection of powerful web-based tools for everyday tasks	MIT	10342	https://github.com/iib0011/omni-tools	AL
+CryptPad	productivity	https://cryptpad.fr	Collaborative office suite, end-to-end encrypted and open-source.	AGPL-3.0	8024	https://github.com/cryptpad/cryptpad	AL
+ASCIIFlow	productivity	https://asciiflow.com/	An application for drawing ASCII diagrams	MIT	5972	https://github.com/lewish/asciiflow	AL
+Chili3D	productivity	https://chili3d.com/	A 3D CAD running entirely in the browser	AGPL-3.0	4931	https://github.com/xiangechen/chili3d	AL
+PDFme	productivity	https://playground.pdfme.com/	Template designer, PDF viewer, and powerful generation capabilities. Create custom PDFs effortlessly	MIT	4930	https://github.com/pdfme/pdfme	AL
+MiroTalk P2P	productivity	https://p2p.mirotalk.com/	WebRTC video conferencing platform built on peer-to-peer (P2P) architecture for fast, secure real-time communication with end-to-end privacy	AGPL-3.0	4799	https://github.com/miroslavpejic85/mirotalk	AL
+OpenCAD Studio	productivity	https://www.opencadstudio.com/	A CAD application built with Rust. 2D/3D drawing, DWG/DXF support, and GPU-accelerated rendering	GPL-3.0	3449	https://github.com/HakanSeven12/OpenCADStudio	AL
+flowchart.fun	productivity	https://flowchart.fun/	Easily generate flowcharts and diagrams from text	MIT	3410	https://github.com/tone-row/flowchart-fun	AL
+EtherCalc	productivity	https://ethercalc.net/	Spreadsheet for real-time collaborative editing	CPAL-1.0	3057	https://github.com/audreyt/ethercalc	AL
+Tomodoro	productivity	https://lazy-guy.github.io/tomodoro/	A pomodoro web app with PIP mode, white noise generation, tasks and more!	MIT	308	https://github.com/lazy-guy/tomodoro	AL
+Resume Nation	productivity	https://resume-nation.github.io	Progressive resume builder which works offline	MIT	153	https://github.com/resume-nation/resume-nation.github.io	AL
+Sipp Chat	productivity	https://chat.sipp.sh/	AI inference, packed simply. A blazing-fast, zero-dependency WebGPU runtime to run GGUF models directly in the browser	Apache-2.0	121	https://github.com/noumena-labs/Sipp	AL
+Lanjut	productivity	https://lanjut.rimzzlabs.com	ATS-Friendly Resume Builder	AGPL-3.0	105	https://github.com/rimzzlabs/lanjut	AL
+dSheets	productivity	https://dsheets.new/	dsheets.new is alternative to google sheets & excel.	AGPL-3.0	104	https://github.com/fileverse/fileverse-dsheet	AL
+DoHabit	productivity	https://dohabit.app/	Lightweight, local-first habit tracker designed to respect your privacy	AGPL-3.0	63	https://github.com/iNikAnn/DoHabit	AL
+QuickRetro	productivity	https://quickretro.app/	Real-time app for conducting a remote sprint retrospective meeting	AGPL-3.0	57	https://github.com/vijeeshr/quickretro	AL
+Postbaby	productivity	https://postbaby.org/	Provides a board for quick little notes post-it like	PHU	46	https://github.com/markrai/postbaby?ref=selfh.st	AL
+Mermify	productivity	https://tra-sco.github.io/mermify/	Bi-directional visual editor for Mermaid.js flowcharts	MIT	33	https://github.com/tra-sco/mermify	AL
+Tailit	productivity	https://tailit.xyz/	An interactive resume builder with templates. Paste a job link and AI rewrites your resume to match	MIT	29	https://github.com/sardorml/tailit	AL
+CycleCAD	productivity	https://cyclecad.com/app/	Browser-based parametric 3D CAD modeler with AI-powered tools and native Inventor file parsing	MIT	3	https://github.com/xupeiwust/cyclecad	AL
+Forge	productivity	https://modelplayground.dev	Use Ai models right now, for free and privately, without setup.	MIT	2	https://github.com/AminMusah/forge	AL
+MConnect	productivity	https://mconnect.modesthumanbrands.com/	A Dynamic HTML Email Builder from templates	MIT		https://github.com/Modest-Human-Brands/mconnect-web	AL
+Croc	utilities	https://getcroc.com/	Easily and securely send things from one computer to another 🐊 📦	MIT	40716	https://github.com/schollz/croc	AL
+ente Paste	utilities	https://paste.ente.com/	Share text between devices securely with QR code or URL	AGPL-3.0	29525	https://github.com/ente-io/ente	AL
+Readest	utilities	https://web.readest.com/	Ebook reader designed for immersive and deep reading experiences	AGPL-3.0	25519	https://github.com/readest/readest	AL
+VERT	utilities	https://vert.sh/	File-converter fully in-browser	AGPL-3.0	16068	https://github.com/VERT-sh/VERT	AL
+PairDrop	utilities	https://pairdrop.net/	Transfer Files Cross-Platform. No Setup, No Signup.	GPL-3.0	11648	https://github.com/schlagmichdoch/pairdrop	AL
+Convert To It	utilities	http://convert.to.it/	Truly universal online file converter	GPL-2.0	4173	https://github.com/p2r3/convert	AL
+Spliit	utilities	https://spliit.app/	Share expenses with your friends and family	MIT	3004	https://github.com/spliit-app/spliit	AL
+OpenMouse	utilities	https://openmouse.app	Configures mouse DPI, polling rate, buttons, and RGB	AGPL-3.0	2588	https://github.com/OpenMouse-Project/openmouse	AL
+Enclosed	utilities	https://enclosed.cc/	Minimalistic web application designed for sending end-to-end encrypted notes and files	Apache-2.0	2099	https://github.com/CorentinTh/enclosed	AL
+PaperKnife	utilities	https://potatameister.github.io/PaperKnife/	Merge, split, compress, and edit PDFs 100% locally on your device	AGPL-3.0	1514	https://github.com/potatameister/PaperKnife	AL
+Terminal.sexy	utilities	https://terminal.sexy	A terminal theme designer	MIT	989	https://github.com/stayradiated/terminal.sexy	AL
+FileDrop	utilities	https://drop.lol/	End-to-end encrypted peer-to-peer file transfer and chat in the	BSD-3-Clause-Clear	966	https://github.com/mat-sz/filedrop	AL
+QrCodeShow	utilities	https://qrcode.show/	Generate QR code easily	AGPL-3.0	638	https://github.com/sayanarijit/qrcode.show	AL
+Paaster	utilities	https://paaster.io/	Secure and user-friendly pastebin with end-to-end encryption and paste history.	AGPL-3.0	566	https://github.com/WardPearce/paaster	AL
+OpenReader	utilities	https://openreader.richardr.dev/app	Text-to-speech document reader built with Next.js for EPUB, PDF, TXT, MD, and DOCX with multilingual, synchronized read-along playback	MIT	546	https://github.com/richardr1126/openreader	AL
+QRazyBox	utilities	https://merricx.github.io/qrazybox/	web-based application (a toolkit), that used to analyzing and recovering damaged QR Code	MIT	535	https://github.com/Merricx/qrazybox	AL
+e2ecp	utilities	https://e2ecp.com	Transfer files between machines through the web, through a CLI, or both fully end-to-end encrypted. Made by the dev of croc file transfer	MIT	511	https://github.com/schollz/e2ecp	AL
+BRouter-web	utilities	https://brouter.de/brouter-web/	A web client for the BRouter routing engine, providing OpenStreetMap-based route planning with profile customization and route export.	MIT	502	https://github.com/nrenner/brouter-web	AL
+Gridfinity Layout Tool	utilities	https://gridfinitylayouttool.com	A tool for planning drawer organization using the Gridfinity modular storage system	AGPL-3.0	451	https://github.com/andymai/gridfinity-layout-tool	AL
+SkySend	utilities	https://ch.skysend.app/	Minimalist, end-to-end encrypted, self-hostable file and note sharing.	AGPL-3.0	441	https://github.com/skyfay/skysend	AL
+BinThere	utilities	https://binthere.gaury.dev/	Write a note, get a link, share it, and the note self-destructs the moment it's read	MIT	272	https://github.com/nxfu/binthere	AL
+openplan3d	utilities	https://app.openplan3d.com	Design floor plans in an intuitive 2D editor, then instantly preview them in a fully navigable 3D view	MIT	234	https://github.com/laanlabs/openPlan3D	AL
+katb.in	utilities	https://katb.in/	Share text & logs with a short URL	?	210	https://github.com/sphericalkat/katbin	AL
+LocalSend-Web	utilities	https://web.localsend.org/	An open-source cross-platform alternative to AirDrop, but works in LAN only	Apache-2.0	199	https://github.com/localsend/web	AL
+Giraffile	utilities	https://giraffile.pages.dev/	Share files quickly and securely without relying on cloud servers	MIT	186	https://github.com/coffeetron832/Giraffile	AL
+CheezyPizza	utilities	https://file.pizza/	WebRTC based p2p file transfers in your browser	BSD 3-Clause	184	https://github.com/hariharjeevan/cheezypizza	AL
+Sharr	utilities	https://www.sharrr.com/	End-to-end encrypted file transfer	MIT	171	https://github.com/stophecom/sharrr-svelte	AL
+BottleShip	utilities	https://bottleship.pages.dev/	Run classic Windows games in your browser	Apache-2.0	161	https://github.com/jenissimo/bottleship	AL
+OpenSSL Webterm	utilities	https://www.cryptool.org/en/cto/openssl/	OpenSSL running in browsers, using WebAssembly (Emscripten) + xterm.js + React	?	113	https://github.com/cryptool-org/openssl-webterm	AL
+Webtor.io	utilities	https://webtor.io/	seamless torrent streaming and file sharing	MIT	83	https://github.com/webtor-io/web-ui	AL
+Clip Fish	utilities	https://clip.fish/	App for quickly sharing links, text snippets, and files.	MIT	61	https://github.com/clip-fish/web	AL
+kPaste	utilities	https://kpaste.infomaniak.com/	Private end-to-end encrypted pastebin	GPL-3.0	58	https://github.com/Infomaniak/kpaste	AL
+Frappe Playground	utilities	https://frappe-playground.lubus.in/	WSAM powered frappe playground running entirely in the browser.	?	43	https://github.com/lubusIN/frappe-playground	AL
+Pandoc WASM	utilities	https://pandoc.github.io/pandoc-wasm/	Convert documents without leaving the browser.	MIT	28	https://github.com/pandoc/pandoc-wasm	AL
+ErikrafT Drop	utilities	https://drop.erikraft.com/	Fast file-transfer solution with support for Tor, and LAN messaging	GPL-3.0	23	https://github.com/erikraft/Drop	AL
+OwnCardly	utilities	https://owncardly.com/	Digital business cards you actually own	MIT	22	https://github.com/kevinwielander/digital-business-cards	AL
+Open-RazerKit	utilities	https://hamzayslmn.github.io/open-razerkit/	Control your Razer device's RGB, effects, and settings	Custom	21	https://github.com/HamzaYslmn/open-razerkit	AL
+Jobber	utilities	https://rssjobs.app/	Dynamic Job Search RSS Feed Generator	MIT	18	https://github.com/alwedo/jobber	AL
+Texturinator	utilities	https://texturinator.buttermilch-dev.de/	Procedural texture and volume generation toolkit for volumetric rendering, terrain generation	?	18	https://github.com/MangoButtermilch/texturinator	AL
+DropSilk	utilities	https://www.dropsilk.xyz/	Modern, privacy-focused, peer-to-peer file transfer application built with WebRTC with screen-share and chat functionality	GPL-3.0	14	https://github.com/medy17/dropsilk	AL
+ToolsAtZero	utilities	https://www.toolsatzero.com/	A workbench of 52 everyday utilities (PDF manipulation, image processing, dev tools)	NC	14	https://github.com/Anirudh-Rao-portfolio/ToolsAtZero	AL (ticari-disi lisans, bilerek alindi)
+Oscilloscope Online V2	utilities	https://mumarshahbaz.github.io/Oscilloscope-Online-V2/setup.html	Web Serial Plotter with as much customization as possible	?	14	https://github.com/MUmarShahbaz/Oscilloscope-Online-V2	AL
+Relay	utilities	https://relay.rishishah.in	WebRTC peer-to-peer file transfer	MIT	12	https://github.com/byrishi/Relay	AL
+EditoraPDF	utilities	https://editorapdf.com	A minimal PDF. Note: doesn't modify existing PDF text.	MIT	12	https://github.com/affsquadDevs/editorapdf	AL
+Daggerheart GM Screen	utilities	https://jutier.github.io/Daggerheart/	Daggerheart GM Screen	?	8	https://github.com/Jutier/Daggerheart	AL
+ReadLocal	utilities	https://readlocal.app/	A Markdown reader that reads .md files & folders	?	5	https://github.com/Imranpranto/readlocal-local-markdown-md-file-renderer	AL
+Keyfont	utilities	https://keypdf.net/keyfont	Convert and inspect fonts locally in your browser	Custom	5	https://github.com/KeyPDF/KeyFont	AL
+zkdrop	utilities	https://zkdrop.org	Secure, temporary, and minimal file sharing with zero-knowledge encryption	AGPL-3.0	3	https://github.com/zedxihan/zkdrop	AL
+qTransfer	utilities	https://transfer-cv5.pages.dev/	Easly connects 2 browsers to transfer files	?	2	https://github.com/atlanticsupport/quick-transfer	AL
+Ul0	utilities	https://ul0.site	Free URL shortener that lets you create branded short links with custom domains, QR codes, click analytics, and an easy-to-use dashboard	?	2	https://github.com/Saketkesar/ul0	AL
+Tiny Image	utilities	https://tinyimage.pages.dev/	Compress, convert, resize, and optimize images & SVGs offline, all in your local browser. No uploads, no limits, no account.	?	2	https://github.com/mdrubelamin2/tinyimg	AL
+enumbers lookup	utilities	https://enumbers.jarvisdiscordbot.net/	A modern web application for looking up E-number food additives with comprehensive data from Open Food Facts	CC-BY-SA-3.0	1	https://github.com/JARVIS-discordbot/e-numbers	AL
+FIT Stats	utilities	https://fit.igroza.su	View and analyze FIT/GPX tracks right in the browser: bulk upload, map, summary, metrics and charts	?	1	https://github.com/iGroza/fit-stats	AL
+Sarx	utilities	https://www.sarx.app	Enter your stats once and get a full picture of your health: what your numbers mean, where your goals should be, and the knowledge to back it up	?		https://github.com/Chaissonc/Sarx	AL
+AFFiNE	writing	https://affine.pro/	Next-gen knowledge base that brings planning, sorting and creating all together	MIT	73756	https://github.com/toeverything/AFFiNE	AL
+Logseq	writing	https://logseq.com/	A privacy-first, open-source platform for knowledge management and collaboration	AGPL-3.0	45332	https://github.com/logseq/logseq	AL
+Koodo Reader	writing	https://web.koodoreader.com/	A modern ebook manager and reader	AGPL-3.0	28605	https://github.com/koodo-reader/koodo-reader	AL
+StackEdit	writing	https://stackedit.io	Full-featured markdown editor	Apache-2.0	23094	https://github.com/benweet/stackedit	AL
+Dillinger	writing	https://dillinger.io	"The last Markdown editor, ever."	MIT	8292	https://github.com/joemccann/dillinger	AL
+lookscanned	writing	https://lookscanned.io	Turn PDFs and documents into realistic scanned copies, add watermarks, stamps and metadata in a few clicks, with all processing done locally for maximum privacy	MIT	3600	https://github.com/lookscanned/lookscanned.io	AL
+Linwood Butterfly	writing	https://web.butterfly.linwood.dev/	Powerful, minimalistic, cross-platform, opensource note-taking app	AGPL-3.0	2066	https://github.com/LinwoodDev/Butterfly	AL
+Universal Résumé Template	writing	https://universalresume.app/?s=g	Minimal and formal résumé (CV) website template for print, mobile, and desktop	CC BY-NC-SA 1.0	1800	https://github.com/WebPraktikos/universal-resume	AL (ticari-disi lisans, bilerek alindi)
+Markdown Live Preview	writing	https://markdownlivepreview.com	Markdown editor with live preview	MIT	1024	https://github.com/tanabe/markdown-live-preview	AL
+Edna	writing	https://edna.arslexis.io/	Integrated AI chat, blocks, markdown, syntax highlighting for 40+ languages (JavaScript, Python, C++, Go, Java, C#, Ruby and more), command palette, programmabi	Custom	541	https://github.com/kjk/edna	AL
+dDocs	writing	https://ddocs.new/	A privacy-first, end-to-end encrypted alternative to Google Docs for rich document editing.	AGPL-3.0	448	https://github.com/fileverse/fileverse-ddoc	AL
+Notepad PWA	writing	https://notepad.js.org	📒 An offline capable Notepad PWA	MIT	383	https://github.com/amitmerchant1990/notepad	AL
+Browserpad	writing	https://browserpad.org	Plain text editor in the browser.	ISC	88	https://github.com/browserpad/browserpad	AL
+Free CV Builder	writing	https://buildmyfree.cv/	Build a professional CV in a few minutes and download it as a PDF	MIT	28	https://github.com/themidnightgospel/free-cv-builder	AL
+EasyPeasyCV	writing	https://easypeasycv.com/	resume builder designed for professionals who value privacy, flexibility, and control over their data	MIT	26	https://github.com/goncalojbsousa/EasyPeasyCV	AL
+Asciidoc Alive	writing	https://asciidocalive.draftview.app/	A live AsciiDoc editor with real-time preview, syntax highlighting, and export functionality.	Apache-2.0	20	https://github.com/gaurav-nelson/asciidocalive	AL
+Strong Editor	writing	https://strongeditor.com/	Text editor that highlights poor wording in real-time - and makes you write better	GPL-3.0	11	https://github.com/Great-Software-Company/strongeditor	AL
+markdown2pdf	writing	https://markdown2pdfconverter.vercel.app/	A markdown to PDF converter & live previewer	MIT	10	https://github.com/sahilatahar/markdown2pdf	AL
+EditorPilot	writing	https://editorpilot.com/	AI writing assistant that lives entirely in your browser	?	2	https://github.com/tuton012/editorpilot	AL
+GoatPad	writing	https://goatpad.drexfall.com/	A notepad for the web written in Flutter	CC BY-NC-SA 4.0		https://github.com/drexfall/goatpad	AL (ticari-disi lisans, bilerek alindi)

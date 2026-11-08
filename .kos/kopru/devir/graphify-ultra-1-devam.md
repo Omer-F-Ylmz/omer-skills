@@ -8,3 +8,4 @@ KALAN:
 ARKA PLAN: yok.
 SON COMMIT: git log -1 (d6 ara)
 AÇIK KARAR: yok.
+d2 28 Eki: BİTTİ, kalan yalnız Ömer onay betiği + zip yükleme.

@@ -38,13 +38,16 @@ const AYAR_YOLU = path.join(GECICI, "kopru.json");
 const ayar = JSON.parse(fs.readFileSync(path.join(KOK, "kopru.json"), "utf8"));
 ayar.claudeYolu = process.execPath;
 ayar.claudeOnArgs = [SAHTE];
+ayar.oturumKalici = false;   // E1 kalıcı oturum bu dosyadaki argv testlerini etkilemesin
 fs.writeFileSync(AYAR_YOLU, JSON.stringify(ayar), "utf8");
+const AYAR_KALICI = path.join(GECICI, "kopru-kalici.json");
+fs.writeFileSync(AYAR_KALICI, JSON.stringify({ ...ayar, oturumKalici: true, oturumDizin: path.join(GECICI, "oturumlar") }), "utf8");
 
-function ajanCagir(args, sure = 60000) {
+function ajanCagir(args, sure = 60000, ayarYolu = AYAR_YOLU) {
   return new Promise((coz, ret) => {
     const p = spawn(process.execPath, [path.join(KOK, "sunucu.mjs")], {
       cwd: "C:\\Windows\\System32", shell: false,
-      env: { ...process.env, CC_KOPRU_AYAR: AYAR_YOLU },
+      env: { ...process.env, CC_KOPRU_AYAR: ayarYolu },
     });
     let tampon = "";
     const gonder = (o) => p.stdin.write(JSON.stringify(o) + "\n");
@@ -138,6 +141,22 @@ test("CC_PROFIL_ZORLA=tam ajan argv'sinden ttl'yi kaldirir", async () => {
     const y = JSON.parse(fs.readFileSync(YAKALA, "utf8"));
     assert.deepEqual(y.argv, ["-p", "--output-format", "json", "--model", "sonnet"]);
   } finally { delete process.env.CC_PROFIL_ZORLA; }
+});
+
+// --- E1: proje başına kalıcı oturum ---
+
+test("kalici oturum: 1. cagri kaydeder, 2. cagri --resume, yeni_oturum=true taze acar", async () => {
+  const k = (args) => ajanCagir({ gorev: "merhaba", cwd: PROJE, model: "sonnet", ...args }, 60000, AYAR_KALICI);
+  fs.rmSync(YAKALA, { force: true });
+  await k({});
+  assert.ok(!JSON.parse(fs.readFileSync(YAKALA, "utf8")).argv.includes("--resume"), "ilk cagri taze");
+  const kayit = JSON.parse(fs.readFileSync(path.join(GECICI, "oturumlar", "omer-skills.json"), "utf8"));
+  assert.equal(kayit.session_id, "sahte-1");
+  await k({});
+  const y2 = JSON.parse(fs.readFileSync(YAKALA, "utf8")).argv;
+  assert.deepEqual(y2.slice(y2.indexOf("--resume"), y2.indexOf("--resume") + 2), ["--resume", "sahte-1"]);
+  await k({ yeni_oturum: true });
+  assert.ok(!JSON.parse(fs.readFileSync(YAKALA, "utf8")).argv.includes("--resume"), "yeni_oturum taze");
 });
 
 // --- KÖPRÜ-EFFORT-1: oturuma özel --effort; CLAUDE_CODE_EFFORT_LEVEL --effort'u ezdiği için alt süreçten çıkar ---

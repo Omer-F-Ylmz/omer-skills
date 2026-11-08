@@ -1,0 +1,31 @@
+bos ne_yapar: 5 onek: 2
+0 octo-paket | skill | is-akisi | 56 skill'lik paket (Octo ajan iş akışları). Konu bu alandaysa önce bu dizini aç, uygun alt skill'in 
+1 phoenix-security-review | plugi | ajan | AppSec review suite: multi-language security-reviewer (8-point check, 7 language packs, OWASP/ASVS +
+2 CC kendi | yerel | çekirdek-araç | alt ajan tanımı, kanca, çıktı stili
+3 claude-mem | plugi | ogrenen-bellek | oturumlar arası gözlem belleği
+4 orch-refine-code | plugi | is-akisi | Orchestrate a behavior-preserving refactor — confirm tests are green, restructure without changing b
+5 pr-review-toolkit | plugi | ajan | Comprehensive PR review agents specializing in comments, tests, error handling, type design, code qu
+6 council | plugi | hakem | Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls.
+7 blueprint | plugi | swarm | Turn a one-line objective into a step-by-step construction plan for multi-session, multi-agent engin
+8 mem-search | plugi | ogrenen-bellek | Search claude-mem's persistent cross-session memory database.
+9 agentic-os | plugi | swarm | Build persistent multi-agent operating systems on Claude Code. Covers kernel architecture, specialis
+10 ajn-ajan-orkestrasyon | ajan | swarm, is-akisi | Designs multi-agent flows with roles, handoffs, state and human approval points
+11 gsd-paket | skill | is-akisi | GSD: planlama, yürütme ve doğrulama iş akışı: gsd add tests…
+12 claude-ads | plugi | ajan | Claude-first, portable paid-media operations for Google, Meta, YouTube, LinkedIn, TikTok, Microsoft,
+13 feature-dev | plugi | ajan | Comprehensive feature development workflow with specialized agents for codebase exploration, archite
+14 delivery-gate | plugi | hook | Stop hook that blocks Claude from finishing until quality checks pass. Detects rationalization patte
+15 ruflo | mcp | ogrenen-bellek | ReasoningBank desen belleği (HNSW)
+16 design-agent-orchestration | plugi | swarm, is-akisi | Design multi-agent systems, handoffs between AI agents, and human-in-the-loop workflows.
+17 ralphinho-rfc-pipeline | plugi | swarm | Split an RFC into a multi-agent execution DAG — decompose into work units with dependencies and acce
+18 dmux-workflows | plugi | swarm, is-akisi | Multi-agent orchestration using dmux (tmux pane manager for AI agents). Patterns for parallel agent 
+19 superpowers | plugi | is-akisi, ajan | plan→alt ajan→inceleme zinciri
+20 idea-refine / brainstormin | skill | çekirdek-araç | ham fikri keskinleştirir
+21 tdd-guard-paket | skill | hook | TDD uygulatma: testten önce kod yazmayı engelleme: setup
+22 hook-development | plugi | hook | This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostToolUse/Stop 
+23 continuous-learning-v2 | plugi | ogrenen-bellek | Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confi
+24 superpowers-subagent-drive | skill | ajan | 
+25 loop-design-check | plugi | is-akisi | Design a goal-oriented agent loop or review one for failure modes: spinning, Goodhart-gaming the ver
+26 council-multi-model | plugi | hakem | Add one optional external Codex critique after the existing council has produced a decision draft.
+27 herdr-pre-release-audit | skill | is-akisi | Audit herdr release readiness by comparing commits since the base release against next-release chang
+28 headroom | cli | çekirdek-araç | çıktı sıkıştırma
+29 commercial-legal | plugi | ajan | Reviews vendor agreements, NDAs, and SaaS subscriptions against your sales-side or purchasing-side p

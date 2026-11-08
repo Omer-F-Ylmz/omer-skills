@@ -11,5 +11,7 @@ relatedTo: [kurulum, tur-setleri]
 - **En iyi kullanım:** videolarda 8 kez anıldı; ilk kodlar: DX2ubACJYRN, DYcaq-GIpCV, DYsslgKMmJQ, DcSIIcAs8-4
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** brandkit, claude-design, design-dna, gorsel-uret, gorsel_hakem, illustrasyon-logo-paket, nano-banana-2, vtracer
-- **Yaygın hata:** PATH/yapılandırmada bulunamadı: [WinError 2] Sistem belirtilen dosyayı bulamıyor; ÖMER: `od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir
-- **Doğrulanmış örnek:** `od (stdio) tools/list`  → MUAF ([WinError 2] Sistem belirtilen dosyayı bulamıyor; ÖMER: `od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir)
+- **Yaygın hata:** PATH/yapılandırmada bulunamadı: od: unknown option -- daemon-url
+Try '/usr/bin/od --help' for more information.; ÖMER: `od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir
+- **Doğrulanmış örnek:** `od (stdio) tools/list`  → MUAF (od: unknown option -- daemon-url
+Try '/usr/bin/od --help' for more information.; ÖMER: `od` komutu Open Design masaüstü uygulamasıyla gelir, uygulama kurulu değil; daemon 127.0.0.1:7456 gerekir)

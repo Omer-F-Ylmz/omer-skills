@@ -34,7 +34,15 @@ def anahtar():
     return o.split("=", 1)[1] if "=" in o else ""
 
 
+_acik = []
+
+
 def istek(yol, **kw):
+    if not _acik:
+        sys.path.insert(0, str(BU))
+        import postiz_ac
+        postiz_ac.ac()
+        _acik.append(1)
     return requests.request(kw.pop("m", "GET"), API + yol, headers={"Authorization": anahtar()}, timeout=300, **kw)
 
 

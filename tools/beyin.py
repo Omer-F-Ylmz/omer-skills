@@ -267,8 +267,17 @@ def main(argv=None):
     a.add_argument("--k", type=int, default=3)
     a.add_argument("--butce", type=int, help="çıktı jeton tavanı (varsayılan 200×k)")
     a.add_argument("-c", "--koleksiyon", default="beyin")
+    k = alt.add_parser("kaydet")
+    k.add_argument("proje")
+    k.add_argument("metin")
+    k.add_argument("--etiket", choices=("ders", "basari", "karar"), default="ders")
     ns = ap.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
+    if ns.komut == "kaydet":
+        sys.path.insert(0, str(Path(__file__).resolve().parent))  # python -I script dizinini eklemez
+        import beyin_kayit
+        print(beyin_kayit.kaydet(ns.proje, ns.metin, ns.etiket))
+        return
     # "(1) … (2) …" çok parçalı soru: her parça ayrı aranır, sonuçlar sırayla birleşir (tek sorgu ikinci kaynağı dışarıda bırakır)
     parcalar = [p for p in re.split(r"\(\d+\)\s*", ns.soru) if p.strip()] if re.search(r"\(1\).*\(2\)", ns.soru, re.S) else [ns.soru]
     listeler = [ara(p, ns.k, ns.koleksiyon) for p in parcalar]

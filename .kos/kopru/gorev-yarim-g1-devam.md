@@ -4,3 +4,5 @@ YARIM-G1 DEVAM — yalnız kaynak-site-3 kalanı (24 Eki). Kanıt: .kos/kopru/ar
 3. Sınıflama kapısı (belirsiz/diğer ≤%2): şu an 31 hata + 63 diğer (%11,5). site_sinifla3.py hedef 0 (yeniden denendi). Çözüm: 'diger' için daha ince tür listesiyle ikinci tur (havuz) ve kalıcı hatalı siteleri (ERR_CONNECTION_RESET, metin boş) 'erisilemiyor' sınıfı olarak ayrı say — kapıyı gevşetme kararı Ömer'in.
 Kabul: kart-dogrulama.tsv'de 'dogrulandi'+'kanit-yok' dışı yok; semgrep 101/101; sınıflama yüzdesi raporda dürüst.
 KÖK NEDEN (24 Eki 16:52, kanıt: ucretsiz_havuz.cagir("hakem",...) → (None, None, ['nvidia/...nemotron-3-ultra:0','openrouter/...:free:0']) ve log "havuz bos, deneme 1"): hakem havuzu kota/soğumada; 102 kart `dogrulama: hakem-yok-` ile kaldı, betik bu satırlı kartı atlar → kota açılınca önce o satırları sil, sonra betiği koş. Bu turda 103→119 dogrulandi (14 yeni kart, kalan 102 hakem-yok, 4 kanit-yok, 3 satırsız). 3. deneme yapılmadı (havuz boşken tekrar koşmak boşuna).
+
+NİHAİ 31+32: başlamadan nihai kapı; her adımda 2. beyne yaz (≤2 dk), ruflo pattern-search önce + store sonra; 32(f) tam ilgili küme; ders çıkar.

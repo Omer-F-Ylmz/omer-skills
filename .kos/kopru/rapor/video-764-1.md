@@ -8,3 +8,7 @@
 - Özet kalitesi: Groq/gpt-oss çıktısı 2/10'da bozuk (uydurma link, kesik), sampling şart; Gemini temiz.
 - Sapma: tur sınırı 40 aşıldı değil (~45 çağrı); push yok.
 SIRA: 754 için tam koşudan önce (a) faster-whisper gerekmiyor → Groq ASR yolu kalsın, (b) bozuk özetler Gemini'ye zorlansın, (c) IG indirme paralelliği/zaman aşımı ayarı; Ömer onayı bekler.
+
+## 28 Eki onay turu
+- Onay ($3 tavan) geldiğinde 764'ün 751'i VIDEO-764-3/4 ile zaten işlenmişti (13 hata). Yeniden koşu yapılmadı; Claude ≈$0, ücretsiz/Claude oranı: bu turda iş yok.
+- Kalan: 13 başarısız video (IG embed yok/yt-dlp) — yeniden denemek ayrı tarif.

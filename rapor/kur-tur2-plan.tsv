@@ -1,0 +1,242 @@
+kalem	sinif	kaynak	neden	dizin_turu	eylem	arg	kok_neden_cozum	yoklama
+AI Breakup Recovery Agent	SKILL	gh:Shubhamsaboo/ai-breakup-recovery-agent	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+AFL++	CLI	gh:AFLplusplus/AFLplusplus	yolu-yok	make+docker	COZUMSUZ		dizin=make+docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+AI UI Designer	SKILL	gh:arsenal0615/AI_UI_Designer	skill-yok	bos	D2	SKILL	klon boş/yarım (git HEAD yok): yeniden klon (klonla: HEAD yoksa _arsiv'e taşı, uzak boşsa çözümsüz)	
+AThevon/genjutsu	CLI	gh:AThevon/genjutsu	yolu-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\AThevon__genjutsu	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+AdaL CLI	CLI	gh:SylphAI-Inc/adal-cli	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+AgentLog	PAKET	gh:imran31415/agentlog	npm-ebusy	npm-lib+go+make	D2	PAKET	ortak node_modules'ta EBUSY rename çakışması -> kalem başına ayrı --prefix (ana-liste-npm-t2)	
+Amazon Product Scraper	CLI	npm:amazonproductscraper	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+AutoResearchClaw	CLI	gh:aiming-lab/AutoResearchClaw	pip-uv	skills-alt+py	D2	CLI	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+B-Roll Finder	CLI	gh:louisedesadeleer/b-roll-finder	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+BFXR	CLI	gh:increpare/bfxr	yolu-yok	bos	COZUMSUZ		kurulacak kod/release yok (dizin=bos); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+BlenderGIS	CLI	gh:domlysz/BlenderGIS	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Capd	CLI	gh:jamiedavenport/capd	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: ge.json/Cargo yok; win-x64 release asset yok (asset 1: capd-0.0.9.dmg)	
+ChatGPT MD	SKILL	gh:bramses/chatgpt-md	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+Chatterbox	SKILL	pip:chatterbox-tts	pip-uv	yolsuz	D2	SKILL	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+Claude Code Security Reviewer	SKILL	gh:anthropics/claude-code-security-review	skill-yok	skills-alt	KOMUT	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__claude-code-security-review	repo .claude/commands/ içinde 1 slash komutu; SKILL.md yok	
+Claude Flow	SKILL	gh:ruvnet/claude-flow	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+Claude Toolkit	CLI	gh:dwmkerr/claude-toolkit	yolu-yok	plugin+make	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\dwmkerr__claude-toolkit	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+ClickHouse	CLI	gh:ClickHouse/ClickHouse	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit:  clickhouse-client-26.10.2.103-amd64.tgz, clickhouse-client-26.10.2.10	
+Claude Token Monitor	CLI	gh:novapizza/claude-token-monitor	npm-diger	skills-alt+npm-bin	D2	CLI	npm -g code 1 -> --tur2 yeniden	
+Comfy-Org	CLI	gh:Comfy-Org/ComfyUI	yolu-yok	YOK-DIZIN	COZUMSUZ		kurulacak kod/release yok (dizin=YOK-DIZIN); kanit: ultiple top-level packages' (uygulama deposu; uv tool/venv derlenemez)	
+ComfyUI-HunyuanVideo	PAKET	gh:kijai/ComfyUI-HunyuanVideoWrapper	pip-uv	py	D2	PAKET	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+ComfyUI-Native	CLI	gh:Comfy-Org/ComfyUI	yolu-yok	YOK-DIZIN	COZUMSUZ		kurulacak kod/release yok (dizin=YOK-DIZIN); kanit: ultiple top-level packages' (uygulama deposu; uv tool/venv derlenemez)	
+Claudex Loop	CLI	gh:chaseai-yt/claudex-loop	yolu-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\chaseai-yt__claudex-loop	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+ComfyUI-HunyuanVideoWrapper	PAKET	gh:kijai/ComfyUI-HunyuanVideoWrapper	pip-uv	py	D2	PAKET	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+Conductor	CLI	gh:conductor-oss/conductor	yolu-yok	skills-alt	COZUMSUZ		dizin=skills-alt: Windows derleme/kurulum yolu yok; kanit: pyproject/package.json/win-x64 release yok	
+Coucou (Louis-CFM/coucou)	CLI	gh:Louis-CFM/coucou	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: ackage.json/Cargo yok; win-x64 release asset yok (asset 1: Coucou.zip)	
+Dependabot	CLI	gh:dependabot/dependabot-core	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok	
+Filetree	CLI	gh:nekocode/filetree-skill	yolu-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\nekocode__filetree-skill	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+Foreman	CLI	pip:foreman-orchestrator	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Free Claude Code Repo	CLI	gh:Alishahryar1/free-claude-code	pip-uv	py	D2	CLI	requires-python>=3.14 -> uv_zincir'e 3.14 eklendi	
+FilaCheck	CLI	gh:LaravelDaily/FilaCheck	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Frida	CLI	pip:frida-tools	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Fooocus	CLI	gh:lllyasviel/Fooocus	yolu-yok	docker	COZUMSUZ		dizin=docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Ghostty	CLI	npm:ghostty	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Gradle	CLI	gh:gradle/gradle	yolu-yok	yolsuz	COZUMSUZ	Gradle.Gradle	winget kimliği bulunamadı (Gradle.Gradle): ', '--accept-source-agreements']' timed out after 60 seconds	winget show rc=-1
+Grok Build	CLI	gh:xai-org/grok-build	diger	cargo	COZUMSUZ		eşleşen kural yok (diger/cargo)	
+Hardflow	CLI	gh:ugulay/hardflow	yolu-yok	skills-alt	COZUMSUZ		dizin=skills-alt: Windows derleme/kurulum yolu yok; kanit: on/Cargo yok; win-x64 release asset yok (asset 1: hardflow-1.23.0.zip)	
+Homebrew (brew)	CLI	gh:Homebrew/brew	yolu-yok	skills-alt+docker	COZUMSUZ		dizin=skills-alt+docker: Windows derleme/kurulum yolu yok; kanit: kage.json/Cargo yok; win-x64 release asset yok (asset 1: Homebrew.pkg)	
+JADX	CLI	gh:skylot/jadx	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: jadx-1.5.6.zip, jadx-gui-1.5.6-win.zip, jadx-gui-1.5.6-with-jre-win.zi	
+LEANN	PAKET	pip:leann	pip-uv	yolsuz	D2	PAKET	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+LLM Council	CLI	gh:tenfoldmarc/llm-council-skill	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Lago	CLI	gh:getlago/lago	yolu-yok	docker	COZUMSUZ		dizin=docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+LingoForge	CLI	gh:shenfn/LingoForge	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+MCP Bridge	CLI	gh:SecretiveShell/MCP-Bridge	dogrulanmadi	py+docker	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Meta Pixel	SKILL	npm:meta-pixel	npm-0skill	bos	D2	PAKET	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→PAKET	
+MetaClaw	CLI	gh:aiming-lab/MetaClaw	dogrulanmadi	py	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Metasploit	CLI	gh:rapid7/metasploit-framework	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit: ge.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 1205 MB	
+MySkill	SKILL	npm:myskill	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+NVIDIA Kimodo	CLI	gh:nv-tlabs/kimodo	pip-uv	py+docker	D2	CLI	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+NaiboWang/EasySpider	CLI	gh:NaiboWang/EasySpider	yolu-yok	bos	COZUMSUZ		kurulacak kod/release yok (dizin=bos); kanit: EasySpider_0.6.5_Linux_x64.tar.xz, EasySpider_0.6.5_MacOS_Apple_Arm_Ch	
+Pipecat CLI	CLI	pip:pipecat-ai-cli	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Proxmark 3	CLI	gh:RfidResearchGroup/proxmark3	diger	cmake+make	COZUMSUZ		eşleşen kural yok (diger/cmake+make)	
+Ratatui	CLI	gh:ratatui/ratatui	diger	cargo	COZUMSUZ		eşleşen kural yok (diger/cargo)	
+Rector	CLI	gh:rectorphp/rector	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+ReplyHandler	SKILL	gh:joshuaosborn561-lang/replyhandler	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+Scoop	CLI	gh:ScoopInstaller/Scoop	yolu-yok	yalniz-readme	COZUMSUZ		kurulum iex(irm ...) boru hattı; SUPHE kuralı (curl|iex) yasak	
+Sealos	CLI	gh:labring/sealos	yolu-yok	yolsuz	COZUMSUZ		release yalnız linux (.deb/.rpm/.tar.gz)	
+SkillClaw	SKILL	gh:AMAP-ML/SkillClaw	skill-yok	py	D2	PAKET	SKILL.md yok; dizin=py -> sınıf SKILL→PAKET	
+Slurm	CLI	gh:SchedMD/slurm	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: /Cargo yok; win-x64 release asset yok (asset 1: slurm-26.05.5.tar.bz2)	
+TeX Live	PAKET	gh:TeX-Live/texlive-source	buyuk	yolsuz	D2	PAKET	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+Triton	PAKET	gh:triton-lang/triton	buyuk	yolsuz	D2	PAKET	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+Valkey	CLI	gh:valkey-io/valkey	diger	cmake+make	COZUMSUZ		eşleşen kural yok (diger/cmake+make)	
+Whisker	CLI	gh:pipecat-ai/whisker	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Wifite	CLI	gh:derv82/wifite2	yolu-yok	py+docker	APT	wifite	Windows release yok; WSL Ubuntu apt paketi	Candidate: 2.8.2-1
+Zapler	CLI	gh:vida003/Zapler	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok	
+agency-agents (msitarzewski/agency-agents)	CLI	gh:msitarzewski/agency-agents	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+ai-research-analyst	SKILL	gh:transfinite-rathore/ai-research-analyst	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+aircrack-ng	CLI	gh:aircrack-ng/aircrack-ng	yolu-yok	docker	COZUMSUZ		dizin=docker: Windows derleme/kurulum yolu yok; kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+apktool	CLI	gh:iBotPeaches/Apktool	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: json/Cargo yok; win-x64 release asset yok (asset 1: apktool_3.0.3.jar)	
+axe	CLI	gh:cameroncooke/AXe	yolu-yok	make	COZUMSUZ		Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)	
+boykopovar/AnyPs5	CLI	gh:boykopovar/AnyPS5	release	cmake	COZUMSUZ		release zip'i exe içermiyor (yalnız libs/prx: PS5 araç zinciri); Windows .exe yok	
+claude scan	SKILL	npm:@eastagile/claude-scan	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+caffeinate	CLI	npm:caffeinate	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+claude-trace	SKILL	npm:@mariozechner/claude-trace	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+codex-computer-use	SKILL	gh:Ankitrai97/rai-claude-mods	skill-yok	plugin	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Ankitrai97__rai-claude-mods	repo Claude Code eklentisi (.claude-plugin/marketplace.json); SKILL.md yok	
+compass/crawler-google-places	CLI	gh:yunchutraders72-a11y/compass-crawler-google-places	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok	
+earthtojake/text-to-cad	SKILL	gh:earthtojake/text-to-cad	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+dnf	CLI	gh:rpm-software-management/dnf	diger	cmake	COZUMSUZ		eşleşen kural yok (diger/cmake)	
+export_scene	CLI	gh:blender/blender	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok	
+defending-code-reference-harnes	CLI	gh:anthropics/defending-code-reference-harness	dogrulanmadi	skills-alt+py	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+fakeroot	CLI	gh:mackyle/fakeroot	yolu-yok	bos	APT	fakeroot	Windows release yok; WSL Ubuntu apt paketi	Candidate: 1.37.2-1
+firecrawl/firecrawl-workflows	CLI	gh:firecrawl/firecrawl-workflows	yolu-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\firecrawl__firecrawl-workflows	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+fixai	SKILL	gh:pratikmishra356/fixai	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+friday-brief	SKILL	gh:MaxGluckman/friday-brief	skill-yok	bos	D2	SKILL	klon boş/yarım (git HEAD yok): yeniden klon (klonla: HEAD yoksa _arsiv'e taşı, uzak boşsa çözümsüz)	
+godot-2d-movement	CLI	gh:godotengine/godot	yolu-yok	py	COZUMSUZ		dizin=py: Windows derleme/kurulum yolu yok; kanit: ultiple top-level packages' (uygulama deposu; uv tool/venv derlenemez)	
+godot-tilemap	CLI	gh:godotengine/godot	yolu-yok	py	COZUMSUZ		dizin=py: Windows derleme/kurulum yolu yok; kanit: pyproject/package.json/win-x64 release yok	
+gVisor	CLI	gh:google/gvisor	yolu-yok	yolsuz	COZUMSUZ		Linux çekirdek sandbox'ı; release yalnız linux tar	
+harness2-demo	CLI	gh:joesaas/harness2-demo	dogrulanmadi	py	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+graphify --obsidian	CLI	gh:pingxiaoaws/Graphify-obsidian	yolu-yok	bos	COZUMSUZ		kurulacak kod/release yok (dizin=bos); kanit: pyproject/package.json/win-x64 release yok	
+hbot CLI	CLI	gh:hummingbot/hummingbot	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit: age.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 553 MB	
+hookify	CLI	gh:anthropics/claude-plugins-official	yolu-yok	plugin	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__claude-plugins-official	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+codspeed	CLI	gh:CodSpeedHQ/codspeed	diger	plugin+skills-alt+cargo	COZUMSUZ		eşleşen kural yok (diger/plugin+skills-alt+cargo)	
+letta-ai/claude-subconscious	SKILL	gh:letta-ai/claude-subconscious	skill-yok	plugin+npm-lib	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\letta-ai__claude-subconscious	repo Claude Code eklentisi (.claude-plugin/marketplace.json); SKILL.md yok	
+linkedin-automator	CLI	gh:charlesdove977/linkedin-automator	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+margin-analyzer	CLI	gh:tuffy-xie/margin-analyzer	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+mattgierhart/PRD-driven-context-engineering	CLI	gh:mattgierhart/PRD-driven-context-engineering	yolu-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\mattgierhart__PRD-driven-context-engineering	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+nvm-windows	CLI	gh:coreybutler/nvm-windows	yolu-yok	yalniz-readme	COZUMSUZ	CoreyButler.NVMforWindows	winget kimliği bulunamadı (CoreyButler.NVMforWindows): 	winget show rc=2316632065
+nmap	CLI	gh:nmap/nmap	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+oh-my-openagent	SKILL	gh:code-yeongyu/oh-my-openagent	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+paru	CLI	gh:Morganamilo/paru	diger	cargo+docker	COZUMSUZ		Arch Linux AUR aracı	
+pgnx	PAKET	npm:pgnx	npm-ebusy	yolsuz	D2	PAKET	ortak node_modules'ta EBUSY rename çakışması -> kalem başına ayrı --prefix (ana-liste-npm-t2)	
+pi harness	SKILL	npm:pi-harness	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+oMLX	PAKET	gh:jundot/omlx	pip-uv	py+make	COZUMSUZ		bağımlılık mlx-audio git klonu 'invalid path' (Windows'ta geçersiz dosya adı); MLX yalnız Apple Silicon	
+reel-factory	SKILL	gh:Shaan-alpha/AI-Reel-Factory	skill-yok	skills-alt	D2	PAKET	SKILL.md yok; dizin=skills-alt -> sınıf SKILL→PAKET	
+reaver	CLI	gh:inoryy/reaver	yolu-yok	py	COZUMSUZ		dizin=py: Windows derleme/kurulum yolu yok; kanit: pyproject/package.json/win-x64 release yok	
+scrum-sage	CLI	gh:codegeekyyy/ScrumSage	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+rtmpdump	CLI	gh:mstorsjo/rtmpdump	yolu-yok	make	APT	rtmpdump	Windows release yok; WSL Ubuntu apt paketi	Candidate: 2.4+20151223.gitfa8646d.1-3
+social agents	SKILL	gh:kevinbadi/social-agents	skill-yok	npm-bin	D2	CLI	SKILL.md yok; dizin=npm-bin -> sınıf SKILL→CLI	
+soma build	CLI	gh:techTeamProj/somaBuild	yolu-yok	bos	COZUMSUZ		kurulacak kod/release yok (dizin=bos); kanit: pyproject/package.json/win-x64 release yok	
+sound engine	PAKET	npm:soundengine	npm-diger	yolsuz	COZUMSUZ		node-gyp + vcpkg portaudio derlemesi code 1 (kanit); yerel ses SDK'sı yok	
+soma render	CLI	gh:vraiwangyibo/SomaRender	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+storytold/artcraft	CLI	gh:storytold/artcraft	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit:  artcraft-0.41.1-linux-aarch64.AppImage, artcraft-0.41.1-linux-aarch64	
+standup-summary	SKILL	gh:ihcene/standup-summary	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+superlite	PAKET	gh:iha2/superlite	pip-uv	plugin+skills-alt+py+npm-lib	D2	PAKET	izole `uv pip install --dry-run` rc=0; toplu koşuda çakışma -> sıralı (--is 1) yeniden	
+systemd	CLI	gh:systemd/systemd	yolu-yok	yolsuz	COZUMSUZ		Linux init sistemi; Windows'ta derlenemez/çalışmaz	
+tinyagents	SKILL	gh:tinyhumansai/tinyagents	skill-yok	cargo	D2	CLI	SKILL.md yok; dizin=cargo -> sınıf SKILL→CLI	
+twentyhq/twenty	CLI	gh:twentyhq/twenty	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit: ge.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 2549 MB	
+tshark	CLI	gh:wireshark/wireshark	yolu-yok	yolsuz	APT	tshark	Windows release yok; WSL Ubuntu apt paketi	Candidate: 4.6.4-1
+whatsapp-rust	CLI	gh:oxidezap/whatsapp-rust	diger	cargo+docker	COZUMSUZ		eşleşen kural yok (diger/cargo+docker)	
+wshobson	CLI	gh:wshobson/wshobson	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: pyproject/package.json/win-x64 release yok	
+vinzdg/codenotch	CLI	gh:ReflexDesigns/codenotch	diger	cargo	COZUMSUZ		eşleşen kural yok (diger/cargo)	
+whatweb	CLI	gh:urbanadventurer/WhatWeb	yolu-yok	make	APT	whatweb	Windows release yok; WSL Ubuntu apt paketi	Candidate: 0.6.3-1
+xAI Finance Agent	SKILL	gh:rao-manish-24/xAI-Finance-Agent-using-grok	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+xKiro	SKILL	gh:xkiro-ai/xkiro-ai	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+yay	CLI	gh:Jguer/yay	yolu-yok	go+make+docker	COZUMSUZ		Arch Linux AUR aracı	
+youtube-dl	CLI	gh:ytdl-org/youtube-dl	yolu-yok	py+make	COZUMSUZ		dizin=py+make: Windows derleme/kurulum yolu yok; kanit:  win-x64 release asset yok (asset 10: MD5SUMS, SHA1SUMS, SHA2-256SUMS)	
+21st Day MCP Connector	SKILL	npm:@21st-dev/cli	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+21st Dev MCP	SKILL	npm:@21st-dev/cli	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+21st MCP	SKILL	npm:@21st-dev/cli	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+AI Travel Agent (Local & Cloud)	SKILL	gh:nirbar1985/ai-travel-agent	skill-yok	py	D2	PAKET	SKILL.md yok; dizin=py -> sınıf SKILL→PAKET	
+Agent Client	CLI	gh:agentclientprotocol/agent-client-protocol	diger	npm-lib+cargo	COZUMSUZ		eşleşen kural yok (diger/npm-lib+cargo)	
+BlackboxAI	CLI	npm:@utiric/blackbox-ai	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+CLI-Hub	CLI	gh:HKUDS/CLI-Anything	yolu-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\HKUDS__CLI-Anything	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+Chocolatey	CLI	gh:chocolatey/choco	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: chocolatey-2.7.5.0.msi, chocolatey.2.7.5.nupkg, chocolatey.lib.2.7.5.n	
+Claude Code v2.1.71	SKILL	gh:anthropics/claude-code	skill-yok	plugin+skills-alt	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__claude-code	repo Claude Code eklentisi (.claude-plugin/marketplace.json); SKILL.md yok	
+Clawdbot	CLI	gh:openclaw/openclaw	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit:  latest.json, OpenClaw-2026.11.1-amd64.AppImage, OpenClaw-2026.11.1-am	
+Clawdbot (Moltbot)	CLI	gh:openclaw/openclaw	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit:  latest.json, OpenClaw-2026.11.1-amd64.AppImage, OpenClaw-2026.11.1-am	
+Clawed Code Setup	CLI	gh:anthropics/claude-plugins-official	yolu-yok	plugin	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__claude-plugins-official	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+Creative-Ad Skill	SKILL	gh:hoangngocanh2407/creative-ads-skill-layer	skill-yok	skills-alt+py	D2	PAKET	SKILL.md yok; dizin=skills-alt+py -> sınıf SKILL→PAKET	
+DataviewJS	PAKET	gh:blacksmithgu/obsidian-dataview	npm-ebusy	npm-lib	D2	PAKET	ortak node_modules'ta EBUSY rename çakışması -> kalem başına ayrı --prefix (ana-liste-npm-t2)	
+Devin CLI	CLI	gh:CognitionAI/devin-cli	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+FIX API	SKILL	npm:fix-api	npm-0skill	bos	D2	PAKET	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→PAKET	
+FingerprintChromium	CLI	gh:adryfish/fingerprint-chromium	dogrulanmadi	yalniz-readme	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Firecrawl MCP	SKILL	gh:firecrawl/firecrawl-mcp-server	skill-yok	npm-bin+docker	D2	CLI	SKILL.md yok; dizin=npm-bin+docker -> sınıf SKILL→CLI	
+Firecrawl MCP Server	SKILL	gh:firecrawl/firecrawl-mcp-server	skill-yok	npm-bin+docker	D2	CLI	SKILL.md yok; dizin=npm-bin+docker -> sınıf SKILL→CLI	
+GL Reconciler	CLI	gh:costrict-plugins-repo/anthropics-claude-for-financial-services-gl-reconciler	yolu-yok	plugin+skills-alt	D2	SKILL	repoda SKILL.md var; sınıf CLI→SKILL	
+GOATBOTX	SKILL	gh:goatbotx/goatbot	skill-yok	npm-lib+docker	D2	PAKET	SKILL.md yok; dizin=npm-lib+docker -> sınıf SKILL→PAKET	
+Higgsfield CLI	CLI	pip:higgsfield-cli	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Kafka	CLI	gh:apache/kafka	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Kilo Code	SKILL	gh:Kilo-Org/kilocode	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+Lint	CLI	npm:@shadcn/lint	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Local REST API with MCP	SKILL	gh:coddingtonbear/obsidian-local-rest-api	skill-yok	skills-alt+npm-lib	D2	PAKET	SKILL.md yok; dizin=skills-alt+npm-lib -> sınıf SKILL→PAKET	
+Market Researcher	SKILL	gh:tavily-ai/market-researcher	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+MuMu AI Novel	SKILL	gh:neosun100/MuMuAINovel	skill-yok	docker	D2	PAKET	SKILL.md yok; dizin=docker -> sınıf SKILL→PAKET	
+Muse Code	SKILL	gh:meta-models/muse-code-sdk	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+NSIS	CLI	gh:nsis-dev/nsis	yolu-yok	yalniz-readme	COZUMSUZ	NSIS.NSIS	winget kimliği bulunamadı (NSIS.NSIS): ', '--accept-source-agreements']' timed out after 60 seconds	winget show rc=-1
+Orchestrator.inc (agent-orchestrator)	CLI	gh:OrchestratorInc/agent-orchestrator	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit:  agent-orchestrator-darwin-arm64.dmg, agent-orchestrator-darwin-arm64.	
+Osaurus	CLI	gh:osaurus-ai/osaurus	yolu-yok	make	COZUMSUZ		Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)	
+PandaAi	SKILL	gh:PandaAI/PandaAiquant	llm	yolsuz	D2	SKILL	LLM kapısı erişilemedi -> yeniden	
+Poppler	CLI	gh:oschwartz10612/poppler-windows	yolu-yok	yalniz-readme	COZUMSUZ	oschwartz10612.Poppler	winget kimliği bulunamadı (oschwartz10612.Poppler): ', '--accept-source-agreements']' timed out after 60 seconds	winget show rc=-1
+Post Strategist	SKILL	gh:Aameeq/social-strategist	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+RIFE	CLI	gh:hzwer/ECCV2022-RIFE	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Remotion Lambda	SKILL	npm:@remotion/lambda	npm-0skill	bos	D2	PAKET	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→PAKET	
+Sandcastles MCP	SKILL	gh:Gnome101/sandcastle-mcp	skill-yok	npm-bin	D2	CLI	SKILL.md yok; dizin=npm-bin -> sınıf SKILL→CLI	
+ScrollSmoother	CLI	npm:gsap	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+TARS (Agent TARS)	SKILL	gh:bytedance/UI-TARS-desktop	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+The Hormozi Brain Toolkit for Claude Code	SKILL	gh:antonio-clicktoclose/hormozi-claude-code-brain	skill-yok	skills-alt	D2	PAKET	SKILL.md yok; dizin=skills-alt -> sınıf SKILL→PAKET	
+Tokens Studio	SKILL	gh:tokens-studio/figma-plugin	skill-yok	npm-lib-ws+docker	D2	PAKET	SKILL.md yok; dizin=npm-lib-ws+docker -> sınıf SKILL→PAKET	
+TopView MCP	SKILL	gh:alreadyrussian/topview	klon	yolsuz	D2	SKILL	klon zaman aşımı/checkout hatası -> --tur2 600s, SKILL ise seyrek klon	
+Unet Loader (GGUF)	SKILL	gh:city96/ComfyUI-GGUF	skill-yok	py	D2	PAKET	SKILL.md yok; dizin=py -> sınıf SKILL→PAKET	
+Vibe CLI	CLI	gh:mistralai/mistral-vibe	dogrulanmadi	py+make	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+Vim	CLI	gh:vim/vim	yolu-yok	make	COZUMSUZ		Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)	
+Vite 5	PAKET	npm:vite@5	npm-ebusy	yolsuz	D2	PAKET	ortak node_modules'ta EBUSY rename çakışması -> kalem başına ayrı --prefix (ana-liste-npm-t2)	
+Vite 7	PAKET	npm:vite@7	npm-ebusy	yolsuz	D2	PAKET	ortak node_modules'ta EBUSY rename çakışması -> kalem başına ayrı --prefix (ana-liste-npm-t2)	
+ZeroGPT	SKILL	pip:zerogpt	diger	yolsuz	PIPEK	pillow	import PIL ModuleNotFoundError: eksik bağımlılık venv'e eklenir, doğrulama yinelenir	
+agent-radar	SKILL	gh:duanyytop/agents-radar	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+agents-sdk-dev	CLI	gh:anthropics/claude-plugins-official	yolu-yok	plugin	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__claude-plugins-official	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+bitwarden_rs	CLI	gh:dani-garcia/vaultwarden	diger	cargo+docker	COZUMSUZ		eşleşen kural yok (diger/cargo+docker)	
+build-error-resolver	CLI	gh:affaan-m/everything-claude-code	dogrulanmadi	plugin+skills-alt+py+npm-bin	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+co-cli	CLI	npm:co-cli	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+commit-commands	CLI	gh:anthropics/claude-plugins-official	yolu-yok	plugin	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\anthropics__claude-plugins-official	repo Claude Code eklentisi (.claude-plugin/marketplace.json); sınıf CLI yanlış	
+continuedev/continue	SKILL	gh:continuedev/continue	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+controller-mapper	CLI	gh:PumpedSardines/controller-mapper	dogrulanmadi	cargo	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+crm-cleanup	CLI	gh:shahmeerk-gtm/crm-cleanup	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+e2e-runner	CLI	gh:affaan-m/everything-claude-code	dogrulanmadi	plugin+skills-alt+py+npm-bin	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+execute_sql	SKILL	gh:supabase-community/supabase-mcp	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+generate_typescript_types	SKILL	gh:supabase-community/supabase-mcp	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+geo-crawlers	CLI	gh:sickn33/agentic-awesome-skills	yolu-yok	yolsuz	COZUMSUZ		kurulacak kod/release yok (dizin=yolsuz); kanit: age.json/Cargo yok; win-x64 release asset yok (asset 0: ); repo 442 MB	
+get_observations	SKILL	gh:thedotmack/claude-mem	buyuk	yolsuz	D2	SKILL	repo büyük: --tur2 (SKILL: blobsuz+seyrek klon yalnız SKILL dizinleri; CLI: release/derleme)	
+gnu-tar	CLI	gh:gitGNU/gnu_tar	yolu-yok	bos	APT	tar	Windows release yok; WSL Ubuntu apt paketi	Candidate: 1.35+dfsg-4ubuntu0.4
+gstack-slug	CLI	gh:garrytan/gstack	dogrulanmadi	npm-bin	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+harness-audit	CLI	gh:affaan-m/ECC	dogrulanmadi	plugin+skills-alt+py+npm-bin	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+harness-optimizer	CLI	gh:affaan-m/ECC	dogrulanmadi	plugin+skills-alt+py+npm-bin	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+hy-wu-edit	SKILL	gh:Tencent-Hunyuan/HY-WU	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+inbox-alerts-priority	SKILL	gh:Ankitrai97/rai-claude-mods	skill-yok	plugin	PLUGIN	C:\Users\pc\Desktop\Claude ile yapılanlar\araclar\ana-liste\Ankitrai97__rai-claude-mods	repo Claude Code eklentisi (.claude-plugin/marketplace.json); SKILL.md yok	
+invoice-follow-up	SKILL	gh:roryzentilin-prog/invoice-follow-up	klon	yolsuz	D2	SKILL	klon zaman aşımı/checkout hatası -> --tur2 600s, SKILL ise seyrek klon	
+ldid-procursus	CLI	gh:ProcursusTeam/ldid	yolu-yok	make	COZUMSUZ		Makefile; Windows'ta make yok, yalnız Linux hedefi (WSL apt paketi eşleşmedi)	
+lint-fix	CLI	npm:lint-fix	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+multi_agent_researcher	SKILL	gh:jxnl/multi-agent-researcher	skill-yok	py	D2	PAKET	SKILL.md yok; dizin=py -> sınıf SKILL→PAKET	
+multi_agent_trust_layer	SKILL	gh:Riaa-stack/multi_agent_trust_layer	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+offensive-sqli	SKILL	gh:rudraverma/offensive-sqli-claude-skill	skill-yok	yalniz-readme	D2	PAKET	SKILL.md yok; dizin=yalniz-readme -> sınıf SKILL→PAKET	
+openai-balance	SKILL	gh:savokiss/openai-balance	skill-yok	npm-lib	D2	PAKET	SKILL.md yok; dizin=npm-lib -> sınıf SKILL→PAKET	
+pi coding agent	SKILL	npm:@mariozechner/pi-coding-agent	npm-0skill	bos	D2	CLI	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→CLI	
+product visuals	SKILL	gh:yjaouhar/product-visuals	skill-yok	bos	D2	SKILL	klon boş/yarım (git HEAD yok): yeniden klon (klonla: HEAD yoksa _arsiv'e taşı, uzak boşsa çözümsüz)	
+regex-build	SKILL	npm:regex-build	npm-0skill	bos	D2	PAKET	npm paketinde SKILL.md yok; npm view bin -> sınıf SKILL→PAKET	
+ship-learn-next	CLI	gh:michalparkola/tapestry-skills-for-claude-code	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+smtg-ai/claude-squad	SKILL	gh:smtg-ai/claude-squad	skill-yok	go	D2	CLI	SKILL.md yok; dizin=go -> sınıf SKILL→CLI	
+tool-audit	CLI	npm:tool-audit	dogrulanmadi	yolsuz	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+tv_health_check	CLI	gh:tradesdontlie/tradingview-mcp	dogrulanmadi	skills-alt+npm-bin	DOGRULA		kurulum tamam; komut adı/--version yoklaması başarısız (kanit sütunu)	
+wget	CLI	gh:mirror/wget	yolu-yok	bos	APT	wget	Windows release yok; WSL Ubuntu apt paketi	Candidate: 1.25.0-2ubuntu4.4
+zqxwce/tap/vphone-cli	CLI	gh:zqxwce/homebrew-tap	yolu-yok	yalniz-readme	COZUMSUZ		kurulacak kod/release yok (dizin=yalniz-readme); kanit: yproject/package.json/Cargo yok; win-x64 release asset yok (asset 0: )	
+Apify Tester MCP Client	SKILL	gh:apify/tester-mcp-client	skill-yok	npm-bin	D2	CLI	SKILL.md yok; dizin=npm-bin -> sınıf SKILL→CLI	
+agentationburepoy	CLI	gh:bengitaylor/agentationburepoy	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+blender-ai-mcp-addon	CLI	gh:LiCinCan/blender-ai-mcp-addon	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+Claude Desktop Extensions	CLI	gh:anthropics/claude-desktop-extensions	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+claude-code-video-tocllcit	CLI	gh:digltalsamba/claude-code-video-tocllcit	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+Ubersuggest	CLI	gh:npdigital/ubersuggest	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+gatsby-simplefolio	CLI	gh:cobidev/gatsby-simplefolio	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+Fitness-Tracker-App	CLI	gh:machadop1407/Fitness-Tracker-App	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+gmail-clone	CLI	gh:CleverProgrammers/gmail-clone	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+MERN-Stack-Course	CLI	gh:PacktPublishing/MERN-Stack-Course	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+Hospital-Management-System	CLI	gh:CodAffection/Hospital-Management-System	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+mern-todo	CLI	gh:CleverProgrammers/mern-todo	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+News-App-Full-Stack	CLI	gh:machadop1407/News-App-Full-Stack	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+next13-discord-clone	CLI	gh:antonioerdeljac/next13-discord-clone	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+next13-lms-platform	CLI	gh:antonioerdeljac/next13-lms-platform	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+note-taking-app	CLI	gh:FaisalST32/note-taking-app	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+online-movie-ticket-booking-system	CLI	gh:isuruAb/online-movie-ticket-booking-system	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+project_travel_companion	CLI	gh:adrianhajdin/project_travel_companion	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+real-estate-app (machadop1407)	CLI	gh:machadop1407/real-estate-app	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+recipe-site	CLI	gh:machadop1407/recipe-site	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+restaurant-reservation	CLI	gh:mikhae128/restaurant-reservation	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+restaurant-webapp	CLI	gh:ipenywis/restaurant-webapp	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+Swimming pool scene	CLI	gh:sloemoo1/poolscene	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+tic-tac-toe-multiplayer	CLI	gh:coding-garden/tic-tac-toe-multiplayer	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+uber-clone (alex996)	CLI	gh:alex996/uber-clone	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+uber-clone (CleverProgrammers)	CLI	gh:CleverProgrammers/uber-clone	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+whatsapp-mern	CLI	gh:CleverProgrammers/whatsapp-mern	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+v25-geckos-team-65	CLI	gh:chingu-voyages/v25-geckos-team-65	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+Infisical	CLI	gh:Infisical/infisical	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	
+openjutsureadme	CLI	gh:D3voz/openjutsu	diger	yolsuz	COZUMSUZ		eşleşen kural yok (diger/yolsuz)	

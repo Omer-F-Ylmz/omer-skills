@@ -23,7 +23,7 @@ def _yaz(yol, metin):
 
 def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici=None, ek_ayar=None,
         ajanlar=Path.home() / ".claude" / "agents",
-        eklentiler=Path.home() / ".claude" / "plugins" / "installed_plugins.json"):
+        eklentiler=Path.home() / ".claude" / "plugins" / "installed_plugins.json", tut_ek=()):
     """→ (argv eki, env eki). env eki yalnız enjeksiyon kapatan (pluginKapat'lı) profilde CC_PROFIL=ad — jev-skill.ps1 erken çıkar.
     ek_ayar: çağıranın kendi --settings JSON'u; profilinkiyle tek --settings'te birleşir (iki --settings birbirini ezmesin)."""
     env = os.environ if env is None else env
@@ -54,7 +54,7 @@ def kur(ad, env=None, ana=Path.home() / ".claude.json", profiller=PROFIL, gecici
     if "ttl" in p:
         ayar["promptCacheTtl"] = p["ttl"]
     if "ajanTut" in p:  # TOKEN-2 K2: ajan listesi sabit tabanın %47'si; ajanTut dışındaki kullanıcı ajanları oturumda gizlenir
-        tut = set(p["ajanTut"])
+        tut = set(p["ajanTut"]) | set(tut_ek)  # tut_ek: görevin ZORUNLU ARAÇLAR'daki ajanları (ajan_sira)
         adlar = [m.group(1).strip().strip("'\"") for f in sorted(Path(ajanlar).glob("*.md"))
                  if (m := re.search(r"^name:\s*(.+)$", f.read_text(encoding="utf-8", errors="ignore"), re.M))]
         # TOKEN-3 K10: plugin ajanları (eklenti:alt dizin:ad) da gizlenir — kalan listenin ~12k karakteri

@@ -37,7 +37,7 @@ for r in csv.DictReader(open(D / "kurulacaklar-temiz.tsv", encoding="utf-8-sig")
     if d is None and r["eslesme"] == "KURULU":
         d = ("KURULU-onceden", r["kanit"][:120], "kurulacaklar-temiz")
     d = d or ("YOK", "", "")
-    kart = any(k in usta or any(k and k in u for u in usta) for k in ks)
+    kart = any(k in usta or any(k and (k in u or (len(u) >= 10 and u in k)) for u in usta) for k in ks)  # tur17: "appledesign" ⊂ "appledesignskill"
     satir.append([r["kalem"], r["tur_sinif"], r["eslesme"], d[0], "kart" if kart else "KART-YOK", d[2], d[1]])
     say[d[0]] = say.get(d[0], 0) + 1
 with open(D / "tablo13.tsv", "w", encoding="utf-8", newline="") as f:

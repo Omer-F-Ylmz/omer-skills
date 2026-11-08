@@ -2,7 +2,7 @@
 yt-dlp -> ffmpeg (0,5 sn kare) -> faster-whisper (kelime zamanli) -> RapidOCR -> Gemini kare aciklamasi -> JSON.
 Kullanim: python tools/video_derin.py <url|kod> [...]   |  --liste <dosya> [--en N]
 Cikti: docs/video-tarama/derin/<kod>.json ; ilerleme: .kos/kopru/derin-ilerleme.txt (kaldigi yerden)."""
-import base64, contextlib, json, os, re, shutil, site, subprocess, sys, tempfile, threading, time, urllib.request
+import base64, contextlib, json, os, queue, re, shutil, site, subprocess, sys, tempfile, threading, time, urllib.request
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -86,8 +86,33 @@ GPU_TAVAN = float(os.environ.get("VD_GPU_TAVAN", "70"))  # ölçülen kullanım 
 GPU_BASLAT = float(os.environ.get("VD_GPU_BASLAT", "101"))  # <100 ise yeni GPU patlaması ölçülen kullanım ≤ bu olana dek (en çok 3 sn) bekler
 
 
+def bosta_mi():
+    """HIZ-8 (a): Ömer'in klavye/fare girdisi VD_BOSTA_DK dakikadır yok → GPU tavanı yok (kural 1 Kas). VD_BOSTA_DK=0 kapatır. 30 sn önbellek."""
+    if bosta_mi.t + 30 > time.time():
+        return bosta_mi.v
+    dk = float(os.environ.get("VD_BOSTA_DK", "10"))
+    try:
+        import ctypes
+
+        class LII(ctypes.Structure):
+            _fields_ = [("cbSize", ctypes.c_uint), ("dwTime", ctypes.c_uint)]
+
+        li = LII(ctypes.sizeof(LII), 0)
+        ctypes.windll.user32.GetLastInputInfo(ctypes.byref(li))
+        bosta_mi.v = dk > 0 and (ctypes.windll.kernel32.GetTickCount() - li.dwTime) / 60000 >= dk
+    except Exception:
+        bosta_mi.v = False
+    bosta_mi.t = time.time()
+    return bosta_mi.v
+
+
+bosta_mi.t, bosta_mi.v = 0.0, False
+
+
 def gpu_nefes(patlama):
     """GPU_KILIT tutulurken çağrılır: kilidi bırakmadan uyur, böylece boşluğu başka işçi doldurmaz."""
+    if bosta_mi():
+        return
     u = gpu_olc()[0]
     time.sleep(patlama * GPU_ORAN + (0.25 if u >= GPU_TAVAN else 0))
     son = time.time() + 3  # VIDEO-HIZ-5 TUR 2: sert zamanlayıcı — ölçülen kullanım BASLAT'ın altına inene dek sonraki patlama başlamaz (nvidia-smi geri beslemeli)
@@ -95,7 +120,7 @@ def gpu_nefes(patlama):
         time.sleep(0.2)
 
 
-RAM_TAVAN = float(os.environ.get("VD_RAM_TAVAN", "88.5"))  # TUR 2: tavan %89, taban Ömer'in süreçleriyle ~%87,5 → her ağır aşama başlamadan RAM'e bakar
+RAM_TAVAN = float(os.environ.get("VD_RAM_TAVAN", "96.5"))  # TUR 2: tavan %89, taban Ömer'in süreçleriyle ~%87,5 → her ağır aşama başlamadan RAM'e bakar
 
 
 def ram_kapi(max_bekle=240):
@@ -105,7 +130,7 @@ def ram_kapi(max_bekle=240):
         time.sleep(1)
 
 
-RAM_KES, VRAM_KES, ES_MAX = 89.0, 80.0, 7  # KARAR-30 m8: sert kesme eşikleri, işçi üst sınırı
+RAM_KES, VRAM_KES, ES_MAX = 97.0, 95.0, 7  # KARAR-30 m8: sert kesme eşikleri, işçi üst sınırı; Ömer 02.11: VRAM kapısı %95; Ömer 03.11: RAM kesme %97
 KESIK = threading.Event()
 
 
@@ -139,7 +164,19 @@ def cerez_arg(url):  # yalnız instagram.com; yol IG_COOKIES ya da .kos/ig-cooki
     return ["--cookies", p] if p.is_file() else []
 
 
+INDIR_SEM = threading.BoundedSemaphore(int(os.environ.get("VD_INDIR_ES", "2")))  # 3 Kas: 6 eş indirmede YouTube bot-kontrolü (cookies) 48 düşüş verdi; işçi 6 kalır, indirme 2'li
+
+
 def indir(url, d):
+    with INDIR_SEM:
+        v, e = _indir1(url, d)
+        if v is None and "cookies" in e:
+            time.sleep(45)
+            v, e = _indir1(url, d)
+    return v, e
+
+
+def _indir1(url, d):
     r = kos("yt-dlp", *cerez_arg(url), "-f", "wv[height>=360][protocol^=http]+(ba[format_note*=original]/ba)/w[height>=360]/best", "-S", "lang", "--no-playlist", "-N", "4", "-o", d / "v.%(ext)s", url, "--write-info-json", timeout=300)
     v = next((p for p in d.glob("v.*") if p.suffix not in (".json",) and not re.match(r"v\.f\d", p.name)), None)  # birleştirme düştüyse v.f229.mp4 gibi yalnız-video parçası seçilmez (ASR "yok" kök nedeni)
     return v, r.stderr[-200:]
@@ -208,39 +245,125 @@ GROQ_MODELLER = [m for m in os.environ.get("VD_GROQ_MODELLER", "whisper-large-v3
 GROQ_SAAT_SN = float(os.environ.get("VD_GROQ_SAAT", "100000"))  # model başına saatlik ses saniyesi (kota 7200)
 
 
-def groq_asr(wav):
-    """Önce ücretsiz Groq whisper-large-v3 (yerelle aynı model); kota/hata/büyük dosyada None, yerel large-v3 beam5 devralır."""
-    key = os.environ.get("GROQ_API_KEY")
-    if not key or wav.stat().st_size > 15_000_000:
-        return None
-    sure = wav.stat().st_size / 32000  # 16 kHz mono 16 bit
-    with GROQ_KILIT:  # VIDEO-HIZ-5: model başına saatlik ses saniyesi bütçesi (ücretsiz kota 7200 sn/sa/model); dolunca sıradaki model, hiçbiri yoksa yerel GPU
-        simdi = time.time()
-        model = next((m for m in GROQ_MODELLER if simdi >= groq_durum.setdefault(m, {"sonraki": 0.0, "kapali": 0.0, "kayit": []})["kapali"]
-                      and sum(s for t, s in groq_durum[m]["kayit"] if simdi - t < 3600) + sure <= GROQ_SAAT_SN), None)
-        if not model:
+GROQ_PARCA_SN = float(os.environ.get("VD_GROQ_PARCA", "300"))  # VIDEO-HIZ-6: 15 MB üstü ses VAD sessizliğinden bu uzunlukta parçalanır (300 sn wav ≈ 9,6 MB < Groq 25 MB sınırı)
+GROQ_ES = int(os.environ.get("VD_GROQ_ES", "3"))  # VIDEO-HIZ-6: bir videonun parçaları için eşzamanlı istek; 20 istek/dk tavanını GROQ_KILIT aralığı (3,2 sn) korur
+GROQ_OPUS_KBPS = os.environ.get("VD_GROQ_OPUS", "24")  # VIDEO-HIZ-7: opus bit hızı (24 kbps ≈ 3 KB/sn → 24 MB ≈ 133 dk)
+GROQ_MAX = int(float(os.environ.get("VD_GROQ_MAX_MB", "24")) * 1_000_000)  # Groq ücretsiz katman dosya sınırı 25 MB
+GROQ_ORTUSME = 3  # sn, parçalı yolda parça sınırı örtüşmesi
+VAD_KILIT = threading.Lock()
+
+
+def groq_opus(wav):
+    """VIDEO-HIZ-7: 16 kHz mono wav → ogg/opus (aynı dizinde a.ogg); ffmpeg yoksa/başarısızsa None."""
+    o = wav.with_suffix(".ogg")
+    r = kos("ffmpeg", "-y", "-i", wav, "-c:a", "libopus", "-b:a", GROQ_OPUS_KBPS + "k", "-application", "voip", o)
+    return o if r.returncode == 0 and o.exists() and o.stat().st_size else None
+
+
+def groq_kes(wav, sr=16000):
+    """VIDEO-HIZ-6: wav'ı konuşma sessizliklerinin ortasından ≤GROQ_PARCA_SN'lik [(başlangıç, bitiş)] örnek aralıklarına böler; konuşma yoksa None."""
+    import numpy as np
+    from faster_whisper.audio import decode_audio
+    from faster_whisper.vad import VadOptions, get_speech_timestamps
+    a = decode_audio(str(wav), sampling_rate=sr)
+    with VAD_KILIT:
+        ts = get_speech_timestamps(a, VadOptions())
+    if not ts:
+        return None, None
+    tavan, parca, bas, son = int(GROQ_PARCA_SN * sr), [], 0, 0
+    for s in ts:
+        if son > bas and s["end"] - bas > tavan:  # bu konuşma parçayı aşar: önceki konuşma ile bunun arasındaki sessizlikte kes
+            kes = (son + s["start"]) // 2
+            parca.append((bas, kes))
+            bas = kes
+        son = s["end"]
+    parca.append((bas, len(a)))
+    out = []
+    for b, e in parca:  # tek kesintisiz konuşma tavanı aşarsa (Groq dosya sınırı) eşit böl
+        k = -(-(e - b) // (2 * tavan))
+        out += [(b + i * (e - b) // k, b + (i + 1) * (e - b) // k) for i in range(k)]
+    return a, out
+
+
+def _groq_gonder(key, wav_bytes, sure, dil=None, ad="a.wav", tur="audio/wav"):
+    """Tek istek: model/bütçe seçimi + 3,2 sn aralık + kısa 429 geri çekilmesi; (dil, segmentler) ya da None."""
+    for deneme in range(3):
+        with GROQ_KILIT:  # VIDEO-HIZ-5: model başına saatlik ses saniyesi bütçesi (ücretsiz kota 7200 sn/sa/model); dolunca sıradaki model, hiçbiri yoksa yerel GPU
+            simdi = time.time()
+            model = next((m for m in GROQ_MODELLER if simdi >= groq_durum.setdefault(m, {"sonraki": 0.0, "kapali": 0.0, "kayit": []})["kapali"]
+                          and sum(s for t, s in groq_durum[m]["kayit"] if simdi - t < 3600) + sure <= GROQ_SAAT_SN), None)
+            if not model:
+                return None
+            gd = groq_durum[model]
+            gd["kayit"] = [(t, s) for t, s in gd["kayit"] if simdi - t < 3600] + [(simdi, sure)]
+            bekle = gd["sonraki"] - simdi
+            gd["sonraki"] = max(simdi, gd["sonraki"]) + 3.2
+        if bekle > 0:
+            time.sleep(bekle)
+        sinir = "vd" + str(time.time_ns())
+        alan = lambda ad, de: f'--{sinir}\r\nContent-Disposition: form-data; name="{ad}"\r\n\r\n{de}\r\n'.encode()
+        govde = (alan("model", model) + alan("response_format", "verbose_json") + alan("temperature", "0") + (alan("language", dil) if dil else b"")
+                 + f'--{sinir}\r\nContent-Disposition: form-data; name="file"; filename="{ad}"\r\nContent-Type: {tur}\r\n\r\n'.encode()
+                 + wav_bytes + f"\r\n--{sinir}--\r\n".encode())
+        try:  # Python-urllib UA'sı Cloudflare'da 1010/403 alır: açık UA şart
+            req = urllib.request.Request(GROQ_ASR, govde, {"Authorization": f"Bearer {key}", "Content-Type": f"multipart/form-data; boundary={sinir}", "User-Agent": "curl/8.5.0"})
+            r = json.load(urllib.request.urlopen(req, timeout=90))
+            out = [{"b": round(s["start"], 1), "s": round(s["end"], 1), "t": s["text"].strip()} for s in r.get("segments", []) if s["text"].strip()]
+            return GROQ_DIL.get(str(r.get("language", "")).lower(), str(r.get("language", ""))), out
+        except Exception as e:
+            if "429" in str(e):
+                ra = float(getattr(e, "headers", None) and e.headers.get("retry-after") or 600)
+                if ra <= 30 and deneme < 2:  # VIDEO-HIZ-6: dakikalık istek tavanı → kısa bekle, aynı parçayı yeniden dene; saatlik/günlük kota (uzun retry-after) → model kapanır
+                    time.sleep(ra + 1)
+                    continue
+                groq_durum[model]["kapali"] = time.time() + max(60.0, min(ra, 3600.0))
+            print(f"device=groq basarisiz: {str(e)[:100]}", flush=True)
             return None
-        gd = groq_durum[model]
-        gd["kayit"] = [(t, s) for t, s in gd["kayit"] if simdi - t < 3600] + [(simdi, sure)]
-        bekle = gd["sonraki"] - simdi
-        gd["sonraki"] = max(simdi, gd["sonraki"]) + 3.2
-    if bekle > 0:
-        time.sleep(bekle)
-    sinir = "vd" + str(time.time_ns())
-    alan = lambda ad, de: f'--{sinir}\r\nContent-Disposition: form-data; name="{ad}"\r\n\r\n{de}\r\n'.encode()
-    govde = (alan("model", model) + alan("response_format", "verbose_json") + alan("temperature", "0")
-             + f'--{sinir}\r\nContent-Disposition: form-data; name="file"; filename="a.wav"\r\nContent-Type: audio/wav\r\n\r\n'.encode()
-             + wav.read_bytes() + f"\r\n--{sinir}--\r\n".encode())
-    try:  # Python-urllib UA'sı Cloudflare'da 1010/403 alır: açık UA şart
-        req = urllib.request.Request(GROQ_ASR, govde, {"Authorization": f"Bearer {key}", "Content-Type": f"multipart/form-data; boundary={sinir}", "User-Agent": "curl/8.5.0"})
-        r = json.load(urllib.request.urlopen(req, timeout=60))
-        out = [{"b": round(s["start"], 1), "s": round(s["end"], 1), "t": s["text"].strip()} for s in r.get("segments", []) if s["text"].strip()]
-        return GROQ_DIL.get(str(r.get("language", "")).lower(), str(r.get("language", ""))), out
-    except Exception as e:
-        if "429" in str(e):
-            groq_durum[model]["kapali"] = time.time() + 600
-        print(f"device=groq basarisiz: {str(e)[:100]}", flush=True)
+    return None
+
+
+def groq_asr(wav):
+    """Önce ücretsiz Groq whisper-large-v3 (yerelle aynı model); kota/hata durumunda None, yerel large-v3 beam5 devralır.
+    VIDEO-HIZ-6: 15 MB üstü (~7,8 dk) ses VAD sessizliğinden ≤GROQ_PARCA_SN parçalara bölünür, zaman damgaları birleştirilir."""
+    key = os.environ.get("GROQ_API_KEY")
+    if not key:
         return None
+    boy = wav.stat().st_size
+    if boy <= 15_000_000:
+        return _groq_gonder(key, wav.read_bytes(), boy / 32000)  # 16 kHz mono 16 bit
+    o = groq_opus(wav)  # VIDEO-HIZ-7: 15 MB sınırı ham wav içindi; Groq sınırı dosya başına 25 MB → opus ile uzun ses TEK istekte, parçalama yok
+    if o and o.stat().st_size <= GROQ_MAX:
+        return _groq_gonder(key, o.read_bytes(), boy / 32000, None, "a.ogg", "audio/ogg")
+    if os.environ.get("VD_GROQ_UZUN", "0") != "1":  # opus bile 24 MB üstü: parçalı yol (HIZ-6'da kalite kapısını geçmedi) → varsayılan KAPALI, yerel GPU
+        return None
+    import io, wave
+    a, aralik = groq_kes(wav)
+    if not aralik:
+        return None
+
+    def parca(i, dil=None):
+        b, e = aralik[i]
+        s0 = max(0, b - GROQ_ORTUSME * 16000) if i else b  # HIZ-7: ilk parça dışında 3 sn önceden başlar, sınırda kelime kesilmez
+        buf = io.BytesIO()
+        with wave.open(buf, "wb") as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000)
+            w.writeframes((a[s0:e] * 32767).astype("int16").tobytes())
+        r = _groq_gonder(key, buf.getvalue(), (e - s0) / 16000, dil)
+        if not r:
+            return None
+        sg = [{**s, "b": round(s["b"] + s0 / 16000, 1), "s": round(s["s"] + s0 / 16000, 1)} for s in r[1]]
+        return r[0], [s for s in sg if b / 16000 <= (s["b"] + s["s"]) / 2 < e / 16000]  # örtüşmeyi ortası kendi parçasına düşen segmentle birleştir
+
+    ilk = parca(0)  # dil ilk parçadan bulunur, kalanlara verilir (sessiz/müzikli parçada yanlış dil tahmini olmasın)
+    if not ilk:
+        return None
+    kod = ilk[0] if ilk[0] in GROQ_DIL.values() else None
+    with ThreadPoolExecutor(GROQ_ES) as ex:
+        kalan = list(ex.map(lambda i: parca(i, kod), range(1, len(aralik))))
+    if any(k is None for k in kalan):
+        return None
+    print(f"device=groq parca={len(aralik)}", flush=True)
+    return ilk[0], ilk[1] + [s for k in kalan for s in k[1]]
 
 
 ALT_MIN = int(os.environ.get("VD_ALT_MIN", "900"))
@@ -317,23 +440,45 @@ def asr(v, d):
     return "", [], "yok"
 
 
-OCR_KILIT = threading.Lock()  # tek ORT oturumu: GPU çağrıları sıralanır (kare başı ~0,2 sn)
 OCR_AYGIT = "?"
+OCR_OTURUM = int(os.environ.get("VD_OCR_OTURUM", "3"))  # HIZ-8 (c): eşzamanlı RapidOCR oturumu (kare başı sn: 1→0,257 · 2→0,120 · 3→0,087 · 6→0,084); GPU/CPU-on-işleme çakışır
+OCR_ATLA = int(os.environ.get("VD_OCR_ATLA", "1"))  # HIZ-8 (e): kare metni öncekiyle ≥%95 aynıysa sonraki bu kadar kare atlanır (0 = kapalı)
+_ocr_havuz, _ocr_say, _ocr_kur = queue.Queue(), [0], threading.Lock()
+
+
+def _motor_kur():
+    global OCR_AYGIT
+    from rapidocr_onnxruntime import RapidOCR
+    try:  # CUDA sağlayıcı yüklenemezse (DLL yok) ORT sessizce CPU'ya düşer: sağlayıcı listesinden doğrula
+        m = RapidOCR(det_use_cuda=True, cls_use_cuda=True, rec_use_cuda=True)
+        prov = getattr(getattr(getattr(m, "text_det", None), "infer", None), "session", None)
+        OCR_AYGIT = "cuda" if prov is None or "CUDAExecutionProvider" in prov.get_providers() else "cpu"
+        m = m if OCR_AYGIT == "cuda" else RapidOCR()
+    except Exception:
+        m, OCR_AYGIT = RapidOCR(), "cpu"
+    print(f"ocr aygit={OCR_AYGIT}", flush=True)
+    return m
 
 
 def ocr_motor():
-    global _ocr, OCR_AYGIT
-    from rapidocr_onnxruntime import RapidOCR
+    global _ocr
     if _ocr is None:
-        try:  # CUDA sağlayıcı yüklenemezse (DLL yok) ORT sessizce CPU'ya düşer: sağlayıcı listesinden doğrula
-            m = RapidOCR(det_use_cuda=True, cls_use_cuda=True, rec_use_cuda=True)
-            prov = getattr(getattr(getattr(m, "text_det", None), "infer", None), "session", None)
-            OCR_AYGIT = "cuda" if prov is None or "CUDAExecutionProvider" in prov.get_providers() else "cpu"
-            _ocr = m if OCR_AYGIT == "cuda" else RapidOCR()
-        except Exception:
-            _ocr, OCR_AYGIT = RapidOCR(), "cpu"
-        print(f"ocr aygit={OCR_AYGIT}", flush=True)
+        _ocr = _motor_kur()
     return _ocr
+
+
+def ocr_oturum():
+    """Havuzdan boş oturum; yoksa sınıra dek yeni kurar (CPU'ya düşerse tek oturum), sınır doluysa boşalanı bekler. Çağıran putlamalı."""
+    try:
+        return _ocr_havuz.get_nowait()
+    except queue.Empty:
+        pass
+    with _ocr_kur:
+        if _ocr_say[0] < (OCR_OTURUM if OCR_AYGIT != "cpu" else 1):
+            ram_kapi(60)
+            _ocr_say[0] += 1
+            return _motor_kur()
+    return _ocr_havuz.get()
 
 
 YAZI_ESIK = int(os.environ.get("VD_YAZI", "0"))  # HIZ-4 yazı ön sınıflandırıcı: yazı benzeri blok sayısı bunun altındaki kare OCR'ye girmez (0 = kapalı)
@@ -357,15 +502,24 @@ def ocr(ks):
         yazili = [k for k in ks if yazi_blok(k) >= YAZI_ESIK]
         print(f"yazi_kapi {len(yazili)}/{len(ks)}", flush=True)
         ks = yazili
-    for i, k in enumerate(ks):
+    onc, i = None, 0
+    while i < len(ks):
+        k = ks[i]
+        i += 1
+        m = ocr_oturum()
         try:
-            with OCR_KILIT, GPU_KILIT:  # OCR ve ASR GPU'yu sırayla kullanır; patlama sonrası nefes (bekçi %78 eşiği)
-                t0 = time.time()
-                res, _ = ocr_motor()(str(k), use_cls=os.environ.get("VD_OCR_CLS", "0") == "1")  # TUR 2: açı sınıflandırıcı ekran metninde gereksiz, kare başı süre düşer
-                if OCR_AYGIT == "cuda":
-                    gpu_nefes(time.time() - t0)
+            t0 = time.time()
+            res, _ = m(str(k), use_cls=os.environ.get("VD_OCR_CLS", "0") == "1")  # TUR 2: açı sınıflandırıcı ekran metninde gereksiz, kare başı süre düşer
+            if OCR_AYGIT == "cuda":
+                gpu_nefes(time.time() - t0)  # patlama sonrası nefes (bekçi %78 eşiği); Ömer başında değilse atlanır
         except Exception:
             continue
+        finally:
+            _ocr_havuz.put(m)
+        simdi = {t.strip().lower() for _, t, c in res or [] if len(t.strip()) > 2 and float(c) > 0.6}
+        if OCR_ATLA and onc is not None and ((not simdi and not onc) or (simdi and onc and len(simdi & onc) / len(simdi | onc) >= 0.95)):
+            i += OCR_ATLA
+        onc = simdi
         for _, t, c in res or []:
             t = t.strip()
             if len(t) > 2 and float(c) > 0.6 and t.lower() not in gorulen:
@@ -591,7 +745,7 @@ def isle_post(url):
         shutil.rmtree(d, ignore_errors=True)
 
 
-RAM_AZALT, RAM_DUR = 85, 88  # RAM-BEKCI-3: ≥86'da işçi yarıya (çalışanlar kesilmez, yeni video sayı altına inene dek beklemez), ≥88'de yeni video yok (tavan %89)
+RAM_AZALT, RAM_DUR = 94, 96  # Ömer 03.11 RAM eşiği %97'ye taşındı; RAM-BEKCI-3: ≥86'da işçi yarıya (çalışanlar kesilmez, yeni video sayı altına inene dek beklemez), ≥88'de yeni video yok (tavan %89)
 AKTIF, AKTIF_KILIT = [0], threading.Lock()
 
 

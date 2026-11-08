@@ -3,7 +3,7 @@
 `video durum` üretir (mtime'la yenilenir); OTOMATİK bölüm her yenilemede yeniden yazılır, sondaki elle işaretinin altı korunur.
 
 ## Köprü katalogu
-- skill 339 · plugin 50 · MCP 18
+- skill 2024 · plugin 200 · MCP 43
 - RTK: komut çıktısını hook ile sıkıştırır (git/npm/dotnet/pytest)
 - headroom: girdi context'ini sıkıştıran yerel vekil + MCP (compress/retrieve)
 - graphify: kod/doküman bilgi grafiği; query/path/explain ile dar bağlam
@@ -11,55 +11,134 @@
 - video: YouTube kademeli izleme, tarama, katman, durum, bilgi kartları
 
 ## Son kararlar
-- efor-seviyeleri → KUR: birleşti → omer-kurallar:13 (Desktop)
-- muhakemeyi-aciklatmama → ÖĞREN: kart birleşti: bilgi/muhakemeyi-aciklatmama.md (+vcU85OrwuV0 7:42)
-- neden-ver → ZATEN VAR: eklenmez: ÇİFT (kural: omer-kurallar:22)
-- glaido → RED: RED — lisans uygunsuz/yok (14a araştırması).
-- hyperagent → RED: RED — lisans uygunsuz/yok (14a araştırması).
-- caveman-secici → ÖĞREN: kart destekledi: bilgi/caveman-kural-maliyeti.md (+jf1sv2geEWo 4:35)
-- subagent-ucuz-model → ZATEN VAR: omer-kurallar:11 · global CLAUDE.md:14 (Ömer kararı, canlı Jev ilişkiyi destekler bulmadı)
-- ozel-skill-olusturma → ZATEN VAR: eklenmez: ÇİFT (kural: omer-kurallar:9)
-- usage-komutu → ZATEN VAR: yerleşik CC komutu /usage; global CLAUDE.md ölçümü `claude -p` ile yapıyor
-- php-artisan-make-enum → RED: projeler.md'de PHP/Laravel projesi yok (hepsi .NET/Python); context maliyeti fayda getirme
-- pest → RED: projeler.md'de PHP/Laravel projesi yok (hepsi .NET/Python); context maliyeti fayda getirme
-- pint → RED: projeler.md'de PHP/Laravel projesi yok (hepsi .NET/Python); context maliyeti fayda getirme
-- caveman/skill → RED: ölçüm: docs/denemeler/caveman-sonuc.md — bizim A/B çıktı −%20.7 (< eşik %30), kalite 2.97→
-- caveman/proxy → DENE: deneme: docs/denemeler/caveman-proxy.md
-- caveman/learn → DENE: deneme: docs/denemeler/caveman-learn.md
-- caveman/compress → DENE: deneme: docs/denemeler/caveman-compress.md
-- caveman/kural-maliyeti → ÖĞREN: kart birleşti: bilgi/caveman-kural-maliyeti.md (+https://github.com/JuliusBrussee/caveman)
-- caveman/convert → DENE: deneme: docs/denemeler/caveman-convert.md
-- caveman/browse → DENE: deneme: docs/denemeler/caveman-browse.md
-- caveman/shrink → DENE: deneme: docs/denemeler/caveman-shrink.md
-- caveman/cavecrew → UYARLA: uyarlama: docs/uyarlamalar/caveman-cavecrew.md
-- caveman/calisma-kaliplari → ÖĞREN: kart yazıldı: bilgi/caveman-calisma-kaliplari.md
-- caveman/trial → UYARLA: uyarlama: docs/uyarlamalar/caveman-trial.md
-- caveman-oz → ?: RED(token, kalite): çıktı −%-35.2 (eşik %20) · kalite 2.92→2.91 (bant 0.10) · başarısı düş
-- girdi-duzenek → ?: RED(token, kalite): çıktı −%-2.5 (eşik %-) · kalite 2.73→2.50 (bant 0.21) · başarısı düşen
-- headroom-ayar → ?: KUR önerisi → ONAY [headroom-mevcut]: çıktı −%38.5 (eşik %-) · kalite 2.50→2.62 (bant 0.34
-- caveman → ?: KUR
-- caveman-proxy → ?: KARAR YOK: sıkıştırma devreye girmedi (mcp çağrısı 0)
-- caveman-compress → ?: RED(token): −%0 (eşik %30) · korunmayan kural 0 · düz yazıda çıktı girdiyle aynı
-- caveman-learn → ?: RED(eşik): kapsanmayan kalem ~%2.1 (eşik %5) · UYARLA: skill-kullanim-sayaci, tekrar-bagla
-- headroom-okuma → ?: RED(token): çıktı −%-7.7 (eşik %-) · kalite 2.69→2.63 (bant 0.10) · başarısı düşen görev: 
-- headroom-hiz → ?: RED(token): çıktı −%-26.8 (eşik %-) · kalite 2.68→2.71 (bant 0.10) · başarısı düşen görev:
+- eski 493 karar: ? 300 · ÖĞREN 72 · RED 45 · ZATEN VAR 32 · UYARLA 20 · KUR 13 · DENE 8 · ARACA ÖZEL 2 · ONAYLA 1
+- loop → ?: ÖĞREN (Ömer, panel)
+- vps-ile-surekli-acik-oturum → ?: ÖĞREN (Ömer, panel)
+- remote-control → ?: ÖĞREN (Ömer, panel)
+- bigquery-bq-cli-ile-sql-siz-analiz → ?: ÖĞREN (Ömer, panel)
+- ultrathink → ?: ZATEN VAR (Ömer, panel)
+- izin-yonetimi-allow-deny → ?: ZATEN VAR (Ömer, panel)
+- agent-teams → ?: ÖĞREN (Ömer, panel)
+- context7-mcp → ?: ZATEN VAR (Ömer, panel)
+- claude-a-netlestirici-sorular-sordurmak → ?: ZATEN VAR (Ömer, panel)
+- kodlamadan-once-soru-sordurma-ornegi → ?: ÖĞREN (Ömer, panel)
+- secili-bilgileri-koruyarak-sikistirma → ?: ÖĞREN (Ömer, panel)
+- ciktiya-itiraz-edip-daha-iyisini-istemek → ?: ÖĞREN (Ömer, panel)
+- prompt-master → ?: ÖĞREN (Ömer, panel)
+- fact-checker → ?: ÖĞREN (Ömer, panel)
+- playwright-superpowers → ?: RED (Ömer, panel)
+- septem-agents-pack → ?: ÖĞREN (Ömer, panel)
+- review-ve-security-review → ?: ZATEN VAR (Ömer, panel)
+- context-ve-compact → ?: ZATEN VAR (Ömer, panel)
+- learnings-md-kalibi → ?: ZATEN VAR (Ömer, panel)
+- claude-desktop-ta-skill-creator-ile-yeni → ?: ÖĞREN (Ömer, panel)
+- daginik-prompt-u-islemeden-once-prompt-m → ?: ÖĞREN (Ömer, panel)
+- skill-e-eklenen-satir-skill-her-calismad → ?: ÖĞREN (Ömer, panel)
+- superpowers-gelistirme → ?: ÖĞREN (Ömer, panel)
+- everything-claude-code-gelistirme → ?: ÖĞREN (Ömer, panel)
+- context7-mcp-gelistirme → ?: ÖĞREN (Ömer, panel)
+- humanizer-gelistirme → ?: ÖĞREN (Ömer, panel)
+- claude-skills → ?: ZATEN VAR (Ömer, panel)
+- brand-voice-skill → ?: ÖĞREN (Ömer, panel)
+- kod-gozden-gecirici-skill → ?: ZATEN VAR (Ömer, panel)
+- dokuman-donusturucu-skill-template-md → ?: ZATEN VAR (Ömer, panel)
+- proje-planlayici-skill → ?: ZATEN VAR (Ömer, panel)
+- musteri-e-posta-destek-skill-i → ?: ÖĞREN (Ömer, panel)
+- claude-un-skill-i-ne-zaman-devreye-alaca → ?: ÖĞREN (Ömer, panel)
+- ai-kisisi-olma → ?: ÖĞREN (Ömer, panel)
+- bir-ana-ai-aracinda-derinlesme-orn-claud → ?: ÖĞREN (Ömer, panel)
+- taste-ve-judgment-gelistirme → ?: ÖĞREN (Ömer, panel)
+- ai-ciktisina-gerekceli-duzeltme-geri-bil → ?: ÖĞREN (Ömer, panel)
+- context-engineering → ?: ÖĞREN (Ömer, panel)
+- claude-project-ozel-gpt-ile-baglam-yukle → ?: ÖĞREN (Ömer, panel)
+- glaido-sesle-metne-yazma → ?: ÖĞREN (Ömer, panel)
+- klavye-kisayolu-sesli-girdi-aliskanligi → ?: ÖĞREN (Ömer, panel)
+- hizli-prototipleme-poc → ?: ÖĞREN (Ömer, panel)
+- otomasyon-icin-done-metrigi-tanimlama → ?: ÖĞREN (Ömer, panel)
+- kendi-jarvis-sistemini-kurma-tetiksiz-ot → ?: ÖĞREN (Ömer, panel)
+- agent-mi-workflow-mu-karari-vending-mach → ?: ÖĞREN (Ömer, panel)
+- is-yiginlama-job-stacking-coklu-gelir-ak → ?: ÖĞREN (Ömer, panel)
+- build-in-public-herkese-acik-insa-etme → ?: ÖĞREN (Ömer, panel)
+- code-review → ?: ZATEN VAR (Ömer, panel)
+- obsidian-skill → ?: ÖĞREN (Ömer, panel)
+- comfyui-gorsel-uret → ?: AL (Ömer, KURULUM-GÖRSEL)
+- cc-blender-skill → ?: UYARLA F2 (KAYNAK-TARAMA-BLENDER)
+- blender-claude-plugin → ?: ÖĞREN F2 (KAYNAK-TARAMA-BLENDER)
+- blendops → ?: RED (KAYNAK-TARAMA-BLENDER)
+- blender-developer-tools → ?: ÖĞREN F1 (KAYNAK-TARAMA-BLENDER)
+- three-agent-skills → ?: UYARLA F2 (KAYNAK-TARAMA-BLENDER)
+- mcp-for-blender → ?: UYARLA F1 (KAYNAK-TARAMA-BLENDER)
+- blender-lab-mcp → ?: ZATEN VAR F2 (KAYNAK-TARAMA-BLENDER)
+- strayspark-verification-beats-vision → ?: UYARLA F1 (KAYNAK-TARAMA-BLENDER)
+- strayspark-mcp-karsilastirma → ?: ÖĞREN (KAYNAK-TARAMA-BLENDER)
+- verianim → ?: RED (KAYNAK-TARAMA-BLENDER)
+- ellmos-blender-use-mcp → ?: ÖĞREN F1 (KAYNAK-TARAMA-BLENDER)
+- ll3m → ?: ÖĞREN F2 (KAYNAK-TARAMA-BLENDER)
+- blender-batch-lightmap-baker → ?: ÖĞREN F1 (KAYNAK-TARAMA-BLENDER)
+- blender-quick-lightmap-baker → ?: UYARLA F1 (KAYNAK-TARAMA-BLENDER)
+- pmndrs-postprocessing → ?: ZATEN VAR F3 (KAYNAK-TARAMA-BLENDER)
+- n8ao → ?: ZATEN VAR F3 (KAYNAK-TARAMA-BLENDER)
+- threejs-issue-27362 → ?: ÖĞREN F3 (KAYNAK-TARAMA-BLENDER)
+- builderio-webgl-scroll-animation → ?: ZATEN VAR F3 (KAYNAK-TARAMA-BLENDER)
+- nodetopython → ?: UYARLA F1 (KAYNAK-TARAMA-BLENDER)
+- cgwire-blender-scripting-gn → ?: RED (KAYNAK-TARAMA-BLENDER)
+- @gltf-transform/cli → ?: KURULDU 4.5.1 npm -g (MIT) — glb_hat
+- fake-bpy-module-5.2 → ?: KURULDU 20260730 uv ayrı ortam (MIT) — bpy_kontrol
+- pyright → ?: KURULDU 1.1.414 uv ayrı ortam (MIT); pyright-lsp eklentisi kurulmadı
+- blender-bekci-hook → ?: KURULDU global PreToolUse (mcp__blender__execute_blender_code[_for_cli])
+- node_to_python → ?: KURULDU 4.2.0 extensions.blender.org (GPL-3.0-or-later; tarifler repo'ya girmez) — blender
+- opencv-python-headless → ?: KURULDU uv betik ortamı (Apache-2.0) — kontur_profil
+- polyhaven-api → ?: KULLANILDI CC0 (Powered by Poly Haven; md5 doğrulama) — varlik_indir
+- ambientcg-api-v2 → ?: KULLANILDI CC0 (API özet vermiyor → boyut doğrulama) — varlik_indir
+- desktop-blender-mcp → ?: KURULDU Desktop config (CC ile aynı exe; eşzamanlılık geçti; yedek .bak-blender-arac-2)
+- blender-uretim → ?: KURULDU (skill; dist/blender-skill, claude.ai yüklemesi Ömer'de)
+- ra100/blender-claude-plugin → ?: TARANDI (MIT; SkillSpector --no-llm 0 bulgu, 13 statik analizör degraded; kurulum Ömer'de)
+- emalorenzo/three-agent-skills → ?: ATLANDI (LICENSE dosyası yok; K6'ya girmedi)
+- blender-uretim (ölçüm) → ?: KISA REHBER (ayrı dalga): B tekrar teslim+kapı geçti, puan 3.4=A (<3.9), $12.26 (>$6); doc
+- blender-uretim (rehber ölçümü) → ?: DUR: rehber B teslim+kapı geçti, puan 3.6=A, uygunluk 3>2, $9.60 (>$6.5); docs/denemeler/b
+- blender-uretim + blender-oturum (rehber-fix) → ?: KALIR: bekçi göreli yol reddi + test · uretim maliyet kuralları · oturum komut kartı · ölç
+- you-should-know/yan-ajan-notu → DENE: deneme: docs/denemeler/you-should-know-yan-ajan-notu.md
+- claude-code-mods → ÖĞREN: kart yazıldı: bilgi/claude-code-mods.md
+- wayfinder/harita-ve-bilet-planlama → ÖĞREN: kart yazıldı: bilgi/wayfinder-harita-ve-bilet-planlama.md
+- grill-with-dogs/grill-with-docs → KUR: zaten var: katalogta domain-modeling.md ve grill-me benzeri adaylar var; çakışma kontrolü 
+- grill-with-dogs/grilling → KUR: grill-with-docs bağımlılığı
+- grill-with-dogs/domain-modeling → KUR: grill-with-docs bağımlılığı
+- grill-with-dogs/grill-me → ÖĞREN: kart yazıldı: bilgi/grill-with-dogs-grill-me.md
+- domain-modeling/sozluk-catisma-denetimi → UYARLA: uyarlama: docs/uyarlamalar/domain-modeling-sozluk-catisma-denetimi.md
+- domain-modeling/adr-teklifi → DENE: deneme: docs/denemeler/domain-modeling-adr-teklifi.md
+- whisper-flow/sesle-yazdirma → ALTERNATİF: lisans: kapalı kaynak, bulut zorunlu; yerel alternatif Handy / whisper.cpp (MIT) daha uygu
+- zor-eval-fikirleri-promptu → ÖĞREN: kart yazıldı: bilgi/zor-eval-fikirleri-promptu.md
+- everything-claude-code-ecc → ?: ZATEN VAR (Ömer, panel)
+- guvenlik-denetleyicisi-security-guidance → ?: ZATEN VAR (Ömer, panel)
+- claude-icinde-mevcut-goreve-uygun-skill- → ?: ÖĞREN (Ömer, panel)
+- rooflow-karede-ruflo → ?: ÖĞREN (Ömer, panel)
+- security-review → ?: ZATEN VAR (Ömer, panel)
+- stack-garry-tan → ?: ZATEN VAR (Ömer, panel)
+- surekli-ogrenme-sistemi-ecc-icinde → ?: ÖĞREN (Ömer, panel)
+- security-guidance → ?: ZATEN VAR (Ömer, panel)
+- claude-dan-goreve-uygun-skill-i-bulup-on → ?: ÖĞREN (Ömer, panel)
 
 ## Kanal güvenilirliği (aday · KUR/ÖĞREN oranı)
-- ?: 21 aday · 14%
+- ?: 437 aday · 2%
 - Nate Herk | AI Automation: 4 aday · 25%
-- AI Coding Daily: 7 aday · 14%
+- AI Coding Daily: 18 aday · 44%
+- Yıldız Dikme: 88 aday · 56%
+- İsa Nurdoğdu: 6 aday · 50%
+- Burhan KOCABIYIK: 20 aday · 35%
+- Avenox: 15 aday · 67%
+- Muzaffer Kadir | mkdir dev: 10 aday · 50%
 
 ## Son taramalar
-- ydO2_a97J6g 2026-09-15: 8 aday
-- yqyxAyKpH6c 2026-09-17: 2 aday
-- Yunu27g7sLw 2026-09-15: 9 aday
-- zpFBYpHm1JM 2026-09-16: 2 aday
-- ZQgwjrM1wsc 2026-09-15: 9 aday
-- yp7gg8cG5wc 2026-09-23: 16 aday
-- 1Jb517FRX7I 2026-09-23: 15 aday
-- vcU85OrwuV0 2026-09-23: 13 aday
-- 3XIGcM7VICc 2026-09-23: 14 aday
-- jf1sv2geEWo 2026-09-23: 10 aday
+- ig-DYx4OuVuJuI 2026-10-12: 1 aday
+- ig-DcRhD2Nto7M 2026-10-12: 13 aday
+- ig-Dbs8-TnKEhL 2026-10-12: 12 aday
+- ig-DeChE4DChaA 2026-10-12: 19 aday
+- ig-Dcd3eY1iOMA 2026-10-12: 16 aday
+- ig-DeON0MOB5oi 2026-10-12: 11 aday
+- ig-DdlurQHG2Mm 2026-10-12: 16 aday
+- ig-Db_H8ScP5y- 2026-10-12: 15 aday
+- ig-DY_SoPGKv2A 2026-10-12: 24 aday
+- ig-DdrNeEUN63i 2026-10-12: 9 aday
 
 ## Ölçüm bulguları
 - cache-notlari.md: Prompt cache notları · 2026-09-17
@@ -80,27 +159,6 @@
   - Aday karşılaştırması (12b 7186aac raporu ↔ 12c; gevşek = normalize alt dizi ya da eslestir ≥0.8): yp7gg8cG5wc: 12/12 = %100 (12c 16 aday; yeni: barvin/number-flow, Three.js, Awwwards seviyesi).
 
 ## ELE (son 20)
-- Claude Code: /model (video XemheY_aM1g)
-- NousResearch/hermes-agent, openclaw/openclaw (video XemheY_aM1g)
-- görsel girdiden üretim (ekran görüntüsü → e-posta şablonu / arayüz) (video XemheY_aM1g)
-- diğer: OpenRouter, Godbot? (kanalın kendi ajan uygulaması), Fable? (ASR belirsiz model adı), Skool (DOA topluluğu) (video XemheY_aM1g)
-- davila7/claude-code-templates (aitmpl.com) (video ydO2_a97J6g)
-- fal.ai + Nano Banana 2 (görsel, image edit) + Veo 3 (video) (video ydO2_a97J6g)
-- Vercel (GitHub bağlantılı otomatik deploy) (video ydO2_a97J6g)
-- animasyonlu açılış + animasyonlu logo + Veo 3 videoları (v2 "daha profesyonel" sürüm) (video ydO2_a97J6g)
-- diğer: frontend-design skill · 21st.dev bileşen/animasyon prompt'u kopyalama · referans siteyi PDF (print) ya da layout/stil kodu olarak verip birebir kopyalatma · proje başında araç/yetki/deploy tarifli md dosyası · Claude Code izin modları (auto-accept edits, bypass permissions, plan) + VS Code eklentisi · "deploy ettim" iddiasını Deployments zamanıyla doğrulama (video ydO2_a97J6g)
-- diğer: Google Antigravity · Apify (Google Maps scraper) · Instantly · n8n · Calendly · Framer/Webflow (video ydO2_a97J6g)
-- forrestchang/andrej-karpathy-skills (video yqyxAyKpH6c)
-- vercel/next.js + microsoft/TypeScript (video Yunu27g7sLw)
-- mrdoob/three.js (video Yunu27g7sLw)
-- diğer: "referansa bağlı kal, tasarımı değiştirme" · tüm cihazlara uyumlu · "hata çıkarsa sen çöz" (video Yunu27g7sLw)
-- kısa, teknik olmayan prompt: detayı ve teknolojiyi modele bırak ("her detayı sen kendin seç") (video Yunu27g7sLw)
-- aynı prompt+screenshot'ı iki modele ayrı klasör ve port (3000/3001) ile verip yan yana karşılaştırma (video Yunu27g7sLw)
-- dietrichgebert/ponytail (video zpFBYpHm1JM)
-- decolua/9router (video zpFBYpHm1JM)
-- "bitti" sonrası otomatik doğrulama, her değişiklikten sonra tüm uygulamayı yeniden test (video ZQgwjrM1wsc)
-- diğer: Kimi (Moonshot AI), microsoft/vscode? (terminal) (video ZQgwjrM1wsc)
-- … +205 (docs/video-tarama/kayit.jsonl)
 
 <!-- elle -->
 ## Öncelikler

@@ -105,7 +105,60 @@ def alt_skiller(d):
     return " ".join(out)[:6000]
 
 
+YASAK_CLI = {"husky", "lefthook"}
+
+
+def cli_yardim(cmd, sure=20):
+    """'<cmd> --help' ciktisi (yan etkisiz sayilan; 20 sn tavan, acik env, stdin kapali)."""
+    import shutil, tempfile
+    ad = Path(cmd).name.lower().removesuffix(".exe").removesuffix(".cmd")
+    exe = shutil.which(cmd)
+    if not exe or ad in YASAK_CLI or cmd.startswith("@"):
+        return ""
+    try:
+        r = subprocess.run([exe, "--help"], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=sure,
+                           stdin=subprocess.DEVNULL, cwd=tempfile.gettempdir(), env={x: v for x, v in os.environ.items() if x in ("PATH", "SYSTEMROOT", "TEMP", "TMP", "HOME", "USERPROFILE")},
+                           creationflags=0x08000000)
+    except (OSError, subprocess.SubprocessError):
+        return ""
+    return re.sub(r"\s+", " ", r.stdout or r.stderr or "").strip()
+
+
+def plugin_metin(dizin):
+    """plugin dizinindeki plugin.json + README."""
+    out = []
+    for g in (".claude-plugin/plugin.json", "plugin.json", "README.md", "readme.md"):
+        f = Path(dizin) / g
+        if f.is_file():
+            out.append(re.sub(r"\s+", " ", f.read_text(encoding="utf-8", errors="replace"))[:2500])
+    return " ".join(out)
+
+
+def zengin(k):
+    """Kaynagi <400 karakter olan cli/plugin kalemleri icin gercek metin: cli --help, plugin.json+README."""
+    if k["tur"] == "cli":
+        m = re.match(r"Bash:\s*(\S+)\s+--help", str(k.get("cagri") or ""))
+        return cli_yardim(m.group(1) if m else k["ad"].split(" ")[0])
+    if k["tur"] == "plugin":
+        yol = k.get("yol") or ""
+        d = Path(yol).parent if yol and os.path.exists(yol) else None
+        if d is None:
+            adaylar = sorted((Path.home() / ".claude/plugins/cache").glob(f"*/{k['ad'].split('@')[0]}/*"))
+            d = adaylar[-1] if adaylar else None
+        return plugin_metin(d) if d else ""
+    return ""
+
+
 def kaynak(k, lim=900):
+    s = kaynak_ham(k, lim)
+    if len(s) < 400 and k.get("tur") in ("cli", "plugin"):
+        z = zengin(k)
+        if z:
+            return (s + " " + z)[:max(lim, 1500)]
+    return s
+
+
+def kaynak_ham(k, lim=900):
     yol = k.get("yol") or ""
     if yol and os.path.exists(yol):
         try:
@@ -185,6 +238,32 @@ def ikinci_goz(out, grup):
             c["dogrulanamadi"] = bad
 
 
+def kartla(e, k, src, model):
+    """Ham model ciktisi e'yi kanit suzgecinden gecirip karta cevirir (isle ve grup_uret ortak)."""
+    o = str(e.get("ornek") or "").strip()
+    ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
+    nsrc = " ".join(src.split()).lower()
+    if len(nsrc) < 400:  # kesik/tek satirlik kaynak: kanit uretilemez, hicbir iddia kabul edilmez
+        e = dict(e, kanit_kullanim=[], kanit_tuzak="", kanit_token="")
+
+    def kul():
+        kq = e.get("kanit_kullanim") if isinstance(e.get("kanit_kullanim"), list) else []
+        r = [temiz(" ".join(str(q).split()))[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc and not mutlak_var(str(x), nsrc)]
+        return r or ["Kaynakta belirtilmemiş."]
+
+    def kanitli(alan, kan):
+        v = temiz(e[alan])[:220]
+        if mutlak_var(v, nsrc):
+            return "Kaynakta belirtilmemiş."
+        q = " ".join(str(e.get(kan) or "").split()).lower()
+        if v.startswith("Kaynakta belirtilmemiş"):
+            return "Kaynakta belirtilmemiş."
+        return (temiz(" ".join(str(e.get(kan)).split()))[:220] if len(q) >= 12 and q in nsrc else "Kaynakta belirtilmemiş.")
+    return {"ad": k["ad"], "tur": k["tur"], "kullanim": kul(), "tuzak": kanitli("tuzak", "kanit_tuzak"),
+            "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [] if k["ad"].endswith("-paket") else [str(x)[:60] for x in ko[:3]],
+            "ornek": (o if o and o in src else ("" if k["ad"].endswith("-paket") else f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": model, "tarih": int(time.time())}
+
+
 def grup_uret(grup):
     import ucretsiz_havuz as H
     adlar = [k["ad"] for k in grup]
@@ -196,13 +275,7 @@ def grup_uret(grup):
     a = json.loads(m[m.index("["):m.rindex("]") + 1])
     out = []
     for e, k in zip(a, grup):
-        src = kaynak(k)
-        o = str(e.get("ornek") or "").strip()
-        e["ornek"] = o if o and o in src else (f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"])  # uydurma komut kalıbı: örnek kaynakta yoksa çağrı adı
-        e["kombin"] = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
-        out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": kul(e, nsrc), "tuzak": temiz(e["tuzak"])[:220],
-                    "token_ipucu": temiz(e["token_ipucu"])[:220], "kombin": [str(x)[:60] for x in (e["kombin"] if isinstance(e["kombin"], list) else [e["kombin"]])[:3]],
-                    "ornek": str(e["ornek"])[:220], "model": kol, "tarih": int(time.time())})
+        out.append(kartla(e, k, kaynak(k), kol))
     ikinci_goz(out, grup)
     return out, kol, log
 
@@ -281,6 +354,10 @@ def hakem(n):
             print(" RED", ornek[e["i"]]["ad"], e.get("neden"))
 
 
+def a_tur():
+    return set(sys.argv[sys.argv.index("--tur") + 1].split(","))
+
+
 def hazirla(grup_n, n=50):
     """Haiku kolu: kartı olmayan/eski ilk n kalemi (öncelik sırasıyla) grup_n'lik istem dosyalarına yazar; sıra manifest.json'da (alt ajan g<i>.txt okur, g<i>.json yazar)."""
     U = oku_usta()
@@ -299,7 +376,8 @@ def hazirla(grup_n, n=50):
     elif "--uzun" in sys.argv:  # kaynağı 6000'i aşan mevcut kartları parçalı kaynakla yeniden üret
         S = [k for k in kartlar() if k["ad"] in U and len(kaynak(k, 10**6)) > 6000][:n]
     else:
-        S = sirali(kartlar(), U)[:n]
+        tur = a_tur() if "--tur" in sys.argv else None  # USTA-KART-3: yalniz verilen turler (virgullu), oncelik sirasi korunur
+        S = [k for k in sirali(kartlar(), U) if not tur or k["tur"] in tur][:n]
         S = sorted(S, key=lambda k: len(kaynak(k, 10**6)) > 1500)  # kısa kaynaklılar başa (medium denemesi)
     d = KOK / ".kos/kopru/usta-haiku/ileri"
     d.mkdir(parents=True, exist_ok=True)
@@ -336,27 +414,7 @@ def isle(grup_n):
         m = f.read_text(encoding="utf-8")
         a = json.loads(m[m.index("["):m.rindex("]") + 1])
         for e, k in zip(a, S[i:i + grup_n]):
-            src = kaynak(k, 10**6)
-            o = str(e.get("ornek") or "").strip()
-            ko = [x for x in (e.get("kombin") if isinstance(e.get("kombin"), list) else []) if str(x).lower() in src.lower()]
-            nsrc = " ".join(src.split()).lower()
-            if len(nsrc) < 400:  # kesik/tek satirlik kaynak: kanit uretilemez, hicbir iddia kabul edilmez
-                e = dict(e, kanit_kullanim=[], kanit_tuzak="", kanit_token="")
-            def kul(e, nsrc):
-                kq = e.get("kanit_kullanim") if isinstance(e.get("kanit_kullanim"), list) else []
-                r = [temiz(" ".join(str(q).split()))[:200] for x, q in zip(e["kullanim"][:3], kq) if len(" ".join(str(q).split())) >= 12 and " ".join(str(q).split()).lower() in nsrc and not mutlak_var(str(x), nsrc)]
-                return r or ["Kaynakta belirtilmemiş."]
-            def kanitli(alan, kan):
-                v = temiz(e[alan])[:220]
-                if mutlak_var(v, nsrc):
-                    return "Kaynakta belirtilmemiş."
-                q = " ".join(str(e.get(kan) or "").split()).lower()
-                if v.startswith("Kaynakta belirtilmemiş"):
-                    return "Kaynakta belirtilmemiş."
-                return (temiz(" ".join(str(e.get(kan)).split()))[:220] if len(q) >= 12 and q in nsrc else "Kaynakta belirtilmemiş.")
-            out.append({"ad": k["ad"], "tur": k["tur"], "kullanim": kul(e, nsrc), "tuzak": kanitli("tuzak", "kanit_tuzak"),
-                        "token_ipucu": kanitli("token_ipucu", "kanit_token"), "kombin": [] if k["ad"].endswith("-paket") else [str(x)[:60] for x in ko[:3]],
-                        "ornek": (o if o and o in src else ("" if k["ad"].endswith("-paket") else f"Skill {k['ad']}" if "skill" in str(k["tur"]) else k["ad"]))[:220], "model": "haiku-high", "tarih": int(time.time())})
+            out.append(kartla(e, k, kaynak(k, 10**6), "haiku-high"))
     (d / "haiku.jsonl").write_text("\n".join(json.dumps(c, ensure_ascii=False) for c in out) + "\n", encoding="utf-8")
     print("kart", len(out))
 

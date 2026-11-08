@@ -1,0 +1,3 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata
+G01	1	2	87353	14243	1052	101598	1	77.1	0.7227	1	10	2125	59		
+G06	1	14	93845	638416	1860	732275	9	92.1	0.9157	1	10	2125	59	Skill:anthropic-skills:departman-arastirma-ogrenme,ToolSearch,Bash,mcp__context7__query-docs,mcp__plugin_context-mode_context-mode__ctx_execute	

@@ -57,7 +57,7 @@
     "sync-gbrain": "name-only",
     "unfreeze": "name-only",
     "agent-reach": "name-only",
-    "graphify": "off",
+    "graphify": "name-only",
     "hetzner-deploy": "off",
     "pia-generation": "off",
     "policy-monitor": "off",
@@ -86,24 +86,9 @@
     "threejs-visual-validation": "name-only",
     "threejs-volumetric-clouds": "name-only",
     "threejs-water-optics": "name-only",
-    "ui-ux-pro-max": "off",
+    "ui-ux-pro-max": "name-only",
     "use-case-triage": "name-only",
     "wpf-rule-mvvm-constraints": "off"
-  },
-  "enabledPlugins": {
-    "dotnet-aspnetcore@dotnet-agent-skills": false,
-    "dotnet-test@dotnet-agent-skills": false,
-    "dotnet-nuget@dotnet-agent-skills": false,
-    "supabase@yerel-kurulum7": false,
-    "discernment-nudge@anthropic-agent-skills": false,
-    "taste-skill@taste-skill": false,
-    "design-mastery@design-mastery": false,
-    "phoenix-security-review@phoenix-security": false,
-    "phoenix-readiness-reviews@phoenix-security": false,
-    "phoenix-sast-rules@phoenix-security": false,
-    "phoenix-cti-search@phoenix-security": false,
-    "phoenix-prd-pipeline@phoenix-security": false,
-    "phoenix-docs-research@phoenix-security": false
   },
   "hooks": {
     "SessionStart": [
@@ -142,5 +127,20 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "dotnet-aspnetcore@dotnet-agent-skills": false,
+    "dotnet-test@dotnet-agent-skills": false,
+    "dotnet-nuget@dotnet-agent-skills": false,
+    "supabase@yerel-kurulum7": true,
+    "discernment-nudge@anthropic-agent-skills": false,
+    "taste-skill@taste-skill": false,
+    "design-mastery@design-mastery": false,
+    "phoenix-security-review@phoenix-security": false,
+    "phoenix-readiness-reviews@phoenix-security": false,
+    "phoenix-sast-rules@phoenix-security": false,
+    "phoenix-cti-search@phoenix-security": false,
+    "phoenix-prd-pipeline@phoenix-security": false,
+    "phoenix-docs-research@phoenix-security": false
   }
 }

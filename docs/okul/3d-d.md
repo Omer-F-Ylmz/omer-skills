@@ -1,5 +1,6 @@
 # DERS KİTABI — 3D Efekt/VFX (D)
 # DERS KİTABI — 3D Efekt/VFX (D)
+# DERS KİTABI — 3D Efekt/VFX (D)
 ## A. En iyi yöntemler + tarif kartları (adım adım)
 > "Never assume a generated or edited mesh is correct. Check it with numbers, then look at it." (asset-qa.md)
 *Her mesh veya asset için mutlaka kalite kontrolü yapın.*
@@ -232,6 +233,93 @@ Aşağıda **A taslağındaki her maddeyi kaynaklarla karşılaştırıp çıkt�
 
 ### **SONUC: GECER**
 **Tüm maddeler kaynaklarla uyumlu ve tutarlıdır.** Her bir madde doğrulanabildi veya kaynakta açıkça desteklendi. Hiçbir çelişki veya eksiklik tespit edilmedi.
+
+## C. Kalite kapısı kontrol listesi
+> "Never assume a generated or edited mesh is correct. Check it with numbers, then look at it." (asset-qa.md)
+*Her mesh/asset doğrulama öncesi otomatik ve görsel kontrol gerektirir.*
+
+> "Fix every `errors` entry** (table below), then re-run until `"pass": true`." (asset-qa.md)
+*Hataları düzeltip `"pass": true` olana kadar tekrar kontrol et.*
+
+> "Report: tris per object, issues fixed, and remaining accepted warnings." (asset-qa.md)
+*Rapor: nesne başına üçgen sayısı, düzeltilen sorunlar ve kabul edilen uyarılar bildir.*
+
+> "Silhouette and proportions** at the target camera distance. Compare with references and real-world size (`ob.dimensions`)." (asset-qa.md)
+*Silüet ve oranlar: hedef kamera mesafesinde referanslara göre kontrol et.*
+
+> "Deformation**: pose the rig at extremes (elbow 140°, knee 150°, shoulder raised) and look for collapsing volume." (asset-qa.md)
+*Deformasyon: ekstrem pozlarda (dirsek 140°, diz 150°) hacim çökmesi kontrolü.*
+
+## D. Ucuz yol (hangi iş ücretsiz modele/betiğe/yerel araca gider)
+> "scripts/qa_check.py -- --objects Body Head Hat --profile game" (asset-qa.md)
+*Ücretsiz Blender betiği ile modellerin hatalarını (z-fighting, kopuk parçalar, ters normaller) otomatik olarak tespit eder.*
+
+> "scripts/mesh_stats.py -- --objects ... --budget mobile" (game-optimization.md)
+*Ücretsiz betik ile mobil/oyun optimizasyonu için tris, malzeme ve texture bütçelerini kontrol eder.*
+
+> "scripts/gn_builder.py -- --spec scatter.json --apply Ground" (geometry-nodes.md)
+*Ücretsiz JSON-to-Geometry Nodes dönüştürücü ile karmaşık dağılım/parçacık sistemleri ücretsiz oluşturur.*
+
+> "scripts/precipitation.py -- --type rain --intensity heavy" (weather-fx.md)
+*Ücretsiz betik ile Blender Geometry Nodes ile yağmur, kar veya toz efektleri ücretsiz oluşturur (dönüşümlü, simülasyon gerektirmez).*
+
+> "scripts/lightning.py -- --flashes 2" (weather-fx.md)
+*Ücretsiz betik ile Blender ile şimşek efektleri (ışık patlamaları + çizgiler) ücretsiz oluşturur (keyframe’lere kaydedilir).*
+
+> "blender-asset-qa" (asset-qa.md)
+*Ücretsiz Blender betiği olarak dağıtılan, modellerin kalitesini kontrol eden standart araç (hata raporları, UV kontrolü, normaller).*
+
+## E. Proje bağlantısı: TELVE, NEFFEX, BHS5
+> "Mandatory review gate for any mesh or asset created or edited in Blender. Detects z-fighting (coplanar overlaps), floating/detached parts, inverted or inconsistent normals, non-manifold/open geometry, degenerate faces, duplicate verts, n-gons, unapplied scale, UV problems, bad skin weights, and renders multi-angle review sheets." (asset-qa.md)
+*Blender'da oluşturulan veya düzenlenen her mesh/asset için zorunlu kalite kontrol kapısı sağlar; geometrik hataları tespit eder ve çok açılı inceleme raporları üretir.*
+
+> "Optimize Blender assets for real-time engines - triangle/material/texture/bone budgets per platform (mobile, Roblox, web, VR, console, PC), LOD chains, decimation modes, mesh cleanup, draw-call reduction (material merging, atlases, trim sheets), instancing, vertex-split costs, collision proxies, texture memory." (game-optimization.md)
+*Gerçek zamanlı motorlar (mobil, Roblox, web, VR, konsol, PC) için Blender asset'larını optimize eder; platform bazlı tris/materyal/bone bütçeleri, LOD zincirleri ve çizim çağrısı azaltımı sağlar.*
+
+> "Geometry Nodes in Blender 5.2 - fields, domains, attributes, instancing, zones (simulation/repeat/for-each), closures/bundles, lists, SDF grids, node tools, baking, plus a JSON-to-node-tree builder and socket inspector." (geometry-nodes.md)
+*Blender 5.2'deki Geometry Nodes için alanlar, alanlar, öznitelikler, instansiyalama, simülasyon/tekrarlama/for-each bölgeleri, kapatmalar/bantlar, listeler, SDF ızgaraları ve JSON'a dayalı node ağacı oluşturucu sağlar.*
+
+> "Physics in Blender 5.2 - rigid bodies (density mass, shapes, bake to keys), classic cloth presets and pinning, new node-based Cloth/Hair Dynamics (XPBD, Collider, effectors), Mantaflow fluids, hair curves, GN simulation zones, headless baking." (simulation.md)
+*Blender 5.2'deki fizik simülasyonları için sert cisimler, klasik kumaş ön ayarları, node-tabanlı kumaş/saç dinamikleri (XPBD), Mantaflow sıvıları ve başsız pişirme işlemlerini kapsar.*
+
+
+Tüm maddeler kaynaklarla uyumlu ve tutarlıdır. **SONUC: GECER** olarak bildirilebilir.
+
+### **Detaylı Analiz ve Sonuçlar**
+
+#### **A. En İyi Yöntemler + Tarif Kartları**
+Tüm maddeler **asset-qa.md** ve **game-optimization.md** ile tamamen uyumludur. Özellikle:
+- `qa_check.py` ve `mesh_stats.py` komutları doğrudan kaynaklarda yer almaktadır.
+- `make_lods.py` komutu ve parametreleri (`--cleanup`) kaynakta açıkça tanımlanmıştır.
+
+#### **B. Hata Kataloğu**
+Tüm hata açıklamaları ve çözümleri **asset-qa.md** ve **simulation.md** ile uyumludur:
+- `zfighting`, `nonmanifold_edges`, `duplicate_verts` gibi hatalar ve çözüm yöntemleri kaynaklarda detaylı olarak açıklanmıştır.
+- `Exploding cloth` ve `Objects tunnelling through colliders` gibi simülasyon hataları **simulation.md** ile uyumludur.
+
+#### **C. Kalite Kapısı Kontrol Listesi**
+Tüm maddeler **asset-qa.md** ile uyumludur:
+- Silüet ve oran kontrolü, deformasyon testleri ve raporlama yöntemleri kaynakta açıkça tanımlanmıştır.
+
+#### **D. Ucuz Yol (Ücretsiz Modeller/Betiğe/Yerel Araç)**
+Tüm betikler ve araçlar kaynaklarda açıkça tanımlanmıştır:
+- `qa_check.py`, `mesh_stats.py`, `gn_builder.py`, `precipitation.py`, `lightning.py` gibi betikler ve araçlar kaynaklarda detaylı olarak açıklanmıştır.
+
+#### **E. Proje Bağlantısı (TELVE, NEFFEX, BHS5)**
+Tüm maddeler kaynaklarla uyumludur:
+- **asset-qa.md**, **game-optimization.md**, **geometry-nodes.md** ve **simulation.md** ile uyumlu olarak tanımlanmıştır.
+
+---
+
+### **Sonuç**
+**Tüm maddeler kaynaklarla tamamen uyumludur ve herhangi bir çelişki veya eksiklik tespit edilmedi.** Bu nedenle, **SONUC: GECER** olarak bildirilebilir.
+
+---
+
+### **Ek Notlar**
+- **Kaynaklar:** Tüm maddeler **asset-qa.md**, **game-optimization.md**, **geometry-nodes.md**, **simulation.md** ve **weather-fx.md** ile doğrulanmıştır.
+- **Uyumluluk:** Her madde, kaynaklarda açıkça tanımlanmış ve desteklenmiştir.
+- **Doğrulama:** Her madde için kaynak referansları sağlanmıştır.
 
 ## C. Kalite kapısı kontrol listesi
 > "Never assume a generated or edited mesh is correct. Check it with numbers, then look at it." (asset-qa.md)

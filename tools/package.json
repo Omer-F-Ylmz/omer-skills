@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@agent-tars/cli": "^0.3.1",
+    "@anthropic-ai/claude-code": "^2.1.318",
+    "@aws-sdk/client-s3": "^3.1162.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "archiver": "^8.0.0",
+    "axe-core": "^4.14.0",
+    "buffer": "^6.0.3",
+    "bundlephobia": "^0.1.0",
+    "forever": "^4.0.3",
+    "framer-motion": "^14.9.1",
+    "jest": "^30.5.2",
+    "lint-staged": "^17.6.0",
+    "log.io": "^0.4.16",
+    "node": "^27.0.0-alpha.0.0.0",
+    "paddle": "^1.0.0",
+    "patch-package": "^8.0.1",
+    "postcss": "^8.5.32",
+    "prettier": "^3.9.10",
+    "re-walkthrough-pro": "^0.1.0",
+    "resend": "^6.37.0",
+    "styled-components": "^6.6.0",
+    "surfer": "^0.0.2",
+    "twilio": "^6.2.0",
+    "ui-skills": "^0.2.4",
+    "vite": "^6.4.5",
+    "vitest": "^5.1.0",
+    "vsce": "^2.15.0"
+  }
+}

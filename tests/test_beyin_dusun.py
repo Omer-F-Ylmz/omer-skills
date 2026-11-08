@@ -13,7 +13,8 @@ import beyin_dusun as b
 class Taban(unittest.TestCase):
     def setUp(self):
         d = Path(tempfile.mkdtemp())
-        self.eski = {k: getattr(b, k) for k in ("OLAY", "DURUM", "KOTA", "ONERI", "BESLEME", "IS_KAYDI", "ICGORU", "ONERILER", "ONAY", "KILIT", "KART", "LIMIT", "_havuz", "_kurallar", "_ollama", "ETKI", "_ram", "_derin_kaynak")}
+        self.eski = {k: getattr(b, k) for k in ("OLAY", "DURUM", "KOTA", "ONERI", "BESLEME", "IS_KAYDI", "ICGORU", "ONERILER", "ONAY", "KILIT", "KART", "LIMIT", "_havuz", "_kurallar", "_ollama", "ETKI", "_ram", "_derin_kaynak", "TEKRAR", "IMZA", "KONTROL")}
+        b.TEKRAR, b.IMZA, b.KONTROL = d / "tekrar.jsonl", d / "imza.json", d / "kontrol.md"  # BEYIN-GERI-1: gerçek hata imzalarını kirletme
         b.OLAY, b.DURUM, b.KOTA, b.ONERI, b.BESLEME = (d / n for n in ("olay.jsonl", "durum.json", "kota.json", "oneri.jsonl", "besleme.jsonl"))
         b.IS_KAYDI, b.ICGORU, b.ONERILER, b.ONAY, b.KILIT, b.KART = d / "is.tsv", d / "icgoru", d / "oneriler.md", d / "onay.md", d / "kilit", d / "kart.md"
         b.LIMIT = {p: 100 for p in b.SIRA}

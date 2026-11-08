@@ -126,7 +126,7 @@ def ekle(ad, tur, link, vid):
 
 llm_ids, det_ids = set(), set()
 BASLIK, TRU = {}, {}
-for l in [x for fn in ("llm.jsonl", "llm-b.jsonl", "llm-c.jsonl", "llm-d2b.jsonl") if (C / fn).exists() for x in (C / fn).read_text(encoding="utf-8").splitlines() if x.strip()]:
+for l in [x for fn in ("llm.jsonl", "llm-b.jsonl", "llm-c.jsonl", "llm-d2b.jsonl", "llm-e.jsonl", "llm-f.jsonl") if (C / fn).exists() for x in (C / fn).read_text(encoding="utf-8").splitlines() if x.strip()]:
     j = json.loads(l)
     llm_ids.add(j["id"])
     for k in j["kalemler"]:
@@ -210,7 +210,7 @@ for key, e in kal.items():
              "KAYITLI": "dizinde var", "KAYITSIZ": "dizinde yok", "KURULMADI-SIRADA": "hiçbir kurulu envanterde eşleşme yok"}[d]
     usta_var = "var" if (n in kart or n in usta or n in kayit_jsonl) else "yok"
     say[(tur, d)] += 1
-    satirlar.append([e["ad"], tur, e["link"], ",".join(sorted(e["vid"]))[:400], d, kanit, usta_var, yer])
+    satirlar.append([e["ad"], tur, e["link"], ",".join(sorted(e["vid"])), d, kanit, usta_var, yer])
 
 # kapı 3: aynı normalize ad -> tek satır (farklı repo anahtarları ' | ' ile birleşir, en iyi durum kalır)
 ONCE = ["CALISIYOR", "KURULU-KANITSIZ", "KAYITLI", "KURULMADI-HESAP", "KURULMADI-SIRADA", "KAYITSIZ", "BULUNAMADI-ARANIYOR"]
@@ -220,7 +220,7 @@ for r in satirlar:
     if g is None:
         grup[norm(r[0])] = list(r)
         continue
-    g[3] = ",".join(sorted(set(g[3].split(",")) | set(r[3].split(","))))[:400]
+    g[3] = ",".join(sorted(set(g[3].split(",")) | set(r[3].split(","))))
     g[2] = " | ".join(dict.fromkeys(x for x in (g[2], r[2]) if x))
     if ONCE.index(r[4]) < ONCE.index(g[4]):
         g[4], g[5], g[7] = r[4], r[5], r[7]

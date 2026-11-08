@@ -77,6 +77,21 @@ def rtk_yaziyor(ham):
         return False
 
 
+# TOKEN-REA rtk2: süzgeçli tek komut rtk2'ye yazılır (rtk2.tur); tırnak/ayraç/yönlendirme olan komuta dokunmaz.
+def rtk2_yaz(komut):
+    if AYRAC.search(komut) or any(c in komut for c in "\"'`$<>"):
+        return None
+    import importlib.util, os
+    yol = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".kos", "kopru", "token-rea", "rtk2.py")
+    if not os.path.exists(yol):
+        return None
+    ozel = importlib.util.spec_from_file_location("rtk2", yol)
+    m = importlib.util.module_from_spec(ozel)
+    ozel.loader.exec_module(m)
+    argv = komut.split()
+    return f"python -I -S {yol} {komut.strip()}" if argv and m.tur(argv) in ("ls", "diff", "durum") else None
+
+
 def main(stdin=sys.stdin, stdout=sys.stdout, rtk_kontrol=rtk_yaziyor):
     ham = stdin.read().lstrip("﻿")
     try:
@@ -87,8 +102,9 @@ def main(stdin=sys.stdin, stdout=sys.stdout, rtk_kontrol=rtk_yaziyor):
         return 0
     if arac not in ("Bash", "PowerShell") or not isinstance(komut, str) or not komut.strip():
         return 0
-    yeni = yeniden_yaz(komut, arac)
-    if yeni is None or rtk_kontrol(ham):
+    r2 = rtk2_yaz(komut) if arac == "Bash" else None  # TOKEN-REA rtk2
+    yeni = r2 or yeniden_yaz(komut, arac)
+    if yeni is None or (r2 is None and rtk_kontrol(ham)):
         return 0
     json.dump({"hookSpecificOutput": {
         "hookEventName": "PreToolUse",

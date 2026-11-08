@@ -175,6 +175,20 @@ def test_ajan_tut_disindakiler_deny(tmp_path):
     assert env == {} and args.count("--settings") == 1
 
 
+def test_ajan_tut_ek_gorev_ajanini_acar(tmp_path):
+    """ENGEL-TARAMA-1: görevin ZORUNLU ARAÇLAR listesindeki ajan deny'a düşmesin (tut_ek)."""
+    aj = tmp_path / "agents"
+    aj.mkdir()
+    for dosya, ad in (("a.md", "tut-ben"), ("b.md", "gorev-ajani"), ("c.md", "kapali")):
+        (aj / dosya).write_text(f"---\nname: {ad}\n---\n", encoding="utf-8")
+    pr = tmp_path / "profil.json"
+    pr.write_text(json.dumps({"ajan": {"ajanTut": ["tut-ben"], "ttl": "5m"}}), encoding="utf-8")
+    args, _ = cc_profil.kur("ajan", env={}, profiller=pr, gecici=tmp_path / "g", ajanlar=aj,
+                            eklentiler=tmp_path / "yok.json", tut_ek=["gorev-ajani"])
+    ayar = json.loads(Path(_d(args, "--settings")).read_text(encoding="utf-8"))
+    assert ayar["permissions"]["deny"] == ["Agent(kapali)"]
+
+
 def test_profil_ayar_ek_ayarla_birlesir(tmp_path):
     """TOKEN-3 K10: profilin "ayar"ı --settings'e girer; env çağıranın env'iyle birleşir (çağıran kazanır)."""
     pr = tmp_path / "profil.json"

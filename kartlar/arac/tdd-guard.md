@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** code-review, codebase-memory-mcp, departman-backend-dotnet, dotnet, fable-dusunme, gh, mcp-builder, security-reviewer
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `tdd-guard --version`  → GECTI (Failed to parse hook data: SyntaxError: Unexpected end of JSON input)
+- **Doğrulanmış örnek:** `tdd-guard --help`  → GECTI (Failed to parse hook data: SyntaxError: Unexpected end of JSON input)

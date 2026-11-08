@@ -35,3 +35,5 @@ REA kullanım sınırı: yalnız kurulu `rea` CLI / sabitli MCP, `npx …@latest
 
 ## Kapanış
 Not + kanıt satırları + fark sayısı; ≤15 satır rapor. Kapı: `docs/ters/kapi-tasarim.md`.
+
+- Repo inceleme akışı, 0. adım (De7WIcEogeo): `gitreverse.com/<o>/<r>` (repoyu yapan prompt) + `gitdiagram.com/<o>/<r>` (mimari harita); dış servis, yalnız genel repo; sonra REA/replica ile derin bakış.

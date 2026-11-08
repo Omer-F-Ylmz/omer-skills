@@ -50,3 +50,9 @@ Yöntem: her işin son `result` satırı (`arka/<ad>.log`) + git log + dosya/gö
 
 ## Sapmalar
 `ilik` ve `yaka` commit'leri İLİK site deposunda, omer-skills'te doğrulanamadı (log'a dayanır). `envanter` KURULACAK sayısı (508) log'dan, tsv'den yeniden sayılmadı.
+
+## ARKA-FIX tavan A/B (30 Eki)
+- Neden `claude -p` "yanıt vermiyor": varsayılan yapılandırmada açılış >270 sn (3369 skill dir komutu + 2676 eklenti skill'i, SessionStart kancaları 34 sn+). Plan limiti/ağ/kilit değil. `--strict-mcp-config --disable-slash-commands --settings <tüm enabledPlugins=false>` ile haiku 75 sn'de yanıt verdi.
+- A (CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=20000): arka alt ajan başlatıldı, süreç 33 sn'de çıktı (PENDING).
+- B (=150000): aynı görev, süreç 222 sn'de çıktı (tavan+açılış; alt ajan bekletildi).
+- Sınır: alt ajanın `sleep 45` önplanda engellendi, ZETA_DONE hiç gelmedi; tavanın "sonucu teslim ettirdiği" kanıtlanmadı, yalnız bekleme süresini belirlediği (33 sn vs 222 sn) ölçüldü.

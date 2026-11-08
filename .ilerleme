@@ -1,0 +1,1 @@
+VARLIK-SLASH-1: varlik bitti (docs/envanter/varlik-indirme-1.tsv). Slash 19200/22946 (3746 kaldi): python tmp/vs/slash_nz.py <tavan>; sonra tmp/vs/slash_kontrol.py. Haiku 600 tavani doldu.

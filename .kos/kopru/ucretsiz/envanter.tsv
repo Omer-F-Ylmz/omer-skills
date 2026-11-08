@@ -1,23 +1,28 @@
 saglayici	model	aile	anahtar	http	gecikme_sn	model_sayisi	rpm	tpm	rpd	turkce	not
-gemini	gemini-3.1-flash-lite	google	var	429	0.3	60	10	200000	200	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
-gemini	gemini-3.5-flash-lite	google	var	429	0.3	60	10	200000	200	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+gemini	gemini-3.1-flash-lite	google	var	503	2.3	60	10	200000	200	-	[{   "error": {     "code": 503,     "message": "This model is currently experie
+gemini	gemini-3.5-flash-lite	google	var	200	8.7	60	10	200000	200	iyi	Türkiye'nin başkenti Ankara'dır.
 gemini	gemini-3.6-flash	google	var	429	0.4	60	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
-gemini	gemini-3.8-flash	google	var	429	0.4	60	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
-groq	openai/gpt-oss-120b	openai	var	200	0.5	11	25	7000	800	iyi	Türkiye'nin başkenti Ankara'dır.
-groq	openai/gpt-oss-20b	openai	var	200	0.2	11	25	7000	800	zayıf	Ankara.
-groq	qwen/qwen3.8-27b	alibaba	var	200	0.4	11	25	6000	800	iyi	Türkiye'nin başkenti Ankaradır.
-openrouter	nvidia/nemotron-3-super-120b-a12b:free	nvidia	var	429	0.0	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
-openrouter	google/gemma-4-31b-it:free	google	var	429	0.1	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
-openrouter	minimax/minimax-m3.1-flash:free	minimax	var	404	0.0	468	18	1000000	900	-	{"error":{"message":"The free launch period for MiniMax M3.1 Flash ended on Oct 
-openrouter	nvidia/nemotron-3-ultra-550b-a55b:free	nvidia	var	429	0.1	468	18	1000000	900	-	{"error":{"message":"Rate limit exceeded: free-models-per-day-high-balance. ","c
-github	openai/gpt-4.1-mini	openai	var	599	0.4	liste:JSONDecodeError	10	7000	120	-	JSONDecodeError
-omniroute	cc-ucuz-free	karma	var	429	0.4	1913	15	1000000	100	-	{"error":{"message":"All credentials for model nvidia/nemotron-3-ultra-550b-a55b
-mistral	mistral-small-latest	mistral	var	429	0.3	53	30	100000	1000	-	{"object":"error","message":"Rate limit exceeded","type":"rate_limited","param":
-mistral	ministral-8b-latest	mistral	var	200	0.4	53	30	100000	1000	iyi	Türkiye'nin başkenti **Ankara**dır.
-cloudflare	@cf/meta/llama-3.3-70b-instruct-fp8-fast	meta	var	429	0.1	liste:HTTPError	60	20000	150	-	{"errors":[{"message":"AiError: AiError: you have used up your daily free alloca
-nvidia	openai/gpt-oss-20b	openai	var	599	60.2	85	30	100000	1000	-	TimeoutError
-nvidia	nvidia/nemotron-3-ultra-550b-a55b	nvidia	var	200	1.6	85	30	100000	1000	iyi	Türkiye'nin başkenti Ankara'dır.
-nvidia	nvidia/nemotron-3.5-lightning-30b-a3b	nvidia	var	0	4.8	85	30	100000	1000	-	boş yanıt
-nvidia	google/gemma-4-31b-it	google	var	599	60.2	85	30	100000	1000	-	TimeoutError
-sambanova	gpt-oss-120b	openai	var	402	1.7	6	20	20000	20	-	{"error":{"balance_units":0,"billing_portal_url":"https://fast-snova-ai-prod-1-u
-ollama	gpt-oss:120b	openai	var	429	0.4	23	6	100000	100	-	{"error":{"message":"You reached the Free usage limit. Pro is $20/month for $60 
+gemini	gemini-3.8-flash	google	var	429	0.3	60	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+gemini	gemini-3-flash-preview	google	var	429	0.3	60	5	200000	100	-	[{   "error": {     "code": 429,     "message": "You exceeded your current quota
+groq	openai/gpt-oss-120b	openai	var	200	0.2	11	25	7000	800	iyi	Türkiye'nin başkenti Ankara'dır.
+groq	openai/gpt-oss-20b	openai	var	200	0.1	11	25	7000	800	zayıf	Ankara.
+groq	qwen/qwen3.8-27b	alibaba	var	200	0.4	11	25	6000	800	iyi	Türkiye'nin başkenti Ankara'dır.
+openrouter	nvidia/nemotron-3-super-120b-a12b:free	nvidia	var	404	0.0	456	18	1000000	900	-	{"error":{"message":"This model is unavailable for free. The paid version is ava
+openrouter	google/gemma-4-31b-it:free	google	var	429	0.3	456	18	1000000	900	-	{"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"goog
+openrouter	minimax/minimax-m3.1-flash:free	minimax	var	404	0.1	456	18	1000000	900	-	{"error":{"message":"The free launch period for MiniMax M3.1 Flash ended on Oct 
+openrouter	nvidia/nemotron-3-ultra-550b-a55b:free	nvidia	var	200	4.4	456	18	1000000	900	iyi	Türkiye'nin başkenti Ankara'dır.
+github	openai/gpt-4.1-mini	openai	var	599	0.5	liste:JSONDecodeError	10	7000	120	-	JSONDecodeError
+omniroute	cc-ucuz-free	karma	var	200	15.2	1914	15	1000000	100	iyi	Türkiye'nin başkenti Ankara'dır.
+mistral	mistral-small-latest	mistral	var	402	0.2	53	30	100000	1000	-	{"object":"error","message":"API budget exhausted.","type":"billing_api_budget_e
+mistral	ministral-8b-latest	mistral	var	402	0.2	53	30	100000	1000	-	{"object":"error","message":"API budget exhausted.","type":"billing_api_budget_e
+mistral	ministral-14b-latest	mistral	var	402	0.2	53	30	100000	1000	-	{"object":"error","message":"API budget exhausted.","type":"billing_api_budget_e
+mistral	ministral-3b-latest	mistral	var	402	0.3	53	30	100000	1000	-	{"object":"error","message":"API budget exhausted.","type":"billing_api_budget_e
+mistral	codestral-latest	mistral	var	402	0.2	53	30	100000	1000	-	{"object":"error","message":"API budget exhausted.","type":"billing_api_budget_e
+cloudflare	@cf/meta/llama-3.3-70b-instruct-fp8-fast	meta	var	429	0.2	liste:HTTPError	60	20000	150	-	{"errors":[{"message":"AiError: AiError: you have used up your daily free alloca
+nvidia	openai/gpt-oss-20b	openai	var	200	7.1	84	40	100000	1000	iyi	Türkiye'nin başkenti Ankara'dır.
+nvidia	nvidia/nemotron-3-ultra-550b-a55b	nvidia	var	200	0.8	84	40	100000	1000	iyi	Türkiye'nin başkenti Ankara'dır.
+nvidia	nvidia/nemotron-3.5-lightning-30b-a3b	nvidia	var	0	7.4	84	40	100000	1000	-	boş yanıt
+nvidia	google/gemma-4-31b-it	google	var	599	60.1	84	40	100000	1000	-	TimeoutError
+nvidia	meta/muse-glimmer-30b	meta	var	0	8.0	84	40	100000	1000	-	boş yanıt
+sambanova	gpt-oss-120b	openai	var	429	0.7	6	20	20000	20	-	{"error":{"code":null,"message":"gpt-oss-120b-8k is currently experiencing high 
+ollama	gpt-oss:120b	openai	var	429	0.5	23	6	100000	100	-	{"error":{"message":"you (omery3899) have reached your monthly usage limit, upgr

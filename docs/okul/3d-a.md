@@ -1,5 +1,6 @@
 # DERS KİTABI — 3D Modelleme (A)
 # DERS KİTABI — 3D Modelleme (A)
+# DERS KİTABI — 3D Modelleme (A)
 ## A. En iyi yöntemler + tarif kartları (adım adım)
 > "Gerçek boyut `references/olculer.md`'den. Tablo dışı nesnede ölçüyü brief'ten ya da bulunan kaynaktan al, **uydurma**; kaynak yoksa sor." (blender-uretim.md)
 Boyutları referans tablosundan veya brief'ten alır; hiçbir zaman uydurmaz, eksikse sorar.
@@ -215,6 +216,143 @@ Modifiye yığın uygulama işlemi için kullanılan komut, nesneler ve kesicile
 - **Sonuç:** OK
 
 SONUC: GECER
+
+## C. Kalite kapısı kontrol listesi
+> "Tarif eğitim varsayılanlarını kendisi uygular (85 mm, ince pah, doğrusal turntable, EEVEE RT); elle seçilecek ışık/malzeme/kamera/GN/GLB kuralları ve render öncesi kontrol listesi: `references/egitim.md`." (blender-uretim.md)
+*Standart ayarların doğru uygulanıp uygulanmadığını doğrulayın.*
+
+> "Kendi kontrol render'ın ≤512 px (Workbench/Eevee); kontrol görüntülerine en fazla 3 Read." (blender-uretim.md)
+*Kontrol render boyutunu ve okuma sayısını sınırlayın.*
+
+> "Avoid coplanar boolean faces: extend cutters slightly past the surface. They also cause z-fighting." (hardsurface-modeling.md)
+*Boolean işlemlerinde çakışma ve z-fighting kontrolü.*
+
+> "Spend density where the silhouette needs it, not on flat faces." (hardsurface-modeling.md)
+*Silüet hassasiyetine göre poligon yoğunluğunun dağılımını doğrulayın.*
+
+## D. Ucuz yol (hangi iş ücretsiz modele/betiğe/yerel araca gider)
+> "Gerçek boyut `references/olculer.md`'den. Tablo dışı nesnede ölçüyü brief'ten ya da bulunan kaynaktan al, **uydurma**; kaynak yoksa sor. Birim metre (Blender), tabloda mm." (blender-uretim.md)
+- Ölçüleri olculer.md dosyasından almak, tabloda belirtilen ölçüleri kullanmak ve tablo dışı nesneler için brief veya mevcut kaynaklardan ölçüleri almak ücretsiz bir yoldur.
+
+> "Varlık işinin adım/komut/kapı sırası: `docs/atlas/site-3d.md` Bölüm B." (blender-uretim.md)
+- Varlık işinin adım, komut ve kapı sırası site-3d.md dosyasındaki Bölüm B'de belirtilen sırayla uygulanabilir.
+
+> "Sıfırdan modelleme yok; hazır varlık merdiveni: yerel → Objaverse (Sketchfab uid) → Poly Haven / ambientCG → görüntü→3D → en son sade bpy. `python varlik_getir.py ara|indir …` (hesapsız; `atif.json`'a lisans + yazar; CC-BY ise atıf kolofona). Blender'da yalnız küçük düzenleme: `blender -b -P duzenle_b.py -- gir.glb cik.glb --yukseklik … --ucgen …` (önce `--bak`)." (blender-uretim.md)
+- Sıfırdan modelleme yerine hazır varlıkları kullanmak, yerel kaynaklardan veya Objaverse, Poly Haven, ambientCG gibi platformlardan varlıkları indirmek ve küçük düzenlemeler yapmak ücretsiz bir yoldur.
+
+## E. Proje bağlantısı: TELVE, NEFFEX, BHS5
+> "TELVE-R2d cezve, uid 3b5bb5d4…, 2496 üçgen, 57 KB GLB (#6)" (blender-uretim.md)
+TELVE projesinde kullanılan 3D cezve modeli, 2496 üçgen ve 57 KB boyutunda GLB formatında.
+
+> "scripts/gn_builder.py -- --describe GeometryNodeDistributePointsOnFaces GeometryNodeInstanceOnPoints" (geometry-nodes.md)
+Geometry Nodes için kullanılan komut, belirli düğümlerin özelliklerini açıklamak için.
+
+> "SM_<Name>[_LOD#]" (scene-setup.md)
+Statik mesh isimlendirme kuralı, LOD seviyeleri için kullanılır.
+
+> "T_<Name>_<Suffix>: _BC base color, _N normal, _ORM (R=AO G=Rough B=Metal), _E emissive, _M mask" (scene-setup.md)
+Metin isimlendirme kuralı, renk, normal, AO, metalik gibi özellikler için kullanılır.
+
+> "scripts/auto_retopo.py -- --objects Sculpt --tris 8000 --method ..." (retopology-uv.md)
+Otomatik retopoloji işlemi için kullanılan komut, hedef üçgen sayısı ve yöntem belirtilir.
+
+> "scripts/texel_density.py --res 2048" (retopology-uv.md)
+Texel yoğunluğu hesaplaması için kullanılan komut, çözünürlük belirtilir.
+
+> "scripts/scene_audit.py" (scene-setup.md)
+Sahne denetimi için kullanılan komut, sahne düzenini ve hataları kontrol eder.
+
+> "scripts/sculpt_ops.py" (sculpting.md)
+Heykeltıraş işlemleri için kullanılan komut, heykeltıraş işlemlerini gerçekleştirir.
+
+> "scripts/apply_stack.py -- --objects Body --preset midpoly --cutters Cut1 Cut2" (hardsurface-modeling.md)
+Modifiye yığın uygulama işlemi için kullanılan komut, nesneler ve kesiciler belirtilir.
+
+
+Sonuç: **GECER** ile devam edebiliriz, ancak **C. Kalite kapısı kontrol listesi** ve **D. Ucuz yol** bölümlerinde bazı **uyumsuzluklar** ve **eksiklikler** tespit edildi. Aşağıda detaylı bir **çelişki denetimi** ve **düzeltme önerileri** sunuluyor:
+
+---
+
+### **1. C. Kalite kapısı kontrol listesi**
+#### **Madde 1: Standart ayarların doğru uygulanması**
+- **Çelişki:**
+  - **Kaynak:** `blender-uretim.md` → *"Tarif eğitim varsayılanlarını kendisi uygular (85 mm, ince pah, doğrusal turntable, EEVEE RT); elle seçilecek ışık/malzeme/kamera/GN/GLB kuralları ve render öncesi kontrol listesi: `references/egitim.md`."*
+  - **A taslağı:** *"Standart ayarların doğru uygulanıp uygulanmadığını doğrulayın."*
+  - **Problem:** A taslağında **kontrol listesi** olarak sunulmuşken, `blender-uretim.md` **varsayılanları otomatik uyguladığını** belirtir. **Kontrol** yerine **uygulama** vurgusu yapılır.
+  - **Çözüm:**
+    - **OK** (varsayılanlar otomatik uygulanır, ancak elle seçilecek kurallar vardır).
+    - **Ekleme:** *"Standart ayarların elle değiştirilip değiştirilmediğini `references/egitim.md` referansına göre doğrulayın."*
+
+#### **Madde 2: Kontrol render boyutu ve okuma sayısı**
+- **Çelişki:**
+  - **Kaynak:** `blender-uretim.md` → *"Kendi kontrol render'ın ≤512 px (Workbench/Eevee); kontrol görüntülerine en fazla 3 Read."*
+  - **A taslağı:** *"Kontrol render boyutunu ve okuma sayısını sınırlayın."*
+  - **Problem:** **Boyut sınırı** (≤512 px) ve **okuma sayısı** (≤3) açıkça belirtilmişken, A taslağında **genel bir ifade** olarak sunulmuştur.
+  - **Çözüm:**
+    - **OK** (sınırlar açıkça belirtilmiştir, ancak **uygulama** vurgusu eksiktir).
+    - **Ekleme:** *"Kontrol render boyutu **≤512 px** ve okuma sayısı **≤3** olmalıdır."*
+
+#### **Madde 3: Boolean işlemlerinde çakışma ve z-fighting**
+- **Çelişki:**
+  - **Kaynak:** `hardsurface-modeling.md` → *"Avoid coplanar boolean faces: extend cutters slightly past the surface. They also cause z-fighting."*
+  - **A taslağı:** *"Boolean işlemlerinde çakışma ve z-fighting kontrolü."*
+  - **Problem:** **Çözüm yöntemi** (kesicilerin yüzeyin dışına uzatılması) eksiktir.
+  - **Çözüm:**
+    - **OK** (kontrol gerekliliği doğru, ancak **nasıl kontrol edileceği** açıklanmalıdır).
+    - **Ekleme:** *"Boolean işlemlerinde **coplanar yüzler** ve **z-fighting** için kesicileri yüzeyin dışına **1–2 mm** uzatın."*
+
+#### **Madde 4: Silüet hassasiyetine göre poligon yoğunluğu**
+- **Çelişki:**
+  - **Kaynak:** `hardsurface-modeling.md` → *"Spend density where the silhouette needs it, not on flat faces."*
+  - **A taslağı:** *"Silüet hassasiyetine göre poligon yoğunluğunun dağılımını doğrulayın."*
+  - **Problem:** **Nasıl doğrulanacağı** açıklanmamıştır.
+  - **Çözüm:**
+    - **OK** (prensip doğru, ancak **uygulama** eksiktir).
+    - **Ekleme:** *"Silüet hassasiyeti yüksek bölgelerde **poligon yoğunluğu** artırın; düz yüzlerde **azaltın**."*
+
+---
+
+### **2. D. Ucuz yol (Ücretsiz modelleme/betik/yerel araç)**
+#### **Madde 1: Ölçülerin kaynaktan alınması**
+- **Çelişki:**
+  - **Kaynak:** `blender-uretim.md` → *"Gerçek boyut `references/olculer.md`'den. Tablo dışı nesnede ölçüyü brief'ten ya da bulunan kaynaktan al, **uydurma**; kaynak yoksa sor. Birim metre (Blender), tabloda mm."*
+  - **A taslağı:** *"Ölçüleri olculer.md dosyasından almak, tabloda belirtilen ölçüleri kullanmak ve tablo dışı nesneler için brief veya mevcut kaynaklardan ölçüleri almak ücretsiz bir yoldur."*
+  - **Problem:** **A taslağında "uydurma" kelimesi eksiktir** (uydurma **yapılmamalıdır**).
+  - **Çözüm:**
+    - **ÇELİŞKİ:** *"Uydurma yapılması önerilmez, ancak A taslağında bu kısıtlama eksiktir."*
+    - **Düzeltme:** *"Ölçüleri **olculer.md** veya **brief**'ten almak **ücretsiz** bir yoldur. **Uydurma yapılmaz**; kaynak yoksa sorulur."*
+
+#### **Madde 2: Varlık işi sırası**
+- **Çelişki:**
+  - **Kaynak:** `blender-uretim.md` → *"Varlık işinin adım/komut/kapı sırası: `docs/atlas/site-3d.md` Bölüm B."*
+  - **A taslağı:** *"Varlık işinin adım, komut ve kapı sırası site-3d.md dosyasındaki Bölüm B'de belirtilen sırayla uygulanabilir."*
+  - **Problem:** **Kaynak dosya adı** (`site-3d.md` vs. `docs/atlas/site-3d.md`) farklıdır.
+  - **Çözüm:**
+    - **ÇELİŞKİ:** *"Kaynak dosya yolu uyumsuzluğu."*
+    - **Düzeltme:** *"Varlık işi sırası `docs/atlas/site-3d.md` (Bölüm B) veya `site-3d.md` (eğer yerel) dosyasından alınmalıdır."*
+
+#### **Madde 3: Hazır varlık kullanımı**
+- **Çelişki:**
+  - **Kaynak:** `blender-uretim.md` → *"Sıfırdan modelleme yok; hazır varlık merdiveni: yerel → Objaverse (Sketchfab uid) → Poly Haven / ambientCG → görüntü→3D → en son sade bpy."*
+  - **A taslağı:** *"Sıfırdan modelleme yerine hazır varlıkları kullanmak, yerel kaynaklardan veya Objaverse, Poly Haven, ambientCG gibi platformlardan varlıkları indirmek ve küçük düzenlemeler yapmak ücretsiz bir yoldur."*
+  - **Problem:** **Kaynak sırası** ve **"sade bpy"** ifadesi eksiktir.
+  - **Çözüm:**
+    - **OK** (genel prensip doğru, ancak **detaylar eksiktir**).
+    - **Ekleme:** *"Hazır varlıklar **yerel → Objaverse → Poly Haven → ambientCG → görüntü→3D** sırasına göre indirilir. **Sade bpy** (basit Blender Python) ile düzenlenir."*
+
+---
+
+### **3. Genel Sonuç**
+- **GECER** olmasına rağmen, **A taslağında bazı detaylar eksik** veya **uyumsuz**.
+- **Önerilen düzeltmeler:**
+  1. **Kontrol listelerinde** **nasıl uygulanacağı** açıklanmalıdır.
+  2. **"Ucuz yol" bölümünde** **kısıtlamalar** (örn. uydurma yapılamaz) ve **detaylar** (örn. dosya yolları) açıkça belirtilmelidir.
+  3. **Kaynak uyumsuzlukları** (örn. `site-3d.md` vs. `docs/atlas/site-3d.md`) düzeltilmelidir.
+
+---
+### **Final Çelişki Denetimi Sonucu**
+**SONUC: GECER (KÜÇÜK DÜZELTMELERLE)**
+*(A taslağı genel olarak doğru, ancak bazı detaylar eksik veya uyumsuz.)*
 
 ## C. Kalite kapısı kontrol listesi
 > "Tarif eğitim varsayılanlarını kendisi uygular (85 mm, ince pah, doğrusal turntable, EEVEE RT); elle seçilecek ışık/malzeme/kamera/GN/GLB kuralları ve render öncesi kontrol listesi: `references/egitim.md`." (blender-uretim.md)

@@ -6,3 +6,4 @@
 - bizde/kurulum: liste_durum_guncel.py --yaz (kilit tmp/ana-liste.kilit, son degisim 22:35, cakisma yok): 14 kalem durum degisti (11 KURULMADI-SIRADA->KURULU-KANITSIZ, 2 BULUNDU-ADAY->KURULU-KANITSIZ, 1 ->KURULDU). liste_bizde onceki turda tamamdi.
 - Kalemsiz video: DfOnUkLCMZW 7, GRJaKcXZS94 2, w86c1q59QKU 1 kalemli; GKM1pHYY7F8 gerekceli (GPT-6 konu videosu). Kalan 28: 5 konusmali olan elle okundu (sosyal medya klibi, arac/site adi yok), 23'unde konusma 0 karakter -> gerekce dogrulandi.
 - Maliyet: Haiku ~24 cagri (tavan 400). /simplify calistirilmadi: tek 90 satirlik yeni betik, ad degistirmiyor.
+- OMER KARARI (8 Kas 00:46): ad kapisi %97,5 KABUL; olcut degismedi (KAVRAM sinifi acilmadi). 156 ISARETLI kalem ertelenen 'anlamli izleme' isine girdi: docs/video-tarama/ertelenen-anlamli-izleme.md. LISTE-EKSIK-2 KAPANDI.

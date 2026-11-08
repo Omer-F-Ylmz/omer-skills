@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Tane Kahve — Huila çekirdeğinin kökünden fincanına yolculuğu.">
+<title>Tane Kahve</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* font ← Huila yamacındaki çuval etiketleri (serif) + kavrum tamburu plakası (geniş grotesk) · zemin ← kavrulmuş çekirdek / kahve yaprağı yeşili */
+:root{
+  color-scheme:dark;
+  --gece:#0c0806;
+  --kabuk:#251a13;
+  --kopuk:#f1e8dc;
+  --kopuk-2:#ab9b8b;
+  --kavrum:#c9752f;
+  --altin:#d8b06a;
+  --yaprak:#14211a;
+  --yaprak-2:#1d3025;
+  --serif:"Instrument Serif","Times New Roman",serif;
+  --sans:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --gl:max(20px,env(safe-area-inset-left,0px));
+  --gr:max(20px,env(safe-area-inset-right,0px));
+}
+::selection{background:var(--kavrum);color:var(--gece)}
+html{background:var(--gece)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;background:var(--gece);color:var(--kopuk);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+.grain{position:fixed;inset:-50%;z-index:70;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1.1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+
+.yuk{position:fixed;inset:0;z-index:90;background:var(--gece);display:grid;align-content:end;padding:0 var(--gr) 32px var(--gl);transition:clip-path 1.2s var(--ease);clip-path:inset(0 0 0 0)}
+.yuk.bitti{clip-path:inset(0 0 100% 0);pointer-events:none}
+.yuk .s{font-family:var(--serif);font-size:clamp(96px,24vw,360px);line-height:.8;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.yuk .a{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--kopuk-2);margin-top:12px}
+
+.imlec{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--kopuk);z-index:80;pointer-events:none;mix-blend-mode:difference;transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease)}
+.imlec.b{width:72px;height:72px;margin:-36px 0 0 -36px}
+@media (hover:none){.imlec{display:none}}
+
+header.ust{position:fixed;top:0;left:0;right:0;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) var(--gr) 20px var(--gl);mix-blend-mode:difference;color:var(--kopuk)}
+.marka{justify-self:center;font-family:var(--serif);font-size:30px;line-height:1;letter-spacing:.02em;color:inherit;text-decoration:none}
+nav{display:flex;gap:26px}
+nav.sag{justify-self:end}
+nav a,.lnk{color:inherit;text-decoration:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase;position:relative}
+nav a::after,.lnk::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+nav a:hover::after,nav a:focus-visible::after,.lnk:hover::after,.lnk:focus-visible::after{transform:scaleX(1);transform-origin:left}
+a:focus-visible,button:focus-visible{outline:1px solid var(--altin);outline-offset:5px}
+@media (max-width:760px){nav{display:none}header.ust{grid-template-columns:1fr}.marka{justify-self:start}}
+
+.etiket{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--kopuk-2)}
+.etiket b{color:var(--altin);font-weight:600}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+h1,h2,h3{font-weight:400;margin:0}
+
+.sahne{position:relative}
+.sahne .yapis{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.perde{position:absolute;inset:0;overflow:hidden;background:#000}
+.perde img,.perde canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.perde::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,8,6,.55) 0%,rgba(12,8,6,0) 30%,rgba(12,8,6,0) 55%,rgba(12,8,6,.85) 100%)}
+
+.hero{height:220vh}
+.hero .ic{position:absolute;inset:0;display:grid;align-content:end;justify-items:center;text-align:center;padding:0 var(--gr) 9vh var(--gl);z-index:2}
+.hero h1{font-family:var(--serif);font-size:clamp(64px,11.5vw,210px);line-height:.86;letter-spacing:-.025em}
+.hero h1 .sat{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .sat>span{display:inline-block;transform:translateY(110%)}
+.hero h1 em{color:var(--altin)}
+.hero p{max-width:46ch;margin:28px auto 0;color:#e2d6c7;font-size:16px}
+.kaydir{margin-top:36px;display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--kopuk-2)}
+.kaydir i{display:block;width:1px;height:46px;background:linear-gradient(var(--kopuk),transparent);animation:inis 2.2s var(--ease) infinite;transform-origin:top}
+@keyframes inis{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.hero .koord{position:absolute;left:var(--gl);right:var(--gr);bottom:28px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--kopuk-2);z-index:2;font-variant-numeric:tabular-nums}
+
+.man{padding:28vh var(--gr) 24vh var(--gl);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:32px}
+.man p{margin:0;font-family:var(--serif);font-size:clamp(36px,5vw,84px);line-height:1.04;letter-spacing:-.01em}
+.man p .w{opacity:.13;transition:opacity .25s linear}
+.man p em{color:var(--altin)}
+@media (max-width:760px){.man{grid-template-columns:1fr}}
+
+.acil{height:260vh}
+.acil .perde{clip-path:inset(18% 26% 18% 26% round 4px)}
+.acil .ic{position:absolute;inset:0;z-index:2;display:grid;grid-template-columns:1fr 1fr;align-items:end;padding:0 var(--gr) 10vh var(--gl);gap:24px;pointer-events:none}
+.acil h2{font-family:var(--serif);font-size:clamp(52px,8vw,140px);line-height:.88;letter-spacing:-.02em}
+.acil .sag{justify-self:end;display:grid;gap:18px;max-width:320px}
+.olcu{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;font-size:13px;margin:0}
+.olcu dt{color:var(--kopuk-2);letter-spacing:.14em;text-transform:uppercase;font-size:11px;padding-top:3px}
+.olcu dd{margin:0;font-variant-numeric:tabular-nums}
+.ust-yazi{position:absolute;top:calc(96px + env(safe-area-inset-top,0px));left:var(--gl);z-index:2}
+@media (max-width:760px){.acil .ic{grid-template-columns:1fr}.acil .sag{justify-self:start}}
+
+.anat{height:260vh;background:radial-gradient(60% 50% at 50% 50%,#2a1a10 0%,var(--gece) 70%)}
+.anat .yapis{display:grid;place-items:center}
+.anat .cek{position:relative;width:min(30vw,380px);aspect-ratio:494/709;z-index:1}
+.anat .cek img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 60px 60px rgba(0,0,0,.6))}
+.anat .gol{position:absolute;left:50%;bottom:12vh;width:min(30vw,380px);height:40px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(0,0,0,.7),transparent);filter:blur(6px)}
+.not{position:absolute;max-width:260px;display:grid;gap:8px;opacity:0;transform:translateY(24px)}
+.not .no{font-size:11px;letter-spacing:.22em;color:var(--altin)}
+.not h3{font-family:var(--serif);font-size:clamp(28px,2.8vw,44px);line-height:1}
+.not p{margin:0;font-size:14px;color:var(--kopuk-2)}
+.not::before{content:"";position:absolute;width:64px;height:1px;background:var(--kopuk-2);opacity:.5;top:10px}
+.n1{left:8vw;top:26vh}.n1::before{left:calc(100% + 16px)}
+.n2{right:8vw;top:30vh;text-align:right}.n2::before{right:calc(100% + 16px)}
+.n3{left:10vw;bottom:14vh}.n3::before{left:calc(100% + 16px)}
+.n4{right:9vw;bottom:12vh;text-align:right}.n4::before{right:calc(100% + 16px)}
+.anat .bas{position:absolute;top:calc(92px + env(safe-area-inset-top,0px));left:0;right:0;text-align:center;display:grid;gap:12px}
+.anat .bas h2{font-family:var(--serif);font-size:clamp(40px,5.4vw,88px);line-height:.95}
+@media (max-width:760px){.anat .cek{width:44vw}.not{max-width:42vw}.not::before{display:none}.n1{left:var(--gl);top:26vh}.n2{right:var(--gr);top:34vh}.n3{left:var(--gl);bottom:14vh}.n4{right:var(--gr);bottom:6vh}.not h3{font-size:24px}.not p{font-size:12px}}
+
+.kav{height:320vh}
+.kav .yapis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:0 var(--gr) 0 var(--gl);background:var(--gece)}
+.kor{position:absolute;inset:0;pointer-events:none}
+#kivilcim{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.kav .sol{position:relative;z-index:2;display:grid;gap:22px;max-width:460px}
+.kav h2{font-family:var(--serif);font-size:clamp(48px,6.4vw,110px);line-height:.9;letter-spacing:-.02em}
+.isi{font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(72px,9vw,150px);line-height:.85;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.isi small{font-family:var(--serif);font-weight:400;font-size:.36em;letter-spacing:0;color:var(--kopuk-2)}
+.evre{display:flex;gap:6px;flex-wrap:wrap}
+.evre span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:7px 10px;border:1px solid var(--kabuk);color:var(--kopuk-2);transition:color .4s var(--ease),background-color .4s var(--ease),border-color .4s var(--ease)}
+.evre span.on{background:var(--kopuk);color:var(--gece);border-color:var(--kopuk)}
+.kav .sag{position:relative;z-index:2;display:grid;place-items:center}
+.kav .sag img{width:min(28vw,360px)}
+@media (max-width:760px){.kav .yapis{grid-template-columns:1fr;align-content:center;gap:20px}.kav .sag{order:-1}.kav .sag img{width:36vw}.kav h2{font-size:44px}.isi{font-size:68px}}
+
+.surec{height:300vh}
+.surec .yapis{display:flex;align-items:center}
+.ray{display:flex;gap:4vw;padding:0 var(--gl);will-change:transform;align-items:center}
+.kart{flex:0 0 auto;width:min(58vw,820px);display:grid;gap:18px}
+.kart .lev{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--kabuk)}
+.kart .lev img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.kart .alt{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:baseline;border-top:1px solid var(--kabuk);padding-top:14px}
+.kart .no{font-family:var(--serif);font-size:44px;line-height:1;color:var(--altin)}
+.kart h3{font-family:var(--serif);font-size:clamp(30px,3vw,48px);line-height:1}
+.kart p{margin:6px 0 0;color:var(--kopuk-2);font-size:15px;max-width:52ch}
+.surec .bas{flex:0 0 auto;width:min(36vw,480px);display:grid;gap:18px}
+.surec .bas h2{font-family:var(--serif);font-size:clamp(48px,6vw,100px);line-height:.9}
+@media (max-width:760px){.kart{width:84vw}.surec .bas{width:80vw}}
+
+.dem{padding:22vh var(--gr) 18vh var(--gl)}
+.dem .bas{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.dem h2{font-family:var(--serif);font-size:clamp(48px,6.4vw,110px);line-height:.9}
+.yontem{list-style:none;margin:0;padding:0;border-top:1px solid var(--kabuk)}
+.yontem li{border-bottom:1px solid var(--kabuk)}
+.yontem a{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;align-items:center;padding:24px 0;color:var(--kopuk);text-decoration:none;transition:color .4s var(--ease)}
+.yontem .ad{font-family:var(--serif);font-size:clamp(44px,7vw,120px);line-height:.95;transition:transform .7s var(--ease)}
+.yontem .no{font-size:12px;letter-spacing:.16em;color:var(--kopuk-2)}
+.yontem .veri{font-size:13px;letter-spacing:.08em;color:var(--kopuk-2);text-align:right;font-variant-numeric:tabular-nums}
+.yontem a:hover .ad,.yontem a:focus-visible .ad{transform:translateX(28px);font-style:italic}
+.yontem a:hover,.yontem a:focus-visible{color:var(--altin)}
+.yuzen{position:fixed;left:0;top:0;width:min(26vw,360px);aspect-ratio:4/5;z-index:50;pointer-events:none;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.8) rotate(-4deg);transition:opacity .4s var(--ease),transform .6s var(--ease)}
+.yuzen.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}
+.yuzen>div{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .35s linear}
+.yuzen>div.on{opacity:1}
+@media (hover:none),(max-width:760px){.yuzen{display:none}.yontem a{grid-template-columns:36px minmax(0,1fr)}.yontem .veri{grid-column:2;text-align:left}}
+
+.fin{height:240vh}
+.fin .ic{position:absolute;inset:0;z-index:2;display:grid;align-content:space-between;padding:calc(110px + env(safe-area-inset-top,0px)) var(--gr) 8vh var(--gl)}
+.fin h2{font-family:var(--serif);font-size:clamp(76px,15vw,260px);line-height:.82;letter-spacing:-.03em}
+.fin .satir{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.fin .satir p{margin:0;max-width:38ch;color:#e2d6c7}
+.buhar{position:absolute;left:50%;top:6%;width:44vw;height:60vh;transform:translateX(-50%);z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:.5}
+.buhar span{position:absolute;bottom:0;left:50%;width:22vw;height:22vw;margin-left:-11vw;border-radius:50%;background:radial-gradient(closest-side,rgba(255,244,230,.5),rgba(255,244,230,0));filter:blur(28px);animation:tut 7s linear infinite}
+.buhar span:nth-child(2){animation-delay:-2.3s;left:42%}
+.buhar span:nth-child(3){animation-delay:-4.6s;left:58%}
+@keyframes tut{0%{transform:translateY(0) scale(.5);opacity:0}20%{opacity:.9}100%{transform:translateY(-55vh) scale(1.6) translateX(4vw);opacity:0}}
+
+.pak{background:var(--yaprak);position:relative;overflow:hidden;padding:18vh var(--gr) 16vh var(--gl)}
+.pak::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 70% 40%,var(--yaprak-2),transparent 70%)}
+.pak .ic{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.pak h2{font-family:var(--serif);font-size:clamp(56px,8vw,140px);line-height:.88;color:var(--altin);letter-spacing:-.02em}
+.pak .sahnecik{position:relative;height:min(78vh,760px);perspective:1200px}
+.pak .torba{position:absolute;left:18%;top:2%;height:88%;aspect-ratio:503/875;transform-style:preserve-3d;will-change:transform}
+.pak .torba img{height:100%;width:100%;filter:drop-shadow(0 60px 50px rgba(0,0,0,.55))}
+.pak .torba .eti{position:absolute;left:15%;right:15%;top:42%;height:30%;background:#120c09;color:var(--altin);display:grid;place-items:center;align-content:center;gap:6px;text-align:center;border:1px solid rgba(216,176,106,.5);outline:1px solid #120c09;outline-offset:3px;transform:rotate(-1deg);box-shadow:inset 0 0 30px rgba(0,0,0,.6)}
+.eti .m{font-family:var(--serif);font-size:clamp(18px,2.2vw,36px);line-height:1;letter-spacing:.04em}
+.eti .k{font-size:clamp(7px,.6vw,9px);letter-spacing:.28em;text-transform:uppercase;color:#d9c9b0}
+.eti .g{font-family:var(--serif);font-style:italic;font-size:clamp(12px,1.3vw,20px)}
+.pak .kup{position:absolute;right:0;bottom:2%;width:46%;will-change:transform}
+.pak .kup img{width:100%;filter:drop-shadow(0 40px 40px rgba(0,0,0,.5))}
+.urunler{display:grid;margin-top:40px;border-top:1px solid rgba(216,176,106,.25)}
+.urun{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;padding:22px 0;border-bottom:1px solid rgba(216,176,106,.25)}
+.urun h3{font-family:var(--serif);font-size:clamp(28px,2.6vw,42px);line-height:1}
+.urun .gr{font-family:var(--serif);font-style:italic;font-size:28px;color:var(--altin)}
+.urun p{grid-column:1/-1;margin:0;color:#b9c2b4;font-size:15px;max-width:52ch}
+.urun .not2{grid-column:1/-1;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--altin)}
+@media (max-width:760px){.pak .ic{grid-template-columns:1fr}.pak .sahnecik{height:64vh}}
+
+footer{position:relative;padding:14vh var(--gr) calc(28px + env(safe-area-inset-bottom,0px)) var(--gl);background:var(--gece);overflow:hidden}
+.kayan{display:flex;gap:56px;white-space:nowrap;font-family:var(--serif);font-style:italic;font-size:clamp(44px,6.5vw,110px);color:var(--kopuk-2);animation:kay 30s linear infinite;width:max-content}
+@keyframes kay{to{transform:translateX(-50%)}}
+.dev{font-family:var(--serif);font-size:clamp(120px,34vw,560px);line-height:.78;letter-spacing:-.04em;margin:8vh 0 0 -.03em;color:var(--kopuk)}
+.alt-s{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:24px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--kopuk-2)}
+@media (prefers-reduced-motion:reduce){.grain,.kayan,.buhar span,.kaydir i{animation:none}.hero h1 .sat>span{transform:none}}
+
+.r{opacity:0;transform:translate3d(0,46px,0);transition:opacity 1s var(--ease),transform 1.25s var(--ease);transition-delay:var(--d,0s)}
+.r.on{opacity:1;transform:none}
+.kel{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.kel>span{display:inline-block;transform:translate3d(0,108%,0) rotate(4deg);transform-origin:left top;transition:transform 1.15s var(--ease);transition-delay:calc(var(--i,0)*60ms + var(--d,0s))}
+.yaz.on .kel>span{transform:none}
+.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.5s var(--ease);transition-delay:var(--d,0s)}
+.mask.on{clip-path:inset(0 0 0 0)}
+.mask img{transform:scale(1.25);transition:transform 1.8s var(--ease)}
+.mask.on img{transform:scale(1.15)}
+.yontem li{border-bottom:0;position:relative}
+.yontem li::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--kabuk);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease);transition-delay:var(--d,0s)}
+.yontem li.on::after{transform:scaleX(1)}
+.serit{overflow:hidden;border-block:1px solid var(--kabuk);padding-block:22px;background:var(--gece)}
+.serit div{display:flex;gap:48px;width:max-content;white-space:nowrap;font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(28px,4vw,64px);letter-spacing:-.02em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px var(--kopuk-2);will-change:transform}
+.serit div span:nth-child(even){color:var(--altin);-webkit-text-stroke:0;font-family:var(--serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0}
+@media (prefers-reduced-motion:reduce){.r,.kel>span,.mask,.mask img{transition:none;opacity:1;transform:none;clip-path:none}}
+</style>
+
+<div class="grain"></div>
+<div class="imlec" id="imlec"></div>
+<div class="yuk" id="yuk"><div class="s" id="sayac">000</div><div class="a"><span>Tane · Huila</span><span>Kahve demleniyor</span></div></div>
+
+<header class="ust">
+  <nav aria-label="Bölümler"><a href="#koken">Köken</a><a href="#kavrum">Kavrum</a></nav>
+  <a class="marka" href="#ust">Tane</a>
+  <nav class="sag" aria-label="Diğer bölümler"><a href="#demleme">Demleme</a><a href="#paketler">Paketler</a></nav>
+</header>
+
+<main id="ust">
+  <section class="sahne hero" id="koken" data-seq="tarla">
+    <div class="yapis">
+      <div class="perde"><img src="assets/img/koken.jpg" alt="Sisli Andlar yamacında teraslanmış kahve tarlası" width="1600" height="1000" fetchpriority="high"></div>
+      <div class="ic">
+        <h1><span class="sat"><span>Kökünden</span></span><span class="sat"><span><em>fincanına.</em></span></span></h1>
+        <p>Huila'nın 1.750 metresinde yetişen tek köken arabika. Kaydırın; çekirdeğin yolculuğunu baştan sona izleyin.</p>
+        <div class="kaydir"><i></i>Kaydır</div>
+      </div>
+      <div class="koord"><span>02°11′K · 75°38′B</span><span>Huila, Kolombiya</span></div>
+    </div>
+  </section>
+
+  <section class="man" aria-label="Manifesto">
+    <div class="etiket"><b>01</b> · Tane</div>
+    <p id="manifesto">Bir fincan kahve <em>yaklaşık yetmiş</em> çekirdekten yapılır. Her biri bir kirazın içinde büyür, elle toplanır, güneşte kurur ve <em>iki yüz yirmi derecede</em> karakterini bulur.</p>
+  </section>
+
+  <div class="serit" aria-hidden="true"><div id="serit"><span>Huila</span><span>tek köken</span><span>1.750 m</span><span>yıkanmış arabika</span><span>orta kavrum</span><span>kakao · karamel · fındık</span><span>Huila</span><span>tek köken</span><span>1.750 m</span><span>yıkanmış arabika</span><span>orta kavrum</span><span>kakao · karamel · fındık</span></div></div>
+
+  <section class="sahne acil" data-seq="kiraz">
+    <div class="yapis">
+      <div class="perde" id="acilPerde"><img src="assets/img/kiraz.jpg" alt="Çiğ damlalı dalda olgun kırmızı kahve kirazları" width="1600" height="1000" loading="lazy"></div>
+      <div class="ust-yazi etiket"><b>02</b> · Hasat</div>
+      <div class="ic">
+        <h2>Yalnız<br><em>tam kızaranlar.</em></h2>
+        <div class="sag">
+          <p style="margin:0;color:#e2d6c7">Kirazlar dal dal, elle seçilir. Bir toplayıcı günde 90 kilo kiraz toplar; bu, yaklaşık 20 kilo çekirdek eder.</p>
+          <dl class="olcu"><dt>Hasat</dt><dd>Ekim – Aralık</dd><dt>Rakım</dt><dd>1.600 – 1.900 m</dd><dt>İşlem</dt><dd>Yıkanmış</dd></dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sahne anat" aria-label="Çekirdeğin anatomisi">
+    <div class="yapis">
+      <div class="bas"><div class="etiket"><b>03</b> · Anatomi</div><h2>Bir çekirdeğin <em>anatomisi</em></h2></div>
+      <div class="cek" id="anatCek"><img src="assets/cut/cekirdek.webp" alt="Yakından kavrulmuş tek bir kahve çekirdeği" width="494" height="709"></div>
+      <div class="gol"></div>
+      <div class="not n1"><span class="no">01</span><h3>Orta oluk</h3><p>Çekirdeği ikiye bölen çizgi; içindeki gümüş zar kavrumda incelir.</p></div>
+      <div class="not n2"><span class="no">02</span><h3>Yağ ve şeker</h3><p>Isı şekeri karamelleştirir, yağları yüzeye taşır; parlaklık buradan gelir.</p></div>
+      <div class="not n3"><span class="no">03</span><h3>%11 nem</h3><p>Kurutma yataklarında haftalarca dinlenir; nem dengelenmeden kavrulmaz.</p></div>
+      <div class="not n4"><span class="no">04</span><h3>800+ aroma</h3><p>Kakao, karamel, fındık. Yeşil çekirdekte yalnızca ot kokusu vardır.</p></div>
+    </div>
+  </section>
+
+  <section class="sahne kav" id="kavrum">
+    <div class="yapis">
+      <div class="kor" id="kor"></div><canvas id="kivilcim" aria-hidden="true"></canvas>
+      <div class="sol">
+        <div class="etiket"><b>04</b> · Kavrum</div>
+        <h2>Isı, tadı <em>yazar.</em></h2>
+        <div class="isi" id="isi">24<small> °C</small></div>
+        <div class="evre" id="evre"><span>Yeşil</span><span>Sarı</span><span>Tarçın</span><span>1. çatlak</span><span>Orta</span><span>2. çatlak</span></div>
+        <p style="margin:0;color:var(--kopuk-2);max-width:40ch">Çekirdek önce suyunu kaybeder ve sarıya döner. Şekerler karamelleşir, 196 °C'de ilk çatlak gelir. Tane'yi orta kavrumda, ikinci çatlaktan önce durduruyoruz.</p>
+      </div>
+      <div class="sag"><img id="kavCek" src="assets/cut/cekirdek.webp" alt="Kavrum derecesine göre rengi değişen çekirdek" width="494" height="709"></div>
+    </div>
+  </section>
+
+  <section class="sahne surec" aria-label="Süreç">
+    <div class="yapis">
+      <div class="ray" id="ray">
+        <div class="bas"><div class="etiket"><b>05</b> · Süreç</div><h2>Tamburdan <em>öğütücüye.</em></h2><p style="margin:0;color:var(--kopuk-2);max-width:36ch">Kavrumdan sonra çekirdek dinlenir, sonra demlemeden hemen önce öğütülür.</p></div>
+        <article class="kart"><div class="lev"><img src="assets/img/kavrum.jpg" alt="Kavurma tamburundan soğutma tepsisine dökülen çekirdekler" width="1600" height="1000" loading="lazy"></div><div class="alt"><span class="no">i.</span><div><h3>Soğutma</h3><p>Tamburdan çıkan çekirdek dört dakikada oda sıcaklığına iner; aksi halde kendi ısısıyla kavrulmaya devam eder.</p></div></div></article>
+        <article class="kart"><div class="lev"><img src="assets/img/ogutum.jpg" alt="Kâse içinde taze öğütülmüş kahve ve çekirdekler" width="1600" height="1000" loading="lazy"></div><div class="alt"><span class="no">ii.</span><div><h3>Öğütüm</h3><p>Türk kahvesi için 0,1 mm, filtre için 0,7 mm. Aromanın büyük kısmı öğütümden sonraki ilk dakikalarda uçar.</p></div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <div class="serit" aria-hidden="true"><div id="serit2"><span>Huila</span><span>tek köken</span><span>1.750 m</span><span>yıkanmış arabika</span><span>orta kavrum</span><span>kakao · karamel · fındık</span><span>Huila</span><span>tek köken</span><span>1.750 m</span><span>yıkanmış arabika</span><span>orta kavrum</span><span>kakao · karamel · fındık</span></div></div>
+
+  <section class="dem" id="demleme">
+    <div class="bas"><div style="display:grid;gap:16px"><div class="etiket"><b>06</b> · Demleme</div><h2>Dört yol,<br><em>dört karakter.</em></h2></div><p style="margin:0;max-width:34ch;color:var(--kopuk-2)">Aynı çekirdek, farklı suyla farklı konuşur. Oranlar tek fincan içindir.</p></div>
+    <ul class="yontem" id="yontem">
+      <li><a href="#demleme" data-i="0"><span class="no">01</span><span class="ad">V60</span><span class="veri">1:16 · 12,5 g · 93 °C · 3:00</span></a></li>
+      <li><a href="#demleme" data-i="1"><span class="no">02</span><span class="ad">Moka</span><span class="veri">1:7 · 18 g · ocak · 4:00</span></a></li>
+      <li><a href="#demleme" data-i="2"><span class="no">03</span><span class="ad">Cezve</span><span class="veri">1:10 · 7 g · kısık ateş</span></a></li>
+      <li><a href="#demleme" data-i="3"><span class="no">04</span><span class="ad">French press</span><span class="veri">1:15 · 13 g · 94 °C · 4:00</span></a></li>
+    </ul>
+  </section>
+
+  <section class="sahne fin" data-seq="fincan">
+    <div class="yapis">
+      <div class="perde"><img src="assets/img/fincan.jpg" alt="Beyaz porselen fincanda kaplan desenli kremalı espresso" width="1600" height="1000" loading="lazy"></div>
+      <div class="buhar" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="ic">
+        <div class="etiket"><b>07</b> · Fincan</div>
+        <div><h2><em>Fincanınıza.</em></h2>
+          <div class="satir"><p>Kakao, karamel ve fındık. Yumuşak bir asidite, uzun ve tatlı bir bitiş. Yetmiş çekirdeğin hikâyesi, birkaç yudumda.</p><a class="lnk" href="#paketler">Paketleri gör</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pak" id="paketler">
+    <div class="ic">
+      <div>
+        <div class="etiket" style="color:#9fb09a"><b>08</b> · İlk seçki</div>
+        <h2 style="margin-top:18px">Evde,<br><em>aynı tat.</em></h2>
+        <div class="urunler">
+          <div class="urun"><h3>Kolombiya</h3><span class="gr">1 kg</span><p>Tek köken, yıkanmış arabika, orta kavrum. Bütün çekirdek; espresso, French press ya da evde öğütüp filtre için.</p><span class="not2">Fiyat toptancı listesiyle eklenecek</span></div>
+          <div class="urun"><h3>Filtre harman</h3><span class="gr">250 g</span><p>Orta-kalın öğütülmüş, fermuarlı ambalajda. Filtre makinesi ve V60 için hazır.</p><span class="not2">Fiyat toptancı listesiyle eklenecek</span></div>
+        </div>
+      </div>
+      <div class="sahnecik" id="sahnecik">
+        <div class="torba" id="torba"><img src="assets/cut/paket.webp" alt="Tane etiketli kraft kâğıt kahve paketi" width="503" height="875" loading="lazy">
+          <div class="eti"><span class="k">Tane · Tek köken</span><span class="m">KOLOMBİYA</span><span class="g">kakao · karamel · fındık</span><span class="k">1 kg · bütün çekirdek</span></div></div>
+        <div class="kup" id="kup"><img src="assets/cut/fincan.webp" alt="Tabağında kremalı espresso" width="811" height="593" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="yuzen" id="yuzen" aria-hidden="true">
+  <div style="background-image:url(assets/img/v60.jpg)"></div>
+  <div style="background-image:url(assets/img/moka.jpg)"></div>
+  <div style="background-image:url(assets/img/cezve.jpg)"></div>
+  <div style="background-image:url(assets/img/press.jpg)"></div>
+</div>
+
+<footer>
+  <div class="kayan" aria-hidden="true"><span>Kök · Kiraz · Kavrum · Öğütüm · Demleme · Fincan ·</span><span>Kök · Kiraz · Kavrum · Öğütüm · Demleme · Fincan ·</span></div>
+  <div class="dev" aria-hidden="true">Tane.</div>
+  <div class="alt-s"><span>Ön gösterim · Ürün bilgileri örnektir</span><span>© 2026 Tane Kahve</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mob=()=>innerWidth<760;
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ss=(a,b,x)=>{const t=cl((x-a)/(b-a));return t*t*(3-2*t)};
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+let lenis=null;
+document.querySelectorAll("#yontem a").forEach(a=>a.addEventListener("click",e=>e.preventDefault()));
+if(window.Lenis&&!reduce){lenis=new Lenis({lerp:.08,smoothWheel:true,wheelMultiplier:.9});(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0);
+  document.querySelectorAll('a[href^="#"]:not([data-i])').forEach(a=>a.addEventListener("click",e=>{const h=a.getAttribute("href");if(h.length>1){e.preventDefault();lenis.scrollTo(h==="#ust"?0:h,{duration:1.8})}}))}
+
+const im=document.getElementById("imlec");let ix=innerWidth/2,iy=innerHeight/2,cx=ix,cy=iy,mx=0,my=0;
+addEventListener("pointermove",e=>{ix=e.clientX;iy=e.clientY;mx=ix/innerWidth-.5;my=iy/innerHeight-.5});
+document.querySelectorAll("a,button").forEach(el=>{el.addEventListener("pointerenter",()=>im.classList.add("b"));el.addEventListener("pointerleave",()=>im.classList.remove("b"))});
+
+const man=document.getElementById("manifesto");
+(function bol(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w.trim()){f.appendChild(document.createTextNode(w));return}const s=document.createElement("span");s.className="w";s.textContent=w;f.appendChild(s)});n.replaceChild(f,c)}else if(c.nodeType===1)bol(c)})})(man);
+const kel=[...man.querySelectorAll(".w")];
+
+const SEQ={};
+function videoYukle(sec,ad){const per=sec.querySelector(".perde");if(!per)return;const v=document.createElement("video");v.muted=true;v.playsInline=true;v.setAttribute("playsinline","");v.preload="auto";v.src="assets/seq/"+ad+".mp4";
+  const cv=document.createElement("canvas");const g=cv.getContext("2d");const s={cv,g,vid:v,hedef:0,son:-1,hazir:false};
+  const ciz=()=>{if(!v.videoWidth)return;const pr=Math.min(devicePixelRatio,1.5),W=cv.clientWidth*pr|0,H=cv.clientHeight*pr|0;if(!W)return;if(cv.width!==W){cv.width=W;cv.height=H}const r=Math.max(W/v.videoWidth,H/v.videoHeight),w=v.videoWidth*r,h=v.videoHeight*r;g.drawImage(v,(W-w)/2,(H-h)/2,w,h)};
+  v.addEventListener("loadeddata",()=>{s.hazir=true;per.insertBefore(cv,per.firstChild.nextSibling);const im=per.querySelector("img");if(im)im.style.opacity=0;ciz()});v.addEventListener("seeked",ciz);v.addEventListener("error",()=>{delete SEQ[ad]});s.ciz=ciz;SEQ[ad]=s}
+async function diziYukle(sec){const ad=sec.dataset.seq;try{const r=await fetch("assets/seq/"+ad+"/liste.json");if(!r.ok){videoYukle(sec,ad);return}const L=await r.json();
+  const cv=document.createElement("canvas");const per=sec.querySelector(".perde");const g=cv.getContext("2d");const kareler=new Array(L.n);let yuklu=0;
+  for(let i=0;i<L.n;i++){const m=new Image();m.decoding="async";m.src=`assets/seq/${ad}/${String(i+1).padStart(3,"0")}.jpg`;m.onload=()=>{kareler[i]=m;yuklu++;if(yuklu===1){per.insertBefore(cv,per.firstChild.nextSibling);per.querySelector("img").style.opacity=0}}}
+  SEQ[ad]={cv,g,kareler,n:L.n,son:-1}}catch(e){}}
+document.querySelectorAll("[data-seq]").forEach(diziYukle);
+function diziCiz(ad,p){const s=SEQ[ad];if(!s)return;if(s.vid){if(!s.hazir||!s.vid.duration)return;const t=Math.round(cl(p)*(s.vid.duration-.05)*24)/24;if(t===s.son)return;if(!s.vid.seeking&&Math.abs(s.vid.currentTime-t)>1/48){s.vid.currentTime=t;s.son=t}return}const i=Math.round(cl(p)*(s.n-1));if(i===s.son)return;let k=s.kareler[i];if(!k){for(let j=i;j>=0;j--)if(s.kareler[j]){k=s.kareler[j];break}}if(!k)return;
+  const pr=Math.min(devicePixelRatio,1.5),W=s.cv.clientWidth*pr|0,H=s.cv.clientHeight*pr|0;if(s.cv.width!==W){s.cv.width=W;s.cv.height=H}
+  const r=Math.max(W/k.naturalWidth,H/k.naturalHeight),w=k.naturalWidth*r,h=k.naturalHeight*r;s.g.drawImage(k,(W-w)/2,(H-h)/2,w,h);s.son=i}
+
+
+/* kaydırma animasyonları */
+function kelimele(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(!w.trim()){f.appendChild(document.createTextNode(w));return}const k=document.createElement("span");k.className="kel";const s=document.createElement("span");s.textContent=w;k.appendChild(s);f.appendChild(k)});n.replaceChild(f,c)}else if(c.nodeType===1&&c.tagName!=="BR")kelimele(c)})}
+document.querySelectorAll("main h2,.not h3,.urun h3,footer .dev").forEach(h=>{kelimele(h);h.classList.add("yaz");h.querySelectorAll(".kel>span").forEach((s,i)=>s.style.setProperty("--i",i))});
+const grup=(sel,ad,ad2)=>document.querySelectorAll(sel).forEach((el,i)=>{el.classList.add(ad);el.style.setProperty("--d",(i%6)*0.09+"s")});
+grup(".man .etiket,.dem .bas p,.acil .sag p,.olcu,.kav .sol p,.kav .evre,.isi,.surec .bas p,.fin .satir p,.fin .lnk,.urun p,.urun .not2,.urun .gr,.alt-s span,.pak .etiket,.dem .etiket,.kav .etiket,.surec .etiket","r");
+grup(".yontem li","r");
+const gozcu=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");gozcu.unobserve(e.target)}}),{threshold:.18,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".yaz,.r,.mask").forEach(el=>{if(!el.closest(".surec"))gozcu.observe(el)});
+const yatayGoz=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");yatayGoz.unobserve(e.target)}}),{threshold:.3});
+document.querySelectorAll(".surec .yaz,.surec .r,.surec .mask").forEach(el=>yatayGoz.observe(el));
+const sr1=document.getElementById("serit"),sr2=document.getElementById("serit2");
+const kv=document.getElementById("kivilcim"),kg=kv.getContext("2d");const K=[];
+for(let i=0;i<70;i++)K.push({x:Math.random(),y:Math.random(),v:.02+Math.random()*.06,r:.6+Math.random()*1.8,f:Math.random()*6});
+
+function ilerleme(el){const r=el.getBoundingClientRect();return cl(-r.top/(r.height-innerHeight))}
+const hero=document.querySelector(".hero"),heroImg=hero.querySelector(".perde"),heroIc=hero.querySelector(".ic");
+const acil=document.querySelector(".acil"),acilP=document.getElementById("acilPerde"),acilIc=acil.querySelector(".ic");
+const anat=document.querySelector(".anat"),anatCek=document.getElementById("anatCek"),notlar=[...anat.querySelectorAll(".not")];
+const kav=document.querySelector(".kav"),isi=document.getElementById("isi"),evre=[...document.querySelectorAll("#evre span")],kavCek=document.getElementById("kavCek"),kor=document.getElementById("kor");
+const surec=document.querySelector(".surec"),ray=document.getElementById("ray");
+const fin=document.querySelector(".fin"),finImg=fin.querySelector(".perde");
+const torba=document.getElementById("torba"),kup=document.getElementById("kup"),pak=document.getElementById("paketler");
+const EV=[0,.2,.4,.6,.74,.92];
+const yuz=document.getElementById("yuzen"),yk=[...yuz.children];let yx=0,yy=0;
+document.querySelectorAll("#yontem a").forEach(a=>{a.addEventListener("pointerenter",()=>{yuz.classList.add("on");yk.forEach((d,i)=>d.classList.toggle("on",i===+a.dataset.i))});a.addEventListener("pointerleave",()=>yuz.classList.remove("on"))});
+
+let t=0,son=performance.now();
+function kare(now){const dt=Math.min(.05,(now-son)/1000);son=now;t+=dt;const vh=innerHeight;
+  cx+=(ix-cx)*.22;cy+=(iy-cy)*.22;im.style.transform=`translate3d(${cx}px,${cy}px,0)`;yx+=(ix-yx)*.12;yy+=(iy-yy)*.12;yuz.style.left=yx+"px";yuz.style.top=yy+"px";
+  const hp=ilerleme(hero);diziCiz("tarla",hp);
+  heroImg.style.transform=`scale(${1.18-hp*.18}) translate3d(${mx*-12}px,${my*-8}px,0)`;heroImg.style.filter=`brightness(${1-hp*.45})`;
+  heroIc.style.transform=`translate3d(0,${-hp*18}vh,0)`;heroIc.style.opacity=1-ss(.35,.8,hp);
+  const mr=man.getBoundingClientRect();const mp=ss(vh*.85,-mr.height*.3,mr.top);kel.forEach((w,i)=>{w.style.opacity=.13+.87*ss(i/kel.length-.04,i/kel.length+.04,mp)});
+  const ap=ilerleme(acil);diziCiz("kiraz",ap);const e=1-ss(0,.55,ap),yan=mob()?8:26;acilP.style.clipPath=`inset(${18*e}% ${yan*e}% ${18*e}% ${yan*e}% round ${4*e}px)`;acilP.firstElementChild.style.transform=`scale(${1.25-ap*.25})`;acilIc.style.opacity=ss(.45,.7,ap);
+  const np=ilerleme(anat);anatCek.style.transform=`translate3d(${mx*20}px,${Math.sin(t*.9)*10+my*14}px,0) rotate(${-14+np*28+mx*6}deg) scale(${.85+ss(0,.3,np)*.2})`;
+  notlar.forEach((n,i)=>{const a=.12+i*.14;const o=ss(a,a+.12,np)*(1-ss(.92,1,np));n.style.opacity=o;n.style.transform=`translateY(${(1-o)*24}px)`});
+  const kp=ilerleme(kav);isi.firstChild.nodeValue=String(Math.round(24+ss(0,.96,kp)*196));evre.forEach((s,i)=>s.classList.toggle("on",kp>=EV[i]&&(i===EV.length-1||kp<EV[i+1])));
+  const r1=ss(0,.25,kp),r2=ss(.2,.6,kp),r3=ss(.55,1,kp);
+  const hue=lerp(lerp(55,25,r1),0,r2),sat=lerp(lerp(.55,.75,r1),1,r2),br=lerp(lerp(lerp(1.75,1.5,r1),1.12,r2),.62,r3);
+  kavCek.style.filter=`hue-rotate(${hue}deg) saturate(${sat}) brightness(${br}) contrast(${lerp(.85,1.1,kp)}) drop-shadow(0 50px 60px rgba(0,0,0,.65))`;
+  kavCek.style.transform=`rotate(${12+Math.sin(t*.6)*3}deg)`;
+  kor.style.background=`radial-gradient(45% 55% at ${mob()?50:72}% ${mob()?32:55}%,rgba(201,117,47,${.04+kp*.3}),transparent 70%)`;
+  const kr=kav.getBoundingClientRect();if(kr.top<vh&&kr.bottom>0){const W=kv.clientWidth,H=kv.clientHeight;if(kv.width!==W||kv.height!==H){kv.width=W;kv.height=H}kg.clearRect(0,0,W,H);kg.globalCompositeOperation="lighter";
+    for(const k of K){if(!reduce){k.y-=k.v*dt*(.4+kp*1.6);if(k.y<-.05){k.y=1.05;k.x=Math.random()}}const a=(.1+kp*.7)*(.5+.5*Math.sin(t*4+k.f));kg.fillStyle=`rgba(255,${150+60*Math.sin(k.f)|0},70,${a})`;kg.beginPath();kg.arc((k.x*.6+(mob()?.2:.4))*W+Math.sin(t+k.f)*14,k.y*H,k.r,0,7);kg.fill()}}
+  const sp=ilerleme(surec);const ms=ray.scrollWidth-innerWidth;ray.style.transform=`translate3d(${-sp*Math.max(0,ms)}px,0,0)`;
+  ray.querySelectorAll(".lev img").forEach(i=>{const r=i.parentNode.getBoundingClientRect();const k=(r.left+r.width/2-innerWidth/2)/innerWidth;i.style.transform=`scale(1.15) translate3d(${-k*7}%,0,0)`});
+  const fp=ilerleme(fin);diziCiz("fincan",fp);finImg.style.transform=`scale(${1.05+fp*.15})`;
+  const pr=pak.getBoundingClientRect();const pp=cl(1-(pr.top+pr.height/2)/(vh+pr.height/2));
+  torba.style.transform=`translate3d(0,${(pp-.5)*-80+Math.sin(t*.8)*8}px,0) rotateY(${-16+mx*24}deg) rotateX(${my*-10}deg) rotateZ(${-3+Math.sin(t*.6)*1.5}deg)`;
+  kup.style.transform=`translate3d(${mx*-18}px,${(pp-.5)*60+Math.cos(t*.7)*6}px,0)`;
+  const sy=scrollY*.35;sr1.style.transform=`translate3d(${-(sy%(sr1.scrollWidth/2))}px,0,0)`;sr2.style.transform=`translate3d(${(sy%(sr2.scrollWidth/2))-sr2.scrollWidth/2}px,0,0)`;
+  requestAnimationFrame(kare)}
+requestAnimationFrame(kare);
+
+const yuk=document.getElementById("yuk"),say=document.getElementById("sayac");let yv=0,hazir=false,ilk=performance.now();
+const ilkG=document.querySelector(".hero img");const ga=new Promise(r=>{if(ilkG.complete)r();else{ilkG.onload=r;ilkG.onerror=r}});
+Promise.all([document.fonts?Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,2500))]):0,ga]).then(()=>hazir=true);
+setTimeout(()=>hazir=true,2500);if(lenis)lenis.stop();
+function yukle(){if(yuk.classList.contains("bitti"))return;const d=performance.now()-ilk;const h=hazir?100:Math.min(90,d/18);yv+=(h-yv)*.08;say.textContent=String(Math.round(yv)).padStart(3,"0");
+  if(hazir&&yv>99.4&&d>1200){say.textContent="100";yuk.classList.add("bitti");scrollTo(0,0);if(lenis){lenis.scrollTo(0,{immediate:true});lenis.start()}setTimeout(()=>yuk.style.display="none",1300);if(window.gsap)gsap.to(".hero h1 .sat>span",{y:"0%",duration:1.5,ease:"expo.out",stagger:.12,delay:.3});else document.querySelectorAll(".hero h1 .sat>span").forEach(s=>s.style.transform="none");return}
+  requestAnimationFrame(yukle)}
+if(reduce){yuk.classList.add("bitti");yuk.style.display="none"}else{requestAnimationFrame(yukle);setTimeout(()=>{hazir=true;yv=100;ilk=Math.min(ilk,performance.now()-1300);yukle()},3500)}
+})();
+</script>

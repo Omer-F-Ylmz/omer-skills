@@ -1,0 +1,17 @@
+- generic [active] [ref=f1e1]:
+  - banner
+  - heading "http://info.cern.ch - home of the first website" [level=1] [ref=f1e2]
+  - paragraph [ref=f1e3]: "From here you can:"
+  - list [ref=f1e4]:
+    - listitem [ref=f1e5]:
+      - link "Browse the first website" [ref=f1e6] [cursor=pointer]:
+        - /url: http://info.cern.ch/hypertext/WWW/TheProject.html
+    - listitem [ref=f1e7]:
+      - link "Browse the first website using the line-mode browser simulator" [ref=f1e8] [cursor=pointer]:
+        - /url: http://line-mode.cern.ch/www/hypertext/WWW/TheProject.html
+    - listitem [ref=f1e9]:
+      - link "Learn about the birth of the web" [ref=f1e10] [cursor=pointer]:
+        - /url: http://home.web.cern.ch/topics/birth-web
+    - listitem [ref=f1e11]:
+      - link "Learn about CERN, the physics laboratory where the web was born" [ref=f1e12] [cursor=pointer]:
+        - /url: http://home.web.cern.ch/about

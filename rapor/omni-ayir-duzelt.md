@@ -5,3 +5,5 @@
 - Sonra: OLCULEMEDI. Held-out kosusu (.kos/kopru/omni-ayir/duzelt_olc.py, ucretsiz hakem) cok yavas: 1/12 tamamlandi (4/4 DOGRU, cloudflare llama-3.3-70b).
 - Sonuc: %98 KANITLANMADI -> ENGEL (tur siniri, ucretli yok). Sonraki: duzelt_olc.py 'once 3 12' arka planda, kalem suresi hata ayiklansin, sonra 24 kalemlik held-out.
 - Risk: v4 dogrulayici diger ozet cagrilarinda RET (Claude'a donus) artirabilir; dogrulanmadi.
+
+- Final held-out (24 kalem istendi, 30 benzersiz satir): 47/56 madde DOGRU = %83,9; kapi %98 GECMEDI -> ENGEL. (skor.py)

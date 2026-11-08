@@ -1,0 +1,1640 @@
+kalem	ad	ne_ise_yarar	ucretsiz_katman	hesap_gerekir	hangi_isde	guven	kaynak_liste
+11 Labs	ElevenLabs	AI ses sentezi ve ses klonlama	var	evet	seslendirme ve TTS	yuksek	ad
+1POST	1POST	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+3.5 Sonnet	Claude 3.5 Sonnet	Anthropic eski Claude modeli; metin ve kod üretimi	var	evet	metin, kod ve analiz	orta	ad
+@motion_so	Motion	AI takvim ve görev planlayıcı	deneme	evet	takvim ve görev planlama	orta	ad
+AAlliAI	Alli AI	SEO otomasyonu ve site içerik optimizasyonu	bilinmiyor	evet	SEO içerik otomasyonu	orta	ad
+ACQ AI	ACQ AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AI Creator Studio	AI Creator Studio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AI OS for LinkedIn	AI OS for LinkedIn	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AI Studio	Google AI Studio	Gemini modellerini tarayıcıda deneme ve API anahtarı	var	evet	Gemini prototip ve prompt testi	yuksek	ad
+APILayer Unified Suite	APILayer Unified Suite	APILayer çoklu veri API paketi	var	evet	çoklu API veri entegrasyonu	orta	ad
+APIMart	APIMart	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AWS Backup	AWS Backup	AWS kaynakları için yedekleme yönetimi	yok	evet	AWS yedekleme politikası	yuksek	ad
+AWS Batch	AWS Batch	AWS toplu iş kuyruğu ve hesaplama yönetimi	yok	evet	toplu hesaplama işleri	orta	ad
+AWS CodeBuild	AWS CodeBuild	AWS yönetimli derleme ve test servisi	var	evet	CI derleme ve test	yuksek	ad
+AWS CodeCommit	AWS CodeCommit	AWS Git deposu; yeni müşterilere kapalı	bilinmiyor	evet	özel Git deposu	orta	ad
+AWS Config	AWS Config	AWS kaynak yapılandırma kaydı ve uyum kuralları	yok	evet	AWS uyum denetimi	orta	ad
+AWS EC2	AWS EC2	AWS sanal sunucu hizmeti	var	evet	sanal sunucu barındırma	yuksek	ad
+AWS Lambda	AWS Lambda	AWS sunucusuz fonksiyon çalıştırma	var	evet	sunucusuz arka uç	yuksek	ad
+AWS Pricing	AWS Pricing API	AWS fiyat bilgisi sorgulama API'si	var	evet	AWS maliyet tahmini	orta	ad
+AWS S3	Amazon Simple Storage Service (S3)	AWS nesne depolama	var	evet	dosya ve yedek depolama	yuksek	ad
+Aairparser	Airparser	Belgelerden LLM ile yapılandırılmış veri çıkarma	deneme	evet	belgeden veri çıkarma	orta	ad
+Aairtop	Airtop	AI tarayıcı otomasyonu için bulut API	deneme	evet	web otomasyon ajanı	orta	ad
+Abacus AI Studio	Abacus.AI Studio	Çok modelli AI ajan ve uygulama platformu	deneme	evet	AI ajan geliştirme	orta	ad
+ActiveCampaign	ActiveCampaign	E-posta otomasyonu ve CRM	deneme	evet	e-posta otomasyon ve CRM	yuksek	ad
+Acuity	Acuity Scheduling	Online randevu planlama	deneme	evet	randevu rezervasyonu	yuksek	ad
+Ad Library	Meta Ad Library	Meta reklamlarını herkese açık arama	var	hayir	rakip reklam araştırması	yuksek	ad
+Ad Multiplier	Ad Multiplier	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AdSense	Google AdSense	Web sitesi reklam geliri	var	evet	site reklam geliri	yuksek	ad
+Adapty	Adapty	Mobil uygulama abonelik ve satın alma yönetimi	var	evet	mobil abonelik yönetimi	orta	ad
+Adobe Color	Adobe Color	Renk paleti oluşturma ve kaydetme	var	evet	renk paleti üretimi	yuksek	ad
+Adobe Express	Adobe Express	Hızlı sosyal medya tasarımı	var	evet	hızlı görsel tasarım	yuksek	ad
+Adobe Firefly	Adobe Firefly	Adobe AI görsel ve metin efekti üretimi	var	evet	AI görsel üretimi	yuksek	ad
+Adobe Fonts	Adobe Fonts	Adobe font kütüphanesi	var	evet	font seçimi ve gömme	yuksek	ad
+Adobe Podcast BETA	Adobe Podcast	AI destekli podcast kayıt ve düzenleme	var	evet	ses kayıt ve düzenleme	orta	ad
+Adobe Podcast Enhance	Adobe Podcast Enhance	Konuşma sesini AI ile temizleme	var	evet	ses kalitesi iyileştirme	orta	ad
+Ads Studio	Ads Studio	Spotify reklam oluşturma aracı	yok	evet	Spotify reklam kampanyası	orta	ad
+Afterpay	Afterpay	Taksitli (BNPL) ödeme hizmeti	var	evet	e-ticaret taksitli ödeme	orta	ad
+Agent Builder	Agent Builder	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AgentCanvas	AgentCanvas	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AgentFloor	AgentFloor	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AgentMail	AgentMail	AI ajanlar için e-posta kutusu API'si	deneme	evet	ajanlara e-posta altyapısı	orta	ad
+AgentTube	AgentTube	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Agentic AI YouTube Studio	Agentic AI YouTube Studio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Agentic Canvas	Agentic Canvas	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Agentic Slides	Agentic Slides	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Agora	Agora	Gerçek zamanlı video ve ses SDK'sı	var	evet	gerçek zamanlı görüntülü iletişim	yuksek	ad
+Ahrefs	Ahrefs	SEO backlink ve anahtar kelime analizi	deneme	evet	SEO ve backlink analizi	yuksek	ad
+Ahrefs Lite	Ahrefs Lite	Ahrefs hafif SEO planı	deneme	evet	SEO analizi	orta	ad
+Aira	Aira	Görme engelliler için canlı görsel yardım	bilinmiyor	evet	erişilebilirlik hizmeti	orta	ad
+Airparser	Airparser	Airparser: belgelerden LLM ile veri çıkarma	deneme	evet	belgeden veri çıkarma	orta	ad
+Airtable	Airtable	Tablo tabanlı veritabanı ve otomasyon	var	evet	hafif veritabanı ve iş akışı	yuksek	ad
+Airtop	Airtop	AI tarayıcı otomasyonu için bulut API	deneme	evet	web otomasyon ajanı	orta	ad
+Alexa	Alexa	Amazon sesli asistanı ve cihaz kontrolü	var	evet	sesli asistan ve cihaz kontrolü	yuksek	ad
+Alibaba Cloud	Alibaba Cloud	Alibaba bulut hizmetleri	var	evet	bulut sunucu ve depolama	orta	ad
+Alice Blue	Alice Blue	Hint aracı kurumu ve alım-satım	bilinmiyor	evet	Hint borsası işlemleri	orta	ad
+AllTrails	AllTrails	Yürüyüş rotası bulma uygulaması	var	evet	yürüyüş rotası bulma	yuksek	ad
+Allbaba Cloud	Allbaba Cloud	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AlloyDB	AlloyDB	Google PostgreSQL uyumlu yönetimli veritabanı	deneme	evet	PostgreSQL bulut veritabanı	orta	ad
+AlphAI	AlphAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Alpha Vantage	Alpha Vantage	Borsa ve döviz verisi API'si	var	evet	piyasa verisi çekme	yuksek	ad
+AlphaGenome	AlphaGenome	Google DeepMind genom modeli	bilinmiyor	bilinmiyor	DNA varyant etki tahmini	orta	ad
+Altcha	Altcha	Açık kaynak, gizlilik odaklı bot doğrulama	var	hayir	form bot koruması	orta	ad
+Amazon Bedrock	Amazon Bedrock	AWS üzerinde çok modelli AI API	yok	evet	AWS'de AI model erişimi	yuksek	ad
+Amazon Bedrock Knowledge Bases	Amazon Bedrock Knowledge Bases	Bedrock ile RAG bilgi tabanı	yok	evet	RAG bilgi tabanı kurma	orta	ad
+Amazon MQ	Amazon MQ	Yönetimli RabbitMQ/ActiveMQ mesaj kuyruğu	deneme	evet	mesaj kuyruğu	orta	ad
+Amazon S3	Amazon S3	AWS nesne depolama	var	evet	dosya ve yedek depolama	yuksek	ad
+Amazon SageMaker	Amazon SageMaker	AWS ML model eğitimi ve barındırma	var	evet	ML model eğitimi	yuksek	ad
+Amplitude	Amplitude	Ürün kullanım analitiği	var	evet	ürün analitiği	yuksek	ad
+Analytics Tracker	Analytics Tracker	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Angel One	Angel One	Hint aracı kurumu	bilinmiyor	evet	Hint borsası işlemleri	orta	ad
+AppSync	AppSync	AWS yönetimli GraphQL ve gerçek zamanlı API	var	evet	GraphQL API	yuksek	ad
+Apple Developer	Apple Developer	Apple geliştirici portalı	var	evet	iOS uygulama geliştirme	yuksek	ad
+Apple Developer Services	Apple Developer Services	Apple geliştirici üyeliği ve servisleri	yok	evet	Apple geliştirici üyeliği	orta	ad
+Apple Music	Apple Music	Müzik akış servisi	deneme	evet	müzik dinleme	yuksek	ad
+Apple News	Apple News	Haber okuma uygulaması	var	hayir	haber okuma	yuksek	ad
+Appointment Booking	Appointment Booking	Google Takvim tabanlı randevu alma	var	evet	randevu rezervasyonu	orta	ad
+Approval Queue	Approval Queue	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Arize	Arize	LLM ve ML izleme ve değerlendirme	var	evet	LLM izleme ve değerlendirme	orta	ad
+Artbreeder	Artbreeder	AI görsel karıştırma ve üretimi	var	evet	görsel ve karakter üretimi	orta	ad
+Artlist AI	Artlist AI	Telifsiz müzik ve video kütüphanesi	yok	evet	stok müzik ve video	orta	ad
+Asona	Asona	İş ve proje yönetimi raporlama	deneme	evet	proje takibi	orta	ad
+AssemblyAI	AssemblyAI	Konuşmadan metne API	deneme	evet	ses transkripsiyonu	yuksek	ad
+Astra	Astra	DataStax Astra vektör ve NoSQL veritabanı	var	evet	vektör veritabanı	yuksek	ad
+AstraQuant	AstraQuant	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Atlassian	Atlassian	Jira ve Confluence şirketi	var	evet	iş takibi ve wiki	yuksek	ad
+Atlassian Rovo	Atlassian Rovo	Atlassian kurumsal AI asistanı ve arama	deneme	evet	kurumsal AI arama	orta	ad
+Attio	Attio	Modern CRM	var	evet	müşteri ilişkileri	orta	ad
+Audible	Audible	Sesli kitap servisi	deneme	evet	sesli kitap dinleme	yuksek	ad
+Audience Profiler	Audience Profiler	Sosyal medya hedef kitle profilleme	bilinmiyor	evet	kitle analizi	orta	ad
+Audiobooks	Audiobooks	Sesli kitap kataloğu	deneme	evet	sesli kitap dinleme	yuksek	ad
+Augment	Augment	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Augmer	Augmer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Auto Scaling	Auto Scaling	AWS yük durumuna göre kaynak ölçekleme	var	evet	otomatik ölçekleme	yuksek	ad
+Aviationstack	Aviationstack	Uçuş verisi API'si	var	evet	uçuş durumu sorgulama	yuksek	ad
+AyaVision	AyaVision	Cohere çok dilli görsel-dil modeli	bilinmiyor	bilinmiyor	çok dilli görsel anlama	orta	ad
+Azure	Azure	Microsoft bulut platformu	var	evet	bulut altyapısı	yuksek	ad
+Azure AI Search	Azure AI Search	Azure arama ve vektör indeksi	var	evet	arama ve RAG indeksi	yuksek	ad
+Azure DevOps	Azure DevOps	Microsoft CI/CD ve proje takibi	var	evet	CI/CD ve iş takibi	yuksek	ad
+BASECAMP	BASECAMP	Proje ve ekip iletişim aracı	deneme	evet	proje yönetimi	yuksek	ad
+BCM Data Exports	BCM Data Exports	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Backblaze B2	Backblaze B2	Uygun maliyetli bulut depolama	var	evet	yedek ve dosya depolama	yuksek	ad
+Bardeen	Bardeen	Tarayıcı otomasyonu ve veri çekme	var	evet	web veri otomasyonu	orta	ad
+Baseten	Baseten	ML modeli dağıtım platformu	deneme	evet	ML model barındırma	orta	ad
+Bedrock	Bedrock	AWS Bedrock AI model erişimi	yok	evet	AWS'de AI model erişimi	yuksek	ad
+Beehive	Beehive	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Benchling	Benchling	Laboratuvar veri yönetimi	yok	evet	laboratuvar veri yönetimi	yuksek	ad
+BiTTi	BiTTi	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BigPockets	BigPockets	Gayrimenkul yatırım analiz forumu	var	evet	gayrimenkul yatırım analizi	orta	ad
+BigQuery	BigQuery	Google bulut veri ambarı ve SQL	var	evet	büyük veri SQL analizi	yuksek	ad
+BillionMail	BillionMail	Açık kaynak e-posta sunucusu	var	hayir	kendi sunucuda e-posta	orta	ad
+Bing / Meta AI Video	Bing / Meta AI Video	Bing üzerinden AI video üretimi	var	evet	metinden video üretimi	orta	ad
+Bing Image Creator	Bing Image Creator	Metinden AI görsel üretimi	var	evet	metinden görsel üretme	yuksek	ad
+Bing Webmaster Tools	Bing Webmaster Tools	Bing site yönetimi ve indeks	var	evet	Bing SEO	yuksek	ad
+Bing/Meta	Bing/Meta AI	Bing ve Meta AI sohbet ve üretim	var	evet	AI sohbet ve üretim	orta	ad
+Bitly	Bitly	Kısa bağlantı ve QR kod	var	evet	kısa link oluşturma	yuksek	ad
+Blog	Blog	WordPress barındırmalı blog	var	evet	blog yayınlama	yuksek	ad
+Bloomberg	Bloomberg	Finans terminali ve haber	yok	evet	finans veri ve haber	orta	ad
+Bluehost AI Agent Hosting	Bluehost AI Agent Hosting	Bluehost AI ajan barındırma	bilinmiyor	evet	AI ajan barındırma	orta	ad
+Bluesky	Bluesky	Açık sosyal ağ	var	evet	sosyal medya paylaşımı	yuksek	ad
+BoardWise	BoardWise	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Bookatime	Bookatime	Online randevu rezervasyonu	bilinmiyor	evet	randevu rezervasyonu	orta	ad
+Borsatek	Borsatek	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brand Checker	Brand Checker	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brand24	Brand24	Marka bahsi izleme	deneme	evet	sosyal dinleme	yuksek	ad
+BrandWell	BrandWell	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brandfolder	Brandfolder	Marka varlık yönetimi	deneme	evet	marka dosya yönetimi	yuksek	ad
+Brandvoice	Brandvoice	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BraveSearch	BraveSearch	Brave gizlilik odaklı web arama API'si	var	evet	web arama API	yuksek	ad
+Breadcrumbs	Breadcrumbs	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brevo	Brevo (ex Sendinblue)	E-posta ve SMS pazarlama	var	evet	e-posta kampanyası	yuksek	ad
+BrightData	BrightData	Web veri toplama ve proxy	deneme	evet	web veri kazıma	yuksek	ad
+Broker API	Broker API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BrowseAI	BrowseAI	No-code web veri çekme ve izleme	var	evet	veri kazıma ve izleme	orta	ad
+Browser API	Browser API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Browser Use Cloud	Browser Use Cloud	Bulut tarayıcı ajanı	deneme	evet	bulut tarayıcı otomasyonu	orta	ad
+Browserbase	Browserbase	Bulut headless tarayıcı altyapısı	var	evet	headless tarayıcı oturumu	yuksek	ad
+Browserless	Browserless	Bulutta headless Chrome	var	evet	Chrome otomasyonu	yuksek	ad
+Buddy	Buddy	Buddy.Works CI/CD	var	evet	CI/CD boru hattı	orta	ad
+BuiltWith	BuiltWith	Web sitesi teknoloji tespiti	var	hayir	site teknoloji analizi	yuksek	ad
+Business Manager	Business Manager (Facebook)	Meta reklam hesap yönetimi	var	evet	Meta reklam yönetimi	yuksek	ad
+Business Suite	Business Suite (SAP)	SAP kurumsal iş yazılımı	yok	evet	kurumsal yazılım paketi	orta	ad
+Bybit	Bybit	Kripto borsası	var	evet	kripto alım-satım	yuksek	ad
+CC Drizzle	CC Drizzle	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CC Rainfall	CC Rainfall	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CC Sphere	CC Sphere	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+COG Video	COG Video	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cache Tax	Cache Tax	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cache Timer	Cache Timer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cache Timer mod	Cache Timer mod	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cadence	Cadence	Elektronik tasarım otomasyonu (EDA)	yok	evet	çip tasarım yazılımı	orta	ad
+Cal AI	Cal AI	cal.com açık kaynak randevu planlama	var	evet	randevu planlama	orta	ad
+Canva AI	Canva AI	Canva yapay zeka özellikleri	var	evet	AI destekli tasarım	yuksek	ad
+Canva AI Video	Canva AI Video	Canva ile metinden video tasarımı	var	evet	video tasarımı	yuksek	ad
+Canva Pro	Canva Pro	Canva ücretli plan	deneme	evet	gelişmiş tasarım ve marka kiti	yuksek	ad
+Caption Engine	Caption Engine	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Caption Generator	Caption Generator	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cartesia	Cartesia	Düşük gecikmeli AI ses sentezi	deneme	evet	gerçek zamanlı ses sentezi	orta	ad
+CatalogPass	CatalogPass	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Chainlink	Chainlink	Blokzincir oracle ağı	var	evet	blokzincir veri beslemesi	yuksek	ad
+Character.AI	Character.AI	AI karakter sohbeti	var	evet	karakter sohbeti	yuksek	ad
+Chat Completions API	Chat Completions API	OpenAI sohbet tamamlama API'si	deneme	evet	LLM API çağrısı	yuksek	ad
+ChatGPT API	ChatGPT API	OpenAI ChatGPT API'si	deneme	evet	LLM API çağrısı	yuksek	ad
+ChatGPT Plus	ChatGPT Plus	Ücretli ChatGPT aboneliği	yok	evet	gelişmiş ChatGPT erişimi	yuksek	ad
+ChatGPT sites	ChatGPT sites	ChatGPT web arayüzü	var	evet	ChatGPT sohbet	orta	ad
+ChatGPTPro	ChatGPTPro	ChatGPT üst düzey plan	yok	evet	gelişmiş ChatGPT erişimi	orta	ad
+ChatGoogleGenerativeAI	ChatGoogleGenerativeAI	LangChain Gemini entegrasyonu	var	evet	Gemini LangChain entegrasyonu	yuksek	ad
+ChatGroq	ChatGroq	Groq hızlı LLM çıkarımı	var	evet	hızlı LLM çıkarımı	yuksek	ad
+CircleCI	CircleCI	CI/CD platformu	var	evet	CI/CD test ve derleme	yuksek	ad
+Claude Console	Claude Console	Anthropic API konsolu	deneme	evet	API anahtarı ve kullanım takibi	orta	ad
+Claude Enterprise	Claude Enterprise	Kurumsal Claude planı	yok	evet	kurumsal Claude erişimi	orta	ad
+Claude Hub	Claude Hub	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude Managed Agents	Claude Managed Agents	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude Managed Agents API	Claude Managed Agents API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude Platform	Claude Platform	Anthropic geliştirici platformu	deneme	evet	Claude API geliştirme	orta	ad
+Claude Platform on AWS	Claude Platform on AWS	AWS Marketplace'ten Claude erişimi	yok	evet	AWS'de Claude kullanımı	orta	ad
+Claude Team	Claude Team Plan	Ekip için Claude aboneliği	yok	evet	ekip Claude erişimi	yuksek	ad
+Claude for Excel	Claude for Excel	Excel içinde Claude eklentisi	bilinmiyor	evet	Excel analizi	orta	ad
+Claude for Word	Claude for Word	Word içinde Claude eklentisi	bilinmiyor	evet	Word metin düzenleme	orta	ad
+Claude in Microsoft Foundry	Claude in Microsoft Foundry	Microsoft Foundry üzerinde Claude	yok	evet	Azure'da Claude kullanımı	orta	ad
+Claude in PowerPoint	Claude in PowerPoint	PowerPoint içinde Claude eklentisi	bilinmiyor	evet	sunum hazırlama	orta	ad
+Clay	Clay	Lead veri zenginleştirme ve otomasyon	var	evet	lead zenginleştirme	yuksek	ad
+Clearbit	Clearbit	Şirket verisi zenginleştirme	bilinmiyor	evet	şirket veri zenginleştirme	orta	ad
+ClickUp AI	ClickUp AI	ClickUp içinde AI özellikleri	var	evet	görevlerde AI	orta	ad
+Clickup	ClickUp	Proje ve görev yönetimi	var	evet	görev takibi	yuksek	ad
+Cling	Cling AI	Kling AI video üretimi	var	evet	metinden video üretimi	orta	ad
+Clink Motion Control	Clink Motion Control	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Clone AI	Clone AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloneAl: AI	CloneAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Close	Close	Satış CRM ve arama	deneme	evet	satış CRM	yuksek	ad
+Cloud AI	Cloud AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Build	Google Cloud Build	GCP konteyner derleme CI	var	evet	CI derleme	yuksek	ad
+Cloud Chat	Cloud Chat	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Desktop	Cloud Desktop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Functions	Google Cloud Functions	GCP sunucusuz fonksiyon	var	evet	sunucusuz fonksiyon	yuksek	ad
+Cloud Map	AWS Cloud Map	AWS servis keşif hizmeti	yok	evet	servis keşfi	orta	ad
+Cloud Memorystore	Google Cloud Memorystore	Yönetimli Redis ve Memcached	deneme	evet	bellek içi önbellek	yuksek	ad
+Cloud Motion	Cloud Motion	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Profiler	Google Cloud Profiler	Sürekli kod performans profili	var	evet	performans profilleme	yuksek	ad
+Cloud Run	Google Cloud Run	GCP konteyner sunucusuz çalıştırma	var	evet	konteyner dağıtımı	yuksek	ad
+Cloud Stream	Cloud Stream	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Video	Cloud Video	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud kod	Cloud kod	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudControl API	CloudControl API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudCowork	CloudCowork	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudFormation	CloudFormation	AWS altyapı kodu (IaC)	var	evet	AWS altyapı şablonu	yuksek	ad
+CloudFront	CloudFront	AWS CDN içerik dağıtımı	var	evet	içerik dağıtım ağı	yuksek	ad
+CloudMem	CloudMem	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudOS	CloudOS	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudTorque	CloudTorque	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudTrail	CloudTrail	AWS API çağrı denetim kaydı	var	evet	AWS denetim kaydı	yuksek	ad
+CloudWatch Logs	CloudWatch Logs	AWS log toplama ve arama	var	evet	log toplama	yuksek	ad
+CloudWatch Metrics	CloudWatch Metrics	AWS metrik izleme ve alarm	var	evet	metrik izleme	yuksek	ad
+CloudX Loop	CloudX Loop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudco	Cloudco	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudee	Cloudee	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudflare AI	Cloudflare AI	Cloudflare Workers AI ve AI gateway	var	evet	edge AI model çalıştırma	orta	ad
+Cloudflare AI workspace	Cloudflare AI workspace	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudflare D1	Cloudflare D1	Edge SQLite veritabanı	var	evet	edge SQL veritabanı	yuksek	ad
+Cloudflare Developer Platform	Cloudflare Developer Platform	Workers, D1, R2 bütünü	var	evet	edge uygulama altyapısı	yuksek	ad
+Cloudflare Hyperdrive	Cloudflare Hyperdrive	Postgres bağlantı hızlandırıcı	var	evet	veritabanı bağlantı önbellekleme	orta	ad
+Cloudflare KV	Cloudflare KV	Edge anahtar-değer deposu	var	evet	anahtar-değer depolama	yuksek	ad
+Cloudflare R2	Cloudflare R2	Çıkış ücretsiz S3 uyumlu depolama	var	evet	dosya depolama	yuksek	ad
+Cloudflare Turnstile	Cloudflare Turnstile	Gizlilik odaklı bot doğrulama	var	evet	form bot koruması	yuksek	ad
+Cloudflare Workers	Cloudflare Workers	Edge sunucusuz çalıştırma	var	evet	edge fonksiyon	yuksek	ad
+Cloudoffice	Cloudoffice	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Clubhouse	Clubhouse	Sesli sohbet odası uygulaması	var	evet	sesli sohbet	orta	ad
+Cluely	Cluely	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CoCounsel	CoCounsel	Thomson Reuters hukuk AI asistanı	yok	evet	hukuki araştırma AI	yuksek	ad
+CockroachDB	CockroachDB	Dağıtık SQL veritabanı	var	evet	dağıtık SQL	yuksek	ad
+CodeSandbox	CodeSandbox	Tarayıcıda kod çalıştırma	var	evet	online kod prototipi	yuksek	ad
+Codecov	Codecov	Test kapsam raporlama	var	evet	test kapsamı raporu	yuksek	ad
+Codedex	Codedex	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Coder	Coder	Kendi sunucuda uzak geliştirme ortamı	var	evet	uzak geliştirme ortamı	orta	ad
+Codespaces	Codespaces	GitHub bulut geliştirme ortamı	var	evet	bulut IDE	yuksek	ad
+Cognition	Cognition	Devin AI yazılım ajanı	deneme	evet	AI yazılım ajanı	orta	ad
+Cognito	Cognito	AWS kullanıcı kimlik doğrulama	var	evet	kullanıcı girişi	yuksek	ad
+Cohere	Cohere	LLM ve embedding API	deneme	evet	LLM ve embedding	yuksek	ad
+CoinGecko	CoinGecko	Kripto piyasa verisi	var	evet	kripto fiyat verisi	yuksek	ad
+CoinGecko API	CoinGecko API	Kripto piyasa verisi API'si	var	evet	kripto veri API	yuksek	ad
+CoinGecko WebSocket	CoinGecko WebSocket	Canlı kripto fiyat akışı	yok	evet	canlı fiyat akışı	orta	ad
+Color Grade AI	Color Grade AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Comet Browser	Comet Browser	Perplexity AI tarayıcısı	var	evet	AI destekli tarama	orta	ad
+Cometly	Cometly	Reklam dönüşüm attribution analizi	deneme	evet	reklam dönüşüm takibi	orta	ad
+Comfy Cloud	Comfy Cloud	ComfyUI bulut sürümü	deneme	evet	bulutta görsel iş akışı	orta	ad
+Comp AI	Comp AI	Güvenlik uyumluluk otomasyonu	bilinmiyor	evet	uyumluluk takibi	orta	ad
+Company News Scraper	Company News Scraper	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Compensation Motion	Compensation Motion	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Competitive Ads	Competitive Ads	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Competitive Ads Extractor	Competitive Ads Extractor	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Competitor Ads Extractor	Competitor Ads Extractor	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Competitor Analysis	Competitor Analysis	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Competitor Watch	Competitor Watch	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Compiler Explorer	Compiler Explorer	Tarayıcıda derleyici çıktısı	var	hayir	derleyici çıktısı inceleme	yuksek	ad
+Confluence	Confluence	Ekip wiki ve dokümantasyon	var	evet	ekip dokümantasyonu	yuksek	ad
+Congress Trading Monitor	Congress Trading Monitor	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Connected Papers	Connected Papers	Makale ilişki haritası	var	bilinmiyor	akademik makale keşfi	orta	ad
+Consensus	Consensus	AI akademik makale arama	var	evet	bilimsel makale arama	orta	ad
+Consilio	Consilio	Hukuk e-keşif hizmeti	yok	evet	hukuk e-keşif	orta	ad
+Contentful	Contentful	Headless CMS	var	evet	içerik yönetimi API	yuksek	ad
+ConvertKit	ConvertKit	E-posta bülteni platformu (Kit)	var	evet	e-posta bülteni	yuksek	ad
+Copyleaks	Copyleaks	İntihal ve AI metin tespiti	deneme	evet	intihal ve AI tespit	yuksek	ad
+Corellium	Corellium	Mobil cihaz sanallaştırma güvenlik testi	yok	evet	mobil güvenlik testi	orta	ad
+Cost Explorer	Cost Explorer	AWS maliyet görüntüleme	var	evet	AWS maliyet analizi	yuksek	ad
+Cost Guardian	Cost Guardian	GCP harcama koruma aracı	var	evet	bulut bütçe uyarısı	orta	ad
+Cost and Usage Reports	Cost and Usage Reports	AWS ayrıntılı fatura raporu	var	evet	ayrıntılı fatura verisi	orta	ad
+Council	Council	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Countrylayer	Countrylayer	Ülke bilgisi API'si	var	evet	ülke verisi sorgulama	yuksek	ad
+CourtListener	CourtListener	ABD mahkeme kararı arama	var	hayir	hukuki karar arama	orta	ad
+Courtroom5	Courtroom5	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cowork	Cowork	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Crashlytics	Crashlytics	Firebase çökme raporlama	var	evet	mobil çökme takibi	yuksek	ad
+Creatd	Creatd	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Creative Cloud	Creative Cloud	Adobe tasarım yazılımı paketi	deneme	evet	Adobe tasarım araçları	yuksek	ad
+Creator Pro Website	Creator Pro Website	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cult Pro	Cult Pro	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Currency Exchange API	Currency Exchange API	Döviz kuru API'si	var	evet	döviz kuru verisi	yuksek	ad
+Cvidho	Cvidho	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+D-ID	D-ID	AI avatar video üretimi	deneme	evet	konuşan avatar videosu	yuksek	ad
+DALL-E 2	DALL-E 2	OpenAI eski görsel üretim modeli	deneme	evet	metinden görsel (eski)	orta	ad
+DALL-E 3	DALL-E 3	OpenAI metinden görsel üretim	deneme	evet	metinden görsel üretme	yuksek	ad
+DALL·E	DALL·E	OpenAI görsel üretim serisi	deneme	evet	metinden görsel üretme	orta	ad
+DNSCrypt	DNSCrypt	Şifreli DNS sorgu protokolü	var	hayir	şifreli DNS	yuksek	ad
+Daily	Daily	Gerçek zamanlı video API	var	evet	video görüşme API	yuksek	ad
+Daily Brief	Daily Brief	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Dashverse	Dashverse	AI kısa video üretimi	var	evet	AI video üretimi	orta	ad
+DataForSEO	DataForSEO	SEO veri API'si	deneme	evet	SEO veri API	yuksek	ad
+Databricks	Databricks	Veri ve ML platformu	deneme	evet	büyük veri ve ML	yuksek	ad
+Datadog	Datadog	Bulut izleme ve log	var	evet	uygulama izleme	yuksek	ad
+Datasite	Datasite	M&A sanal veri odası	yok	evet	M&A veri odası	orta	ad
+Deep Dream Generator	Deep Dream Generator	AI görsel stilizasyon	var	evet	görsel stil dönüşümü	orta	ad
+DeepAI	DeepAI	AI görsel ve metin API'si	var	evet	AI API üretimi	orta	ad
+DeepBrain AI	DeepBrain AI	AI avatar sunucu videosu	deneme	evet	AI sunucu videosu	yuksek	ad
+DeepInfra	DeepInfra	Açık model çıkarım API'si	deneme	evet	açık model API	yuksek	ad
+DeepL	DeepL	Makine çevirisi	var	evet	metin çevirisi	yuksek	ad
+DeepL Translator	DeepL Translator	DeepL çeviri arayüzü	var	evet	metin çevirisi	yuksek	ad
+DeepSite V2	DeepSite V2	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DeepWiki	DeepWiki	GitHub deposu için AI dokümantasyon ve soru-cevap	var	hayir	repo dokümantasyonu	orta	ad
+Deevid AI	Deevid AI	AI video üretimi	var	evet	AI video üretimi	orta	ad
+DesignPilot	DesignPilot	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DeskApp	DeskApp	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Deskflow	Deskflow	Açık kaynak klavye/fare paylaşımı	var	hayir	çoklu bilgisayar kontrolü	orta	ad
+Deutsche Bahn	Deutsche Bahn	Alman demiryolu bilet ve güzergâh	var	hayir	tren bileti ve rota	yuksek	ad
+Developer Portal	Developer Portal	Microsoft geliştirici portalı	var	evet	Microsoft geliştirici kaynakları	orta	ad
+Dhan	Dhan	Hint aracı kurumu	bilinmiyor	evet	Hint borsası işlemleri	orta	ad
+DhanHQ	DhanHQ	Dhan borsa API'si	bilinmiyor	evet	Hint borsası API	orta	ad
+Directus	Directus	Açık kaynak headless CMS	var	evet	headless CMS	yuksek	ad
+DistroKid	DistroKid	Müzik dağıtım hizmeti	yok	evet	müzik dağıtımı	yuksek	ad
+DocVortex	DocVortex	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DockerHub	DockerHub	Konteyner imaj deposu	var	evet	konteyner imaj deposu	yuksek	ad
+Docling	Docling	Belge ayrıştırma açık kaynak	var	hayir	PDF yapılandırılmış metne	yuksek	ad
+DocuSeal	DocuSeal	Açık kaynak e-imza	var	evet	e-imza toplama	yuksek	ad
+DocuSign	DocuSign	E-imza platformu	deneme	evet	e-imza	yuksek	ad
+DocumentDB	DocumentDB	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Dodo Payments	Dodo Payments	Dijital ürün ödeme altyapısı	bilinmiyor	evet	dijital ürün satışı	orta	ad
+Domo AI	Domo AI	İş zekası ve AI platformu	deneme	evet	iş zekası dashboard	orta	ad
+Doola	Doola	ABD şirket kuruluş ve vergi hizmeti	yok	evet	ABD şirket kuruluşu	orta	ad
+Dots	Dots	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Draft outreach	Draft outreach	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Drive	Drive	Google Drive bulut depolama	var	evet	dosya depolama	yuksek	ad
+Dropbox	Dropbox	Bulut dosya senkronizasyonu	var	evet	dosya paylaşımı	yuksek	ad
+DuckDuckGo	DuckDuckGo	Gizlilik odaklı arama	var	hayir	gizli web araması	yuksek	ad
+Dune	Dune	Blokzincir veri sorgu platformu	var	evet	blokzincir veri analizi	yuksek	ad
+Durable Objects	Durable Objects	Cloudflare durum tutan edge nesneleri	var	evet	edge durum yönetimi	orta	ad
+DynamoDB	DynamoDB	AWS NoSQL veritabanı	var	evet	NoSQL veritabanı	yuksek	ad
+EAS Build	EAS Build	Expo bulut derleme	var	evet	mobil uygulama derleme	yuksek	ad
+EC2	EC2	AWS sanal sunucu	var	evet	sanal sunucu barındırma	yuksek	ad
+ECR	ECR	AWS konteyner imaj deposu	var	evet	konteyner imaj deposu	yuksek	ad
+ECS	ECS	AWS konteyner orkestrasyonu	var	evet	konteyner çalıştırma	yuksek	ad
+EKS	EKS	AWS yönetimli Kubernetes	yok	evet	Kubernetes kümesi	yuksek	ad
+ELBV2	ELBV2	AWS yük dengeleyici	var	evet	yük dengeleme	orta	ad
+ELK Stack	ELK Stack	Log arama ve görselleştirme yığını	var	hayir	log analizi	orta	ad
+EMR	EMR	AWS büyük veri (Spark/Hadoop)	yok	evet	büyük veri işleme	yuksek	ad
+EOS Build	EOS Build	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ERP	ERP	Kurumsal kaynak planlama yazılımı (genel kategori)	bilinmiyor	bilinmiyor	kurumsal yönetim yazılımı	orta	ad
+Edge TTS	Edge TTS	Microsoft Edge metinden sese servisi	var	hayir	metinden sese dönüşüm	orta	ad
+Einstein GPT	Einstein GPT	Salesforce AI katmanı	yok	evet	Salesforce AI özellikleri	orta	ad
+ElastiCache	ElastiCache	AWS yönetimli Redis/Memcached	deneme	evet	bellek önbellek	yuksek	ad
+Elastic Beanstalk	Elastic Beanstalk	AWS uygulama dağıtım hizmeti	var	evet	uygulama dağıtımı	orta	ad
+Elasticsearch	Elasticsearch	Arama ve analiz motoru	var	evet	tam metin arama	yuksek	ad
+Eleven Labs Conversational AI	Eleven Labs Conversational AI	ElevenLabs sesli AI ajanı	deneme	evet	sesli AI asistan	orta	ad
+ElevenLabs Scribe	ElevenLabs Scribe	ElevenLabs konuşmadan metne modeli	var	evet	ses transkripsiyonu	yuksek	ad
+Elicit	Elicit	AI akademik araştırma asistanı	var	evet	makale tarama ve özet	yuksek	ad
+Elicit AI	Elicit AI	AI akademik araştırma asistanı	var	evet	makale tarama ve özet	yuksek	ad
+Email Marketing	Email Marketing	E-posta pazarlama	var	evet	e-posta kampanyası	yuksek	ad
+Email Validation API	Email Validation API	E-posta geçerlilik doğrulama	var	evet	e-posta doğrulama	orta	ad
+EngagementLoop	EngagementLoop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Enhance-A-Video	Enhance-A-Video	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Enterprise search	Enterprise search	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Entra ID	Entra ID	Microsoft kurumsal kimlik	var	evet	kurumsal giriş	yuksek	ad
+Epidemic Sound	Epidemic Sound	Telifsiz müzik ve ses efekti	deneme	evet	telifsiz müzik	yuksek	ad
+Etherscan	Etherscan	Ethereum blok gezgini	var	hayir	Ethereum işlem sorgusu	yuksek	ad
+EventBridge	EventBridge	AWS olay yönlendirme	var	evet	olay tabanlı tetikleme	yuksek	ad
+Everlaw	Everlaw	Hukuk e-keşif platformu	yok	evet	hukuki e-keşif	orta	ad
+EveryFeed	EveryFeed	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Evo CRM	Evo CRM	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Evo CRM Community	Evo CRM Community	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Exa	Exa	Anlamsal web arama API'si	var	evet	anlamsal web arama	yuksek	ad
+ExaConnect	ExaConnect	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ExchangeRate	ExchangeRate	Döviz kuru API'si	var	evet	döviz kuru verisi	yuksek	ad
+Experiment Database	Experiment Database	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Expo	Expo	React Native geliştirme platformu	var	evet	mobil uygulama geliştirme	yuksek	ad
+FATE	FATE	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Facebook Research	Facebook Research	Meta araştırma yayınları	var	hayir	Meta araştırma kaynakları	orta	ad
+Fall AI	Fall AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FanBasis	FanBasis	Creator abonelik ve satış	bilinmiyor	evet	creator satış platformu	orta	ad
+Fast Note Sync	Fast Note Sync	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FastAPI Cloud	FastAPI Cloud	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fastly Compute	Fastly Compute	Edge hesaplama platformu	deneme	evet	edge fonksiyon	orta	ad
+Fastmail	Fastmail	E-posta barındırma	deneme	evet	e-posta hizmeti	yuksek	ad
+File.ai	File.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fin AI	Fin AI	Intercom müşteri destek AI	yok	evet	müşteri destek botu	orta	ad
+Financial Modeling Prep	Financial Modeling Prep	Finans verisi API'si	var	evet	hisse finans verisi	yuksek	ad
+FindPeopleOnlinebyPhoto	FindPeopleOnlinebyPhoto	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Finnhub	Finnhub (FinTech API hizmeti)	Piyasa verisi API'si	var	evet	piyasa verisi	yuksek	ad
+Firebase Authentication	Firebase Authentication (Google Firebase)	Google kimlik doğrulama	var	evet	kullanıcı girişi	yuksek	ad
+Fireflies	Fireflies (Notetaking AI SaaS)	Toplantı kaydı ve AI özet	var	evet	toplantı notu	yuksek	ad
+Firehose	Firehose (AWS CloudTrail verileri toplayıcı)	AWS veri akışı teslim hizmeti	yok	evet	akış verisi aktarımı	orta	ad
+Firestore	Firestore (Firebase NoSQL DB)	Firebase NoSQL veritabanı	var	evet	NoSQL veritabanı	yuksek	ad
+Flathub	Flathub (Flatpak paket deposu)	Linux Flatpak uygulama deposu	var	hayir	Linux uygulama kurulumu	yuksek	ad
+Fliki	Fliki (AI video oluşturucu)	Metinden AI video	var	evet	metin-video dönüştürme	yuksek	ad
+Football-Data	Football-Data	Futbol maç verisi API'si	var	evet	futbol veri API	yuksek	ad
+Formbricks	Formbricks	Açık kaynak anket ve form	var	evet	anket oluşturma	yuksek	ad
+Formia	Formia	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Formotion	Formotion	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Forter	Forter	E-ticaret sahtecilik önleme	yok	evet	sahtecilik tespiti	orta	ad
+Fortnox	Fortnox	İsveç muhasebe yazılımı	deneme	evet	muhasebe ve fatura	orta	ad
+Frame.io	Frame.io	Video inceleme ve geri bildirim	deneme	evet	video onay	yuksek	ad
+Frameo	Frameo	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Framer AI	Framer AI	AI web sitesi tasarım aracı	var	evet	AI web sitesi tasarımı	orta	ad
+Free Ai Second Brain	Free Ai Second Brain	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Free Models Router	Free Models Router	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Free Voice Changer	Free Voice Changer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FreeAiShortVideoGenerator	FreeAiShortVideoGenerator	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FreeVideo-All-in-One	FreeVideo-All-in-One	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FreeVoiceCloner	FreeVoiceCloner	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Freezone	Freezone	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fulcrum Motion Cleaning	Fulcrum Motion Cleaning	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fusion	Fusion	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fyers	Fyers	Hint borsası aracı kurumu ve API	bilinmiyor	evet	Hint borsası API	orta	ad
+GA	GA	Google Analytics web analitiği	var	evet	site trafik analizi	yuksek	ad
+GA (Google Analytics)	Google Analytics	Google Analytics web analitiği	var	evet	site trafik analizi	yuksek	ad
+GA4	GA4	Google Analytics 4 analitik	var	evet	site ve uygulama analizi	yuksek	ad
+GCP	GCP	Google Cloud Platform	var	evet	bulut altyapı	yuksek	ad
+GCP Vertex AI	GCP Vertex AI	GCP yönetimli ML ve Gemini platformu	deneme	evet	ML model barındırma	yuksek	ad
+GHL	GHL	GoHighLevel CRM ve pazarlama	deneme	evet	CRM ve otomasyon	yuksek	ad
+GHL (GoHighLevel)	GoHighLevel	GoHighLevel CRM ve pazarlama	deneme	evet	CRM ve otomasyon	yuksek	ad
+GKE	GKE	Google yönetimli Kubernetes	deneme	evet	Kubernetes kümesi	yuksek	ad
+GPTZero	GPTZero	AI yazı tespit aracı	var	evet	AI metin tespiti	yuksek	ad
+Galaxy AI	Galaxy AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Galileo AI	Galileo AI	AI arayüz tasarım taslağı	bilinmiyor	evet	AI arayüz tasarımı	orta	ad
+Gemani	Gemani	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen Effect node	Gen Effect node	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen Shape	Gen Shape	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen Space	Gen Space	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen-1	Gen-1	Runway video dönüşüm modeli	deneme	evet	video dönüşümü	orta	ad
+Gen-2.5	Gen-2.5	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Genex	Genex	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Genspark	Genspark	AI ajan araştırma ve üretim	var	evet	AI ajan araştırması	orta	ad
+GeoLens	GeoLens	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GeoLens catalog browser	GeoLens catalog browser	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Ghidra Server	Ghidra Server	Ghidra paylaşımlı sunucu (tersine mühendislik)	var	hayir	ekip tersine mühendislik	orta	ad
+GitHub API	GitHub API	GitHub REST API	var	evet	depo otomasyonu	yuksek	ad
+GitHub Actions	GitHub Actions	GitHub CI/CD iş akışları	var	evet	CI/CD	yuksek	ad
+GitHub Codespaces	GitHub Codespaces	GitHub bulut IDE	var	evet	bulut IDE	yuksek	ad
+GitHub Container Registry	GitHub Container Registry	GitHub konteyner imaj deposu	var	evet	konteyner imaj deposu	yuksek	ad
+GitHub Discussions	GitHub Discussions	Depo tartışma alanı	var	evet	topluluk tartışması	yuksek	ad
+GitHub Education Benefits Application	GitHub Education Benefits Application	Öğrenci avantaj başvurusu	var	evet	öğrenci başvurusu	yuksek	ad
+GitHub Gmail	GitHub Gmail	GitHub e-posta bildirim entegrasyonu	var	evet	bildirim e-postası	orta	ad
+GitHub Student Developer Pack	GitHub Student Developer Pack	Öğrenci geliştirici paketi	var	evet	öğrenci araç avantajı	yuksek	ad
+Gitpod	Gitpod	Bulut geliştirme ortamı (Ona)	var	evet	bulut IDE	orta	ad
+GlitchTip	GlitchTip	Açık kaynak hata izleme	var	evet	hata izleme	orta	ad
+Gmail Campaign Sender	Gmail Campaign Sender	Mailchimp kampanya gönderimi	var	evet	toplu e-posta	orta	ad
+GoHighLevel	GoHighLevel	GoHighLevel CRM ve pazarlama	deneme	evet	CRM ve otomasyon	yuksek	ad
+GoHighLevel (GHL)	GoHighLevel (GHL)	GoHighLevel CRM ve pazarlama	deneme	evet	CRM ve otomasyon	yuksek	ad
+GojiberryAI	GojiberryAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GooeAiStudo	GooeAiStudo	AI görsel ve metin üretim stüdyosu	bilinmiyor	evet	AI içerik üretimi	orta	ad
+Google APIs	Google APIs	Google API keşif ve erişim	var	evet	Google API erişimi	yuksek	ad
+Google Ad	Google Ad	Google arama reklamları	yok	evet	arama reklamı	yuksek	ad
+Google AdSense	Google AdSense	Site reklam geliri	var	evet	site reklam geliri	yuksek	ad
+Google Alerts	Google Alerts	Konu takip e-posta uyarıları	var	evet	konu takibi	yuksek	ad
+Google Analytics	Google Analytics	Google Analytics web analitiği	var	evet	site trafik analizi	yuksek	ad
+Google Business Profile	Google Business Profile	Google haritada işletme profili	var	evet	yerel işletme profili	yuksek	ad
+Google Chat	Google Chat	Google ekip sohbeti	var	evet	ekip mesajlaşma	yuksek	ad
+Google Cloud Run	Google Cloud Run	GCP konteyner sunucusuz çalıştırma	var	evet	konteyner dağıtımı	yuksek	ad
+Google Discovery Service	Google Discovery Service	Google API keşif dokümanları	var	hayir	API keşif dokümanı	yuksek	ad
+Google Flow	Google Flow	AI film yapım aracı	deneme	evet	AI video sahne üretimi	orta	ad
+Google Forms	Google Forms	Form ve anket	var	evet	form ve anket	yuksek	ad
+Google Harita	Google Harita	Harita ve yol tarifi	var	hayir	harita ve rota	yuksek	ad
+Google Haritalar	Google Haritalar	Harita ve yol tarifi	var	hayir	harita ve rota	yuksek	ad
+Google Interactions API	Google Interactions API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Keyword Planner	Google Keyword Planner	Anahtar kelime hacmi aracı	var	evet	anahtar kelime hacmi	yuksek	ad
+Google Meet	Google Meet	Video toplantı	var	evet	video toplantı	yuksek	ad
+Google NotebookLM	Google NotebookLM	Kaynak tabanlı AI not ve özet	var	evet	belge özeti ve soru-cevap	yuksek	ad
+Google One	Google One	Google depolama aboneliği	var	evet	bulut depolama	yuksek	ad
+Google Photos	Google Photos	Fotoğraf depolama ve yedekleme	var	evet	fotoğraf yedekleme	yuksek	ad
+Google Reviews	Google Reviews	İşletme yorumları	var	hayir	yorum izleme	orta	ad
+Google Search	Google Search	Web arama	var	hayir	web araması	yuksek	ad
+Google Search Console	Google Search Console	Google site arama performansı	var	evet	SEO arama konsolu	yuksek	ad
+Google Slides	Google Slides	Çevrimiçi sunum	var	evet	sunum hazırlama	yuksek	ad
+Google Storage	Google Storage	GCP nesne depolama	var	evet	bulut dosya depolama	yuksek	ad
+Google Takvim	Google Takvim	Takvim	var	evet	takvim ve planlama	yuksek	ad
+Google Translate	Google Translate	Çeviri	var	hayir	metin çevirisi	yuksek	ad
+Google Workspace	Google Workspace	Google ofis ve ekip paketi	deneme	evet	ekip ofis paketi	yuksek	ad
+Google yorumları	Google Yorumları	İşletme yorumları	var	hayir	yorum izleme	orta	ad
+Google İnsanlar Bunları da Soruyor	Google İnsanlar Bunları da Soruyor	Arama sonuçlarındaki ilgili sorular	var	hayir	soru araştırması	orta	ad
+Gorgias Cortex	Gorgias Cortex	E-ticaret destek AI'ı	yok	evet	e-ticaret destek otomasyonu	orta	ad
+Grabient	Grabient	Gradyan renk üretimi	var	hayir	gradyan tasarım	orta	ad
+GradientLab	GradientLab	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Grammarly	Grammarly	Yazım ve dil denetimi	var	evet	yazım düzeltme	yuksek	ad
+Graph API	Graph API	Meta Graph API	var	evet	Meta platform API	yuksek	ad
+Growth Operations Dashboard	Growth Operations Dashboard	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Guru	Guru	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+HKUDS/Vibe-Trading	HKUDS/Vibe-Trading	Açık kaynak finans AI ajanı	var	evet	AI finans analizi	orta	ad
+HOSTLY	Hostly	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+HailuoAI	HailuoAI	MiniMax AI video ve sohbet	var	evet	AI video üretimi	orta	ad
+Harness Engineering	Harness Engineering	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Headspace	Headspace	Meditasyon uygulaması	deneme	evet	meditasyon	yuksek	ad
+Headway	Headway	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+HedgeGuard	HedgeGuard	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hermes Dashboard	Hermes Dashboard	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hermes Newswire	Hermes Newswire	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hermes Oracle	Hermes Oracle	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+HermesAstros	HermesAstros	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Heroku	Heroku	PaaS uygulama barındırma	yok	evet	uygulama barındırma	yuksek	ad
+Higgsfield AI	Higgsfield AI	AI video ve görsel üretim	var	evet	AI video üretimi	orta	ad
+Higgsfield Virality Predictor	Higgsfield Virality Predictor	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Highmotion	Highmotion	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hootsuite	Hootsuite	Sosyal medya yönetimi	var	evet	sosyal medya planlama	yuksek	ad
+Hostinger Reach	Hostinger Reach	E-posta pazarlama	deneme	evet	e-posta kampanyası	orta	ad
+HotpotAI	HotpotAI	AI görsel üretimi	var	evet	AI görsel üretimi	orta	ad
+Huawei CodeArts Snap	Huawei CodeArts Snap	Huawei AI kod tamamlama	bilinmiyor	evet	AI kod tamamlama	orta	ad
+Hugging Face Jobs	Hugging Face Jobs	HF bulutta iş çalıştırma	yok	evet	bulut ML işi	orta	ad
+Hugging Science	Hugging Science	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+HugoAI	HugoAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Human Scope	Human Scope	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+HumanAtlas	HumanAtlas	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Humanloop	Humanloop	LLM prompt değerlendirme platformu	deneme	evet	LLM değerlendirme	orta	ad
+Humata AI	Humata AI	PDF soru-cevap AI	var	evet	PDF soru-cevap	yuksek	ad
+Hume	Hume	Duygu algılayan sesli AI	var	evet	sesli AI	orta	ad
+Hunter.io	Hunter.io	İş e-posta adresi bulma	var	evet	e-posta bulma	yuksek	ad
+HydraDB	HydraDB	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hyperbolic	Hyperbolic	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hyperliquid	Hyperliquid	Merkezi olmayan perp borsası	var	evet	kripto türev işlemi	orta	ad
+IBKR	IBKR	Interactive Brokers aracı kurumu	yok	evet	uluslararası aracı kurum	yuksek	ad
+IPstack	IPstack	IP konum API'si	var	evet	IP konum sorgusu	yuksek	ad
+Image 2.5	Image 2.5	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Imagen	Imagen	Google metinden görsel modeli	deneme	evet	metinden görsel üretme	orta	ad
+InVideo	InVideo	Metinden video oluşturma	var	evet	AI video editörü	yuksek	ad
+InVideo AI	InVideo AI	Metinden video oluşturma	var	evet	AI video editörü	yuksek	ad
+Inference Endpoints	Inference Endpoints	HF model barındırma endpoint'leri	yok	evet	model barındırma	yuksek	ad
+Inference.net	Inference.net	AI model çıkarım API'si	deneme	evet	model çıkarım API	orta	ad
+InfoQuest	InfoQuest	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+InfraNodus	InfraNodus	Metin ağı ve fikir haritası analizi	var	evet	metin grafiği analizi	orta	ad
+Instagram API	Instagram API	Meta Instagram Graph API	var	evet	Instagram otomasyonu	yuksek	ad
+Instagram API (Instagram login)	Instagram API (Instagram login)	Meta Instagram Graph API	var	evet	Instagram otomasyonu	yuksek	ad
+Instantly	Instantly	Soğuk e-posta gönderim platformu	deneme	evet	soğuk e-posta kampanyası	yuksek	ad
+Instantly AI	Instantly AI	Soğuk e-posta gönderim platformu	deneme	evet	soğuk e-posta kampanyası	yuksek	ad
+Intercom	Intercom	Müşteri mesajlaşma platformu	deneme	evet	müşteri destek sohbeti	yuksek	ad
+Intuit QuickBooks	Intuit QuickBooks	Muhasebe ve fatura yazılımı	deneme	evet	muhasebe ve fatura	yuksek	ad
+IoT Core	IoT Core	AWS IoT cihaz bağlantısı	var	evet	IoT cihaz bağlantısı	yuksek	ad
+Ironclad	Ironclad	Sözleşme yönetimi (CLM)	yok	evet	sözleşme yönetimi	yuksek	ad
+Jasper	Jasper	AI pazarlama metni üretimi	deneme	evet	pazarlama metni	yuksek	ad
+Jules	Jules	Google AI kodlama ajanı	deneme	evet	AI kodlama ajanı	orta	ad
+Julius AI	Julius AI	AI veri analizi ve grafik	var	evet	veri analizi	yuksek	ad
+KeywordFinder	KeywordFinder	Anahtar kelime araştırma	deneme	evet	anahtar kelime bulma	orta	ad
+Khanmigo	Khanmigo	Khan Academy AI eğitim asistanı	var	evet	AI eğitim asistanı	orta	ad
+Khroma	Khroma	AI renk paleti önerisi	bilinmiyor	bilinmiyor	renk önerisi	orta	ad
+Kie AI	Kie AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi	Kimi	Moonshot AI sohbet asistanı	var	evet	sohbet ve metin üretimi	orta	ad
+Kimi Agent Swarm	Kimi Agent Swarm	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi Code	Kimi Code	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi Coding Plan	Kimi Coding Plan	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi K1.5	Kimi K1.5	Moonshot Kimi büyük dil modeli	bilinmiyor	evet	LLM metin ve kod	orta	ad
+Kimi K3 Swarm Max	Kimi K3 Swarm Max	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kinesis	Kinesis	AWS gerçek zamanlı veri akışı	yok	evet	veri akışı	orta	ad
+Kite Connect	Kite Connect	Zerodha alım-satım API'si	yok	evet	Zerodha borsa API	yuksek	ad
+Klaviyo	Klaviyo	E-ticaret e-posta ve SMS otomasyonu	var	evet	e-ticaret pazarlama	yuksek	ad
+Kling	Kling	AI video üretimi	var	evet	metinden video	yuksek	ad
+Kling 3.0	Kling 3.0	Kling AI sürüm 3.0 video	var	evet	AI video üretimi	orta	ad
+Kling 4.0	Kling 4.0	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling AI	Kling AI	AI video üretimi	var	evet	metinden video	yuksek	ad
+Kling AI V3	Kling AI V3	Kling AI sürüm V3 video	var	evet	AI video üretimi	orta	ad
+Kling Motion Control	Kling Motion Control	Kling hareket kontrollü video	var	evet	hareket transferi	orta	ad
+Kling v3	Kling v3	Kling AI sürüm 3.0 video	var	evet	AI video üretimi	orta	ad
+KlingAl	Kling AI	AI video üretimi	var	evet	metinden video	yuksek	ad
+Kraken	Kraken	Kripto borsası	var	evet	kripto alım-satım	yuksek	ad
+11 Labs	ElevenLabs	AI görsel ve video üretim platformu (Krea)	var	evet	AI görsel üretimi	orta	ad
+1POST	1POST	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+3.5 Sonnet	Claude 3.5 Sonnet	AI video üretim aracı (Krea)	bilinmiyor	evet	AI video üretimi	dusuk	ad
+@motion_so	Motion	Müzik dağıtım ve mastering platformu	bilinmiyor	evet	Müzik dağıtımı ve mastering	orta	ad
+AAlliAI	Alli AI	Sunucusuz kod çalıştırma (AWS Lambda olabilir)	var	evet	Sunucusuz fonksiyon çalıştırma	orta	ad
+ACQ AI	ACQ AI	CloudFront kenarında sunucusuz kod çalıştırma	bilinmiyor	evet	Kenar sunucuda kod çalıştırma	orta	ad
+AI Creator Studio	AI Creator Studio	LLM uygulamaları için izleme ve değerlendirme	var	evet	LLM izleme ve değerlendirme	yuksek	ad
+AI OS for LinkedIn	AI OS for LinkedIn	Açık kaynak LLM gözlemlenebilirlik ve prompt yönetimi	var	evet	LLM izleme ve prompt yönetimi	yuksek	ad
+AI Studio	Google AI Studio	Laravel uygulamaları için bulut barındırma	bilinmiyor	evet	Laravel uygulama barındırma	orta	ad
+APILayer Unified Suite	APILayer Unified Suite	Açık kaynaklı LLM prompt yönetimi platformu	var	evet	Prompt yönetimi ve test	orta	ad
+APIMart	APIMart	Ücretsiz HTTPS sertifika otoritesi	var	hayir	HTTPS sertifikası kurulumu	yuksek	ad
+AWS Backup	AWS Backup	Web sayfası performans ve erişilebilirlik denetimi	var	hayir	Web sayfası performans denetimi	yuksek	ad
+AWS Batch	AWS Batch	AWS basit sanal sunucu hizmeti	deneme	evet	Basit VPS barındırma	orta	ad
+AWS CodeBuild	AWS CodeBuild	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AWS CodeCommit	AWS CodeCommit	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AWS Config	AWS Config	LinkedIn reklam yönetim platformu	yok	evet	LinkedIn reklam kampanyası	yuksek	ad
+AWS EC2	AWS EC2	LinkedIn ücretli abonelik özellikleri	deneme	evet	LinkedIn gelişmiş arama ve mesaj	yuksek	ad
+AWS Lambda	AWS Lambda	LinkedIn satış ekipleri için potansiyel müşteri arama	deneme	evet	B2B potansiyel müşteri arama	yuksek	ad
+AWS Pricing	AWS Pricing API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AWS S3	Amazon Simple Storage Service (S3)	Uygulama çeviri (i18n) yönetim platformu	bilinmiyor	evet	Uygulama çevirilerini yönetme	orta	ad
+Aairparser	Airparser	Açık kaynak gerçek zamanlı log izleme	var	hayir	Gerçek zamanlı log izleme	orta	ad
+Aairtop	Airtop	Açık kaynak kimlik doğrulama ve OIDC platformu	var	evet	Kullanıcı kimlik doğrulama	yuksek	ad
+Abacus AI Studio	Abacus.AI Studio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ActiveCampaign	ActiveCampaign	Metinden kısa video üretimi	deneme	evet	Metinden video üretimi	orta	ad
+Acuity	Acuity Scheduling	Google Lyria AI müzik üretim modeli	bilinmiyor	evet	AI müzik üretimi	dusuk	ad
+Ad Library	Meta Ad Library	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Ad Multiplier	Ad Multiplier	Şifreli bulut dosya depolama	var	evet	Bulut dosya depolama	yuksek	ad
+AdSense	Google AdSense	Açık kaynak ML deney takibi ve model kaydı	var	hayir	ML deney takibi	yuksek	ad
+Adapty	Adapty	Video ile hareket yakalama (motion capture)	var	evet	Hareket yakalama animasyonu	orta	ad
+Adobe Color	Adobe Color	E-posta adresi doğrulama API	var	evet	E-posta adresi doğrulama	orta	ad
+Adobe Express	Adobe Express	E-posta pazarlama ve otomasyon platformu (Mailchimp)	var	evet	E-posta kampanyası gönderme	orta	ad
+Adobe Firefly	Adobe Firefly	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Adobe Fonts	Adobe Fonts	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Adobe Podcast BETA	Adobe Podcast	Zararlı yazılım analizi (genel kategori)	bilinmiyor	bilinmiyor	Dosya zararlı yazılım analizi	dusuk	ad
+Adobe Podcast Enhance	Adobe Podcast Enhance	Ödeme altyapısını yönetilen hizmetle kullanma (genel)	bilinmiyor	evet	Ödeme altyapısı entegrasyonu	dusuk	ad
+Ads Studio	Ads Studio	Instagram ve Messenger sohbet botu otomasyonu	var	evet	Sosyal mesaj otomasyonu	yuksek	ad
+Afterpay	Afterpay	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Agent Builder	Agent Builder	Kurumsal pazarlama otomasyon platformu (Adobe)	yok	evet	Kurumsal pazarlama otomasyonu	orta	ad
+AgentCanvas	AgentCanvas	Matematik sorusu çözen yapay zeka	bilinmiyor	bilinmiyor	Matematik sorusu çözme	dusuk	ad
+AgentFloor	AgentFloor	Haber verisi API	var	evet	Haber verisi API erişimi	orta	ad
+AgentMail	AgentMail	Yerel toplantı notu ve transkript aracı	var	hayir	Yerel toplantı notu alma	dusuk	ad
+AgentTube	AgentTube	Tarayıcıda yapay zeka asistanı eklentisi	var	evet	Tarayıcıda AI asistan	orta	ad
+Agentic AI YouTube Studio	Agentic AI YouTube Studio	Meta yapay zeka asistanı, sohbet ve görsel üretimi	var	evet	Sohbet ve görsel üretimi	orta	ad
+Agentic Canvas	Agentic Canvas	Facebook ve Instagram reklam yöneticisi	yok	evet	Facebook ve Instagram reklamı	yuksek	ad
+Agentic Slides	Agentic Slides	Facebook ve Instagram sayfa yönetim paneli	var	evet	Sosyal sayfa ve gönderi yönetimi	yuksek	ad
+Agora	Agora	Facebook ve Instagram geliştirici API erişimi	var	evet	Meta Graph API erişimi	yuksek	ad
+Ahrefs	Ahrefs	Facebook ve Instagram geliştirici API erişimi	var	evet	Meta Graph API erişimi	yuksek	ad
+Ahrefs Lite	Ahrefs Lite	Ofis uygulamaları ve bulut depolama paketi	deneme	evet	Ofis uygulamaları ve depolama	yuksek	ad
+Aira	Aira	Bing arama reklam platformu	yok	evet	Bing arama reklamı	yuksek	ad
+Airparser	Airparser	AI görsel tasarım ve taslak aracı	var	evet	AI görsel tasarım	orta	ad
+Airtable	Airtable	Kurumsal kimlik ve erişim yönetimi	deneme	evet	Kurumsal kimlik yönetimi	yuksek	ad
+Airtop	Airtop	Azure üzerinde AI model geliştirme ve dağıtım	deneme	evet	Azure AI model dağıtımı	orta	ad
+Alexa	Alexa	Microsoft 365 verilerine API erişimi	var	evet	Microsoft 365 veri API	yuksek	ad
+Alibaba Cloud	Alibaba Cloud	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Alice Blue	Alice Blue	Toplu e-posta doğrulama	var	evet	Toplu e-posta doğrulama	orta	ad
+AllTrails	AllTrails	Kendi sunucuda S3 uyumlu nesne depolama	var	hayir	Kendi sunucuda nesne depolama	yuksek	ad
+Allbaba Cloud	Allbaba Cloud	LLM API ve sohbet platformu	var	evet	LLM API ile metin üretimi	yuksek	ad
+AlloyDB	AlloyDB	Ürün kullanım analitiği	var	evet	Ürün kullanım analitiği	yuksek	ad
+AlphAI	AlphAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Alpha Vantage	Alpha Vantage	Sunucusuz GPU ve Python çalıştırma	deneme	evet	Sunucusuz GPU çalıştırma	yuksek	ad
+AlphaGenome	AlphaGenome	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Altcha	Altcha	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Amazon Bedrock	Amazon Bedrock	Kişisel bütçe ve finans takibi	deneme	evet	Kişisel bütçe takibi	orta	ad
+Amazon Bedrock Knowledge Bases	Amazon Bedrock Knowledge Bases	Proje ve iş akışı yönetimi	var	evet	Proje ve iş akışı yönetimi	yuksek	ad
+Amazon MQ	Amazon MQ	Doküman tabanlı NoSQL veritabanı	var	evet	Doküman veritabanı	yuksek	ad
+Amazon S3	Amazon S3	Bulutta DuckDB ile analitik sorgulama	var	evet	Bulut analitik sorgulama	yuksek	ad
+Amazon SageMaker	Amazon SageMaker	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Amplitude	Amplitude	Kalori ve besin takip uygulaması	var	evet	Kalori ve besin takibi	yuksek	ad
+Analytics Tracker	Analytics Tracker	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Angel One	Angel One	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AppSync	AppSync	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Apple Developer	Apple Developer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Apple Developer Services	Apple Developer Services	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Apple Music	Apple Music	NASA açık veri API	var	evet	NASA açık veri erişimi	yuksek	ad
+Apple News	Apple News	Hafif mesajlaşma ve pub/sub sistemi	var	hayir	Mesaj kuyruğu ve pub/sub	yuksek	ad
+Appointment Booking	Appointment Booking	Hazır NLP model API servisi	deneme	evet	Hazır NLP API çağrısı	orta	ad
+Approval Queue	Approval Queue	NVIDIA model çıkarım uç noktası (doğrulanmadı)	yok	evet	Bulutta model çıkarımı	dusuk	ad
+Arize	Arize	NYSE borsa bilgisi ve haberleri	var	hayir	Borsa bilgisine bakma	orta	ad
+Artbreeder	Artbreeder	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Artlist AI	Artlist AI	Finansal ve ekonomik veri API	var	evet	Finansal veri API	orta	ad
+Asona	Asona	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AssemblyAI	AssemblyAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Astra	Astra	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AstraQuant	AstraQuant	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Atlassian	Atlassian	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Atlassian Rovo	Atlassian Rovo	Graf veritabanı ve sorgu dili	var	hayir	Graf veritabanı çalıştırma	yuksek	ad
+Attio	Attio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Audible	Audible	ML deney ve model takibi (neptune.ai)	var	evet	ML deney takibi	orta	ad
+Audience Profiler	Audience Profiler	Haber başlıkları API	var	evet	Haber başlıkları çekme	yuksek	ad
+Audiobooks	Audiobooks	Reklam ve zararlı alan adı engelleme DNS	var	evet	DNS filtreleme	yuksek	ad
+Augment	Augment	Kendi sunucuda dosya senkronizasyonu	var	hayir	Kendi sunucuda bulut depolama	yuksek	ad
+Augmer	Augmer	AI görsel üretim platformu	var	evet	AI görsel üretimi	orta	ad
+Auto Scaling	Auto Scaling	Kurumsal ödeme altyapısı	yok	evet	Kurumsal ödeme altyapısı	orta	ad
+Aviationstack	Aviationstack	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+AyaVision	AyaVision	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Azure	Azure	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Azure AI Search	Azure AI Search	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Azure DevOps	Azure DevOps	Forex işlem ve fiyat verisi API	deneme	evet	Forex işlem ve veri API	yuksek	ad
+BASECAMP	BASECAMP	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BCM Data Exports	BCM Data Exports	Kripto borsası ve işlem API	bilinmiyor	evet	Kripto borsa işlemi	orta	ad
+Backblaze B2	Backblaze B2	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Bardeen	Bardeen	Bulut log ve metrik analizi	deneme	evet	Log ve metrik analizi	orta	ad
+Baseten	Baseten	Obsidian notlarını web'de yayınlama	yok	evet	Not yayınlama (Obsidian)	yuksek	ad
+Bedrock	Bedrock	Obsidian notlarını cihazlar arası senkronlama	yok	evet	Not senkronizasyonu (Obsidian)	yuksek	ad
+Beehive	Beehive	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Benchling	Benchling	SSO ve kullanıcı kimlik yönetimi	var	evet	SSO ve kimlik yönetimi	yuksek	ad
+BiTTi	BiTTi	Bulutta LLM çalıştırma (Ollama)	bilinmiyor	evet	Bulutta LLM çalıştırma	orta	ad
+BigPockets	BigPockets	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BigQuery	BigQuery	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BillionMail	BillionMail	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Bing / Meta AI Video	Bing / Meta AI Video	Microsoft bulut dosya depolama	var	evet	Bulut dosya depolama	yuksek	ad
+Bing Image Creator	Bing Image Creator	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Bing Webmaster Tools	Bing Webmaster Tools	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Bing/Meta	Bing/Meta AI	Tarayıcı tabanlı bulut CAD modelleme	var	evet	Bulut tabanlı CAD modelleme	yuksek	ad
+Bitly	Bitly	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Blog	Blog	ChatGPT ve AI model erişimi	var	evet	Sohbet ve metin üretimi	yuksek	ad
+Bloomberg	Bloomberg	Yazı, kod ve görsel üretimi API	deneme	evet	Model API ile üretim	yuksek	ad
+Bluehost AI Agent Hosting	Bluehost AI Agent Hosting	ChatGPT web sohbet arayüzü	var	evet	Sohbet ve metin üretimi	yuksek	ad
+Bluesky	Bluesky	Sohbet tabanlı LLM API çağrısı	deneme	evet	LLM API çağrısı	yuksek	ad
+BoardWise	BoardWise	Düşük gecikmeli gerçek zamanlı sesli AI API	bilinmiyor	evet	Sesli AI sohbeti	orta	ad
+Bookatime	Bookatime	Yanıt ve araç çağrısı API	deneme	evet	Yanıt ve araç çağrısı	yuksek	ad
+Borsatek	Borsatek	AI görsel ve karakter üretimi	var	evet	AI görsel üretimi	orta	ad
+Brand Checker	Brand Checker	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brand24	Brand24	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BrandWell	BrandWell	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brandfolder	Brandfolder	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Brandvoice	Brandvoice	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BraveSearch	BraveSearch	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Breadcrumbs	Breadcrumbs	Bulut tabanlı AI kodlama ajanı	deneme	evet	AI kodlama ajanı	orta	ad
+Brevo	Brevo (ex Sendinblue)	Açık kaynak AI yazılım geliştirme ajanı	var	hayir	AI kodlama ajanı	yuksek	ad
+BrightData	BrightData	Web ve ürün analitiği	var	evet	Web ve ürün analitiği	orta	ad
+Broker API	Broker API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+BrowseAI	BrowseAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Browser API	Browser API	Tam metin arama ve log analizi motoru	var	hayir	Tam metin arama	yuksek	ad
+Browser Use Cloud	Browser Use Cloud	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Browserbase	Browserbase	Restoran rezervasyon platformu	var	evet	Restoran rezervasyonu	yuksek	ad
+Browserless	Browserless	VS Code uyumlu açık eklenti pazarı	var	hayir	VS Code eklentisi kurma	yuksek	ad
+Buddy	Buddy	Hava durumu verisi API	var	evet	Hava durumu verisi	yuksek	ad
+BuiltWith	BuiltWith	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Business Manager	Business Manager (Facebook)	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Business Suite	Business Suite (SAP)	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Bybit	Bybit	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CC Drizzle	CC Drizzle	Toplantı transkripsiyonu ve notları	var	evet	Toplantı transkripsiyonu	yuksek	ad
+CC Rainfall	CC Rainfall	Kaynakta UYDURMA olarak işaretli, hizmet doğrulanamadı	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CC Sphere	CC Sphere	Kurumsal satış e-posta otomasyonu	deneme	evet	Satış e-posta otomasyonu	orta	ad
+COG Video	COG Video	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cache Tax	Cache Tax	B2B pazarlama otomasyonu (Salesforce)	yok	evet	B2B pazarlama otomasyonu	orta	ad
+Cache Timer	Cache Timer	Uluslararası ödeme ve tahsilat	yok	evet	Freelancer ödeme alma	yuksek	ad
+Cache Timer mod	Cache Timer mod	Kişi ve şirket veri zenginleştirme API	deneme	evet	Kişi ve şirket veri zenginleştirme	orta	ad
+Cadence	Cadence	Açık kaynak AI arama motoru	var	hayir	AI destekli arama	orta	ad
+Cal AI	Cal AI	AI araştırma ve kaynaklı arama	var	evet	AI araştırma ve arama	yuksek	ad
+Canva AI	Canva AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Canva AI Video	Canva AI Video	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Canva Pro	Canva Pro	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Caption Engine	Caption Engine	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Caption Generator	Caption Generator	Ürün fotoğrafı arka plan kaldırma	var	evet	Ürün fotoğrafı düzenleme	yuksek	ad
+Cartesia	Cartesia	Metinden video üretimi	deneme	evet	Metinden video üretimi	orta	ad
+CatalogPass	CatalogPass	Vektör arama veritabanı	var	evet	Vektör arama ve RAG	yuksek	ad
+Chainlink	Chainlink	Pinterest pin ve pano veri API	var	evet	Pinterest veri erişimi	orta	ad
+Character.AI	Character.AI	Sesli AI ajanı barındırma	deneme	evet	Sesli AI ajanı barındırma	orta	ad
+Chat Completions API	Chat Completions API	Açık kaynak yerel metinden konuşmaya (Piper)	var	hayir	Yerel metinden konuşmaya	orta	ad
+ChatGPT API	ChatGPT API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ChatGPT Plus	ChatGPT Plus	AI video üretimi	var	evet	AI video üretimi	orta	ad
+ChatGPT sites	ChatGPT sites	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ChatGPTPro	ChatGPTPro	Ürün mockup ve tasarım şablonu	deneme	evet	Ürün mockup üretimi	orta	ad
+ChatGoogleGenerativeAI	ChatGoogleGenerativeAI	Banka hesabı bağlama API	deneme	evet	Banka hesabı bağlama	yuksek	ad
+ChatGroq	ChatGroq	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CircleCI	CircleCI	Toplantı kaydı ve yapay zeka özeti cihazı	yok	evet	Toplantı kaydı ve özet	orta	ad
+Claude Console	Claude Console	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude Enterprise	Claude Enterprise	AI görsel üretim platformu	var	evet	AI görsel üretimi	orta	ad
+Claude Hub	Claude Hub	AI görsel üretim platformu	var	evet	AI görsel üretimi	orta	ad
+Claude Managed Agents	Claude Managed Agents	Pokémon açık veri API	var	hayir	Pokémon veri API	yuksek	ad
+Claude Managed Agents API	Claude Managed Agents API	Anahtarsız AI görsel ve metin API	var	hayir	AI görsel ve metin API	orta	ad
+Claude Platform	Claude Platform	Borsa ve kripto piyasa veri API	var	evet	Piyasa veri API	orta	ad
+Claude Platform on AWS	Claude Platform on AWS	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude Team	Claude Team Plan	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude for Excel	Claude for Excel	Adres ve koordinat dönüştürme API	var	evet	Adres coğrafi kodlama	orta	ad
+Claude for Word	Claude for Word	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude in Microsoft Foundry	Claude in Microsoft Foundry	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Claude in PowerPoint	Claude in PowerPoint	Etkileşimli sunum hazırlama	var	evet	Sunum hazırlama	yuksek	ad
+Clay	Clay	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Clearbit	Clearbit	AI görsel üretim API	var	evet	AI görsel üretim API	dusuk	ad
+ClickUp AI	ClickUp AI	Ürün fotoğrafı üretimi	bilinmiyor	bilinmiyor	Ürün fotoğrafı üretme	dusuk	ad
+Clickup	ClickUp	Ürün fotoğrafı üretimi	bilinmiyor	bilinmiyor	Ürün fotoğrafı üretme	dusuk	ad
+Cling	Cling AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Clink Motion Control	Clink Motion Control	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Clone AI	Clone AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloneAl: AI	CloneAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Close	Close	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud AI	Cloud AI	B2B e-posta adresi bulma	var	evet	B2B e-posta bulma	orta	ad
+Cloud Build	Google Cloud Build	B2B e-posta adresi bulma	var	evet	B2B e-posta bulma	orta	ad
+Cloud Chat	Cloud Chat	Etkileşimli UI prototip aracı	var	evet	Etkileşimli prototip	yuksek	ad
+Cloud Desktop	Cloud Desktop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Functions	Google Cloud Functions	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Map	AWS Cloud Map	Biyomedikal makale araması	var	hayir	Biyomedikal makale arama	yuksek	ad
+Cloud Memorystore	Google Cloud Memorystore	Sosyal medya gönderisi planlama	deneme	evet	Sosyal medya planlama	orta	ad
+Cloud Motion	Cloud Motion	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Profiler	Google Cloud Profiler	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Run	Google Cloud Run	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Stream	Cloud Stream	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloud Video	Cloud Video	Gerçek zamanlı WebSocket mesajlaşma	var	evet	Gerçek zamanlı mesajlaşma	yuksek	ad
+Cloud kod	Cloud kod	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudControl API	CloudControl API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudCowork	CloudCowork	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudFormation	CloudFormation	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudFront	CloudFront	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudMem	CloudMem	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudOS	CloudOS	Algoritmik strateji backtest platformu	var	evet	Strateji backtest	yuksek	ad
+CloudTorque	CloudTorque	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudTrail	CloudTrail	Küçük işletme muhasebe yazılımı	deneme	evet	Küçük işletme muhasebesi	yuksek	ad
+CloudWatch Logs	CloudWatch Logs	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CloudWatch Metrics	CloudWatch Metrics	Metin parafraz ve düzeltme aracı	var	evet	Metin parafraz ve düzeltme	yuksek	ad
+CloudX Loop	CloudX Loop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudco	Cloudco	Eğitim için AI quiz oluşturma	var	evet	Quiz oluşturma	orta	ad
+Cloudee	Cloudee	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudflare AI	Cloudflare AI	Qwen metinden konuşmaya modeli	var	bilinmiyor	Metinden konuşmaya	orta	ad
+Cloudflare AI workspace	Cloudflare AI workspace	Qwen açık görsel üretim modeli	var	hayir	AI görsel üretim modeli	orta	ad
+Cloudflare D1	Cloudflare D1	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudflare Developer Platform	Cloudflare Developer Platform	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudflare Hyperdrive	Cloudflare Hyperdrive	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudflare KV	Cloudflare KV	Yönetilen ilişkisel veritabanı (AWS)	deneme	evet	Yönetilen veritabanı	yuksek	ad
+Cloudflare R2	Cloudflare R2	HTTP üzerinden veritabanı sorgusu (AWS)	deneme	evet	HTTP ile veritabanı sorgusu	orta	ad
+Cloudflare Turnstile	Cloudflare Turnstile	Tersine mühendislik iş akışı aracı (REA)	bilinmiyor	bilinmiyor	Tersine mühendislik	dusuk	ad
+Cloudflare Workers	Cloudflare Workers	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cloudoffice	Cloudoffice	Podcast barındırma ve RSS yayını	deneme	evet	Podcast yayını	dusuk	ad
+Clubhouse	Clubhouse	Mesaj kuyruğu ve olay iletimi	var	hayir	Mesaj kuyruğu	yuksek	ad
+Cluely	Cluely	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CoCounsel	CoCounsel	Yer imi ve bağlantı kaydetme	var	evet	Yer imi kaydetme	yuksek	ad
+CockroachDB	CockroachDB	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CodeSandbox	CodeSandbox	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Codecov	Codecov	API keşfi ve abonelik pazarı	var	evet	API keşfi ve kullanımı	yuksek	ad
+Codedex	Codedex	Döner proxy sağlayıcısı	bilinmiyor	evet	Web isteği proxy	dusuk	ad
+Coder	Coder	Ödeme geçidi entegrasyonu	deneme	evet	Ödeme geçidi entegrasyonu	yuksek	ad
+Codespaces	Codespaces	OpenAPI dokümantasyon sayfası üretici	var	hayir	API dokümantasyonu	yuksek	ad
+Cognition	Cognition	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cognito	Cognito	Yazılım dokümantasyonu barındırma	var	evet	Dokümantasyon barındırma	yuksek	ad
+Cohere	Cohere	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CoinGecko	CoinGecko	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CoinGecko API	CoinGecko API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CoinGecko WebSocket	CoinGecko WebSocket	Toplantı kaydı ve transkript API	deneme	evet	Toplantı kaydı ve transkript	orta	ad
+Color Grade AI	Color Grade AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Comet Browser	Comet Browser	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cometly	Cometly	Önbellek ve kuyruk veri deposu	var	hayir	Önbellek ve kuyruk	yuksek	ad
+Comfy Cloud	Comfy Cloud	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Comp AI	Comp AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Company News Scraper	Company News Scraper	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Compensation Motion	Compensation Motion	Hukuki e-keşif belge incelemesi	yok	evet	Hukuki belge incelemesi	orta	ad
+Competitive Ads	Competitive Ads	İş akışı otomasyonu platformu	var	evet	İş akışı otomasyonu	orta	ad
+Competitive Ads Extractor	Competitive Ads Extractor	Relay otomasyonlarını API ile tetikleme	bilinmiyor	evet	Otomasyon API çağrısı	dusuk	ad
+Competitor Ads Extractor	Competitor Ads Extractor	AI ajan ve veri analizi platformu	deneme	evet	AI ajan ve veri analizi	orta	ad
+Competitor Analysis	Competitor Analysis	Sitemap ve wireframe üretimi	var	evet	Sitemap ve wireframe	orta	ad
+Competitor Watch	Competitor Watch	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Compiler Explorer	Compiler Explorer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Confluence	Confluence	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Congress Trading Monitor	Congress Trading Monitor	Bulutta açık AI model çalıştırma	var	evet	Bulutta model çalıştırma	yuksek	ad
+Connected Papers	Connected Papers	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Consensus	Consensus	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Consilio	Consilio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Contentful	Contentful	AI ses klonlama ve metinden konuşma	deneme	evet	Ses klonlama ve TTS	yuksek	ad
+ConvertKit	ConvertKit	Geliştirici e-posta gönderim API	var	evet	E-posta gönderimi	yuksek	ad
+Copyleaks	Copyleaks	Azure kaynak etiketleme betiği	var	hayir	Azure kaynak etiketleme	orta	ad
+Corellium	Corellium	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cost Explorer	Cost Explorer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cost Guardian	Cost Guardian	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cost and Usage Reports	Cost and Usage Reports	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Council	Council	Dijital banka ve kart hizmeti	var	evet	Dijital banka hesabı	yuksek	ad
+Countrylayer	Countrylayer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+CourtListener	CourtListener	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Courtroom5	Courtroom5	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cowork	Cowork	Uzaktan ses ve video kaydı	var	evet	Uzaktan podcast kaydı	yuksek	ad
+Crashlytics	Crashlytics	Çift yönlü bağlantılı not alma	deneme	evet	Bağlantılı not alma	orta	ad
+Creatd	Creatd	Kripto alım satım uygulaması	bilinmiyor	evet	Kripto alım satımı	orta	ad
+Creative Cloud	Creative Cloud	Metin veya görselden 3D model üretimi	var	evet	3D model üretimi	orta	ad
+Creator Pro Website	Creator Pro Website	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cult Pro	Cult Pro	AWS DNS yönetimi	yok	evet	DNS yönetimi	orta	ad
+Currency Exchange API	Currency Exchange API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Cvidho	Cvidho	Ölçekli AI görsel ve video API	deneme	evet	AI görsel üretim API	orta	ad
+D-ID	D-ID	AI video üretimi ve düzenleme	var	evet	AI video üretimi	yuksek	ad
+DALL-E 2	DALL-E 2	AI metin üretimi aracı	var	evet	AI metin üretimi	yuksek	ad
+DALL-E 3	DALL-E 3	Kurumsal finans veri analizi	yok	evet	Kurumsal finans verisi	yuksek	ad
+DALL·E	DALL·E	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DNSCrypt	DNSCrypt	S3 üzerinde vektör indeksleme (AWS)	deneme	evet	Vektör depolama	dusuk	ad
+Daily	Daily	Starbucks yatırımcı ilişkileri sayfası	var	hayir	Şirket finansal raporu okuma	yuksek	ad
+Daily Brief	Daily Brief	SEC EDGAR şirket bildirimleri	var	hayir	Şirket SEC bildirimleri	yuksek	ad
+Dashverse	Dashverse	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DataForSEO	DataForSEO	AI SEO içerik üretimi	bilinmiyor	bilinmiyor	SEO içerik üretimi	dusuk	ad
+Databricks	Databricks	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Datadog	Datadog	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Datasite	Datasite	SMS gönderim API	deneme	evet	SMS bildirimi gönderme	orta	ad
+Deep Dream Generator	Deep Dream Generator	Bildirim ve SMS yayınlama servisi (AWS SNS olabilir)	deneme	evet	Bildirim yayınlama	dusuk	ad
+DeepAI	DeepAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DeepBrain AI	DeepBrain AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DeepInfra	DeepInfra	Yönetilen mesaj kuyruğu (AWS)	deneme	evet	Yönetilen mesaj kuyruğu	yuksek	ad
+DeepL	DeepL	AWS sunucu yönetimi ve parametre deposu	deneme	evet	AWS sunucu yönetimi	orta	ad
+DeepL Translator	DeepL Translator	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DeepSite V2	DeepSite V2	Müşteri ilişkileri yönetimi CRM	deneme	evet	CRM yönetimi	yuksek	ad
+DeepWiki	DeepWiki	Müşteri destek ve vaka yönetimi	deneme	evet	Müşteri destek yönetimi	yuksek	ad
+Deevid AI	Deevid AI	Hızlı LLM çıkarım API	var	evet	LLM çıkarım API	orta	ad
+DesignPilot	DesignPilot	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DeskApp	DeskApp	Headless içerik yönetim sistemi	var	evet	Headless içerik yönetimi	yuksek	ad
+Deskflow	Deskflow	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Deutsche Bahn	Deutsche Bahn	Kurumsal SSO entegrasyon API	var	evet	SSO entegrasyonu	orta	ad
+Developer Portal	Developer Portal	Avrupa bulut sunucu barındırma	deneme	evet	Bulut sunucu barındırma	orta	ad
+Dhan	Dhan	Scaleway üzerinde üretken AI API	deneme	evet	Üretken AI API	orta	ad
+DhanHQ	DhanHQ	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Directus	Directus	Akademik makale okuma ve özet	var	evet	Akademik makale özeti	orta	ad
+DistroKid	DistroKid	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+DocVortex	DocVortex	Web sayfası kazıma API	var	evet	Web kazıma	orta	ad
+DockerHub	DockerHub	JS render destekli web kazıma	var	evet	Web kazıma	yuksek	ad
+Docling	Docling	Ekran görüntüsünden mockup oluşturma	var	evet	Mockup görseli üretme	orta	ad
+DocuSeal	DocuSeal	Adım adım ekran rehberi üretme	var	evet	Süreç rehberi üretme	yuksek	ad
+DocuSign	DocuSign	Arama sonuçlarını API ile çekme	var	evet	Arama sonucu çekme	orta	ad
+DocumentDB	DocumentDB	Site arama performansı izleme	var	evet	Arama performansı izleme	yuksek	ad
+Dodo Payments	Dodo Payments	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Domo AI	Domo AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Doola	Doola	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Dots	Dots	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Draft outreach	Draft outreach	Gizli anahtar saklama hizmeti	deneme	evet	Gizli anahtar saklama	orta	ad
+Drive	Drive	AI görsel üretim modeli (ByteDance)	deneme	evet	AI görsel üretimi	orta	ad
+Dropbox	Dropbox	AI görsel üretim modeli (ByteDance)	deneme	evet	AI görsel üretimi	orta	ad
+DuckDuckGo	DuckDuckGo	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Dune	Dune	Müşteri veri toplama ve yönlendirme	var	evet	Müşteri verisi toplama	orta	ad
+Durable Objects	Durable Objects	Kendi sunucuda Obsidian notu senkronizasyonu	var	hayir	Not senkronizasyonu	orta	ad
+DynamoDB	DynamoDB	SEO ve rakip analizi platformu	deneme	evet	SEO ve rakip analizi	yuksek	ad
+EAS Build	EAS Build	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+EC2	EC2	Uygulama hata izleme	var	evet	Hata izleme	yuksek	ad
+ECR	ECR	Arama motoru sonuçlarını API ile çekme	var	evet	Arama sonucu çekme	yuksek	ad
+ECS	ECS	Arama motoru sonuç API	var	evet	Arama sonucu çekme	orta	ad
+EKS	EKS	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ELBV2	ELBV2	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ELK Stack	ELK Stack	Tablolarda AI formül ve metin	var	evet	Tablo içinde AI	dusuk	ad
+EMR	EMR	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+EOS Build	EOS Build	SaaS başlangıç şablonu	yok	evet	SaaS şablonu	orta	ad
+ERP	ERP	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Edge TTS	Edge TTS	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Einstein GPT	Einstein GPT	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ElastiCache	ElastiCache	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Elastic Beanstalk	Elastic Beanstalk	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Elasticsearch	Elasticsearch	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Eleven Labs Conversational AI	Eleven Labs Conversational AI	Uçtan uca şifreli mesajlaşma	var	evet	Şifreli mesajlaşma	yuksek	ad
+ElevenLabs Scribe	ElevenLabs Scribe	Rakip web trafik analizi	var	evet	Rakip trafik analizi	yuksek	ad
+Elicit	Elicit	Gizlilik odaklı web analitiği	deneme	evet	Web analitiği	orta	ad
+Elicit AI	Elicit AI	AI içerik ve tasarım üretimi	var	evet	AI içerik üretimi	orta	ad
+Email Marketing	Email Marketing	Görsel ve video CDN barındırma	deneme	evet	Görsel CDN barındırma	orta	ad
+Email Validation API	Email Validation API	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+EngagementLoop	EngagementLoop	Metinden Google Slides sunumu	var	evet	Metinden slayt üretimi	orta	ad
+Enhance-A-Video	Enhance-A-Video	Obsidian notları için anlamsal arama eklentisi	var	hayir	Not anlamsal arama	orta	ad
+Enterprise search	Enterprise search	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Entra ID	Entra ID	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Epidemic Sound	Epidemic Sound	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Etherscan	Etherscan	LLM tabanlı web veri kazıma (açık kaynak)	var	hayir	Yapılandırılmış web kazıma	orta	ad
+EventBridge	EventBridge	LLM tabanlı çoklu sayfa veri kazıma	var	hayir	Yapılandırılmış web kazıma	orta	ad
+Everlaw	Everlaw	Samsung akıllı ev cihaz kontrolü	var	evet	Akıllı ev cihaz kontrolü	yuksek	ad
+EveryFeed	EveryFeed	Ürün mockup görseli üretme	var	evet	Ürün mockup görseli	yuksek	ad
+Evo CRM	Evo CRM	AI ajan barındırma platformu	deneme	evet	AI ajan barındırma	dusuk	ad
+Evo CRM Community	Evo CRM Community	Bulut veri ambarı ve sorgu	deneme	evet	Bulut veri ambarı	yuksek	ad
+Exa	Exa	Öğrenci ödev yardım uygulaması	var	evet	Ödev yardımı	orta	ad
+ExaConnect	ExaConnect	Tek tıkla web uygulaması kurulumu (hosting)	yok	evet	Web uygulaması kurulumu	orta	ad
+ExchangeRate	ExchangeRate	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Experiment Database	Experiment Database	Küresel ölçekli ilişkisel veritabanı (Google)	deneme	evet	Küresel veritabanı	orta	ad
+Expo	Expo	Büyük veri işleme motoru (Apache)	var	hayir	Büyük veri işleme	yuksek	ad
+FATE	FATE	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Facebook Research	Facebook Research	Tarif ve besin verisi API	var	evet	Tarif ve besin verisi	orta	ad
+Fall AI	Fall AI	Müzik ve çalma listesi verisi API	var	evet	Müzik verisi API	yuksek	ad
+FanBasis	FanBasis	Satış noktası ve ödeme alma	var	evet	Satış noktası ödemesi	yuksek	ad
+Fast Note Sync	Fast Note Sync	Web sitesi oluşturma platformu	deneme	evet	Web sitesi oluşturma	yuksek	ad
+FastAPI Cloud	FastAPI Cloud	No-code AI iş akışı platformu	var	evet	No-code AI iş akışı	orta	ad
+Fastly Compute	Fastly Compute	No-code AI iş akışı platformu	var	evet	No-code AI iş akışı	orta	ad
+Fastmail	Fastmail	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+File.ai	File.ai	Sunucusuz iş akışı orkestrasyonu (AWS)	var	evet	İş akışı orkestrasyonu	yuksek	ad
+Fin AI	Fin AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Financial Modeling Prep	Financial Modeling Prep	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FindPeopleOnlinebyPhoto	FindPeopleOnlinebyPhoto	Tek sayfa web sitesi oluşturma	var	evet	Web sitesi oluşturma	yuksek	ad
+Finnhub	Finnhub (FinTech API hizmeti)	Şirket kuruluşu ve banka hesabı hizmeti	yok	evet	Şirket kuruluşu	orta	ad
+Firebase Authentication	Firebase Authentication (Google Firebase)	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fireflies	Fireflies (Notetaking AI SaaS)	AI ödev çözümü ve özet	var	evet	Ödev çözümü	dusuk	ad
+Firehose	Firehose (AWS CloudTrail verileri toplayıcı)	Video özetleme aracı	var	evet	Video özetleme	orta	ad
+Firestore	Firestore (Firebase NoSQL DB)	AI şarkı üretimi	var	evet	AI müzik üretimi	yuksek	ad
+Flathub	Flathub (Flatpak paket deposu)	bilinmiyor (Supabase olabilir, doğrulanamadı)	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Fliki	Fliki (AI video oluşturucu)	Düşük kodlu iç araç geliştirme	deneme	evet	İç araç geliştirme	orta	ad
+Football-Data	Football-Data	WordPress SEO eklentisi	var	evet	WordPress SEO	dusuk	ad
+Formbricks	Formbricks	İçerik SEO optimizasyonu	deneme	evet	SEO içerik optimizasyonu	yuksek	ad
+Formia	Formia	İçerik SEO optimizasyonu	deneme	evet	SEO içerik optimizasyonu	yuksek	ad
+Formotion	Formotion	Çok modelli veritabanı	var	hayir	Çok modelli veritabanı	yuksek	ad
+Forter	Forter	API dokümantasyon arayüzü (npm)	var	hayir	API dokümantasyon arayüzü	yuksek	ad
+Fortnox	Fortnox	ML deney takibi (SwanLab)	var	evet	ML deney takibi	orta	ad
+Frame.io	Frame.io	Film ve dizi veri API	var	evet	Film ve dizi verisi	yuksek	ad
+Frameo	Frameo	Metni sese çevirme (Google)	var	hayir	Metinden sese çevirme	dusuk	ad
+Framer AI	Framer AI	Veri görselleştirme ve panolar	deneme	evet	Veri görselleştirme	yuksek	ad
+Free Ai Second Brain	Free Ai Second Brain	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Free Models Router	Free Models Router	Cihazlar arası güvenli VPN	var	evet	Güvenli özel ağ	yuksek	ad
+Free Voice Changer	Free Voice Changer	Tailwind kodunu tarayıcıda deneme	var	hayir	Tailwind deneme	yuksek	ad
+FreeAiShortVideoGenerator	FreeAiShortVideoGenerator	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FreeVideo-All-in-One	FreeVideo-All-in-One	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+FreeVoiceCloner	FreeVoiceCloner	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Freezone	Freezone	Kur'an tilaveti ve ezber takibi	var	evet	Ezber takibi	orta	ad
+Fulcrum Motion Cleaning	Fulcrum Motion Cleaning	Kur'an tilaveti ve ezber takibi	var	evet	Ezber takibi	orta	ad
+Fusion	Fusion	AI ajanlar için web arama API	var	evet	AI ajan web araması	yuksek	ad
+Fyers	Fyers	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GA	GA	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GA (Google Analytics)	Google Analytics	Telegram bot API ile bot oluşturma	var	evet	Telegram bot geliştirme	yuksek	ad
+GA4	GA4	Telefon ve SMS API	deneme	evet	SMS ve sesli arama	orta	ad
+GCP	GCP	Metin veya görselden 3D model üretimi	var	evet	3D model üretimi	orta	ad
+GCP Vertex AI	GCP Vertex AI	Çin bulut barındırma	deneme	evet	Bulut barındırma	orta	ad
+GHL	GHL	Basit sanal sunucu (Tencent)	deneme	evet	Basit VPS barındırma	orta	ad
+GHL (GoHighLevel)	GoHighLevel	Yönetilen veritabanı (Tencent)	deneme	evet	Yönetilen veritabanı	orta	ad
+GKE	GKE	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GPTZero	GPTZero	Taranmış belgeden metin çıkarma (AWS)	deneme	evet	Belgeden metin çıkarma	yuksek	ad
+Galaxy AI	Galaxy AI	Kısa metin sosyal paylaşım platformu	var	evet	Sosyal paylaşım	yuksek	ad
+Galileo AI	Galileo AI	TikTok reklam kampanyası	yok	evet	TikTok reklam kampanyası	yuksek	ad
+Gemani	Gemani	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen Effect node	Gen Effect node	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen Shape	Gen Shape	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen Space	Gen Space	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Gen-1	Gen-1	Açık model API çıkarımı	var	evet	Açık model çıkarımı	yuksek	ad
+Gen-2.5	Gen-2.5	AI reklam videosu üretimi	deneme	evet	AI reklam videosu	orta	ad
+Genex	Genex	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Genspark	Genspark	TradingView sinyalini broker'a iletme	deneme	evet	Sinyalden otomatik işlem	orta	ad
+GeoLens	GeoLens	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GeoLens catalog browser	GeoLens catalog browser	Vadeli işlem alım satım platformu	deneme	evet	Vadeli işlem alım satımı	orta	ad
+Ghidra Server	Ghidra Server	Kod güvenlik denetimi hizmeti	yok	evet	Güvenlik denetimi	yuksek	ad
+GitHub API	GitHub API	Yönetilen SFTP dosya aktarımı (AWS)	deneme	evet	SFTP dosya aktarımı	orta	ad
+GitHub Actions	GitHub Actions	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+GitHub Codespaces	GitHub Codespaces	AI model dağıtım ve gateway	deneme	evet	AI model dağıtımı	orta	ad
+GitHub Container Registry	GitHub Container Registry	Akademik intihal kontrolü	yok	evet	İntihal kontrolü	yuksek	ad
+GitHub Discussions	GitHub Discussions	Edge SQLite veritabanı	var	evet	Edge veritabanı	yuksek	ad
+GitHub Education Benefits Application	GitHub Education Benefits Application	Eğitmen ve ders yönetimi	deneme	evet	Ders yönetimi	orta	ad
+GitHub Gmail	GitHub Gmail	SMS ve sesli arama API	deneme	evet	SMS ve sesli arama	yuksek	ad
+GitHub Student Developer Pack	GitHub Student Developer Pack	Etkileşimli anket ve form	var	evet	Anket ve form	yuksek	ad
+Gitpod	Gitpod	X thread yazma ve planlama	deneme	evet	X thread planlama	orta	ad
+GlitchTip	GlitchTip	Kod bağlantılı UI prototipleme	deneme	evet	UI prototipleme	orta	ad
+Gmail Campaign Sender	Gmail Campaign Sender	AI müzik üretimi	var	evet	AI müzik üretimi	orta	ad
+GoHighLevel	GoHighLevel	Metinden UI ekran üretme	var	evet	UI ekran üretimi	orta	ad
+GoHighLevel (GHL)	GoHighLevel (GHL)	Çoklu platforma gönderi yayınlama	deneme	evet	Çoklu platform yayını	dusuk	ad
+GojiberryAI	GojiberryAI	Serverless Redis ve kuyruk	var	evet	Serverless Redis	yuksek	ad
+GooeAiStudo	GooeAiStudo	Tarayıcıda video düzenleme	var	evet	Video düzenleme	yuksek	ad
+Google APIs	Google APIs	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Ad	Google Ad	VS Code eklentisi pazarı	var	hayir	VS Code eklentisi kurma	yuksek	ad
+Google AdSense	Google AdSense	SOC 2 uyumluluk otomasyonu	deneme	evet	Uyumluluk otomasyonu	orta	ad
+Google Alerts	Google Alerts	Prompt ve LLM iş akışı yönetimi	deneme	evet	Prompt yönetimi	orta	ad
+Google Analytics	Google Analytics	AI video üretimi (Google)	deneme	evet	AI video üretimi	yuksek	ad
+Google Business Profile	Google Business Profile	AI video üretimi (Google)	deneme	evet	AI video üretimi	orta	ad
+Google Chat	Google Chat	AI video üretimi (Google)	deneme	evet	AI video üretimi	yuksek	ad
+Google Cloud Run	Google Cloud Run	AI video üretimi (Google)	deneme	evet	AI video üretimi	orta	ad
+Google Discovery Service	Google Discovery Service	Çoklu AI model yönlendirme gateway	var	evet	AI model yönlendirme	orta	ad
+Google Flow	Google Flow	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Forms	Google Forms	Google Cloud üzerinde AI model platformu	deneme	evet	Bulutta AI model	yuksek	ad
+Google Harita	Google Harita	bilinmiyor (Vexor olabilir, doğrulanamadı)	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Haritalar	Google Haritalar	Açık kaynak log depolama	var	hayir	Log depolama	orta	ad
+Google Interactions API	Google Interactions API	Zaman serisi metrik depolama	var	hayir	Metrik depolama	yuksek	ad
+Google Keyword Planner	Google Keyword Planner	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Meet	Google Meet	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google NotebookLM	Google NotebookLM	Açık model ile video üretimi	var	hayir	Açık model video üretimi	orta	ad
+Google One	Google One	Video indeksleme ve arama API	var	evet	Video arama API	orta	ad
+Google Photos	Google Photos	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Reviews	Google Reviews	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Search	Google Search	AI avatar video üretimi	var	evet	AI avatar video	orta	ad
+Google Search Console	Google Search Console	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Slides	Google Slides	Metinden video üretimi	var	evet	Metinden video üretimi	orta	ad
+Google Storage	Google Storage	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Takvim	Google Takvim	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Translate	Google Translate	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google Workspace	Google Workspace	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Google yorumları	Google Yorumları	Dosya ve URL zararlı yazılım taraması	var	evet	Zararlı yazılım taraması	yuksek	ad
+Google İnsanlar Bunları da Soruyor	Google İnsanlar Bunları da Soruyor	Visual Studio eklenti pazarı	var	hayir	Visual Studio eklentisi kurma	yuksek	ad
+Gorgias Cortex	Gorgias Cortex	Web sitesi A/B testi	deneme	evet	Web sitesi A/B testi	orta	ad
+Grabient	Grabient	Sohbet botu tasarım platformu	var	evet	Sohbet botu tasarımı	orta	ad
+GradientLab	GradientLab	Açık ses sentezi modeli	var	hayir	Ses sentezi	orta	ad
+Grammarly	Grammarly	Açık ses sentezi modeli	var	hayir	Ses sentezi	dusuk	ad
+Graph API	Graph API	WordPress iletişim formu eklentisi	var	evet	WordPress iletişim formu	yuksek	ad
+Growth Operations Dashboard	Growth Operations Dashboard	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Guru	Guru	ML deney takibi (Weights and Biases)	var	evet	ML deney takibi	yuksek	ad
+HKUDS/Vibe-Trading	HKUDS/Vibe-Trading	AI destekli terminal uygulaması	var	evet	AI terminal	yuksek	ad
+HOSTLY	Hostly	S3 uyumlu bulut nesne depolama	deneme	evet	Nesne depolama	yuksek	ad
+HailuoAI	HailuoAI	Docker konteyner otomatik güncelleme	var	hayir	Konteyner güncelleme	orta	ad
+Harness Engineering	Harness Engineering	Eski web sayfası sürümlerine bakma	var	hayir	Eski sayfa arşivi	yuksek	ad
+Headspace	Headspace	WeChat içi mini uygulama geliştirme	var	evet	WeChat mini uygulama	orta	ad
+Headway	Headway	Vektör arama veritabanı	var	evet	Vektör arama	yuksek	ad
+HedgeGuard	HedgeGuard	Web sayfası kazıma API	var	evet	Web kazıma	orta	ad
+Hermes Dashboard	Hermes Dashboard	Genel web araması	var	hayir	Genel web araması	orta	ad
+Hermes Newswire	Hermes Newswire	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hermes Oracle	Hermes Oracle	Sayfa yükleme hızı testi	var	hayir	Sayfa hız testi	yuksek	ad
+HermesAstros	HermesAstros	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Heroku	Heroku	Arama sonuçlarını çekme (SerpApi üzerinden)	deneme	evet	Arama sonucu çekme	orta	ad
+Higgsfield AI	Higgsfield AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Higgsfield Virality Predictor	Higgsfield Virality Predictor	Video toplantı platformu	var	evet	Video toplantı	yuksek	ad
+Highmotion	Highmotion	Görsel web sitesi tasarım aracı	var	evet	Web sitesi tasarımı	yuksek	ad
+Hootsuite	Hootsuite	Webflow içinde AI site yapımı	var	evet	AI site yapımı	orta	ad
+Hostinger Reach	Hostinger Reach	ML deney takibi (Weights and Biases)	var	evet	ML deney takibi	yuksek	ad
+HotpotAI	HotpotAI	Hukuki içtihat araştırma veritabanı	yok	evet	Hukuki araştırma	yuksek	ad
+Huawei CodeArts Snap	Huawei CodeArts Snap	WhatsApp iş mesajlaşma API	var	evet	WhatsApp mesajlaşma	yuksek	ad
+Hugging Face Jobs	Hugging Face Jobs	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Hugging Science	Hugging Science	Bulutta ses transkripsiyonu	var	evet	Ses transkripsiyonu	dusuk	ad
+HugoAI	HugoAI	Dijital ürün ve abonelik satışı	var	evet	Dijital ürün satışı	orta	ad
+Human Scope	Human Scope	Akademik kitap ve dergi erişimi	yok	evet	Akademik kaynak erişimi	yuksek	ad
+HumanAtlas	HumanAtlas	Sesle metin yazma uygulaması	var	evet	Sesle yazma	orta	ad
+Humanloop	Humanloop	Sesle metin yazma uygulaması	var	evet	Sesle yazma	orta	ad
+Humata AI	Humata AI	Web sitesi oluşturma platformu	var	evet	Web sitesi oluşturma	yuksek	ad
+Hume	Hume	İçerik yönetim sistemi ve blog	var	hayir	Blog ve web sitesi yönetimi	yuksek	ad
+Hunter.io	Hunter.io	WordPress 6.8 sürümü	var	hayir	WordPress sürüm özellikleri	yuksek	ad
+HydraDB	HydraDB	Kenar sunucusunda kod çalıştırma	var	evet	Kenar sunucu kodu	yuksek	ad
+Hyperbolic	Hyperbolic	Git worktree yönetim aracı	var	hayir	Git worktree yönetimi	orta	ad
+Hyperliquid	Hyperliquid	AI yazı üretim aracı	var	evet	AI reklam ve blog metni	yuksek	ad
+IBKR	IBKR	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+IPstack	IPstack	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Image 2.5	Image 2.5	Bulut muhasebe yazılımı	deneme	evet	Bulut muhasebe	yuksek	ad
+Imagen	Imagen	Bulut dosya depolama	var	evet	Bulut dosya depolama	yuksek	ad
+InVideo	InVideo	Online yemek siparişi	var	evet	Yemek siparişi	yuksek	ad
+InVideo AI	InVideo AI	WordPress SEO eklentisi	var	evet	WordPress SEO	yuksek	ad
+Inference Endpoints	Inference Endpoints	YouTube video ve kanal verisi API	var	evet	YouTube veri erişimi	yuksek	ad
+Inference.net	Inference.net	YouTube kanal izlenme analitiği	var	evet	Kanal analitiği	yuksek	ad
+InfoQuest	InfoQuest	YouTube video ve kanal verisi API	var	evet	YouTube veri erişimi	yuksek	ad
+InfraNodus	InfraNodus	Uygulama barındırma (PaaS)	var	evet	Uygulama barındırma	orta	ad
+Instagram API	Instagram API	Video dönüştürme ve encoding	deneme	evet	Video encoding	orta	ad
+Instagram API (Instagram login)	Instagram API (Instagram login)	Müşteri destek bileti yönetimi	deneme	evet	Destek bileti yönetimi	yuksek	ad
+Instantly	Instantly	AI ajan uzun vadeli bellek	var	evet	AI ajan belleği	orta	ad
+Instantly AI	Instantly AI	Zamansal bilgi grafiği bellek	var	hayir	Bilgi grafiği bellek	orta	ad
+Intercom	Intercom	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Intuit QuickBooks	Intuit QuickBooks	Hugging Face üzerinde GPU çıkarım	var	evet	GPU çıkarım	orta	ad
+IoT Core	IoT Core	Hugging Face üzerinde GPU çıkarım	var	evet	GPU çıkarım	orta	ad
+Ironclad	Ironclad	Hisse ve türev işlem aracı	var	evet	Hisse işlem aracı	orta	ad
+Jasper	Jasper	Video toplantı yapma	var	evet	Video toplantı	yuksek	ad
+Jules	Jules	B2B şirket ve kişi verisi	deneme	evet	B2B veri zenginleştirme	yuksek	ad
+Julius AI	Julius AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+KeywordFinder	KeywordFinder	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Khanmigo	Khanmigo	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Khroma	Khroma	Tarayıcıda Telegram istemcisi	var	evet	Telegram istemcisi	dusuk	ad
+Kie AI	Kie AI	Biyoloji ön baskı makaleleri	var	hayir	Biyoloji makalesi arama	yuksek	ad
+Kimi	Kimi	Web hosting kontrol paneli	yok	evet	Web hosting yönetimi	yuksek	ad
+Kimi Agent Swarm	Kimi Agent Swarm	Web sayfası değişiklik takibi	var	hayir	Sayfa değişikliği takibi	yuksek	ad
+Kimi Code	Kimi Code	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi Coding Plan	Kimi Coding Plan	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi K1.5	Kimi K1.5	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kimi K3 Swarm Max	Kimi K3 Swarm Max	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kinesis	Kinesis	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kite Connect	Kite Connect	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Klaviyo	Klaviyo	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling	Kling	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling 3.0	Kling 3.0	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling 4.0	Kling 4.0	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling AI	Kling AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling AI V3	Kling AI V3	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling Motion Control	Kling Motion Control	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kling v3	Kling v3	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+KlingAl	Kling AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Kraken	Kraken	Topluluk forumu yazılımı	var	hayir	Topluluk forumu kurma	yuksek	ad
+Krea 2	Krea 2	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+epify	epify	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+every-app/open-seo	open-seo	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+free-tools	free-tools	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+gcloud	gcloud	Google Cloud CLI; GCP kaynaklarını terminalden yönetir	var	evet	bulut altyapı komutları ve deploy	yuksek	ad
+goodnightooo/api-anything	goodnightooo/api-anything	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+google-ads-ab-testing	google-ads-ab-testing	Google Ads reklam deneyleri ve A/B varyant testi	yok	evet	reklam kampanyası A/B testi	orta	ad
+gpt-5.1-search	gpt-5.1-search	OpenAI web aramalı model; API kullanımı ücretli	yok	evet	web araştırmalı yanıt	orta	ad
+hallpass	hallpass	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+headroom-ai	headroom-ai	LLM bağlam sıkıştırma ile token tasarrufu	bilinmiyor	bilinmiyor	token tasarrufu, bağlam sıkıştırma	orta	ad
+hermes-whatsapp-voice	hermes-whatsapp-voice	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+hiring-loop	hiring-loop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+hypit-ai/hypit	hypit-ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+iThenticate	iThenticate	Turnitin benzerlik ve intihal kontrol aracı	yok	evet	akademik metin intihal kontrolü	yuksek	ad
+iex	iex	IEX Cloud finans veri API; 2024'te kapandı	yok	evet	borsa verisi (artık aktif değil)	orta	ad
+image_generate	image_generate	Stability AI görsel üretim API'si	deneme	evet	görsel üretimi	orta	ad
+image_search	image_search	Google görsel arama; referans görsel bulma	var	hayir	görsel arama, referans toplama	yuksek	ad
+irm	irm	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+isitsecure	isitsecure	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+iyzico	iyzico	Türk online ödeme altyapısı ve API	yok	evet	e-ticaret ödeme entegrasyonu	yuksek	ad
+krea	krea	AI görsel ve video üretim/düzenleme platformu	var	evet	görsel-video üretimi	orta	ad
+llama-server	llama-server	llama.cpp HTTP sunucusu; yerel model servisi	var	hayir	yerel LLM sunumu	yuksek	ad
+markifact	markifact	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+media-use	media-use	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+media-use-plus	media-use-plus	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+narratoai	narratoai	Narrato AI içerik üretimi ve pazarlama yazımı	deneme	evet	içerik ve SEO yazımı	orta	ad
+nocodb/nocodb	nocodb	Açık kaynak no-code veritabanı arayüzü (Airtable alternatifi)	var	hayir	veritabanı arayüzü, tablo yönetimi	yuksek	ad
+notebooklm (Gemini Notebook)	notebooklm	Google kaynak tabanlı AI araştırma ve özet aracı	var	evet	kaynaklardan özet ve araştırma	yuksek	ad
+ntfy	ntfy	Açık kaynak HTTP tabanlı push bildirim servisi	var	hayir	bildirim gönderme	yuksek	ad
+obscura	obscura	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+omnisend	omnisend	E-ticaret e-posta ve SMS pazarlama otomasyonu	var	evet	e-ticaret pazarlama otomasyonu	orta	ad
+openai/codex-marketplace	openai/codex-marketplace	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+openground	openground	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ownCloud	ownCloud	Açık kaynak self-host dosya senkronizasyonu ve paylaşım	var	hayir	self-host dosya paylaşımı	yuksek	ad
+ownCloud Infinite Scale	ownCloud Infinite Scale	ownCloud'un ölçeklenebilir kurumsal dosya sunucusu	var	hayir	kurumsal dosya depolama	orta	ad
+pCloud	pCloud	Bulut depolama ve dosya senkronizasyonu	var	evet	dosya yedekleme ve paylaşım	yuksek	ad
+paperclipai/paperclip	Paperclip AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+plan-payroll	plan-payroll	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+plandex-ai/plandex	Plandex AI	Açık kaynak terminal tabanlı çok dosyalı kod ajanı	var	hayir	çok dosyalı kod üretimi	orta	ad
+post-scheduler	post-scheduler	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+pricingpage	pricingpage	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+reCAPTCHA	reCAPTCHA	Google bot koruması ve form doğrulama	var	evet	form bot koruması	yuksek	ad
+saas-website-builder	saas-website-builder	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+search_assets	search_assets	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+search_crm	search_crm	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+search_nodes	search_nodes	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+security-reviewer	security-reviewer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+security-scan	security-scan	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+security:threat-modeling	security:threat-modeling	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+self-healing	self-healing	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-audit	seo-audit	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-backlinks	seo-backlinks	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-cluster	seo-cluster	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-content	seo-content	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-expert	seo-expert	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-plan	seo-plan	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-schema	seo-schema	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+seo-sitemap	seo-sitemap	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+ship-safe	ship-safe	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+site-architecture	site-architecture	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+skyvern	Skyvern	LLM ile tarayıcı görevi otomasyonu (form, navigasyon)	var	hayir	web otomasyonu	orta	ad
+slack-gif-creator	Slack GIF Creator	Slack için animasyonlu GIF üretimi	var	hayir	Slack GIF üretimi	orta	ad
+svix	Svix	Webhook gönderim altyapısı ve API	var	evet	webhook dağıtımı	yuksek	ad
+swishy	swishy	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+synced	synced	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+talking-head-recut	talking-head-recut	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+taste impeccable	taste impeccable	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+text-to-cad (earthtojake/text-to-cad)	text-to-cad	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+theater	theater	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+thebackoffice	thebackoffice	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+tinycast	tinycast	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+tinyflows	tinyflows	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+unbrowse	unbrowse	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+upstash/context7	context7	Güncel kütüphane dokümanlarını LLM'ye getiren MCP	var	hayir	kütüphane dokümanı sorgulama	orta	ad
+upstox	upstox	Hint borsa broker API'si	yok	evet	borsa işlemi ve veri	orta	ad
+urlbox	urlbox	Web sayfası ekran görüntüsü ve PDF API'si	deneme	evet	sayfa görüntüsü üretimi	orta	ad
+v0 by Vercel	v0 by Vercel	AI ile React/Next.js arayüz üretici	var	evet	arayüz prototipi üretimi	yuksek	ad
+vapor cloud	Vapor Cloud	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+weclapp	weclapp	Almanya merkezli ERP ve CRM SaaS	deneme	evet	işletme ERP yönetimi	orta	ad
+weekly-report	weekly-report	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+wiki-capture	wiki-capture	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+youtube transcription tool	youtube transcription tool	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Anthropic Chat	Anthropic Chat	claude.ai üzerinden Claude sohbet arayüzü	var	evet	genel AI sohbet ve yazım	yuksek	ad
+Anthropic Claude	Anthropic Claude	Claude model ailesi; metin, kod, analiz	var	evet	metin, kod ve analiz	yuksek	ad
+Anthropic Knowledge Work Marketplace	Anthropic Knowledge Work Marketplace	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Anthropic Messages API	Anthropic Messages API	Claude modellerine API ile erişim	deneme	evet	uygulamaya LLM entegrasyonu	yuksek	ad
+Antimetal	Antimetal	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+Anyscale	Anyscale	Ray tabanlı dağıtık AI hesaplama platformu	deneme	evet	dağıtık model eğitimi ve servis	orta	ad
+Apify Cloud	Apify Cloud	Web scraping ve otomasyon bulut platformu	var	evet	web veri çekme	yuksek	ad
+Apify Instagram Scraper (instagram-scraper)	Apify Instagram Scraper (instagram-scraper)	Apify ile Instagram veri çekme aktörü	deneme	evet	Instagram veri toplama	orta	ad
+App Store Connect	App Store Connect	Apple uygulama yayınlama ve test paneli	yok	evet	iOS uygulama yayını	yuksek	ad
+AppMarketplace	AppMarketplace	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	ad
+10Web <10Web.io>	10Web	WordPress barındırma ve AI site kurucu	deneme	evet	WordPress site kurulumu	orta	url
+10Web.io <10Web.io>	10Web.io	WordPress barındırma ve AI site kurucu	deneme	evet	WordPress site kurulumu	orta	url
+21st.dev <21st.dev>	21st.dev	React UI bileşen kataloğu ve kopyalama	var	hayir	UI bileşeni bulma	orta	url
+AI Stupid Meter <https://aistupidlevel.info>	AI Stupid Meter	AI model performans karşılaştırma panosu	var	hayir	model kalite karşılaştırma	orta	url
+ASCII Magic <ascii-magic.com>	ASCII Magic	Görselden ASCII sanat üretici	var	hayir	ASCII sanat üretimi	orta	url
+AWS <aws.amazon.com>	AWS	Amazon bulut altyapı hizmetleri	var	evet	bulut sunucu ve depolama	yuksek	url
+Adobe <https://podcast.adobe.com/enhance>	Adobe	Adobe yaratıcı yazılım ve podcast araçları	deneme	evet	yaratıcı yazılım kullanımı	orta	url
+Adobe Podcast <podcast.adobe.com/enhance>	Adobe Podcast	Adobe ile ses kaydı iyileştirme	var	evet	podcast ses temizleme	orta	url
+Adobe Podcast Enhance Speech <podcast.adobe.com/enhance>	Adobe Podcast Enhance Speech	Konuşma kaydını AI ile temizler	var	evet	ses kalitesi iyileştirme	orta	url
+Ads Manager <https://adsmanager.facebook.com>	Ads Manager	Meta reklam kampanyası yönetim paneli	yok	evet	Meta reklam yönetimi	yuksek	url
+Agency <agencyagents.app>	Agency	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Agentic OS <https://bit.ly/4kol0y5>	Agentic OS	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+AiPixO <aipixo.app>	AiPixO	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Aiera <https://mcp-pub.aiera.com>	Aiera	Finansal olay ve kazanç çağrısı verisi MCP	bilinmiyor	evet	kazanç çağrısı verisi	orta	url
+Airstory <https://airstory.co>	Airstory	AI destekli uzun içerik yazımı ve araştırma	deneme	evet	uzun içerik yazımı	orta	url
+Airstory.co <https://Airstory.co>	Airstory.co	AI destekli uzun içerik yazımı ve araştırma	deneme	evet	uzun içerik yazımı	orta	url
+Al-Trader <ai4trade.ai/financial>	Al-Trader	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Alibaba DashScope <dashscope-intl.aliyuncs.com>	Alibaba DashScope	Alibaba Cloud Qwen model API'si	deneme	evet	Qwen model erişimi	orta	url
+Anijam <Anijam.ai>	Anijam	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Animista <Animista.net>	Animista	Hazır CSS animasyonları kopyalama	var	hayir	CSS animasyon kopyalama	yuksek	url
+Animista.net <Animista.net>	Animista.net	Hazır CSS animasyonları kopyalama	var	hayir	CSS animasyon kopyalama	yuksek	url
+AnswerThePublic <https://answerthepublic.com>	AnswerThePublic	Anahtar kelime sorularını ve içerik fikirlerini listeler	deneme	evet	içerik soru araştırması	orta	url
+AnswerThePublic.com <https://AnswerThePublic.com>	AnswerThePublic.com	Anahtar kelime sorularını ve içerik fikirlerini listeler	deneme	evet	içerik soru araştırması	orta	url
+Anti-AI-Slop <uizze.com>	Anti-AI-Slop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Apify hosted MCP server <https://mcp.apify.com>	Apify Hosted MCP Server	Apify aktörlerini MCP ile ajana açar	deneme	evet	ajana web veri aracı	orta	url
+Apollo <apollo.io>	Apollo (API platformu)	B2B kişi ve şirket veri tabanı, outreach	var	evet	B2B potansiyel müşteri bulma	yuksek	url
+Apollo.io <Apollo.io>	Apollo.io (API yönetim)	B2B kişi ve şirket veri tabanı, outreach	var	evet	B2B potansiyel müşteri bulma	yuksek	url
+Asana <https://asana.com>	Asana	Görev ve proje takip platformu	var	evet	proje ve görev takibi	yuksek	url
+Asana.com <https://Asana.com>	Asana.com	Görev ve proje takip platformu	var	evet	proje ve görev takibi	yuksek	url
+Atoms.dev <Atoms.dev>	Atoms.dev	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+BASE <https://base.org>	BASE (veri analizi)	Coinbase'in Ethereum L2 blokzinciri; veri analizi değil	bilinmiyor	hayir	blokzincir ağı	orta	url
+Beautiful.ai <Beautiful.ai>	Beautiful.ai	AI destekli sunum tasarım aracı	deneme	evet	sunum hazırlama	yuksek	url
+Beeceptor <Beeceptor.com>	Beeceptor	API mock ve istek yakalama servisi	var	evet	API mock sunucu	yuksek	url
+Beeceptor.com <Beeceptor.com>	Beeceptor.com	API mock ve istek yakalama servisi	var	evet	API mock sunucu	yuksek	url
+Binance <stream.binance.com>	Binance (API)	Kripto borsası piyasa verisi ve işlem API'si	var	evet	kripto piyasa verisi	yuksek	url
+Binance API <stream.binance.com>	Binance API	Kripto borsası piyasa verisi ve işlem API'si	var	evet	kripto piyasa verisi	yuksek	url
+Blotato <https://blotato.com/?ref=robonuggets>	Blotato	Çoklu sosyal platform içerik yayın otomasyonu	deneme	evet	sosyal medya paylaşım otomasyonu	orta	url
+Bolt.new <Bolt.new>	Bolt.new	Prompt ile web uygulaması üreten AI platform	var	evet	prompt'tan uygulama üretimi	yuksek	url
+Buffer <https://buffer.com>	Buffer	Sosyal medya paylaşım planlama aracı	var	evet	sosyal medya zamanlama	yuksek	url
+Buffer.com <https://Buffer.com>	Buffer.com	Sosyal medya paylaşım planlama aracı	var	evet	sosyal medya zamanlama	yuksek	url
+BuildMyAgent <buildmyagent.io>	BuildMyAgent	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Bundlephobia <Bundlephobia.com>	Bundlephobia	npm paketinin boyut ve bağımlılık analizi	var	hayir	npm paket boyutu kontrolü	yuksek	url
+Bundlephobia.com <Bundlephobia.com>	Bundlephobia.com	npm paketinin boyut ve bağımlılık analizi	var	hayir	npm paket boyutu kontrolü	yuksek	url
+BuzzSumo <https://buzzsumo.com>	BuzzSumo	İçerik trend ve paylaşım performans analizi	deneme	evet	içerik trend araştırması	yuksek	url
+Buzzsumo.com <https://Buzzsumo.com>	Buzzsumo.com	İçerik trend ve paylaşım performans analizi	deneme	evet	içerik trend araştırması	yuksek	url
+Cal.com <Cal.com>	Cal.com	Açık kaynak randevu ve takvim planlama	var	evet	randevu planlama	yuksek	url
+Calendly <https://apps.apple.com/us/app/calendly-m>	Calendly	Randevu planlama ve takvim bağlantısı	var	evet	görüşme planlama	yuksek	url
+CanIRank <https://canirank.com>	CanIRank	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+CanIRank.com <https://CanIRank.com>	CanIRank.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Caniuse.com <Caniuse.com>	Caniuse.com	Tarayıcı CSS/JS destek tablosu	var	hayir	tarayıcı uyumluluk kontrolü	yuksek	url
+Canva <canva.com>	Canva	Online görsel ve sunum tasarım aracı	var	evet	görsel tasarım	yuksek	url
+Carbon <Carbon.now.sh>	Carbon	Kod parçacığından güzel ekran görüntüsü	var	hayir	kod görseli üretimi	yuksek	url
+Carbon.now.sh <Carbon.now.sh>	Carbon.now.sh	Kod parçacığından güzel ekran görüntüsü	var	hayir	kod görseli üretimi	yuksek	url
+Chargeback.io <Chargeback.io>	Chargeback.io	Ödeme itirazı (chargeback) yönetimi	bilinmiyor	evet	chargeback takibi	orta	url
+ChatGPT <chat.openai.com>	ChatGPT	OpenAI sohbet ve yazım asistanı	var	evet	genel AI sohbet	yuksek	url
+ChatLLM <https://chatllm.abacus.ai/yzd>	ChatLLM	Abacus AI çoklu model sohbet platformu	deneme	evet	çoklu LLM sohbet	orta	url
+ChatLLM by Abacus AI <https://chatllm.abacus.ai/yzd>	ChatLLM by Abacus AI	Abacus AI çoklu model sohbet platformu	deneme	evet	çoklu LLM sohbet	orta	url
+Clean.ai <Clean.ai>	Clean.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Cleartax <Cleartax.in>	Cleartax	Hindistan vergi beyanı ve finans uygulaması	var	evet	Hindistan vergi beyanı	orta	url
+ClicheFinder <https://clicheFinder.net>	ClicheFinder	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+ClicheFinder.net <https://ClicheFinder.net>	ClicheFinder.net	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Clockify <Clockify.me>	Clockify	Ücretsiz zaman takibi ve raporlama	var	evet	zaman takibi	yuksek	url
+Clockify.me <Clockify.me>	Clockify.me	Ücretsiz zaman takibi ve raporlama	var	evet	zaman takibi	yuksek	url
+Clockwise <https://clockwise.com>	Clockwise	Takvim optimizasyonu ve otomatik planlama	var	evet	takvim planlama	orta	url
+Clockwise.com <https://Clockwise.com>	Clockwise.com	Takvim optimizasyonu ve otomatik planlama	var	evet	takvim planlama	orta	url
+Coolify <coollabsio/coolify>	Coolify	Açık kaynak self-host PaaS (Heroku alternatifi)	var	hayir	sunucuya uygulama dağıtımı	yuksek	url
+Copy.ai <https://copy.ai>	Copy.ai	AI pazarlama ve reklam metni üretimi	var	evet	reklam metni yazımı	yuksek	url
+Crypto Fear & Greed Index <alternative.me>	Crypto Fear & Greed Index	Kripto piyasa duyarlılık endeksi	var	hayir	kripto piyasa duyarlılığı	yuksek	url
+Cursor <cursor.com>	Cursor	AI destekli kod editörü	var	evet	AI kod yazımı	yuksek	url
+Daloopa <https://mcp.daloopa.com/server/mcp>	Daloopa	Finansal model verisi için MCP sunucusu	yok	evet	finansal model verisi	orta	url
+Deploy to Vercel <https://Inkd.in/dC7tQaNs>	Deploy to Vercel	Vercel'e tek tıkla dağıtım bağlantısı	var	evet	web uygulaması dağıtımı	orta	url
+Descript <descript.com>	Descript	Metin tabanlı video ve podcast düzenleme	var	evet	video ve ses düzenleme	yuksek	url
+Designely Studio <designely.studio>	Designely Studio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Designify <https://designify.com>	Designify	AI ile ürün fotoğrafı arka plan düzenleme	deneme	evet	ürün görseli düzenleme	orta	url
+Designify.com <https://Designify.com>	Designify.com	AI ile ürün fotoğrafı arka plan düzenleme	deneme	evet	ürün görseli düzenleme	orta	url
+DialKit <https://www.dialkit.dev>	DialKit	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Diffchecker <Diffchecker.com>	Diffchecker	Metin ve dosya farklarını karşılaştırır	var	hayir	dosya fark kontrolü	yuksek	url
+Diffchecker.com <Diffchecker.com>	Diffchecker.com	Metin ve dosya farklarını karşılaştırır	var	hayir	dosya fark kontrolü	yuksek	url
+DigitalOcean <Digitalocean.com>	DigitalOcean	Bulut sunucu (droplet) ve yönetilen servisler	deneme	evet	VPS ve dağıtım	yuksek	url
+Digitalocean.com <Digitalocean.com>	Digitalocean.com	Bulut sunucu (droplet) ve yönetilen servisler	deneme	evet	VPS ve dağıtım	yuksek	url
+Docker <Docker.com>	Docker	Konteyner oluşturma ve çalıştırma platformu	var	hayir	konteyner çalıştırma	yuksek	url
+Docker.com <Docker.com>	Docker.com	Konteyner oluşturma ve çalıştırma platformu	var	hayir	konteyner çalıştırma	yuksek	url
+Doop <doop.design>	Doop	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Draftly <draftly.space>	Draftly	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Duix Avatar <www.duix.com>	Duix Avatar	AI ile dijital avatar video üretimi	deneme	evet	avatar video üretimi	orta	url
+Duolingo <https://duolingo.com>	Duolingo	Dil öğrenme uygulaması	var	evet	dil öğrenme	yuksek	url
+Durable <https://durable.co>	Durable	AI ile küçük işletme web sitesi kurma	deneme	evet	hızlı web sitesi kurma	orta	url
+Dust <dust.tt>	Dust	Kurumsal AI asistan ve ajan platformu	deneme	evet	ekip AI asistanı	orta	url
+Dyad <dyad.sh>	Dyad	Açık kaynak yerel AI uygulama üretici	var	hayir	yerel AI uygulama üretimi	orta	url
+EZGIFCOM <Ezgif.com>	EZGIFCOM	GIF, video ve görsel dönüştürme araçları	var	hayir	GIF ve video dönüşümü	yuksek	url
+Egnyte <https://mcp-server.egnyte.com/mcp>	Egnyte MCP Server	Egnyte kurumsal dosya erişimi için MCP	bilinmiyor	evet	kurumsal dosya erişimi	orta	url
+Eleven v4 <elevenlabs.io>	Eleven v4	ElevenLabs ses sentezi modeli	var	evet	metinden konuşma	orta	url
+ElevenLabs <https://try.elevenlabs.io/m5mn2jkv5rzk>	ElevenLabs	AI ses sentezi ve ses klonlama	var	evet	metinden seslendirme	yuksek	url
+ElevenLabs.io <ElevenLabs.io>	ElevenLabs.io	AI ses sentezi ve ses klonlama	var	evet	metinden seslendirme	yuksek	url
+Emergent <emergent.sh>	Emergent	AI ile uygulama üreten platform	deneme	evet	prompt'tan uygulama	orta	url
+Events Manager <business.facebook.com/events_manager2>	Events Manager	Meta piksel ve dönüşüm olayı takibi	var	evet	reklam dönüşüm takibi	yuksek	url
+Ever Gauzy <https://gitrit>	Ever Gauzy	Açık kaynak self-host iş ve zaman yönetimi	var	hayir	self-host iş yönetimi	orta	url
+Excalidraw.com <Excalidraw.com>	Excalidraw.com	El çizimi tarzı diyagram çizimi	var	hayir	diyagram çizimi	yuksek	url
+Extract DESIGN.md <stitch.withgoogle.com>	Extract DESIGN.md	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Facebook Posts Scraper <apify/facebook-posts-scraper>	Facebook Posts Scraper	Apify ile Facebook gönderi verisi toplama	deneme	evet	Facebook veri toplama	orta	url
+FactSet <https://mcp.factset.com/mcp>	FactSet	Finansal veri MCP sunucusu	yok	evet	finans veri erişimi	yuksek	url
+FakeJSON <FakeJSON.com>	FakeJSON	Sahte JSON test verisi üretici	var	hayir	test verisi üretimi	orta	url
+FavStash <favstash.app>	FavStash	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Figma <https://figma.com>	Figma	Web tabanlı UI ve tasarım işbirliği aracı	var	evet	UI tasarımı	yuksek	url
+Figma.com <Figma.com>	Figma	Web tabanlı UI ve tasarım işbirliği aracı	var	evet	UI tasarımı	yuksek	url
+FinChat <finchat.io>	FinChat	AI finansal analiz ve hisse araştırma	deneme	evet	hisse araştırma	orta	url
+Finch 3D <finch3d.com>	Finch 3D	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Firebase <firebase.google.com>	Firebase	Google backend: auth, veritabanı, barındırma	var	evet	backend ve barındırma	yuksek	url
+Fiscal.ai <Fiscal.ai>	Fiscal.ai	AI finansal veri ve analiz platformu	deneme	evet	finansal veri analizi	orta	url
+Flair.ai <Flair.ai>	Flair.ai	AI ile ürün görseli ve sahne üretimi	deneme	evet	ürün görseli üretimi	orta	url
+Framer <framer.com>	Framer	Web sitesi tasarım ve yayınlama aracı	var	evet	web sitesi tasarımı	yuksek	url
+G0DM0D3 <godmod3.ai>	G0DM0D3	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+GHCR (ghcr.io) <ghcr.io/ollaya-dev/ollaya>	GHCR	GitHub konteyner imaj deposu	var	evet	konteyner imajı depolama	yuksek	url
+GODMODE (GODMOD3.AI) <GODMOD3.AI>	G0DM0D3	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+GODMODE <GODMOD3.AI>	G0DM0D3	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+GPT Image <openai.com/index/image-generation-api>	GPT Image	OpenAI görsel üretim API'si	deneme	evet	görsel üretimi	orta	url
+GTmetrix <GTmetrix.com>	GTmetrix	Sayfa hızı ve performans testi	var	evet	sayfa performans ölçümü	yuksek	url
+GTmetrix.com <GTmetrix.com>	GTmetrix	Sayfa hızı ve performans testi	var	evet	sayfa performans ölçümü	yuksek	url
+Gamma <https://gamma.app>	Gamma	AI ile sunum ve web sayfası üretimi	var	evet	sunum üretimi	yuksek	url
+Gamma.app <Gamma.app>	Gamma	AI ile sunum ve web sayfası üretimi	var	evet	sunum üretimi	yuksek	url
+Gemini <gemini.google.com>	Gemini	Google AI sohbet ve araştırma asistanı	var	evet	genel AI sohbet	yuksek	url
+Gemini AI <https://generativelanguage.googleapis.com/v1beta/models/gemini->	Gemini AI	Gemini model API'si	var	evet	Gemini model API	yuksek	url
+GenMail <https://www.genspark.ai/genmail?utm_source=yt&utm_campaign=tinahuang03>	GenMail	Genspark AI e-posta yönetimi	bilinmiyor	evet	AI e-posta yönetimi	orta	url
+GenMail by Genspark <https://www.genspark.ai/genmail?utm_source=yt&utm_campaign=tinahuang03>	GenMail by Genspark	Genspark AI e-posta yönetimi	bilinmiyor	evet	AI e-posta yönetimi	orta	url
+Glaid <https://get.glaido.com/nate>	Glaid	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Glaido <https://get.glaido.com/nate>	Glaido	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Glass3D <glass3d.dev>	Glass3D	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Gmail <https://mail.google.com>	Gmail	Google e-posta servisi	var	evet	e-posta	yuksek	url
+Google Calendar <workspace.google.com/products/calendar>	Google Calendar	Google takvim ve etkinlik yönetimi	var	evet	takvim yönetimi	yuksek	url
+Google Cloud <https://console.cloud.google.com/>	Google Cloud	Google Cloud bulut altyapı platformu	var	evet	bulut altyapı	yuksek	url
+Google Cloud Console <https://console.cloud.google.com/>	Google Cloud Console	Google Cloud bulut altyapı platformu	var	evet	bulut altyapı	yuksek	url
+Google Colab <https://colab.research.google.com>	Google Colab	Tarayıcıda Jupyter, sınırlı ücretsiz GPU	var	evet	notebook ve GPU deneme	yuksek	url
+Google Docs <https://docs.google.com/document/d/1zlkRLZESdMkY0226zBHhdOlIC6PsqZFQRywdOtAH8Ps/edit>	Google Docs	Çevrimiçi doküman yazma ve paylaşım	var	evet	doküman yazımı	yuksek	url
+Google Drive <https://drive.google.com/drive/folders/11PZdFDKy>	Google Drive	Google bulut depolama ve paylaşım	var	evet	dosya depolama	yuksek	url
+Google Gemini <https://generativelanguage.googleapis.com/v1beta>	Google Gemini	Gemini API ve model erişimi	var	evet	Gemini model API	yuksek	url
+Google Playground <playground.google.com>	Google Playground	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Google Sheets <docs.google.com/spreadsheets/d/1IM_dUO_TxrBQ-qVKWfnHMa670Nyn>	Google Sheets	Çevrimiçi elektronik tablo	var	evet	tablo ve veri analizi	yuksek	url
+Google Stitch <https://sitch.withgoogle.com>	Google Stitch	Google AI ile UI tasarım üretimi	deneme	evet	AI arayüz tasarımı	orta	url
+Gradientool <https://www.gradientool.com>	Gradientool	CSS gradient renk üretici	var	hayir	gradient renk üretimi	yuksek	url
+Grok Bot <viax.ai/bot>	Grok Bot	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Grok.now <Grok.now>	Grok.now	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Groq <console.groq.com/dashboard/usage>	Groq	Hızlı LLM çıkarım API'si	var	evet	hızlı model çıkarımı	yuksek	url
+GroqCloud <console.groq.com/dashboard/usage>	GroqCloud	Hızlı LLM çıkarım API'si	var	evet	hızlı model çıkarımı	yuksek	url
+Groww <Groww.in>	Groww	Hint yatırım uygulaması (hisse, fon)	var	evet	hisse ve fon yatırımı	orta	url
+HackerAI <hacker.ai.co>	HackerAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Haiku Animator <www.haikuanimator.com>	Haiku Animator	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Hairline <hairline.lucasmarkes.com>	Hairline	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+HeadLineAnalyzer <HeadLineAnalyzer.com>	HeadLineAnalyzer	Başlık puanlama ve analiz aracı	var	hayir	başlık puanlama	yuksek	url
+Hemingway App <https://hemingwayapp.com>	Hemingway App	Metin okunabilirlik ve yalınlık kontrolü	var	hayir	metin okunabilirlik kontrolü	yuksek	url
+HemingwayApp.com <https://HemingwayApp.com>	HemingwayApp	Metin okunabilirlik ve yalınlık kontrolü	var	hayir	metin okunabilirlik kontrolü	yuksek	url
+Hey <hey.com>	Hey	Basecamp'in e-posta servisi HEY	deneme	evet	e-posta yönetimi	yuksek	url
+HeyGen <app.heygen.com/home>	HeyGen	AI avatar ve video üretimi	var	evet	avatar video üretimi	yuksek	url
+HeyGen Video Agent <app.heygen.com/video-agent/0a778e5c8c7448a3a064ddbb4e3>	HeyGen Video Agent	HeyGen AI video ajanı	bilinmiyor	evet	AI video üretimi	orta	url
+Higgsfield <ggsfield.ai/mcp>	Higgsfield	AI video ve görsel üretim platformu	deneme	evet	AI video üretimi	orta	url
+Higgsfield Supercomputer <@higgsfield.ai>	Higgsfield Supercomputer	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Hindsight Memlake <hindsight.vectorize.io>	Hindsight Memlake	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Holographic Cloth <getlayers.ai/tools/holographic-cloth>	Holographic Cloth	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Hostinger <https://createaprowebsite.com/hosting141>	Hostinger	Web barındırma ve site kurma	yok	evet	web barındırma	yuksek	url
+Hostinger VPS <https://www.hostinger.com/vps/claude-code-hosting>	Hostinger VPS	VPS sunucu kiralama	yok	evet	VPS sunucu	yuksek	url
+HubSpot <https://hubspot.com>	HubSpot	CRM ve pazarlama otomasyonu	var	evet	CRM ve pazarlama	yuksek	url
+Hubspot.com <https://Hubspot.com>	HubSpot	CRM ve pazarlama otomasyonu	var	evet	CRM ve pazarlama	yuksek	url
+Hyperagent <https://hyperagent.com/marketplace/s/ccs01KWCXR3W4_XRNS6AAXVZBT0617>	Hyperagent	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Ideogram <ideogram.ai>	Ideogram	Metin içeren AI görsel üretimi	var	evet	görsel üretimi	yuksek	url
+Inboxapp.com <Inboxapp.com>	Inboxapp	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Insider Trading Dashboard <quiverquant.com/insiders>	Insider Trading Dashboard	Insider işlem verisi takip paneli	var	evet	insider işlem takibi	orta	url
+Instagram Scraper <apify/instagram-scraper>	Instagram Scraper	Apify ile Instagram veri çekme	deneme	evet	Instagram veri toplama	orta	url
+Interact.ai <Interact.ai>	Interact.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Interfaces <interfaces.dev>	Interfaces	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+JSONCrack <JSONCrack.com>	JSONCrack	JSON verisini ağaç diyagrama dönüştürür	var	hayir	JSON görselleştirme	yuksek	url
+JSONCrack.com <JSONCrack.com>	JSONCrack	JSON verisini ağaç diyagrama dönüştürür	var	hayir	JSON görselleştirme	yuksek	url
+JWT.io <JWT.io>	JWT.io	JWT çözme ve doğrulama aracı	var	hayir	JWT inceleme	yuksek	url
+Jasper AI <https://jasper.ai>	Jasper AI	AI pazarlama içeriği üretimi	deneme	evet	pazarlama içeriği	yuksek	url
+Jina <jina.ai>	Jina AI	Jina AI web okuma ve embedding API'si	var	evet	web içerik okuma	orta	url
+Jina AI <jina.ai>	Jina AI	Jina AI web okuma ve embedding API'si	var	evet	web içerik okuma	orta	url
+Jira <Jira.com>	Jira	Atlassian issue ve proje takibi	var	evet	yazılım görev takibi	yuksek	url
+Jira.com <Jira.com>	Jira	Atlassian issue ve proje takibi	var	evet	yazılım görev takibi	yuksek	url
+Jitter <jitter.video>	Jitter	Motion grafik ve animasyon tasarım aracı	var	evet	motion tasarım	orta	url
+Jobscan <https://jobscan.co>	Jobscan	CV ile iş ilanı uyum analizi	var	evet	CV uyum analizi	yuksek	url
+Jobscan.co <https://Jobscan.co>	Jobscan	CV ile iş ilanı uyum analizi	var	evet	CV uyum analizi	yuksek	url
+Kensho kFinance <https://kfinance.kensho.com/integra1>	Kensho kFinance	S&P Global finansal veri entegrasyonu	yok	evet	finans veri analizi	orta	url
+Kickbacks <Kickbacks.ai>	Kickbacks	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Kickbacks.ai <https://kickbacks.ai>	Kickbacks	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Kimi AI <https://t.co/zrk6zZxZUo>	Kimi AI	Moonshot AI sohbet asistanı	var	evet	genel AI sohbet	orta	url
+Kimi API <https://t.co/XCrgiXAqMw>	Kimi API	Moonshot Kimi model API'si	deneme	evet	LLM API	orta	url
+Kimi Work <https://t.co/zrk6zZxZUo>	Kimi Work	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Kitbitz <kitbitz.art>	Kitbitz	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Krea AI <Create.ai>	Krea AI	AI görsel üretim ve düzenleme	var	evet	görsel üretimi	orta	url
+LSEG <https://api.analytics.lseg.com/lfa/>	LSEG	LSEG finansal veri API'si	yok	evet	finans veri erişimi	orta	url
+Leonardo AI <https://leonardo.ai>	Leonardo AI	AI görsel üretim platformu	var	evet	görsel üretimi	yuksek	url
+Lexica <https://lexica.art>	Lexica	AI görsel arama ve üretim	var	hayir	prompt ve görsel arama	orta	url
+Lexica.art <https://Lexica.art>	Lexica	AI görsel arama ve üretim	var	hayir	prompt ve görsel arama	orta	url
+Lexmount <browser.lexmount.com>	Lexmount	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Libraries.dev <Libraries.dev>	Libraries.dev	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Limora AI <Limora-limora-webapp-de...orkers.dev>	Limora AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Lindy <lindy.ai>	Lindy	No-code AI iş ajanları	deneme	evet	AI iş otomasyonu	orta	url
+Linear <linear.app>	Linear	Yazılım issue ve sprint takip aracı	var	evet	yazılım görev takibi	yuksek	url
+Linear.app <Linear.app>	Linear	Yazılım issue ve sprint takip aracı	var	evet	yazılım görev takibi	yuksek	url
+Liquid <liquid.trade>	Liquid	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Little Language Lessons <labs.google.com/ll/en>	Little Language Lessons	Google Labs dil dersleri	var	bilinmiyor	dil öğrenme	orta	url
+Loading.io <Loading.io>	Loading.io	Web yük testi aracı	var	hayir	yük testi	orta	url
+Loom <Loom.com>	Loom	Ekran ve kamera kaydı, video paylaşım	var	evet	ekran kaydı	yuksek	url
+Loom.com <Loom.com>	Loom	Ekran ve kamera kaydı, video paylaşım	var	evet	ekran kaydı	yuksek	url
+Lovable <Lovable.dev>	Lovable	Prompt ile web uygulaması üreten AI	var	evet	AI uygulama üretimi	yuksek	url
+Lovable.dev <Lovable.dev>	Lovable	Prompt ile web uygulaması üreten AI	var	evet	AI uygulama üretimi	yuksek	url
+Lovart <lovart.ai>	Lovart	AI tasarım ve görsel üretim	deneme	evet	AI görsel tasarım	orta	url
+Luma Dream Machine <lumalabs.ai/dream-machine/creations>	Luma Dream Machine	AI video üretim platformu	var	evet	video üretimi	yuksek	url
+MAKERZZ.SPACE <makerzz.space>	MAKERZZ.SPACE	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Mailchimp <https://mailchimp.com>	Mailchimp	E-posta pazarlama kampanyası platformu	var	evet	e-posta kampanyası	yuksek	url
+Make <https://www.make.com/en/register?pc=robonuggets>	Make	Görsel iş akışı otomasyonu	var	evet	iş akışı otomasyonu	yuksek	url
+Make.com <Make.com>	Make.com	Görsel iş akışı otomasyonu	var	evet	iş akışı otomasyonu	yuksek	url
+Makerzz <makerzz.space>	Makerzz	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Manus <manus.im>	Manus	AI genel amaçlı görev ajanı	deneme	evet	görev ajanı	orta	url
+Manus.im <manus.im>	Manus.im	AI genel amaçlı görev ajanı	deneme	evet	görev ajanı	orta	url
+Mem.ai <https://Mem.ai>	Mem.ai	AI not alma ve bilgi yönetimi	var	evet	not ve bilgi yönetimi	orta	url
+Memberstack <app.memberstack.com>	Memberstack	Webflow için üyelik ve ödeme	var	evet	üyelik yönetimi	orta	url
+Meta Ads Manager <adsmanager.facebook.com>	Meta Ads Manager	Meta reklam kampanyası yönetimi	yok	evet	Meta reklam yönetimi	yuksek	url
+Meta Events Manager <business.facebook.com/events_manager2>	Meta Events Manager	Meta piksel ve dönüşüm takibi	var	evet	reklam dönüşüm takibi	yuksek	url
+Metricool <metricool.com>	Metricool	Sosyal medya analitik ve zamanlama	var	evet	sosyal medya analitiği	yuksek	url
+Midjoumey <https://midjourney.com>	Midjourney	Midjourney AI görsel üretimi	yok	evet	görsel üretimi	yuksek	url
+Midjourney.com <https://Midjourney.com>	Midjourney	Midjourney AI görsel üretimi	yok	evet	görsel üretimi	yuksek	url
+Mint <Mint.com>	Mint	Intuit kişisel finans takibi; 2024'te kapandı	yok	evet	kullanılmıyor (kapalı)	orta	url
+Mixamo <https://www.mixamo.com>	Mixamo	Adobe ücretsiz 3D karakter animasyonları	var	evet	3D karakter animasyonu	yuksek	url
+ModelsLab <https://modelslab.com>	ModelsLab	AI görsel ve ses model API'si	deneme	evet	model API	orta	url
+Moli <browser.lexmount.com>	Moli	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Monday.com <monday.com>	Monday.com	İş yönetimi ve proje takip platformu	var	evet	proje takibi	yuksek	url
+Moody's <https://api.moodys.com/genai-ready->	Moody's	Moody's genAI-hazır finans verisi API'si	yok	evet	kredi ve finans verisi	orta	url
+Motion.com <https://Motion.com>	Motion	AI takvim ve görev planlama	deneme	evet	görev planlama	orta	url
+MotionSites <MotionSites.ai>	MotionSites	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Motionsites.ai <motionsites.ai>	Motionsites.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Murf.ai <https://murf.ai>	Murf.ai	AI metinden seslendirme	deneme	evet	seslendirme	yuksek	url
+NEON <Neon.tech>	Neon	Serverless PostgreSQL veritabanı	var	evet	veritabanı	yuksek	url
+NVIDIA AI <integrateapi.nvidia.com>	NVIDIA AI	NVIDIA API ile model çıkarımı	var	evet	model API erişimi	orta	url
+NVIDIA NIM <build.nvidia.com>	NVIDIA NIM	NVIDIA NIM model API ve geliştirici erişimi	var	evet	model API erişimi	yuksek	url
+Nano Banana 2.1 <gemini.google/overview/image-generation>	Nano Banana 2.1	Gemini görsel üretim ve düzenleme modeli	var	evet	görsel düzenleme	dusuk	url
+Nano Banana <gemini.google/overview/image-generation>	Nano Banana	Gemini görsel üretim ve düzenleme modeli	var	evet	görsel düzenleme	orta	url
+Neon.tech <Neon.tech>	Neon.tech	Serverless PostgreSQL veritabanı	var	evet	veritabanı	yuksek	url
+Netlify <Liveatyour-site.netlify.app>	Netlify	Web sitesi barındırma ve dağıtım	var	evet	statik site dağıtımı	yuksek	url
+Neurons (neuronsinc.com) <neuronsinc.com>	Neurons	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Neurons <neuronsinc.com>	Neurons	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+NotebookLM.google.com <NotebookLM.google.com>	NotebookLM	Google kaynak tabanlı AI araştırma aracı	var	evet	kaynaklı özet	yuksek	url
+Notion <https://notion.so>	Notion	Not, wiki ve proje yönetimi	var	evet	wiki ve not	yuksek	url
+Notion.so <Notion.so>	Notion	Not, wiki ve proje yönetimi	var	evet	wiki ve not	yuksek	url
+Ocoya <https://ocoya.com>	Ocoya	AI sosyal medya içerik üretimi	deneme	evet	sosyal içerik üretimi	orta	url
+Ocoya.com <https://Ocoya.com>	Ocoya	AI sosyal medya içerik üretimi	deneme	evet	sosyal içerik üretimi	orta	url
+Onysoft AI Gateway <api.onysoft.com>	Onysoft AI Gateway	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+OpenArt <https://openart.ai>	OpenArt	AI görsel üretim platformu	var	evet	görsel üretimi	orta	url
+OpenRouter <openrouter.ai>	OpenRouter	Tek API ile çoklu LLM erişimi	var	evet	çoklu model API	yuksek	url
+Openverse API <apiopenvors0.org>	Openverse API	Açık lisanslı görsel ve ses arama API'si	var	evet	lisanslı görsel arama	orta	url
+Orb Studio <getlayers.ai/tools/orb-studio>	Orb Studio	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Otter.ai <Otter.ai>	Otter.ai	Toplantı transkripsiyon ve özet	var	evet	toplantı transkripti	yuksek	url
+Outlook <outlook.com>	Outlook	Microsoft e-posta ve takvim	var	evet	e-posta	yuksek	url
+Outreach.io <Outreach.io>	Outreach.io	Satış engagement ve outreach platformu	yok	evet	satış outreach	yuksek	url
+PAI-DSW <https://gallery.ai-ml.com/preview/deepLearning/nlp/llama_factory>	PAI-DSW	Alibaba Cloud ML geliştirme çalışma alanı	deneme	evet	ML geliştirme ortamı	orta	url
+PDFescape <https://pdfescape.com>	PDFescape	Tarayıcı tabanlı PDF düzenleme	var	hayir	PDF düzenleme	orta	url
+PDFescape.com <https://PDFescape.com>	PDFescape	Tarayıcı tabanlı PDF düzenleme	var	hayir	PDF düzenleme	orta	url
+PageSpeed Insights <pagespeed.web.dev>	PageSpeed Insights	Google sayfa hızı ve Core Web Vitals testi	var	hayir	sayfa hız ölçümü	yuksek	url
+Paper <paper.design>	Paper	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Particle Forms <getlayers.ai/tools/particle-forms>	Particle Forms	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+PayPal <PayPal.com>	PayPal	Online ödeme ve para transferi	var	evet	online ödeme	yuksek	url
+Perplexity <https://perplexity.ai>	Perplexity	Kaynaklı AI web arama	var	evet	kaynaklı araştırma	yuksek	url
+Perplexity.ai <Perplexity.ai>	Perplexity	Kaynaklı AI web arama	var	evet	kaynaklı araştırma	yuksek	url
+Photo Pea <https://www.photopea.com>	Photopea	Tarayıcıda Photoshop benzeri görsel düzenleme	var	hayir	görsel düzenleme	yuksek	url
+Plane <plane.so>	Plane	Açık kaynak proje ve issue yönetimi	var	hayir	self-host proje takibi	yuksek	url
+Poke.com <Poke.com>	Poke.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Pomelli <labs.google/pomelli>	Pomelli	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Pomofocus <Pomofocus.io>	Pomofocus	Pomodoro zamanlayıcı	var	hayir	Pomodoro odak zamanlayıcı	yuksek	url
+Pomofocus.io <Pomofocus.io>	Pomofocus.io	Pomodoro zamanlayıcı	var	hayir	Pomodoro odak zamanlayıcı	yuksek	url
+Postman.com <Postman.com>	Postman.com	API test ve geliştirme platformu	var	evet	API test	yuksek	url
+Powermove <trypowermove.com>	Powermove	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+ProWritingAid <ProWritingAid.com>	ProWritingAid	Metin yazım ve stil düzeltme	var	evet	metin düzeltme	yuksek	url
+Proton <proton.me>	Proton	Gizlilik odaklı e-posta, VPN ve bulut	var	evet	güvenli e-posta	yuksek	url
+QuickMagic <https://www.quickmagic.ai>	QuickMagic	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+QuickMagic AI <https://www.quickmagic.ai?code=clmew4>	QuickMagic AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+QuiverQuant <quiverquant.com>	QuiverQuant	Kongre ve insider işlem verisi	var	evet	alternatif finans verisi	orta	url
+Qwen Image Multiple Angles <https://huggingface.co/spaces/multimodalart/qwen-image-multiple-angles-3d-camera>	Qwen Image Multiple Angles	HF Space üzerinde Qwen çoklu açı görsel	var	hayir	çoklu açı görsel üretimi	orta	url
+RUBRIC <https://www.getrubric.app/>	RUBRIC	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Railway <https://jev-trader-production.up.railway.app>	Railway	Bulut PaaS, uygulama dağıtımı	deneme	evet	uygulama dağıtımı	yuksek	url
+Railway.app <Railway.app>	Railway.app	Bulut PaaS, uygulama dağıtımı	deneme	evet	uygulama dağıtımı	yuksek	url
+Rams <rams.ai>	Rams	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Ray.so <Ray.so>	Ray.so	Kod parçacığı ekran görüntüsü	var	hayir	kod görseli	yuksek	url
+Raycast.com <Raycast.com>	Raycast.com	macOS komut ve başlatıcı aracı	var	evet	komut ve kısayollar	yuksek	url
+Reacher <reacher.email>	Reacher	E-posta adresi doğrulama aracı	var	hayir	e-posta doğrulama	orta	url
+Readsy <Readsy.co>	Readsy	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Readymag <readymag.com>	Readymag	Görsel web sayfası ve sunum tasarımı	var	evet	web sayfası tasarımı	orta	url
+Real-time colors <realtimecolors.com>	Real-time Colors	Canlı renk paleti önizleme	var	hayir	renk paleti önizleme	yuksek	url
+Reclaim AI <https://reclaim.ai>	Reclaim AI	AI takvim ve alışkanlık planlama	var	evet	takvim planlama	yuksek	url
+Red Ink (Redink) <redink.top>	Red Ink	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Red Ink <Redink.top>	Red Ink	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Redlamp <redlamp.app>	Redlamp	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Regex101 <Regex101.com>	Regex101	Regex test ve açıklama aracı	var	hayir	regex test	yuksek	url
+Regex101.com <Regex101.com>	Regex101	Regex test ve açıklama aracı	var	hayir	regex test	yuksek	url
+RelayClaw <https://relayclaw.cdnfg.com>	RelayClaw	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Remaker <remaker.ai>	Remaker	AI görsel düzenleme ve yüz/arka plan değiştirme	deneme	evet	görsel düzenleme	orta	url
+Rendair <rendair.ai>	Rendair	AI ile mimari ve ürün render	deneme	evet	render üretimi	orta	url
+Render <rendair.ai>	Render (Rendair)	AI ile mimari ve ürün render	deneme	evet	render üretimi	orta	url
+Replit <https://replit.com>	Replit	Tarayıcı IDE ve AI kodlama, dağıtım	var	evet	çevrimiçi kodlama	yuksek	url
+ReqBin <ReqBin.com>	ReqBin	Çevrimiçi HTTP istek test aracı	var	hayir	API istek testi	yuksek	url
+ReqBin.com <ReqBin.com>	ReqBin	Çevrimiçi HTTP istek test aracı	var	hayir	API istek testi	yuksek	url
+Responsively <Responsively.app>	Responsively	Çoklu ekran boyutu tarayıcı testi	var	hayir	responsive test	orta	url
+Resume.io <Resume.io>	Resume.io	CV oluşturucu ve şablonlar	var	evet	CV hazırlama	yuksek	url
+Rhode <BuildRhode.com>	Rhode	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Ripplix <Ripplix.com>	Ripplix	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Ruflo Web UI <flo.ruv.io>	Ruflo Web UI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Runway <https://runwayml.com>	Runway ML	AI video üretim ve düzenleme	var	evet	video üretimi	yuksek	url
+Runway ML <runwayml.com/pricing>	Runway ML	AI video üretim ve düzenleme	var	evet	video üretimi	yuksek	url
+Runwayml.com <https://Runwayml.com>	Runway ML	AI video üretim ve düzenleme	var	evet	video üretimi	yuksek	url
+S&P Global <https://kfinance.kensho.com/integrat>	S&P Global (Kensho Integration)	S&P Global finansal veri entegrasyonu	yok	evet	finans veri analizi	orta	url
+Same.dev <Same.dev>	Same.dev	Web sitesini klonlama AI aracı	deneme	evet	site klonlama	orta	url
+SaminIBookedin.ai <SaminIBookedin.ai>	SaminIBookedin.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+SceneAI <https://sceneai.art>	SceneAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Screen Studio <Screen.studio>	Screen Studio	macOS ekran kaydı ve cilalı video	deneme	hayir	ekran kaydı	orta	url
+Scribehow <https://scribehow.com>	Scribehow	Ekran kaydından adım adım rehber	var	evet	süreç dokümantasyonu	yuksek	url
+Scribehow.com <https://Scribehow.com>	Scribehow.com	Ekran kaydından adım adım rehber	var	evet	süreç dokümantasyonu	yuksek	url
+Sender.net <https://sender.net>	Sender.net	E-posta pazarlama platformu	var	evet	e-posta kampanyası	yuksek	url
+Shannon Lite <keygraph.io/>	Shannon Lite	Açık kaynak AI web güvenlik testi	var	hayir	web güvenlik testi	orta	url
+Shotblock <shotblock.vercel.app>	Shotblock	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Shots.so <shots.so>	Shots.so	Ekran görüntüsü mockup oluşturucu	var	hayir	mockup üretimi	orta	url
+Sitepeel <sitepeel.dev>	Sitepeel	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Sketchfab <https://sketchfab.com>	Sketchfab	3D model paylaşım ve indirme platformu	var	evet	3D model görüntüleme	yuksek	url
+Skillshare <https://skillshare.com>	Skillshare	Online kurs platformu	deneme	evet	online eğitim	yuksek	url
+Skool <https://www.skool.com/ai-automation-society/about>	Skool	Topluluk ve kurs platformu	yok	evet	topluluk yönetimi	orta	url
+SmallPDF.com <https://SmallPDF.com>	SmallPDF.com	PDF dönüştürme ve düzenleme	var	hayir	PDF dönüştürme	yuksek	url
+Smallpdf <https://smallpdf.com>	Smallpdf	PDF dönüştürme ve düzenleme	var	hayir	PDF dönüştürme	yuksek	url
+Social Autopilot <makerzz.space>	Social Autopilot	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Sonara <sonara.ai>	Sonara	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Spline <Spline.design>	Spline	Web tabanlı 3D tasarım	var	evet	3D sahne tasarımı	yuksek	url
+SponsorBlock <https://sponsor.ajay.app>	SponsorBlock	YouTube sponsor bölümlerini atlar	var	hayir	video sponsor atlama	yuksek	url
+Spotify <https://open.spotify.com/show/033nSSACs3S4g5NUIrXnHx>	Spotify	Müzik ve podcast akış servisi	var	evet	müzik dinleme	yuksek	url
+Stagehand <stagehand.dev>	Stagehand	Açık kaynak AI tarayıcı otomasyon SDK	var	hayir	AI web otomasyonu	orta	url
+StepFun <www.stepfun.ai>	StepFun	StepFun AI model API'si	deneme	evet	model API	orta	url
+Steve.ai <https://Steve.ai>	Steve.ai	AI video üretici	deneme	evet	video üretimi	orta	url
+Stitch <stitch.withgoogle.com>	Stitch	Google AI UI tasarım aracı	deneme	evet	AI arayüz tasarımı	orta	url
+Stripe <https://stripe.com>	Stripe	Online ödeme altyapısı	yok	evet	ödeme entegrasyonu	yuksek	url
+Strix Cloud <APP.STRIX.AI>	Strix Cloud	Strix AI güvenlik tarama bulutu	bilinmiyor	evet	güvenlik taraması	orta	url
+Supabase.com <Supabase.com>	Supabase.com	Postgres tabanlı backend platformu	var	evet	backend ve veritabanı	yuksek	url
+Supermemory <console.supermemory.ai>	Supermemory	AI bellek ve bilgi API'si	var	evet	AI bellek katmanı	orta	url
+Swagger <Swagger.io>	Swagger.io (API/Documentation Tool)	OpenAPI doküman ve test arayüzü	var	hayir	API dokümantasyonu	yuksek	url
+Swarms <swarms.xyz>	Swarms (AI/Network Tool)	Çoklu ajan orkestrasyon çerçevesi	var	hayir	çoklu ajan kurgulama	orta	url
+Swishy.ai <Swishy.ai>	Swishy.ai (AI Video Editing)	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Synthesia <https://synthesia.io>	Synthesia (AI Video Creation)	AI avatar video üretimi	deneme	evet	avatar video	yuksek	url
+Synthesia.io <https://Synthesia.io>	Synthesia.io (alternatif URL)	AI avatar video üretimi	deneme	evet	avatar video	yuksek	url
+TAIGA.io <TAIGA.io>	TAIGA.io (AI/Workflow Tool)	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Tally <https://tally.so/r/mRDV99>	Tally.so (Financial Tracking)	Ücretsiz form ve anket oluşturucu	var	evet	form ve anket	yuksek	url
+Tella <tella.tv/videos>	Tella (Video Capture)	Ekran ve kamera kaydı	var	evet	ekran kaydı	orta	url
+TempMail <https://tempmail.org>	TempMail (Temporary Email)	Geçici tek kullanımlık e-posta	var	hayir	geçici e-posta	yuksek	url
+TinyFish <https://docs.tinyfish.ai/search-api/reference>	TinyFish (AI Search API)	AI web arama API'si	deneme	evet	web arama API	orta	url
+Together AI <together.ai>	Together AI (AI Model Hosting)	Açık model API ve barındırma	deneme	evet	model API	yuksek	url
+Toolcraft <toolcraft.sh>	Toolcraft (AI Tool Platform)	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+TradingView <tradingview.com>	TradingView	Grafik ve teknik analiz platformu	var	evet	teknik analiz grafiği	yuksek	url
+Tripo <tripo.ai>	Tripo AI	Tripo AI ile 3D model üretimi	var	evet	3D model üretimi	yuksek	url
+Tripo AI <https://studio.tripo3d.ai/home?via=stefan&invite_code=GY5YYQ>	Tripo AI	Tripo AI ile 3D model üretimi	var	evet	3D model üretimi	yuksek	url
+Truffl <https://mytruffl.com>	Truffl	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+UI Land <https://ui.land>	UI Land	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+UIZZE <uizze.com>	UIZZE	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Ubersuggest.com <https://Ubersuggest.com>	Ubersuggest	Anahtar kelime ve SEO analiz aracı	var	evet	anahtar kelime araştırma	yuksek	url
+Ultramock <ultramock.io>	Ultramock	API mock sunucu aracı	var	evet	API mock	orta	url
+Understand Anything <understand-anything.com>	Understand Anything	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Unscreen <https://unscreen.com>	Unscreen	Video arka planını kaldırır	var	hayir	video arka plan silme	yuksek	url
+Unscreen.com <https://Unscreen.com>	Unscreen	Video arka planını kaldırır	var	hayir	video arka plan silme	yuksek	url
+Vassity <vassity.ai>	Vassity	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Video to GIF <Ezgif.com>	Video to GIF	Videodan GIF dönüştürme	var	hayir	video GIF dönüşümü	yuksek	url
+Video to JPG <Ezgif.com>	Video to JPG	Videodan JPG kare çıkarma	var	hayir	video kare çıkarma	yuksek	url
+Voicebox <voicebox.sh>	Voicebox	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+WATERMARKREMOVER <https://watermarkremover.io>	WatermarkRemover	Görsel ve video filigranını kaldırır; telif riski var	var	hayir	filigran kaldırma	orta	url
+WP Curve <wpcurve.con>	WP Curve	WordPress bakım ve güvenlik hizmeti	yok	evet	WordPress bakımı	orta	url
+Wappalyzer.com <Wappalyzer.com>	Wappalyzer	Web sitesi teknoloji tespiti	var	hayir	site teknoloji tespiti	yuksek	url
+WatermarkRemover.io <https://WatermarkRemover.io>	WatermarkRemover.io	Görsel ve video filigranını kaldırır; telif riski var	var	hayir	filigran kaldırma	orta	url
+WeTransfer <https://wetransfer.com>	WeTransfer	Büyük dosya gönderim servisi	var	hayir	dosya gönderimi	yuksek	url
+WeTransfer.com <https://WeTransfer.com>	WeTransfer	Büyük dosya gönderim servisi	var	hayir	dosya gönderimi	yuksek	url
+Web Quality <https://lnkd.in/dEOzMqLj>	Web Quality	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Webild.io <Webild.io>	Webild.io	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Wise <Wise.com>	Wise	Uluslararası para transfer servisi	yok	evet	döviz transferi	yuksek	url
+WordPress.com <https://wordpress.com>	WordPress.com	Barındırılan WordPress site ve blog	var	evet	blog ve site	yuksek	url
+WordPress.org <https://wordpress.org>	WordPress.org	Açık kaynak WordPress CMS	var	hayir	self-host CMS	yuksek	url
+Wordtune <Wordtune.com>	Wordtune	AI metin yeniden yazma	var	evet	metin yeniden yazma	yuksek	url
+XERJ <XERJ.AI>	XERJ	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Yahoo! <yahoo.com>	Yahoo!	Yahoo e-posta ve haber portalı	var	evet	e-posta ve haber	yuksek	url
+YoodaAI <www.yoodaai.pro>	YoodaAI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+YouTube Analytics API <deveLopers.google.com/youtube/analytics>	YouTube Analytics API	YouTube kanal analitik verisi API'si	var	evet	kanal analitiği	yuksek	url
+YouTube Analytics and Reporting APIs <developers.google.com/youtube/analytics>	YouTube Analytics and Reporting APIs	YouTube kanal analitik verisi API'si	var	evet	kanal analitiği	yuksek	url
+YouTube Studio <studio.youtube.com>	YouTube Studio	YouTube kanal ve video yönetimi	var	evet	video yönetimi	yuksek	url
+Z.ai (Zhipu) <Z.ai>	Z.ai (Zhipu)	GLM model API ve sohbet	var	evet	model API	orta	url
+ZSKY.AI <content-camp.pages.dev/en>	ZSKY.AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+Zapier <zapier.com>	Zapier	Uygulamalar arası iş otomasyonu	var	evet	uygulama entegrasyonu	yuksek	url
+animos <animos.app>	Animos	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+animos.app <animos.app>	Animos	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+auto.ai <auto.ai>	auto.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+back.io <back.io>	back.io	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+buildmyagent.io <buildmyagent.io>	buildmyagent.io	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+buildpartner.ai <buildpartner.ai>	buildpartner.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+buzzy <buzzy.now>	buzzy	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+buzzy.now <buzzy.now>	buzzy.now	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+cascadeur.com <https://cascadeur.com>	Cascadeur	Fizik tabanlı 3D karakter animasyonu	var	hayir	3D karakter animasyonu	orta	url
+chatgot.com <chatgot.com>	chatgot.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+clau.de/web <clau.de/web>	Claude Web	Tarayıcıda Claude arayüzü	var	evet	genel AI sohbet	yuksek	url
+clidea.com <clidea.com>	Clidea	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+conpetitor.com <conpetitor.com>	conpetitor.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+cursor.com <cursor.com>	Cursor	AI destekli kod editörü	var	evet	AI kod yazımı	yuksek	url
+decomp.wtf <decomp.wtf>	decomp.wtf	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+dlideo.com <dlideo.com>	dlideo.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+fal.ai <fal.ai>	fal.ai	Görsel ve video model API platformu	deneme	evet	model API	yuksek	url
+finch3d.com <https://finch3d.com>	Finch 3D	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+fontinlogo.com <fontinlogo.com>	Font in Logo	Yazı tipini logoya uygulayan araç	var	hayir	logo yazı tipi	orta	url
+getlayersai <getlayers.ai>	Layers AI	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+git diagram <gitdiagram.com>	Git Diagram	Repodan mimari diyagram üretir	var	hayir	repo diyagramı	orta	url
+gitingest <gitingest.com>	GitIngest	Repo içeriğini LLM için metne çevirir	var	hayir	repo bağlam çıkarma	yuksek	url
+gitreverse <gitreverse.com>	GitReverse	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+glass3d.dev <glass3d.dev>	Glass3D	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+gmail.com <gmail.com>	Gmail	Google e-posta	var	evet	e-posta	yuksek	url
+googletagmanager.co <googletagmanager.co>	Google Tag Manager	Etiket yönetim aracı; .co adresi şüpheli	var	evet	izleme etiketi yönetimi	yuksek	url
+gradients.sh <gradients.sh>	Gradients.sh	Gradient üretici	var	hayir	gradient üretimi	orta	url
+herdr <herdr.dev>	Herdr	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+httpsms-docker.appspot.com <httpsms-docker.appspot.com>	httpSMS Docker Appspot	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+huemint <huemint.com>	Huemint	AI renk paleti üretici	var	hayir	renk paleti üretimi	orta	url
+iCloud <icloud.com>	iCloud	Apple bulut depolama ve eşitleme	var	evet	bulut depolama	yuksek	url
+integrateapi.nvidia.com <integrateapi.nvidia.com>	NVIDIA Integrate API	NVIDIA model API uç noktası	var	evet	model API	orta	url
+jev-curate <jev-curate.vercel.app>	jev-curate	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+jsDelivr <https://cdn.jsdelivr.net>	jsDelivr	Açık kaynak CDN, npm ve GitHub dosyaları	var	hayir	dosya CDN'i	yuksek	url
+json-render <vercel-Labs/json-render>	json-render	JSON spesifikasyondan arayüz üretimi (Vercel Labs)	var	hayir	JSON'dan UI üretimi	orta	url
+key.ai <key.ai>	key.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+ltx.studio <ltx.studio>	ltx.studio	AI video üretim platformu	deneme	evet	video üretimi	orta	url
+make.design <make.design>	make.design	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+makemyhomepage <0my-landing-page.com>	makemyhomepage	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+memory map <modelcontextprotocol/servers>	memory map	MCP bellek sunucusu, bilgi grafiği	var	hayir	ajan belleği	orta	url
+modulify <modulify.ai>	modulify	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+modulify.ai <modulify.ai>	modulify.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+muapi <muapi.ai>	muapi	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+notebookdm <notebooklm.google.com>	notebookdm	NotebookLM yazım hatası; Google AI araştırma aracı	var	evet	kaynaklı araştırma	yuksek	url
+pacdora <pacdora.com>	pacdora	Ambalaj mockup ve tasarım aracı	deneme	evet	ambalaj mockup	orta	url
+pagespeed.web.dev <pagespeed.web.dev>	pagespeed.web.dev	Google sayfa hızı testi	var	hayir	sayfa hız ölçümü	yuksek	url
+pg-jev <pgjev.com>	pg-jev	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+pi.dev <pi.dev>	pi.dev	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+remove.bg <https://remove.bg>	remove.bg	Görsel arka planını kaldırır	var	hayir	arka plan silme	yuksek	url
+security-audit <https://github.com/cloudflare/>	security-audit	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+seozilla.ai <www.seozilla.ai>	seozilla.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+sitebuilder.app <sitebuilder.app>	sitebuilder.app	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+sonara.ai <https://sonara.ai>	sonara.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+spline.design <spline.design>	spline.design	Web tabanlı 3D tasarım	var	evet	3D sahne tasarımı	yuksek	url
+squoosh.app <https://squoosh.app/>	squoosh.app	Tarayıcıda görsel sıkıştırma	var	hayir	görsel küçültme	yuksek	url
+sreator.com <sreator.com>	sreator.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+stably.ai <stably.ai>	stably.ai	AI destekli test otomasyonu	bilinmiyor	evet	test otomasyonu	orta	url
+t.dev <t.dev>	t.dev	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+testmyprompt.com <testmyprompt.com>	testmyprompt.com	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+topicfinder.ai <topicfinder.ai>	topicfinder.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+trustkeith.co <trustkeith.co>	trustkeith.co	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+v0 <v0.dev>	v0	AI ile arayüz/React bileşen üretici	var	evet	arayüz prototipi	yuksek	url
+v0.dev <v0.dev>	v0.dev	AI ile arayüz/React bileşen üretici	var	evet	arayüz prototipi	yuksek	url
+vidIQ <vidiq.com>	vidIQ	YouTube analitik ve SEO aracı	var	evet	YouTube analitiği	yuksek	url
+vmec.ai <vmec.ai>	vmec.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+vmeq.ai <vmeq.ai>	vmeq.ai	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+voice.ai <voice.ai>	voice.ai	AI ses dönüştürme ve klonlama	var	evet	ses dönüşümü	orta	url
+vzero.dev <vzero.dev>	vzero.dev	bilinmiyor	bilinmiyor	bilinmiyor	bilinmiyor	dusuk	url
+webstudio.com <webstudio.com>	webstudio.com	Açık kaynak no-code web sitesi builder	var	evet	no-code site tasarımı	orta	url
+whatRuns <whatRuns.com>	whatRuns	Web sitesi teknoloji tespiti	var	hayir	site teknoloji tespiti	orta	url
+whatRuns.com <whatRuns.com>	whatRuns.com	Web sitesi teknoloji tespiti	var	hayir	site teknoloji tespiti	orta	url

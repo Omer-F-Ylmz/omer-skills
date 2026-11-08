@@ -72,7 +72,7 @@ gh:pydantic/httpx2	kütüphane	1	DqSQG2MjXrs	kurulu	pip:httpx2	pip kurulu
 gh:remotion-dev/skills	skill	1	0sQxSXyVPwI	kurulu	remotion-best-practices	kurulu
 gh:router-for-me/cliproxyapi	CLI	1	fZIBK_4fKq8	KUR		MIT; CLI abonelikleri OpenAI-uyumlu API yapar (OmniRoute benzeri)
 gh:tailwindlabs/tailwindcss	kütüphane	1	Vok_nReMFaU	KUR		MIT; npm proje başı; tailwind-patterns skill'i kurulu
-gh:zk/claude-mods	repo	1	U6xZX4YWFkU	KUR		bilinmiyor, doğrulanacak
+gh:BULUNAMADI(zk/claude-mods yok)	repo	1	U6xZX4YWFkU	kurulmadı		video repo adı göstermiyor; yakın: karanb192/claude-code-mods, karanb192/awesome-claude-code-mods (rapor/video-repo-1.md)
 gh:ςalesthio/openl	repo	1	0sQxSXyVPwI	KUR		yazım hatası: calesthio/OpenMontage; bkz gh:calesthio/openmontagel
 ghuser:jsdelivr	site	1	eJnk0dTaDPA	gürültü		CDN, kurulacak şey yok
 ghuser:new	site	1	pX-7WMwPCrw	gürültü		kırık yol

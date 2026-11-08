@@ -12,4 +12,4 @@ relatedTo: [kurulum, tur-setleri]
 - (videodan alıntı satırı bulunamadı)
 - **Kombin ortakları:** -
 - **Yaygın hata:** sunucuyu/komutu çıktı değerlerini (anahtar, env) basmadan çağır; sınama yalnız sürüm/yürütülebilir
-- **Doğrulanmış örnek:** `mcp-remote --help`  → GECTI (Usage: mcp-remote <https://server-url> [callback-port] [--debug])
+- **Doğrulanmış örnek:** `mcp-remote --version`  → GECTI (0.14.3)

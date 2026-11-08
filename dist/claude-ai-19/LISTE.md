@@ -3,6 +3,7 @@
 Yükleme: claude.ai → Settings → Capabilities → Skills → aynı adlı skill'in yerine yükle (yetenek-getir yeni).
 plan-kur HARİÇ (ENVANTER-3 kör kapı 2× RET). CC'deki departman-* claude.ai senkron kopyasından gelir → bu yükleme CC'yi de günceller.
 zip_denetle: TEMİZ 14 zip
+YÜKLENDİ (14 Eki 05:35–05:45, Desktop Chrome): 13 departman replace (her biri /contents'e düştü) + yetenek-getir yeni. CC: onay/envanter_2_uygula.py uygula (yetenek-getir 5 dosya, kayıp 0).
 
 - **departman-arastirma-ogrenme** · ID 01CZAK3UC5fg1HqwizEh4okW · SKILL.md +1 koşullu katalog satırı (KATALOG-KANCA-1); TOKEN-12 ajan açıklama onarımı 2 (ara-arac-degerlendirme, ara-repo-karsilastirma; zip'e giren 2) · 25 dosya, 22.7 KB · description 130 kr · TEMİZ
 - **departman-backend-dotnet** · ID 01Psv9rXkPXbBJ8kapxJEB2J · SKILL.md +1 koşullu katalog satırı (KATALOG-KANCA-1) · 23 dosya, 18.3 KB · description 115 kr · TEMİZ
@@ -17,7 +18,7 @@ zip_denetle: TEMİZ 14 zip
 - **departman-verimlilik** · ID 018Kpf8nP4rjacdZjDhH28WV · SKILL.md +1 koşullu katalog satırı (KATALOG-KANCA-1) · 11 dosya, 8.5 KB · description 134 kr · TEMİZ
 - **departman-frontend** · ID skill_01CHBvYpGKTyed5UPh3usNUp · SKILL.md +1 koşullu katalog satırı (KATALOG-KANCA-1) · 45 dosya, 37.4 KB · description 125 kr · TEMİZ
 - **departman-diger** · ID skill_01VFvgDetg9eeeWf7UHKqoak · SKILL.md +1 koşullu katalog satırı (KATALOG-KANCA-1) · 124 dosya, 108.8 KB · description 184 kr · TEMİZ
-- **yetenek-getir** · ID bilinmiyor (verilmedi) → claude.ai'de yoksa YENİ YÜKLEME · ARA SÜRÜM (ENVANTER-4 tarif/kılavuz ekleyecek) — yeni skill: katalog_ara + yetenek.jsonl/tsv + ogrenim.jsonl (öğrenim kataloğu); docs/katalog/ek.jsonl adayları yetenek.jsonl içinde (130/130) · 5 dosya, 615.8 KB · description 254 kr · TEMİZ
+- **yetenek-getir** · ID skill_01U5JJT1adSTYHbTgVUALfFN (14 Eki 05:45 yeni yükleme, Desktop Chrome; not: SKILL.md'deki ~/.claude/skills/... yolu claude.ai'de yok → ENVANTER-4 son zip'inde skill klasörüne göreli yol) · önceki not: ID bilinmiyor (verilmedi) → claude.ai'de yoksa YENİ YÜKLEME · ARA SÜRÜM (ENVANTER-4 tarif/kılavuz ekleyecek) — yeni skill: katalog_ara + yetenek.jsonl/tsv + ogrenim.jsonl (öğrenim kataloğu); docs/katalog/ek.jsonl adayları yetenek.jsonl içinde (130/130) · 5 dosya, 615.8 KB · description 254 kr · TEMİZ
 
 ## CC canlı tarafı (yalnız --kuru koşuldu; uygula KOŞULMADI)
 - departman-* (13): CC claude.ai senkron kopyasını görür → yukarıdaki yükleme CC'yi de günceller; ayrı onay betiği yok.

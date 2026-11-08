@@ -194,3 +194,15 @@ def test_buyuk_aciklama_siniri(tmp_path):
 def test_buyuk_cli(tmp_path):
     assert P.main(["--buyuk", "bb-paket", "konu", str(tmp_path / "o"), str(_buyuk_skill(tmp_path))]) == 0
     assert (tmp_path / "o" / "bb-paket.zip").is_file()
+
+
+def test_tek_skill_ozgun_aciklama(tmp_path):
+    a = skill(tmp_path / "k", "a1", [("r/x.md", "ek"), ("ornek/SKILL.md", "y")], aciklama="Özgün tetik: PDF, sunum")
+    zp, n = P._tek("a1-paket", a, tmp_path / "o")
+    z = zipfile.ZipFile(zp)
+    md = z.read(z.namelist()[0] if z.namelist()[0].endswith("SKILL.md") else "a1-paket/SKILL.md").decode()
+    assert "Özgün tetik: PDF, sunum" in md and "skill'lik paket" not in md
+    assert "name: a1-paket" in md
+    L = z.namelist()
+    assert sum(1 for x in L if x.split("/")[-1].lower() == "skill.md") == 1
+    assert any(x.endswith("r/x.md") for x in L) and any(x.endswith("ornek/SKILL-ornek.md") for x in L)

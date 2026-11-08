@@ -6,6 +6,7 @@ Desktop'ın tuttuğu sıra. Linkler ve tek tek istekler: `docs/video-tarama/bekl
 1. **Video hattı**
    - 1b-2a DEVAM-1: rapor kalitesi + model karşılaştırması (Sonnet 5.5 / Haiku)
    - YouTube partisi (87 video)
+   - **VİDEO-HIZ** (Ömer, 9 Eki): video incelemesini çok daha hızlı, optimize ve daha kaliteli hale getirme — inceleme çok uzun sürüyor (şimdi ~3–5 dk/video). Hacmi katlayan işlerden (Instagram partisi, kanal takibi, çift dikiş) önce bitmeli. Ölçüt: video başına süre düşer, altın kümede kalite eşit ya da daha yüksek.
    - Instagram desteği + 39 reel
    - VİDEO-PLATFORM-1 (bekleyen-linkler.md'den): Instagram desteği açılana kadar linkler orada bekler; Instagram gönderileri görsel kaydırmalı olabilir → görsel OCR + açıklama yolu
    - Kurulum turu: videolardaki skill · MCP · plugin · CLI, CC + Desktop; Higgsfield, DaLUGUbMp4K aracı, humanizer geliştirme

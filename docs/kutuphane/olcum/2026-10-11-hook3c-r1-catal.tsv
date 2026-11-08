@@ -1,0 +1,7 @@
+gorev	tekrar	input	cache_creation	cache_read	output	baglam	tur	sure_sn	usd	arac_isabet	kalite	skill_n	mcp_n	araclar	hata
+P3	1	16	76981	551115	5562	628112	12	243.5	0.8374	0	4	2243	62	Skill:anthropic-skills:departman-surec-plan,Bash,Glob,Write,Edit	
+G01	1	2	69607	5281	953	74890	1	82.0	0.577	1	10	2243	62		
+G06	1	3117	74835	231789	1319	309741	4	81.1	0.6839	1	10	2243	62	Bash,WebFetch,mcp__plugin_context-mode_context-mode__ctx_execute	
+P2	1	3311	76973	427801	4470	508085	8	180.5	0.804	1	10	2170	62	Grep,Read,Glob	
+W01	1	6	70196	155195	481	225397	4	158.5	0.6023	1	10	2243	62	Write,Edit	
+P1	1	4	71012	80072	2278	151088	3	86.8	0.6297	1	10	2243	62	Skill:anthropic-skills:departman-surec-plan	

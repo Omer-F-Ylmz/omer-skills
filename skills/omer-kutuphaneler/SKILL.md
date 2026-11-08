@@ -25,6 +25,10 @@ Lisansı olmayanlar yalnız REF'tir: kod kopyalanmaz, fikir/yapı için okunur.
 | @capsizecss/core | font metriğiyle öngörülebilir satır yüksekliği/boşluk | tipografi hassas tasarım sistemleri | CDN `https://cdn.jsdelivr.net/npm/@capsizecss/core@4.1.3/+esm`<br>npm `npm.cmd i @capsizecss/core@4.1.3` | MIT | `/seek-oss/capsize` |
 | @builder.io/partytown | 3. parti scriptleri web worker'a taşır | analytics/reklam yükü olan perf kritik siteler | CDN `https://cdn.jsdelivr.net/npm/@builder.io/partytown@0.10.3/lib/partytown.js`<br>npm `npm.cmd i @builder.io/partytown@0.10.3` | MIT | `/qwikdev/partytown` |
 | @number-flow/react | animasyonlu sayı/sayaç bileşeni | istatistik/fiyat sayacı olan arayüzler | CDN `https://cdn.jsdelivr.net/npm/@number-flow/react@0.6.2/dist/index.js`<br>npm `npm.cmd i @number-flow/react@0.6.2` | MIT | `/barvian/number-flow` |
+| animejs | hafif JS animasyon motoru (zaman çizelgesi, SVG, stagger) | animasyonlu landing/mikro etkileşim | npm `npm.cmd i animejs@4.5.0` | MIT | context7'de yok |
+| kokonutui | animasyonlu React/Tailwind bileşenleri, shadcn tarzı kopyala-yapıştır | React/Next landing bileşenleri | kopyala: `https://github.com/kokonut-labs/kokonutui` (paket değil) | MIT | context7'de yok |
+| liquid-glass-js | Apple liquid-glass cam efekti | cam/blur vurgulu hero ve kartlar | kopyala: `https://github.com/dashersw/liquid-glass-js` | MIT | context7'de yok |
+| @shadergradient/react | hareketli gradient arka plan (React/Three) | hero arka planı | npm `npm.cmd i @shadergradient/react@2.4.20` (repoda lisans yok; yalnız npm kullanımı, kaynak kopyalanmaz) | belirsiz | context7'de yok |
 
 ### Derleme gerekir (CDN'den calismaz)
 
@@ -54,6 +58,7 @@ claude.ai'de GitHub bağlayıcısıyla açılır; yerelde `.tmp-kurulum6` kopyal
 | gishamer/skill-ui | Agent Skill keşif/kurma/yayınlama masaüstü uygulaması + CLI | lisans yok → REF |
 | figma/code-connect | Figma bileşenlerini koda bağlama (MIT) | `C:/Projeler/.tmp-kurulum6/figma__code-connect` |
 | gist e20ead11b3df4de46ab32b4a7269abe0 | tek dosyalık örnek (lisans yok) | `C:/Projeler/.tmp-kurulum6/gist__e20ead11b3df4de46ab32b4a7269abe0` |
+| paper-design/liquid-logo | logoyu sıvı metal shader yapma (PolyForm Shield: rakip ürün yasak, iç kullanım) | `C:/Users/pc/Desktop/Claude ile yapılanlar/araclar/link27/paper-design__liquid-logo` |
 
 GitHub adresleri: `https://github.com/<REF adı>` · gist: `https://gist.github.com/e20ead11b3df4de46ab32b4a7269abe0`
 
