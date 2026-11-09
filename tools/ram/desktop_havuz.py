@@ -2,9 +2,9 @@ r"""RAM-OPT-2 (9 Kas 2026): Desktop'un her MCP'yi birkaç kez (ölçümde x2-x4)
 Havuzda (mcp-proxy 47800/47801) zaten tek kopya koşan sunucuların Desktop girdilerini hafif köprüye
 (tools/ram/mcp_koprusu.py) çevirir: Desktop'un açtığı her kopya ~20 MB'lık python köprüsü olur, gerçek sunucu tek.
 Araç kaybı yok: havuz o adı sunmuyorsa ya da araç sayısı 0 ise girdiye DOKUNMAZ.
-  python -I tools/ram/desktop_havuz.py plan      (varsayılan; hiçbir şey yazmaz)
-  python -I tools/ram/desktop_havuz.py uygula    (önce yedek; etki için Desktop'u kapatıp aç)
-  python -I tools/ram/desktop_havuz.py geri      (en son yedeği aynen geri yükler)
+  python -I tools/ram/desktop_havuz.py [--plan]  (varsayılan; hiçbir şey yazmaz)
+  python -I tools/ram/desktop_havuz.py --uygula  (önce yedek; etki için Desktop'u kapatıp aç)
+  python -I tools/ram/desktop_havuz.py --geri    (en son yedeği aynen geri yükler)
 Env DEĞERİ hiçbir modda basılmaz."""
 import json
 import os
@@ -82,7 +82,7 @@ def plan(cfg):
 
 
 def main():
-    kip = sys.argv[1] if len(sys.argv) > 1 else "plan"
+    kip = (sys.argv[1] if len(sys.argv) > 1 else "plan").lstrip("-")
     sys.stdout.reconfigure(encoding="utf-8")
     yol = config_yolu()
     print("config:", yol)

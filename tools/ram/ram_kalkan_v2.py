@@ -3,10 +3,10 @@ r"""RAM kalkanı v2 (9 Kas 2026). v1'in iki hatasını kapatır:
      kapanırken (finally + atexit + SIGBREAK) yine kademeli açar; pid kilidiyle tek kopya koşar.
   2) v1 45 süreci aynı anda devam ettirdi, RAM fırladı, Desktop dondu → v2 süreç ağaçlarını birer birer, RAM'e bakarak açar.
 Öncelik: borsa en önce durur, en son açılır. Kurulum ağaçları (claude.exe çocukları dahil) sonra.
-  pythonw -I tools/ram/ram_kalkan_v2.py calis      (arka plan; 12 saat)
-  python  -I tools/ram/ram_kalkan_v2.py baslat     (arka planda calis'i başlatır, tek kopya)
-  python  -I tools/ram/ram_kalkan_v2.py ac         (askıdaki hedefleri kademeli açar ve çıkar)
-  python  -I tools/ram/ram_kalkan_v2.py durum      (RAM, hedefler, askıdakiler, kalkan canlı mı)"""
+  pythonw -I tools/ram/ram_kalkan_v2.py --calis      (arka plan; 12 saat)
+  python  -I tools/ram/ram_kalkan_v2.py --baslat     (arka planda calis'i başlatır, tek kopya)
+  python  -I tools/ram/ram_kalkan_v2.py --ac         (askıdaki hedefleri kademeli açar ve çıkar)
+  python  -I tools/ram/ram_kalkan_v2.py --durum      (RAM, hedefler, askıdakiler, kalkan canlı mı)"""
 import atexit
 import os
 import signal
@@ -206,7 +206,7 @@ def baslat():
             pass
     pyw = Path(sys.executable).with_name("pythonw.exe")
     exe = str(pyw if pyw.exists() else sys.executable)
-    subprocess.Popen([exe, "-I", __file__, "calis"], creationflags=0x00000008 | 0x00000200 | 0x08000000, close_fds=True)
+    subprocess.Popen([exe, "-I", __file__, "--calis"], creationflags=0x00000008 | 0x00000200 | 0x08000000, close_fds=True)
     print("kalkan v2 basladi, RAM", ram())
 
 
@@ -226,5 +226,5 @@ def goster():
 
 
 if __name__ == "__main__":
-    kip = sys.argv[1] if len(sys.argv) > 1 else "durum"
+    kip = (sys.argv[1] if len(sys.argv) > 1 else "durum").lstrip("-")
     {"calis": calis, "baslat": baslat, "ac": lambda: print("acilan", kademeli_ac()), "durum": goster}[kip]()
