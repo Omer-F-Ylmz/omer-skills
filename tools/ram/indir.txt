@@ -1,1 +1,1 @@
-tools/ram/dogrula_sil.py
+tools/ram/temizle_1.py
