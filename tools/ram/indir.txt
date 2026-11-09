@@ -1,2 +1,2 @@
 tools/ram/indir.py
-tools/ram/oyun_modu.py
+tools/ram/olcum_derin.py
