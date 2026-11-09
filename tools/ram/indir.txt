@@ -1,2 +1,1 @@
-tools/ram/indir.py
-tools/ram/olcum_derin.py
+tools/ram/dogrula_sil.py
