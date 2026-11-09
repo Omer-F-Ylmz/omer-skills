@@ -1,12 +1,13 @@
-r"""RAM kalkanı v2 (9 Kas 2026). v1'in iki hatasını kapatır:
-  1) v1 ölünce askıya aldığı süreçler sonsuza dek askıda kalıyordu → v2 her açılışta önce askıdakileri KADEMELİ açar,
-     kapanırken (finally + atexit + SIGBREAK) yine kademeli açar; pid kilidiyle tek kopya koşar.
-  2) v1 45 süreci aynı anda devam ettirdi, RAM fırladı, Desktop dondu → v2 süreç ağaçlarını birer birer, RAM'e bakarak açar.
-Öncelik: borsa en önce durur, en son açılır. Kurulum ağaçları (claude.exe çocukları dahil) sonra.
+r"""RAM kalkani v2 (9 Kas 2026). v1'in iki hatasini kapatir:
+  1) v1 olunce askiya aldigi surecler sonsuza dek askida kaliyordu > v2 her acilista once askidakileri KADEMELI acar,
+     kapanirken (finally + atexit + SIGBREAK) yine kademeli acar; pid kilidiyle tek kopya kosar.
+  2) v1 45 sureci ayni anda devam ettirdi, RAM firladi, Desktop dondu > v2 surec agaclarini birer birer, RAM'e bakarak acar.
+Borsa (Omer 8 Kas): normalde tam hiz; RAM %94'te durmaz ama ciddi yavaslar (3 turun 2'si askida); %85 altinda eski hiza doner.
+Kurulum agaclari (claude.exe cocuklari dahil): %89'da yari hiz, %93'te dur, %89 altinda kademeli ac.
   pythonw -I tools/ram/ram_kalkan_v2.py --calis      (arka plan; 12 saat)
-  python  -I tools/ram/ram_kalkan_v2.py --baslat     (arka planda calis'i başlatır, tek kopya)
-  python  -I tools/ram/ram_kalkan_v2.py --ac         (askıdaki hedefleri kademeli açar ve çıkar)
-  python  -I tools/ram/ram_kalkan_v2.py --durum      (RAM, hedefler, askıdakiler, kalkan canlı mı)"""
+  python  -I tools/ram/ram_kalkan_v2.py --baslat     (arka planda calis'i baslatir, tek kopya)
+  python  -I tools/ram/ram_kalkan_v2.py --ac         (askidaki hedefleri kademeli acar ve cikar)
+  python  -I tools/ram/ram_kalkan_v2.py --durum      (RAM, hedefler, askidakiler, kalkan canli mi)"""
 import atexit
 import os
 import signal
@@ -25,7 +26,8 @@ DUSUK = ["borsa egit", "-m borsa", "egit_surekli.py"]
 ORTA = ["kurulum_d2", "coz_v2", "kurulum_denetim", "yeniden_cikar", "kaynak_bul", "yeniden_hakem", "ornek_denetim"]
 KORUNAN = ["ram_kalkan", "is_sirasi.py", "mcp_paylasim", "mcp-proxy", "headroom", "yonetici_gorev"]
 
-BORSA_DUR, YAVAS, DUR = 85.0, 89.0, 93.0
+YAVAS, DUR = 89.0, 93.0
+BORSA_YAVAS, BORSA_NORMAL = 94.0, 85.0
 AC_ESIK = 84.0
 AC_ARA = 6
 SURE = 12 * 3600
@@ -156,43 +158,43 @@ def calis():
                 pass
     log(f"v2 basladi RAM {ram():.1f}; once askidakiler kademeli aciliyor")
     kademeli_ac()
-    durum, t0, son = "normal", time.time(), 0.0
+    durum, borsa_yavas, t0, son, tik = "normal", False, time.time(), 0.0, 0
     while time.time() - t0 < SURE:
         r = ram()
-        yeni = "dur" if r >= DUR else ("yavas" if r >= YAVAS else ("borsa" if r >= BORSA_DUR else "normal"))
+        tik += 1
+        yeni = "dur" if r >= DUR else ("yavas" if r >= YAVAS else "normal")
         if durum == "dur" and r >= YAVAS:
             yeni = "dur"
         if yeni != durum:
-            log(f"RAM {r:.1f} : {durum} -> {yeni}")
-            if durum in ("dur", "yavas") and yeni in ("borsa", "normal"):
-                kademeli_ac(sinir=BORSA_DUR if yeni == "borsa" else AC_ESIK)
+            log(f"RAM {r:.1f} : kurulum {durum} -> {yeni}")
+            if durum in ("dur", "yavas") and yeni == "normal":
+                kademeli_ac()
             durum = yeni
+        if not borsa_yavas and r >= BORSA_YAVAS:
+            borsa_yavas = True
+            log(f"RAM {r:.1f} : borsa ciddi yavas (>= {BORSA_YAVAS})")
+        elif borsa_yavas and r < BORSA_NORMAL:
+            borsa_yavas = False
+            log(f"RAM {r:.1f} : borsa eski hizinda (< {BORSA_NORMAL})")
         if time.time() - son > 300:
-            log(f"nabiz RAM {r:.1f} durum {durum}")
+            log(f"nabiz RAM {r:.1f} kurulum {durum} borsa {'yavas' if borsa_yavas else 'normal'}")
             son = time.time()
+        orta = kokler(ORTA)
         if durum == "normal":
-            for k in kokler(DUSUK):
-                if askida(k) and ram() < AC_ESIK:
-                    devam(k)
-            time.sleep(10)
-        elif durum == "borsa":
-            for k in kokler(DUSUK):
-                durdur(k)
-            time.sleep(10)
-        elif durum == "yavas":
-            for k in kokler(DUSUK):
-                durdur(k)
-            orta = kokler(ORTA)
             for k in orta:
                 devam(k)
-            time.sleep(10)
+        elif durum == "yavas":
+            for k in orta:
+                (devam if tik % 2 else durdur)(k)
+        else:
             for k in orta:
                 durdur(k)
-            time.sleep(10)
-        else:
-            for k in kokler(DUSUK) + kokler(ORTA):
+        for k in kokler(DUSUK):
+            if borsa_yavas and tik % 3:
                 durdur(k)
-            time.sleep(15)
+            else:
+                devam(k)
+        time.sleep(10)
     log("12 saat doldu; kapanis")
 
 

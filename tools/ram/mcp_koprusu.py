@@ -6,6 +6,8 @@ import sys
 import threading
 import urllib.request
 
+sys.stdin.reconfigure(encoding="utf-8", errors="replace")  # 0911 20:05: -I ile PYTHONIOENCODING yok sayilir; Windows'ta stdin cp1254 cozuluyor, Turkce yollar bozuluyordu
+sys.stdout.reconfigure(encoding="utf-8")
 ad = sys.argv[1]
 URL = f"http://127.0.0.1:{sys.argv[2] if len(sys.argv) > 2 else 47800}/servers/{ad}/mcp"
 oturum = None
