@@ -1,1 +1,1 @@
-tools/ram/temizle_1.py
+rapor/devir-1011-sohbet.md
